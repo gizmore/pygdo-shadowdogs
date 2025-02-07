@@ -1,0 +1,1 @@
+from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
