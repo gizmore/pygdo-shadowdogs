@@ -1,1 +1,14 @@
 module_shadowdogs = "Shadowdogs"
+
+# Factions
+gdo_faction = "Faction"
+
+sd_freeborn = "Freeborn"
+sd_concordium = "Concordium"
+sd_seekers = "Seekers"
+sd_iron = "Iron"
+
+_sd_freeborn = "The Freeborn seek absolute Freedom, but without order, will they survive?"
+_sd_concordium = "The Concordium crave Peace, but will their control become a prison?"
+_sd_seekers = "The Seekers hunt for Truth, but can truth exist without chaos?"
+_sd_iron = "The Iron Pact embrace War, but will their strength destroy them in the end?"
