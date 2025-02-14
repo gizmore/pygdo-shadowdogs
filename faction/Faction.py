@@ -9,10 +9,10 @@ from gdo.date.GDT_Created import GDT_Created
 class Faction(GDO):
 
     BONUS = {
-        'freeborn':   {'st': 4, 'in': 5, 'dx': 5, 'qu': 5, 'ch': 5, 'bo': 10, 'ma': 10 },    # Freedom  |(magic + in)
-        'concordium':   {'st': 4, 'in': 5, 'dx': 5, 'qu': 5, 'ch': 5, 'bo': 10, 'ma': 10 },  # Peace    |(trading + magic)
-        'seekers':   {'st': 4, 'in': 5, 'dx': 5, 'qu': 5, 'ch': 5, 'bo': 10, 'ma': 10 },     # Truth    |(trading + influence)
-        'iron':   {'st': 4, 'in': 5, 'dx': 5, 'qu': 5, 'ch': 5, 'bo': 10, 'ma': 10 },        # War      |(influence + st + dx)
+        'freeborn':   {'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'bod': 10, 'mag': 10 },    # Freedom  |(magic + in)
+        'concordium':   {'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'bod': 10, 'mag': 10 },    # Freedom  |(magic + in)
+        'seekers':   {'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'bod': 10, 'mag': 10 },    # Freedom  |(magic + in)
+        'iron':   {'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'bod': 10, 'mag': 10 },    # Freedom  |(magic + in)
     }
 
     def gdo_columns(self) -> list[GDT]:
