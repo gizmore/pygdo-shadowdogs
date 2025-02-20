@@ -4,21 +4,37 @@ Shadowdogs is a real time mud/mmo for various chat networks.
 
 ## Races
 
- - Elve
- - Human
- - Ork
+ - Dragon (NPC) +5 magic
+ - Elve  +1 magic 
+ - Human -2 magic (cannot learn it from beginning)
+ - Animal (NPC) all bonus zero
+ - Ork -3 magic (can never learn magic)
 
 ## Combat
 
 ### Weapons
 
- - 
+#### Melee
+ - Club
+ - Mace
+ - Short Sword
+
+#### Firearms
+ - Baretta
+ - Magnum
+
+### Mobs
+ - Lamer (human, 2-4HP, Fists, all zero)
 
 ### Stats
- - HP
+ - Level 0-1000 (not reachable)
+ - XP (
+ - HP (10 is begin, +1 each level)
  - MP
  - height
  - weight
+ - carry
+ - max_carry
 
 ### Attributes
  - strength (carry kg)
@@ -26,12 +42,14 @@ Shadowdogs is a real time mud/mmo for various chat networks.
  - dexterity (dodge)
  - body (HP)
  - magic (MP)
- - intelligence (
+ - intelligence (effect of spells and executables)
+ - wisdom (duration of spells and executables)
  - charisma
 
 ### Skills
  - fight
- - hacking
+ - hacking 
+ - firearms
 
 ### Spells
  - calm - a little slow healing

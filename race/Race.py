@@ -1,0 +1,2 @@
+class Race(Modifier):
+    pass
