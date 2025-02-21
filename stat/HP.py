@@ -2,4 +2,7 @@ from gdo.shadowdogs.engine.Modifier import Modifier
 
 
 class HP(Modifier):
-    pass
+
+    def apply(self, target: 'Player'):
+        if target.gdo_val('p_hp') <= 0:
+            target.die()
