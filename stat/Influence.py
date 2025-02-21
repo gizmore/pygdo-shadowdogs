@@ -1,6 +1,7 @@
+from gdo.shadowdogs.engine.Modifier import Modifier
 
 
-class Influence(Skill):
+class Influence(Modifier):
 
     def apply():
         pass

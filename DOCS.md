@@ -1,16 +1,20 @@
 # Shadowdogs
 
-Shadowdogs is a real time mud/mmo for various chat networks.
+Shadowdogs is a realtime mud/mmo for various chat networks.
+
 
 ## Races
 
  - Dragon (NPC) +5 magic
  - Elve  +1 magic 
  - Human -2 magic (cannot learn it from beginning)
- - Animal (NPC) all bonus zero
+ - Animal (NPC) all zero
  - Ork -3 magic (can never learn magic)
 
+
 ## Combat
+
+
 
 ### Weapons
 
