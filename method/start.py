@@ -7,4 +7,4 @@ class start(Method):
     def gdo_parameters(self) -> [GDT]:
         return [
             
-        ];
+        ]
