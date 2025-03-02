@@ -28,9 +28,9 @@ class Player(GDO):
         return [
             GDT_AutoInc('p_id'),
             GDT_UInt('p_live').bytes(2),
-            Strength('p_strength'),
-            Quickness('p_quickness'),
-            Intelligence('p_intelligence'),
+            Strength('p_str'),
+            Quickness('p_qui'),
+            Intelligence('p_int'),
             GDT_Created('p_created'),
             GDT_Creator('p_creator'),
         ]

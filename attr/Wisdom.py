@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from gdo.shadowdogs.Player import Player
 
-class Intelligence(Attribute):
-
+class Wisdom(Attribute):
     def apply(self, target: 'Player'):
-        pass
+        target.modify(self.get_name(), 1)
