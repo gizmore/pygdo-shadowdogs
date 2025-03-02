@@ -3,10 +3,7 @@ import unittest
 
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
-from gdo.core.GDO_User import GDO_User
-from gdo.core.connector.Web import Web
-from gdo.register.module_register import module_register
-from gdotest.TestUtil import reinstall_module, web_plug, WebPlug, GDOTestCase
+from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug
 
 
 class ShadowdogsTest(GDOTestCase):
@@ -22,6 +19,7 @@ class ShadowdogsTest(GDOTestCase):
         Application.init_cli()
 
     def test_00_start(self):
+        cli_plug(None, '$sdstart ')
         pass
 
 if __name__ == '__main__':

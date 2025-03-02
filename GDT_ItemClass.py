@@ -1,5 +1,5 @@
-from gdo.core.GDT_ObjectSelect import GDT_ObjectSelect
-from gdo.shadowdogs.items.Item import GDO_Item
+from gdo.core.GDT_Enum import GDT_Enum
 
-class GDT_ItemClass(GDT_ObjectSelect):
-    pass
+class GDT_ItemClass(GDT_Enum):
+    def gdo_choices(self) -> dict:
+        return {}

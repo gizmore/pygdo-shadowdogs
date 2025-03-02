@@ -3,6 +3,14 @@ from gdo.core.GDT_Enum import GDT_Enum
 
 class GDT_Race(GDT_Enum):
 
+    BONUS = {
+        'dragon': {},
+        'elve': {},
+        'human': {},
+        'animal': {},
+        'ork': {},
+    }
+
     _npcs: bool
 
     def __init__(self, name: str):
