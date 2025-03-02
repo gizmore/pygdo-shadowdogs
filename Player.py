@@ -2,39 +2,52 @@ from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Creator import GDT_Creator
-from gdo.core.GDT_Float import GDT_Float
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
-from gdo.shadowdogs.attr.Attribute import Attribute
+from gdo.shadowdogs.attr.Dexterity import Dexterity
 from gdo.shadowdogs.attr.Intelligence import Intelligence
 from gdo.shadowdogs.attr.Quickness import Quickness
 from gdo.shadowdogs.attr.Strength import Strength
+from gdo.shadowdogs.attr.Wisdom import Wisdom
 
 
 class Player(GDO):
 
-    modified: dict[str, int] = {
-        'p_strength': 0.0,
-    }
-
-    modified: dict[str, int] = {
-        'p_strength': 0.0,
-    }
+    modified: dict[str, int]
 
     def __init__(self):
         super().__init__()
+        self.modified = {
+            'str': 0,
+            'qui': 0,
+            'dex': 0,
+            'int': 0,
+            'wis': 0,
+
+            'hac': 0,
+            'fig': 0,
+
+            'mhp': 0,
+            'mmp': 0,
+        }
 
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('p_id'),
-            GDT_UInt('p_live').bytes(2),
+
             Strength('p_str'),
             Quickness('p_qui'),
+            Dexterity('p_dex'),
             Intelligence('p_int'),
+            Wisdom('p_wis'),
+
             GDT_Created('p_created'),
             GDT_Creator('p_creator'),
         ]
 
     def apply(self, name: str, inc: float):
         self._modified[name] += inc
+
+    def kill(self):
+        pass
 

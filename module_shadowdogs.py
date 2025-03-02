@@ -1,6 +1,7 @@
 from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.Logger import Logger
+from gdo.shadowdogs.Member import Member
 from gdo.shadowdogs.Party import Party
 from gdo.shadowdogs.Player import Player
 
@@ -11,6 +12,7 @@ class module_shadowdogs(GDO_Module):
         return [
             Party,
             Player,
+            Member,
         ]
 
     def gdo_subscribe_events(self):
