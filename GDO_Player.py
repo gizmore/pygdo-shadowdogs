@@ -5,6 +5,7 @@ from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Item import GDT_Item
 from gdo.shadowdogs.GDT_Party import GDT_Party
+from gdo.shadowdogs.attr.Body import Body
 from gdo.shadowdogs.attr.Dexterity import Dexterity
 from gdo.shadowdogs.attr.Intelligence import Intelligence
 from gdo.shadowdogs.attr.Quickness import Quickness
@@ -24,6 +25,7 @@ class GDO_Player(GDO):
     def __init__(self):
         super().__init__()
         self.modified = {
+            'bod': 0,
             'str': 0,
             'qui': 0,
             'dex': 0,
@@ -36,8 +38,8 @@ class GDO_Player(GDO):
             'hp': 0,
             'mp': 0,
 
-            'mhp': 0,
-            'mmp': 0,
+            'max_hp': 0,
+            'max_mp': 0,
 
             'atk': 0,
         }
@@ -55,6 +57,7 @@ class GDO_Player(GDO):
             GDT_Item('p_amulet'),
             GDT_Item('p_ring'),
 
+            Body('p_bod'),
             Strength('p_str'),
             Quickness('p_qui'),
             Dexterity('p_dex'),

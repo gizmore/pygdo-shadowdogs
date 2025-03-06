@@ -1,5 +1,5 @@
 from gdo.shadowdogs.locations.Location import Location
 
 
-class AmBauhof15(Location):
+class Stairs(Location):
     pass
