@@ -11,14 +11,18 @@ class items:
     }
 
     ITEMS = {
-        'Fists':      {'klass': 'Melee',  'atk': 4, 'dmg': [2, 5], 'wei': 0},
-        'Knuckles':   {'klass': 'Melee',  'atk': 4, 'dmg': [2, 6]},
-        'Club':       {'klass': 'Thrust', 'atk': 4, 'dmg': [2, 6]},
-        'ShortSword': {'klass': 'Sword',  'atk': 6, 'dmg': []},
-        'Sword':      {'klass': 'Sword',  'atk': 6, 'dmg': []},
+        'Fists':        {'klass': 'Melee',  'wei': 0,  'atk': 4, 'dmg': [2, 5]},
+        'Knuckles':     {'klass': 'Melee',  'wei': 0,  'atk': 4, 'dmg': [2, 6]},
+        'Club':         {'klass': 'Thrust', 'wei': 0, 'atk': 4, 'dmg': [2, 6]},
+        'ShortSword':   {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
+        'Sword':        {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
+        'LongSword':    {'klass': 'Sword', 'wei': 0, 'atk': 6, 'dmg': []},
+        'SmallAxe':     {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
 
-        'Sandals':    {'klass': 'Boots',  'def': 1, 'arm': 1},
-        'Shoes':      {'klass': 'Boots',  'def': 2, 'arm': 1},
+        'Sandals':      {'klass': 'Boots',  'def': 1, 'arm': 1},
+        'Shoes':        {'klass': 'Boots',  'def': 2, 'arm': 1},
+        'Boots':        {'klass': 'Boots',  'def': 2, 'arm': 2},
+        'LeatherBoots': {'klass': 'Boots', 'def': 2, 'arm': 2},
     }
 
     @classmethod
