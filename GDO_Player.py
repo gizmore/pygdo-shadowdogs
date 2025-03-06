@@ -34,6 +34,8 @@ class GDO_Player(GDO):
 
             'mhp': 0,
             'mmp': 0,
+
+            'atk': 0,
         }
 
     def gdo_columns(self) -> list[GDT]:

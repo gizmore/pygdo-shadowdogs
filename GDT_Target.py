@@ -7,3 +7,5 @@ class GDT_Target(GDT_String):
         super().__init__(name)
         self.ascii()
         self.case_s()
+
+    
