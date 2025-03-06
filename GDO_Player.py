@@ -4,11 +4,14 @@ from gdo.core.GDT_Creator import GDT_Creator
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Item import GDT_Item
+from gdo.shadowdogs.GDT_Party import GDT_Party
 from gdo.shadowdogs.attr.Dexterity import Dexterity
 from gdo.shadowdogs.attr.Intelligence import Intelligence
 from gdo.shadowdogs.attr.Quickness import Quickness
 from gdo.shadowdogs.attr.Strength import Strength
 from gdo.shadowdogs.attr.Wisdom import Wisdom
+from gdo.shadowdogs.itembase.Item import Item
+from gdo.shadowdogs.itembase.Weapon import Weapon
 from gdo.shadowdogs.stat.HP import HP
 from gdo.shadowdogs.stat.MP import MP
 
@@ -16,6 +19,7 @@ from gdo.shadowdogs.stat.MP import MP
 class GDO_Player(GDO):
 
     modified: dict[str, int]
+    equipment: dict[str, 'Item']
 
     def __init__(self):
         super().__init__()
@@ -41,8 +45,9 @@ class GDO_Player(GDO):
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_User('p_id').primary().not_null(),
+            GDT_Party('p_party'),
 
-            GDT_Item('p_weapon'),
+            GDT_Item('p_weapon').initial('Fists'),
             GDT_Item('p_armor'),
             GDT_Item('p_helmet'),
             GDT_Item('p_boots'),
@@ -74,3 +79,6 @@ class GDO_Player(GDO):
         for key, val in stats:
             self.apply(key, val)
         return self
+
+    def get_weapon(self) -> 'Weapon':
+        self.p_w

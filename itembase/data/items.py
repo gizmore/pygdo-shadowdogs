@@ -11,7 +11,7 @@ class items:
     }
 
     ITEMS = {
-        'Fists':        {'klass': 'Melee',  'wei': 0,  'atk': 4, 'dmg': [2, 5]},
+        'Fists':        {'klass': 'Fists',  'wei': 0,  'atk': 4, 'dmg': [2, 5]},
         'Knuckles':     {'klass': 'Melee',  'wei': 0,  'atk': 4, 'dmg': [2, 6]},
         'Club':         {'klass': 'Thrust', 'wei': 0, 'atk': 4, 'dmg': [2, 6]},
         'ShortSword':   {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},

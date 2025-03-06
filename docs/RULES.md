@@ -7,7 +7,7 @@ These are the rules of the reality, or simulation, as we call it.
 
 #### Combat Zone
 These are the rules in the virtual combat zone.
-A world of *thoughts*.
+A world of *thoughts* and imagination.
 
 To login, accept the rules:
 
