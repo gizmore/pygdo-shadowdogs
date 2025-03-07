@@ -24,7 +24,8 @@ class items:
         'Boots':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
         'LeatherBoots': {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
 
-        'WeddingRing':  {'klass': 'WeddingRing', 'wei': 25, }
+        'Ring':         {'klass': 'Ring', },
+        'WeddingRing':  {'klass': 'WeddingRing', 'wei': 25, },
     }
 
     @classmethod
