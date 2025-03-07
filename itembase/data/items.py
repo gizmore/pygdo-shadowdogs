@@ -7,8 +7,8 @@ from gdo.shadowdogs.itembase.Item import Item
 
 
 class items:
-    KLASSES = {
-    }
+
+    KLASSES = {}
 
     ITEMS = {
         'Fists':        {'klass': 'Fists',  'wei': 0,  'atk': 4, 'dmg': [2, 5]},
@@ -16,13 +16,15 @@ class items:
         'Club':         {'klass': 'Thrust', 'wei': 0, 'atk': 4, 'dmg': [2, 6]},
         'ShortSword':   {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
         'Sword':        {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
-        'LongSword':    {'klass': 'Sword', 'wei': 0, 'atk': 6, 'dmg': []},
+        'LongSword':    {'klass': 'Sword',  'wei': 0, 'atk': 6, 'dmg': []},
         'SmallAxe':     {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
 
-        'Sandals':      {'klass': 'Boots',  'def': 1, 'arm': 1},
-        'Shoes':        {'klass': 'Boots',  'def': 2, 'arm': 1},
-        'Boots':        {'klass': 'Boots',  'def': 2, 'arm': 2},
-        'LeatherBoots': {'klass': 'Boots', 'def': 2, 'arm': 2},
+        'Sandals':      {'klass': 'Boots',  'wei': 0,  'def': 1, 'arm': 1},
+        'Shoes':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 1},
+        'Boots':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
+        'LeatherBoots': {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
+
+        'WeddingRing':  {'klass': 'WeddingRing', 'wei': 25, }
     }
 
     @classmethod
