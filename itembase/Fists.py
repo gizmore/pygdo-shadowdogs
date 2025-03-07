@@ -9,4 +9,3 @@ if TYPE_CHECKING:
 class Fists(Melee):
     def get_actions(self, player: 'GDO_Player') -> list[str]:
         return []
-    
