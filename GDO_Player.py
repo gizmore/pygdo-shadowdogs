@@ -1,6 +1,5 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
-from gdo.core.GDT_Creator import GDT_Creator
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Faction import GDT_Faction
