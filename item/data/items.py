@@ -3,7 +3,7 @@ import importlib
 import inspect
 import os
 
-from gdo.shadowdogs.itembase.Item import Item
+from gdo.shadowdogs.item.Item import Item
 
 
 class items:
@@ -32,7 +32,7 @@ class items:
     def load(cls):
         if len(cls.KLASSES):
             return
-        items_path = f"gdo/shadowdogs/itembase"
+        items_path = f"gdo/shadowdogs/item/classes"
         item_files = glob.glob(f"{items_path}/*.py")
         for file_path in item_files:
             filename = os.path.basename(file_path)
@@ -45,7 +45,7 @@ class items:
                 module = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(module)
                 for name, obj in inspect.getmembers(module, inspect.isclass):
-                    if issubclass(obj, Item) and obj is not Item:
-                        cls.KLASSES[name] = obj #.render_name()
+                    if issubclass(obj, Item):
+                        cls.KLASSES[name] = obj
             except Exception as e:
                 print(f"Failed to load {module_name}: {e}")

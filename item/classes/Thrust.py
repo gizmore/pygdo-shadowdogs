@@ -1,4 +1,4 @@
-from gdo.shadowdogs.itembase.Melee import Melee
+from gdo.shadowdogs.item.classes.Melee import Melee
 
 
 class Thrust(Melee):

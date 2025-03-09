@@ -1,8 +1,16 @@
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.GDO_Player import GDO_Player
+
 from gdo.core.GDT_Enum import GDT_Enum
-from gdo.shadowdogs.GDO_Player import GDO_Player
 
 
 class GDT_Faction(GDT_Enum):
+
+    FREEBORN = 'freeborn'
+    CONSORT = 'consort'
+    SEEKER = 'seeker'
+    AEGIS = 'aegis'
 
     BONUS = {
         'freeborn': {'bod': 10, 'mag': 10, 'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'tra': 5, 'hac': 8, 'cry': 9, 'mat': 9, 'fig': 0},
@@ -19,5 +27,5 @@ class GDT_Faction(GDT_Enum):
             'aegis': 'Aegis',
         }
 
-    def apply(self, player: GDO_Player):
+    def apply(self, player: 'GDO_Player'):
         player.modify(self.BONUS[self.get_val()])

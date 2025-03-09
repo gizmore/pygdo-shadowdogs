@@ -1,10 +1,10 @@
+from gdo.shadowdogs.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.attr.Attribute import Attribute
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.Player import Player
+    from gdo.shadowdogs.GDO_Player import GDO_Player
 
 class Strength(Attribute):
-    def apply(self, target: 'Player'):
-        pass
-
+    def apply(self, target: 'GDO_Player'):
+        target.apply('max_weight', self.get_value() * Shadowdogs.MAX_WEIGHT_PER_STRENGTH)

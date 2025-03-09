@@ -8,11 +8,11 @@ class GDT_Slot(GDT_Enum):
 
     def gdo_choices(self) -> dict:
         return {
-            'weapon': 'p_weapon',
-            'armor': 'p_armor',
-            'helmet': 'p_helmet',
-            'boots': 'p_boots',
-            'gloves': 'p_gloves',
-            'amulet': 'p_amulet',
-            'ring': 'p_ring',
+            'p_weapon': 'Weapon',
+            'p_armor': 'Armor',
+            'p_helmet': 'Helmet',
+            'p_boots': 'Boots',
+            'p_gloves': 'Gloves',
+            'p_amulet': 'Amulet',
+            'p_ring': 'Ring',
         }

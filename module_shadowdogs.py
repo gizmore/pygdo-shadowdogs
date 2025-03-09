@@ -1,5 +1,9 @@
 from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
+from gdo.base.GDT import GDT
+from gdo.core.GDT_UInt import GDT_UInt
+from gdo.date.GDT_DateTime import GDT_DateTime
+from gdo.date.Time import Time
 from gdo.shadowdogs.GDO_Inventory import GDO_Inventory
 from gdo.shadowdogs.GDO_Item import GDO_Item
 from gdo.shadowdogs.GDO_Member import GDO_Member
@@ -20,8 +24,19 @@ class module_shadowdogs(GDO_Module):
             GDO_Inventory,
         ]
 
+    def gdo_module_config(self) -> list[GDT]:
+        return [
+            GDT_UInt('sd_speed').initial('12').not_null(),
+            GDT_DateTime('sd_time').initial('2064-12-24').not_null(),
+        ]
+
     def gdo_subscribe_events(self):
         Application.EVENTS.add_timer(1, self.shadow_timer, 1000000000)
 
     async def shadow_timer(self):
+        dt = self.get_config_value('sd_time')
+        speed = self.get_config_value('sd_soeed')
+        dt += speed
+        self.save_config_val(Time.get_time())
+
         pass

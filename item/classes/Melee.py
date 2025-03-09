@@ -1,4 +1,4 @@
-from gdo.shadowdogs.itembase.Weapon import Weapon
+from gdo.shadowdogs.item.classes.Weapon import Weapon
 
 
 class Melee(Weapon):

@@ -4,7 +4,7 @@ import inspect
 import os
 
 from gdo.core.GDT_Enum import GDT_Enum
-from gdo.shadowdogs.itembase.data.items import items
+from gdo.shadowdogs.item.data.items import items
 
 
 class GDT_ItemClass(GDT_Enum):
@@ -14,5 +14,3 @@ class GDT_ItemClass(GDT_Enum):
         return     self.load_classes()
         return self._choices
 
-    def gdo_choices(self) -> dict:
-        return {}
