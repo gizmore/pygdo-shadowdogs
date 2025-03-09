@@ -28,8 +28,8 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_module_config(self) -> list[GDT]:
         return [
-            GDT_UInt('sd_speed').initial('12').not_null(),
-            GDT_DateTime('sd_time').initial('2064-12-24').not_null(),
+            # GDT_UInt('sd_speed').initial('12').not_null(),
+            # GDT_DateTime('sd_time').initial('2064-12-24').not_null(),
         ]
 
     def gdo_init(self):
@@ -42,7 +42,8 @@ class module_shadowdogs(GDO_Module):
         Application.EVENTS.add_timer(1, self.shadow_timer, 1000000000)
 
     async def shadow_timer(self):
-        dt = self.get_config_value('sd_time')
-        speed = self.get_config_value('sd_speed')
-        dt += speed
-        self.save_config_val('sd_time', Time.get_date(Time.get_time()))
+        # dt = self.get_config_value('sd_time')
+        # speed = self.get_config_value('sd_speed')
+        # dt += speed
+        # self.save_config_val('sd_time', Time.get_date(Time.get_time()))
+        pass
