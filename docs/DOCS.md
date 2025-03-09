@@ -69,3 +69,12 @@ Shadowdogs is a realtime mud/mmo for various chat networks.
  - jam.exe (unload a target weapon)
  - poison.exe (damage targets with their own MP)
 
+### Combat math
+
+Example combat between a beginner and a lamer
+
+Lamer: 3 HP atk 2 dmg 1-2 def 1
+beginner: 10 HP atk 2 dmg 1-3 def 1
+
+if rand(0, atk) >= rand(0, def)
+    dmg = rand(min, max) - armor
