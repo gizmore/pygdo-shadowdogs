@@ -1,5 +1,6 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
+from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Faction import GDT_Faction
@@ -54,7 +55,7 @@ class GDO_Player(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
-            GDT_User('p_id').primary().not_null(),
+            GDT_User('p_user').primary().not_null(),
             GDT_Party('p_party'),
 
             HP('p_hp'),
@@ -84,6 +85,9 @@ class GDO_Player(GDO):
 
             GDT_Created('p_created'),
         ]
+
+    def get_user(self) -> GDO_User:
+        return self.gdo_value('p_user')
 
     def kill(self):
         pass
