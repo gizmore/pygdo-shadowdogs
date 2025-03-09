@@ -1,5 +1,8 @@
 from gdo.core.GDT_String import GDT_String
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.GDO_Player import GDO_Player
 
 class GDT_Modifiers(GDT_String):
 

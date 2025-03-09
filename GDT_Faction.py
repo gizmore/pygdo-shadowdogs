@@ -9,7 +9,7 @@ class GDT_Faction(GDT_Enum):
 
     FREEBORN = 'freeborn'
     CONSORT = 'consort'
-    SEEKER = 'seeker'
+    SEEKER = 'seekers'
     AEGIS = 'aegis'
 
     BONUS = {
