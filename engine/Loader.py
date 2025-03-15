@@ -15,7 +15,7 @@ class Loader:
 
     @classmethod
     def load_cities(cls):
-        for path in glob.glob(cls.module_sd().file_path('city/')):
+        for path in glob.glob(cls.module_sd().file_path('city/*')):
             print(path)
 
     @classmethod
