@@ -13,7 +13,9 @@ from gdo.shadowdogs.attr.Intelligence import Intelligence
 from gdo.shadowdogs.attr.Quickness import Quickness
 from gdo.shadowdogs.attr.Strength import Strength
 from gdo.shadowdogs.attr.Wisdom import Wisdom
+from gdo.shadowdogs.engine.Inventory import Inventory
 from gdo.shadowdogs.item.Item import Item
+from gdo.shadowdogs.item.classes.Fists import Fists
 from gdo.shadowdogs.item.classes.Weapon import Weapon
 from gdo.shadowdogs.skill.Fight import Fight
 from gdo.shadowdogs.skill.Hacking import Hacking
@@ -25,7 +27,8 @@ from gdo.user.GDT_Gender import GDT_Gender
 class GDO_Player(GDO):
 
     modified: dict[str, int]
-    equipment: dict[str, 'Item']
+    equipment: dict[str, 'Item|None']
+    inventory: 'Inventory'
 
     def __init__(self):
         super().__init__()
@@ -52,6 +55,16 @@ class GDO_Player(GDO):
             'weight': 0,
             'max_weight': 0,
         }
+        self.equipment = {
+            'p_weapon': None,
+            'p_armor': None,
+            'p_helmet': None,
+            'p_boots': None,
+            'p_gloves': None,
+            'p_amulet': None,
+            'p_ring': None,
+        }
+        self.inventory = Inventory()
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -102,4 +115,4 @@ class GDO_Player(GDO):
         return self
 
     def get_weapon(self) -> 'Weapon':
-        pass
+        return self.equipment['p_weapon'] or Fists()

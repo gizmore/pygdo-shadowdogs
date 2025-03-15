@@ -1,8 +1,6 @@
 from gdo.core.GDT_String import GDT_String
 
 from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
 
 class GDT_Modifiers(GDT_String):
 
@@ -11,5 +9,11 @@ class GDT_Modifiers(GDT_String):
         self.ascii()
         self.case_s()
 
-    def apply(self, player: 'GDO_Player'):
-        pass
+    def to_value(self, val: str):
+        if not val:
+            return None
+        mods = {}
+        for pair in val.split(','):
+            data = pair.split(':')
+            mods[data[0]] = data[1]
+        return mods

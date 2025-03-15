@@ -1,6 +1,7 @@
 from gdo.base.GDT import GDT
 from gdo.base.Method import Method
 from gdo.base.Render import Mode
+from gdo.base.Trans import t
 from gdo.form.GDT_Form import GDT_Form
 from gdo.form.MethodForm import MethodForm
 from gdo.shadowdogs.GDO_Party import GDO_Party
@@ -18,13 +19,13 @@ class start(WithShadowFunc, MethodForm):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
-            GDT_Race('race').not_null(),
             GDT_Gender('gender').simple().not_null(),
+            GDT_Race('race').not_null(),
         )
         super().gdo_create_form(form)
 
     def form_submitted(self):
-        if player := self.get_player():
+        if self.get_player():
             return self.err('err_sd_already_started')
         party = GDO_Party.blank({
             'party_action': 'sleep',
@@ -43,4 +44,7 @@ class start(WithShadowFunc, MethodForm):
         return self.empty()
 
     def character_created(self, player: GDO_Player):
-        Shadowdogs.send_to_player(player, t('sd_story_1'))
+        self.broadcast('msg_sd_new_player', (player.column('p_gender').render(Mode.TXT), player.column('p_race').render(Mode.TXT)))
+        self.send_to_player(player, t('sd_story_1'))
+        self.send_to_player(player, t('sd_story_2'))
+        self.give_items(player, 'Pen', 'Jeans', 'TShirt', 'Shoes')

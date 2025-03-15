@@ -3,7 +3,9 @@ import importlib
 import inspect
 import os
 
-from gdo.shadowdogs.item.Item import Item
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.item.Item import Item
 
 
 class items:
@@ -32,6 +34,7 @@ class items:
     def load(cls):
         if len(cls.KLASSES):
             return
+        from gdo.shadowdogs.item.Item import Item
         items_path = f"gdo/shadowdogs/item/classes"
         item_files = glob.glob(f"{items_path}/*.py")
         for file_path in item_files:
@@ -49,3 +52,13 @@ class items:
                         cls.KLASSES[name] = obj
             except Exception as e:
                 print(f"Failed to load {module_name}: {e}")
+    @classmethod
+    def instance(cls, klass: str) -> 'Item':
+        return cls.KLASSES[klass]()
+
+    @classmethod
+    def get_item(cls, name: str, count: int, mods: dict[str,int]):
+        data = cls.ITEMS[name]
+        item = cls.instance(data['klass']).count(count).modifiers(mods)
+
+        pass
