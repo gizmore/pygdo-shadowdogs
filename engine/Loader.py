@@ -1,6 +1,7 @@
 import glob
 
 from gdo.shadowdogs import module_shadowdogs
+from gdo.shadowdogs.GDO_Member import GDO_Member
 from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
 
@@ -29,4 +30,13 @@ class Loader:
     @classmethod
     def load_player(cls, player_id: str):
         player = GDO_Player.table().get_by_aid(player_id)
-        player.equipment['p_weapon'] = player.gdo_value('p_weapon')
+        for slot in GDO_Player.SLOTS:
+            player.equipment[slot] = player.gdo_value(slot)
+        return player
+
+    @classmethod
+    def load_party(cls, party: GDO_Party):
+        pids = GDO_Member.table().select('m_player').order('m_created DESC').where(f'm_party={party.get_id()}').exec(False).fetch_column()
+        for pid in pids:
+            player = cls.load_player(pid)
+            party.members.append(player)

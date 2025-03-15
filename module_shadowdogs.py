@@ -37,6 +37,7 @@ class module_shadowdogs(GDO_Module):
             items.load()
             Loader.load_npcs()
             Loader.load_cities()
+            Loader.load_parties()
 
     def gdo_subscribe_events(self):
         Application.EVENTS.add_timer(1, self.shadow_timer, 1000000000)
