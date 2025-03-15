@@ -1,6 +1,5 @@
 import glob
 
-from gdo.shadowdogs import module_shadowdogs
 from gdo.shadowdogs.GDO_Member import GDO_Member
 from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
@@ -10,7 +9,8 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 class Loader:
 
     @classmethod
-    def module_sd(cls) -> module_shadowdogs:
+    def module_sd(cls):
+        from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
         return module_shadowdogs.instance()
 
     @classmethod
@@ -40,5 +40,6 @@ class Loader:
         pids = GDO_Member.table().select('m_player').order('m_created DESC').where(f'm_party={party.get_id()}').exec(False).fetch_column()
         for pid in pids:
             player = cls.load_player(pid)
-            Shadowdogs.PLAYERS
+            Shadowdogs.PLAYERS[player.get_id()] = player
             party.members.append(player)
+        Shadowdogs.PARTIES[party.get_id()] = party

@@ -10,6 +10,7 @@ class WithShadowFunc:
     def get_player(self) -> 'GDO_Player':
         return GDO_Player.table().get_by_aid(self._env_user.get_id())
 
+    @classmethod
     def gdo_default_enabled(cls) -> bool:
         return False
 
@@ -36,9 +37,9 @@ class WithShadowFunc:
     # Items #
     #########
 
-    def give_items(self, player: GDO_Player, *item_names: str):
-        for item_name in item_names:
-            self.give_item(player, item_name)
+    def give_items(self, player: GDO_Player, items: dict[str,int]):
+        for item_name, count in items.items():
+            self.give_item(player, item_name, count)
 
     def give_item(self, player: GDO_Player, item_name: str, item_count: int):
         item = GDO_Item.create(item_name, item_count, player)
