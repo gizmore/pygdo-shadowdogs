@@ -11,7 +11,7 @@ class WithShadowFunc:
         return GDO_Player.table().get_by_aid(self._env_user.get_id())
 
     @classmethod
-    def gdo_default_enabled(cls) -> bool:
+    def gdo_default_enabled_channel(cls) -> bool:
         return False
 
     def gdo_method_hidden(self) -> bool:
