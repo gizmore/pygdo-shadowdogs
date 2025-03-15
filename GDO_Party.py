@@ -8,8 +8,22 @@ from gdo.date.Time import Time
 from gdo.shadowdogs.GDT_Action import GDT_Action
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.GDO_Member import GDO_Member
+
 
 class GDO_Party(GDO):
+
+    members: list['GDO_Player']
+
+    __slots__ = (
+        'members'
+    )
+
+    def __init__(self):
+        self.members = []
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -23,11 +37,19 @@ class GDO_Party(GDO):
             GDT_Created('party_created'),
         ]
 
-    def do(self, action: str, target: str, eta: int):
+    def do(self, action: str, target: str = None, eta: int = None):
         self.set_val('party_last_action', self.gdo_val('party_action'))
         self.set_val('party_last_target', self.gdo_val('party_target'))
         self.set_val('party_last_eta', self.gdo_val('party_eta'))
         self.set_val('party_action', action)
-        self.set_val('party_target', target)
-        self.set_val('party_eta', Time.get_date(Application.TIME + eta))
-        self.save()
+        self.set_val('party_target', target if target else self.gdo_val('party_target'))
+        self.set_val('party_eta', Time.get_date(Application.TIME + eta) if eta else None)
+        return self.save()
+
+    def join(self, player: 'GDO_Player'):
+        from gdo.shadowdogs.GDO_Member import GDO_Member
+        self.members.append(GDO_Member.blank({
+            'm_party': self.get_id(),
+            'm_player': player.get_id(),
+        }).insert())
+        return self

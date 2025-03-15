@@ -26,9 +26,25 @@ from gdo.user.GDT_Gender import GDT_Gender
 
 class GDO_Player(GDO):
 
+    SLOTS = [
+        'p_weapon',
+        'p_armor',
+        'p_helmet',
+        'p_boots',
+        'p_gloves',
+        'p_amulet',
+        'p_ring',
+    ]
+
     modified: dict[str, int]
     equipment: dict[str, 'Item|None']
     inventory: 'Inventory'
+
+    __slots__ = (
+        'modified',
+        'equipment',
+        'inventory',
+    )
 
     def __init__(self):
         super().__init__()
@@ -55,15 +71,9 @@ class GDO_Player(GDO):
             'weight': 0,
             'max_weight': 0,
         }
-        self.equipment = {
-            'p_weapon': None,
-            'p_armor': None,
-            'p_helmet': None,
-            'p_boots': None,
-            'p_gloves': None,
-            'p_amulet': None,
-            'p_ring': None,
-        }
+        self.equipment = {}
+        for slot in self.SLOTS:
+            self.equipment[slot] = None
         self.inventory = Inventory()
 
     def gdo_columns(self) -> list[GDT]:
@@ -78,7 +88,7 @@ class GDO_Player(GDO):
             GDT_Gender('p_gender').simple().not_null(),
             GDT_Faction('p_faction').initial(GDT_Faction.SEEKER).not_null(),
 
-            GDT_Item('p_weapon').initial('Fists'),
+            GDT_Item('p_weapon'),
             GDT_Item('p_armor'),
             GDT_Item('p_helmet'),
             GDT_Item('p_boots'),

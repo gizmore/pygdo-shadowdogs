@@ -11,7 +11,7 @@ class GDO_Inventory(GDO):
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('inv_id'),
-            GDT_Player('inv_player'),
-            GDT_Item('inv_item'),
+            GDT_Player('inv_player').not_null(),
+            GDT_Item('inv_item').not_null(),
             GDT_Created('inv_created'),
         ]
