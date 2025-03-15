@@ -8,6 +8,7 @@ from gdo.shadowdogs.GDT_Item import GDT_Item
 from gdo.shadowdogs.GDT_Party import GDT_Party
 from gdo.shadowdogs.GDT_Race import GDT_Race
 from gdo.shadowdogs.attr.Body import Body
+from gdo.shadowdogs.attr.Charisma import Charisma
 from gdo.shadowdogs.attr.Dexterity import Dexterity
 from gdo.shadowdogs.attr.Intelligence import Intelligence
 from gdo.shadowdogs.attr.Quickness import Quickness
@@ -17,6 +18,7 @@ from gdo.shadowdogs.engine.Inventory import Inventory
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.classes.Fists import Fists
 from gdo.shadowdogs.item.classes.Weapon import Weapon
+from gdo.shadowdogs.skill.Aim import Aim
 from gdo.shadowdogs.skill.Fight import Fight
 from gdo.shadowdogs.skill.Hacking import Hacking
 from gdo.shadowdogs.stat.HP import HP
@@ -55,9 +57,11 @@ class GDO_Player(GDO):
             'p_dex': 0,
             'p_int': 0,
             'p_wis': 0,
+            'p_cha': 0,
 
-            'p_hac': 0,
+            'p_aim': 0,
             'p_fig': 0,
+            'p_hac': 0,
 
             'p_hp': 0,
             'p_mp': 0,
@@ -102,7 +106,9 @@ class GDO_Player(GDO):
             Dexterity('p_dex'),
             Intelligence('p_int'),
             Wisdom('p_wis'),
+            Charisma('p_cha'),
 
+            Aim('p_aim'),
             Fight('p_fig'),
             Hacking('p_hac'),
 

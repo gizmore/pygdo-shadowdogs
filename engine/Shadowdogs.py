@@ -9,9 +9,9 @@ if TYPE_CHECKING:
 
 class Shadowdogs:
 
-    PARTIES: list['GDO_Party'] = []
-    PLAYERS: list['GDO_Player'] = []
-    NPCS: list['GDO_NPC'] = []
+    PARTIES: dict[str,'GDO_Party'] = {}
+    PLAYERS: dict[str,'GDO_Player'] = {}
+    NPCS: dict[str,'GDO_NPC'] = {}
 
     MAX_WEIGHT_PER_STRENGTH = 1000
 

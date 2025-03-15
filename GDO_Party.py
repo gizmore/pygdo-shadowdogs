@@ -23,6 +23,7 @@ class GDO_Party(GDO):
     )
 
     def __init__(self):
+        super().__init__()
         self.members = []
 
     def gdo_columns(self) -> list[GDT]:
@@ -40,11 +41,18 @@ class GDO_Party(GDO):
     def do(self, action: str, target: str = None, eta: int = None):
         self.set_val('party_last_action', self.gdo_val('party_action'))
         self.set_val('party_last_target', self.gdo_val('party_target'))
-        self.set_val('party_last_eta', self.gdo_val('party_eta'))
+        self.set_val('party_last_eta', self.gdo_val('party_eta')) # compute remaining seconds
         self.set_val('party_action', action)
         self.set_val('party_target', target if target else self.gdo_val('party_target'))
         self.set_val('party_eta', Time.get_date(Application.TIME + eta) if eta else None)
         return self.save()
+
+    def resume(self):
+        return self.do(
+            self.gdo_val('party_last_action'),
+            self.gdo_val('party_last_target'),
+            self.gdo_val('party_last_eta'),
+        )
 
     def join(self, player: 'GDO_Player'):
         from gdo.shadowdogs.GDO_Member import GDO_Member
