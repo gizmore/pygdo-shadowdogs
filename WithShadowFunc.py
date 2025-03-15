@@ -13,6 +13,9 @@ class WithShadowFunc:
     def gdo_default_enabled(cls) -> bool:
         return False
 
+    def gdo_method_hidden(self) -> bool:
+        return True
+
     ############
     # Messages #
     ############
