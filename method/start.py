@@ -1,6 +1,4 @@
 from gdo.base.Application import Application
-from gdo.base.GDT import GDT
-from gdo.base.Method import Method
 from gdo.base.Render import Mode
 from gdo.base.Trans import t
 from gdo.date.Time import Time
@@ -9,7 +7,6 @@ from gdo.form.MethodForm import MethodForm
 from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
 from gdo.shadowdogs.GDT_Race import GDT_Race
-from gdo.shadowdogs.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.user.GDT_Gender import GDT_Gender
 

@@ -1,4 +1,4 @@
-from gdo.shadowdogs.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.attr.Attribute import Attribute
 
 from typing import TYPE_CHECKING
