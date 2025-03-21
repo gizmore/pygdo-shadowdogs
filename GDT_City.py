@@ -7,6 +7,7 @@ from gdo.shadowdogs.GDO_Player import GDO_Player
 class GDT_City(GDT_Enum):
 
     _known: bool
+    _default_current: bool
 
     def __init__(self, name: str):
         super().__init__(name)
@@ -14,6 +15,10 @@ class GDT_City(GDT_Enum):
 
     def known(self, known: bool = True):
         self._known = known
+        return self
+
+    def default_current(self, default_current: bool=True):
+        self._default_current = default_current
         return self
 
     def gdo_choices(self) -> dict:
