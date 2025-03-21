@@ -11,4 +11,5 @@ class time(WithShadowFunc, Method):
         return 'sdtime'
 
     def gdo_execute(self) -> GDT:
-        return GDT_DateTime('shadowtime').val(Time.get_date(Shadowdogs.get_time()))
+        return GDT_DateTime('shadowtime').val(Time.get_date(self.mod_sd().cfg_time()))
+

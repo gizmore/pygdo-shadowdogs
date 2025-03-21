@@ -13,5 +13,13 @@ class Shadowdogs:
     PLAYERS: dict[str,'GDO_Player'] = {}
     NPCS: dict[str,'GDO_NPC'] = {}
 
-    MAX_WEIGHT_PER_STRENGTH = 1000
+    SECONDS_PER_SECOND = 6
+    SECONDS_PER_HP = 5
 
+    MAX_WEIGHT_PER_STRENGTH = 1000
+    HP_PER_BODY = 2
+    HP_PER_STRENGTH = 1
+    HP_PER_LEVEL = 1
+    MP_PER_MAGIC = 3
+    MP_PER_INTELLIGENCE = 2
+    MP_PER_WISDOM = 1

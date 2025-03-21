@@ -48,4 +48,4 @@ class start(WithShadowFunc, MethodForm):
         self.broadcast('msg_sd_new_player', (player.column('p_gender').render(Mode.TXT), player.column('p_race').render(Mode.TXT)))
         self.send_to_player(player, t('sd_story_1'))
         self.send_to_player(player, t('sd_story_2'))
-        self.give_items(player, 'Pen', 'Jeans', 'TShirt', 'Shoes')
+        self.give_items(player, {'Pen': 1, 'Jeans': 1, 'TShirt': 1, 'Shoes': 1})

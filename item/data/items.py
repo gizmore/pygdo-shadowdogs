@@ -59,6 +59,6 @@ class items:
     @classmethod
     def get_item(cls, name: str, count: int, mods: dict[str,int]):
         data = cls.ITEMS[name]
-        item = cls.instance(data['klass']).count(count).modifiers(mods)
+        item = cls.instance(data['klass'])._count(count).modifiers(mods)
 
         pass

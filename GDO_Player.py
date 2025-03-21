@@ -66,14 +66,14 @@ class GDO_Player(GDO):
             'p_hp': 0,
             'p_mp': 0,
 
-            'max_hp': 0,
-            'max_mp': 0,
+            'p_max_hp': 0,
+            'p_max_mp': 0,
 
-            'atk': 0,
-            'def': 0,
+            'p_attack': 0,
+            'p_defense': 0,
 
-            'weight': 0,
-            'max_weight': 0,
+            'p_weight': 0,
+            'p_max_weight': 0,
         }
         self.equipment = {}
         for slot in self.SLOTS:

@@ -21,7 +21,7 @@ class ShadowdogsTest(GDOTestCase):
     def test_00_start(self):
         res = cli_plug(None, '$sdstart elf mail')
         self.assertIn('nknown race', res, 'sdstart throws no error.')
-        pass
+
 
 if __name__ == '__main__':
     unittest.main()

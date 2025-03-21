@@ -1,3 +1,7 @@
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
+
 from gdo.base.Trans import Trans, t
 from gdo.core.GDO_Channel import GDO_Channel
 from gdo.shadowdogs.GDO_Item import GDO_Item
@@ -6,6 +10,9 @@ from gdo.shadowdogs.GDO_Player import GDO_Player
 
 
 class WithShadowFunc:
+
+    def mod_sd(self) -> 'module_shadowdogs':
+        return module_shadowdogs.instance()
 
     def get_player(self) -> 'GDO_Player':
         return GDO_Player.table().get_by_aid(self._env_user.get_id())
