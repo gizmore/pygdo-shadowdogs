@@ -8,13 +8,17 @@ from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
 from gdo.shadowdogs.GDT_Race import GDT_Race
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.user.GDT_Gender import GDT_Gender
 
 
-class start(WithShadowFunc, MethodForm):
+class start(MethodSD):
 
     def gdo_trigger(self) -> str:
         return 'sdstart'
+
+    def sd_requires_player(self) -> bool:
+        return False
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
@@ -33,14 +37,15 @@ class start(WithShadowFunc, MethodForm):
         }).insert()
         party.do('inside')
         player = GDO_Player.blank({
+            'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),
             'p_gender': self.param_val('gender'),
             'p_party': party.get_id(),
         }).insert()
         party.join(player)
         self.msg('msg_sd_started', (
-            player.gdo_column('p_gender').render(self._env_mode),
-            player.gdo_column('p_race').render(self._env_mode),))
+            player.column('p_gender').render(self._env_mode),
+            player.column('p_race').render(self._env_mode),))
         self.character_created(player)
         return self.empty()
 
@@ -49,3 +54,4 @@ class start(WithShadowFunc, MethodForm):
         self.send_to_player(player, t('sd_story_1'))
         self.send_to_player(player, t('sd_story_2'))
         self.give_items(player, {'Pen': 1, 'Jeans': 1, 'TShirt': 1, 'Shoes': 1})
+        self.give_kp(player, player.get_party().get_location())

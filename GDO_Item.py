@@ -1,12 +1,15 @@
 import functools
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.GDO_Player import GDO_Player
+
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Util import Strings
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
-from gdo.shadowdogs.GDO_Player import GDO_Player
 from gdo.shadowdogs.GDT_ItemName import GDT_ItemName
 from gdo.shadowdogs.GDT_Modifiers import GDT_Modifiers
 from gdo.shadowdogs.GDT_Player import GDT_Player
@@ -26,7 +29,7 @@ class GDO_Item(GDO):
         ]
 
     @classmethod
-    def create(cls, name: str, count: int, player: GDO_Player = None) -> 'GDO_Item':
+    def create(cls, name: str, count: int, player: 'GDO_Player' = None) -> 'GDO_Item':
         return cls.blank({
             'item_owner': player.get_id() if player else None,
             'item_name': Strings.substr_to(name, '_of_', name),

@@ -8,16 +8,22 @@ sd_freeborn = "Freeborn"
 sd_concordium = "Concordium"
 sd_seekers = "Seekers"
 sd_iron = "Iron"
-_sd_freeborn = "The Freeborn seek absolute Freedom, but without order, will they survive?"
-_sd_concordium = "The Concordium crave Peace, but will their control become a prison?"
-_sd_seekers = "The Seekers hunt for Truth, but can truth exist without chaos?"
-_sd_iron = "The Iron Pact embrace War, but will their strength destroy them in the end?"
+sd__freeborn = "The Freeborn seek absolute Freedom, but without order, will they survive?"
+sd__concordium = "The Concordium crave Peace, but will their control become a prison?"
+sd__seekers = "The Seekers hunt for Truth, but can truth exist without chaos?"
+sd__iron = "The Iron Pact embrace War, but will their strength destroy them in the end?"
 
 
 ################
 ### Commands ###
 ################
 
+##########
+# Enable #
+##########
+mt_shadowdogs_enable = "Enable"
+md_shadowdogs_enable = "Enable Shadowdogs inside a channel"
+msg_sd_enabled = "Shadowdogs has been enabled."
 
 #########
 # Start #
@@ -26,3 +32,12 @@ mt_shadowdogs_start = "Start Shadowdogs"
 md_shadowdogs_start = "Create a character in Shadowdogs."
 msg_sd_started = "You created your character, a %s %s."
 err_sd_already_started = "You created a character already. You can $sdreset to start over."
+
+#########
+# Reset #
+#########
+mt_shadowdogs_reset = "Reset Character"
+md_shadowdogs_reset = "Reset your Shadowdogs Character."
+msg_sd_reset_confirm = "Please use $sdreset --confirm=1 to confirm."
+err_sd_start_first = "You have to use $sdstart first."
+msg_sd_reset = "Your account has been deleted so you can start over."

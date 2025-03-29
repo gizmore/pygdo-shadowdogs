@@ -1,5 +1,8 @@
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.city.Peine.Peine import Peine
+from gdo.shadowdogs.city.Peine.locations.AmBauhof15 import AmBauhof15
+from gdo.shadowdogs.locations.City import City
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Party import GDO_Party
@@ -13,6 +16,13 @@ class Shadowdogs:
     PLAYERS: dict[str,'GDO_Player'] = {}
     NPCS: dict[str,'GDO_NPC'] = {}
 
+    Peine: Peine = Peine()
+    AmBauhof15: AmBauhof15 = AmBauhof15()
+    CITIES: dict[str,City] = {
+        'Peine': Peine,
+        'AmBauhof15': AmBauhof15,
+    }
+
     SECONDS_PER_SECOND = 6
     SECONDS_PER_HP = 5
 
@@ -20,6 +30,7 @@ class Shadowdogs:
     HP_PER_BODY = 2
     HP_PER_STRENGTH = 1
     HP_PER_LEVEL = 1
+    MP_PER_LEVEL = 1
     MP_PER_MAGIC = 3
     MP_PER_INTELLIGENCE = 2
     MP_PER_WISDOM = 1

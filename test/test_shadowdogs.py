@@ -3,7 +3,7 @@ import unittest
 
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
-from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug
+from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, cli_gizmore
 
 
 class ShadowdogsTest(GDOTestCase):
@@ -17,10 +17,20 @@ class ShadowdogsTest(GDOTestCase):
         loader.init_modules(True, True)
         WebPlug.COOKIES = {}
         Application.init_cli()
+        loader.init_cli()
 
     def test_00_start(self):
-        res = cli_plug(None, '$sdstart elf mail')
-        self.assertIn('nknown race', res, 'sdstart throws no error.')
+        gizmore = cli_gizmore()
+        # channel = gizmore.get_server().get_or_create_channel('gizmore')
+        out = cli_plug(gizmore, '$sdenable')
+        self.assertIn('has been enabled', out, 'sdenable does not work.')
+        out = cli_plug(gizmore, '$sdreset --confirm=1')
+        self.assertIn('e', out, 'sdreset does not work.')
+        out = cli_plug(gizmore, '$sdstart elf mail')
+        self.assertIn('Suggestions', out, 'sdstart throws no error.')
+        out = cli_plug(gizmore, '$sdstart male human')
+        self.assertIn('You created your character', out, 'sdstart throws no error.')
+        
 
 
 if __name__ == '__main__':

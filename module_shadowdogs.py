@@ -2,8 +2,6 @@ from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.GDT import GDT
 from gdo.core.GDT_UInt import GDT_UInt
-from gdo.date.GDT_DateTime import GDT_DateTime
-from gdo.date.Time import Time
 from gdo.shadowdogs.GDO_Inventory import GDO_Inventory
 from gdo.shadowdogs.GDO_Item import GDO_Item
 from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
@@ -53,13 +51,10 @@ class module_shadowdogs(GDO_Module):
     async def shadow_timer(self):
         time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND
         self.save_config_val('sd_time', str(time))
-        for party in Shadowdogs.PARTIES:
+        for party in Shadowdogs.PARTIES.values():
             party.tick()
-        # dt = self.get_config_value('sd_time')
-        # speed = self.get_config_value('sd_speed')
-        # dt += speed
-        # self.save_config_val('sd_time', Time.get_date(Time.get_time()))
-        pass
 
     async def shadow_hp_timer(self):
-        pass
+        for party in Shadowdogs.PARTIES.values():
+            party.get_action().sleeping(party)
+
