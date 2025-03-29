@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Party import GDO_Party
@@ -15,4 +16,4 @@ class Action(WithShadowFunc):
         pass
 
     def get_target(self, party: 'GDO_Party'):
-        pass
+        raise ShadowdogsException('err_sd_stub')

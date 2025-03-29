@@ -7,6 +7,10 @@ if TYPE_CHECKING:
 
 class sleep(Action):
 
+    def get_target(self, party: 'GDO_Party'):
+        from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+        return Shadowdogs.get_location(party.get_target_string())
+
     def sleeping(self, party: 'GDO_Party'):
         wakeup = True
         for player in party.members:

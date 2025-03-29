@@ -8,6 +8,8 @@ from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
 from gdo.shadowdogs.GDT_Race import GDT_Race
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.city.AmBauhof15.AmBauhof15 import AmBauhof15
+from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.user.GDT_Gender import GDT_Gender
 
@@ -30,12 +32,7 @@ class start(MethodSD):
     def form_submitted(self):
         if self.get_player():
             return self.err('err_sd_already_started')
-        party = GDO_Party.blank({
-            'party_action': 'sleep',
-            'party_target': 'AmBauhof15.Etage2Left',
-            'party_eta': Time.get_date(Application.TIME),
-        }).insert()
-        party.do('inside')
+        party = Factory.create_party(AmBauhof15.Etage2Left)
         player = GDO_Player.blank({
             'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),
