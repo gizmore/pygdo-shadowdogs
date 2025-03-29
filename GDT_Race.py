@@ -8,13 +8,18 @@ class GDT_Race(GDT_Enum):
         'animal':   {},
         'drone':    {},
 
-        'elve':     {'str': 1, 'int': 6, 'wis': 2},
-        'halfelve': {'str': 2, 'int': 5, 'wis': 1},
-        'human':    {'str': 3, 'int': 4, 'wis': 1},
-        'dwarf':    {'str': 4, 'int': 3, 'wis': 1},
-        'halfork':  {'str': 5, 'int': 2, 'wis': 0},
-        'ork':      {'str': 6, 'int': 1, 'wis': 0},
-        'troll':    {'str': 7, 'int': 0, 'wis': 0},
+        'elve':     {'bod': 0, 'mag': 1, 'str': 1, 'dex': 1, 'qui': 1, 'int': 6, 'wis': 2, 'cha': 2},
+        'halfelve': {'bod': 1, 'mag': 1, 'str': 2, 'dex': 1, 'qui': 1, 'int': 5, 'wis': 1, 'cha': 1},
+        'human':    {'bod': 1, 'mag': 0, 'str': 3, 'dex': 1, 'qui': 1, 'int': 4, 'wis': 1, 'cha': 1},
+        'dwarf':    {'bod': 2, 'mag': 0, 'str': 4, 'dex': 1, 'qui': 0, 'int': 3, 'wis': 1, 'cha': 0},
+        'halfork':  {'bod': 2, 'mag':-1, 'str': 5, 'dex': 0, 'qui': 0, 'int': 2, 'wis': 0, 'cha': 0},
+        'ork':      {'bod': 2, 'mag':-2, 'str': 6, 'dex': 0, 'qui': 0, 'int': 1, 'wis': 0, 'cha': 0},
+        'troll':    {'bod': 3, 'mag':-3, 'str': 7, 'dex': 0, 'qui': 0, 'int': 0, 'wis': 0, 'cha': 0},
+    }
+
+    GENDER = {
+        'male':   {'bod': 1, 'str': 1},
+        'female': {'mag': 1, 'int': 1, 'cha': 2},
     }
 
     _npcs: bool
