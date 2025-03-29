@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
+from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.locations.Location import Location
 
 if TYPE_CHECKING:
@@ -50,6 +51,23 @@ class GDO_Player(GDO):
         'p_ring',
     ]
 
+    ATTRIBUTES = [
+        'p_bod',
+        'p_mag',
+        'p_str',
+        'p_qui',
+        'p_dex',
+        'p_int',
+        'p_wis',
+        'p_cha',
+    ]
+
+    SKILLS = [
+        'p_aim',
+        'p_fig',
+        'p_hac',
+    ]
+
     modified: dict[str, int]
     equipment: dict[str, 'Item|None']
     inventory: 'Inventory'
@@ -64,6 +82,7 @@ class GDO_Player(GDO):
         super().__init__()
         self.modified = {
             'p_bod': 0,
+            'p_mag': 0,
             'p_str': 0,
             'p_qui': 0,
             'p_dex': 0,
@@ -121,6 +140,7 @@ class GDO_Player(GDO):
             GDT_Item('p_ring'),
 
             Body('p_bod'),
+            Magic('p_mag'),
             Strength('p_str'),
             Quickness('p_qui'),
             Dexterity('p_dex'),
@@ -140,6 +160,22 @@ class GDO_Player(GDO):
 
     def kill(self):
         pass
+
+    def modify_all(self):
+        self.column('p_race').apply(self)
+        self.column('p_level').apply(self)
+        self.column('p_faction').apply(self)
+        for key in self.ATTRIBUTES:
+            self.column(key).apply(self)
+        for key in self.SKILLS:
+            self.column(key).apply(self)
+        for item in self.inventory:
+            item.apply_inv(self)
+        for slot in self.SLOTS:
+            item = self.gdo_value(slot)
+            item.apply_inv(self)
+            item.apply(self)
+        return self
 
     def g(self, key: str) -> int:
         return self.modified[key]

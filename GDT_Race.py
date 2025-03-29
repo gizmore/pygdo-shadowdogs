@@ -1,9 +1,12 @@
 from gdo.core.GDT_Enum import GDT_Enum
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.GDO_Player import GDO_Player
 
 
 class GDT_Race(GDT_Enum):
 
-    BONUS = {
+    BONUS: dict[str,dict[str,int]] = {
         'dragon':   {},
         'animal':   {},
         'drone':    {},
@@ -17,7 +20,7 @@ class GDT_Race(GDT_Enum):
         'troll':    {'bod': 3, 'mag':-3, 'str': 7, 'dex': 0, 'qui': 0, 'int': 0, 'wis': 0, 'cha': 0},
     }
 
-    GENDER = {
+    GENDER: dict[str,dict[str,int]] = {
         'male':   {'bod': 1, 'str': 1},
         'female': {'mag': 1, 'int': 1, 'cha': 2},
     }
@@ -48,3 +51,11 @@ class GDT_Race(GDT_Enum):
                 'drone': 'Drone',
             })
         return races
+
+    def apply(self, player: 'GDO_Player'):
+        bonus = self.BONUS[self.get_val()]
+        for key, val in bonus.values():
+            player.apply(f"p_{key}", val)
+        bonus = self.GENDER[player.gdo_val('p_gender')]
+        for key, val in bonus.values():
+            player.apply(f"p_{key}", val)
