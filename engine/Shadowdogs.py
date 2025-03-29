@@ -21,21 +21,12 @@ class Shadowdogs:
     SECONDS_PER_HP = 5
 
     MAX_WEIGHT_PER_STRENGTH = 1000
+
     HP_PER_BODY = 2
     HP_PER_STRENGTH = 1
     HP_PER_LEVEL = 1
+
     MP_PER_LEVEL = 1
     MP_PER_MAGIC = 3
     MP_PER_INTELLIGENCE = 2
     MP_PER_WISDOM = 1
-
-    @classmethod
-    def get_city(cls, loc_str: str) -> 'City':
-        return cls.CITIES.get(Strings.substr_to(loc_str, '.', loc_str).lower())
-
-    @classmethod
-    def get_location(cls, loc_str: str) -> 'Location':
-        city_name, loc_name = loc_str.split('.')
-        city = cls.get_city(city_name)
-        city.LOCATIONS
-        pass
