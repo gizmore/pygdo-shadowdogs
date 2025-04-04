@@ -1,5 +1,3 @@
-from reportlab.pdfbase.cidfonts import CIDTypeFace
-
 from gdo.base.Application import Application
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
