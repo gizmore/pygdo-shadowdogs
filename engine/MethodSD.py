@@ -18,7 +18,7 @@ class MethodSD(WithShadowFunc, MethodForm):
                 self.err('err_sd_player_required')
                 return False
         if self.sd_is_location_specific():
-            if self.gdp_trigger() not in self.get_location().sd_methods():
+            if self.gdo_trigger() not in self.get_location().sd_methods():
                 self.err('err_sd_not_here')
                 return False
         return True

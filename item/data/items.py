@@ -20,6 +20,7 @@ class items:
         'Sword':        {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
         'LongSword':    {'klass': 'Sword',  'wei': 0, 'atk': 6, 'dmg': []},
         'SmallAxe':     {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
+        'MorningStar':  {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
 
         'Sandals':      {'klass': 'Boots',  'wei': 0,  'def': 1, 'arm': 1},
         'Shoes':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 1},

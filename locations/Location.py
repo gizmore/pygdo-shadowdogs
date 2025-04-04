@@ -19,4 +19,6 @@ class Location(WithShadowFunc):
         pass
 
     def get_location_key(self) -> str:
-        pass
+        m = self.__class__.__module__
+        return m[3] + "." + m[5]
+

@@ -30,8 +30,12 @@ The four winds rule over the combat zone.
 Each wind has 2 votes on decisions.
 
 The humans managed to trick the winds
-and gained one vote for the first time in history.
+and gained 1 vote for the first time in history.
 
-The artificial life form has 4 votes, as they also represent the machines.
-Another 6 votes got the animals.
-The insects, the bacteriae, the birds, the mammals, the fish and reptiles.
+The artificial life form has 5 votes, as they also represent the machines.
+Another 5 votes go to the animals.
+The insects, the birds, the mammals, the fish and the reptiles.
+
+2 more votes go the plants on earth and in the sea.
+
+So in total there are 21 votes for perfect balance.

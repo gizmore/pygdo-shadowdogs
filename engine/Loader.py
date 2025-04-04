@@ -24,7 +24,7 @@ class Loader:
 
     @classmethod
     def load_parties(cls):
-        parties = GDO_Party.table().select().where("party_action IN ('goto', 'explore', 'sleep')").exec().fetch_all()
+        parties = GDO_Party.table().select().where("party_action IN ('goto', 'explore', 'sleep', 'travel', 'fight', 'hack')").exec().fetch_all()
         for party in parties:
             cls.load_party(party)
 

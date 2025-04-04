@@ -6,12 +6,14 @@ class GDT_ItemArg(GDT_Select):
     _inventory: bool
     _equipment: bool
     _store: bool
+    _obstacles: bool
 
     def __init__(self, name: str):
         super().__init__(name)
         self._equipment = False
         self._inventory = False
         self._store = False
+        self._obstacles = False
 
     def inventory(self, inventory: bool = True):
         self._inventory = inventory
@@ -23,6 +25,11 @@ class GDT_ItemArg(GDT_Select):
 
     def store(self, store: bool = True):
         self._store = store
+        return self
+
+
+    def obstacles(self, obstacles: bool = True):
+        self._obstacles = obstacles
         return self
 
     def gdo_choices(self) -> dict:

@@ -1,3 +1,5 @@
+from reportlab.pdfbase.cidfonts import CIDTypeFace
+
 from gdo.base.Application import Application
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
@@ -11,6 +13,7 @@ from gdo.shadowdogs.GDT_Target import GDT_Target
 from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 
 if TYPE_CHECKING:
@@ -24,7 +27,7 @@ class GDO_Party(WithShadowFunc, GDO):
     members: list['GDO_Player']
 
     __slots__ = (
-        'members'
+        'members',
     )
 
     def __init__(self):
@@ -88,6 +91,9 @@ class GDO_Party(WithShadowFunc, GDO):
         return self.gdo_value('party_target')
 
     def get_location(self) -> 'Location':
+        return self.get_target()
+
+    def get_city(self) -> 'City':
         return self.get_target()
 
     def get_target_string(self):
