@@ -1,10 +1,9 @@
-from gdo.base.Application import Application
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
+from gdo.base.Util import Arrays
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
-from gdo.date.Time import Time
 from gdo.shadowdogs.GDT_Action import GDT_Action
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
@@ -63,7 +62,7 @@ class GDO_Party(WithShadowFunc, GDO):
         self.set_val('party_last_eta', self.gdo_val('party_eta')) # compute remaining seconds
         self.set_val('party_action', action)
         self.set_val('party_target', target if target else self.gdo_val('party_target'))
-        self.set_val('party_eta', Time.get_date(Application.TIME + eta) if eta else None)
+        self.set_val('party_eta', str(self.mod_sd().cfg_time() + eta) if eta else '0')
         return self.save()
 
     def resume(self):
@@ -79,8 +78,13 @@ class GDO_Party(WithShadowFunc, GDO):
             'm_party': self.get_id(),
             'm_player': player.get_id(),
         }).insert()
+        return self.add_to_members(player)
+
+    def add_to_members(self, player: 'GDO_Player'):
         self.members.append(player)
+        player.party_pos = len(self.members)
         return self
+
 
     def kick(self, player: 'GDO_Player'):
         pass
@@ -101,10 +105,12 @@ class GDO_Party(WithShadowFunc, GDO):
     def get_target_string(self):
         return self.gdo_val('party_target')
 
+    def fight(self, party: 'GDO_Party'):
+        self.do('fight', party.get_id())
+        party.do('fight', self.get_id())
+        self.send_to_party(self, 'msg_sd_fight_started', (party.render_members(),))
+        self.send_to_party(party, 'msg_sd_fight_started', (self.render_members(),))
+        return self
+
     def render_members(self) -> str:
-        out = []
-        i = 1
-        for player in self.members:
-            out.append(f"{i}-{player.render_name()}")
-            i += 1
-        return ', '.join(out)
+        return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])

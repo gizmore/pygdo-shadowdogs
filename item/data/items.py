@@ -22,6 +22,8 @@ class items:
         'SmallAxe':     {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
         'MorningStar':  {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
 
+        'Jeans':        {'klass': 'Trousers', 'wei': 0, },
+
         'Sandals':      {'klass': 'Boots',  'wei': 0,  'def': 1, 'arm': 1},
         'Shoes':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 1},
         'Boots':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
@@ -29,6 +31,8 @@ class items:
 
         'Ring':         {'klass': 'Ring', },
         'WeddingRing':  {'klass': 'WeddingRing', 'wei': 25, },
+
+        'Pen':          {'klass': 'Pen', 'wei': 20}
     }
 
     @classmethod

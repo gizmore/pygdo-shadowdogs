@@ -1,7 +1,7 @@
-from gdo.shadowdogs.item.Item import Item
+from gdo.shadowdogs.item.classes.Equipment import Equipment
 
 
-class Armor(Item):
+class Armor(Equipment):
 
     def get_slot(self) -> str:
         return 'p_armor'

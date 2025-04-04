@@ -16,7 +16,8 @@ from gdo.core.GDO_Channel import GDO_Channel
 
 class WithShadowFunc:
 
-    def mod_sd(self) -> 'module_shadowdogs':
+    @classmethod
+    def mod_sd(cls) -> 'module_shadowdogs':
         from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
         return module_shadowdogs.instance()
 
@@ -49,7 +50,7 @@ class WithShadowFunc:
         for player in party.members:
             self.send_to_player(player, key, args)
 
-    def broadcast(self, key: str, args: tuple[str] = None):
+    def broadcast(self, key: str, args: tuple = None):
         for channel in GDO_Channel.with_setting('disabled', '0', '1'):
             with Trans(channel.get_lang_iso()):
                 channel.send(Trans.t(key, args))
@@ -66,7 +67,7 @@ class WithShadowFunc:
         from gdo.shadowdogs.GDO_Item import GDO_Item
         item = GDO_Item.create(item_name, item_count, player)
         player.inventory.append(item)
-        self.send_to_player(player, 'sd_item_received', (item_name,))
+        self.send_to_party(player.get_party(), 'sd_item_received', (item_name,))
 
     ######
     # KP #

@@ -41,12 +41,12 @@ class module_shadowdogs(GDO_Module):
         if not Application.IS_HTTP:
             items.load()
             Loader.load_npcs()
-            Loader.load_cities()
+            # Loader.load_cities()
             Loader.load_parties()
 
     def gdo_subscribe_events(self):
         Application.EVENTS.add_timer(2, self.shadow_timer, 1000000000)
-        Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP, self.shadow_hp_timer, 1000000000)
+        Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP_SLEEP, self.shadow_hp_timer, 1000000000)
 
     async def shadow_timer(self):
         time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND

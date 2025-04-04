@@ -19,6 +19,6 @@ class Location(WithShadowFunc):
         pass
 
     def get_location_key(self) -> str:
-        m = self.__class__.__module__
+        m = self.__class__.__module__.split('.')
         return m[3] + "." + m[5]
 

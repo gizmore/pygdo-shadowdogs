@@ -7,3 +7,4 @@ class GDT_Item(GDT_Object):
         super().__init__(name)
         from gdo.shadowdogs.GDO_Item import GDO_Item
         self.table(GDO_Item.table())
+

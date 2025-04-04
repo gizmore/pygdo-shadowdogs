@@ -44,6 +44,7 @@ class GDO_Player(GDO):
     SLOTS = [
         'p_weapon',
         'p_armor',
+        'p_trousers',
         'p_helmet',
         'p_boots',
         'p_gloves',
@@ -68,6 +69,7 @@ class GDO_Player(GDO):
         'p_hac',
     ]
 
+    party_pos: int
     modified: dict[str, int]
     equipment: dict[str, 'Item|None']
     inventory: 'Inventory'
@@ -110,6 +112,7 @@ class GDO_Player(GDO):
         for slot in self.SLOTS:
             self.equipment[slot] = None
         self.inventory = Inventory()
+        self.party_pos = 0
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -133,6 +136,7 @@ class GDO_Player(GDO):
 
             GDT_Item('p_weapon'),
             GDT_Item('p_armor'),
+            GDT_Item('p_trousers'),
             GDT_Item('p_helmet'),
             GDT_Item('p_boots'),
             GDT_Item('p_gloves'),

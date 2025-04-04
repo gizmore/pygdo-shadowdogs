@@ -1,6 +1,9 @@
 import functools
 
 from typing import TYPE_CHECKING
+
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Player import GDO_Player
 
@@ -32,9 +35,9 @@ class GDO_Item(GDO):
     def create(cls, name: str, count: int, player: 'GDO_Player' = None) -> 'GDO_Item':
         return cls.blank({
             'item_owner': player.get_id() if player else None,
-            'item_name': Strings.substr_to(name, '_of_', name),
+            'item_name': Strings.substr_to(name, Shadowdogs.MODIFIER_SEPERATOR, name),
             'item_count': str(count),
-            'item_mods': Strings.substr_from(name, '_of_'),
+            'item_mods': Strings.substr_from(name, Shadowdogs.MODIFIER_SEPERATOR),
         }).insert()
 
     @functools.lru_cache

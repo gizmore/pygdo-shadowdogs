@@ -6,8 +6,6 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Party import GDO_Party
     from gdo.shadowdogs.GDO_Player import GDO_Player
     from gdo.shadowdogs.GDO_NPC import GDO_NPC
-    from gdo.shadowdogs.locations.Location import Location
-    from gdo.shadowdogs.locations.City import City
 
 
 class Shadowdogs:
@@ -16,9 +14,10 @@ class Shadowdogs:
     PLAYERS: dict[str,'GDO_Player'] = {}
     NPCS: dict[str,'GDO_NPC'] = {}
 
+    MODIFIER_SEPERATOR = '_with_'
 
     SECONDS_PER_SECOND = 6
-    SECONDS_PER_HP = 5
+    SECONDS_PER_HP_SLEEP = 5
 
     MAX_WEIGHT_PER_STRENGTH = 1000
 

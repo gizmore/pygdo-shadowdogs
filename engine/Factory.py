@@ -13,7 +13,7 @@ class Factory(WithShadowFunc):
         party = GDO_Party.blank({
             'party_action': 'outside',
             'party_target': location.get_location_key(),
-            'party_eta': Time.get_date(Application.TIME),
+            'party_eta':  str(cls.mod_sd().cfg_time()),
         }).insert()
         party.do('inside')
         return party
