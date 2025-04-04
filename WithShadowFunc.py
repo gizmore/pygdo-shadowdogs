@@ -43,17 +43,17 @@ class WithShadowFunc:
     # Messages #
     ############
 
-    def send_to_player(self, player: 'GDO_Player', key: str, args: tuple[str] = None):
-        player.get_user().send(key, args)
+    async def send_to_player(self, player: 'GDO_Player', key: str, args: tuple = None):
+        await player.get_user().send(key, args)
 
-    def send_to_party(self, party: 'GDO_Party', key: str, args: tuple[str] = None):
+    async def send_to_party(self, party: 'GDO_Party', key: str, args: tuple = None):
         for player in party.members:
-            self.send_to_player(player, key, args)
+            await self.send_to_player(player, key, args)
 
-    def broadcast(self, key: str, args: tuple = None):
+    async def broadcast(self, key: str, args: tuple = None):
         for channel in GDO_Channel.with_setting('disabled', '0', '1'):
             with Trans(channel.get_lang_iso()):
-                channel.send(Trans.t(key, args))
+                await channel.send(Trans.t(key, args))
 
     #########
     # Items #
@@ -74,6 +74,7 @@ class WithShadowFunc:
     ######
 
     def give_kp(self, player: 'GDO_Player', location: 'Location'):
+        from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
         party = player.get_party()
         for member in party.members:
             if not member.has_kp(location):

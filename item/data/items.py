@@ -22,6 +22,8 @@ class items:
         'SmallAxe':     {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
         'MorningStar':  {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
 
+        'TShirt':       {'klass': 'Armor', 'wei': 650, 'marm': 1, 'farm': 0},
+
         'Jeans':        {'klass': 'Trousers', 'wei': 0, },
 
         'Sandals':      {'klass': 'Boots',  'wei': 0,  'def': 1, 'arm': 1},

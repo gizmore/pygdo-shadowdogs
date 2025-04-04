@@ -2,7 +2,7 @@ from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.locations.Location import Location
 
 
-class City():
+class City:
 
     LOCATIONS: list[Location] = []
 
@@ -19,3 +19,6 @@ class City():
         if len(matches) == 1:
             return matches[0]
         raise ShadowdogsException('err_sd_much_matches')
+
+    def get_name(self):
+        return self.__class__.__name__

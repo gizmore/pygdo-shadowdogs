@@ -16,9 +16,13 @@ class Location(WithShadowFunc):
         return []
 
     def get_city(self) -> 'City':
-        pass
+        from gdo.shadowdogs.engine.World import World
+        return World.get_city(self.get_location_key())
 
     def get_location_key(self) -> str:
         m = self.__class__.__module__.split('.')
         return m[3] + "." + m[5]
+
+    def get_name(self) -> str:
+        return self.__class__.__name__
 
