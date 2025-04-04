@@ -46,6 +46,10 @@ class GDO_Party(WithShadowFunc, GDO):
             GDT_Created('party_created'),
         ]
 
+    def get_action_name(self) -> str:
+        return self.gdo_val('party_action')
+
+
     def is_action_over(self) -> bool:
         return self.get_eta() < self.mod_sd().cfg_time()
 
@@ -98,3 +102,11 @@ class GDO_Party(WithShadowFunc, GDO):
 
     def get_target_string(self):
         return self.gdo_val('party_target')
+
+    def render_members(self) -> str:
+        out = []
+        i = 1
+        for player in self.members:
+            out.append(f"{i}-{player.render_name()}")
+            i += 1
+        return ', '.join(out)

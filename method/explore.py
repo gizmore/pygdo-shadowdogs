@@ -15,11 +15,11 @@ class explore(WithShadowFunc, MethodForm):
     def gdo_trigger(self) -> str:
         return 'sdexplore'
 
-    def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
-            GDT_City('area').known().not_null(),
-        )
-        super().gdo_create_form(form)
+    # def gdo_create_form(self, form: GDT_Form) -> None:
+    #     form.add_field(
+    #         GDT_City('area').known().not_null(),
+    #     )
+    #     super().gdo_create_form(form)
 
     def form_submitted(self):
         if self.get_player():

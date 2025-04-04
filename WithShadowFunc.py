@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+from gdo.core.GDO_User import GDO_User
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.Location import Location
@@ -19,9 +20,10 @@ class WithShadowFunc:
         from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
         return module_shadowdogs.instance()
 
-    def get_player(self) -> 'GDO_Player':
+    def get_player(self, user: GDO_User=None) -> 'GDO_Player':
         from gdo.shadowdogs.GDO_Player import GDO_Player
-        return GDO_Player.table().get_by_aid(self._env_user.get_id())
+        user = user or self._env_user
+        return GDO_Player.table().get_by_aid(user.get_id())
 
     def get_party(self) -> 'GDO_Party':
         return self.get_player().get_party()

@@ -10,4 +10,5 @@ if TYPE_CHECKING:
 class talk(Action):
 
     def render(self, party: 'GDO_Party', mode: Mode) -> str:
+
         return self.render_party_members(party) + ' ' + t('sd_action_talk', (self.render_target_party(party),))
