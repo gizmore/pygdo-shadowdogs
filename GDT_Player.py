@@ -7,6 +7,6 @@ if TYPE_CHECKING:
 
 class GDT_Player(GDT_User):
 
-    def get_player(self) -> 'GDO_Player':
+    def get_value(self):
         from gdo.shadowdogs.GDO_Player import GDO_Player
-        return GDO_Player.table().get_by_aid(self.get_value().get_id())
+        return GDO_Player.table().get_by('p_user', super().get_value().get_id())

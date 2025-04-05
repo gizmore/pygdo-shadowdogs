@@ -22,6 +22,8 @@ sd__iron = "The Iron Pact embrace War, but will their strength destroy them in t
 # MethodSD #
 ############
 err_sd_player_required = "You need to $trigger$sdstart first."
+err_sd_not_here = "This does not work here."
+err_sd_not_now = "You cannot do this now."
 
 ##########
 # Enable #

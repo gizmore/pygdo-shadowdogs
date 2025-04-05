@@ -24,7 +24,7 @@ class WithShadowFunc:
     def get_player(self, user: GDO_User=None) -> 'GDO_Player':
         from gdo.shadowdogs.GDO_Player import GDO_Player
         user = user or self._env_user
-        return GDO_Player.table().get_by_aid(user.get_id())
+        return GDO_Player.table().get_by('p_user', user.get_id())
 
     def get_party(self) -> 'GDO_Party':
         return self.get_player().get_party()
