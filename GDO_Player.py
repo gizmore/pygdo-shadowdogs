@@ -2,7 +2,6 @@ from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_AutoInc import GDT_AutoInc
-from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING
@@ -81,6 +80,7 @@ class GDO_Player(GDO):
     inventory: 'Inventory'
 
     __slots__ = (
+        'party_pos',
         'modified',
         'equipment',
         'inventory',
@@ -111,6 +111,13 @@ class GDO_Player(GDO):
             'p_attack': 0,
             'p_defense': 0,
 
+            'p_marm': 0,
+            'p_farm': 0,
+
+            'p_alcohol': 0,
+            'p_hunger': 100,
+            'p_thirst': 100,
+
             'p_weight': 0,
             'p_max_weight': 0,
         }
@@ -130,9 +137,9 @@ class GDO_Player(GDO):
             GDT_NPCClass('p_npc_class'),
             GDT_RandomName('p_npc_name'),
 
-            XP('p_xp').not_null().initial('0'),
-            Karma('p_karma').not_null().initial('0'),
-            Level('p_level').not_null().initial('1'),
+            XP('p_xp'),
+            Karma('p_karma'),
+            Level('p_level').initial('1'),
 
             HP('p_hp'),
             MP('p_mp'),
@@ -165,14 +172,22 @@ class GDO_Player(GDO):
             Hacking('p_hac'),
 
             Alcohol('p_alcohol'),
-            Hunger('p_hunger'),
-            Thirst('p_thirst'),
+            Hunger('p_hunger').initial('50'),
+            Thirst('p_thirst').initial('30'),
 
             GDT_Created('p_created'),
         ]
 
+    def is_npc(self) -> bool:
+        return False
+
     def get_user(self) -> GDO_User:
         return self.gdo_value('p_user')
+
+    def get_name(self):
+        if name := self.gdo_val('p_npc_name'):
+            return f"{name}[{self.get_id()}]"
+        return self.get_user().render_name()
 
     def kill(self):
         pass

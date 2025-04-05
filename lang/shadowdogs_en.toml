@@ -48,3 +48,10 @@ md_shadowdogs_reset = "Reset your Shadowdogs Character."
 msg_sd_reset_confirm = "Please use $sdreset --confirm=1 to confirm."
 err_sd_start_first = "You have to use $sdstart first."
 msg_sd_reset = "Your account has been deleted so you can start over."
+
+#########
+# Fight #
+#########
+mt_shadowdogs_fight = "Fight"
+md_shadowdogs_fight = "Fight an opposing party."
+msg_sd_fight_started = "You encounter %s."

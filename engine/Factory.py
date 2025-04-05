@@ -27,7 +27,7 @@ class Factory(WithShadowFunc):
                 'p_race': 'human',
                 'p_gender': 'male',
             })
-        cls.create_npcs(location, *specs)
+        return cls.create_npcs(location, *specs)
 
     @classmethod
     def create_npcs(cls, location: Location, *npc_specs: dict[str,int|str]) -> GDO_Party:
@@ -35,11 +35,13 @@ class Factory(WithShadowFunc):
         for spec in npc_specs:
             npc = cls.create_npc(party, spec)
             party.join(npc)
+        return party
 
     @classmethod
     def create_npc(cls, party: GDO_Party, spec: dict[str,int|str]):
         player = GDO_NPC.blank({
             'p_npc_class': spec['klass'],
+            'p_npc_name': spec['klass'],
             'p_race': spec['p_race'],
             'p_gender': spec['p_gender'],
             'p_party': party.get_id(),

@@ -32,6 +32,8 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('You created your character', out, 'sdstart throws no error.')
         out = cli_plug(gizmore, '$sdgdt gizmore{1} lamer,lamer')
         self.assertIn('encounter', out, 'gdt does not work.')
+        Application.tick()
+        
 
 
 if __name__ == '__main__':

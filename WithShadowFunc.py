@@ -1,5 +1,7 @@
 from typing import TYPE_CHECKING
 
+import aioconsole
+
 from gdo.core.GDO_User import GDO_User
 
 if TYPE_CHECKING:
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Party import GDO_Party
     from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
 
-from gdo.base.Trans import Trans
+from gdo.base.Trans import Trans, t
 from gdo.core.GDO_Channel import GDO_Channel
 
 
@@ -44,7 +46,10 @@ class WithShadowFunc:
     ############
 
     async def send_to_player(self, player: 'GDO_Player', key: str, args: tuple = None):
-        await player.get_user().send(key, args)
+        if player.is_npc():
+            await aioconsole.aprint(t(key, args))
+        else:
+            await player.get_user().send(key, args)
 
     async def send_to_party(self, party: 'GDO_Party', key: str, args: tuple = None):
         for player in party.members:
