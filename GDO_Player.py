@@ -12,6 +12,11 @@ from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.locations.Location import Location
+from gdo.shadowdogs.stat.Alcohol import Alcohol
+from gdo.shadowdogs.stat.Hunger import Hunger
+from gdo.shadowdogs.stat.Karma import Karma
+from gdo.shadowdogs.stat.Thirst import Thirst
+from gdo.shadowdogs.stat.XP import XP
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Party import GDO_Party
@@ -50,6 +55,7 @@ class GDO_Player(GDO):
         'p_gloves',
         'p_amulet',
         'p_ring',
+        'p_piercing',
     ]
 
     ATTRIBUTES = [
@@ -124,8 +130,9 @@ class GDO_Player(GDO):
             GDT_NPCClass('p_npc_class'),
             GDT_RandomName('p_npc_name'),
 
+            XP('p_xp').not_null().initial('0'),
+            Karma('p_karma').not_null().initial('0'),
             Level('p_level').not_null().initial('1'),
-            GDT_UInt('p_xp').not_null().initial('0'),
 
             HP('p_hp'),
             MP('p_mp'),
@@ -142,6 +149,7 @@ class GDO_Player(GDO):
             GDT_Item('p_gloves'),
             GDT_Item('p_amulet'),
             GDT_Item('p_ring'),
+            GDT_Item('p_piercing'),
 
             Body('p_bod'),
             Magic('p_mag'),
@@ -155,6 +163,10 @@ class GDO_Player(GDO):
             Aim('p_aim'),
             Fight('p_fig'),
             Hacking('p_hac'),
+
+            Alcohol('p_alcohol'),
+            Hunger('p_hunger'),
+            Thirst('p_thirst'),
 
             GDT_Created('p_created'),
         ]
