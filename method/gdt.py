@@ -27,10 +27,10 @@ class gdt(MethodSD):
         return self.param_value('target')
 
 
-    def form_submitted(self):
+    async def form_submitted(self):
         player = self.get_target()
         npc_names = self.param_value('npcs').split(',')
         party = player.get_party()
         enemies = Factory.create_default_npcs(party.get_location(), *npc_names)
-        party.fight(enemies)
+        await party.fight(enemies)
         return self.empty()

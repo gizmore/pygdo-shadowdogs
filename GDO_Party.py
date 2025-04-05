@@ -105,11 +105,11 @@ class GDO_Party(WithShadowFunc, GDO):
     def get_target_string(self):
         return self.gdo_val('party_target')
 
-    def fight(self, party: 'GDO_Party'):
+    async def fight(self, party: 'GDO_Party'):
         self.do('fight', party.get_id())
         party.do('fight', self.get_id())
-        self.send_to_party(self, 'msg_sd_fight_started', (party.render_members(),))
-        self.send_to_party(party, 'msg_sd_fight_started', (self.render_members(),))
+        await self.send_to_party(self, 'msg_sd_fight_started', (party.render_members(),))
+        await self.send_to_party(party, 'msg_sd_fight_started', (self.render_members(),))
         return self
 
     def render_members(self) -> str:
