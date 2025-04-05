@@ -15,8 +15,8 @@ class GDT_Race(GDT_Enum):
         'halfelve': {'bod': 1, 'mag': 1, 'str': 2, 'dex': 1, 'qui': 1, 'int': 5, 'wis': 1, 'cha': 1},
         'human':    {'bod': 1, 'mag': 0, 'str': 3, 'dex': 1, 'qui': 1, 'int': 4, 'wis': 1, 'cha': 1},
         'dwarf':    {'bod': 2, 'mag': 0, 'str': 4, 'dex': 1, 'qui': 0, 'int': 3, 'wis': 1, 'cha': 0},
-        'halfork':  {'bod': 2, 'mag':-1, 'str': 5, 'dex': 0, 'qui': 0, 'int': 2, 'wis': 0, 'cha': 0},
-        'ork':      {'bod': 2, 'mag':-2, 'str': 6, 'dex': 0, 'qui': 0, 'int': 1, 'wis': 0, 'cha': 0},
+        'halforc':  {'bod': 2, 'mag':-1, 'str': 5, 'dex': 0, 'qui': 0, 'int': 2, 'wis': 0, 'cha': 0},
+        'orc':      {'bod': 2, 'mag':-2, 'str': 6, 'dex': 0, 'qui': 0, 'int': 1, 'wis': 0, 'cha': 0},
         'troll':    {'bod': 3, 'mag':-3, 'str': 7, 'dex': 0, 'qui': 0, 'int': 0, 'wis': 0, 'cha': 0},
     }
 
