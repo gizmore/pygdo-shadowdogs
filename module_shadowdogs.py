@@ -41,7 +41,6 @@ class module_shadowdogs(GDO_Module):
         if not Application.IS_HTTP:
             items.load()
             Loader.load_npcs()
-            # Loader.load_cities()
             Loader.load_parties()
 
     def gdo_subscribe_events(self):
