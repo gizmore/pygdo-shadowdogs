@@ -13,10 +13,10 @@ class GDT_Faction(GDT_Enum):
     AEGIS = 'aegis'
 
     BONUS = {
-        'freeborn': {'bod': 10, 'mag': 10, 'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'tra': 5, 'hac': 8, 'cry': 9, 'mat': 9, 'fig': 0},
-        'consort': {'bod': 10, 'mag': 10, 'str': 4, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 5, 'tra': 5, 'hac': 6, 'cry': 7, 'mat': 7, 'fig': 0},
-        'seeker': {'bod': 10, 'mag': 10, 'str': 4, 'int': 6, 'dex': 5, 'qui': 5, 'cha': 6, 'tra': 5, 'hac': 7, 'cry': 8, 'mat': 8, 'fig': 7},
-        'aegis': {'bod': 10, 'mag': 10, 'str': 6, 'int': 5, 'dex': 5, 'qui': 5, 'cha': 4, 'tra': 5, 'hac': 5, 'cry': 6, 'mat': 6, 'fig': 10},
+        'freeborn': {'int': 5, 'dex': 1, 'qui': 1, 'hac': 2},
+        'consort': {'mag': 1, 'cha': 1, 'tra': 10},
+        'seeker': {},
+        'aegis': {'bod': 1, 'str': 1, 'fig': 2, 'attack': 5},
     }
 
     def gdo_choices(self) -> dict:

@@ -1,12 +1,13 @@
 from gdo.base.GDT import GDT
 from gdo.base.Method import Method
 from gdo.shadowdogs.GDT_City import GDT_City
+from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 
-class known_spells(Method):
+class spells(MethodSD):
 
     def gdo_trigger(self) -> str:
-        return 'sdknown_spells'
+        return 'sdspells'
 
     def gdo_parameters(self) -> [GDT]:
         return [

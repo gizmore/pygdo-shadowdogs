@@ -28,3 +28,9 @@ class Item:
     def apply(self, player: 'GDO_Player'):
         player.modify(self._modifiers)
         player.modify(items.ITEMS[self.__class__.__name__])
+
+    def get_equip_time(self) -> int:
+        return 0
+
+    def get_unequip_time(self) -> int:
+        return self.get_equip_time() // 2

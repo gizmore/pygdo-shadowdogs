@@ -16,6 +16,8 @@ class Shadowdogs:
 
     MODIFIER_SEPERATOR = '_with_'
 
+    XP_PER_KARMA = 10
+
     SECONDS_PER_SECOND = 6
     SECONDS_PER_HP_SLEEP = 5
 

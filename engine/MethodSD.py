@@ -14,6 +14,9 @@ class MethodSD(WithShadowFunc, MethodForm):
     def sd_requires_action(self) -> list[str]|None:
         return None
 
+    def sd_combat_seconds(self) -> int:
+        return 0
+
     def gdo_has_permission(self, user: 'GDO_User'):
         if self.sd_requires_player():
             if not self.get_player():

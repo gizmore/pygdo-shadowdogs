@@ -10,6 +10,7 @@ from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.attr.Magic import Magic
+from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.stat.Alcohol import Alcohol
 from gdo.shadowdogs.stat.Hunger import Hunger
@@ -75,12 +76,14 @@ class GDO_Player(GDO):
     ]
 
     party_pos: int
+    combat_stack: CombatStack
     modified: dict[str, int]
     equipment: dict[str, 'Item|None']
     inventory: 'Inventory'
 
     __slots__ = (
         'party_pos',
+        'combat_stack',
         'modified',
         'equipment',
         'inventory',
@@ -126,6 +129,7 @@ class GDO_Player(GDO):
             self.equipment[slot] = None
         self.inventory = Inventory()
         self.party_pos = 0
+        self.combat_stack = CombatStack(self)
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -188,6 +192,13 @@ class GDO_Player(GDO):
         if name := self.gdo_val('p_npc_name'):
             return f"{name}[{self.get_id()}]"
         return self.get_user().render_name()
+
+    def new_combat(self, enemies: 'GDO_Party'):
+        self.combat_stack.reset()
+        return self
+
+    def combat_tick(self):
+        self.combat_stack.tick()
 
     def kill(self):
         pass

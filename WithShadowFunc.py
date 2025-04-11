@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Item import GDO_Item
     from gdo.shadowdogs.GDO_Party import GDO_Party
     from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
+    from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 from gdo.base.Trans import Trans, t
 from gdo.core.GDO_Channel import GDO_Channel
@@ -40,6 +41,9 @@ class WithShadowFunc:
 
     def gdo_method_hidden(self) -> bool:
         return True
+
+    def get_method(self, name: str) -> 'MethodSD':
+        return self.mod_sd().get_method(name)
 
     ############
     # Messages #

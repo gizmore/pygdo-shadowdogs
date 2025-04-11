@@ -3,9 +3,9 @@ from gdo.base.Method import Method
 from gdo.shadowdogs.GDT_City import GDT_City
 
 
-class known_places(Method):
+class places(Method):
     def gdo_trigger(self) -> str:
-        return 'sdknown_places'
+        return 'sdplaces'
 
     def gdo_parameters(self) -> [GDT]:
         return [
