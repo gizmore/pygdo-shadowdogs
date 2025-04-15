@@ -1,5 +1,4 @@
 from gdo.base.GDT import GDT
-from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.shadowdogs.GDO_Player import GDO_Player
 
 

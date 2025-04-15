@@ -77,4 +77,4 @@ Lamer: 3 HP atk 2 dmg 1-2 def 1
 beginner: 10 HP atk 2 dmg 1-3 def 1
 
 if rand(0, atk) >= rand(0, def)
-    dmg = rand(min, max) - armor
+    dmg = rand(min, max) - armor~~

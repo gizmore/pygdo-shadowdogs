@@ -5,7 +5,6 @@ from gdo.core.GDT_UInt import GDT_UInt
 from gdo.shadowdogs.GDO_Inventory import GDO_Inventory
 from gdo.shadowdogs.GDO_Item import GDO_Item
 from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
-from gdo.shadowdogs.GDO_Member import GDO_Member
 from gdo.shadowdogs.GDO_NPC import GDO_NPC
 from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
@@ -22,7 +21,6 @@ class module_shadowdogs(GDO_Module):
             GDO_Player,
             GDO_NPC,
             GDO_Party,
-            GDO_Member,
             GDO_Item,
             GDO_Inventory,
             GDO_Spell,

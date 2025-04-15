@@ -3,6 +3,7 @@ from gdo.date.Time import Time
 from gdo.shadowdogs.GDO_NPC import GDO_NPC
 from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.Location import Location
 
 
@@ -13,9 +14,10 @@ class Factory(WithShadowFunc):
         party = GDO_Party.blank({
             'party_action': 'outside',
             'party_target': location.get_location_key(),
-            'party_eta':  str(cls.mod_sd().cfg_time()),
+            'party_eta': str(cls.mod_sd().cfg_time()),
         }).insert()
         party.do('inside')
+        Shadowdogs.PARTIES[party.get_id] = party
         return party
 
     @classmethod

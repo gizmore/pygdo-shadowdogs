@@ -2,6 +2,7 @@ from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_AutoInc import GDT_AutoInc
+from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING
@@ -11,6 +12,7 @@ from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.engine.CombatStack import CombatStack
+from gdo.shadowdogs.engine.World import World
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.stat.Alcohol import Alcohol
 from gdo.shadowdogs.stat.Hunger import Hunger
@@ -136,7 +138,9 @@ class GDO_Player(GDO):
             GDT_AutoInc('p_id'),
 
             GDT_User('p_user'),
+
             GDT_Party('p_party'),
+            GDT_UInt('p_joined').bytes(8),
 
             GDT_NPCClass('p_npc_class'),
             GDT_RandomName('p_npc_name'),
@@ -201,7 +205,12 @@ class GDO_Player(GDO):
         self.combat_stack.tick()
 
     def kill(self):
-        pass
+        from gdo.shadowdogs.engine.Factory import Factory
+        self.get_party().members.remove(self)
+        party = Factory.create_party(World.AmBauhof15.Etage2Left)
+        party.members.append(self)
+        self.save_val('p_party', party.get_id())
+        return self
 
     def modify_all(self):
         self.column('p_race').apply(self)
@@ -249,3 +258,8 @@ class GDO_Player(GDO):
 
     def has_kp(self, location: 'Location') -> bool:
         return GDO_KnownPlaces.has_location(self, location)
+
+    def hit(self, dmg: int):
+        self.give_hp(-dmg)
+        if self.g('p_hp') <= 0:
+            self.kill()

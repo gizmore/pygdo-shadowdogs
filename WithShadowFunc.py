@@ -2,6 +2,7 @@ from typing import TYPE_CHECKING
 
 import aioconsole
 
+from gdo.base.ModuleLoader import ModuleLoader
 from gdo.core.GDO_User import GDO_User
 
 if TYPE_CHECKING:
@@ -43,7 +44,7 @@ class WithShadowFunc:
         return True
 
     def get_method(self, name: str) -> 'MethodSD':
-        return self.mod_sd().get_method(name)
+        return ModuleLoader.instance().get_method(name)
 
     ############
     # Messages #

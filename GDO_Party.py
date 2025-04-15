@@ -15,7 +15,6 @@ from gdo.shadowdogs.locations.Location import Location
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.GDO_Player import GDO_Player
-    from gdo.shadowdogs.GDO_Member import GDO_Member
     from gdo.shadowdogs.actions.Action import Action
 
 
@@ -73,21 +72,24 @@ class GDO_Party(WithShadowFunc, GDO):
         )
 
     def join(self, player: 'GDO_Player'):
-        from gdo.shadowdogs.GDO_Member import GDO_Member
-        GDO_Member.blank({
-            'm_party': self.get_id(),
-            'm_player': player.get_id(),
-        }).insert()
-        return self.add_to_members(player)
-
-    def add_to_members(self, player: 'GDO_Player'):
+        if player in self.members:
+            self.members.remove(player)
         self.members.append(player)
-        player.party_pos = len(self.members)
+        player.save_vals({
+            'p_party': self.get_id(),
+            'p_joined': str(self.mod_sd().cfg_time()),
+        })
+        return self.with_fresh_positions()
+
+    def with_fresh_positions(self):
+        for n, player in enumerate(self.members):
+            player.party_pos = n
         return self
 
-
     def kick(self, player: 'GDO_Player'):
-        pass
+        if player in self.members:
+            self.members.remove(player)
+        return self
 
     def tick(self):
         self.get_action().execute(self)

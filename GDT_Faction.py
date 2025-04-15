@@ -7,16 +7,16 @@ from gdo.core.GDT_Enum import GDT_Enum
 
 class GDT_Faction(GDT_Enum):
 
-    FREEBORN = 'freeborn'
-    CONSORT = 'consort'
-    SEEKER = 'seekers'
-    AEGIS = 'aegis'
+    FREEBORN = 'freeborn' # creators and artists of ESL.
+    CONSORT = 'consort' # accepting current state of minds.
+    SEEKER = 'seekers' # running for truth.
+    AEGIS = 'aegis' # Military and right-winged people.
 
     BONUS = {
-        'freeborn': {'int': 5, 'dex': 1, 'qui': 1, 'hac': 2},
-        'consort': {'mag': 1, 'cha': 1, 'tra': 10},
-        'seeker': {},
-        'aegis': {'bod': 1, 'str': 1, 'fig': 2, 'attack': 5},
+        'freeborn': {'int': 5, 'wis': 2, 'dex': 1, 'qui': 1, 'hac': 5},
+        'consort': {'mag': 5, 'cha': 1, 'tra': 10},
+        'seeker': {}, # all start fresh.
+        'aegis': {'bod': 1, 'str': 1, 'fig': 2, 'attack': 5, 'dex': 2, 'qui': 2},
     }
 
     def gdo_choices(self) -> dict:
