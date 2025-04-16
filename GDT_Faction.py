@@ -14,7 +14,7 @@ class GDT_Faction(GDT_Enum):
 
     BONUS = {
         'freeborn': {'int': 5, 'wis': 2, 'dex': 1, 'qui': 1, 'hac': 5},
-        'consort': {'mag': 5, 'cha': 1, 'tra': 10},
+        'consort': {'mag': 3, 'cha': 1, 'tra': 10},
         'seeker': {}, # all start fresh.
         'aegis': {'bod': 1, 'str': 1, 'fig': 2, 'attack': 5, 'dex': 2, 'qui': 2},
     }

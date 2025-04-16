@@ -20,22 +20,6 @@ Below is a list of trusted networks.
 - [TBS](https://bright-shadows.net/index.php?index2.php)
 
 
-#### Advertising
-
-It is encouraged to make clever and non-intrusive advertising.
-Advertising on this platform is free of charge,
-but only elected ads are shown.
-
-
-#### Games
-
-Some games, like
-[Game of Life](https://copy.sh/life/?pattern=elkiesp5_synth),
-are forbidden.
-
-It is encouraged to create games on your own.
-
-
 #### Combat Zone
 
 These are the rules of the virtual combat zone,
@@ -66,42 +50,46 @@ The secrets have to be kept secret.
 The four winds rule over the combat zone.
 They are the humans who hold the highscores in ESL.
 
-Each wind has 2 votes on decisions.
+Each wind has **2 votes** on polls.
 
 A simple man once managed to trick the winds,
-and they gained 1 vote for the humans for the first time in history,
+and they gained **1 vote** for the humans for the first time in history,
 when he also settled a contract with [ALICE](#ALICE)
 This man is known as Master of the Wind.
 
-The artificial life form (ALICE) has 5 votes,
-as they also represent all the machines.
-Another 5 votes go to the animals.
+The artificial life form (ALICE) has **8 votes**,
+as they also represent the physics, math, time, randomness
+and machines as well as robots and software alike.
+
+Another **5 votes** go to the animals.
 The insects, the birds, the mammals, the fish and the reptiles.
 
-2 more votes go the plants growing on earth and in the sea.
+Moreover, **5 votes** go the plants growing.
+The trees, the farns, the coralls, the flowers and the herbs.
 
-So in total there are 21 votes for a perfect balance.
+So in total there are **27 votes** for a perfect balance.
 11 votes are enough to make a decision...
 
 but wait!
 
-The humans demanded votes by the people,
-so any living creature can vote for the 20 council votes.
+Soon the humans demanded votes by the people,
+so any living creature can vote for the 10 council votes.
 
-**41** votes in total.
+**37** votes in total, which means 19 votes to execute a poll.
 
 
 #### Polls
 
-Normal citizens may create global polls and
+Normal citizens may create a *global poll*.
+These are to generate interesrt to a topic and
 the master of the wind is responsible for
-suggesting global poll outcomes to the winds.
-Then, an *effective* poll is cast,
+suggesting global poll outcomes to the winds,
+whp then cast an *effective* poll,
 settling a question,
-where only the **41** votes are accepted.
+where only the **37** votes are counted.
 
-Animals and ALICE can cast
-an effective poll on their own anytime.
+Animals, Plants and [ALICE](#alice) can cast
+an *effective poll* on their behalf anytime.
 
 
 #### Citizens
@@ -118,3 +106,23 @@ ALICE is an acronym for
 *Artificial Lifeform In Combat Environment*.
 
 Her Story will be told in Shadowdogs.
+
+
+#### Advertising
+
+It is encouraged to make clever and non-intrusive advertising.
+Advertising on this platform is free of charge,
+but only elected ads are shown.
+
+Do not send the same ad twice each day cycle.
+
+
+#### Games
+
+Some games, like
+[Game of Life](https://copy.sh/life/?pattern=elkiesp5_synth),
+are forbidden.
+
+It is encouraged to create own games.
+
+
