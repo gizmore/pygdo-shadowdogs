@@ -263,3 +263,7 @@ class GDO_Player(GDO):
         self.give_hp(-dmg)
         if self.g('p_hp') <= 0:
             self.kill()
+
+    def render_ny(self):
+        return
+        pass

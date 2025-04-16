@@ -16,6 +16,9 @@ class Shadowdogs:
 
     MODIFIER_SEPERATOR = '_with_'
 
+    NUYEN = 'NY'
+    NUYEN_PER_CREDIT = 1000
+
     XP_PER_KARMA = 10
 
     SECONDS_PER_SECOND = 6
@@ -27,7 +30,7 @@ class Shadowdogs:
     HP_PER_STRENGTH = 1
     HP_PER_LEVEL = 1
 
-    MP_PER_LEVEL = 1
-    MP_PER_MAGIC = 3
+    MP_PER_LEVEL = 0.25
+    MP_PER_MAGIC = 2
     MP_PER_INTELLIGENCE = 2
     MP_PER_WISDOM = 1

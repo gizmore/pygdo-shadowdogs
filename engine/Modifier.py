@@ -13,4 +13,5 @@ class Modifier(GDT_UInt):
         self.initial('0')
 
     def apply(self, target: 'GDO_Player'):
-        raise Exception(f"Modifier {self.__class__.__name__} has no apply.")
+        target.apply(self.get_name(), self.get_value())
+        return self
