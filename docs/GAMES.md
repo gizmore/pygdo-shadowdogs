@@ -14,10 +14,10 @@ In turns, a player attacks with one of his cards the hand of another player, by 
 The number of won battles is your score (+-16 points)
 
 
-J1: 0 # makes always win
-J2: 22
-10: 10
-J: 11
-Q: 18
-K: 17
-A: 21
+ - J1: 0 # makes always win
+ - J2: 22
+ - 10: 10
+ - J: 11
+ - Q: 18
+ - K: 17
+ - A: 21
