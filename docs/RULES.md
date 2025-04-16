@@ -5,7 +5,7 @@
 These are the rules of the reality, or simulation, as we call it.
 
  - Laws of your locality apply.
- - It is forbidden to cut hedges too much.
+ - It is forbidden to cut he dges too much.
 
 
 #### The Internet
@@ -52,8 +52,8 @@ They are the humans who hold the highscores in ESL.
 
 Each wind has 2 votes on polls, resulting in **8 votes**.
 
-A special **5 votes** were gathered by a special player.
-Thy once tricked the winds and unlocked the first votes to the mortal humans or even citizens.
+A special **3 votes** were gathered by a special player.
+Thy once tricked Zeus, Alice and the winds and unlocked the first votes to the humans and citizens.
 Thy also settled a contract with [ALICE](#ALICE).
 This man is hence known as the Master of the Wind.
 
@@ -67,20 +67,20 @@ The insects, the birds, the mammals, the fish and the reptiles.
 Moreover, **10 votes** go the plants growing.
 The trees, the farn, the corals, the flowers and the herbs.
 
-So in total there are **47 votes** for a perfect balance.
+So in total there are **45 votes** for a perfect balance.
 14 votes are enough to make a decision...
 
 but wait!
 
 Soon the humans demanded votes for all the citizens,
 so any living creature can vote for the council votes,
-which are another **8 votes**.
+which are another **4 votes**.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
 
-Finally, **57** votes in total may occur,
-which means 28 votes to execute a poll with *simple consent*.
+Finally, **51** votes in total may occur,
+which means 26 votes to execute a poll with *simple consent*.
 
 
 #### Polls
