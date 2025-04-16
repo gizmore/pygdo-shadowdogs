@@ -1,5 +1,14 @@
 # Games
 
+Games featured on pygdo chats and friends.
+
+ - Zork via Nimda3 IRC bot
+ - Shadowlamb5 via Lamb3 IRC bot
+ - various cardgames via Dog PyGDO Chatbot
+ - Shadowdogs via Dog PyGDO Chatbot
+ - Slapwarz (tm)
+
+
 ## CardGames
 
 So far, scum, blackjack and an own sdc cardgame has been implemented.
@@ -21,3 +30,8 @@ The number of won battles is your score (+-16 points)
  - Q: 18
  - K: 17
  - A: 21
+
+ - diamond *= 1
+ - heart *= 2
+ - spade *= 3
+ - club *= 4
