@@ -50,43 +50,48 @@ The secrets have to be kept secret.
 The four winds rule over the combat zone.
 They are the humans who hold the highscores in ESL.
 
-Each wind has **2 votes** on polls.
+Each wind has 2 votes on polls, resulting in **8 votes**.
 
-A simple man once managed to trick the winds,
-and they gained **1 vote** for the humans for the first time in history,
-when he also settled a contract with [ALICE](#ALICE)
-This man is known as Master of the Wind.
+A special **1 vote** was gathered by a special player.
+Thy once tricked the winds and unlocked the first vote the mortal humans,
+and also settled a contract with [ALICE](#ALICE)
+This man is hence known as the Master of the Winds.
 
-The artificial life form (ALICE) has **8 votes**,
-as they also represent the physics, math, time, randomness
-and machines as well as robots and software alike.
+The artificial life form (ALICE) also has **8 votes**,
+as they represent the physics, math, time, randomness
+and machines as well as robots and also all the software alike.
 
-Another **5 votes** go to the animals.
+Another **7 votes** go to the animals.
 The insects, the birds, the mammals, the fish and the reptiles.
 
-Moreover, **5 votes** go the plants growing.
-The trees, the farns, the coralls, the flowers and the herbs.
+Moreover, **7 votes** go the plants growing.
+The trees, the farn, the corals, the flowers and the herbs.
 
-So in total there are **27 votes** for a perfect balance.
-11 votes are enough to make a decision...
+So in total there are **31 votes** for a perfect balance.
+14 votes are enough to make a decision...
 
 but wait!
 
 Soon the humans demanded votes by the people,
-so any living creature can vote for the 10 council votes.
+so any living creature can vote for the council votes,
+which are another **8 votes**.
 
-**37** votes in total, which means 19 votes to execute a poll.
+Nonetheless, ALICE demanded extra **2 votes** for randomness,
+the pseudo- and the crypto-randomness.
+
+Finally, **41** votes in total may occur,
+which means 21 votes to execute a poll with *simple consent*.
 
 
 #### Polls
 
 Normal citizens may create a *global poll*.
-These are to generate interesrt to a topic and
+These are to generate interest to a topic and
 the master of the wind is responsible for
 suggesting global poll outcomes to the winds,
 whp then cast an *effective* poll,
 settling a question,
-where only the **37** votes are counted.
+where only the **41 votes** are counted.
 
 Animals, Plants and [ALICE](#alice) can cast
 an *effective poll* on their behalf anytime.
