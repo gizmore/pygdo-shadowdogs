@@ -6,6 +6,11 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class attack(MethodSD):
 
+    def sd_requires_action(self) -> list[str]|None:
+        return [
+            'fight',
+        ]
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(GDT_TargetArg('target').foes().not_null())
         super().gdo_create_form(form)

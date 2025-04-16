@@ -112,6 +112,10 @@ class GDO_Party(WithShadowFunc, GDO):
         party.do('fight', self.get_id())
         await self.send_to_party(self, 'msg_sd_fight_started', (party.render_members(),))
         await self.send_to_party(party, 'msg_sd_fight_started', (self.render_members(),))
+        for player in self.members:
+            player.combat_stack.reset()
+        for player in party.members:
+            player.combat_stack.reset()
         return self
 
     def render_members(self) -> str:

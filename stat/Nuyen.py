@@ -6,7 +6,9 @@ class Nuyen(Modifier):
 
     def __init__(self, name: str):
         super().__init__(name)
-        self.bytes(4)
+        self.bytes(8)
+        self.initial('0')
+        self.not_null()
 
     def render(self):
         return self.get_value() + Shadowdogs.NUYEN

@@ -6,6 +6,7 @@ if TYPE_CHECKING:
 
 class GDT_TargetArg(GDT_String):
 
+    _room: bool
     _obstacles: bool
     _friends: bool
     _foes: bool
@@ -16,9 +17,14 @@ class GDT_TargetArg(GDT_String):
         self.ascii()
         self.case_s()
         self.maxlen(96)
+        self._room = False
         self._obstacles = False
         self._friends = False
         self._foes = False
+
+    def room(self, room: bool = True):
+        self._room = room
+        return self
 
     def obstacles(self, obstacles: bool = True):
         self._obstacles = obstacles

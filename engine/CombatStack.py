@@ -1,3 +1,4 @@
+from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 from typing import TYPE_CHECKING
@@ -17,7 +18,9 @@ class CombatStack(WithShadowFunc):
 
     def reset(self):
         self.command = 'sdattack'
-        self.eta = 0
+        qui = self.player.g('qui')
+        fig = self.player.g('fig')
+        self.eta = self.mod_sd().cfg_time() + Random.mrand(2, max(30 // (qui + fig) // 2, 4))
 
     def tick(self):
         t = self.mod_sd().cfg_time()

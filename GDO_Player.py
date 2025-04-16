@@ -17,6 +17,7 @@ from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.stat.Alcohol import Alcohol
 from gdo.shadowdogs.stat.Hunger import Hunger
 from gdo.shadowdogs.stat.Karma import Karma
+from gdo.shadowdogs.stat.Nuyen import Nuyen
 from gdo.shadowdogs.stat.Thirst import Thirst
 from gdo.shadowdogs.stat.XP import XP
 
@@ -151,6 +152,8 @@ class GDO_Player(GDO):
 
             HP('p_hp'),
             MP('p_mp'),
+
+            Nuyen('p_nuyen'),
 
             GDT_Race('p_race').not_null(),
             GDT_Gender('p_gender').simple().not_null(),
