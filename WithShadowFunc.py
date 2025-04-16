@@ -69,24 +69,24 @@ class WithShadowFunc:
     # Items #
     #########
 
-    def give_items(self, player: 'GDO_Player', items: dict[str,int]):
+    async def give_items(self, player: 'GDO_Player', items: dict[str,int]):
         for item_name, count in items.items():
-            self.give_item(player, item_name, count)
+            await self.give_item(player, item_name, count)
 
-    def give_item(self, player: 'GDO_Player', item_name: str, item_count: int):
+    async def give_item(self, player: 'GDO_Player', item_name: str, item_count: int):
         from gdo.shadowdogs.GDO_Item import GDO_Item
         item = GDO_Item.create(item_name, item_count, player)
         player.inventory.append(item)
-        self.send_to_party(player.get_party(), 'sd_item_received', (item_name,))
+        await self.send_to_party(player.get_party(), 'sd_item_received', (item_name,))
 
     ######
     # KP #
     ######
 
-    def give_kp(self, player: 'GDO_Player', location: 'Location'):
+    async def give_kp(self, player: 'GDO_Player', location: 'Location'):
         from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
         party = player.get_party()
         for member in party.members:
             if not member.has_kp(location):
-                self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))
+                await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))
                 GDO_KnownPlaces.give_kp(player, location)

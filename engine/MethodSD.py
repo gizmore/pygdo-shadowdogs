@@ -5,6 +5,13 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 class MethodSD(WithShadowFunc, MethodForm):
 
+    def gdo_trigger(self) -> str:
+        return self.__class__.__name__
+
+    @classmethod
+    def sd_short_cmd(cls) -> str:
+        return cls.__class__.__name__
+
     def sd_is_location_specific(self) -> bool:
         return False
 

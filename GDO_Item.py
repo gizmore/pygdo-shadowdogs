@@ -40,7 +40,5 @@ class GDO_Item(GDO):
             'item_mods': Strings.substr_from(name, Shadowdogs.MODIFIER_SEPERATOR),
         }).insert()
 
-    @functools.lru_cache
-    def get_item(self) -> Item:
+    def to_value(self, val: str):
         return items.get_item(self.gdo_val('item_name'), self.gdo_val('item_mods'), self.gdo_value('item_count'))
-

@@ -6,6 +6,10 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class attack(MethodSD):
 
+    @classmethod
+    def sd_short_cmd(cls) -> str:
+        return "a"
+
     def sd_requires_action(self) -> list[str]|None:
         return [
             'fight',

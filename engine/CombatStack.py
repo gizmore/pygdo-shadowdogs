@@ -18,9 +18,9 @@ class CombatStack(WithShadowFunc):
 
     def reset(self):
         self.command = 'sdattack'
-        qui = self.player.g('qui')
-        fig = self.player.g('fig')
-        self.eta = self.mod_sd().cfg_time() + Random.mrand(2, max(30 // (qui + fig) // 2, 4))
+        qui = self.player.g('p_qui')
+        fig = self.player.g('p_fig')
+        self.eta = self.mod_sd().cfg_time() + Random.mrand(2, max(60 // (((1 + qui + fig) // 2) + 1), 4))
 
     def tick(self):
         t = self.mod_sd().cfg_time()

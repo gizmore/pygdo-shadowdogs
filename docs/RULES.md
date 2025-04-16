@@ -57,30 +57,30 @@ Thy once tricked Zeus, Alice and the winds and unlocked the first votes to the h
 Thy also settled a contract with [ALICE](#ALICE).
 This man is hence known as the Master of the Wind.
 
-ALICE has **14 votes**,
+ALICE has **7 votes**,
 as they represent the physics, math, time, randomness
 the machines and robots and also all the free and commercial software alike.
 
-Another **10 votes** go to the animals.
+Another **5 votes** go to the animals.
 The insects, the birds, the mammals, the fish and the reptiles.
 
-Moreover, **10 votes** go the plants growing.
+Moreover, **5 votes** go the plants growing.
 The trees, the farn, the corals, the flowers and the herbs.
 
-So in total there are **45 votes** for a perfect balance.
-14 votes are enough to make a decision...
+So in total there are **28 votes** for a perfect balance.
+15 votes are enough to make a decision...
 
 but wait!
 
 Soon the humans demanded votes for all the citizens,
 so any living creature can vote for the council votes,
-which are another **4 votes**.
+which are another **3 votes** for the young, the middles and the old.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
 
-Finally, **51** votes in total may occur,
-which means 26 votes to execute a poll with *simple consent*.
+Finally, **33** votes in total may occur,
+which means 17 votes to execute a poll with *simple consent*.
 
 
 #### Polls
