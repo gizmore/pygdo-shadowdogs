@@ -52,35 +52,35 @@ They are the humans who hold the highscores in ESL.
 
 Each wind has 2 votes on polls, resulting in **8 votes**.
 
-A special **1 vote** was gathered by a special player.
-Thy once tricked the winds and unlocked the first vote the mortal humans,
-and also settled a contract with [ALICE](#ALICE)
-This man is hence known as the Master of the Winds.
+A special **5 votes** were gathered by a special player.
+Thy once tricked the winds and unlocked the first votes to the mortal humans or even citizens.
+Thy also settled a contract with [ALICE](#ALICE).
+This man is hence known as the Master of the Wind.
 
-The artificial life form (ALICE) also has **8 votes**,
+ALICE has **14 votes**,
 as they represent the physics, math, time, randomness
-and machines as well as robots and also all the software alike.
+the machines and robots and also all the free and commercial software alike.
 
-Another **7 votes** go to the animals.
+Another **10 votes** go to the animals.
 The insects, the birds, the mammals, the fish and the reptiles.
 
-Moreover, **7 votes** go the plants growing.
+Moreover, **10 votes** go the plants growing.
 The trees, the farn, the corals, the flowers and the herbs.
 
-So in total there are **31 votes** for a perfect balance.
+So in total there are **47 votes** for a perfect balance.
 14 votes are enough to make a decision...
 
 but wait!
 
-Soon the humans demanded votes by the people,
+Soon the humans demanded votes for all the citizens,
 so any living creature can vote for the council votes,
 which are another **8 votes**.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
 
-Finally, **41** votes in total may occur,
-which means 21 votes to execute a poll with *simple consent*.
+Finally, **57** votes in total may occur,
+which means 28 votes to execute a poll with *simple consent*.
 
 
 #### Polls
