@@ -20,8 +20,7 @@ These values apply for the Shadowdogs cardgame.
 
 In turns, a player attacks with one of his cards the hand of another player, by tipping a backside.
 
-The number of won battles is your score (+-16 points)
-
+The sum of your won cards is your score.
 
  - J1: 0 # makes always win
  - J2: 22
