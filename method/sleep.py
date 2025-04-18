@@ -5,6 +5,7 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 class sleep(WithShadowFunc, Method):
 
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdsleep'
 

@@ -8,6 +8,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class reset(MethodSD):
 
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdreset'
 

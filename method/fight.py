@@ -4,6 +4,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class fight(MethodSD):
 
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdfight'
 

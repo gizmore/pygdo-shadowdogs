@@ -8,6 +8,8 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class time(MethodSD):
+
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdtime'
 

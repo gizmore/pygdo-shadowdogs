@@ -4,6 +4,8 @@ from gdo.shadowdogs.GDT_City import GDT_City
 
 
 class places(Method):
+
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdplaces'
 

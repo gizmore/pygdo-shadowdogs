@@ -13,10 +13,12 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class explore(MethodSD):
 
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdexplore'
 
-    def gdo_trigger(cls) -> str:
+    @classmethod
+    def gdo_trig(cls) -> str:
         return 'sdexp'
 
     # def gdo_create_form(self, form: GDT_Form) -> None:

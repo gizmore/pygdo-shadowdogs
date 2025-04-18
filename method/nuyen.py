@@ -5,6 +5,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class nuyen(MethodSD):
 
+    @classmethod
     def gdo_trigger(cls) -> str:
         return "sdnuyen"
 
