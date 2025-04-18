@@ -6,7 +6,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class spells(MethodSD):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdspells'
 
     def gdo_parameters(self) -> [GDT]:

@@ -10,7 +10,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class gdt(MethodSD):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdgdt'
 
     def gdo_user_permission(self) -> str | None:

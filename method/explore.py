@@ -8,12 +8,16 @@ from gdo.shadowdogs.GDO_Party import GDO_Party
 from gdo.shadowdogs.GDO_Player import GDO_Player
 from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 
-class explore(WithShadowFunc, MethodForm):
+class explore(MethodSD):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdexplore'
+
+    def gdo_trigger(cls) -> str:
+        return 'sdexp'
 
     # def gdo_create_form(self, form: GDT_Form) -> None:
     #     form.add_field(

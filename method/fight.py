@@ -4,7 +4,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class fight(MethodSD):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdfight'
 
     def gdo_has_permission(self, user: 'GDO_User'):

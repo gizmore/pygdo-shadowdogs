@@ -16,7 +16,8 @@ from gdo.user.GDT_Gender import GDT_Gender
 
 class start(MethodSD):
 
-    def gdo_trigger(self) -> str:
+    @classmethod
+    def gdo_trigger(cls) -> str:
         return 'sdstart'
 
     def sd_requires_player(self) -> bool:

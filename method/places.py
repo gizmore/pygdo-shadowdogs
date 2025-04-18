@@ -4,7 +4,7 @@ from gdo.shadowdogs.GDT_City import GDT_City
 
 
 class places(Method):
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdplaces'
 
     def gdo_parameters(self) -> [GDT]:

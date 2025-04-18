@@ -5,7 +5,7 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 class sleep(WithShadowFunc, Method):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdsleep'
 
     def sd_is_location_specific(self) -> bool:

@@ -8,7 +8,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class reset(MethodSD):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdreset'
 
     def gdo_create_form(self, form: GDT_Form) -> None:

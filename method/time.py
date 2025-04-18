@@ -8,7 +8,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class time(MethodSD):
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdtime'
 
     def sd_requires_player(self) -> bool:

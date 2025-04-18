@@ -5,7 +5,7 @@ from gdo.shadowdogs.GDT_ItemArg import GDT_ItemArg
 
 class examine(Method):
 
-    def gdo_trigger(self) -> str:
+    def gdo_trigger(cls) -> str:
         return 'sdexamine'
 
     def gdo_parameters(self) -> [GDT]:
