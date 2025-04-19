@@ -4,16 +4,16 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Party import GDO_Party
+    from gdo.shadowdogs.SD_Party import SD_Party
 
 
 class Action(WithShadowFunc):
 
-    def execute(self, party: 'GDO_Party'):
+    def execute(self, party: 'SD_Party'):
         pass
 
-    def sleeping(self, party: 'GDO_Party'):
+    def sleeping(self, party: 'SD_Party'):
         pass
 
-    def get_target(self, party: 'GDO_Party'):
+    def get_target(self, party: 'SD_Party'):
         raise ShadowdogsException('err_sd_stub')

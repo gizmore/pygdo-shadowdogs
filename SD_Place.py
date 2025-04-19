@@ -7,10 +7,10 @@ from gdo.shadowdogs.locations.Location import Location
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class GDO_KnownPlaces(GDO):
+class SD_Place(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -20,11 +20,11 @@ class GDO_KnownPlaces(GDO):
         ]
 
     @classmethod
-    def has_location(cls, player: 'GDO_Player', location: Location):
+    def has_location(cls, player: 'SD_Player', location: Location):
         return cls.table().get_by_id(player.get_id(), location.get_location_key())
 
     @classmethod
-    def give_kp(cls, player: 'GDO_Player', location: Location):
+    def give_kp(cls, player: 'SD_Player', location: Location):
         cls.blank({
             'kp_player': player.get_id(),
             'kp_location': location.get_location_key(),

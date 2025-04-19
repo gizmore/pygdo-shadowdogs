@@ -5,6 +5,6 @@ class GDT_Item(GDT_Object):
 
     def __init__(self, name: str):
         super().__init__(name)
-        from gdo.shadowdogs.GDO_Item import GDO_Item
-        self.table(GDO_Item.table())
+        from gdo.shadowdogs.SD_Item import SD_Item
+        self.table(SD_Item.table())
 

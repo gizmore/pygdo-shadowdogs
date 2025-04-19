@@ -1,7 +1,7 @@
 from gdo.core.GDT_String import GDT_String
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Party import GDO_Party
+    from gdo.shadowdogs.SD_Party import SD_Party
 
 
 class GDT_TargetArg(GDT_String):

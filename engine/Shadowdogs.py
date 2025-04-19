@@ -3,21 +3,21 @@ from typing import TYPE_CHECKING
 from gdo.base.Util import Strings
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Party import GDO_Party
-    from gdo.shadowdogs.GDO_Player import GDO_Player
-    from gdo.shadowdogs.GDO_NPC import GDO_NPC
+    from gdo.shadowdogs.SD_Party import SD_Party
+    from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.SD_NPC import SD_NPC
 
 
 class Shadowdogs:
 
-    PARTIES: dict[str,'GDO_Party'] = {}
-    PLAYERS: dict[str,'GDO_Player'] = {}
-    NPCS: dict[str,'GDO_NPC'] = {}
+    PARTIES: dict[str,'SD_Party'] = {}
+    PLAYERS: dict[str,'SD_Player'] = {}
+    NPCS: dict[str,'SD_NPC'] = {}
 
     MODIFIER_SEPERATOR = '_with_'
 
     NUYEN = 'NY'
-    NUYEN_PER_CREDIT = 1000
+    NUYEN_PER_CREDIT = 100
 
     XP_PER_KARMA = 10
 

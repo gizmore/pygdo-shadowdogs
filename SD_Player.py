@@ -7,7 +7,7 @@ from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING
 
-from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
+from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.attr.Magic import Magic
@@ -22,7 +22,7 @@ from gdo.shadowdogs.stat.Thirst import Thirst
 from gdo.shadowdogs.stat.XP import XP
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Party import GDO_Party
+    from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.GDT_Faction import GDT_Faction
 from gdo.shadowdogs.GDT_Item import GDT_Item
 from gdo.shadowdogs.GDT_Party import GDT_Party
@@ -47,7 +47,7 @@ from gdo.shadowdogs.stat.MP import MP
 from gdo.user.GDT_Gender import GDT_Gender
 
 
-class GDO_Player(GDO):
+class SD_Player(GDO):
 
     SLOTS = [
         'p_weapon',
@@ -200,7 +200,7 @@ class GDO_Player(GDO):
             return f"{name}[{self.get_id()}]"
         return self.get_user().render_name()
 
-    def new_combat(self, enemies: 'GDO_Party'):
+    def new_combat(self, enemies: 'SD_Party'):
         self.combat_stack.reset()
         return self
 
@@ -256,11 +256,11 @@ class GDO_Player(GDO):
     def give_mp(self, mp: int):
         return self.s('p_mp', min(self.g('p_mp') + mp, self.g('p_max_mp')))
 
-    def get_party(self) -> 'GDO_Party':
+    def get_party(self) -> 'SD_Party':
         return self.gdo_value('p_party')
 
     def has_kp(self, location: 'Location') -> bool:
-        return GDO_KnownPlaces.has_location(self, location)
+        return SD_Place.has_location(self, location)
 
     def hit(self, dmg: int):
         self.give_hp(-dmg)

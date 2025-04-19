@@ -35,7 +35,7 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdstart elf mail')
         self.assertIn('Suggestions', out, 'sdstart throws no error.')
         out = cli_plug(gizmore, '$sdstart male human')
-        self.assertIn('You created your character', out, 'sdstart throws no error.')
+        self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdgdt gizmore{1} lamer,lamer')
         self.assertIn('encounter', out, 'gdt does not work.')
         await self.ticker(10)

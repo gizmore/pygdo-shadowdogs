@@ -1,7 +1,7 @@
 import glob
 
-from gdo.shadowdogs.GDO_Party import GDO_Party
-from gdo.shadowdogs.GDO_Player import GDO_Player
+from gdo.shadowdogs.SD_Party import SD_Party
+from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
@@ -23,7 +23,7 @@ class Loader:
 
     @classmethod
     def load_parties(cls):
-        parties = (GDO_Party.table().select().
+        parties = (SD_Party.table().select().
                    where("party_action IN ('goto', 'explore', 'talk', 'sleep', 'travel', 'fight', 'hack')").
                    exec().fetch_all())
         for party in parties:
@@ -31,14 +31,14 @@ class Loader:
 
     @classmethod
     def load_player(cls, player_id: str):
-        player = GDO_Player.table().get_by_aid(player_id)
-        for slot in GDO_Player.SLOTS:
+        player = SD_Player.table().get_by_aid(player_id)
+        for slot in SD_Player.SLOTS:
             player.equipment[slot] = player.gdo_value(slot)
         return player
 
     @classmethod
-    def load_party(cls, party: GDO_Party):
-        pids = GDO_Player.table().select().order('m_created DESC').where(f'm_party={party.get_id()}').exec(False).fetch_column()
+    def load_party(cls, party: SD_Party):
+        pids = SD_Player.table().select().order('m_created DESC').where(f'm_party={party.get_id()}').exec(False).fetch_column()
         for pid in pids:
             player = cls.load_player(pid)
             Shadowdogs.PLAYERS[player.get_id()] = player

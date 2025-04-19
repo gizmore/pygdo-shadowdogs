@@ -4,8 +4,8 @@ from gdo.base.Trans import t
 from gdo.date.Time import Time
 from gdo.form.GDT_Form import GDT_Form
 from gdo.form.MethodForm import MethodForm
-from gdo.shadowdogs.GDO_Party import GDO_Party
-from gdo.shadowdogs.GDO_Player import GDO_Player
+from gdo.shadowdogs.SD_Party import SD_Party
+from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.GDT_Race import GDT_Race
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.city.AmBauhof15.AmBauhof15 import AmBauhof15
@@ -34,7 +34,7 @@ class start(MethodSD):
         if self.get_player():
             return self.err('err_sd_already_started')
         party = Factory.create_party(AmBauhof15.Etage2Left)
-        player = GDO_Player.blank({
+        player = SD_Player.blank({
             'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),
             'p_gender': self.param_val('gender'),
@@ -47,7 +47,7 @@ class start(MethodSD):
         await self.character_created(player)
         return self.empty()
 
-    async def character_created(self, player: GDO_Player):
+    async def character_created(self, player: SD_Player):
         await self.broadcast('msg_sd_new_player', (player.column('p_gender').render(Mode.TXT), player.column('p_race').render(Mode.TXT)))
         await self.send_to_player(player, t('sd_story_1'))
         await self.send_to_player(player, t('sd_story_2'))

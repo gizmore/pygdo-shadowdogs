@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
@@ -16,11 +16,10 @@ from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_ItemName import GDT_ItemName
 from gdo.shadowdogs.GDT_Modifiers import GDT_Modifiers
 from gdo.shadowdogs.GDT_Player import GDT_Player
-from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.data.items import items
 
 
-class GDO_Item(GDO):
+class SD_Item(GDO):
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('item_id'),
@@ -32,7 +31,7 @@ class GDO_Item(GDO):
         ]
 
     @classmethod
-    def create(cls, name: str, count: int, player: 'GDO_Player' = None) -> 'GDO_Item':
+    def create(cls, name: str, count: int, player: 'SD_Player' = None) -> 'SD_Item':
         return cls.blank({
             'item_owner': player.get_id() if player else None,
             'item_name': Strings.substr_to(name, Shadowdogs.MODIFIER_SEPERATOR, name),

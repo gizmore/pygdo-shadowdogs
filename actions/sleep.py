@@ -2,16 +2,16 @@ from gdo.shadowdogs.actions.Action import Action
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Party import GDO_Party
+    from gdo.shadowdogs.SD_Party import SD_Party
 
 
 class sleep(Action):
 
-    def get_target(self, party: 'GDO_Party'):
+    def get_target(self, party: 'SD_Party'):
         from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
         return Shadowdogs.get_location(party.get_target_string())
 
-    def sleeping(self, party: 'GDO_Party'):
+    def sleeping(self, party: 'SD_Party'):
         wakeup = True
         for player in party.members:
             player.give_hp(player.g('p_body'))

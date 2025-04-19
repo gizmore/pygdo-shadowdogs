@@ -1,10 +1,10 @@
-from gdo.shadowdogs.GDO_Player import GDO_Player
+from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.Modifier import Modifier
 
 
 class Weight(Modifier):
 
-    def apply(self, player: 'GDO_Player'):
+    def apply(self, player: 'SD_Player'):
         for item in player.all_items():
             player.apply('p_weight', item.get_weight())
         if player.is_overloaded():

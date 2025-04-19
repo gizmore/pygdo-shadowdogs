@@ -1,5 +1,5 @@
-from gdo.shadowdogs.GDO_NPC import GDO_NPC
+from gdo.shadowdogs.SD_NPC import SD_NPC
 
 
-class Mob(GDO_NPC):
+class Mob(SD_NPC):
     pass

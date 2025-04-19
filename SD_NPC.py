@@ -1,11 +1,8 @@
 from gdo.base.GDT import GDT
-from gdo.shadowdogs.GDO_Player import GDO_Player
+from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class GDO_NPC(GDO_Player):
-
-    def gdo_table_name(cls) -> str:
-        return 'gdo_player'
+class SD_NPC(SD_Player):
 
     def gdo_columns(self) -> list[GDT]:
         cols = super().gdo_columns()
@@ -18,5 +15,5 @@ class GDO_NPC(GDO_Player):
     def is_npc(self) -> bool:
         return True
 
-    def attack(self, target: 'GDO_Player'):
+    def attack(self, target: 'SD_Player'):
         pass

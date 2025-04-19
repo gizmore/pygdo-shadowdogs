@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 from gdo.core.GDT_Enum import GDT_Enum
 
@@ -27,5 +27,5 @@ class GDT_Faction(GDT_Enum):
             'aegis': 'Aegis',
         }
 
-    def apply(self, player: 'GDO_Player'):
+    def apply(self, player: 'SD_Player'):
         player.modify(self.BONUS[self.get_val()])

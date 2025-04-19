@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.data.items import items
 
@@ -25,7 +25,7 @@ class Item:
         self._modifiers = modifiers
         return self
 
-    def apply(self, player: 'GDO_Player'):
+    def apply(self, player: 'SD_Player'):
         player.modify(items.ITEMS[self._modifiers.get('name')])
         player.modify(self._modifiers)
 

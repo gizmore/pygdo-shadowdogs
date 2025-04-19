@@ -2,13 +2,13 @@ from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.GDT import GDT
 from gdo.core.GDT_UInt import GDT_UInt
-from gdo.shadowdogs.GDO_Inventory import GDO_Inventory
-from gdo.shadowdogs.GDO_Item import GDO_Item
-from gdo.shadowdogs.GDO_KnownPlaces import GDO_KnownPlaces
-from gdo.shadowdogs.GDO_NPC import GDO_NPC
-from gdo.shadowdogs.GDO_Party import GDO_Party
-from gdo.shadowdogs.GDO_Player import GDO_Player
-from gdo.shadowdogs.GDO_Spell import GDO_Spell
+from gdo.shadowdogs.SD_Inventory import SD_Inventory
+from gdo.shadowdogs.SD_Item import SD_Item
+from gdo.shadowdogs.SD_Place import SD_Place
+from gdo.shadowdogs.SD_NPC import SD_NPC
+from gdo.shadowdogs.SD_Party import SD_Party
+from gdo.shadowdogs.SD_Player import SD_Player
+from gdo.shadowdogs.SD_Spell import SD_Spell
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.items import items
@@ -18,13 +18,13 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_classes(self):
         return [
-            GDO_Player,
-            GDO_NPC,
-            GDO_Party,
-            GDO_Item,
-            GDO_Inventory,
-            GDO_Spell,
-            GDO_KnownPlaces,
+            SD_Player,
+            SD_NPC,
+            SD_Party,
+            SD_Item,
+            SD_Inventory,
+            SD_Spell,
+            SD_Place,
         ]
 
     def gdo_module_config(self) -> list[GDT]:

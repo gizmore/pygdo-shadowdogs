@@ -1,5 +1,5 @@
 from gdo.form.GDT_Form import GDT_Form
-from gdo.shadowdogs.GDO_Player import GDO_Player
+from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.GDT_TargetArg import GDT_TargetArg
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 
@@ -19,7 +19,7 @@ class attack(MethodSD):
         form.add_field(GDT_TargetArg('target').foes().not_null())
         super().gdo_create_form(form)
 
-    def get_target(self) -> GDO_Player:
+    def get_target(self) -> SD_Player:
         return self.param_value('target')
 
     def form_submitted(self):

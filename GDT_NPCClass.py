@@ -5,4 +5,4 @@ from gdo.shadowdogs.npcs.npcs import npcs
 class GDT_NPCClass(GDT_Enum):
 
     def gdo_choices(self) -> dict:
-        return { name: name for name in npcs.NPCS }
+        return { name.lower(): name for name in npcs.NPCS }

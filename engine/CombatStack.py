@@ -3,16 +3,16 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class CombatStack(WithShadowFunc):
 
     command: str
     eta: int
-    player: 'GDO_Player'
+    player: 'SD_Player'
 
-    def __init__(self, player: 'GDO_Player'):
+    def __init__(self, player: 'SD_Player'):
         self.player = player
         self.reset()
 

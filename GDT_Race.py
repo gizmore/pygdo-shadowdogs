@@ -1,7 +1,7 @@
 from gdo.core.GDT_Enum import GDT_Enum
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class GDT_Race(GDT_Enum):
@@ -52,7 +52,7 @@ class GDT_Race(GDT_Enum):
             })
         return races
 
-    def apply(self, player: 'GDO_Player'):
+    def apply(self, player: 'SD_Player'):
         bonus = self.BONUS[self.get_val()]
         for key, val in bonus.values():
             player.apply(f"p_{key}", val)

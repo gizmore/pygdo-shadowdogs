@@ -14,13 +14,13 @@ from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.GDO_Player import GDO_Player
+    from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.actions.Action import Action
 
 
-class GDO_Party(WithShadowFunc, GDO):
+class SD_Party(WithShadowFunc, GDO):
 
-    members: list['GDO_Player']
+    members: list['SD_Player']
 
     __slots__ = (
         'members',
@@ -71,7 +71,7 @@ class GDO_Party(WithShadowFunc, GDO):
             self.gdo_val('party_last_eta'),
         )
 
-    def join(self, player: 'GDO_Player'):
+    def join(self, player: 'SD_Player'):
         if player in self.members:
             self.members.remove(player)
         self.members.append(player)
@@ -86,7 +86,7 @@ class GDO_Party(WithShadowFunc, GDO):
             player.party_pos = n
         return self
 
-    def kick(self, player: 'GDO_Player'):
+    def kick(self, player: 'SD_Player'):
         if player in self.members:
             self.members.remove(player)
         return self
@@ -107,7 +107,7 @@ class GDO_Party(WithShadowFunc, GDO):
     def get_target_string(self):
         return self.gdo_val('party_target')
 
-    async def fight(self, party: 'GDO_Party'):
+    async def fight(self, party: 'SD_Party'):
         self.do('fight', party.get_id())
         party.do('fight', self.get_id())
         await self.send_to_party(self, 'msg_sd_fight_started', (party.render_members(),))

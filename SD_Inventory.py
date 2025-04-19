@@ -6,7 +6,7 @@ from gdo.shadowdogs.GDT_Item import GDT_Item
 from gdo.shadowdogs.GDT_Player import GDT_Player
 
 
-class GDO_Inventory(GDO):
+class SD_Inventory(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [

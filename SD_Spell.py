@@ -5,7 +5,7 @@ from gdo.shadowdogs.GDT_Player import GDT_Player
 from gdo.shadowdogs.GDT_Spell import GDT_Spell
 
 
-class GDO_Spell(GDO):
+class SD_Spell(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [

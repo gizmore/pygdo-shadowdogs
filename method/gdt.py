@@ -2,7 +2,7 @@ from gdo.core.GDO_Permission import GDO_Permission
 from gdo.core.GDT_Repeat import GDT_Repeat
 from gdo.core.GDT_RestOfText import GDT_RestOfText
 from gdo.form.GDT_Form import GDT_Form
-from gdo.shadowdogs.GDO_Player import GDO_Player
+from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.GDT_Player import GDT_Player
 from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.MethodSD import MethodSD
@@ -24,7 +24,7 @@ class gdt(MethodSD):
         )
         super().gdo_create_form(form)
 
-    def get_target(self) -> GDO_Player:
+    def get_target(self) -> SD_Player:
         return self.param_value('target')
 
 
