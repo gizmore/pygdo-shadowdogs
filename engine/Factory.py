@@ -41,7 +41,7 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_npc(cls, party: SD_Party, spec: dict[str,int|str]):
-        player = SD_NPC.blank({
+        player = spec['klass'].blank({
             'p_npc_class': spec['klass'],
             'p_npc_name': spec['klass'],
             'p_race': spec['p_race'],

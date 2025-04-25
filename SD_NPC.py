@@ -5,6 +5,9 @@ from gdo.shadowdogs.SD_Player import SD_Player
 
 class SD_NPC(SD_Player):
 
+    def gdo_table_name(cls) -> str:
+        return 'sd_player'
+
     def gdo_columns(self) -> list[GDT]:
         cols = super().gdo_columns()
         for col in cols:
