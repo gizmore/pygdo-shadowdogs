@@ -17,7 +17,7 @@ class Factory(WithShadowFunc):
             'party_eta': str(cls.mod_sd().cfg_time()),
         }).insert()
         party.do('inside')
-        Shadowdogs.PARTIES[party.get_id] = party
+        Shadowdogs.PARTIES[party.get_id()] = party
         return party
 
     @classmethod
