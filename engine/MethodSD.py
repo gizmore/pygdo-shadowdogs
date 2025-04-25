@@ -7,7 +7,7 @@ class MethodSD(WithShadowFunc, MethodForm):
 
     @classmethod
     def gdo_trigger(cls) -> str:
-        return 'sd' + cls.__class__.__name__
+        return 'sd' + cls.__name__
 
     @classmethod
     def gdo_trig(cls) -> str:

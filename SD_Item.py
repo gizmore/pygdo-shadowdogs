@@ -40,4 +40,4 @@ class SD_Item(GDO):
         }).insert()
 
     def to_value(self, val: str):
-        return items.get_item(self.gdo_val('item_name'), self.gdo_val('item_mods'), self.gdo_value('item_count'))
+        return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_val('item_mods'))

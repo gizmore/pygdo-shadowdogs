@@ -39,6 +39,7 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdgdt gizmore{1} lamer,lamer')
         self.assertIn('encounter', out, 'gdt does not work.')
         await self.ticker(10)
+        a = self.MESSAGES[gizmore.get_id()]
         self.assertIn('hit', out, 'attack no work')
         
 

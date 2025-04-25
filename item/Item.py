@@ -29,6 +29,8 @@ class Item:
         player.modify(items.ITEMS[self._modifiers.get('name')])
         player.modify(self._modifiers)
 
+    def get_attack_time(self) -> float:
+        return 30
 
     def get_equip_time(self) -> int:
         return 0

@@ -15,6 +15,9 @@ class attack(MethodSD):
             'fight',
         ]
 
+    def sd_combat_seconds(self) -> float:
+        return self.get_player().get_weapon().get_attack_time()
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(GDT_TargetArg('target').foes().not_null())
         super().gdo_create_form(form)
@@ -26,3 +29,4 @@ class attack(MethodSD):
         target = self.get_target()
         player = self.get_player()
         player.get_weapon().attack(target)
+        return super().form_submitted()

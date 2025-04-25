@@ -64,7 +64,7 @@ class items:
         return cls.KLASSES[klass]()
 
     @classmethod
-    def get_item(cls, name: str, count: int, mods: dict[str,int]):
+    def get_item(cls, name: str, count: int, mods: str):
         data = cls.ITEMS[name]
         item = cls.instance(data['klass']).count(count).modifiers(mods)
 

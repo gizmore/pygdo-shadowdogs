@@ -29,11 +29,13 @@ class CombatStack(WithShadowFunc):
             self.command = 'sdattack'
 
     def execute(self):
-        parts = self.command.split()
+        parts = self.command.split(" ")
         method = self.get_method(parts[0])
-        method.env_user(self.player.get_user())
+        method.env_user(self.player.get_user(), True)
         method.env_server(self.player.get_user().get_server())
-        method._raw_args.add_cli_line(parts[1:]).execute()
+        method._raw_args.add_cli_line(parts[1:])
+        gdt = method.execute()
+
         return method.sd_combat_seconds()
 
 
