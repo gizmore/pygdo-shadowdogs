@@ -1,10 +1,12 @@
-from gdo.base.Application import Application
-from gdo.date.Time import Time
-from gdo.shadowdogs.SD_NPC import SD_NPC
+from gdo.base.Util import html
+from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.engine.World import World
+from gdo.shadowdogs.item.data.items import items
+from gdo.shadowdogs.item.data.mapping import mapping
 from gdo.shadowdogs.locations.Location import Location
 
 
@@ -20,6 +22,10 @@ class Factory(WithShadowFunc):
         party.do('inside')
         Shadowdogs.PARTIES[party.get_id()] = party
         return party
+
+    ########
+    # NPCs #
+    ########
 
     @classmethod
     def create_default_npcs(cls, location: Location, *class_names: str):
@@ -50,3 +56,40 @@ class Factory(WithShadowFunc):
             'p_party': party.get_id(),
         }).insert()
         return player
+
+    #########
+    # Items #
+    #########
+
+    @classmethod
+    def create_item_gmi(cls, full_item_name: str):
+        """
+        like 2xClub_of_adonis,osiris
+        """
+        count = 1
+        if full_item_name[0].isdigit():
+            count, full_item_name = full_item_name.split('x', 1)
+        data = full_item_name.split(Shadowdogs.MODIFIER_SEPERATOR)
+        mods = data[1] if len(data) > 1 else None
+        key = data[0]
+        found = False
+        for key in items.ITEMS.keys():
+            if key.lower() == data[0].lower():
+                found = True
+                break
+        if not found:
+            raise ShadowdogsException('err_sd_invalid_item_name', (html(data[0]),))
+        if not mapping.is_valid(mods):
+            raise ShadowdogsException('err_sd_invalid_modifier', (mods,))
+
+        return cls.create_item(key, count, mods)
+
+    @classmethod
+    def create_item(cls, item_name: str, count: int=1, mods: str=None):
+        return SD_Item.blank({
+            'item_owner': '1',
+            'item_slot': 'nexus',
+            'item_name': item_name,
+            'item_mods': mods,
+            'item_count': str(count),
+        }).validated().insert()

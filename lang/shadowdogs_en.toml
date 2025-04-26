@@ -13,6 +13,16 @@ sd__concordium = "The Concordium crave Peace, but will their control become a pr
 sd__seekers = "The Seekers hunt for Truth, but can truth exist without chaos?"
 sd__iron = "The Iron Pact embrace War, but will their strength destroy them in the end?"
 
+########
+# GDTs #
+########
+err_sd_unknown_mods_mapping = "Unknown modifier magic word: %s."
+
+#########
+# Items #
+#########
+sd_receive_item_gmi = "You received %s from the GM %s."
+sd_receive_item_loot = "You received %s from looting the %s."
 
 ################
 ### Commands ###
@@ -59,3 +69,14 @@ msg_sd_reset = "Your account has been deleted so you can start over."
 mt_shadowdogs_fight = "Fight"
 md_shadowdogs_fight = "Fight an opposing party."
 msg_sd_fight_started = "You encounter %s."
+
+##########
+### GM ###
+##########
+
+#######
+# GMI #
+#######
+mt_shadowdogs_gmi = "GM Item"
+md_shadowdogs_gmi = "GM Command - Create an item for a player."
+msg_sd_gmi_success = "You successfully gave %s for %s."

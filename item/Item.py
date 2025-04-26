@@ -15,12 +15,14 @@ from gdo.shadowdogs.item.data.items import items
 class Item(WithShadowFunc):
 
     _name: str
+    _klass: str
     _owner: 'SD_Player'
     _count: int
     _modifiers: dict[str,int]
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, klass: str):
         self._name = name
+        self._klass = klass
         self._owner = None
         self._count = 1
         self._modifiers = GDO.EMPTY_DICT
@@ -54,10 +56,8 @@ class Item(WithShadowFunc):
         return items.ITEMS[self._name]
 
     def all_modifiers(self) -> Iterator[tuple[str, int]]:
-        for key, val in self.get_default_modifiers().items():
-            yield key, val
-        for key, val in self._modifiers:
-            yield key, val
+        yield from self.get_default_modifiers().items()
+        yield from self._modifiers.items()
 
     def get_player(self, user: GDO_User=None) -> 'SD_Player':
         return self._owner
@@ -68,6 +68,10 @@ class Item(WithShadowFunc):
     def apply(self, player: 'SD_Player'):
         player.modify(self.get_default_modifiers())
         player.modify(self._modifiers)
+
+    def apply_inv(self, player: 'SD_Player'):
+        weight = self.get_default_modifiers().get('weight')
+        player.apply('p_weight', weight)
 
     def get_attack_time(self) -> float:
         return 30

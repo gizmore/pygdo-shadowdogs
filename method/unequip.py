@@ -12,7 +12,7 @@ class unequip(MethodSD):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
-            GDT_ItemArg('item').inventory().not_null(),
+            GDT_ItemArg('item').equipment().not_null(),
         )
         super().gdo_create_form(form)
 
@@ -20,7 +20,9 @@ class unequip(MethodSD):
         return self.param_value('item')
 
     def get_item(self) -> Item:
-        return self.get_SD_Item().get_item()
+        return self.get_SD_Item().itm()
 
     def form_submitted(self):
-        pass
+        p = self.get_player()
+        item = self.get_SD_Item()
+        

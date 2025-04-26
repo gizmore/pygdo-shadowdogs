@@ -4,7 +4,7 @@ import unittest
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
-from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, cli_gizmore
+from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, cli_gizmore, all_private_messages
 
 
 class ShadowdogsTest(GDOTestCase):
@@ -37,13 +37,16 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdstart male human')
         self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
-        self.assertIn('received Club_of_adonis.', out, 'gmi does not work.')
+        self.assertIn('received Club_of_adonis', out, 'gmi does not work.')
+        out = cli_plug(gizmore, '$sdi')
+        self.assertIn('page 1 of 1', out, '$sdi does not work.')
+        out = cli_plug(gizmore, '$sdeq _of_ado')
+        self.assertIn('Club_of_adonis as ', out, 'eq does not work.')
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer,lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(30)
-        a = self.MESSAGES[gizmore.get_id()]
-        self.assertIn('hit', out, 'attack no work')
-        
+        self.assertIn('hit', all_private_messages(), 'attack does not work.')
+
 
 
 if __name__ == '__main__':

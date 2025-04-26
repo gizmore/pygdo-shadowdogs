@@ -1,10 +1,14 @@
-import functools
 import glob
-import importlib
+import importlib.util
 import inspect
 import os
 
 from typing import TYPE_CHECKING
+
+from gdo.base.Application import Application
+from gdo.base.Logger import Logger
+from gdo.base.Util import Strings
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.item.Item import Item
 
@@ -12,45 +16,52 @@ if TYPE_CHECKING:
 class items:
 
     KLASSES = {}
-
     ITEMS = {
-        'Fists':        {'klass': 'Fists',  'wei': 0,  'atk': 4, 'min_dmg': 1, 'max_dmg': 4},
-        'Knuckles':     {'klass': 'Fists',  'wei': 0,  'atk': 4, 'dmg': [2, 6]},
-        'Club':         {'klass': 'Thrust', 'wei': 0, 'atk': 4, 'dmg': [2, 6]},
-        'ShortSword':   {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
-        'Sword':        {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
-        'LongSword':    {'klass': 'Sword',  'wei': 0, 'atk': 6, 'dmg': []},
-        'SmallAxe':     {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
-        'MorningStar':  {'klass': 'Thrust', 'wei': 0, 'atk': 6, 'dmg': []},
+        'Fists'  :         {'klass': 'Fists',  'level': 0,  'weight': 0,    'attack': 4, 'defense': 1, 'min_dmg': 1, 'max_dmg': 4},
+        'BronzeKnuckles':  {'klass': 'Fists',  'level': 1,  'weight': 500,  'attack': 4, 'defense': 2, 'min_dmg': 2, 'max_dmg': 6},
+        'SteelKnuckles':   {'klass': 'Fists',  'level': 1,  'weight': 600,  'attack': 4, 'defense': 2, 'min_dmg': 3, 'max_dmg': 6},
+        'Club':            {'klass': 'Thrust', 'level': 2,  'weight': 1500, 'attack': 4, 'defense': 1, 'min_dmg': 2, 'max_dmg': 6},
+        'ShortSword':      {'klass': 'Sword',  'level': 3,  'weight': 1200, 'attack': 6, 'defense': 2, 'min_dmg': 3, 'max_dmg': 8},
+        'Sword':           {'klass': 'Sword',  'level': 3,  'weight': 1500, 'attack': 6, 'defense': 2, 'min_dmg': 4, 'max_dmg': 10},
+        'LongSword':       {'klass': 'Sword',  'level': 5,  'weight': 1800, 'attack': 6, 'defense': 2, 'min_dmg': 4, 'max_dmg': 12},
+        'SmallAxe':        {'klass': 'Thrust', 'level': 5,  'weight': 1000, 'attack': 6, 'defense': 1, 'min_dmg': 5, 'max_dmg': 9},
+        'MorningStar':     {'klass': 'Thrust', 'level': 5,  'weight': 2500, 'attack': 6, 'defense': 0, 'min_dmg': 5, 'max_dmg': 10},
 
-        'TShirt':       {'klass': 'Armor', 'wei': 650, 'marm': 1, 'farm': 0},
+        'TinfoilCap':    {'klass': 'Helmet', 'level': 0, 'weight': 100, 'defense': 1, 'marm': 0, 'farm': 1},
+        'BaseballCap':   {'klass': 'Helmet', 'level': 1, 'weight': 180, 'defense': 1, 'marm': 1, 'farm': 1},
+        'GuyFawkesMask': {'klass': 'Helmet', 'level': 1, 'weight': 400, 'defense': 0, 'marm': 2, 'farm': 0},
 
-        'Jeans':        {'klass': 'Trousers', 'wei': 0, },
+        'TShirt':       {'klass': 'Armor', 'level': 0, 'weight':  250, 'marm': 0, 'farm': 0},
+        'Clothes':      {'klass': 'Armor', 'level': 0, 'weight':  750, 'marm': 1, 'farm': 0},
+        'Jacket':       {'klass': 'Armor', 'level': 0, 'weight': 1250, 'marm': 1, 'farm': 1},
 
-        'Sandals':      {'klass': 'Boots',  'wei': 0,  'def': 1, 'arm': 1},
-        'Shoes':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 1},
-        'Boots':        {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
-        'LeatherBoots': {'klass': 'Boots',  'wei': 0,  'def': 2, 'arm': 2},
+        'Trousers':     {'klass': 'Trousers', 'level': 0, 'weight': 600, 'defense': 1, 'marm': 1, 'farm': 0},
+        'Jeans':        {'klass': 'Trousers', 'level': 1, 'weight': 800, 'defense': 1, 'marm': 1, 'farm': 1},
 
-        'Ring':         {'klass': 'Ring', },
-        'WeddingRing':  {'klass': 'WeddingRing', 'wei': 25, },
+        'Sandals':      {'klass': 'Boots', 'level': 0, 'weight': 300,  'defense': 1, 'marm': 1},
+        'Shoes':        {'klass': 'Boots', 'level': 1, 'weight': 900,  'defense': 2, 'marm': 1},
+        'Boots':        {'klass': 'Boots', 'level': 1, 'weight': 1200, 'defense': 2, 'marm': 2},
+        'LeatherBoots': {'klass': 'Boots', 'level': 1, 'weight': 1600, 'defense': 2, 'marm': 2},
 
-        'Pen':          {'klass': 'Pen', 'wei': 20},
-        'MobilePhone':  {'klass': 'MobilePhone', 'wei': 488},
+        'Ring':         {'klass': 'Ring', 'level': 6, 'weight': 10},
+        'WeddingRing':  {'klass': 'WeddingRing', 'level': 20, 'weight': 25},
+
+        'Pen':          {'klass': 'Pen', 'weight': 20},
+        'MobilePhone':  {'klass': 'MobilePhone', 'weight': 488},
     }
 
     @classmethod
     def load(cls):
-        if len(cls.KLASSES):
+        if cls.KLASSES:
             return
         from gdo.shadowdogs.item.Item import Item
-        items_path = f"gdo/shadowdogs/item/classes"
-        item_files = glob.glob(f"{items_path}/*.py")
+        items_path = Application.file_path("gdo/shadowdogs/item/classes")
+        item_files = glob.glob(f"{items_path}/**/*.py", recursive=True)
         for file_path in item_files:
-            filename = os.path.basename(file_path)
-            if "/_" in filename:
+            if "/_" in file_path:
                 continue
-            module_name = file_path.replace("/", ".").replace("\\", ".")
+            module_name = 'gdo/' + Strings.substr_from(file_path, '/gdo/')
+            module_name = module_name.replace("/", ".")
             module_name = os.path.splitext(module_name)[0]
             try:
                 spec = importlib.util.spec_from_file_location(module_name, file_path)
@@ -60,12 +71,13 @@ class items:
                     if issubclass(obj, Item):
                         cls.KLASSES[name] = obj
             except Exception as e:
-                print(f"Failed to load {module_name}: {e}")
-    @classmethod
-    def instance(cls, klass: str) -> 'Item':
-        return cls.KLASSES[klass]()
+                Logger.exception(e)
 
     @classmethod
-    def get_item(cls, name: str, count: int=1, mods: str|None=None):
+    def instance(cls, name: str, klass: str) -> 'Item':
+        return cls.KLASSES[klass](name, klass)
+
+    @classmethod
+    def get_item(cls, name: str, count: int = 1, mods: str | None = None):
         data = cls.ITEMS[name]
-        return cls.instance(data['klass']).count(count).modifiers(mods)
+        return cls.instance(name, data['klass']).count(count).modifiers(mods)

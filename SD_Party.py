@@ -45,7 +45,6 @@ class SD_Party(WithShadowFunc, GDO):
     def get_action_name(self) -> str:
         return self.gdo_val('party_action')
 
-
     def is_action_over(self) -> bool:
         return self.get_eta() < self.mod_sd().cfg_time()
 
@@ -102,8 +101,20 @@ class SD_Party(WithShadowFunc, GDO):
     def get_target(self) -> any:
         return self.gdo_value('party_target')
 
-    def get_location(self) -> 'Location':
-        return self.get_target()
+    def get_last_target(self) -> any:
+        return self.gdo_value('party_last_target')
+
+    def get_location(self, action: str = None) -> 'Location':
+        if action is not None:
+            if self.get_action_name() != action:
+                return None
+        if self.get_action_name() in ('fight', 'talk', 'hack'):
+            if target := self.get_last_target():
+                if isinstance(target, Location):
+                    return target
+        if self.get_action_name() in ('inside', 'outside', 'sleep'):
+            return self.get_target()
+        return None
 
     def get_city(self) -> 'City':
         return self.get_target()

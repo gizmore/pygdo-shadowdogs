@@ -14,6 +14,13 @@ Shadowdogs is a realtime mud/mmo for various chat networks.
 
 ## Combat
 
+The combat happens in real time and actions can be done.
+Every player has a one item stack,
+where the last command gets executed after your cooldown is fine.
+
+The default command is `$sdattack <rand>`, locking a random target.
+
+Items and equipment can be used and changed, but it costs time.
 
 
 ### Weapons

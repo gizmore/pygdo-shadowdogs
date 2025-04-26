@@ -11,7 +11,9 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class gmi(MethodSD):
     """
-    Give an item to a player.
+    GM Item - Give a freshly created item to a player.
+    Example: $gmi gizmo Club_of_str:8
+    Example: $gmi gizmo Club_of_adonis
     """
 
     @classmethod
@@ -34,8 +36,7 @@ class gmi(MethodSD):
     async def form_submitted(self):
         player = self.get_target()
         item_name = self.param_val('item_name')
-        Factory.create_item()
-        party = player.get_party()
-        enemies = Factory.create_default_npcs(party.get_location(), *npc_names)
-        await party.fight(enemies)
-        return self.empty()
+        item = Factory.create_item_gmi(item_name)
+        await self.give_item(player, item, 'gmi', self.get_player().render_name())
+        player.modify_all()
+        return self.msg('msg_sd_gmi_success', (item.render_name(), player.render_name()))

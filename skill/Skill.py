@@ -6,4 +6,10 @@ if TYPE_CHECKING:
 
 
 class Skill(Modifier):
-    pass
+
+    SKILLS = [
+        'p_aim',
+        'p_fig',
+        'p_hac',
+        'p_tra',
+    ]
