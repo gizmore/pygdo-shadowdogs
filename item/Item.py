@@ -27,6 +27,9 @@ class Item(WithShadowFunc):
         self._count = 1
         self._modifiers = GDO.EMPTY_DICT
 
+    def __repr__(self):
+        return f"{self.render_name()}"
+
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item')
 
@@ -77,7 +80,7 @@ class Item(WithShadowFunc):
         return 30
 
     def get_equip_time(self) -> int:
-        return 0
+        return 90
 
     def get_unequip_time(self) -> int:
         return self.get_equip_time() // 2

@@ -54,15 +54,15 @@ class SD_Party(WithShadowFunc, GDO):
     def get_eta(self) -> int:
         return self.gdo_value('party_eta')
 
-    def do(self, action: str, target: str = None, eta: int = None):
-        if last_eta :=  self.gdo_value('party_eta'):
-            last_eta = last_eta - self.mod_sd().cfg_time()
+    def do(self, action: str, target: str = None, eta: int = 0):
+        if last_eta := self.gdo_value('party_eta'):
+            last_eta = last_eta - self.get_time()
         self.set_val('party_last_action', self.gdo_val('party_action'))
         self.set_val('party_last_target', self.gdo_val('party_target'))
-        self.set_val('party_last_eta', str(last_eta)) # compute remaining seconds
+        self.set_val('party_last_eta', str(last_eta))
         self.set_val('party_action', action)
         self.set_val('party_target', target if target else self.gdo_val('party_target'))
-        self.set_val('party_eta', str(self.mod_sd().cfg_time() + eta) if eta else '0')
+        self.set_val('party_eta', str(self.get_time() + eta) if eta else '0')
         return self.save()
 
     async def resume(self):
@@ -80,13 +80,13 @@ class SD_Party(WithShadowFunc, GDO):
         self.members.append(player)
         player.save_vals({
             'p_party': self.get_id(),
-            'p_joined': str(self.mod_sd().cfg_time()),
+            'p_joined': str(self.get_time()),
         })
         return self.with_fresh_positions()
 
     def with_fresh_positions(self):
         for n, player in enumerate(self.members):
-            player.party_pos = n
+            player.party_pos = n + 1
         return self
 
     def kick(self, player: 'SD_Player'):

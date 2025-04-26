@@ -55,6 +55,19 @@ sd_story_1 = "You wake up. Feeling dizy and still alcoholized."
 sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless. You somehow feel outta place..."
 
 #########
+# Equip #
+#########
+mt_shadowdogs_equip = "Equip Item"
+md_shadowdogs_equip = "Equip yourself with an Item."
+msg_sd_item_equip = "You use %s as your %s from now on. %s busy."
+
+#############
+# Inventory #
+#############
+mt_shadowdogs_inventory = "Inventory"
+md_shadowdogs_inventory = "Show your inventory. Page is the first parameter. Use --search=foo to search."
+
+#########
 # Reset #
 #########
 mt_shadowdogs_reset = "Reset Character"

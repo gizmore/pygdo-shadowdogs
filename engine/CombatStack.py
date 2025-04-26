@@ -24,10 +24,10 @@ class CombatStack(WithShadowFunc):
         self.command = 'sdattack'
         qui = self.player.g('p_qui')
         fig = self.player.g('p_fig')
-        self.eta = self.mod_sd().cfg_time() + Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 4))
+        self.eta = self.get_time() + Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8))
 
     async def tick(self):
-        t = self.mod_sd().cfg_time()
+        t = self.get_time()
         if t > self.eta:
             self.eta = t + await self.execute()
             self.command = 'sdattack'

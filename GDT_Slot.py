@@ -55,8 +55,11 @@ class GDT_Slot(GDT_Enum):
 
     @classmethod
     def map(cls, slot_name: str):
-        slot_name = slot_name.lower()[0:2]
+        slot_name = slot_name.lower()
+        slot_name1 = slot_name[0:2]
+        slot_name2 = slot_name[2:4]
         for slot in cls.SLOTS:
-            if slot[2:4] == slot_name:
+            chars = slot[2:4]
+            if chars == slot_name1 or chars == slot_name2 or slot == slot_name:
                 return slot
         return None
