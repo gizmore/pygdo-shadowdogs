@@ -9,10 +9,10 @@ if TYPE_CHECKING:
 
 class Action(WithShadowFunc):
 
-    def execute(self, party: 'SD_Party'):
+    async def execute(self, party: 'SD_Party'):
         pass
 
-    def sleeping(self, party: 'SD_Party'):
+    async def sleeping(self, party: 'SD_Party'):
         pass
 
     def get_target(self, party: 'SD_Party'):

@@ -56,19 +56,23 @@ class SD_Party(WithShadowFunc, GDO):
         return self.gdo_value('party_eta')
 
     def do(self, action: str, target: str = None, eta: int = None):
+        if last_eta :=  self.gdo_value('party_eta'):
+            last_eta = last_eta - self.mod_sd().cfg_time()
         self.set_val('party_last_action', self.gdo_val('party_action'))
         self.set_val('party_last_target', self.gdo_val('party_target'))
-        self.set_val('party_last_eta', self.gdo_val('party_eta')) # compute remaining seconds
+        self.set_val('party_last_eta', str(last_eta)) # compute remaining seconds
         self.set_val('party_action', action)
         self.set_val('party_target', target if target else self.gdo_val('party_target'))
         self.set_val('party_eta', str(self.mod_sd().cfg_time() + eta) if eta else '0')
         return self.save()
 
-    def resume(self):
+    async def resume(self):
+        if eta := self.gdo_value('party_last_eta'):
+            eta += self.mod_sd().cfg_time()
         return self.do(
             self.gdo_val('party_last_action'),
             self.gdo_val('party_last_target'),
-            self.gdo_val('party_last_eta'),
+            eta if eta else None,
         )
 
     def join(self, player: 'SD_Player'):
@@ -91,8 +95,8 @@ class SD_Party(WithShadowFunc, GDO):
             self.members.remove(player)
         return self
 
-    def tick(self):
-        self.get_action().execute(self)
+    async def tick(self):
+        await self.get_action().execute(self)
         return self
 
     def get_target(self) -> any:

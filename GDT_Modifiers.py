@@ -15,5 +15,5 @@ class GDT_Modifiers(GDT_String):
         mods = {}
         for pair in val.split(','):
             data = pair.split(':')
-            mods[data[0]] = data[1]
+            mods[data[0]] = int(data[1])
         return mods

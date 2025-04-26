@@ -11,6 +11,6 @@ class fight(Action):
     def get_target(self, party: 'SD_Party'):
         return Shadowdogs.PARTIES.get(party.get_target_string())
 
-    def execute(self, party: 'SD_Party'):
+    async def execute(self, party: 'SD_Party'):
         for player in party.members:
-            player.combat_tick()
+            await player.combat_tick()

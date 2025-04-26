@@ -1,6 +1,7 @@
 from gdo.shadowdogs.actions.Action import Action
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
 
@@ -8,10 +9,10 @@ if TYPE_CHECKING:
 class sleep(Action):
 
     def get_target(self, party: 'SD_Party'):
-        from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
-        return Shadowdogs.get_location(party.get_target_string())
+        from gdo.shadowdogs.engine.World import World
+        return World.get_location(party.get_target_string())
 
-    def sleeping(self, party: 'SD_Party'):
+    async def sleeping(self, party: 'SD_Party'):
         wakeup = True
         for player in party.members:
             player.give_hp(player.g('p_body'))
@@ -19,4 +20,4 @@ class sleep(Action):
             if (player.g('p_hp') < player.g('p_max_hp')) or (player.g('p_mp') < player.g('p_max_mp')):
                 wakeup = False
         if wakeup:
-            party.resume()
+            await party.resume()

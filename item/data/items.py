@@ -34,7 +34,8 @@ class items:
         'Ring':         {'klass': 'Ring', },
         'WeddingRing':  {'klass': 'WeddingRing', 'wei': 25, },
 
-        'Pen':          {'klass': 'Pen', 'wei': 20}
+        'Pen':          {'klass': 'Pen', 'wei': 20},
+        'MobilePhone':  {'klass': 'MobilePhone', 'wei': 488},
     }
 
     @classmethod

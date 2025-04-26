@@ -48,8 +48,8 @@ class start(MethodSD):
         return self.empty()
 
     async def character_created(self, player: SD_Player):
-        await self.broadcast('msg_sd_new_player', (player.column('p_gender').render(Mode.TXT), player.column('p_race').render(Mode.TXT)))
+        await self.broadcast('msg_sd_new_player', (player.render_name(), player.column('p_gender').render(Mode.TXT), player.column('p_race').render(Mode.TXT)))
         await self.send_to_player(player, t('sd_story_1'))
         await self.send_to_player(player, t('sd_story_2'))
-        await self.give_items(player, {'Pen': 1, 'Jeans': 1, 'TShirt': 1, 'Shoes': 1})
-        await self.give_kp(player, player.get_party().get_location())
+        await self.give_items(player, {'Pen': 1, 'Jeans': 1, 'TShirt': 1, 'Shoes': 1}, False)
+        await self.give_kp(player, player.get_party().get_location(), False)

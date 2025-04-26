@@ -25,8 +25,8 @@ class SD_Item(GDO):
             GDT_AutoInc('item_id'),
             GDT_Player('item_owner').not_null(),
             GDT_ItemName('item_name').not_null(),
-            GDT_UInt('item_count').bytes(2).not_null().initial('1'),
             GDT_Modifiers('item_mods'),
+            GDT_UInt('item_count').bytes(2).not_null().initial('1'),
             GDT_Created('item_created'),
         ]
 

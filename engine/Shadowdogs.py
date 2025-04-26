@@ -14,7 +14,7 @@ class Shadowdogs:
     PLAYERS: dict[str,'SD_Player'] = {}
     NPCS: dict[str,'SD_NPC'] = {}
 
-    MODIFIER_SEPERATOR = '_with_'
+    MODIFIER_SEPERATOR = '_of_'
 
     NUYEN = 'NY'
     NUYEN_PER_CREDIT = 100
@@ -23,6 +23,7 @@ class Shadowdogs:
 
     SECONDS_PER_SECOND = 6
     SECONDS_PER_HP_SLEEP = 5
+    SECONDS_INITIATIVE = 120
 
     MAX_WEIGHT_PER_STRENGTH = 1000
 

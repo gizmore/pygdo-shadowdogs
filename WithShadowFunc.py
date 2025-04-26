@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 import aioconsole
 
 from gdo.base.ModuleLoader import ModuleLoader
+from gdo.core.GDO_MethodValChannel import GDO_MethodValChannel
 from gdo.core.GDO_User import GDO_User
 
 if TYPE_CHECKING:
@@ -61,7 +62,8 @@ class WithShadowFunc:
             await self.send_to_player(player, key, args)
 
     async def broadcast(self, key: str, args: tuple = None):
-        for channel in GDO_Channel.with_setting('disabled', '0', '1'):
+        from gdo.shadowdogs.method.stats import stats
+        for channel in GDO_Channel.with_setting(stats(), 'disabled', '0', '1'):
             with Trans(channel.get_lang_iso()):
                 await channel.send(Trans.t(key, args))
 
@@ -69,24 +71,26 @@ class WithShadowFunc:
     # Items #
     #########
 
-    async def give_items(self, player: 'SD_Player', items: dict[str,int]):
+    async def give_items(self, player: 'SD_Player', items: dict[str,int], announce: bool=True):
         for item_name, count in items.items():
-            await self.give_item(player, item_name, count)
+            await self.give_item(player, item_name, count, announce)
 
-    async def give_item(self, player: 'SD_Player', item_name: str, item_count: int):
+    async def give_item(self, player: 'SD_Player', item_name: str, item_count: int, announce: bool=True):
         from gdo.shadowdogs.SD_Item import SD_Item
         item = SD_Item.create(item_name, item_count, player)
         player.inventory.append(item)
-        await self.send_to_party(player.get_party(), 'sd_item_received', (item_name,))
+        if announce:
+            await self.send_to_party(player.get_party(), 'sd_item_received', (item_name,))
 
     ######
     # KP #
     ######
 
-    async def give_kp(self, player: 'SD_Player', location: 'Location'):
+    async def give_kp(self, player: 'SD_Player', location: 'Location', announce: bool=True):
         from gdo.shadowdogs.SD_Place import SD_Place
         party = player.get_party()
         for member in party.members:
             if not member.has_kp(location):
-                await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))
                 SD_Place.give_kp(player, location)
+                if announce:
+                    await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))

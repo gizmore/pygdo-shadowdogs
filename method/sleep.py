@@ -1,9 +1,8 @@
 from gdo.base.GDT import GDT
-from gdo.base.Method import Method
-from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 
-class sleep(WithShadowFunc, Method):
+class sleep(MethodSD):
 
     @classmethod
     def gdo_trigger(cls) -> str:

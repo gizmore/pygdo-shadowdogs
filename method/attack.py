@@ -1,7 +1,11 @@
 from gdo.form.GDT_Form import GDT_Form
-from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.GDT_TargetArg import GDT_TargetArg
 from gdo.shadowdogs.engine.MethodSD import MethodSD
+
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class attack(MethodSD):
@@ -22,7 +26,7 @@ class attack(MethodSD):
         form.add_field(GDT_TargetArg('target').foes().not_null())
         super().gdo_create_form(form)
 
-    def get_target(self) -> SD_Player:
+    def get_target(self) -> 'SD_Player':
         return self.param_value('target')
 
     def form_submitted(self):

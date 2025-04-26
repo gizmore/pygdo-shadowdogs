@@ -2,6 +2,10 @@ from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 from typing import TYPE_CHECKING
+
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.method.attack import attack
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
@@ -20,22 +24,21 @@ class CombatStack(WithShadowFunc):
         self.command = 'sdattack'
         qui = self.player.g('p_qui')
         fig = self.player.g('p_fig')
-        self.eta = self.mod_sd().cfg_time() + Random.mrand(2, max(60 // (((1 + qui + fig) // 2) + 1), 4))
+        self.eta = self.mod_sd().cfg_time() + Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 4))
 
-    def tick(self):
+    async def tick(self):
         t = self.mod_sd().cfg_time()
         if t > self.eta:
-            self.eta = t + self.execute()
+            self.eta = t + await self.execute()
             self.command = 'sdattack'
 
-    def execute(self):
+    async def execute(self):
         parts = self.command.split(" ")
-        method = self.get_method(parts[0])
+        method = self.get_method(parts[0]) or attack()
         method.env_user(self.player.get_user(), True)
         method.env_server(self.player.get_user().get_server())
         method._raw_args.add_cli_line(parts[1:])
-        gdt = method.execute()
-
+        gdt = await method.execute()
         return method.sd_combat_seconds()
 
 

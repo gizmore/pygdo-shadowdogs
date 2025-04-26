@@ -12,7 +12,7 @@ from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.engine.CombatStack import CombatStack
-from gdo.shadowdogs.engine.World import World
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.stat.Alcohol import Alcohol
 from gdo.shadowdogs.stat.Hunger import Hunger
@@ -204,10 +204,11 @@ class SD_Player(GDO):
         self.combat_stack.reset()
         return self
 
-    def combat_tick(self):
-        self.combat_stack.tick()
+    async def combat_tick(self):
+        await self.combat_stack.tick()
 
     def kill(self):
+        from gdo.shadowdogs.engine.World import World
         from gdo.shadowdogs.engine.Factory import Factory
         self.get_party().members.remove(self)
         party = Factory.create_party(World.AmBauhof15.Etage2Left)
@@ -268,5 +269,4 @@ class SD_Player(GDO):
             self.kill()
 
     def render_ny(self):
-        return
-        pass
+        return self.gdo_val('p_nuyen') + Shadowdogs.NUYEN

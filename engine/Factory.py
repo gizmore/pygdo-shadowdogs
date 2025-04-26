@@ -4,6 +4,7 @@ from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.World import World
 from gdo.shadowdogs.locations.Location import Location
 
 
@@ -41,7 +42,7 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_npc(cls, party: SD_Party, spec: dict[str,int|str]):
-        player = spec['klass'].blank({
+        player = World.get_npc_class(spec['klass']).blank({
             'p_npc_class': spec['klass'],
             'p_npc_name': spec['klass'],
             'p_race': spec['p_race'],

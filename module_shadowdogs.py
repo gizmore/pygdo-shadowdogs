@@ -49,9 +49,9 @@ class module_shadowdogs(GDO_Module):
         time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND
         self.save_config_val('sd_time', str(time))
         for party in Shadowdogs.PARTIES.values():
-            party.tick()
+            await party.tick()
 
     async def shadow_hp_timer(self):
         for party in Shadowdogs.PARTIES.values():
-            party.get_action().sleeping(party)
+            await party.get_action().sleeping(party)
 
