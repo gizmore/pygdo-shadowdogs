@@ -22,3 +22,7 @@ class City:
 
     def get_name(self):
         return self.__class__.__name__
+
+    def get_respawn_location(self) -> Location:
+        from gdo.shadowdogs.engine.World import World
+        return World.AmBauhof15.Etage2Left

@@ -36,9 +36,11 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('Suggestions', out, 'sdstart throws no error.')
         out = cli_plug(gizmore, '$sdstart male human')
         self.assertIn('You created your character', out, 'sdstart throws an error.')
-        out = cli_plug(gizmore, '$sdgdt gizmore{1} lamer,lamer')
-        self.assertIn('encounter', out, 'gdt does not work.')
-        await self.ticker(10)
+        out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
+        self.assertIn('received Club_of_adonis.', out, 'gmi does not work.')
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer,lamer')
+        self.assertIn('encounter', out, 'gmt does not work.')
+        await self.ticker(30)
         a = self.MESSAGES[gizmore.get_id()]
         self.assertIn('hit', out, 'attack no work')
         

@@ -5,7 +5,7 @@ from gdo.core.GDT_UInt import GDT_UInt
 from gdo.shadowdogs.SD_Inventory import SD_Inventory
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Place import SD_Place
-from gdo.shadowdogs.SD_NPC import SD_NPC
+# from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Spell import SD_Spell
@@ -19,7 +19,7 @@ class module_shadowdogs(GDO_Module):
     def gdo_classes(self):
         return [
             SD_Player,
-            SD_NPC,
+            # SD_NPC,
             SD_Party,
             SD_Item,
             SD_Inventory,

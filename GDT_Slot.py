@@ -15,4 +15,9 @@ class GDT_Slot(GDT_Enum):
             'p_gloves': 'Gloves',
             'p_amulet': 'Amulet',
             'p_ring': 'Ring',
+            'p_piercing': 'Piercing',
+            'p_mount': 'Active Mount',
+            'inventory': 'Inventory',
+            'mount': 'Inside Mount',
+            'bank': 'bank',
         }

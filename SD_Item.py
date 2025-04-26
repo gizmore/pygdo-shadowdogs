@@ -1,7 +1,7 @@
-import functools
-
 from typing import TYPE_CHECKING
 
+from gdo.core.GDT_Index import GDT_Index
+from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
@@ -24,10 +24,12 @@ class SD_Item(GDO):
         return [
             GDT_AutoInc('item_id'),
             GDT_Player('item_owner').not_null(),
+            GDT_Slot('item_slot').not_null().initial('inventory'),
             GDT_ItemName('item_name').not_null(),
             GDT_Modifiers('item_mods'),
             GDT_UInt('item_count').bytes(2).not_null().initial('1'),
             GDT_Created('item_created'),
+            GDT_Index('item_owner_index').index_fields('item_owner'),
         ]
 
     @classmethod
@@ -41,3 +43,18 @@ class SD_Item(GDO):
 
     def to_value(self, val: str):
         return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_val('item_mods'))
+
+    def get_item_name(self) -> str:
+        return self.gdo_val('item_name')
+
+    def get_count(self) -> int:
+        return self.gdo_value('item_count')
+
+    def modifier_column(self) -> GDT_Modifiers:
+        return self.column('item_mods')
+
+    def render_name(self) -> str:
+        col = self.modifier_column()
+        if modifiers := col.get_val():
+            return f"{self.get_item_name()}{Shadowdogs.MODIFIER_SEPERATOR}{modifiers}"
+        return self.get_item_name()

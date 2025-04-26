@@ -1,3 +1,4 @@
+import functools
 import glob
 import importlib
 import inspect
@@ -13,8 +14,8 @@ class items:
     KLASSES = {}
 
     ITEMS = {
-        'Fists':        {'klass': 'Fists',  'wei': 0,  'atk': 4, 'dmg': [2, 5]},
-        'Knuckles':     {'klass': 'Melee',  'wei': 0,  'atk': 4, 'dmg': [2, 6]},
+        'Fists':        {'klass': 'Fists',  'wei': 0,  'atk': 4, 'min_dmg': 1, 'max_dmg': 4},
+        'Knuckles':     {'klass': 'Fists',  'wei': 0,  'atk': 4, 'dmg': [2, 6]},
         'Club':         {'klass': 'Thrust', 'wei': 0, 'atk': 4, 'dmg': [2, 6]},
         'ShortSword':   {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
         'Sword':        {'klass': 'Sword',  'wei': 0,  'atk': 6, 'dmg': []},
@@ -65,8 +66,6 @@ class items:
         return cls.KLASSES[klass]()
 
     @classmethod
-    def get_item(cls, name: str, count: int, mods: str):
+    def get_item(cls, name: str, count: int=1, mods: str|None=None):
         data = cls.ITEMS[name]
-        item = cls.instance(data['klass']).count(count).modifiers(mods)
-
-        pass
+        return cls.instance(data['klass']).count(count).modifiers(mods)

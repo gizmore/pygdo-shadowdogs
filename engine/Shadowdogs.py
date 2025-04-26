@@ -15,6 +15,11 @@ class Shadowdogs:
     NPCS: dict[str,'SD_NPC'] = {}
 
     MODIFIER_SEPERATOR = '_of_'
+    RARE_NO = 30
+    RARE_LOW = 20
+    RARE_MEDIUM = 10
+    RARE_HIGH = 5
+    RARE_ULTRA = 2
 
     NUYEN = 'NY'
     NUYEN_PER_CREDIT = 100

@@ -21,12 +21,20 @@ from gdo.core.GDO_Channel import GDO_Channel
 
 class WithShadowFunc:
 
+    _player: 'SD_Player'
+
     @classmethod
     def mod_sd(cls) -> 'module_shadowdogs':
         from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
         return module_shadowdogs.instance()
 
+    def player(self, player: 'SD_Player'):
+        self._player = player
+        return self
+
     def get_player(self, user: GDO_User=None) -> 'SD_Player':
+        if hasattr(self, '_player'):
+            return self._player
         from gdo.shadowdogs.SD_Player import SD_Player
         user = user or self._env_user
         return SD_Player.table().get_by('p_user', user.get_id())

@@ -35,6 +35,7 @@ class CombatStack(WithShadowFunc):
     async def execute(self):
         parts = self.command.split(" ")
         method = self.get_method(parts[0]) or attack()
+        method.player(self.player)
         method.env_user(self.player.get_user(), True)
         method.env_server(self.player.get_user().get_server())
         method._raw_args.add_cli_line(parts[1:])

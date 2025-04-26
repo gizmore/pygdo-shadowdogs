@@ -13,6 +13,7 @@ from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.stat.Alcohol import Alcohol
 from gdo.shadowdogs.stat.Hunger import Hunger
@@ -117,6 +118,9 @@ class SD_Player(GDO):
             'p_attack': 0,
             'p_defense': 0,
 
+            'p_min_dmg': 0,
+            'p_max_dmg': 0,
+
             'p_marm': 0,
             'p_farm': 0,
 
@@ -195,6 +199,9 @@ class SD_Player(GDO):
     def get_user(self) -> GDO_User:
         return self.gdo_value('p_user')
 
+    def get_city(self) -> City:
+        return self.get_party().get_city()
+
     def get_name(self):
         if name := self.gdo_val('p_npc_name'):
             return f"{name}[{self.get_id()}]"
@@ -207,11 +214,14 @@ class SD_Player(GDO):
     async def combat_tick(self):
         await self.combat_stack.tick()
 
+    def is_dead(self) -> bool:
+        return self.g('p_hp') <= 0
+
     def kill(self):
         from gdo.shadowdogs.engine.World import World
         from gdo.shadowdogs.engine.Factory import Factory
         self.get_party().members.remove(self)
-        party = Factory.create_party(World.AmBauhof15.Etage2Left)
+        party = Factory.create_party(self.get_city().get_respawn_location())
         party.members.append(self)
         self.save_val('p_party', party.get_id())
         return self
