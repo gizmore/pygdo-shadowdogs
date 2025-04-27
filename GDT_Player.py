@@ -4,14 +4,17 @@ from gdo.core.GDT_Object import GDT_Object
 from typing import TYPE_CHECKING
 
 from gdo.core.GDT_User import GDT_User
-from gdo.shadowdogs.SD_Party import SD_Party
+from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
-    from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class GDT_Player(GDT_Object):
+class GDT_Player(WithPlayerGDO, GDT_Object):
+    """
+    TODO annotate SD_Player, GDT_User
+    TODO describe options members, online, nearby, humans by username, npcs (by id)
+    """
 
     _members: bool
     _online: bool
@@ -51,12 +54,6 @@ class GDT_Player(GDT_Object):
         self._npcs = npcs
         return self
 
-    def get_player(self) -> 'SD_Player':
-        return self.get_gdo()
-
-    def get_party(self) -> SD_Party:
-        return self.get_player().get_party()
-
     def query_gdos(self, val: str) -> list[GDO]:
         players = self.query_gdos2(val)
         if self._nearby:
@@ -64,7 +61,13 @@ class GDT_Player(GDT_Object):
             for player in players:
                 if player.is_near(self.get_player()):
                     near.append(player)
-            return near
+            players = near
+        if self._online:
+            on = []
+            for player in players:
+                if player.is_online():
+                    on.append(player)
+            players = on
         return players
 
     def query_gdos2(self, val: str) -> list['SD_Player']:
@@ -74,6 +77,7 @@ class GDT_Player(GDT_Object):
         if self._npcs:
             if player := self._table.get_by_aid(val):
                 return [player]
-        if lst := self._gdt_user.query_gdos(val):
-            return [self._table.get_by('p_user', usr.get_id()) for usr in lst]
-        return []
+        if self._humans:
+            if lst := self._gdt_user.query_gdos(val):
+                return [self._table.get_by('p_user', usr.get_id()) for usr in lst]
+        return GDO.EMPTY_LIST

@@ -11,14 +11,18 @@ from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, c
 
 class ShadowdogsTest(GDOTestCase):
 
+    TICKS: int = 0
+
     async def ticker(self, ticks: int=1):
         for i in range(0, ticks-1):
+            i = self.TICKS + i
             if (i % Shadowdogs.SECONDS_PER_TICK) == 0:
                 await module_shadowdogs.instance().shadow_timer()
             if (i % Shadowdogs.SECONDS_PER_HP_SLEEP) == 0:
                 await module_shadowdogs.instance().shadow_hp_timer()
             if (i % Shadowdogs.SECONDS_PER_FOODING) == 0:
                 await module_shadowdogs.instance().shadow_food_timer()
+        self.TICKS += ticks
 
     def setUp(self):
         super().setUp()
@@ -52,9 +56,11 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('1m5', out, '$sdi 2 does not render.')
         out = cli_plug(gizmore, '$sdeq _of_ado')
         self.assertIn('Club_of_adonis as ', out, 'eq does not work.')
+        out = cli_plug(gizmore, '$sdq')
+        self.assertIn('Weapon: Club_of_adonis', out, '$sdq does not work.')
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer,lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
-        await self.ticker(120)
+        await self.ticker(121)
         out = all_private_messages()
         self.assertIn('hit', out, 'attack does not work.')
 

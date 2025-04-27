@@ -9,7 +9,7 @@ class SD_Spell(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
-            GDT_Player('sp_player').primary().cascade_delete(),
             GDT_Spell('sp_spell').primary(),
+            GDT_Player('sp_player').primary().cascade_delete(),
             GDT_Created('sp_created'),
         ]

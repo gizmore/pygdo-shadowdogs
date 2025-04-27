@@ -8,7 +8,9 @@ class GDT_RandomName(GDT_String):
     """
 
     PREFIXES = [
-        'ar', 'bel', 'cor', 'dar', 'el', 'fal', 'gar', 'hal', 'in', 'jor', 'kar', 'lor', 'mor', 'nel', 'or', 'pel', 'quil', 'ras', 'sel', 'tor', 'ul', 'vor', 'wel', 'xer', 'yor', 'zor',
+        'ar', 'bel', 'cor', 'dar', 'el', 'fal', 'gar', 'hal', 'han',
+        'in', 'jor', 'kar', 'lor', 'mor', 'nel', 'or', 'pel',
+        'quil', 'ras', 'sel', 'tor', 'ul', 'vor', 'wel', 'xer', 'yor', 'zer', 'zor',
     ]
 
     MIDDLES = [

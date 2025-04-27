@@ -15,14 +15,12 @@ from gdo.shadowdogs.item.data.items import items
 class Item(WithShadowFunc):
 
     _name: str
-    _klass: str
     _owner: 'SD_Player'
     _count: int
-    _modifiers: dict[str,int]
+    _modifiers: dict[str, int]
 
-    def __init__(self, name: str, klass: str):
+    def __init__(self, name: str):
         self._name = name
-        self._klass = klass
         self._owner = None
         self._count = 1
         self._modifiers = GDO.EMPTY_DICT

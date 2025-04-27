@@ -26,7 +26,6 @@ class WithShadowFunc:
     _player: 'SD_Player'
 
     @classmethod
-    @functools.cache
     def mod_sd(cls) -> 'module_shadowdogs':
         from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
         return module_shadowdogs.instance()
@@ -89,6 +88,9 @@ class WithShadowFunc:
         for channel in GDO_Channel.with_setting(stats(), 'disabled', '0', '1'):
             with Trans(channel.get_lang_iso()):
                 await channel.send(Trans.t(key, args))
+
+    def t(self, key: str, args: tuple[str|int|float,...]=None):
+        return Trans.t(key, args)
 
     #########
     # Items #

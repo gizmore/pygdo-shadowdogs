@@ -5,6 +5,10 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 class sleep(MethodSD):
 
     @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sdsl'
+
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdsleep'
 
@@ -12,5 +16,6 @@ class sleep(MethodSD):
         return True
 
     def gdo_execute(self) -> GDT:
-        self.get_party().do('sleep')
+        pa = self.get_party()
+        self.get_party().do('sleep', )
         return self.msg('msg_sd_go_sleeping')

@@ -1,3 +1,5 @@
+import math
+
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Util import Arrays
@@ -7,7 +9,7 @@ from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Action import GDT_Action
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Self
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.locations.City import City
@@ -42,28 +44,20 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Created('party_created'),
         ]
 
-    def get_action_name(self) -> str:
-        return self.gdo_val('party_action')
-
-    def is_action_over(self) -> bool:
-        return self.get_eta() < self.mod_sd().cfg_time()
-
-    def get_action(self) -> 'Action':
-        return self.gdo_value('party_action')
-
-    def get_eta(self) -> int:
-        return self.gdo_value('party_eta')
-
-    def do(self, action: str, target: str = None, eta: int = 0):
+    async def do(self, action: str, target: str = None, eta: int = 0):
         if last_eta := self.gdo_value('party_eta'):
             last_eta = last_eta - self.get_time()
-        self.set_val('party_last_action', self.gdo_val('party_action'))
-        self.set_val('party_last_target', self.gdo_val('party_target'))
-        self.set_val('party_last_eta', str(last_eta))
-        self.set_val('party_action', action)
-        self.set_val('party_target', target if target else self.gdo_val('party_target'))
-        self.set_val('party_eta', str(self.get_time() + eta) if eta else '0')
-        return self.save()
+        self.save_vals({
+            'party_last_action': self.gdo_val('party_action'),
+            'party_last_target': self.gdo_val('party_target'),
+            'party_last_eta': str(last_eta),
+            'party_action': action,
+            'party_target': target if target else self.gdo_val('party_target'),
+            'party_eta': str(self.get_time() + eta) if eta else '0',
+        })
+        self.save()
+        await self.get_action().on_start(self)
+        return self
 
     async def resume(self):
         if eta := self.gdo_value('party_last_eta'):
@@ -73,6 +67,10 @@ class SD_Party(WithShadowFunc, GDO):
             self.gdo_val('party_last_target'),
             eta if eta else None,
         )
+
+    ###########
+    # Members #
+    ###########
 
     def join(self, player: 'SD_Player'):
         if player in self.members:
@@ -94,9 +92,12 @@ class SD_Party(WithShadowFunc, GDO):
             self.members.remove(player)
         return self
 
-    async def tick(self):
-        await self.get_action().execute(self)
-        return self
+    ##########
+    # Target #
+    ##########
+
+    def get_target_string(self):
+        return self.gdo_val('party_target')
 
     def get_target(self) -> any:
         return self.gdo_value('party_target')
@@ -104,34 +105,84 @@ class SD_Party(WithShadowFunc, GDO):
     def get_last_target(self) -> any:
         return self.gdo_value('party_last_target')
 
+    def get_target_party(self):
+        if self.does(Action.FIGHT, Action.TALK):
+            return self.get_target()
+
+    def get_city(self) -> City|None:
+        if city := self.get_city_from_target(self.get_target()):
+            return city
+        return self.get_city_from_target(self.get_last_target())
+
+    def get_city_from_target(self, target: City|Location|Self) -> City|None:
+        if isinstance(target, City):
+            return target
+        if isinstance(target, Location):
+            return target.get_city()
+
     def get_location(self, action: str = None) -> 'Location':
         if action is not None:
             if self.get_action_name() != action:
                 return None
-        if self.get_action_name() in ('fight', 'talk', 'hack'):
+        if self.does(Action.FIGHT, Action.TALK):
             if target := self.get_last_target():
                 if isinstance(target, Location):
                     return target
-        if self.get_action_name() in ('inside', 'outside', 'sleep'):
+        if self.does(Action.INSIDE, Action.OUTSIDE, Action.SLEEP):
             return self.get_target()
         return None
 
-    def get_city(self) -> 'City':
-        return self.get_target()
+    ##########
+    # Action #
+    ##########
+    async def tick(self):
+        await self.get_action().execute(self)
+        return self
 
-    def get_target_string(self):
-        return self.gdo_val('party_target')
+    def get_action_name(self) -> str:
+        return self.gdo_val('party_action')
+
+    def get_last_action_name(self) -> str:
+        return self.gdo_val('party_last_action')
+
+    def get_action(self) -> 'Action':
+        return self.gdo_value('party_action')
+
+    def get_eta(self) -> int:
+        return self.gdo_value('party_eta')
+
+    def get_eta_s(self) -> int:
+         time = self.get_eta()
+         return time - self.get_time() if time else 0
+
+    def calc_goto_eta_s(self, location: Location) -> int:
+        city = location.get_city()
+        sqkm = city.sd_square_km()
+        nloc = len(city.LOCATIONS)
+        return round((sqkm ** 3) / nloc)
+
+    def is_action_over(self) -> bool:
+        return self.get_eta() <= self.get_time()
+
+    def does(self, *actions: str) -> bool:
+        return self.get_action_name() in actions
+
+    def was(self, *actions: str) -> bool:
+        return self.get_last_action_name() in actions
 
     async def fight(self, party: 'SD_Party'):
-        self.do('fight', party.get_id())
-        party.do('fight', self.get_id())
-        await self.send_to_party(self, 'msg_sd_fight_started', (party.render_members(),))
-        await self.send_to_party(party, 'msg_sd_fight_started', (self.render_members(),))
+        await self.do(Action.FIGHT, party.get_id())
+        await party.do(Action.FIGHT, self.get_id())
         for player in self.members:
             player.combat_stack.reset()
         for player in party.members:
             player.combat_stack.reset()
         return self
 
+    ##########
+    # Render #
+    ##########
+
     def render_members(self) -> str:
         return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])
+

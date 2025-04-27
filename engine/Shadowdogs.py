@@ -34,20 +34,28 @@ class Shadowdogs:
     SECONDS_PER_FOODING = 600
     SECONDS_INITIATIVE = 60
 
-    MAX_WEIGHT_PER_STRENGTH = 1000
+    MAX_WEIGHT_PER_STRENGTH = 1200
+    MAX_WEIGHT_PER_BODY = 350
 
     HP_PER_BODY = 2
+    HP_PER_BODY_SLEEP = 0.5
     HP_PER_STRENGTH = 1
     HP_PER_LEVEL = 0.5
 
-    MP_PER_LEVEL = 0.25
     MP_PER_MAGIC = 2
+    MP_PER_MAGIC_SLEEP = 0.5
     MP_PER_INTELLIGENCE = 2
     MP_PER_WISDOM = 1
+    MP_PER_LEVEL = 0.25
 
     ATK_PER_DEX = 2
     ATK_PER_QUI = 0.5
+
     DEF_PER_DEX = 1
     DEF_PER_QUI = 1
 
     MAX_DISTANCE = 32
+
+    @classmethod
+    def display_nuyen(cls, nuyen: int) -> str:
+        return str(nuyen) + cls.NUYEN

@@ -4,8 +4,8 @@ Games featured on pygdo chats and friends.
 
  - Zork via Nimda3 IRC bot
  - Shadowlamb5 via Lamb3 IRC bot
- - various cardgames via Dog PyGDO Chatbot
- - Shadowdogs via Dog PyGDO Chatbot
+ - various cardgames via Dog, PyGDO Chatbot
+ - Shadowdogs via Dog, the PyGDO Chatbot
  - Slapwarz (tm)
 
 

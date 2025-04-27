@@ -1,22 +1,73 @@
 module_shadowdogs = "Shadowdogs"
 
+##########
+# Errors #
+##########
+err_sd_stub = "%s is not implemented."
+
 ############
 # Factions #
 ############
 gdo_faction = "Faction"
 sd_freeborn = "Freeborn"
-sd_concordium = "Concordium"
-sd_seekers = "Seekers"
-sd_iron = "Iron"
+sd_council = "Council"
+sd_seeker = "Seeker"
+sd_aegis = "Aegis"
 sd__freeborn = "The Freeborn seek absolute Freedom, but without order, will they survive?"
-sd__concordium = "The Concordium crave Peace, but will their control become a prison?"
-sd__seekers = "The Seekers hunt for Truth, but can truth exist without chaos?"
-sd__iron = "The Iron Pact embrace War, but will their strength destroy them in the end?"
+sd__council = "The Council crave Peace, but will their control become a prison?"
+sd__seeker = "The Seekers hunt for Truth, but can truth exist without chaos?"
+sd__aegis = "The Aegis Pact embrace War, but will their strength destroy them in the end?"
+
+###########
+# Actions #
+###########
+msg_sd_start_explore = "%s start to explore %s to find new places. %s."
+msg_sd_start_fight = "%s encounter %s."
+msg_sd_start_goto = "%s are going to %s. %s."
+msg_sd_start_hack = "%s are starting to hack the %s with your hard- and softwaretools. %s."
+msg_sd_start_inside = "%s are going inside the %s."
+msg_sd_start_outside = "%s are going outside %s."
+msg_sd_start_sleep = "%s are going to bed. Inside their own beds."
+msg_sd_start_talk = "%s meet %s."
+msg_sd_start_travel = "%s travel to %s. %s"
+msg_sd_party_explore = "%s are exploring %s. %s."
+msg_sd_party_fight = "%s are fighting %s."
+msg_sd_party_goto = "%s are going to %s. %s."
+msg_sd_party_hack = "%s are trying to crack the %s with your hard and software. %s."
+msg_sd_party_inside = "%s are inside the %s."
+msg_sd_party_outside = "%s are outside the %s."
+msg_sd_party_sleep = "%s are sleeping inside the %s."
+msg_sd_party_talk = "%s are talking to %s."
+msg_sd_party_travel = "%s are travelling to %s. %s"
+msg_sd_party_was_explore = "%s were exploring %s. %s."
+msg_sd_party_was_fight = "%s were fighting %s."
+msg_sd_party_was_goto = "%s were going to %s. %s."
+msg_sd_party_was_hack = "%s were trying to crack the %s. %s."
+msg_sd_party_was_inside = "%s were inside the %s."
+msg_sd_party_was_outside = "%s were outside the %s."
+msg_sd_party_was_sleep = "%s were sleeping inside the %s."
+msg_sd_party_was_talk = "%s were talking to %s."
+msg_sd_party_was_travel = "%s were travelling to %s. %s"
+
 
 ########
 # GDTs #
 ########
 err_sd_unknown_mods_mapping = "Unknown modifier magic word: %s."
+
+# slot
+sd_slot_p_weapon = "Weapon"
+sd_slot_p_armor = "Armor"
+sd_slot_p_helmet = "Helmet"
+sd_slot_p_trousers = "Trousers"
+sd_slot_p_boots = "Boots"
+sd_slot_p_gloves = "Gloves"
+sd_slot_p_amulet = "Amulet"
+sd_slot_p_ring = "Ring"
+sd_slot_p_earring = "Earring"
+sd_slot_p_piercing = "Piercing"
+sd_slot_p_mount = "Mount"
+
 
 #########
 # Items #
@@ -41,7 +92,6 @@ err_sd_not_now = "You cannot do this now."
 mt_shadowdogs_enable = "Enable"
 md_shadowdogs_enable = "Enable Shadowdogs inside a channel"
 msg_sd_enabled = "Shadowdogs has been enabled."
-err_sd_stub = "Shadowdogs unimplemented error"
 
 #########
 # Start #
@@ -60,6 +110,14 @@ sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless.
 mt_shadowdogs_equip = "Equip Item"
 md_shadowdogs_equip = "Equip yourself with an Item."
 msg_sd_item_equip = "You use %s as your %s from now on. %s busy."
+
+#############
+# Equipment #
+#############
+mt_shadowdogs_equipment = "Show Equipment"
+md_shadowdogs_equipment = "Show your equipment."
+msg_sd_equipment = "Your equipment: %s."
+none = "none"
 
 #############
 # Inventory #
@@ -93,3 +151,13 @@ msg_sd_fight_started = "You encounter %s."
 mt_shadowdogs_gmi = "GM Item"
 md_shadowdogs_gmi = "GM Command - Create an item for a player."
 msg_sd_gmi_success = "You successfully gave %s for %s."
+
+##############
+### Quests ###
+##############
+sdq0001_title = "Peninsula"
+sdq0001_descr = "Find out where the weird pen is from."
+
+sdq0002_title = "Connection"
+sdq0002_descr = "Try to contact lazer to find out what might have happened."
+

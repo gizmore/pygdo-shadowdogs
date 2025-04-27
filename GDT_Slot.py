@@ -1,3 +1,4 @@
+from gdo.base.Trans import t
 from gdo.core.GDT_Enum import GDT_Enum
 
 
@@ -63,3 +64,7 @@ class GDT_Slot(GDT_Enum):
             if chars == slot_name1 or chars == slot_name2 or slot == slot_name:
                 return slot
         return None
+
+    @classmethod
+    def display_slot(cls, slot: str):
+        return t('sd_slot_' + slot)

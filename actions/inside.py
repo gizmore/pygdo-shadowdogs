@@ -10,3 +10,4 @@ class inside(Action):
     def get_target(self, party: 'SD_Party'):
         from gdo.shadowdogs.engine.World import World
         return World.get_location(party.get_target_string())
+

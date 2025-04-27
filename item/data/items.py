@@ -75,7 +75,7 @@ class items:
 
     @classmethod
     def instance(cls, name: str, klass: str) -> 'Item':
-        return cls.KLASSES[klass](name, klass)
+        return cls.KLASSES[klass](name)
 
     @classmethod
     def get_item(cls, name: str, count: int = 1, mods: str | None = None):

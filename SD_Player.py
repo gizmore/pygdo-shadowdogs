@@ -21,8 +21,6 @@ from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.classes.Equipment import Equipment
-from gdo.shadowdogs.locations.City import City
-from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
 from gdo.shadowdogs.stat.Alcohol import Alcohol
@@ -34,6 +32,9 @@ from gdo.shadowdogs.stat.XP import XP
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
+    from gdo.shadowdogs.locations.City import City
+    from gdo.shadowdogs.locations.Location import Location
+
 from gdo.shadowdogs.GDT_Faction import GDT_Faction
 from gdo.shadowdogs.GDT_Item import GDT_Item
 from gdo.shadowdogs.GDT_Party import GDT_Party
@@ -162,13 +163,16 @@ class SD_Player(WithShadowFunc, GDO):
     def get_user(self) -> GDO_User:
         return self.gdo_value('p_user')
 
-    def get_city(self) -> City:
+    def get_city(self) -> 'City':
         return self.get_party().get_city()
 
     def get_name(self):
         if name := self.gdo_val('p_npc_name'):
             return f"{name}[{self.get_id()}]"
         return self.get_user().render_name()
+
+    async def is_online(self) -> bool:
+        return await self.get_user().is_online()
 
     ##########
     # Combat #
@@ -187,13 +191,50 @@ class SD_Player(WithShadowFunc, GDO):
     def kill(self):
         from gdo.shadowdogs.engine.Factory import Factory
         self.get_party().members.remove(self)
-        party = Factory.create_party(self.get_city().get_respawn_location())
+        party = Factory.create_party(self.get_city().get_respawn_location(self))
         party.members.append(self)
-        self.save_val('p_party', party.get_id())
-        return self
+        return self.save_vals({
+            'p_party': party.get_id(),
+            'p_joined': Time.get_date(),
+        })
+
+    #############
+    # Equipment #
+    #############
+
+    def get_weapon(self) -> 'Weapon':
+        return self.get_equipment('p_weapon') or Fists()
+
+    def get_equip(self, slot_name: str) -> 'SD_Item':
+        try:
+            return self.gdo_value(GDT_Slot.map(slot_name))
+        except AttributeError as ex:
+            return None
+
+    def get_equipment(self, slot_name: str) -> Equipment|None:
+        if item := self.get_equip(slot_name):
+            return item.itm()
+
+    ########
+    # Data #
+    ########
 
     def c(self, key: str) -> Modifier:
         return self.column(key).value(self.g(key)+self.gb(key))
+
+    def g(self, key: str) -> int:
+        return self.modified[key]
+
+    def gb(self, key: str) -> int:
+        return self.gdo_value(key)
+
+    def s(self, key: str, value: int):
+        self.modified[key] = value
+        return self
+
+    ##########
+    # Modify #
+    ##########
 
     def modify_all(self):
         self.reset_modified()
@@ -211,16 +252,6 @@ class SD_Player(WithShadowFunc, GDO):
             item.itm().apply_inv(self)
         return self
 
-    def g(self, key: str) -> int:
-        return self.modified[key]
-
-    def gb(self, key: str) -> int:
-        return self.gdo_value(key)
-
-    def s(self, key: str, value: int):
-        self.modified[key] = value
-        return self
-
     def apply(self, name: str, inc: int):
         self.modified[name] += inc
         return self
@@ -229,19 +260,6 @@ class SD_Player(WithShadowFunc, GDO):
         for key, val in stats.items():
             self.apply(key, val)
         return self
-
-    def get_equip(self, slot_name: str) -> 'SD_Item':
-        try:
-            return self.gdo_value(GDT_Slot.map(slot_name))
-        except AttributeError as ex:
-            return None
-
-    def get_equipment(self, slot_name: str) -> Equipment|None:
-        if item := self.get_equip(slot_name):
-            return item.itm()
-
-    def get_weapon(self) -> 'Weapon':
-        return self.get_equip('p_weapon') or Fists()
 
     def give_hp(self, hp: int):
         return self.s('p_hp', min(self.g('p_hp') + hp, self.g('p_max_hp')))
@@ -281,17 +299,39 @@ class SD_Player(WithShadowFunc, GDO):
             output += " " + t('msg_sd_gained_level', (level, self.level_column().xp_needed(self) - xp, level + 1))
         return output
 
-    def get_party(self) -> 'SD_Party':
-        return self.gdo_value('p_party')
-
     def has_kp(self, location: 'Location') -> bool:
         return SD_Place.has_location(self, location)
 
     def hit(self, dmg: int):
         self.give_hp(-dmg)
 
-    def render_ny(self):
-        return self.gdo_val('p_nuyen') + Shadowdogs.NUYEN
+    #########
+    # Nuyen #
+    #########
+    def get_nuyen(self) -> int:
+        return self.gb('p_nuyen')
+
+    def has_nuyen(self, nuyen: int) -> bool:
+        return self.get_nuyen() >= nuyen
+
+    def give_nuyen(self, nuyen: int):
+        return self.increment('p_nuyen', nuyen)
+
+    def render_ny(self) -> str:
+        return Shadowdogs.display_nuyen(self.get_nuyen())
+
+    #########
+    # Spell #
+    #########
+    def has_spell(self, spell_name: str) -> bool:
+        return False
+
+    #########
+    # Party #
+    #########
+
+    def get_party(self) -> 'SD_Party':
+        return self.gdo_value('p_party')
 
     def is_near(self, player: 'SD_Player') -> bool:
         p = self.get_party()

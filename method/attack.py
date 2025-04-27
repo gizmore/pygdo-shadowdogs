@@ -1,5 +1,4 @@
 from gdo.form.GDT_Form import GDT_Form
-from gdo.shadowdogs.GDT_TargetArg import GDT_TargetArg
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 
@@ -12,7 +11,7 @@ class attack(MethodSD):
 
     @classmethod
     def sd_trig(cls) -> str:
-        return "a"
+        return "sda"
 
     def sd_requires_action(self) -> list[str]|None:
         return [
@@ -23,6 +22,7 @@ class attack(MethodSD):
         return self.get_player().get_weapon().get_attack_time()
 
     def gdo_create_form(self, form: GDT_Form) -> None:
+        from gdo.shadowdogs.GDT_TargetArg import GDT_TargetArg
         form.add_field(GDT_TargetArg('target').foes().not_null())
         super().gdo_create_form(form)
 
