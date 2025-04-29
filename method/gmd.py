@@ -41,8 +41,4 @@ class gmd(MethodSD):
                env_server(self._env_server).
                env_channel(self._env_channel))
         gdt = msg.execute()
-               .execute())
-        Application.MESSAGES.put(new)
-        launch.
-
 

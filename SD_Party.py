@@ -1,5 +1,3 @@
-import math
-
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Util import Arrays
@@ -9,9 +7,10 @@ from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Action import GDT_Action
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
-from typing import TYPE_CHECKING, Self
+from typing import TYPE_CHECKING, Self, Iterator
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 
@@ -55,7 +54,6 @@ class SD_Party(WithShadowFunc, GDO):
             'party_target': target if target else self.gdo_val('party_target'),
             'party_eta': str(self.get_time() + eta) if eta else '0',
         })
-        self.save()
         await self.get_action().on_start(self)
         return self
 
@@ -65,7 +63,7 @@ class SD_Party(WithShadowFunc, GDO):
         return self.do(
             self.gdo_val('party_last_action'),
             self.gdo_val('party_last_target'),
-            eta if eta else None,
+            eta,
         )
 
     ###########
@@ -96,6 +94,12 @@ class SD_Party(WithShadowFunc, GDO):
     # Target #
     ##########
 
+    def players_nearby(self) -> Iterator['SD_Player']:
+        action = self.get_action_name()
+        for epa in Shadowdogs.PARTIES.values():
+            if epa.get_location(action) == self.get_location(action):
+                yield from epa.members
+
     def get_target_string(self):
         return self.gdo_val('party_target')
 
@@ -105,7 +109,7 @@ class SD_Party(WithShadowFunc, GDO):
     def get_last_target(self) -> any:
         return self.gdo_value('party_last_target')
 
-    def get_target_party(self):
+    def get_target_party(self) -> 'SD_Party|None':
         if self.does(Action.FIGHT, Action.TALK):
             return self.get_target()
 
@@ -120,7 +124,7 @@ class SD_Party(WithShadowFunc, GDO):
         if isinstance(target, Location):
             return target.get_city()
 
-    def get_location(self, action: str = None) -> 'Location':
+    def get_location(self, action: str = None) -> 'Location|None':
         if action is not None:
             if self.get_action_name() != action:
                 return None
@@ -136,7 +140,10 @@ class SD_Party(WithShadowFunc, GDO):
     # Action #
     ##########
     async def tick(self):
-        await self.get_action().execute(self)
+        if self.is_action_over():
+            await self.get_action().on_completed(self)
+        else:
+            await self.get_action().execute(self)
         return self
 
     def get_action_name(self) -> str:
@@ -185,4 +192,3 @@ class SD_Party(WithShadowFunc, GDO):
 
     def render_members(self) -> str:
         return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])
-

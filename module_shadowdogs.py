@@ -4,9 +4,13 @@ from gdo.base.GDT import GDT
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.shadowdogs.InstallShadowdogs import InstallShadowdogs
 from gdo.shadowdogs.SD_Item import SD_Item
+from gdo.shadowdogs.SD_Location import SD_Location
 from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
+from gdo.shadowdogs.SD_Quest import SD_Quest
+from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
+from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.SD_Spell import SD_Spell
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -17,11 +21,15 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_classes(self):
         return [
+            SD_Location,
             SD_Player,
             SD_Party,
             SD_Item,
             SD_Spell,
             SD_Place,
+            SD_Quest,
+            SD_QuestDone,
+            SD_QuestVal,
         ]
 
     def gdo_install(self):

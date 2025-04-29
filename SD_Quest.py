@@ -7,7 +7,6 @@ from gdo.core.GDT_Name import GDT_Name
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_Virtual import GDT_Virtual
 from gdo.date.GDT_Created import GDT_Created
-from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 
 
 class SD_Quest(GDO):
@@ -27,12 +26,10 @@ class SD_Quest(GDO):
         }).insert()
 
     def gdo_persistent(self) -> bool:
-        """
-        Prevents the cleansing of the GDO object Process Cache.
-        """
         return True
 
     def gdo_columns(self) -> list[GDT]:
+        from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
         t = SD_QuestDone.table()
         query_accept = t.select('COUNT(*)').where('qd_accepted IS NOT NULL AND qd_quest=q_id')
         query_denied = t.select('COUNT(*)').where('qd_declined IS NOT NULL AND qd_quest=q_id')

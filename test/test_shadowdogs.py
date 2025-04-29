@@ -65,6 +65,5 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('hit', out, 'attack does not work.')
 
 
-
 if __name__ == '__main__':
     unittest.main()

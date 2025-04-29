@@ -20,6 +20,7 @@ from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.classes.Equipment import Equipment
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
@@ -62,6 +63,9 @@ class SD_Player(WithShadowFunc, GDO):
 
     modified: dict[str, int]
     inventory: 'Inventory'
+    mount: 'Inventory'
+    bank: 'Inventory'
+    bazaar: 'Inventory'
     party_pos: int
     distance: int
     combat_stack: CombatStack
@@ -70,6 +74,9 @@ class SD_Player(WithShadowFunc, GDO):
     __slots__ = (
         'modified',
         'inventory',
+        'mount',
+        'bank',
+        'bazaar',
         'party_pos',
         'distance',
         'combat_stack',
@@ -80,6 +87,9 @@ class SD_Player(WithShadowFunc, GDO):
         super().__init__()
         self.reset_modified()
         self.inventory = Inventory()
+        self.mount = Inventory()
+        self.bank = Inventory()
+        self.bazaar = Inventory()
         self.party_pos = 0
         self.distance = 0
         self.combat_stack = CombatStack(self)
@@ -119,6 +129,7 @@ class SD_Player(WithShadowFunc, GDO):
             MP('p_mp'),
 
             Nuyen('p_nuyen'),
+            Nuyen('p_nuyen_bank'),
 
             GDT_Race('p_race').not_null().npcs(),
             GDT_Gender('p_gender').simple().not_null(),
@@ -178,12 +189,16 @@ class SD_Player(WithShadowFunc, GDO):
     # Combat #
     ##########
 
+    async def combat_tick(self):
+        await self.combat_stack.tick()
+
     def new_combat(self, enemies: 'SD_Party'):
         self.combat_stack.reset()
         return self
 
-    async def combat_tick(self):
-        await self.combat_stack.tick()
+    def hit(self, dmg: int):
+        self.give_hp(-dmg)
+        return self
 
     def is_dead(self) -> bool:
         return self.g('p_hp') <= 0
@@ -205,13 +220,13 @@ class SD_Player(WithShadowFunc, GDO):
     def get_weapon(self) -> 'Weapon':
         return self.get_equipment('p_weapon') or Fists()
 
-    def get_equip(self, slot_name: str) -> 'SD_Item':
+    def get_equip(self, slot_name: str) -> 'SD_Item|None':
         try:
             return self.gdo_value(GDT_Slot.map(slot_name))
         except AttributeError as ex:
             return None
 
-    def get_equipment(self, slot_name: str) -> Equipment|None:
+    def get_equipment(self, slot_name: str) -> 'Equipment|Item|None':
         if item := self.get_equip(slot_name):
             return item.itm()
 
@@ -261,11 +276,22 @@ class SD_Player(WithShadowFunc, GDO):
             self.apply(key, val)
         return self
 
+    #########
+    # HP/MP #
+    #########
+
     def give_hp(self, hp: int):
         return self.s('p_hp', min(self.g('p_hp') + hp, self.g('p_max_hp')))
 
     def give_mp(self, mp: int):
         return self.s('p_mp', min(self.g('p_mp') + mp, self.g('p_max_mp')))
+
+    ######
+    # XP #
+    ######
+
+    def level_column(self) -> Level:
+        return self.column('p_level')
 
     def get_total_karma(self) -> int:
         return self.gdo_value('p_xp') // Shadowdogs.XP_PER_KARMA
@@ -286,9 +312,6 @@ class SD_Player(WithShadowFunc, GDO):
             return " " + t('msg_sd_gained_karma', (new_karma, self.gdo_value('p_karma')))
         return ''
 
-    def level_column(self) -> Level:
-        return self.column('p_level')
-
     def check_level_xp(self) -> str:
         output = ''
         xp = self.gdo_value('p_xp')
@@ -299,26 +322,27 @@ class SD_Player(WithShadowFunc, GDO):
             output += " " + t('msg_sd_gained_level', (level, self.level_column().xp_needed(self) - xp, level + 1))
         return output
 
-    def has_kp(self, location: 'Location') -> bool:
-        return SD_Place.has_location(self, location)
-
-    def hit(self, dmg: int):
-        self.give_hp(-dmg)
-
     #########
     # Nuyen #
     #########
-    def get_nuyen(self) -> int:
-        return self.gb('p_nuyen')
-
     def has_nuyen(self, nuyen: int) -> bool:
         return self.get_nuyen() >= nuyen
+
+    def get_nuyen(self) -> int:
+        return self.gb('p_nuyen')
 
     def give_nuyen(self, nuyen: int):
         return self.increment('p_nuyen', nuyen)
 
     def render_ny(self) -> str:
         return Shadowdogs.display_nuyen(self.get_nuyen())
+
+    ##########
+    # Places #
+    ##########
+
+    def has_kp(self, location: 'Location') -> bool:
+        return SD_Place.has_location(self, location)
 
     #########
     # Spell #
@@ -349,3 +373,12 @@ class SD_Player(WithShadowFunc, GDO):
     def busy(self, time: int) -> str:
         self.command_eta = self.get_time() + time
         return Time.human_duration(time)
+
+    ##########
+    # Render #
+    ##########
+    def render_gender(self):
+        self.column('p_gender').render_txt()
+
+    def render_race(self):
+        self.column('p_race').render_txt()

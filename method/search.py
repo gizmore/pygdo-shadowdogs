@@ -21,4 +21,6 @@ class search(MethodSD):
         return self.param_value('target')
 
     def form_submitted(self):
-        pass
+        what = self.get_target()
+        what.on_search(self.get_player())
+        return self.empty()

@@ -8,6 +8,7 @@ from gdo.shadowdogs.actions.Action import Action
 
 class GDT_TargetArg(WithPlayerGDO, GDT_Select):
 
+    _me: bool
     _foes: bool
     _others: bool
     _friends: bool
@@ -30,7 +31,11 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
     ########
 
     def players(self, players: bool = True):
-        return self.friends(players).foes(players).others(players)
+        return self.me().friends(players).foes(players).others(players)
+
+    def me(self, me: bool = True):
+        self._me = me
+        return self
 
     def foes(self, foes: bool = True):
         self._foes = foes
@@ -72,8 +77,9 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
             for pl in self.get_party().members:
                 choices[pl.render_name()] = pl
         if self._obstacles and self.get_party().does(Action.INSIDE):
-            self.get_location()
-
-            thers:
-
-        if self._friends:
+            for obstacle in self.get_location().OBSTACLES:
+                choices[obstacle.render_name()] = obstacle
+        if self._others:
+            for pl in self.get_party().players_nearby():
+                choices[pl.render_name()] = pl
+        return choices

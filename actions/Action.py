@@ -32,7 +32,7 @@ class Action(WithShadowFunc):
     async def sleeping(self, party: 'SD_Party'):
         pass
 
-    async def completed(self, party: 'SD_Party'):
+    async def on_completed(self, party: 'SD_Party'):
         pass
 
     ##########
@@ -53,4 +53,3 @@ class Action(WithShadowFunc):
 
     def render_busy(self, party: 'SD_Party') -> str:
         return Time.human_duration(party.get_eta_s())
-

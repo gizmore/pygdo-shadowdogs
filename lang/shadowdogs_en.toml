@@ -142,6 +142,13 @@ md_shadowdogs_fight = "Fight an opposing party."
 msg_sd_fight_started = "You encounter %s."
 
 ##########
+# Search #
+##########
+mt_shadowdogs_search = "Search"
+md_shadowdogs_search = "Search a location or obstacle."
+msg_sd_search_nothing = "You searched the %s but couldn't find anything useful or interesting."
+
+##########
 ### GM ###
 ##########
 

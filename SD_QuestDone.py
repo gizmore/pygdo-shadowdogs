@@ -1,7 +1,6 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.core.GDT_Object import GDT_Object
-from gdo.core.GDT_Serialize import GDT_Serialize
 from gdo.date.GDT_Created import GDT_Created
 from gdo.date.GDT_Timestamp import GDT_Timestamp
 from gdo.shadowdogs.GDT_Player import GDT_Player

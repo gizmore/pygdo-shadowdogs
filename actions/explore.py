@@ -15,3 +15,6 @@ class explore(Action):
 
     async def on_start(self, party: 'SD_Party'):
         await self.send_to_party(party, self.get_action_text_key(party), self.get_action_text_args(party))
+
+    async def on_completed(self, party: 'SD_Party'):
+        await party.get_city().on_explored(party)
