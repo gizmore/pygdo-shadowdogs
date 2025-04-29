@@ -6,6 +6,7 @@ from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.City import City
+    from gdo.shadowdogs.SD_Place import SD_Place
 
 
 class GDT_Location(WithPlayerGDO, GDT_Object):
@@ -21,9 +22,13 @@ class GDT_Location(WithPlayerGDO, GDT_Object):
         self._same_city = False
         self._city = None
 
-    def gdo(self, gdo: GDO):
-        super().gdo(gdo)
-        return self.city(self.get_party().get_city())
+    def get_place(self) -> 'SD_Place':
+        return self._gdo
+
+    # def gdo(self, gdo: GDO):
+    #     super().gdo(gdo)
+    #     player = self.get_place().get_player()
+    #     return self.player(player).city(self.get_party().get_city())
 
     def known(self, known: bool = True):
         self._known = known

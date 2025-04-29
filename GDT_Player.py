@@ -78,6 +78,6 @@ class GDT_Player(WithPlayerGDO, GDT_Object):
             if player := self._table.get_by_aid(val):
                 return [player]
         if self._humans:
-            if lst := self._gdt_user.query_gdos(val):
-                return [self._table.get_by('p_user', usr.get_id()) for usr in lst]
+            query = self._table.select().join_object('p_user')
+            return self._gdt_user.query_gdos_query(val, query).exec().fetch_all()._items
         return GDO.EMPTY_LIST

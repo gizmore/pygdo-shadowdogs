@@ -9,8 +9,14 @@ if TYPE_CHECKING:
 
 class WithPlayerGDO:
 
+    _player: 'SD_Player'
+
+    def player(self, player: 'SD_Player'):
+        self._player = player
+        return self
+
     def get_player(self) -> 'SD_Player':
-        return self._gdo
+        return self._player
 
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()

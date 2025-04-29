@@ -1,7 +1,6 @@
 import functools
 
 from gdo.base.GDO import GDO
-from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
@@ -9,6 +8,7 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.City import City
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class Location(WithShadowFunc):
@@ -48,7 +48,7 @@ class Location(WithShadowFunc):
     # Methods #
     ###########
 
-    async def on_search(self, player: SD_Player):
+    async def on_search(self, player: 'SD_Player'):
         await self.send_to_player(player, 'msg_sd_search_nothing')
 
     ##########

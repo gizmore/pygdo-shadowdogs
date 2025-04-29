@@ -54,7 +54,7 @@ class SD_Party(WithShadowFunc, GDO):
             'party_target': target if target else self.gdo_val('party_target'),
             'party_eta': str(self.get_time() + eta) if eta else '0',
         })
-        await self.get_action().on_start(self)
+        await self.get_action().player(self.members[0]).on_start(self)
         return self
 
     async def resume(self):
@@ -110,6 +110,7 @@ class SD_Party(WithShadowFunc, GDO):
         return self.gdo_value('party_last_target')
 
     def get_target_party(self) -> 'SD_Party|None':
+        from gdo.shadowdogs.actions.Action import Action
         if self.does(Action.FIGHT, Action.TALK):
             return self.get_target()
 
@@ -128,6 +129,7 @@ class SD_Party(WithShadowFunc, GDO):
         if action is not None:
             if self.get_action_name() != action:
                 return None
+        from gdo.shadowdogs.actions.Action import Action
         if self.does(Action.FIGHT, Action.TALK):
             if target := self.get_last_target():
                 if isinstance(target, Location):
@@ -178,6 +180,7 @@ class SD_Party(WithShadowFunc, GDO):
         return self.get_last_action_name() in actions
 
     async def fight(self, party: 'SD_Party'):
+        from gdo.shadowdogs.actions.Action import Action
         await self.do(Action.FIGHT, party.get_id())
         await party.do(Action.FIGHT, self.get_id())
         for player in self.members:

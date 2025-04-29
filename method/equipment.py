@@ -7,6 +7,15 @@ from gdo.shadowdogs.WithShadowMethod import WithShadowMethod
 
 
 class equipment(WithShadowMethod, Method):
+
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sdq'
+
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return 'sdequipment'
+
     """
     Display your equipment.
     """
