@@ -4,6 +4,7 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.method.attack import attack
 
@@ -13,7 +14,7 @@ if TYPE_CHECKING:
 
 class CombatStack(WithShadowFunc):
 
-    command: Method
+    command: MethodSD|None
     eta: int
     player: 'SD_Player'
 
@@ -22,12 +23,12 @@ class CombatStack(WithShadowFunc):
         self.reset()
 
     def reset(self):
-        self.command = self.get_default_command()
+        self.command = None # self.get_default_command()
         qui = self.player.g('p_qui')
         fig = self.player.g('p_fig')
         self.eta = self.get_time() + Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8))
 
-    def get_default_command(self) -> Method:
+    def get_default_command(self) -> MethodSD:
         user = self.player.get_user()
         return (attack().env_user(user, True).
                 env_server(user.get_server()))
@@ -36,16 +37,12 @@ class CombatStack(WithShadowFunc):
         t = self.get_time()
         if t > self.eta:
             self.eta = t + await self.execute()
-            self.command = 'sdattack'
+            self.command = None #  'sdattack'
 
     async def execute(self):
-        parts = self.command.split(" ")
-        method = self.get_method(parts[0]) or attack()
-        method.player(self.player)
-        method.env_user(self.player.get_user(), True)
-        method.env_server(self.player.get_user().get_server())
-        method._raw_args.add_cli_line(parts[1:])
-        gdt = await method.execute()
-        return method.sd_combat_seconds()
+        if self.command is None:
+            self.command = self.get_default_command()
+        gdt = await self.command.execute()
+        return self.command.sd_combat_seconds()
 
 
