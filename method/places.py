@@ -9,7 +9,7 @@ class places(Method):
     def gdo_trigger(cls) -> str:
         return 'sdplaces'
 
-    def gdo_parameters(self) -> [GDT]:
+    def gdo_parameters(self) -> list[GDT]:
         return [
             GDT_City('City').default_current().not_null(),
         ]

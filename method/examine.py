@@ -9,7 +9,7 @@ class examine(Method):
     def gdo_trigger(cls) -> str:
         return 'sdexamine'
 
-    def gdo_parameters(self) -> [GDT]:
+    def gdo_parameters(self) -> list[GDT]:
         return [
             GDT_ItemArg('item').inventory().equipment(),
         ]

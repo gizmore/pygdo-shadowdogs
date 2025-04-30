@@ -10,7 +10,7 @@ class spells(MethodSD):
     def gdo_trigger(cls) -> str:
         return 'sdspells'
 
-    def gdo_parameters(self) -> [GDT]:
+    def gdo_parameters(self) -> list[GDT]:
         return [
         ]
 

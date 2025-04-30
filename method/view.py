@@ -10,7 +10,7 @@ class view(MethodSD):
         return True
 
 
-    def gdo_parameters(self) -> [GDT]:
+    def gdo_parameters(self) -> list[GDT]:
         return [
         ]
 
