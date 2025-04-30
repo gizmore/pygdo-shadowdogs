@@ -19,6 +19,6 @@ class fight(Action):
         await self.send_to_party(epa, 'msg_sd_fight_started', (party.render_members(),))
         await self.send_to_party(party, 'msg_sd_fight_started', (epa.render_members(),))
 
-    async def execute(self, party: 'SD_Party'):
+    async def on_completed(self, party: 'SD_Party'):
         for player in party.members:
             await player.combat_tick()

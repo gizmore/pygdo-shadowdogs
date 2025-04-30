@@ -6,12 +6,23 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class cast(MethodSD):
 
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sdc'
+
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return 'sdcast'
+
+    def sd_method_is_instant(self) -> bool:
+        return False
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_Spell('spell').not_null(),
-            GDT_TargetArg('target').friends().foes().positional(),
+            GDT_TargetArg('target').friends().foes().others().positional(),
         )
         super().gdo_create_form(form)
 
-    def form_submitted(self):
+    def sd_execute(self):
         pass

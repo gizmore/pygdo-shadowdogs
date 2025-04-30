@@ -29,8 +29,6 @@ class attack(MethodSD):
     def get_target(self) -> 'SD_Player':
         return self.param_value('target')
 
-    def form_submitted(self):
-        target = self.get_target()
-        player = self.get_player()
-        player.get_weapon().attack(target)
-        return super().form_submitted()
+    def sd_execute(self):
+        self.get_player().get_weapon().attack(self.get_target())
+        return self.empty()

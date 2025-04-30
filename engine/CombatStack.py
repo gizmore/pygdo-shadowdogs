@@ -1,3 +1,4 @@
+from gdo.base.Method import Method
 from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
@@ -12,7 +13,7 @@ if TYPE_CHECKING:
 
 class CombatStack(WithShadowFunc):
 
-    command: str
+    command: Method
     eta: int
     player: 'SD_Player'
 
@@ -21,10 +22,15 @@ class CombatStack(WithShadowFunc):
         self.reset()
 
     def reset(self):
-        self.command = 'sdattack'
+        self.command = self.get_default_command()
         qui = self.player.g('p_qui')
         fig = self.player.g('p_fig')
         self.eta = self.get_time() + Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8))
+
+    def get_default_command(self) -> Method:
+        user = self.player.get_user()
+        return (attack().env_user(user, True).
+                env_server(user.get_server()))
 
     async def tick(self):
         t = self.get_time()

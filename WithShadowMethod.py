@@ -28,10 +28,11 @@ class WithShadowMethod(WithShadowFunc):
     def sd_requires_action(self) -> list[str] | None:
         return None
 
+    def sd_method_is_instant(self) -> bool:
+        return self.sd_combat_seconds() > 0
 
     def sd_combat_seconds(self) -> int:
         return 0
-
 
     def gdo_has_permission(self, user: 'GDO_User'):
         if self.sd_requires_player():
