@@ -5,4 +5,4 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 class hack(Action):
 
     def get_target(self, party: 'SD_Party'):
-        return getattr(Shadowdogs.PLAYERS)
+        return party.get_enemy_party()

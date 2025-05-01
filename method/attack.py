@@ -23,7 +23,7 @@ class attack(MethodSD):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         from gdo.shadowdogs.GDT_TargetArg import GDT_TargetArg
-        form.add_field(GDT_TargetArg('target').foes().not_null())
+        form.add_field(GDT_TargetArg('target').foes().not_null().player(self.get_player()))
         super().gdo_create_form(form)
 
     def get_target(self) -> 'SD_Player':

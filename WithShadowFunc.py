@@ -6,6 +6,7 @@ import aioconsole
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import Strings
 from gdo.core.GDO_User import GDO_User
+from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
@@ -21,9 +22,7 @@ from gdo.base.Trans import Trans, t
 from gdo.core.GDO_Channel import GDO_Channel
 
 
-class WithShadowFunc:
-
-    _player: 'SD_Player'
+class WithShadowFunc(WithPlayerGDO):
 
     @classmethod
     def mod_sd(cls) -> 'module_shadowdogs':
@@ -38,16 +37,16 @@ class WithShadowFunc:
     # Entities #
     ############
 
-    def player(self, player: 'SD_Player'):
-        self._player = player
-        return self
+    # def player(self, player: 'SD_Player'):
+    #     self._player = player
+    #     return self
 
-    def get_player(self, user: GDO_User=None) -> 'SD_Player':
-        if hasattr(self, '_player'):
-            return self._player
-        from gdo.shadowdogs.SD_Player import SD_Player
-        user = user or self._env_user
-        return SD_Player.table().get_by('p_user', user.get_id())
+    # def get_player(self, user: GDO_User=None) -> 'SD_Player':
+    #     if hasattr(self, '_player'):
+    #         return self._player
+    #     from gdo.shadowdogs.SD_Player import SD_Player
+    #     user = user or self._env_user
+    #     return SD_Player.table().get_by('p_user', user.get_id())
 
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()

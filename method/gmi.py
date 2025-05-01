@@ -16,10 +16,6 @@ class gmi(MethodSD):
     Example: $gmi gizmo Club_of_adonis
     """
 
-    @classmethod
-    def gdo_trigger(cls) -> str:
-        return 'sdgmi'
-
     def gdo_user_permission(self) -> str | None:
         return GDO_Permission.ADMIN
 

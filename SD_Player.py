@@ -68,8 +68,8 @@ class SD_Player(WithShadowFunc, GDO):
     bazaar: 'Inventory'
     party_pos: int
     distance: int
-    combat_stack: CombatStack
     command_eta: int
+    combat_stack: CombatStack
 
     __slots__ = (
         'modified',
@@ -79,8 +79,8 @@ class SD_Player(WithShadowFunc, GDO):
         'bazaar',
         'party_pos',
         'distance',
-        'combat_stack',
         'command_eta',
+        'combat_stack',
     )
 
     def __init__(self):
@@ -92,8 +92,11 @@ class SD_Player(WithShadowFunc, GDO):
         self.bazaar = Inventory()
         self.party_pos = 0
         self.distance = 0
-        self.combat_stack = CombatStack(self)
         self.command_eta = 0
+        self.combat_stack = CombatStack(self)
+
+    # def gdo_wake_up(self):
+    #     self.combat_stack = CombatStack(self)
 
     def reset_modified(self):
         self.modified = {
@@ -182,8 +185,8 @@ class SD_Player(WithShadowFunc, GDO):
             return f"{name}[{self.get_id()}]"
         return self.get_user().render_name()
 
-    async def is_online(self) -> bool:
-        return await self.get_user().is_online()
+    def is_online(self) -> bool:
+        return self.get_user().is_online()
 
     ##########
     # Combat #

@@ -13,6 +13,7 @@ class Shadowdogs:
     NPCS: dict[str,'SD_NPC'] = {}
     PARTIES: dict[str,'SD_Party'] = {}
     PLAYERS: dict[str,'SD_Player'] = {}
+    USERMAP: dict[str,'SD_Player'] = {}
 
     MODIFIER_SEPERATOR = '_of_'
 

@@ -11,7 +11,7 @@ class WithShadowMethod(WithShadowFunc):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return cls.gdo_trigger()
+        return cls.gdo_trigger()[0:4]
 
     def sd_is_item_specific(self) -> str:
         return GDO.EMPTY_STR
@@ -35,6 +35,9 @@ class WithShadowMethod(WithShadowFunc):
         return 0
 
     def gdo_has_permission(self, user: 'GDO_User'):
+        from gdo.shadowdogs.engine.World import World
+        if not hasattr(self, '_player'):
+            self.player(World.get_player_for_user(user))
         if self.sd_requires_player():
             if not self.get_player():
                 self.err('err_sd_player_required')

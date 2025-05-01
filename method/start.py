@@ -11,6 +11,7 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.city.AmBauhof15.AmBauhof15 import AmBauhof15
 from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.MethodSD import MethodSD
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.user.GDT_Gender import GDT_Gender
 
 
@@ -46,6 +47,8 @@ class start(MethodSD):
             player.column('p_race').render(self._env_mode),))
         await self.character_created(player)
         player.modify_all()
+        Shadowdogs.PLAYERS[player.get_id()] = player
+        Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
         return self.empty()
 
     async def character_created(self, player: SD_Player):

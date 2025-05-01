@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 
 from gdo.core.GDT_User import GDT_User
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -65,7 +66,7 @@ class GDT_Player(WithPlayerGDO, GDT_Object):
         if self._online:
             on = []
             for player in players:
-                if player.is_online():
+                if player.get_id() in Shadowdogs.PLAYERS:
                     on.append(player)
             players = on
         return players
@@ -79,5 +80,5 @@ class GDT_Player(WithPlayerGDO, GDT_Object):
                 return [player]
         if self._humans:
             query = self._table.select().join_object('p_user')
-            return self._gdt_user.query_gdos_query(val, query).exec().fetch_all()._items
+            return self._gdt_user.val(val).query_gdos_query(val, query).exec().fetch_all()._items
         return GDO.EMPTY_LIST

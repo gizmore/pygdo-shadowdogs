@@ -15,14 +15,19 @@ class WithPlayerGDO:
         self._player = player
         return self
 
-    def get_player(self) -> 'SD_Player':
-        return self._player
+    def get_player(self) -> 'SD_Player|None':
+        if hasattr(self, '_player'):
+            return self._player
+        if hasattr(self, '_env_user'):
+            from gdo.shadowdogs.engine.World import World
+            return World.get_player_for_user(self._env_user)
+        return None
 
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()
 
     def get_enemy_party(self) -> 'SD_Party':
-        return self.get_player().get_party().get_target_party()
+        return self.get_party().get_target_party()
 
     def get_city(self) -> 'City':
         return self.get_party().get_city()

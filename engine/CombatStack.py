@@ -19,8 +19,9 @@ class CombatStack(WithShadowFunc):
     player: 'SD_Player'
 
     def __init__(self, player: 'SD_Player'):
+        self.command = None # self.get_default_command()
+        self.eta = 0
         self.player = player
-        self.reset()
 
     def reset(self):
         self.command = None # self.get_default_command()
@@ -30,7 +31,7 @@ class CombatStack(WithShadowFunc):
 
     def get_default_command(self) -> MethodSD:
         user = self.player.get_user()
-        return (attack().env_user(user, True).
+        return (attack().player(self.player).env_user(user, True).
                 env_server(user.get_server()))
 
     async def tick(self):

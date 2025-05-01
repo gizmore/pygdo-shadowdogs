@@ -1,3 +1,4 @@
+import functools
 from typing import TYPE_CHECKING, Iterator
 
 from gdo.base.GDO import GDO
@@ -15,7 +16,7 @@ from gdo.shadowdogs.item.data.items import items
 class Item(WithShadowFunc):
 
     _name: str
-    _owner: 'SD_Player'
+    _owner: 'SD_Player|None'
     _count: int
     _modifiers: dict[str, int]
 
@@ -31,6 +32,7 @@ class Item(WithShadowFunc):
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item')
 
+    @functools.cache
     def render_name(self) -> str:
         name = self._name
         if self._modifiers:
