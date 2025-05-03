@@ -27,7 +27,8 @@ class CombatStack(WithShadowFunc):
         self.command = None # self.get_default_command()
         qui = self.player.g('p_qui')
         fig = self.player.g('p_fig')
-        self.eta = self.get_time() + Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8))
+        self.eta = (self.get_time() + self.get_busy_seconds() +
+                    Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8)))
 
     def get_default_command(self) -> MethodSD:
         user = self.player.get_user()
@@ -37,13 +38,20 @@ class CombatStack(WithShadowFunc):
     async def tick(self):
         t = self.get_time()
         if t > self.eta:
-            self.eta = t + await self.execute()
+            await self.execute()
             self.command = None #  'sdattack'
+
+    def busy(self, seconds: int):
+        self.eta = self.get_time() + seconds
 
     async def execute(self):
         if self.command is None:
             self.command = self.get_default_command()
-        gdt = await self.command.execute()
-        return self.command.sd_combat_seconds()
+        self.busy(self.command.sd_combat_seconds())
+        return await self.command.execute()
 
+    def is_busy(self) -> bool:
+        return self.eta > self.get_time()
 
+    def get_busy_seconds(self) -> int:
+        return max(self.eta - self.get_time(), 0)

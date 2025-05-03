@@ -68,7 +68,6 @@ class SD_Player(WithShadowFunc, GDO):
     bazaar: 'Inventory'
     party_pos: int
     distance: int
-    command_eta: int
     combat_stack: CombatStack
 
     __slots__ = (
@@ -79,7 +78,6 @@ class SD_Player(WithShadowFunc, GDO):
         'bazaar',
         'party_pos',
         'distance',
-        'command_eta',
         'combat_stack',
     )
 
@@ -94,9 +92,6 @@ class SD_Player(WithShadowFunc, GDO):
         self.distance = 0
         self.command_eta = 0
         self.combat_stack = CombatStack(self)
-
-    # def gdo_wake_up(self):
-    #     self.combat_stack = CombatStack(self)
 
     def reset_modified(self):
         self.modified = {
@@ -234,11 +229,26 @@ class SD_Player(WithShadowFunc, GDO):
             return item.itm()
 
     ########
+    # Busy #
+    ########
+    def busy(self, seconds: int):
+        self.combat_stack.busy(seconds)
+        return self
+
+    def is_busy(self) -> bool:
+        return self.combat_stack.is_busy()
+
+    def render_busy(self) -> str:
+        if not self.is_busy():
+            return ''
+        return " " + t('sd_busy', (Time.human_duration(self.combat_stack.get_busy_seconds()),))
+
+    ########
     # Data #
     ########
 
-    def c(self, key: str) -> Modifier:
-        return self.column(key).value(self.g(key)+self.gb(key))
+    def c(self, key: str) -> Modifier|GDT:
+        return self.column(key).value(self.g(key))
 
     def g(self, key: str) -> int:
         return self.modified[key]
