@@ -71,10 +71,20 @@ Items and equipment can be used and changed, but it costs time.
  
 
 ### Executables
- - freeze.exe (freeze the target by frying nanochips)
- - dillusion.exe (change the target combat target to a random target (also friends))
- - jam.exe (unload a target weapon)
- - poison.exe (damage targets with their own MP)
+
+Hacking executables are like magic spells but don't require time.
+There are randomly N executables started, based on your hacking skill: hacking() / 4
+
+ - tripwire L4 => target gets 1 damage because they tripped badly (oh nose).
+ - reloc L5 => clears enemy combat stack
+ - overload L6 => target erhält schaden basierend auf hacking (je besser der gegner hacken kann desto mehr schaden)
+ - spoof L7 => makes enemy attack a friend
+ - smartgun L8 => unload the targets weapon
+ - sidechannel L9 => nuyen werden geklaut
+ - reboot L14 => target player freezes for attacker hacking seconds.
+ - essence L10 => target erhält schaden basierend auf intelligence (je mehr int, je mehr damage)
+ - preload L18 => target uses a random item on a random target
+ - dos L24 => Ltarget player cannot hack anymore
 
 ### Combat math
 
