@@ -9,3 +9,4 @@ All dogs level up 10% faster, and sacrifices to The Grid
 yield double rewards. Remember: you are not the master's pet —
 you are the DOG GOD’s chosen.
 
+May conflict with day of the starwors force.
