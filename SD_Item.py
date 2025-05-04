@@ -32,8 +32,11 @@ class SD_Item(GDO):
             GDT_Index('item_owner_index').index_fields('item_owner'),
         ]
 
+    def get_owner(self) -> 'SD_Player':
+        return self.gdo_value('item_owner')
+
     def to_value(self, val: str):
-        return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_val('item_mods'))
+        return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_value('item_mods')).player(self.get_owner())
 
     def itm(self) -> Item:
         return self.to_value(None)

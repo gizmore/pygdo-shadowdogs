@@ -16,13 +16,13 @@ from gdo.shadowdogs.item.data.items import items
 class Item(WithShadowFunc):
 
     _name: str
-    _owner: 'SD_Player|None'
+    # _owner: 'SD_Player|None'
     _count: int
     _modifiers: dict[str, int]
 
     def __init__(self, name: str):
         self._name = name
-        self._owner = None
+        # self._owner = None
         self._count = 1
         self._modifiers = GDO.EMPTY_DICT
 
@@ -43,9 +43,9 @@ class Item(WithShadowFunc):
             name += ",".join(joined)
         return self._name
 
-    def owner(self, player: 'SD_Player'):
-        self._owner = player
-        return self
+    # def owner(self, player: 'SD_Player'):
+    #     self._owner = player
+    #     return self
 
     def count(self, count: int):
         self._count = count
@@ -62,11 +62,14 @@ class Item(WithShadowFunc):
         yield from self.get_default_modifiers().items()
         yield from self._modifiers.items()
 
-    def get_player(self, user: GDO_User=None) -> 'SD_Player':
-        return self._owner
+    # def get_player(self, user: GDO_User=None) -> 'SD_Player':
+    #     return self._owner
 
     def g(self, field: str) -> int:
         return self.get_player().g(field)
+
+    def dm(self, field: str) -> int:
+        return self.get_default_modifiers().get(field)
 
     def apply(self, player: 'SD_Player'):
         player.modify(self.get_default_modifiers())
@@ -76,11 +79,11 @@ class Item(WithShadowFunc):
         weight = self.get_default_modifiers().get('weight')
         player.apply('p_weight', weight)
 
-    def get_attack_time(self) -> float:
-        return 30
+    def sd_attack_time(self) -> int:
+        return self.dm('at')
 
     def get_equip_time(self) -> int:
-        return 90
+        return self.dm('et')
 
     def get_unequip_time(self) -> int:
         return self.get_equip_time() // 2

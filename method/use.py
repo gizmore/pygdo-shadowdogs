@@ -18,7 +18,7 @@ class use(MethodSD):
         return self.param_value('item')
 
     def sd_combat_seconds(self) -> float:
-        return self.get_item().itm().get_attack_time()
+        return self.get_item().itm().sd_attack_time()
 
     def form_submitted(self):
         pass

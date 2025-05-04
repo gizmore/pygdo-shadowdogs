@@ -32,7 +32,7 @@ class Loader(WithShadowFunc):
 
     @classmethod
     def load_party(cls, party: SD_Party):
-        pids = SD_Player.table().select().order('m_created DESC').where(f'm_party={party.get_id()}').exec(False).fetch_column()
+        pids = SD_Player.table().select().order('p_created DESC').where(f'p_party={party.get_id()}').exec(False).fetch_column()
         for pid in pids:
             player = SD_Player.table().get_by_aid(pid)
             Shadowdogs.PLAYERS[player.get_id()] = player

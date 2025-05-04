@@ -13,13 +13,13 @@ from gdo.shadowdogs.locations.Location import Location
 class Factory(WithShadowFunc):
 
     @classmethod
-    def create_party(cls, location: Location) -> SD_Party:
+    async def create_party(cls, location: Location) -> SD_Party:
         party = SD_Party.blank({
             'party_action': 'outside',
             'party_target': location.get_location_key(),
             'party_eta': str(cls.mod_sd().cfg_time()),
         }).insert()
-        party.do('inside')
+        await party.do('inside')
         Shadowdogs.PARTIES[party.get_id()] = party
         return party
 
@@ -28,7 +28,7 @@ class Factory(WithShadowFunc):
     ########
 
     @classmethod
-    def create_default_npcs(cls, location: Location, *class_names: str):
+    async def create_default_npcs(cls, location: Location, *class_names: str):
         specs = []
         for name in class_names:
             specs.append({
@@ -36,14 +36,14 @@ class Factory(WithShadowFunc):
                 'p_race': 'human',
                 'p_gender': 'male',
             })
-        return cls.create_npcs(location, *specs)
+        return await cls.create_npcs(location, *specs)
 
     @classmethod
-    def create_npcs(cls, location: Location, *npc_specs: dict[str,int|str]) -> SD_Party:
-        party = cls.create_party(location)
+    async def create_npcs(cls, location: Location, *npc_specs: dict[str,int|str]) -> SD_Party:
+        party = await cls.create_party(location)
         for spec in npc_specs:
             npc = cls.create_npc(party, spec)
-            party.join(npc)
+            await party.join(npc)
         return party
 
     @classmethod

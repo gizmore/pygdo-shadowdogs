@@ -201,10 +201,10 @@ class SD_Player(WithShadowFunc, GDO):
     def is_dead(self) -> bool:
         return self.g('p_hp') <= 0
 
-    def kill(self):
+    async def kill(self):
         from gdo.shadowdogs.engine.Factory import Factory
         self.get_party().members.remove(self)
-        party = Factory.create_party(self.get_city().get_respawn_location(self))
+        party = await Factory.create_party(self.get_city().get_respawn_location(self))
         party.members.append(self)
         return self.save_vals({
             'p_party': party.get_id(),

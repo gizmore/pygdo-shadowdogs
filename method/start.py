@@ -34,14 +34,14 @@ class start(MethodSD):
     async def form_submitted(self):
         if self.get_player():
             return self.err('err_sd_already_started')
-        party = Factory.create_party(AmBauhof15.Etage2Left)
+        party = await Factory.create_party(AmBauhof15.Etage2Left)
         player = SD_Player.blank({
             'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),
             'p_gender': self.param_val('gender'),
             'p_party': party.get_id(),
         }).insert()
-        party.join(player)
+        await party.join(player)
         self.msg('msg_sd_started', (
             player.column('p_gender').render(self._env_mode),
             player.column('p_race').render(self._env_mode),))

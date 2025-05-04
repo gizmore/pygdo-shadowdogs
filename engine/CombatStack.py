@@ -16,30 +16,37 @@ class CombatStack(WithShadowFunc):
 
     command: MethodSD|None
     eta: int
-    player: 'SD_Player'
+    last_target: 'SD_Player|None'
+
+    __slots__ = (
+        'command',
+        'eta',
+        'last_target',
+    )
 
     def __init__(self, player: 'SD_Player'):
-        self.command = None # self.get_default_command()
+        self.command = None
         self.eta = 0
-        self.player = player
+        self.player(player)
+        self.last_target = None
 
     def reset(self):
-        self.command = None # self.get_default_command()
-        qui = self.player.g('p_qui')
-        fig = self.player.g('p_fig')
+        self.last_target = None
+        self.command = None
+        qui = self.get_player().g('p_qui')
+        fig = self.get_player().g('p_fig')
         self.eta = (self.get_time() + self.get_busy_seconds() +
                     Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8)))
 
     def get_default_command(self) -> MethodSD:
-        user = self.player.get_user()
-        return (attack().player(self.player).env_user(user, True).
-                env_server(user.get_server()))
+        cmd = attack().player(self.get_player()).env_user(self.get_user(), True).env_server(self.get_user().get_server())
+        pos = self.last_target.party_pos if self.last_target else self.get_enemy_party().random_member().party_pos
+        return cmd.input('target', str(pos))
 
     async def tick(self):
-        t = self.get_time()
-        if t > self.eta:
+        if self.get_time() >= self.eta:
             await self.execute()
-            self.command = None #  'sdattack'
+            self.command = None
 
     def busy(self, seconds: int):
         self.eta = self.get_time() + seconds
@@ -48,7 +55,7 @@ class CombatStack(WithShadowFunc):
         if self.command is None:
             self.command = self.get_default_command()
         self.busy(self.command.sd_combat_seconds())
-        return await self.command.execute()
+        return await self.command.sd_execute()
 
     def is_busy(self) -> bool:
         return self.eta > self.get_time()

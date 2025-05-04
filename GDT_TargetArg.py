@@ -8,8 +8,11 @@ from gdo.shadowdogs.actions.Action import Action
 
 class GDT_TargetArg(WithPlayerGDO, GDT_Select):
 
+    FOES_RANDOM = 2
+    FOES_ENABLED = 1
+
     _me: bool
-    _foes: bool
+    _foes: int
     _others: bool
     _friends: bool
     _obstacles: bool
@@ -20,7 +23,8 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
         self.ascii()
         self.case_s()
         self.maxlen(96)
-        self._foes = False
+        self._me = False
+        self._foes = 0
         self._others = False
         self._friends = False
         self._obstacles = False
@@ -37,7 +41,7 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
         self._me = me
         return self
 
-    def foes(self, foes: bool = True):
+    def foes(self, foes: int = 1):
         self._foes = foes
         return self
 
@@ -60,12 +64,20 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
     #######
     # GDT #
     #######
+    def to_value(self, val: str):
+        if val:
+            return super().to_value(val)
+        if self._foes == self.FOES_RANDOM:
+            return self.get_enemy_party().random_member()
+        if self._default_room:
+            return self.get_party().get_location()
+        return None
+
+
     def get_value(self):
         value = super().get_value()
         if value is not None:
             return value
-        if self._default_room:
-            return self.get_party().get_location()
         return None
 
     def gdo_choices(self) -> dict:

@@ -1,6 +1,6 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
-from gdo.base.Util import Arrays
+from gdo.base.Util import Arrays, Random
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
@@ -54,7 +54,8 @@ class SD_Party(WithShadowFunc, GDO):
             'party_target': target if target else self.gdo_val('party_target'),
             'party_eta': str(self.get_time() + eta) if eta else '0',
         })
-        await self.get_action().player(self.members[0]).on_start(self)
+        if self.members:
+            await self.get_action().player(self.members[0]).on_start(self)
         return self
 
     async def resume(self):
@@ -70,7 +71,7 @@ class SD_Party(WithShadowFunc, GDO):
     # Members #
     ###########
 
-    def join(self, player: 'SD_Player'):
+    async def join(self, player: 'SD_Player'):
         if player in self.members:
             self.members.remove(player)
         self.members.append(player)
@@ -78,6 +79,7 @@ class SD_Party(WithShadowFunc, GDO):
             'p_party': self.get_id(),
             'p_joined': str(self.get_time()),
         })
+        await self.send_to_party(self, 'msg_sd_joined_party', (player.render_name(),))
         return self.with_fresh_positions()
 
     def with_fresh_positions(self):
@@ -113,6 +115,10 @@ class SD_Party(WithShadowFunc, GDO):
         from gdo.shadowdogs.actions.Action import Action
         if self.does(Action.FIGHT, Action.TALK):
             return self.get_target()
+        return None
+
+    def random_member(self) -> 'SD_Player|None':
+        return Random.list_item(self.members)
 
     def get_city(self) -> City|None:
         if city := self.get_city_from_target(self.get_target()):

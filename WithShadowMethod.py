@@ -56,3 +56,7 @@ class WithShadowMethod(WithShadowFunc):
                 self.err('err_sd_not_now', ())
                 return False
         return True
+
+    def sd_execute(self):
+        return self.gdo_execute()
+    

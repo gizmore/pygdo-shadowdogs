@@ -68,6 +68,10 @@ sd_slot_p_earring = "Earring"
 sd_slot_p_piercing = "Piercing"
 sd_slot_p_mount = "Mount"
 
+#########
+# Party #
+#########
+msg_sd_joined_party = "%s joined the party."
 
 #########
 # Items #

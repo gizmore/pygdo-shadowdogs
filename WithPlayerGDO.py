@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from gdo.core.GDO_User import GDO_User
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.locations.Location import Location
@@ -14,6 +15,9 @@ class WithPlayerGDO:
     def player(self, player: 'SD_Player'):
         self._player = player
         return self
+
+    def get_user(self) -> 'GDO_User':
+        return self.get_player().get_user()
 
     def get_player(self) -> 'SD_Player|None':
         if hasattr(self, '_player'):

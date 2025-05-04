@@ -19,16 +19,19 @@ class attack(MethodSD):
         ]
 
     def sd_combat_seconds(self) -> float:
-        return self.get_player().get_weapon().get_attack_time()
+        return self.get_player().get_weapon().sd_attack_time()
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         from gdo.shadowdogs.GDT_TargetArg import GDT_TargetArg
-        form.add_field(GDT_TargetArg('target').foes().not_null().player(self.get_player()))
+        form.add_field(GDT_TargetArg('target').foes(GDT_TargetArg.FOES_RANDOM).not_null().player(self.get_player()))
         super().gdo_create_form(form)
 
     def get_target(self) -> 'SD_Player':
         return self.param_value('target')
 
-    def sd_execute(self):
-        self.get_player().get_weapon().attack(self.get_target())
+    async def sd_execute(self):
+        player = self.get_player()
+        target = self.get_target()
+        player.combat_stack.last_target = target
+        await player.get_weapon().attack(target)
         return self.empty()

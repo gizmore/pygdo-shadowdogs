@@ -36,7 +36,7 @@ class module_shadowdogs(GDO_Module):
         InstallShadowdogs.install()
 
     def gdo_init(self):
-        if not Application.IS_HTTP:
+        if not Application.IS_HTTP and self.is_persisted():
             items.load()
             Loader.load_npcs()
             Loader.load_parties()
