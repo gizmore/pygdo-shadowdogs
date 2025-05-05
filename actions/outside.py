@@ -7,6 +7,6 @@ if TYPE_CHECKING:
 
 class outside(Action):
 
-    def get_target(self, party: 'SD_Party'):
+    def get_target(self, party: 'SD_Party', target_string: str):
         from gdo.shadowdogs.engine.World import World
-        return World.get_location(party.get_target_string())
+        return World.get_location(target_string)

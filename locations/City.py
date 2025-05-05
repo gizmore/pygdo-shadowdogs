@@ -29,4 +29,4 @@ class City:
 
     def get_respawn_location(self, player: 'SD_Player') -> Location:
         from gdo.shadowdogs.engine.World import World
-        return World.AmBauhof15.Etage2Left
+        return World.AmBauhof15.Bedroom

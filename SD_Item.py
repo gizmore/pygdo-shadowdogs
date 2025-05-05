@@ -39,7 +39,7 @@ class SD_Item(GDO):
         return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_value('item_mods')).player(self.get_owner())
 
     def itm(self) -> Item:
-        return self.to_value(None)
+        return self.to_value('')
 
     def get_item_name(self) -> str:
         return self.gdo_val('item_name')
@@ -47,7 +47,7 @@ class SD_Item(GDO):
     def get_count(self) -> int:
         return self.gdo_value('item_count')
 
-    def modifier_column(self) -> GDT_Modifiers:
+    def modifier_column(self) -> GDT_Modifiers|GDT:
         return self.column('item_mods')
 
     def render_name(self) -> str:

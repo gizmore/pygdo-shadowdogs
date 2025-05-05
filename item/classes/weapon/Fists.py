@@ -11,8 +11,8 @@ class Fists(Melee):
     def __init__(self):
         super().__init__('Fists')
 
-    def get_actions(self, player: 'SD_Player') -> list[str]:
-        return [
-            'sdpunch',
-            'sdkick',
-        ]
+    # def get_actions(self, player: 'SD_Player') -> list[str]:
+    #     return [
+    #         'sdpunch',
+    #         'sdkick',
+    #     ]

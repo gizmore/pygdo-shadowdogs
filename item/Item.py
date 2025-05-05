@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, Iterator
 from gdo.base.GDO import GDO
 from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.mapping import mapping
 
@@ -72,8 +73,12 @@ class Item(WithShadowFunc):
         return self.get_default_modifiers().get(field)
 
     def apply(self, player: 'SD_Player'):
-        player.modify(self.get_default_modifiers())
-        player.modify(self._modifiers)
+        for key, val in self.get_default_modifiers().items():
+            key = f"p_{key}"
+            if key in player.modified.keys():
+                player.apply(key, val)
+        if self._modifiers:
+            player.modify(self._modifiers)
 
     def apply_inv(self, player: 'SD_Player'):
         weight = self.get_default_modifiers().get('weight')

@@ -38,7 +38,7 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Target('party_target').not_null(),
             GDT_UInt('party_eta').not_null(),
             GDT_Action('party_last_action'),
-            GDT_Target('party_last_target'),
+            GDT_Target('party_last_target').last_target(),
             GDT_UInt('party_last_eta'),
             GDT_Created('party_created'),
         ]
@@ -108,6 +108,9 @@ class SD_Party(WithShadowFunc, GDO):
     def get_target(self) -> any:
         return self.gdo_value('party_target')
 
+    def get_last_target_string(self) -> str:
+        return self.gdo_val('party_last_target')
+
     def get_last_target(self) -> any:
         return self.gdo_value('party_last_target')
 
@@ -121,9 +124,8 @@ class SD_Party(WithShadowFunc, GDO):
         return Random.list_item(self.members)
 
     def get_city(self) -> City|None:
-        if city := self.get_city_from_target(self.get_target()):
-            return city
-        return self.get_city_from_target(self.get_last_target())
+        if city := self.get_city_from_target(self.get_target()): return city
+        else: return self.get_city_from_target(self.get_last_target())
 
     @staticmethod
     def get_city_from_target(target: City|Location) -> City|None:
@@ -164,6 +166,9 @@ class SD_Party(WithShadowFunc, GDO):
 
     def get_action(self) -> 'Action':
         return self.gdo_value('party_action')
+
+    def get_last_action(self) -> 'Action':
+        return self.gdo_value('party_last_action')
 
     def get_eta(self) -> int:
         return self.gdo_value('party_eta')

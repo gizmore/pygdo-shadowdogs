@@ -21,7 +21,7 @@ class Action(WithShadowFunc):
     TALK = 'talk'
     TRAVEL = 'travel'
 
-    def get_target(self, party: 'SD_Party'):
+    def get_target(self, party: 'SD_Party', target_string: str):
         raise ShadowdogsException('err_sd_stub', (f'{self.get_name()}.get_target()',))
 
     async def on_start(self, party: 'SD_Party'):

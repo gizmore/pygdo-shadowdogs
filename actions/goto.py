@@ -12,15 +12,7 @@ if TYPE_CHECKING:
 
 class goto(Action):
 
-    def get_target(self, party: 'SD_Party'):
-        ts = party.get_target_string()
+    def get_target(self, party: 'SD_Party', target_string: str):
+        ts = target_string
         city = getattr(Shadowdogs, Strings.substr_to(ts, '.'))
         return getattr(city, Strings.substr_from(ts, '.'))
-
-    # def get_target_location(self, party: 'SD_Party') -> Location:
-    #     return self.get_target(party)
-    #
-    # def on_start(self, party: 'SD_Party'):
-    #     self.send_to_party(party, 'msg_sd_start_goto',
-    #                         (self.get_target_location(party).render_name(),
-    #                         self.render_busy(party)))

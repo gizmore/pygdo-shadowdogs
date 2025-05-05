@@ -81,6 +81,11 @@ class SD_Player(WithShadowFunc, GDO):
         'combat_stack',
     )
 
+    STATS = (
+        'p_level',
+
+    )
+
     def __init__(self):
         super().__init__()
         self.reset_modified()
@@ -98,7 +103,7 @@ class SD_Player(WithShadowFunc, GDO):
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0,
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0,
             'p_hp': 0, 'p_mp': 0, 'p_max_hp': 0, 'p_max_mp': 0,
-            'p_attack': 0, 'p_defense': 0,
+            'p_attack': 0, 'p_defense': 0, 'p_at': 10,
             'p_min_dmg': 0, 'p_max_dmg': 0,
             'p_marm': 0, 'p_farm': 0,
             'p_alcohol': 0, 'p_hunger': 100, 'p_thirst': 100,
@@ -203,13 +208,13 @@ class SD_Player(WithShadowFunc, GDO):
 
     async def kill(self):
         from gdo.shadowdogs.engine.Factory import Factory
-        loc = self.get_city().get_respawn_location(self)
+        location = self.get_city().get_respawn_location(self)
         self.get_party().members.remove(self)
-        party = await Factory.create_party(loc)
+        party = await Factory.create_party(location)
         party.members.append(self)
         return self.save_vals({
             'p_party': party.get_id(),
-            'p_joined': Time.get_date(),
+            'p_joined': str(self.get_time()),
         })
 
     #############
@@ -217,7 +222,7 @@ class SD_Player(WithShadowFunc, GDO):
     #############
 
     def get_weapon(self) -> 'Weapon':
-        return self.get_equipment('p_weapon') or Fists()
+        return self.get_equipment('p_weapon') or Fists().player(self)
 
     def get_equip(self, slot_name: str) -> 'SD_Item|None':
         try:
@@ -228,6 +233,7 @@ class SD_Player(WithShadowFunc, GDO):
     def get_equipment(self, slot_name: str) -> 'Equipment|Item|None':
         if item := self.get_equip(slot_name):
             return item.itm()
+        return None
 
     ########
     # Busy #
@@ -304,7 +310,7 @@ class SD_Player(WithShadowFunc, GDO):
     # XP #
     ######
 
-    def level_column(self) -> Level:
+    def level_column(self) -> Level|GDT:
         return self.column('p_level')
 
     def get_total_karma(self) -> int:

@@ -8,8 +8,8 @@ if TYPE_CHECKING:
 
 class fight(Action):
 
-    def get_target(self, party: 'SD_Party'):
-        return Shadowdogs.PARTIES.get(party.get_target_string())
+    def get_target(self, party: 'SD_Party', target_string: str):
+        return Shadowdogs.PARTIES.get(target_string)
 
     def get_enemy_party(self) -> 'SD_Party':
         return self.get_party().get_target_party()
