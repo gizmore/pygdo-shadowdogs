@@ -23,6 +23,8 @@ class WithShadowMethod(WithShadowFunc):
         return Action.INSIDE,
 
     def sd_requires_player(self) -> bool:
+        from gdo.shadowdogs.engine.Loader import Loader
+        Loader.load_user(self._env_user)
         return True
 
     def sd_requires_action(self) -> list[str] | None:

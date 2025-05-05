@@ -10,7 +10,7 @@ class MethodSD(WithShadowMethod, MethodForm):
             return self.sd_execute()
         if self.get_party().does(Action.FIGHT):
             self.get_player().combat_stack.command = self
-        return super().form_submitted()
+        return self.sd_execute()
 
     async def sd_execute(self):
         return self.empty()

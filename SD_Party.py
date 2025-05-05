@@ -125,11 +125,13 @@ class SD_Party(WithShadowFunc, GDO):
             return city
         return self.get_city_from_target(self.get_last_target())
 
-    def get_city_from_target(self, target: City|Location|Self) -> City|None:
+    @staticmethod
+    def get_city_from_target(target: City|Location) -> City|None:
         if isinstance(target, City):
             return target
         if isinstance(target, Location):
             return target.get_city()
+        return None
 
     def get_location(self, action: str = None) -> 'Location|None':
         if action is not None:

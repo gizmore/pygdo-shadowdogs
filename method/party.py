@@ -6,9 +6,7 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class party(MethodSD):
 
-    def gdo_execute(self) -> GDT:
-        pa = self.get_party()
-        pa.get_action().on_start(pa, 'party')
-
-        return GDT_String('info').val(t('msg_sd_party', ()))
-
+    def sd_execute(self) -> GDT:
+        party = self.get_party()
+        action = party.get_action()
+        return GDT_String('info').val(action.render_action(party))

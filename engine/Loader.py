@@ -1,5 +1,4 @@
-import glob
-
+from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
@@ -7,16 +6,6 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class Loader(WithShadowFunc):
-
-    # @classmethod
-    # def module_sd(cls):
-    #     from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
-    #     return module_shadowdogs.instance()
-
-    # @classmethod
-    # def load_cities(cls):
-    #     for path in glob.glob(cls.module_sd().file_path('city/*')):
-    #         print(path)
 
     @classmethod
     def load_npcs(cls):
@@ -39,6 +28,15 @@ class Loader(WithShadowFunc):
             Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
             party.members.append(player)
         Shadowdogs.PARTIES[party.get_id()] = party
+        return party
+
+    @classmethod
+    def load_user(cls, user: GDO_User) -> SD_Player | None:
+        if party_id := SD_Player.table().select('p_party').where(f'p_user={user.get_id()}').first().exec().fetch_val():
+            if party_id not in Shadowdogs.PARTIES:
+                cls.load_party(SD_Party.table().get_by_aid(party_id))
+            return Shadowdogs.USERMAP[user.get_id()]
+        return None
 
     # @classmethod
     # def load_player(cls, player_id: str):

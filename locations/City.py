@@ -1,6 +1,9 @@
-from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.locations.Location import Location
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class City:
@@ -24,6 +27,6 @@ class City:
     def get_name(self):
         return self.__class__.__name__
 
-    def get_respawn_location(self, player: SD_Player) -> Location:
+    def get_respawn_location(self, player: 'SD_Player') -> Location:
         from gdo.shadowdogs.engine.World import World
         return World.AmBauhof15.Etage2Left

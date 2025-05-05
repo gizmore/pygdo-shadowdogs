@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+from gdo.base.Trans import t
 from gdo.date.Time import Time
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
@@ -53,3 +54,6 @@ class Action(WithShadowFunc):
 
     def render_busy(self, party: 'SD_Party') -> str:
         return Time.human_duration(party.get_eta_s())
+
+    def render_action(self, party: 'SD_Party', scope: str = 'start') -> str:
+        return t(self.get_action_text_key(party, ''), self.get_action_text_args(party, 'party'))

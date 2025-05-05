@@ -203,8 +203,9 @@ class SD_Player(WithShadowFunc, GDO):
 
     async def kill(self):
         from gdo.shadowdogs.engine.Factory import Factory
+        loc = self.get_city().get_respawn_location(self)
         self.get_party().members.remove(self)
-        party = await Factory.create_party(self.get_city().get_respawn_location(self))
+        party = await Factory.create_party(loc)
         party.members.append(self)
         return self.save_vals({
             'p_party': party.get_id(),
