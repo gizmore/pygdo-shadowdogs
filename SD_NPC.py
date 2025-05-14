@@ -17,3 +17,10 @@ class SD_NPC(SD_Player):
 
     def attack(self, target: SD_Player):
         pass
+
+    def as_real_class(self):
+        from gdo.shadowdogs.npcs.npcs import npcs
+        npc = npcs.NPCS[self.gdo_val('p_npc_class')]()
+        npc._vals = self._vals
+        npc._blank = False
+        return npc.all_dirty(False)

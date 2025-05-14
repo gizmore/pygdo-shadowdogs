@@ -2,6 +2,7 @@ from gdo.base.Util import Strings
 from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.city.Peine.Peine import Peine
 from gdo.shadowdogs.city.AmBauhof15.AmBauhof15 import AmBauhof15
+from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.npcs.Mob import Mob
 from gdo.shadowdogs.SD_NPC import SD_NPC
@@ -15,9 +16,9 @@ if TYPE_CHECKING:
 
 
 class World:
-    NPCs: dict[str, type[SD_NPC]] = {
-        'mob': Mob,
-    }
+    # NPCs: dict[str, type[SD_NPC]] = {
+    #     'mob': Mob,
+    # }
 
     Peine: Peine = Peine()
     AmBauhof15: AmBauhof15 = AmBauhof15()
@@ -29,6 +30,7 @@ class World:
 
     @classmethod
     def get_player_for_user(cls, user: GDO_User) -> 'SD_Player|None':
+        Loader.load_user(user)
         return Shadowdogs.USERMAP.get(user.get_id())
 
     @classmethod
@@ -47,6 +49,6 @@ class World:
             raise ValueError(f"Unknown location: {loc_str}")
         return location
 
-    @classmethod
-    def get_npc_class(cls, name: str) -> type[SD_NPC]:
-        return cls.NPCs.get(name.lower(), Mob)
+    # @classmethod
+    # def get_npc_class(cls, name: str) -> type[SD_NPC]:
+    #     return npcs.NPCS.NPCS.NPCScls.NPCs.get(name.lower(), Mob)

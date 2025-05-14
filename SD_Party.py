@@ -151,6 +151,10 @@ class SD_Party(WithShadowFunc, GDO):
     ##########
     # Action #
     ##########
+    async def digesting(self):
+        for player in self.members:
+            player.digesting()
+
     async def tick(self):
         if self.is_action_over():
             await self.get_action().on_completed(self)
@@ -208,3 +212,4 @@ class SD_Party(WithShadowFunc, GDO):
 
     def render_members(self) -> str:
         return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])
+

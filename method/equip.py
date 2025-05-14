@@ -1,3 +1,6 @@
+from functools import partial
+
+from gdo.base.Application import Application
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
@@ -28,7 +31,7 @@ class equip(MethodSD):
     def get_item(self) -> Item:
         return self.get_SD_Item().itm()
 
-    def form_submitted(self):
+    async def sd_before_execute(self):
         player = self.get_player()
         item = self.get_SD_Item()
         itm = item.itm()
@@ -36,16 +39,22 @@ class equip(MethodSD):
         key = 'msg_sd_item_equip'
         args = []
         if old_item := player.get_equip(itm.get_slot()):
-            self.unequip(player, itm.get_slot())
             key = 'msg_sd_item_re_equip'
             time += old_item.itm().get_unequip_time()
+            Application.EVENTS.add_timer(time, partial(self.unequip, player, itm.get_slot()))
             args.append(old_item.render_name())
-        self.equip(player, item)
+        time += itm.get_equip_time()
+        player.busy(time)
         args.append(item.render_name())
         args.append(itm.get_slot())
-        time += itm.get_equip_time()
-        args.append(player.busy(time))
-        return self.msg(key, tuple(args))
+        args.append(player.render_busy())
+        await self.send_to_party(player.get_party(), key, tuple(args))
+        await self.send_to_party(player.get_enemy_party(), key, tuple(args))
+        Application.EVENTS.add_timer(player.get_busy_seconds(), partial(self.equip, player, item))
+        return self.empty()
+
+    async def sd_execute(self):
+        pass
 
     def equip(self, player: SD_Player, item: SD_Item) -> bool:
         player.inventory.remove(item)

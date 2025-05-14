@@ -3,6 +3,10 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class status(MethodSD):
 
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sds'
+
     def form_submitted(self):
         p = self.get_player()
         return self.msg('msg_sd_status', (

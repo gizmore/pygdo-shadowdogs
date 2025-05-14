@@ -12,7 +12,6 @@ from gdo.date.Time import Time
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Place import SD_Place
-from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.attr.Attribute import Attribute
@@ -112,6 +111,7 @@ class SD_Player(WithShadowFunc, GDO):
         }
 
     def gdo_columns(self) -> list[GDT]:
+        from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
         return [
             GDT_AutoInc('p_id'),
 
@@ -239,7 +239,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Busy #
     ########
     def busy(self, seconds: int):
-        self.combat_stack.busy(seconds)
+        self.combat_stack.busy(seconds * Shadowdogs.SECONDS_PER_SECOND)
         return self
 
     def is_busy(self) -> bool:
@@ -249,6 +249,9 @@ class SD_Player(WithShadowFunc, GDO):
         if not self.is_busy():
             return ''
         return " " + t('sd_busy', (Time.human_duration(self.combat_stack.get_busy_seconds()),))
+
+    def get_busy_seconds(self) -> int:
+        return self.combat_stack.get_busy_seconds()
 
     ########
     # Data #
@@ -273,18 +276,21 @@ class SD_Player(WithShadowFunc, GDO):
 
     def modify_all(self):
         self.reset_modified()
-        self.column('p_race').apply(self)
-        self.level_column().apply(self)
+        for key, value in self.modified.items():
+            if key in self._vals: # base
+                self.apply(key, self.gdo_value(key))
+        self.column('p_race').apply(self) # + gender
         self.column('p_faction').apply(self)
-        for key in Attribute.ATTRIBUTES:
-            self.c(key).apply(self)
-        for key in Skill.SKILLS:
-            self.c(key).apply(self)
+        self.level_column().apply(self)
         for slot in GDT_Slot.SLOTS:
             if item := self.gdo_value(slot):
                 item.itm().apply(self)
         for item in self.inventory:
             item.itm().apply_inv(self)
+        for key in Attribute.ATTRIBUTES:
+            self.c(key).apply(self)
+        for key in Skill.SKILLS:
+            self.c(key).apply(self)
         return self
 
     def apply(self, name: str, inc: int):
@@ -295,6 +301,9 @@ class SD_Player(WithShadowFunc, GDO):
         for key, val in stats.items():
             self.apply(key, val)
         return self
+
+    def digesting(self):
+        pass
 
     #########
     # HP/MP #
@@ -394,6 +403,14 @@ class SD_Player(WithShadowFunc, GDO):
         self.command_eta = self.get_time() + time
         return Time.human_duration(time)
 
+    #######
+    # NPC #
+    #######
+    def as_real_class(self):
+        return self
+
+
+
     ##########
     # Render #
     ##########
@@ -402,3 +419,4 @@ class SD_Player(WithShadowFunc, GDO):
 
     def render_race(self):
         self.column('p_race').render_txt()
+

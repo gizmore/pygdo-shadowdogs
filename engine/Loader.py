@@ -23,10 +23,12 @@ class Loader(WithShadowFunc):
     def load_party(cls, party: SD_Party):
         pids = SD_Player.table().select().order('p_created DESC').where(f'p_party={party.get_id()}').exec(False).fetch_column()
         for pid in pids:
-            player = SD_Player.table().get_by_aid(pid)
-            Shadowdogs.PLAYERS[player.get_id()] = player
-            Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
-            party.members.append(player)
+            if pid not in Shadowdogs.PLAYERS:
+                player = SD_Player.table().get_by_aid(pid).as_real_class()
+                Shadowdogs.PLAYERS[player.get_id()] = player
+                Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
+                party.members.append(player)
+
         Shadowdogs.PARTIES[party.get_id()] = party
         return party
 

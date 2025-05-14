@@ -70,7 +70,7 @@ class module_shadowdogs(GDO_Module):
     async def shadow_timer(self):
         time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND
         self.save_config_val('sd_time', str(time))
-        for party in Shadowdogs.PARTIES.values():
+        for party in list(Shadowdogs.PARTIES.values()):
             await party.tick()
 
     async def shadow_hp_timer(self):
@@ -78,4 +78,5 @@ class module_shadowdogs(GDO_Module):
             await party.get_action().sleeping(party)
 
     async def shadow_food_timer(self):
-        pass
+        for party in Shadowdogs.PARTIES.values():
+            await party.digesting()
