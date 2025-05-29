@@ -44,3 +44,6 @@ class SD_Quest(GDO):
             GDT_Virtual(GDT_UInt('q_num_solved')).query(query_solved),
             GDT_Virtual(GDT_UInt('q_num_failed')).query(query_failed),
         ]
+
+    def render_title(self) -> str:
+        pass

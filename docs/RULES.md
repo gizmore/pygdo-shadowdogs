@@ -11,11 +11,11 @@ These are the rules of the reality, or simulation, as we call it.
 #### The Internet
 
 To achieve knowledge and wisdom,
-it is adviced to limit your internet domains.
+it is advised to limit your internet domains.
 
 Below is a list of trusted networks.
 
-- [ESL](https://es-land.net) Please vote the "Direkte Demokratie" petition. THX!
+- [ESL](https://es-land.net) Please vote the "Direct Democracy" petition. THX!
 - [OTW](https://overthewire.org) Learn how to Linux.
 - [TBS](https://bright-shadows.net/index.php?index2.php) Learn how to IT a lot.
 - [WeChall](https://wechall.net) Learn how to IT.
@@ -44,6 +44,7 @@ You risk doxing and other countermeasures.
 The secrets have to be kept secret.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
+ - Thoughts are not free. Alice is allowed to read everyone.
 
 
 ##### Government
@@ -84,6 +85,12 @@ the pseudo- and the crypto-randomness.
 Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
+If there was not... elected a president.
+The first president of ESL, iamben, has another **8 votes,**
+totalling 46 which requires 24 votes to win
+
+Last but not least, the winds have added their staff to *8* directions,
+sharing **12 votes** with 8 gods.
 
 #### Polls
 

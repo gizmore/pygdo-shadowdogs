@@ -4,6 +4,7 @@ from gdo.shadowdogs.locations.Location import Location
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.SD_Party import SD_Party
 
 
 class City:
@@ -30,3 +31,6 @@ class City:
     def get_respawn_location(self, player: 'SD_Player') -> Location:
         from gdo.shadowdogs.engine.World import World
         return World.AmBauhof15.Bedroom
+
+    def get_explore_eta(self, party: 'SD_Party') -> int:
+        return 300 - party.gmin('p_qui')

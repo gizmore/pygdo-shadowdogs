@@ -16,6 +16,8 @@ class ShadowdogsTest(GDOTestCase):
     async def ticker(self, ticks: int=1):
         for i in range(0, ticks-1):
             i = self.TICKS + i
+            Application.TIME += 1 # Shadowdogs.SECONDS_PER_TICK
+            await Application.EVENTS.update_timers(module_shadowdogs.instance().cfg_time())
             if (i % Shadowdogs.SECONDS_PER_TICK) == 0:
                 await module_shadowdogs.instance().shadow_timer()
             if (i % Shadowdogs.SECONDS_PER_HP_SLEEP) == 0:
@@ -55,6 +57,8 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('page 2 of 2', out, '$sdi 2 does not work.')
         self.assertIn('1m5', out, '$sdi 2 does not render.')
         out = cli_plug(gizmore, '$sdeq _of_ado')
+        await self.ticker(121)
+        out = all_private_messages()
         self.assertIn('Club_of_adonis as ', out, 'eq does not work.')
         out = cli_plug(gizmore, '$sdq')
         self.assertIn('Weapon: Club_of_adonis', out, '$sdq does not work.')

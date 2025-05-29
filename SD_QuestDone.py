@@ -6,9 +6,10 @@ from gdo.date.GDT_Timestamp import GDT_Timestamp
 from gdo.shadowdogs.GDT_Player import GDT_Player
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Quest import SD_Quest
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 
-class SD_QuestDone(GDO):
+class SD_QuestDone(WithShadowFunc, GDO):
 
     @classmethod
     def for_player(cls, name: str, player: SD_Player) -> 'SD_QuestDone':
@@ -36,3 +37,6 @@ class SD_QuestDone(GDO):
 
     def is_accepted(self):
         pass
+
+    async def accept(self):
+        await self.send_to_player(self.get_player(), 'msg_sd_quest_accepted', (self.get_quest().render_title()))

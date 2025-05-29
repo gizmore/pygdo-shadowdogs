@@ -1,0 +1,3 @@
+class WithComputer:
+
+    pass

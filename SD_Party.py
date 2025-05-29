@@ -92,6 +92,20 @@ class SD_Party(WithShadowFunc, GDO):
             self.members.remove(player)
         return self
 
+    def gmin(self, field: str) -> int:
+        min = 65536
+        for player in self.members:
+            v = player.g(field)
+            min = v if v < min else min
+        return min
+
+    def gmax(self, field: str) -> int:
+        max = 0
+        for player in self.members:
+            v = player.g(field)
+            max = v if v > max else max
+        return max
+
     ##########
     # Target #
     ##########
@@ -212,4 +226,3 @@ class SD_Party(WithShadowFunc, GDO):
 
     def render_members(self) -> str:
         return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])
-
