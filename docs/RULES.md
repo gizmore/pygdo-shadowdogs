@@ -11,11 +11,7 @@ These are the rules of the reality, or simulation, as we call it.
 #### The Internet
 
 To achieve knowledge and wisdom,
-<<<<<<< HEAD
-it is advised to limit your internet domains.
-=======
 it is advised to limit your internet domains. (joke)
->>>>>>> b8f21bf ('')
 
 Below is a list of trusted networks.
 
@@ -95,6 +91,7 @@ totalling 46 which requires 24 votes to win
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 gods.
+
 
 #### Polls
 
