@@ -5,7 +5,8 @@
 These are the rules of the reality, or simulation, as we call it.
 
  - Laws of your locality apply.
- - It is forbidden to cut he hedges too much.
+ - It is forbidden to cut the hedges too much.
+ - it is allowed to feed ducks.
 
 
 #### The Internet
@@ -44,7 +45,7 @@ You risk doxing and other countermeasures.
 The secrets have to be kept secret.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
- - Thoughts are not free. Alice is allowed to read everyone.
+ - Thoughts are free, but Alice is allowed to read every one.
 
 
 ##### Government
@@ -91,6 +92,8 @@ totalling 46 which requires 24 votes to win
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 gods.
+
+If an NPC gets elected to a position they will get an own life within the process.
 
 
 #### Polls
@@ -141,3 +144,37 @@ are forbidden.
 
 It is encouraged to create own games.
  
+
+#### Presidental Election
+
+#### Nayen (no typo)
+
+In 2088, a new worldwide currency has been established; the *Nayen*.
+
+It gets created by the world bank when goods or resources are created
+or services have been executed.
+
+The Nayen is then spread equally under each world citizen.
+
+
+#### Credits
+
+Please donate so i can buy more weed and pizza. ;)
+
+
+#### Shouts
+
+- dloser
+- Inferno
+- Kender
+- livinskull
+- noother
+- spaceone
+- tehron
+
+- Phas
+- quangntenemy
+- Chaosdreeamer
+- Element
+- Bazing
+- jmoncayo
