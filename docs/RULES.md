@@ -5,13 +5,17 @@
 These are the rules of the reality, or simulation, as we call it.
 
  - Laws of your locality apply.
- - It is forbidden to cut he dges too much.
+ - It is forbidden to cut he hedges too much.
 
 
 #### The Internet
 
 To achieve knowledge and wisdom,
+<<<<<<< HEAD
 it is advised to limit your internet domains.
+=======
+it is advised to limit your internet domains. (joke)
+>>>>>>> b8f21bf ('')
 
 Below is a list of trusted networks.
 
