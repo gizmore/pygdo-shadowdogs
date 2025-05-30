@@ -7,15 +7,20 @@
 
 You wake up in your bedroom.... in Peine, Germany
 
-A little dizzy from various substances you consumed yesterday.
+Your best friend, Lazer, is sleeping beside you in a small bed.
 
-You had this crazy dream again, from a castle and unicorns.
+Mom and Brother are in the kitchen, and Thomas is in his room.
 
-You are doing experiments. Crazy experiments.
+Mom comes in, angry, yelling something about cleansing, Lazer, Jobs and whatnot.
 
-Whenever you are high you hear voices, and they started to make sense.
+You are 20. Smart, like to party and playing video games.
 
-But somehow you feel something isn't right.
+And you think about moving out together with Lazer and Theodor.
+
+Bad news: The military wants you for civil service.
+
+
+
 
 
 # Birthday
@@ -74,7 +79,7 @@ Your plan is
 
 # Epilogoue:
 
-It is the year 2068.
+It is the year 2080.
 
 The news about the matrix spread like a wildfire.
 
