@@ -48,6 +48,10 @@ class items:
 
         'Pen':          {'klass': 'Pen', 'weight': 20},
         'MobilePhone':  {'klass': 'MobilePhone', 'weight': 488},
+
+        'Bytegun':      {'klass': 'Pistol', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 500, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
+        
+        'Ammo8mm':      {'klass': 'Ammo', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 500, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
     }
 
     @classmethod

@@ -16,7 +16,16 @@ sd_aegis = "Aegis"
 sd__freeborn = "The Freeborn seek absolute Freedom, but without order, will they survive?"
 sd__council = "The Council crave Peace, but will their control become a prison?"
 sd__seeker = "The Seekers hunt for Truth, but can truth exist without chaos?"
-sd__aegis = "The Aegis Pact embrace War, but will their strength destroy them in the end?"
+sd__aegis = "The Aegis Pact embraces War, but will their strength destroy them in the end?"
+sd_i_freeborn = "🦅"
+sd___freeborn = "Descendants of the first rebels who refused to bow to any master, the Freeborn are a brotherhood of wanderers, outlaws, and dreamers. They travel the forgotten paths, shaping their own destinies as they go. Their songs echo in the dark alleys and among the hidden clearings. They believe freedom is the birthright of every soul, but without unity, they risk fading into legend—lost to the winds of history."
+sd_i_council = "🕊"
+sd___council = "In ancient halls of marble and shadow, the Council weave laws like spells. They are the keepers of balance, the arbiters of compromise, sworn to forge peace from the ruins of conflict. Their libraries hold centuries of wisdom, and their courts decide the fates of nations. Yet their rigid structure, built to protect, can harden into tyranny if left unchallenged—a cage of peace that stifles the soul."
+sd_i_seeker = "🔍"
+sd___seeker = "The Seekers are the children of the stars, following the constellations of old prophecies. They dig deep into the ruins of the past, seeking the truths that others fear to see. Their minds are sharp as blades, their words like riddles that cut through lies. But the closer they draw to the light of truth, the more they risk being burned by its fury—or lost in the chaos of their own revelations."
+sd_i_aegis = "⚔️"
+sd___aegis = "Forged in blood and steel, the Aegis Pact was born from the fury of endless battlefields. Their warriors are bound by honor, their forges glow with the fires of conquest. They believe that only through strength can the world be remade. Yet the same iron that binds them also shackles them—if their fury turns inward, their empire of might could crumble, consumed by its own hunger for war."
+
 
 ###########
 # Actions #

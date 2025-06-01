@@ -12,6 +12,8 @@ Shadowdogs is a realtime mud/mmo for various chat networks.
  - Ork -3 magic (can never learn magic)
 
 
+## [Factions](../GDT_Faction.py)
+
 ## Combat
 
 The combat happens in real time and actions can be done.
@@ -95,3 +97,4 @@ beginner: 10 HP atk 2 dmg 1-3 def 1
 
 if rand(0, atk) >= rand(0, def)
     dmg = rand(min, max) - armor~~
+

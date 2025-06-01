@@ -10,6 +10,7 @@ class npcs:
         'lazer':    {'klass': Lazer, 'level': 3},
         'mom':      {'klass': Mom, 'level': 2},
         'lamer':    {'klass': Mob, 'level': 1, 'max_hp': (2,4), 'eq': ['Sandals', 'Trousers', 'TShirt']},
-        'noob':     {'klass': Mob, 'level': 2, 'max_hp': (3,5), 'eq': ['Shoes', 'Trousers', 'TShirt']},
-        'gangster': {'klass': Mob, 'level': 3, 'max_hp': (3,6), 'eq': ['Shoes', 'Trousers', 'Pullover']},
+        'haider':     {'klass': Mob, 'level': 2, 'max_hp': (3,5), 'eq': ['Shoes', 'Trousers', 'TShirt']},
+        'noob':     {'klass': Mob, 'level': 3, 'max_hp': (4,6), 'eq': ['Boots', 'Trousers', 'Jacket']},
+        'gangster': {'klass': Mob, 'level': 4, 'max_hp': (3,6), 'eq': ['Shoes', 'Trousers', 'Pullover', 'Bytegun']},
     }

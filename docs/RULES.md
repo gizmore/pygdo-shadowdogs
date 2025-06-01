@@ -7,6 +7,7 @@ These are the rules of the reality, or simulation, as we call it.
  - Laws of your locality apply.
  - It is forbidden to cut the hedges too much.
  - it is allowed to feed ducks.
+ - Herbizides and Pestizides are forbidden, unless approved by the council.
 
 
 #### The Internet

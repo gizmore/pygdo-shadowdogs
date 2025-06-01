@@ -48,6 +48,7 @@ class Map(WithPlayerGDO):
     def __init__(self, w: int = 32, h: int = 3):
         self.w = w
         self.h = h
+        self.map = []
 
     def tile_at(self, x: int, y: int):
         return self.map[y * self.w + x]
