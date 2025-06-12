@@ -88,8 +88,8 @@ Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
-The first president of ESL, iamben, has another **8 votes,**
-totalling 46 which requires 24 votes to win
+The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **8 votes,**
+totalling 46 which requires 24 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 gods.
