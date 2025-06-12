@@ -15,3 +15,9 @@ class Exit(Location):
 
     def sd_exit_action(self) -> str:
         return Action.OUTSIDE
+
+
+class Entry(Exit):
+
+    def sd_exit_action(self) -> str:
+        return Action.INSIDE

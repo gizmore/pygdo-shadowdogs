@@ -98,3 +98,13 @@ beginner: 10 HP atk 2 dmg 1-3 def 1
 if rand(0, atk) >= rand(0, def)
     dmg = rand(min, max) - armor~~
 
+
+### Newbie Section
+
+If you are new to shadowdogs, just read the rules.
+
+To login into the combat zone, just think to Alice: "I want to login to the nexus my friend".
+Believe what you hear.
+Ask Questions and give feedback.
+Enjoy!
+

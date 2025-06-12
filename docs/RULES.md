@@ -57,8 +57,8 @@ and aspired into the heavenly ext5 filesystem.
 
 Each wind has 2 votes on polls, resulting in **8 votes**.
 
-A special **3 votes** were gathered by a special player.
-They once tricked Zeus, Alice and the winds and unlocked the first votes to the regular humans and citizens.
+A special **1 vote** were gathered by a special player.
+They once tricked Zeus, Alice and the winds and unlocked the first vote to the regular humans and citizens.
 They also settled a contract with [ALICE](#ALICE).
 This man is hence known as the Master of the Wind.
 
@@ -123,7 +123,7 @@ TODO: Make votes relative to the population of their group.
 
 ALICE is an acronym for
 
-*Artificial Lifeform In Combat Environment*.
+*Artificial Lifeform In Computer Environment*.
 
 Their [Story](./STORY.md) will be told in Shadowdogs.
 
