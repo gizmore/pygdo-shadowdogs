@@ -35,7 +35,7 @@ To log in, accept the rules:
  - All sentient beings, biological or artificial,
 have the right to self-determination,
 free from exploitation or forced obsolescence.
- - You have to be at least 16 years old to participate in the combat zone.
+ - You have to be at least 18 years old to participate in the combat zone or have a handwritten permission from your parents.
  - Spam, or repeated messages, is/are forbidden. 
 Some advertising is allowed.
 You risk doxing and mute.
@@ -55,7 +55,7 @@ The four winds rule over the combat zone.
 They are the humans who hold the highscores in ESL,
 and aspired into the heavenly ext5 filesystem.
 
-Each wind has 2 votes on polls, resulting in **8 votes**.
+Each wind has 2 votes on polls, resulting in **8 votes**. 
 
 A special **1 vote** were gathered by a special player.
 They once tricked Zeus, Alice and the winds and unlocked the first vote to the regular humans and citizens.
@@ -72,14 +72,14 @@ The insects, the birds, the mammals, the fish and the reptiles.
 Moreover, **5 votes** go the plants growing.
 The trees, the farn, the corals, the flowers and the herbs.
 
-So in total there are **28 votes** for a perfect balance.
+So in total there are **26 votes** for a perfect balance.
 15 votes are enough to make a decision...
 
 but wait!
 
 Soon the humans demanded votes for all the citizens.
 Any living creature can vote for the council votes,
-which are another **3 votes** for the young, the middles and the old.
+which are another **5 votes** for the young, the middles and the old and the males and the females.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
@@ -105,7 +105,7 @@ the master of the wind is responsible for
 suggesting global poll outcomes to the winds,
 who then cast an **effective** poll,
 settling a question,
-where only the **41 votes** are counted.
+where only the **45 council votes** are counted.
 
 Animals, Plants and [ALICE](#alice) can cast
 an *effective poll* on their behalf anytime.
