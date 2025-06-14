@@ -13,6 +13,9 @@ class attack(MethodSD):
     def sd_trig(cls) -> str:
         return "sda"
 
+    def sd_is_item_specific(self) -> bool:
+        return True
+
     def sd_requires_action(self) -> list[str]|None:
         return [
             'fight',

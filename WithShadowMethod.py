@@ -13,8 +13,8 @@ class WithShadowMethod(WithShadowFunc):
     def gdo_trig(cls) -> str:
         return cls.gdo_trigger()[0:4]
 
-    def sd_is_item_specific(self) -> str:
-        return GDO.EMPTY_STR
+    def sd_is_item_specific(self) -> bool:
+        return False
 
     def sd_is_location_specific(self) -> bool:
         return False
@@ -45,9 +45,9 @@ class WithShadowMethod(WithShadowFunc):
             if not self.get_player():
                 self.err('err_sd_player_required')
                 return False
-        if item_name := self.sd_is_item_specific():
-            if not self.get_player().inventory.has_item(item_name):
-                self.err('err_sd_not_item', (item_name,))
+        if self.sd_is_item_specific():
+            if not self.gdo_trigger() in self.get_player().get_sd_methods():
+                self.err('err_sd_missing_item')
                 return False
         if self.sd_is_location_specific():
             if (self.gdo_trigger() not in self.get_location().sd_methods() or
