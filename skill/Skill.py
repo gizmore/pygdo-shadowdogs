@@ -12,4 +12,5 @@ class Skill(Modifier):
         'p_fig',
         'p_hac',
         'p_tra',
+        'p_mat',
     ]

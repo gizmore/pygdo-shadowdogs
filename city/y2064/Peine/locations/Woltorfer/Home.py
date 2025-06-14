@@ -1,5 +1,9 @@
 from gdo.shadowdogs.locations.Location import Location
+from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 
 class Home(Location):
-    pass
+
+    OBSTACLES: dict[str,list[Obstacle]] = {
+        Searchable('Fridge', )
+    }

@@ -4,7 +4,7 @@ from gdo.shadowdogs.skill.Skill import Skill
 
 class School(Location):
 
-    lessons: list[Skill] = []
+    LESSONS: list[Skill] = []
 
     def sd_methods(self) -> list[str]:
         return [

@@ -4,5 +4,4 @@ from gdo.shadowdogs.skill.Skill import Skill
 
 class GunzelinSchool(School):
 
-    lessons: list[Skill] = []
-    
+    LESSONS: list[Skill] = []

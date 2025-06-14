@@ -21,6 +21,7 @@ from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.classes.Equipment import Equipment
+from gdo.shadowdogs.skill.Math import Math
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
 from gdo.shadowdogs.stat.Alcohol import Alcohol
@@ -52,6 +53,7 @@ from gdo.shadowdogs.item.classes.Weapon import Weapon
 from gdo.shadowdogs.skill.Aim import Aim
 from gdo.shadowdogs.skill.Fight import Fight
 from gdo.shadowdogs.skill.Hacking import Hacking
+from gdo.shadowdogs.skill.Math import Math
 from gdo.shadowdogs.stat.HP import HP
 from gdo.shadowdogs.stat.Level import Level
 from gdo.shadowdogs.stat.MP import MP
@@ -100,7 +102,7 @@ class SD_Player(WithShadowFunc, GDO):
     def reset_modified(self):
         self.modified = {
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0,
-            'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0,
+            'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
             'p_hp': 0, 'p_mp': 0, 'p_max_hp': 0, 'p_max_mp': 0,
             'p_attack': 0, 'p_defense': 0, 'p_at': 10,
             'p_min_dmg': 0, 'p_max_dmg': 0,
@@ -163,6 +165,7 @@ class SD_Player(WithShadowFunc, GDO):
             Fight('p_fig'),
             Hacking('p_hac'),
             Trading('p_tra'),
+            Math('p_mat'),
 
             Alcohol('p_alcohol'),
             Hunger('p_hunger').initial('50'),

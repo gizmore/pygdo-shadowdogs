@@ -23,7 +23,7 @@ class Location(WithShadowFunc):
     ############
 
     def sd_explore_chance(self) -> int:
-        return 50
+        return 100
 
     def sd_methods(self) -> list[str]:
         return GDO.EMPTY_LIST
