@@ -8,6 +8,7 @@ class Peine(City):
 
     Marketplace: Marketplace = Marketplace()
     SeniorHome: SeniorHome = SeniorHome()
+    Wol
 
     LOCATIONS: list[Location] = [
         Marketplace,

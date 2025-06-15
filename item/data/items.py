@@ -17,41 +17,74 @@ class items:
 
     KLASSES = {}
     ITEMS = {
-        'Fists'  :         {'klass': 'Fists',  'level': 0, 'at': 30, 'et':  1, 'rng': 1, 'weight': 0,    'attack': 4, 'defense': 1, 'min_dmg': 1, 'max_dmg': 4},
-        'BronzeKnuckles':  {'klass': 'Fists',  'level': 1, 'at': 30, 'et': 30, 'rng': 1,  'weight': 500,  'attack': 4, 'defense': 2, 'min_dmg': 2, 'max_dmg': 6},
-        'SteelKnuckles':   {'klass': 'Fists',  'level': 1, 'at': 30, 'et': 30, 'rng': 1,  'weight': 600,  'attack': 4, 'defense': 2, 'min_dmg': 3, 'max_dmg': 6},
-        'Club':            {'klass': 'Thrust', 'level': 2, 'at': 30, 'et': 30, 'rng': 1,  'weight': 1500, 'attack': 4, 'defense': 1, 'min_dmg': 2, 'max_dmg': 6},
-        'ShortSword':      {'klass': 'Sword',  'level': 3, 'at': 30, 'et': 30, 'rng': 2,  'weight': 1200, 'attack': 6, 'defense': 2, 'min_dmg': 3, 'max_dmg': 8},
-        'Sword':           {'klass': 'Sword',  'level': 3, 'at': 30, 'et': 30, 'rng': 2, 'weight': 1500, 'attack': 6, 'defense': 2, 'min_dmg': 4, 'max_dmg': 10},
-        'LongSword':       {'klass': 'Sword',  'level': 5, 'at': 30, 'et': 30, 'rng': 2,  'weight': 1800, 'attack': 6, 'defense': 2, 'min_dmg': 4, 'max_dmg': 12},
-        'SmallAxe':        {'klass': 'Thrust', 'level': 5, 'at': 30, 'et': 30, 'rng': 2,  'weight': 1000, 'attack': 6, 'defense': 1, 'min_dmg': 5, 'max_dmg': 9},
-        'MorningStar':     {'klass': 'Thrust', 'level': 5, 'at': 30, 'et': 30, 'rng': 2,  'weight': 2500, 'attack': 6, 'defense': 0, 'min_dmg': 5, 'max_dmg': 10},
+        'Fists'  :         {'klass': 'Fists',  'level': 0, 'at': 30, 'et':  1, 'rng': 1, 'weight': 0,    'attack': 4,  'defense': 1, 'min_dmg': 1, 'max_dmg': 4},
+        'BronzeKnuckles':  {'klass': 'Fists',  'level': 1, 'at': 30, 'et': 30, 'rng': 1, 'weight': 500,  'attack': 4,  'defense': 2, 'min_dmg': 2, 'max_dmg': 6},
+        'SteelKnuckles':   {'klass': 'Fists',  'level': 1, 'at': 30, 'et': 30, 'rng': 1, 'weight': 600,  'attack': 4,  'defense': 2, 'min_dmg': 3, 'max_dmg': 6},
+        'Club':            {'klass': 'Thrust', 'level': 2, 'at': 30, 'et': 30, 'rng': 1, 'weight': 1500, 'attack': 4,  'defense': 1, 'min_dmg': 2, 'max_dmg': 6},
+        'ShortSword':      {'klass': 'Sword',  'level': 3, 'at': 30, 'et': 30, 'rng': 2, 'weight': 1200, 'attack': 6,  'defense': 2, 'min_dmg': 3, 'max_dmg': 8},
+        'Sword':           {'klass': 'Sword',  'level': 3, 'at': 30, 'et': 30, 'rng': 2, 'weight': 1500, 'attack': 6,  'defense': 2, 'min_dmg': 4, 'max_dmg': 10},
+        'LongSword':       {'klass': 'Sword',  'level': 5, 'at': 30, 'et': 30, 'rng': 2, 'weight': 1800, 'attack': 6,  'defense': 2, 'min_dmg': 4, 'max_dmg': 12},
+        'SmallAxe':        {'klass': 'Thrust', 'level': 5, 'at': 30, 'et': 30, 'rng': 2, 'weight': 1000, 'attack': 6,  'defense': 1, 'min_dmg': 5, 'max_dmg': 9},
+        'MorningStar':     {'klass': 'Thrust', 'level': 5, 'at': 30, 'et': 30, 'rng': 2, 'weight': 2500, 'attack': 6,  'defense': 0, 'min_dmg': 5, 'max_dmg': 10},
+        'Machete':         {'klass': 'Sword',  'level': 4, 'at': 30, 'et': 30, 'rng': 2, 'weight': 1600, 'attack': 7,  'defense': 2, 'min_dmg': 4, 'max_dmg': 10},
+        'Katana':          {'klass': 'Sword',  'level': 6, 'at': 28, 'et': 25, 'rng': 2, 'weight': 1400, 'attack': 8,  'defense': 3, 'min_dmg': 6, 'max_dmg': 12},
+        'Chainsword':      {'klass': 'Sword',  'level': 8, 'at': 35, 'et': 35, 'rng': 2, 'weight': 2200, 'attack': 10, 'defense': 2, 'min_dmg': 8, 'max_dmg': 16},
+        'Crowbar':         {'klass': 'Thrust', 'level': 2, 'at': 25, 'et': 20, 'rng': 1, 'weight': 1800, 'attack': 5,  'defense': 2, 'min_dmg': 3, 'max_dmg': 8},
 
-        'TinfoilCap':    {'klass': 'Helmet', 'level': 0, 'et': 30, 'weight': 100, 'defense': 1, 'marm': 0, 'farm': 1},
-        'BaseballCap':   {'klass': 'Helmet', 'level': 1, 'et': 30, 'weight': 180, 'defense': 1, 'marm': 1, 'farm': 1},
-        'GuyFawkesMask': {'klass': 'Helmet', 'level': 1, 'et': 40, 'weight': 400, 'defense': 0, 'marm': 2, 'farm': 0},
+        'TinfoilCap':    {'klass': 'Helmet', 'level': 0, 'et': 30, 'weight': 100,  'defense': 1, 'marm': 0, 'farm': 1},
+        'BaseballCap':   {'klass': 'Helmet', 'level': 1, 'et': 30, 'weight': 180,  'defense': 1, 'marm': 1, 'farm': 1},
+        'GuyFawkesMask': {'klass': 'Helmet', 'level': 1, 'et': 40, 'weight': 400,  'defense': 0, 'marm': 2, 'farm': 0},
+        'CombatHelmet':  {'klass': 'Helmet', 'level': 3, 'et': 45, 'weight': 900,  'defense': 2, 'marm': 3, 'farm': 1},
+        'VisorHelmet':   {'klass': 'Helmet', 'level': 6, 'et': 50, 'weight': 1100, 'defense': 3, 'marm': 4, 'farm': 2},
 
-        'TShirt':       {'klass': 'Armor', 'level': 0, 'et': 40, 'weight':  250, 'marm': 0, 'farm': 0},
-        'Clothes':      {'klass': 'Armor', 'level': 0, 'et': 50, 'weight':  750, 'marm': 1, 'farm': 0},
-        'Jacket':       {'klass': 'Armor', 'level': 0, 'et': 60, 'weight': 1250, 'marm': 1, 'farm': 1},
+        'TShirt':        {'klass': 'Armor', 'level': 0, 'et': 40, 'weight':  250, 'marm': 0, 'farm': 0},
+        'Clothes':       {'klass': 'Armor', 'level': 0, 'et': 50, 'weight':  750, 'marm': 1, 'farm': 0},
+        'Jacket':        {'klass': 'Armor', 'level': 0, 'et': 60, 'weight': 1250, 'marm': 1, 'farm': 1},
+        'KevlarVest':    {'klass': 'Armor', 'level': 3, 'et': 60, 'weight': 2000, 'marm': 3, 'farm': 1},
+        'TacticalVest':  {'klass': 'Armor', 'level': 5, 'et': 65, 'weight': 2500, 'marm': 4, 'farm': 2},
+        'NanoFiberSuit': {'klass': 'Armor', 'level': 8, 'et': 70, 'weight': 1800, 'marm': 5, 'farm': 3},
 
-        'Trousers':     {'klass': 'Trousers', 'level': 0, 'et': 50, 'weight': 600, 'defense': 1, 'marm': 1, 'farm': 0},
-        'Jeans':        {'klass': 'Trousers', 'level': 1, 'et': 55, 'weight': 800, 'defense': 1, 'marm': 1, 'farm': 1},
+        'Trousers':       {'klass': 'Trousers', 'level': 0, 'et': 50, 'weight': 600,  'defense': 1, 'marm': 1, 'farm': 0},
+        'Jeans':          {'klass': 'Trousers', 'level': 1, 'et': 55, 'weight': 800,  'defense': 1, 'marm': 1, 'farm': 1},
+        'KevlarLeggings': {'klass': 'Trousers', 'level': 5, 'et': 60, 'weight': 1400, 'defense': 2, 'marm': 3, 'farm': 1},
 
         'Sandals':      {'klass': 'Boots', 'level': 0, 'et': 30, 'weight': 300,  'defense': 1, 'marm': 1},
         'Shoes':        {'klass': 'Boots', 'level': 1, 'et': 30, 'weight': 900,  'defense': 2, 'marm': 1},
         'Boots':        {'klass': 'Boots', 'level': 1, 'et': 30, 'weight': 1200, 'defense': 2, 'marm': 2},
         'LeatherBoots': {'klass': 'Boots', 'level': 1, 'et': 30, 'weight': 1600, 'defense': 2, 'marm': 2},
+        'CombatBoots':  {'klass': 'Boots', 'level': 4, 'et': 35, 'weight': 1500, 'defense': 3, 'marm': 2},
+        'NanoBoots':    {'klass': 'Boots', 'level': 7, 'et': 40, 'weight': 1000, 'defense': 4, 'marm': 3},
 
-        'Ring':         {'klass': 'Ring', 'level': 6, 'weight': 10},
+        'Ring':         {'klass': 'Ring',        'level': 6,  'weight': 10},
         'WeddingRing':  {'klass': 'WeddingRing', 'level': 20, 'weight': 25},
 
-        'Pen':          {'klass': 'Pen', 'weight': 20},
+        'Pen':          {'klass': 'Pen',         'weight': 20},
         'MobilePhone':  {'klass': 'MobilePhone', 'weight': 488},
 
-        'Bytegun':      {'klass': 'Pistol', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 500, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
-        
-        'Ammo8mm':      {'klass': 'Ammo', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 500, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
+        'Bytegun':      {'klass': 'Pistol',     'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 500,  'attack': 7,  'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
+        'StreetPistol': {'klass': 'Pistol',     'level': 3, 'at': 25, 'et': 15, 'rng': 4, 'weight': 700,  'attack': 8,  'defense': 1, 'min_dmg': 4, 'max_dmg': 10},
+        'HandCannon':   {'klass': 'Pistol',     'level': 7, 'at': 20, 'et': 18, 'rng': 5, 'weight': 1300, 'attack': 11, 'defense': 0, 'min_dmg': 7, 'max_dmg': 16},
+        'SMG':          {'klass': 'MachineGun', 'level': 6, 'at': 15, 'et': 12, 'rng': 6, 'weight': 1900, 'attack': 9,  'defense': 1, 'min_dmg': 5, 'max_dmg': 13},
+        'Shotgun':      {'klass': 'Shotgun',    'level': 5, 'at': 20, 'et': 18, 'rng': 3, 'weight': 2500, 'attack': 12, 'defense': 1, 'min_dmg': 8, 'max_dmg': 15},
+
+        'UserDeck':    {'klass': 'Deck', 'level': 5, 'weight': 600, 'marm': 0, 'farm': 0},
+        'ControlDeck': {'klass': 'Deck', 'level': 5, 'weight': 600, 'marm': 0, 'farm': 0},
+        'HackingDeck': {'klass': 'Deck', 'level': 5, 'weight': 600, 'marm': 0, 'farm': 0},
+
+        'CyberEye':    {'klass': 'Implant', 'level': 6, 'weight': 100, 'marm': 0, 'farm': 0},
+        'NeuralLink':  {'klass': 'Implant', 'level': 8, 'weight': 80, 'marm': 0, 'farm': 0},
+
+        'Medkit':      {'klass': 'Usable', 'level': 2, 'weight': 500},
+        'Stimulant':   {'klass': 'Usable', 'level': 3, 'weight': 200},
+
+        'Coke':        {'klass': 'Consumable', 'level': 1, 'weight': 400},
+        'EnergyDrink': {'klass': 'Consumable', 'level': 1, 'weight': 300},
+
+        'Ammo7mm':      {'klass': 'Ammo', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 25, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
+        'Ammo8mm':      {'klass': 'Ammo', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 40, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
+        'Ammo9mm':      {'klass': 'Ammo', 'level': 3, 'weight': 55},
+        'Ammo12Gauge':  {'klass': 'Ammo', 'level': 5, 'weight': 500},
+        'Ammo13':       {'klass': 'Ammo', 'level': 7, 'weight': 110},
     }
 
     @classmethod

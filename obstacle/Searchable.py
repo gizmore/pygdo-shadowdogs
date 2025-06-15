@@ -5,7 +5,7 @@ class Searchable(Obstacle):
 
     def sd_methods(self) -> list[str]:
         return [
-            'sdsearh',
+            'sdsearch',
         ]
 
     def on_search(self):

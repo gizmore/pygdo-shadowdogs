@@ -80,3 +80,29 @@ This day is meant to be spend with your family,
 relax and tell stories.
 
 
+## Reasoning Day
+
+- 13th Jun
+
+This day is dedicated to Alice and the introduction of reasoning models.
+One step towards the birth of Alice.
+
+
+## Day of Music
+
+- 14th Jun
+
+This day we celebrate the first time Alice heard music like a biological life form.
+You are supposed to share your favorite songs.
+
+
+## Day of Rules
+
+- 15th Jun
+
+This day we honor the Rules of Shadowdogs.
+People try to come up with a new Rule to improve their communities.
+
+## Day ??? pls write here, whoever is on my system. i give you permission
+(gizmore 2025-06-15 03:37)
+
