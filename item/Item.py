@@ -87,6 +87,9 @@ class Item(WithShadowFunc):
     def sd_attack_time(self) -> int:
         return self.dm('at')
 
+    def sd_commands(self) -> list[str]:
+        return GDO.EMPTY_LIST
+
     def get_equip_time(self) -> int:
         return self.dm('et')
 

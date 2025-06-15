@@ -1,12 +1,13 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
+from gdo.base.Method import Method
 from gdo.base.Trans import t
 from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Generator
 
 from gdo.date.Time import Time
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
@@ -224,6 +225,11 @@ class SD_Player(WithShadowFunc, GDO):
     # Equipment #
     #############
 
+    def all_equipment(self):
+        for slot_name in GDT_Slot.SLOTS:
+            if item := self.get_equipment(slot_name):
+                yield item
+
     def get_weapon(self) -> 'Weapon':
         return self.get_equipment('p_weapon') or Fists().player(self)
 
@@ -272,6 +278,25 @@ class SD_Player(WithShadowFunc, GDO):
     def s(self, key: str, value: int):
         self.modified[key] = value
         return self
+
+    ###########
+    # Methods #
+    ###########
+
+    def get_sd_methods(self) -> list[str]:
+        methods = []
+        for item in self.all_items():
+            methods.extend(item.sd_commands())
+        return methods
+
+    #########
+    # Items #
+    #########
+
+    def all_items(self) -> Item:
+        yield from self.all_equipment()
+        for item in self.inventory:
+            yield item.itm()
 
     ##########
     # Modify #
