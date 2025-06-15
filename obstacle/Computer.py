@@ -4,6 +4,13 @@ from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.WithProbability import WithProbability
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
+# c1
+#...
+#P.$
+#...
+
+# 1)
+
 class Tile(WithProbability):
     probability: int = 100
 
@@ -45,7 +52,7 @@ class Map(WithPlayerGDO):
     h: int
     map: list[Tile]
 
-    def __init__(self, w: int = 32, h: int = 3):
+    def __init__(self, w: int = 33, h: int = 3):
         self.w = w
         self.h = h
         self.map = []

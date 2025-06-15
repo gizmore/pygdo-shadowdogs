@@ -104,6 +104,7 @@ class SD_Player(WithShadowFunc, GDO):
         self.modified = {
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0,
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
+            'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
             'p_hp': 0, 'p_mp': 0, 'p_max_hp': 0, 'p_max_mp': 0,
             'p_attack': 0, 'p_defense': 0, 'p_at': 10,
             'p_min_dmg': 0, 'p_max_dmg': 0,
@@ -293,7 +294,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Items #
     #########
 
-    def all_items(self) -> Item:
+    def all_items(self) -> list[Item]:
         yield from self.all_equipment()
         for item in self.inventory:
             yield item.itm()
