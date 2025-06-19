@@ -17,6 +17,7 @@
 - `1`: 2 dmg  8cc
 - `2`: 1 dmg  6cc
 - `3`: 0 dmg  3cc
+- Wall `W` just blocks your way.
 
 
 ## Executables
