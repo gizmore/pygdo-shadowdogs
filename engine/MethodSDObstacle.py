@@ -1,5 +1,6 @@
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.MethodSD import MethodSD
+from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 
 class MethodSDObstacle(MethodSD):
@@ -26,10 +27,11 @@ class MethodSDObstacle(MethodSD):
             await getattr(obstacles[0], f'on_{trigger}')()
         return self.empty()
 
-    def get_obstacles(self, for_trigger: str = None):
+    def get_obstacles(self, for_trigger: str = None) -> list[Obstacle]:
         if loc := self.get_location():
 
-        pass
+
+        return self.EMPTY_LIST
 
     def gdo_sd_trigger(self):
         return self.gdo_trigger()[2:]
