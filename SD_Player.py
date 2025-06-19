@@ -124,6 +124,8 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_Party('p_party'),
             GDT_UInt('p_joined').bytes(8),
 
+            GDT_RandomSeed().initial_random().not_null(),
+
             GDT_NPCClass('p_npc_class'),
             GDT_RandomName('p_npc_name'),
 
