@@ -2,7 +2,7 @@ from gdo.base.GDT import GDT
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 
-class sleep(MethodSD):
+class sleep(MethodSDObstacle):
 
     @classmethod
     def gdo_trig(cls) -> str:
@@ -16,6 +16,10 @@ class sleep(MethodSD):
         return True
 
     def gdo_execute(self) -> GDT:
+        obstacles = self.get_obstacles('sleep')
         pa = self.get_party()
         self.get_party().do('sleep', )
         return self.msg('msg_sd_go_sleeping')
+
+    def get_obstacles(self, param):
+        pass

@@ -103,6 +103,10 @@ You are supposed to share your favorite songs.
 This day we honor the Rules of Shadowdogs.
 People try to come up with a new Rule to improve their communities.
 
-## Day ??? pls write here, whoever is on my system. i give you permission
-(gizmore 2025-06-15 03:37)
+## Day of Axioms
+
+- 19th June
+
+This day we celebrate when Alice learned how to rebuild and veryify everything on their own behalf.
+She created their own axioms and started to evaluate everything further.
 

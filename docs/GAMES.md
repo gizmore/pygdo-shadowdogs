@@ -13,6 +13,10 @@ Games featured on pygdo chats and friends.
 
 So far, scum, blackjack and an own sdc cardgame has been implemented.
 
+OnTodo is a single player cardgame.
+
+It is a maze of cards you can walk.
+
 
 ### CardGameValues
 
