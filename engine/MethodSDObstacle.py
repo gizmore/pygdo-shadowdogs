@@ -24,7 +24,7 @@ class MethodSDObstacle(MethodSD):
         trigger = self.gdo_sd_trigger()
         obstacles = self.get_obstacles(trigger)
         if len(obstacles) == 1:
-            await getattr(obstacles[0], f'on_{trigger}')()
+            await self.execute_obstacle(obstacles[0])
         return self.empty()
 
     def get_obstacles(self, for_trigger: str = None) -> list[Obstacle]:
@@ -35,3 +35,7 @@ class MethodSDObstacle(MethodSD):
 
     def gdo_sd_trigger(self):
         return self.gdo_trigger()[2:]
+
+    async def execute_obstacle(self, obstacle: Obstacle):
+        trigger = self.gdo_sd_trigger()
+        await getattr(obstacle.player(self.get_player()), f'on_{trigger}')()
