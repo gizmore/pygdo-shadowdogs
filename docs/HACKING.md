@@ -2,6 +2,10 @@
 
 This is the shadowdogs hacking minigame.
 
+In your Home you can `#hack computer`.
+
+Inside the game try `#x move r` twice.
+
 
 ## Rulez
 
@@ -21,7 +25,7 @@ If you had a backdoor, the trap will not reposition.
 - `0`: 3 dmg 10cc
 - `1`: 2 dmg  8cc
 - `2`: 1 dmg  6cc
-- `3`: 0 dmg  3cc
+- `3`: 0 dmg  4cc
 - Wall `W` just blocks your way.
 
 
@@ -38,7 +42,7 @@ clock cycles reduce cpu.
 - nmap4/6.exe (0 cc) - reveals (4/6) out of 8 adjacent squares after login. 0cc threaded.
 - hydra.exe (10 cc) - Tries to bruteforce a password.
 - map.exe (5 cc) - print the full automap so far discovered.
-- backdoor.exe -  (6 cc) - Mark a field as backdoor recovery field when you hit a trap `3` or `2`. The trap will reposition.
+- backdoor.exe -  (6 cc) - Mark a field as backdoor recovery field when you hit a trap `3` or `2`. The trap will not reposition.
 - rootkit.exe  -  (8 cc) - Mark a field as backdoor recovery field when you hit any trap. The trap will reposition.
 - modkit.exe   - (10 cc) - Mark a field as backdoor recovery field when you hit any trap.
-``
+- dma.sys - (5 + N cc) - Teleport to a memory address N steps away, also diagonally.

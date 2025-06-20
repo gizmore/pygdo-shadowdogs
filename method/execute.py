@@ -1,5 +1,7 @@
 from gdo.base.GDT import GDT
 from gdo.shadowdogs.engine.MethodSD import MethodSD
+from gdo.shadowdogs.GDT_Executable import GDT_Executable
+from gdo.shadowdogs.obstacle.minigame.Executable import Executable
 
 
 class execute(MethodSD):
@@ -17,8 +19,11 @@ class execute(MethodSD):
 
     def gdo_parameters(self) -> list[GDT]:
         return [
-            GDT_Executeable('exe'),
+            GDT_Executable('exe'),
         ]
 
+    def get_exe(self) -> Executable:
+        pass
+
     def sd_execute(self):
-        self.get_player().
+        p = self.get_player()

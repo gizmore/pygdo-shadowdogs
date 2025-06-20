@@ -35,7 +35,7 @@ class start(MethodSD):
     async def form_submitted(self):
         if self.get_player():
             return self.err('err_sd_already_started')
-        party = await Factory.create_party(World2064.Peine.)
+        party = await Factory.create_party(World2064.Peine.W)
         player = SD_Player.blank({
             'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),

@@ -86,7 +86,10 @@ class items:
         'Ammo12Gauge':  {'klass': 'Ammo', 'level': 5, 'weight': 500},
         'Ammo13':       {'klass': 'Ammo', 'level': 7, 'weight': 110},
 
-        'Move.exe':     {'klass': 'Move', 'level': 0}
+        'Move.exe':     {'klass': 'Move', 'level': 0},
+        'Strafe.exe':   {'klass': 'Strafe', 'level': 1},
+        'Ping4.exe'   : {'klass': 'Ping4', 'level': 2},
+        'Ping6.exe'   : {'klass': 'Ping6', 'level': 3},
     }
 
     @classmethod
