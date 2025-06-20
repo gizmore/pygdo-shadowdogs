@@ -85,14 +85,28 @@ class items:
         'Ammo9mm':      {'klass': 'Ammo', 'level': 3, 'weight': 55},
         'Ammo12Gauge':  {'klass': 'Ammo', 'level': 5, 'weight': 500},
         'Ammo13':       {'klass': 'Ammo', 'level': 7, 'weight': 110},
+
+        'Move.exe':     {'klass': 'Move', 'level': 0}
     }
 
     @classmethod
     def load(cls):
-        if cls.KLASSES:
-            return
+        if not cls.KLASSES:
+            cls.load_dir(Application.file_path("gdo/shadowdogs/item/classes"))
+            cls.load_dir(Application.file_path("gdo/shadowdogs/obstacle/minigame/exe"))
+
+    @classmethod
+    def instance(cls, name: str, klass: str) -> 'Item':
+        return cls.KLASSES[klass](name)
+
+    @classmethod
+    def get_item(cls, name: str, count: int = 1, mods: str | None = None):
+        data = cls.ITEMS[name]
+        return cls.instance(name, data['klass']).count(count).modifiers(mods)
+
+    @classmethod
+    def load_dir(cls, items_path: str):
         from gdo.shadowdogs.item.Item import Item
-        items_path = Application.file_path("gdo/shadowdogs/item/classes")
         item_files = glob.glob(f"{items_path}/**/*.py", recursive=True)
         for file_path in item_files:
             if "/_" in file_path:
@@ -109,12 +123,3 @@ class items:
                         cls.KLASSES[name] = obj
             except Exception as e:
                 Logger.exception(e)
-
-    @classmethod
-    def instance(cls, name: str, klass: str) -> 'Item':
-        return cls.KLASSES[klass](name)
-
-    @classmethod
-    def get_item(cls, name: str, count: int = 1, mods: str | None = None):
-        data = cls.ITEMS[name]
-        return cls.instance(name, data['klass']).count(count).modifiers(mods)

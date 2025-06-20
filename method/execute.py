@@ -17,7 +17,7 @@ class execute(MethodSD):
 
     def gdo_parameters(self) -> list[GDT]:
         return [
-
+            GDT_Executeable('exe'),
         ]
 
     def sd_execute(self):
