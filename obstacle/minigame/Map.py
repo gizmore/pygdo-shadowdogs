@@ -1,6 +1,5 @@
-from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
-from gdo.shadowdogs.obstacle.minigame.Tile import Tile
+from gdo.shadowdogs.obstacle.minigame.tile.Tile import Tile
 
 
 
