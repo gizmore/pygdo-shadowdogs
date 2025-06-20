@@ -1,7 +1,7 @@
 from gdo.shadowdogs.obstacle.minigame.Executable import Executable
 
 
-class Strafe(Executable):
+class Hydra(Executable):
 
     def sd_run(self):
         pass

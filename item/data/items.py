@@ -86,10 +86,16 @@ class items:
         'Ammo12Gauge':  {'klass': 'Ammo', 'level': 5, 'weight': 500},
         'Ammo13':       {'klass': 'Ammo', 'level': 7, 'weight': 110},
 
-        'Move.exe':     {'klass': 'Move', 'level': 0},
-        'Strafe.exe':   {'klass': 'Strafe', 'level': 1},
-        'Ping4.exe'   : {'klass': 'Ping4', 'level': 2},
-        'Ping6.exe'   : {'klass': 'Ping6', 'level': 3},
+        'Move.exe':     {'klass': 'Move',     'level': 1},
+        'Strafe.exe':   {'klass': 'Move',     'level': 2},
+        'Tree.exe':     {'klass': 'Move',     'level': 4},
+        'DMA.exe':      {'klass': 'DMA',      'level': 6},
+        'Ping4.exe':    {'klass': 'Ping',     'level': 1},
+        'Ping6.exe':    {'klass': 'Ping',     'level': 3},
+        'Backdoor.exe': {'klass': 'Backdoor', 'level': 2},
+        'Rootkit.exe':  {'klass': 'Backdoor', 'level': 4},
+        'Modkit.exe':   {'klass': 'Backdoor', 'level': 6},
+
     }
 
     @classmethod
