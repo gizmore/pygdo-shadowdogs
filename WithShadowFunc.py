@@ -1,11 +1,9 @@
-import functools
 from typing import TYPE_CHECKING
 
 import aioconsole
 
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import Strings
-from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
@@ -83,7 +81,7 @@ class WithShadowFunc(WithPlayerGDO):
             await self.send_to_player(player, key, args)
 
     async def broadcast(self, key: str, args: tuple = None):
-        from gdo.shadowdogs.method.stats import stats
+        from gdo.shadowdogs.method.info.stats import stats
         for channel in GDO_Channel.with_setting(stats(), 'disabled', '0', '1'):
             with Trans(channel.get_lang_iso()):
                 await channel.send(Trans.t(key, args))

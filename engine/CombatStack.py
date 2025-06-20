@@ -1,4 +1,3 @@
-from gdo.base.Method import Method
 from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
@@ -6,7 +5,7 @@ from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
-from gdo.shadowdogs.method.attack import attack
+from gdo.shadowdogs.method.combat.attack import attack
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player

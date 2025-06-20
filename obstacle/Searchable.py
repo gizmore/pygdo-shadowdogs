@@ -23,3 +23,6 @@ class Searchable(Obstacle):
             self.give_new_items(self.get_player(), self.sd_search_items(), t('searching'), t(f"obs_{self._name}"))
             self.sobs('searched', '1')
         return super().on_search()
+
+    def giving(self, param):
+        pass

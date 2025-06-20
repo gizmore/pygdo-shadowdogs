@@ -27,6 +27,8 @@ class Shadowdogs:
     NUYEN = '¥'
     NUYEN_PER_CREDIT = 250
 
+    RUNNING_LEVEL: int = 5
+
     XP_PER_KARMA = 10
 
     SECONDS_PER_TICK = 1

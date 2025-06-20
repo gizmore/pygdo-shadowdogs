@@ -1,8 +1,8 @@
 from gdo.base.Method import Method
 from gdo.shadowdogs.locations.Location import Location
-from gdo.shadowdogs.method.buy import buy
-from gdo.shadowdogs.method.sell import sell
-from gdo.shadowdogs.method.view import view
+from gdo.shadowdogs.method.location.buy import buy
+from gdo.shadowdogs.method.location.sell import sell
+from gdo.shadowdogs.method.location.view import view
 
 
 class Store(Location):

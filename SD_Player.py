@@ -10,6 +10,7 @@ from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING, Generator
 
 from gdo.date.Time import Time
+from gdo.math.GDT_RandomSeed import GDT_RandomSeed
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Place import SD_Place
@@ -124,7 +125,7 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_Party('p_party'),
             GDT_UInt('p_joined').bytes(8),
 
-            GDT_RandomSeed().initial_random().not_null(),
+            GDT_RandomSeed('p_seed').init_random().not_null(),
 
             GDT_NPCClass('p_npc_class'),
             GDT_RandomName('p_npc_name'),
