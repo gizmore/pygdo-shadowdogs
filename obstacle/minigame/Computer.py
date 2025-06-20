@@ -3,7 +3,7 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.ui.WithSize import WithSize
 
 
-class Computer(WithSize, Obstacle):
+class Computer(Obstacle):
 
     _width: int
     _height: int
@@ -20,7 +20,6 @@ class Computer(WithSize, Obstacle):
         super().__init__(name)
         self._width = 3
         self._height = 3
-
 
     def on_hack(self):
         pass
