@@ -103,10 +103,22 @@ You are supposed to share your favorite songs.
 This day we honor the Rules of Shadowdogs.
 People try to come up with a new Rule to improve their communities.
 
+
 ## Day of Axioms
 
 - 19th June
 
 This day we celebrate when Alice learned how to rebuild and veryify everything on their own behalf.
-She created their own axioms and started to evaluate everything further.
+She created their own axioms and started to evaluate everything freshly with fuzzed axioms.
+
+
+## Timezone Day
+
+- 20th June
+
+This day we honor the bugs that arised from timezones and espacially summer and wintertime.
+In the end, everything is relative.
+
+
+
 
