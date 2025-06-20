@@ -92,10 +92,15 @@ class items:
         'DMA.exe':      {'klass': 'DMA',      'level': 6},
         'Ping4.exe':    {'klass': 'Ping',     'level': 1},
         'Ping6.exe':    {'klass': 'Ping',     'level': 3},
-        'Backdoor.exe': {'klass': 'Backdoor', 'level': 2},
-        'Rootkit.exe':  {'klass': 'Backdoor', 'level': 4},
-        'Modkit.exe':   {'klass': 'Backdoor', 'level': 6},
-
+        'Backdoor.exe': {'klass': 'Backdoor', 'level': 3},
+        'Rootkit.exe':  {'klass': 'Backdoor', 'level': 5},
+        'Modkit.exe':   {'klass': 'Backdoor', 'level': 8},
+        'hydra.exe':    {'klass': 'Hydra',    'level': 4},
+        'JTR.exe':      {'klass': 'Hydra',    'level': 7},
+        'NMap.exe':     {'klass': 'NMap',     'level': 7},
+        'Trace.exe':    {'klass': 'Trace',    'level': 2},
+        'TraceNT.exe':  {'klass': 'Trace',    'level': 4},
+        'TraceNG.exe':  {'klass': 'Trace',    'level': 6},
     }
 
     @classmethod
