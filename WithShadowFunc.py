@@ -15,6 +15,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Place import SD_Place
     from gdo.shadowdogs.engine.MethodSD import MethodSD
+    from gdo.shadowdogs.actions.Action import Action
 
 from gdo.base.Trans import Trans, t
 from gdo.core.GDO_Channel import GDO_Channel
@@ -51,6 +52,12 @@ class WithShadowFunc(WithPlayerGDO):
 
     def get_location(self) -> 'Location':
         return self.get_party().get_location()
+
+    def get_action(self) -> 'Action':
+        return self.get_party().get_action()
+
+    def get_action_name(self) -> str:
+        return self.get_action().get_name()
 
     ##########
     # Method #

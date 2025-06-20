@@ -13,11 +13,14 @@ class MethodSDObstacle(MethodSD):
         return self.empty()
 
     def get_obstacles(self, for_trigger: str = None) -> list[Obstacle]:
+        obstacles = []
         if loc := self.get_location():
-            pass
-
-
-        return self.EMPTY_LIST
+            if hasattr(loc, f'on_{for_trigger}'):
+                obstacles.append(loc)
+            for obs in loc.OBSTACLES.get(self.get_action_name()):
+                if hasattr(obs, f'on_{for_trigger}'):
+                    obstacles.append(obs)
+        return obstacles
 
     def gdo_sd_trigger(self):
         return self.gdo_trigger()[2:]
