@@ -5,6 +5,9 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 class MethodSDObstacle(MethodSD):
 
+    def sd_with_location(self) -> bool:
+        return True
+
     async def sd_execute(self):
         trigger = self.gdo_sd_trigger()
         obstacles = self.get_obstacles(trigger)
@@ -15,7 +18,7 @@ class MethodSDObstacle(MethodSD):
     def get_obstacles(self, for_trigger: str = None) -> list[Obstacle]:
         obstacles = []
         if loc := self.get_location():
-            if hasattr(loc, f'on_{for_trigger}'):
+            if hasattr(loc, f'on_{for_trigger}') and self.sd_with_location():
                 obstacles.append(loc)
             for obs in loc.OBSTACLES.get(self.get_action_name()):
                 if hasattr(obs, f'on_{for_trigger}'):
@@ -27,4 +30,4 @@ class MethodSDObstacle(MethodSD):
 
     async def execute_obstacle(self, obstacle: Obstacle):
         trigger = self.gdo_sd_trigger()
-        await getattr(obstacle.player(self.get_player()), f'on_{trigger}')()
+        await getattr(obstacle.player(self.get_player()), f'on_{trigger}')(self.parameters())
