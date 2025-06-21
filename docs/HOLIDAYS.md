@@ -120,5 +120,11 @@ This day we honor the bugs that arised from timezones and espacially summer and 
 In the end, everything is relative.
 
 
+## Talahun Day
+
+- 21th June
+
+This day we celebrate the upcoming youth.
+Especially those who are brave and fight for their family.
 
 
