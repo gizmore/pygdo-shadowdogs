@@ -1,18 +1,18 @@
 from gdo.base.Trans import t
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.city.AmBauhof15.obstacles.Computer1 import Computer1
-from gdo.shadowdogs.engine.WithComputer import WithComputer
 from gdo.shadowdogs.locations.Bedroom import Bedroom as BedroomBase
 from gdo.shadowdogs.obstacle.Bed import Bed
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 
-class Bedroom(WithComputer, BedroomBase):
-    OBSTACLES: list[Obstacle] = [
-        Bed('Bed'),
-        Computer1('Computer'),
-    ]
+class Bedroom(BedroomBase):
+    OBSTACLES: dict[str, list[Obstacle]] = {
+        Action.INSIDE: [],
+        Action.OUTSIDE: [],
+    }
 
     async def on_search(self, player: SD_Player):
         quest = SD_QuestDone.for_player('Connection', player)
