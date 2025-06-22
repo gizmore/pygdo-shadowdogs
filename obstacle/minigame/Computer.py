@@ -12,6 +12,11 @@ class Computer(Obstacle):
 
     _maps: dict[SD_Player, Map]
 
+    def sd_commands(self) -> list[str]:
+        return [
+            'sdhack',
+        ]
+
     def __init__(self, name: str):
         super().__init__(name)
         self._width = 3

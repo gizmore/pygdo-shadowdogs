@@ -1,28 +1,29 @@
-from gdo.base.GDO import GDO
 from gdo.base.Trans import t
+from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 
 class Searchable(Obstacle):
 
-    def sd_search_items(self) -> dict[str,int]:
-        return GDO.EMPTY_DICT
+    _giving: list[str]
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self._giving = []
 
     def sd_methods(self) -> list[str]:
         return [
             'sdsearch',
         ]
 
-    def on_search(self):
-        if items := self.sd_search_items():
-            return self.on_search_success()
-        return super().on_search()
+    async def on_search(self):
+        if self._giving and not self.gobs('searched'):
+            return await self.on_search_success()
+        return await super().on_search()
 
-    def on_search_success(self):
-        if not self.gobs('searched'):
-            self.give_new_items(self.get_player(), self.sd_search_items(), t('searching'), t(f"obs_{self._name}"))
-            self.sobs('searched', '1')
-        return super().on_search()
-
-    def giving(self, param):
-        pass
+    async def on_search_success(self):
+        items = []
+        for item_name in self._giving:
+            items.append(Factory.create_item_gmi(item_name))
+        await self.give_items(self.get_player(), items, 'search', t(f"obs_{self._name}"))
+        self.sobs('searched', '1')

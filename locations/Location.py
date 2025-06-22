@@ -9,9 +9,13 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.City import City
     from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.SD_NPC import SD_NPC
 
 
 class Location(WithShadowFunc):
+
+    NPCS: list['SD_NPC'] = [
+    ]
 
     OBSTACLES: dict[str,list[Obstacle]] = {
         Action.INSIDE: [],

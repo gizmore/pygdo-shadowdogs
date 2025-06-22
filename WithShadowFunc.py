@@ -111,6 +111,13 @@ class WithShadowFunc(WithPlayerGDO):
                             Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
         await self.give_item(player, item, announce_action, announce_source)
 
+    async def give_items(self, player: 'SD_Player', items: list['SD_Item'], announce_action: str=None, announce_source: str=None):
+        for item in items:
+            await self.give_item(player, item)
+        if announce_action:
+            item_names = ''.join([item.render_name() for item in items])
+            await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item_names, announce_source))
+
     async def give_item(self, player: 'SD_Player', item: 'SD_Item', announce_action: str=None, announce_source: str=None):
         item.save_vals({
             'item_owner': player.get_id(),
@@ -118,7 +125,7 @@ class WithShadowFunc(WithPlayerGDO):
         })
         player.inventory.append(item)
         if announce_action:
-            await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item.render_name(), announce_source,))
+            await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item.render_name(), announce_source))
 
     ######
     # KP #

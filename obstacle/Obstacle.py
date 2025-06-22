@@ -4,20 +4,35 @@ from gdo.shadowdogs.item.Item import Item
 
 class Obstacle(Item):
 
-    def on_search(self):
-        self.send_to_player(self.get_player(), 'sd_on_search_nothing')
+    _obstacle_id: str
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self._obstacle_id = name
+
+    def obstacle_id(self, obstacle_id: str):
+        self._obstacle_id = obstacle_id
+        return self
+
+    def sd_commands(self) -> list[str]:
+        return [
+            'sdsearch',
+        ]
+
+    async def on_search(self):
+        await self.send_to_player(self.get_player(), 'sd_on_search_nothing')
 
     ########
     # Data #
     #########
 
     def gobs(self, key: str) -> str:
-        return SD_ObstacleVal.table().get_by_id(self.get_player().get_id(), self._name, key).gdo_val('ov_val')
+        return SD_ObstacleVal.table().get_by_id(self.get_player().get_id(), self._obstacle_id, key).gdo_val('ov_val')
 
     def sobs(self, key: str, val: str):
         SD_ObstacleVal.blank({
             'ov_player': self.get_player().get_id(),
-            'ov_obstacle': self._name,
+            'ov_obstacle': self._obstacle_id,
             'ov_key': key,
             'ov_val': val,
         }).soft_replace()
