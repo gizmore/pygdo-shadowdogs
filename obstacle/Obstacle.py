@@ -4,7 +4,13 @@ from gdo.shadowdogs.item.Item import Item
 
 class Obstacle(Item):
 
+    OBSTACLES: dict[str, 'Obstacle'] = {}
+
     _obstacle_id: str
+
+    @classmethod
+    def get_by_obstacle_id(cls, obstacle_id: str):
+        return cls.OBSTACLES.get(obstacle_id)
 
     def __init__(self, name: str):
         super().__init__(name)
@@ -12,6 +18,7 @@ class Obstacle(Item):
 
     def obstacle_id(self, obstacle_id: str):
         self._obstacle_id = obstacle_id
+        self.OBSTACLES[obstacle_id] = self
         return self
 
     def sd_commands(self) -> list[str]:

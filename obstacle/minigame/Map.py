@@ -21,3 +21,5 @@ class Map(WithShadowFunc):
         return self._tiles[y * self._w + x]
 
     def get_tile_for(self, ):
+        pass
+    

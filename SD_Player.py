@@ -7,7 +7,7 @@ from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
-from typing import TYPE_CHECKING, Generator
+from typing import TYPE_CHECKING, Generator, Any
 
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
@@ -69,6 +69,8 @@ class SD_Player(WithShadowFunc, GDO):
     mount: 'Inventory'
     bank: 'Inventory'
     bazaar: 'Inventory'
+    cyberware: 'Inventory'
+    programs: 'Inventory'
     party_pos: int
     distance: int
     combat_stack: CombatStack
@@ -79,6 +81,8 @@ class SD_Player(WithShadowFunc, GDO):
         'mount',
         'bank',
         'bazaar',
+        'cyberware',
+        'programs',
         'party_pos',
         'distance',
         'combat_stack',
@@ -96,6 +100,8 @@ class SD_Player(WithShadowFunc, GDO):
         self.mount = Inventory()
         self.bank = Inventory()
         self.bazaar = Inventory()
+        self.cyberware = Inventory()
+        self.programs = Inventory()
         self.party_pos = 0
         self.distance = 0
         self.command_eta = 0
@@ -229,10 +235,13 @@ class SD_Player(WithShadowFunc, GDO):
     # Equipment #
     #############
 
-    def all_equipment(self):
+    def all_equipment(self) -> Generator[Item, Any, None]:
         for slot_name in GDT_Slot.SLOTS:
             if item := self.get_equipment(slot_name):
                 yield item
+        for item in self.cyberware:
+            yield item.itm()
+
 
     def get_weapon(self) -> 'Weapon':
         return self.get_equipment('p_weapon') or Fists().player(self)
@@ -297,7 +306,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Items #
     #########
 
-    def all_items(self) -> list[Item]:
+    def all_items(self) -> Generator[Item, any, None]:
         yield from self.all_equipment()
         for item in self.inventory:
             yield item.itm()
