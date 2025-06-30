@@ -55,7 +55,8 @@ class items:
         'CombatBoots':  {'klass': 'Boots', 'level': 4, 'et': 35, 'weight': 1500, 'defense': 3, 'marm': 2},
         'NanoBoots':    {'klass': 'Boots', 'level': 7, 'et': 40, 'weight': 1000, 'defense': 4, 'marm': 3},
 
-        'Ring':         {'klass': 'Ring',        'level': 6,  'weight': 10},
+        'Ring':         {'klass': 'Ring',        'level': 3,  'weight': 10, 'marm': 1},
+        'RingOfTruth':  {'klass': 'Ring',        'level': 12, 'weight': 12, 'max_hp': 2},
         'WeddingRing':  {'klass': 'WeddingRing', 'level': 20, 'weight': 25},
 
         'Pen':          {'klass': 'Pen',         'weight': 20},
