@@ -2,6 +2,7 @@ from gdo.base.Util import Random
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
+from gdo.shadowdogs.obstacle.minigame.Gen import Gen
 from gdo.shadowdogs.obstacle.minigame.Map import Map
 from gdo.ui.WithSize import WithSize
 
@@ -32,9 +33,15 @@ class Computer(Obstacle):
         self._height = height
         return self
 
+    def get_map(self, player: SD_Player):
+        if player in self._maps:
+            return self._maps.get(player)
+        map = Gen().generate(self)
+        self._maps[player] = map
+        return map
+
     async def on_hack(self):
         p = self.get_player()
         pa = self.get_party()
         map = self.get_map(p)
         await pa.do(Action.HACK, self._obstacle_id)
-        await self.send_to_player(p, 'msg_')

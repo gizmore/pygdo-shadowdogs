@@ -3,6 +3,5 @@ from gdo.shadowdogs.item.Item import Item
 
 class Executable(Item):
 
-    def sd_run(self):
-        pass
-    
+    def sd_run(self, args: str = None):
+        raise NotImplementedError()

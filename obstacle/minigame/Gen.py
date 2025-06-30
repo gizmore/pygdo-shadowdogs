@@ -5,6 +5,7 @@ from gdo.shadowdogs.obstacle.minigame.Map import Map
 
 
 class Gen(WithShadowFunc):
+
     def generate(self, computer: Computer) -> Map:
         p = self.get_player()
         scramble = computer.gobs('scrambled') or 0

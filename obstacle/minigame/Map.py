@@ -22,4 +22,3 @@ class Map(WithShadowFunc):
 
     def get_tile_for(self, ):
         pass
-    
