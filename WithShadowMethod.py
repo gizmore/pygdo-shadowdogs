@@ -1,4 +1,4 @@
-from gdo.base.GDO import GDO
+from gdo.base.GDT import GDT
 from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.actions.Action import Action
@@ -15,6 +15,12 @@ class WithShadowMethod(WithShadowFunc):
 
     def sd_is_item_specific(self) -> bool:
         return False
+
+    def sd_requires_item_name(self) -> [str]:
+        return GDT.EMPTY_LIST
+
+    def sd_requires_item_klass(self) -> [str]:
+        return GDT.EMPTY_LIST
 
     def sd_is_location_specific(self) -> bool:
         return False

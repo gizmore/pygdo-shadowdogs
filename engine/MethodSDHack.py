@@ -12,5 +12,6 @@ class MethodSDHack(MethodSDObstacle):
         ]
 
     def get_computer(self) -> Computer:
-        return self.get_party().get_target()
+        p = self.get_party()
+        return p.get_action().get_target(p, p.get_target_string())
 
