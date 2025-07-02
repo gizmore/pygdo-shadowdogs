@@ -1,3 +1,4 @@
+from gdo.base.GDT import GDT
 from gdo.base.Util import Random
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.actions.Action import Action
@@ -45,3 +46,12 @@ class Computer(Obstacle):
         pa = self.get_party()
         map = self.get_map(p)
         await pa.do(Action.HACK, self._obstacle_id)
+
+    async def on_move(self, direction: str) -> GDT:
+        pass
+
+    async def on_ping(self, direction: str) -> GDT:
+        pass
+
+
+

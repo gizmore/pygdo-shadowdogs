@@ -283,9 +283,15 @@ class SD_Player(WithShadowFunc, GDO):
         return self.column(key).value(self.g(key))
 
     def g(self, key: str) -> int:
+        """
+        Get modified value
+        """
         return self.modified[key]
 
     def gb(self, key: str) -> int:
+        """
+        Get Base value
+        """
         return self.gdo_value(key)
 
     def s(self, key: str, value: int):

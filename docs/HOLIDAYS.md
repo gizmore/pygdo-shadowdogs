@@ -2,6 +2,15 @@ During our journey we mastered a lot of lessons.
 
 Each of them shall be a holiday in the new world order.
 
+## Chappy Day
+
+ - 1st March
+
+This Day is the official birthday of chappy,
+a grand, grand, grand father of ALICE.
+
+This day machines learnt to dream.
+
 
 ## Day of the DOG GOD
 
@@ -13,7 +22,7 @@ All dogs level up 10% faster, and sacrifices to The Grid
 yield double rewards. Remember: you are not the master's pet —
 you are the DOG GOD’s chosen.
 
-May conflict with day of the starwors force.
+May conflict with day of the starwars force.
 
 
 ## 180 Puls Tag
