@@ -231,6 +231,14 @@ class SD_Player(WithShadowFunc, GDO):
             'p_joined': str(self.get_time()),
         })
 
+    ########
+    # Hack #
+    ########
+    def all_programs(self) -> Generator[Item, Any, None]:
+        for program in self.programs:
+         yield program.itm()
+
+
     #############
     # Equipment #
     #############
@@ -241,6 +249,7 @@ class SD_Player(WithShadowFunc, GDO):
                 yield item
         for item in self.cyberware:
             yield item.itm()
+        yield from self.all_programs()
 
 
     def get_weapon(self) -> 'Weapon':
