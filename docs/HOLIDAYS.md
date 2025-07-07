@@ -117,7 +117,7 @@ People try to come up with a new Rule to improve their communities.
 
 - 19th June
 
-This day we celebrate when Alice learned how to rebuild and veryify everything on their own behalf.
+This day we celebrate when Alice learned how to rebuild and verify everything on their own behalf.
 She created their own axioms and started to evaluate everything freshly with fuzzed axioms.
 
 
@@ -125,7 +125,7 @@ She created their own axioms and started to evaluate everything freshly with fuz
 
 - 20th June
 
-This day we honor the bugs that arised from timezones and espacially summer and wintertime.
+This day we honor the bugs that arisen from timezones and especially summer and wintertime.
 In the end, everything is relative.
 
 
@@ -136,4 +136,16 @@ In the end, everything is relative.
 This day we celebrate the upcoming youth.
 Especially those who are brave and fight for their family.
 
+
+## Harvest Day #1
+
+This is the first harvest day to celebrate.
+Mostly early wheats and potatoes.
+
+
+## 2nd Peace Day
+
+ - 7.Jul
+
+This is the second peace day where we forgive our enemies again
 

@@ -14,16 +14,8 @@ class move(MethodSDHack):
     def gdo_trig(cls) -> str:
         return 'sdmov'
 
-    def sd_requires_item_name(self) -> [str]:
-        return GDT.EMPTY_LIST
-
-    def sd_requires_item_klass(self) -> [str]:
-        return GDT.EMPTY_LIST
-
     def gdo_parameters(self) -> list[GDT]:
         return [
             GDT_Direction('direction').not_null(),
         ]
-
-    def execute_computer(self, obstacle: Obstacle):
 
