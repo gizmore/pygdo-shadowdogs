@@ -16,10 +16,10 @@ class WithShadowMethod(WithShadowFunc):
     def sd_is_item_specific(self) -> bool:
         return False
 
-    def sd_requires_item_name(self) -> [str]:
+    def sd_requires_item_name(self) -> list[str]:
         return GDT.EMPTY_LIST
 
-    def sd_requires_item_klass(self) -> [str]:
+    def sd_requires_item_klass(self) -> list[str]:
         return GDT.EMPTY_LIST
 
     def sd_is_location_specific(self) -> bool:

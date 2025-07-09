@@ -15,7 +15,9 @@ class Shadowdogs:
     PLAYERS: dict[str,'SD_Player'] = {}
     USERMAP: dict[str,'SD_Player'] = {}
 
+    ITEM_COUNT_SEPERATOR = 'x'
     MODIFIER_SEPERATOR = '_of_'
+    ITEM_SEPERATOR = ','
 
     RARE_NO = 35
     RARE_LOW = 21

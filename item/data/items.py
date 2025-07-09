@@ -68,14 +68,6 @@ class items:
         'SMG':          {'klass': 'MachineGun', 'level': 6, 'at': 15, 'et': 12, 'rng': 6, 'weight': 1900, 'attack': 9,  'defense': 1, 'min_dmg': 5, 'max_dmg': 13},
         'Shotgun':      {'klass': 'Shotgun',    'level': 5, 'at': 20, 'et': 18, 'rng': 3, 'weight': 2500, 'attack': 12, 'defense': 1, 'min_dmg': 8, 'max_dmg': 15},
 
-        'UserDeck':    {'klass': 'Deck', 'level': 5,  'weight': 600,  'cpu': 9},
-        'ControlDeck': {'klass': 'Deck', 'level': 8,  'weight': 1200, 'cpu': 50},
-        'HackingDeck': {'klass': 'Deck', 'level': 16, 'weight': 700,  'cpu': 30, 'hac': 4},
-        'MetaDeck':    {'klass': 'Deck', 'level': 24, 'weight': 700, 'cpu': 50, 'hac': 5},
-
-        'CyberEye':    {'klass': 'Implant', 'level': 6, 'weight': 100, 'marm': 0, 'farm': 0},
-        'NeuralLink':  {'klass': 'Implant', 'level': 8, 'weight': 80, 'marm': 0, 'farm': 0},
-
         'Medkit':      {'klass': 'Usable', 'level': 2, 'weight': 500},
         'Stimulant':   {'klass': 'Usable', 'level': 3, 'weight': 200},
 
@@ -87,6 +79,15 @@ class items:
         'Ammo9mm':      {'klass': 'Ammo', 'level': 3, 'weight': 55},
         'Ammo12Gauge':  {'klass': 'Ammo', 'level': 5, 'weight': 500},
         'Ammo13':       {'klass': 'Ammo', 'level': 7, 'weight': 110},
+
+        'CyberEye':    {'klass': 'Implant', 'level': 6, 'weight': 100, 'marm': 0, 'farm': 0},
+        'NeuralLink':  {'klass': 'Implant', 'level': 8, 'weight': 80, 'marm': 0, 'farm': 0},
+
+        'RhinoDeck':   {'klass': 'Deck', 'level': 1,  'weight': 500, 'mcpu': 6},
+        'UserDeck':    {'klass': 'Deck', 'level': 5,  'weight': 600, 'mcpu': 9},
+        'ControlDeck': {'klass': 'Deck', 'level': 8,  'weight': 1200, 'mcpu': 50},
+        'HackingDeck': {'klass': 'Deck', 'level': 16, 'weight': 700, 'mcpu': 30, 'hac': 4},
+        'MetaDeck':    {'klass': 'Deck', 'level': 24, 'weight': 700, 'mcpu': 50, 'hac': 5},
 
         'Move.exe':     {'klass': 'Move',     'level': 1},
         'Strafe.exe':   {'klass': 'Move',     'level': 2},

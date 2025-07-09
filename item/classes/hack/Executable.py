@@ -10,3 +10,6 @@ class Executable(Item):
 
     def get_computer_map(self) -> Map:
         return self.get_computer().get_map(self.get_player())
+
+    def get_slot(self) -> str:
+        return 'cyberdeck'

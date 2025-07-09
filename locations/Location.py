@@ -14,13 +14,28 @@ if TYPE_CHECKING:
 
 class Location(WithShadowFunc):
 
-    NPCS: list['SD_NPC'] = [
-    ]
+    GIVING: str = GDO.EMPTY_STR
 
-    OBSTACLES: dict[str,list[Obstacle]] = {
-        Action.INSIDE: [],
-        Action.OUTSIDE: [],
-    }
+    NPCS: list['SD_NPC'] = GDO.EMPTY_LIST
+
+    OBSTACLES_INSIDE: list[Obstacle] = GDO.EMPTY_LIST
+    OBSTACLES_OUTSIDE: list[Obstacle] = GDO.EMPTY_LIST
+
+    @classmethod
+    def item_names(cls, player: 'SD_Player') -> str:
+        return cls.GIVING
+
+    @classmethod
+    def npcs(cls, player: 'SD_Player') -> 'list[SD_NPC]':
+        return cls.NPCS
+
+    @classmethod
+    def obstacles(cls, action: str, player: 'SD_Player') -> list[Obstacle]:
+        if action == Action.INSIDE:
+            return cls.OBSTACLES_INSIDE
+        elif action == Action.OUTSIDE:
+            return cls.OBSTACLES_OUTSIDE
+        return GDO.EMPTY_LIST
 
     ############
     # Abstract #
@@ -53,6 +68,8 @@ class Location(WithShadowFunc):
     ###########
 
     async def on_search(self, player: 'SD_Player'):
+        if items := self.item_names(player):
+            self.give_new_items()
         await self.send_to_player(player, 'msg_sd_search_nothing')
 
     ##########

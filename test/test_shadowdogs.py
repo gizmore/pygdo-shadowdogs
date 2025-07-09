@@ -58,7 +58,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('1m5', out, '$sdi 2 does not render.')
         out = cli_plug(gizmore, '$sdeq _of_ado')
         await self.ticker(121)
-        out = all_private_messages()
+        out += all_private_messages()
         self.assertIn('Club_of_adonis as ', out, 'eq does not work.')
         out = cli_plug(gizmore, '$sdq')
         self.assertIn('Weapon: Club_of_adonis', out, '$sdq does not work.')
@@ -67,6 +67,20 @@ class ShadowdogsTest(GDOTestCase):
         await self.ticker(121)
         out = all_private_messages()
         self.assertIn('hit', out, 'attack does not work.')
+
+    async def test_01_hack(self):
+        gizmore = cli_gizmore()
+        out = cli_plug(gizmore, '$sdenable')
+        self.assertIn('has been enabled', out, 'sdenable does not work.')
+        out = cli_plug(gizmore, '$sdreset --confirm=1')
+        self.assertIn('e', out, 'sdreset does not work.')
+        out = cli_plug(gizmore, '$sdstart male human')
+        self.assertIn('You created your character', out, 'sdstart throws an error.')
+        out = cli_plug(gizmore, '$sdgmi gizmore{1} RhinoDeck')
+        self.assertIn('received', out, 'gmi#1 does not work.')
+        out = cli_plug(gizmore, '$sdgmi gizmore{1} Ping4.exe')
+        self.assertIn('received', out, 'gmi#2 does not work.')
+
 
 
 if __name__ == '__main__':

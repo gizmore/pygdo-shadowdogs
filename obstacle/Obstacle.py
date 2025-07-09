@@ -8,8 +8,10 @@ class Obstacle(Item):
 
     def __init__(self, name: str):
         super().__init__(name)
-        # self._obstacle_id = name
-        self.OBSTACLES[name] = self
+        klass = self.__class__.__name__
+        if klass in self.OBSTACLES:
+            raise RuntimeError(f"Obstacle {klass} already defined")
+        self.OBSTACLES[klass] = self
 
     def sd_commands(self) -> list[str]:
         return [
@@ -24,12 +26,12 @@ class Obstacle(Item):
     #########
 
     def gobs(self, key: str) -> str:
-        return SD_ObstacleVal.table().get_by_id(self.get_player().get_id(), self._name, key).gdo_val('ov_val')
+        return SD_ObstacleVal.table().get_by_id(self.get_player().get_id(), self.__class__.__name__, key).gdo_val('ov_val')
 
     def sobs(self, key: str, val: str):
         SD_ObstacleVal.blank({
             'ov_player': self.get_player().get_id(),
-            'ov_obstacle': self._name,
+            'ov_obstacle': self.__class__.__name__,
             'ov_key': key,
             'ov_val': val,
         }).soft_replace()

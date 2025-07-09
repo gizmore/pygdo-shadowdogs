@@ -70,7 +70,7 @@ class SD_Player(WithShadowFunc, GDO):
     bank: 'Inventory'
     bazaar: 'Inventory'
     cyberware: 'Inventory'
-    programs: 'Inventory'
+    cyberdeck: 'Inventory'
     party_pos: int
     distance: int
     combat_stack: CombatStack
@@ -82,7 +82,7 @@ class SD_Player(WithShadowFunc, GDO):
         'bank',
         'bazaar',
         'cyberware',
-        'programs',
+        'cyberdeck',
         'party_pos',
         'distance',
         'combat_stack',
@@ -101,7 +101,7 @@ class SD_Player(WithShadowFunc, GDO):
         self.bank = Inventory()
         self.bazaar = Inventory()
         self.cyberware = Inventory()
-        self.programs = Inventory()
+        self.cyberdeck = Inventory()
         self.party_pos = 0
         self.distance = 0
         self.command_eta = 0
@@ -161,7 +161,6 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_Item('p_ring'),
             GDT_Item('p_earring'),
             GDT_Item('p_piercing'),
-            GDT_Item('p_mount'),
 
             Body('p_bod'),
             Magic('p_mag'),
@@ -235,8 +234,8 @@ class SD_Player(WithShadowFunc, GDO):
     # Hack #
     ########
     def all_programs(self) -> Generator[Item, Any, None]:
-        for program in self.programs:
-         yield program.itm()
+        for program in self.cyberdeck:
+            yield program.itm()
 
 
     #############

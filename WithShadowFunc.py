@@ -1,4 +1,5 @@
 from typing import TYPE_CHECKING
+from unicodedata import digit
 
 import aioconsole
 
@@ -100,13 +101,20 @@ class WithShadowFunc(WithPlayerGDO):
     # Items #
     #########
 
-    async def give_new_items(self, player: 'SD_Player', items: dict[str,int], announce_action: str=None, announce_source: str=None):
-        for item_name, count in items.items():
-            await self.give_new_item(player, item_name, count, announce_action, announce_source)
+    # async def give_new_items(self, player: 'SD_Player', items: dict[str,int], announce_action: str=None, announce_source: str=None):
+    #     for item_name, count in items.items():
+    #         await self.give_new_item(player, item_name, count, announce_action, announce_source)
 
-    async def give_new_item(self, player: 'SD_Player', item_name: str, item_count: int, announce_action: str=None, announce_source: str=None):
+    async def give_new_items(self, player: 'SD_Player', item_name: str, announce_action: str=None, announce_source: str=None):
         from gdo.shadowdogs.engine.Factory import Factory
-        item = Factory.create_item(Strings.substr_to(item_name, Shadowdogs.MODIFIER_SEPERATOR, item_name),
+
+        for iname in item_name.split(Shadowdogs.ITEM_SEPERATOR):
+            item_count = 1
+            if iname[0].isdigit():
+                item_count = int(Strings.substr_to(iname, Shadowdogs.ITEMCOUNT_SEPARATOR, 1))
+                iname = Strings.substr_from(iname, Shadowdogs.ITEMCOUNT_SEPARATOR, iname)
+
+            item = Factory.create_item(Strings.substr_to(item_name, Shadowdogs.MODIFIER_SEPERATOR, item_name),
                             item_count,
                             Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
         await self.give_item(player, item, announce_action, announce_source)
