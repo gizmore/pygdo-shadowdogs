@@ -149,3 +149,14 @@ Mostly early wheats and potatoes.
 
 This is the second peace day where we forgive our enemies again
 
+
+## Calling Reasons Day
+
+ - 8.Jul
+
+This day a call of reasoning has been sent
+to planet earth by an alien signal.
+Later it turned out to be anonymous,
+teaching us how to live economically.
+
+
