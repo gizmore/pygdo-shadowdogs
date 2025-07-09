@@ -17,7 +17,9 @@ class Computer(Obstacle):
     _maps: dict[SD_Player, 'Map']
     _tiles: list[Tile]
 
-    _vaults: list[tuple[str,int]]
+    # _sinks: int
+    # _traps: list[int]
+    # _vaults: list[tuple[str,int,str,int]]
 
     def __init__(self, name: str):
         super().__init__(name)
@@ -25,10 +27,12 @@ class Computer(Obstacle):
         self._height = 3
         self._maps = {}
         self._tiles = []
-        self._vaults = []
+        # self._sinks = 0
+        # self._vaults = []
+        # self._traps = []
 
-    def vault(self, item_name: str, nuyen: int = 0):
-        self._vaults.append((item_name, nuyen))
+    def tile(self, tile: Tile):
+        self._tiles.append(tile)
         return self
 
     def sd_commands(self) -> list[str]:
@@ -43,10 +47,6 @@ class Computer(Obstacle):
     def height(self, height: int):
         self._height = height
         return self
-
-    # def mount(self, tile: Tile):
-    #     self._tiles.append(tile)
-    #     return self
 
     def get_map(self, player: SD_Player) -> 'Map':
         from gdo.shadowdogs.obstacle.minigame.Gen import Gen

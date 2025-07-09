@@ -15,3 +15,11 @@ class Vault(Tile):
         self._password = password
         self._password_difficulty = difficulty
         return self
+
+    def giving(self, item_name: str):
+        self._item_name = item_name
+        return self
+
+    def paying(self, nuyen: int):
+        self._nuyen = nuyen
+        return self

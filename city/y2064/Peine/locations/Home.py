@@ -7,13 +7,14 @@ from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.obstacle.Searchable import Searchable
 from gdo.shadowdogs.obstacle.minigame.Computer import Computer
+from gdo.shadowdogs.obstacle.minigame.tile.Vault import Vault
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_NPC import SD_NPC
 
 class Home(Location):
 
-    GIVING: str = 'Pullover,Jeans,Shoes,MobilePhone,12xNuyen'
+    GIVING: str = 'Pullover,Jeans,Shoes,12xNuyen,GizmoreNote'
 
     NPCS: list['SD_NPC'] = [
         Mom(),
@@ -23,6 +24,6 @@ class Home(Location):
 
     OBSTACLES_INSIDE: list[Obstacle] = [
         Searchable('Fridge').giving('Coke,LargeBeer'),
-        Computer('PC').vault('Email1'),
+        Computer('PC').tile(Vault().password('gizmore', 4).giving('Email1')),
     ]
 

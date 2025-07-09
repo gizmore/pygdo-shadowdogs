@@ -10,3 +10,11 @@ class Mail(Usable):
         self._mailtext_key = key
         self._mailtext_args = args
         return self
+
+    def sd_commands(self) -> list[str]:
+        return [
+            'sdread',
+        ]
+
+    async def on_use(self):
+        await self.send_to_player(self.get_player(), self._mailtext_key, self._mailtext_args)
