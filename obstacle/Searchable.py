@@ -11,6 +11,10 @@ class Searchable(Obstacle):
         super().__init__(name)
         self._giving = []
 
+    def giving(self, item_name: str):
+        self._giving.append(item_name)
+        return self
+
     def sd_methods(self) -> list[str]:
         return [
             'sdsearch',

@@ -1,3 +1,4 @@
+from gdo.shadowdogs.item.classes.hack.Executable import Executable
 
 
 class Map(Executable):

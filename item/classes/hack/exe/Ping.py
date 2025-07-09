@@ -1,7 +1,7 @@
 from gdo.shadowdogs.item.classes.hack.Executable import Executable
 
 
-class Ping4(Executable):
+class Ping(Executable):
 
     def sd_commands(self) -> list[str]:
         return [

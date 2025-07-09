@@ -22,7 +22,7 @@ class Home(Location):
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [
-        Searchable('Fridge').giving(['Coke,LargeBeer']),
-        Computer('PC').with_vault(('Email1',)),
+        Searchable('Fridge').giving('Coke,LargeBeer'),
+        Computer('PC').vault('Email1'),
     ]
 

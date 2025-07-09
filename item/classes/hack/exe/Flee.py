@@ -1,4 +1,4 @@
-from gdo.shadowdogs.obstacle.minigame.Executable import Executable
+from gdo.shadowdogs.item.classes.hack.Executable import Executable
 
 
 class Flee(Executable):
