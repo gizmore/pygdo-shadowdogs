@@ -81,8 +81,8 @@ class Item(WithShadowFunc):
             player.modify(self._modifiers)
 
     def apply_inv(self, player: 'SD_Player'):
-        weight = self.get_default_modifiers().get('weight')
-        player.apply('p_weight', weight)
+        if weight := self.get_default_modifiers().get('weight'):
+            player.apply('p_weight', weight)
 
     def sd_attack_time(self) -> int:
         return self.dm('at')

@@ -6,7 +6,6 @@ from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
-from gdo.shadowdogs.engine.World import World
 from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.item.data.mapping import mapping
 from gdo.shadowdogs.locations.Location import Location

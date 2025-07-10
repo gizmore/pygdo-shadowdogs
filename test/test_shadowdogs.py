@@ -29,12 +29,12 @@ class ShadowdogsTest(GDOTestCase):
     def setUp(self):
         super().setUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
-        reinstall_module('shadowdogs')
         loader = ModuleLoader.instance()
         loader.load_modules_db(True)
-        loader.init_modules(True, True)
+        reinstall_module('shadowdogs')
         WebPlug.COOKIES = {}
         Application.init_cli()
+        loader.init_modules(True, True)
         loader.init_cli()
         module_table.instance().save_config_val('table_ipp', '3')
 

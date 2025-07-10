@@ -26,7 +26,7 @@ class GDT_Slot(GDT_Enum):
         'p_piercing',
         'p_mount',
         'p_cyberdeck',
-        'p_cyberware',
+        # 'p_cyberware',
     ]
 
     def __init__(self, name: str):

@@ -90,7 +90,6 @@ class SD_Player(WithShadowFunc, GDO):
 
     STATS = (
         'p_level',
-
     )
 
     def __init__(self):
@@ -161,6 +160,8 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_Item('p_ring'),
             GDT_Item('p_earring'),
             GDT_Item('p_piercing'),
+            GDT_Item('p_mount'),
+            GDT_Item('p_cyberdeck'),
 
             Body('p_bod'),
             Magic('p_mag'),
