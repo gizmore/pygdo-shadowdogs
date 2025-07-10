@@ -2,7 +2,7 @@ from gdo.base.GDT import GDT
 from gdo.core.GDT_RestOfText import GDT_RestOfText
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.GDT_Executable import GDT_Executable
-from gdo.shadowdogs.obstacle.minigame.Executable import Executable
+from gdo.shadowdogs.item.classes.hack.Executable import Executable
 
 
 class execute(MethodSD):
