@@ -69,8 +69,9 @@ class Location(WithShadowFunc):
 
     async def on_search(self, player: 'SD_Player'):
         if items := self.item_names(player):
-            self.give_new_items()
-        await self.send_to_player(player, 'msg_sd_search_nothing')
+            await self.give_new_items(player, items, 'search', self.get_name())
+        else:
+            await self.send_to_player(player, 'msg_sd_search_nothing')
 
     ##########
     # Render #

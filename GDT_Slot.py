@@ -7,6 +7,7 @@ class GDT_Slot(GDT_Enum):
     BANK = 'bank'
     BAZAAR = 'bazaar'
     CYBERDECK = 'cyberdeck'
+    CYBERWARE = 'cyberware'
     INVENTORY = 'inventory'
     MOUNT = 'mount'
     SHOP = 'shop'

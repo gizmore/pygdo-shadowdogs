@@ -19,7 +19,7 @@ class Item(WithShadowFunc):
     _name: str
     # _owner: 'SD_Player|None'
     _count: int
-    _modifiers: dict[str, int]
+    _modifiers: dict[str, int|str]
 
     def __init__(self, name: str):
         self._name = name
@@ -72,6 +72,9 @@ class Item(WithShadowFunc):
     def dm(self, field: str) -> int:
         return self.get_default_modifiers().get(field)
 
+    def dmi(self, field: str) -> int:
+        return int(self.dm(field))
+
     def apply(self, player: 'SD_Player'):
         for key, val in self.get_default_modifiers().items():
             key = f"p_{key}"
@@ -81,8 +84,8 @@ class Item(WithShadowFunc):
             player.modify(self._modifiers)
 
     def apply_inv(self, player: 'SD_Player'):
-        if weight := self.get_default_modifiers().get('weight'):
-            player.apply('p_weight', weight)
+        if weight := self.dm('weight'):
+            player.apply('p_weight', int(weight))
 
     def sd_attack_time(self) -> int:
         return self.dm('at')
