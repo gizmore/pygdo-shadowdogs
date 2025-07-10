@@ -107,17 +107,18 @@ class WithShadowFunc(WithPlayerGDO):
 
     async def give_new_items(self, player: 'SD_Player', item_name: str, announce_action: str=None, announce_source: str=None):
         from gdo.shadowdogs.engine.Factory import Factory
-
+        items = []
         for iname in item_name.split(Shadowdogs.ITEM_SEPERATOR):
             item_count = 1
             if iname[0].isdigit():
-                item_count = int(Strings.substr_to(iname, Shadowdogs.ITEMCOUNT_SEPARATOR, 1))
-                iname = Strings.substr_from(iname, Shadowdogs.ITEMCOUNT_SEPARATOR, iname)
-
-            item = Factory.create_item(Strings.substr_to(item_name, Shadowdogs.MODIFIER_SEPERATOR, item_name),
+                item_count = int(Strings.substr_to(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, 1))
+                iname = Strings.substr_from(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, iname)
+            item = Factory.create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
                             item_count,
                             Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
-        await self.give_item(player, item, announce_action, announce_source)
+            items.append(item)
+        await self.give_items(player, items, announce_action, announce_source)
+
 
     async def give_items(self, player: 'SD_Player', items: list['SD_Item'], announce_action: str=None, announce_source: str=None):
         for item in items:

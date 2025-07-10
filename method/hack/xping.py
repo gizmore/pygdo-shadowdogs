@@ -5,7 +5,7 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.obstacle.minigame.tile.OOB import OOB
 
 
-class ping(MethodSDHack):
+class xping(MethodSDHack):
 
     @classmethod
     def gdo_trigger(cls) -> str:

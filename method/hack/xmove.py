@@ -4,7 +4,7 @@ from gdo.shadowdogs.engine.MethodSDHack import MethodSDHack
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 
-class move(MethodSDHack):
+class xmove(MethodSDHack):
 
     @classmethod
     def gdo_trigger(cls) -> str:

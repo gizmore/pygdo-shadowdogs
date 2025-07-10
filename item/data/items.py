@@ -104,6 +104,9 @@ class items:
         'Trace.exe':    {'klass': 'Trace',    'level': 2},
         'TraceNT.exe':  {'klass': 'Trace',    'level': 4},
         'TraceNG.exe':  {'klass': 'Trace',    'level': 6},
+
+        'EmailArmy':   {'klass': 'Email', 'key': 'sd_email_army'},
+        'NoteGizmore': {'klass': 'Note',  'key': 'sd_note_gizmore'},
     }
 
     @classmethod

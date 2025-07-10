@@ -27,6 +27,6 @@ class execute(MethodSD):
     def get_exe(self) -> Executable:
         return self.param_value('exe')
 
-    def sd_execute(self):
+    async def sd_execute(self):
         p = self.get_player()
-        self.get_exe().sd_run(self.param_value('args'))
+        await self.get_exe().sd_run(self.param_value('args'))

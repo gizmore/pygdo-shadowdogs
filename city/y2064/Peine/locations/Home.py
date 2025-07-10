@@ -24,6 +24,6 @@ class Home(Location):
 
     OBSTACLES_INSIDE: list[Obstacle] = [
         Searchable('Fridge').giving('Coke,LargeBeer'),
-        Computer('PC').tile(Vault().password('gizmore', 4).giving('Email1')),
+        Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
     ]
 

@@ -35,7 +35,7 @@ class start(MethodSD):
     async def form_submitted(self):
         if self.get_player():
             return self.err('err_sd_already_started')
-        party = await Factory.create_party(World2064.Peine.W)
+        party = await Factory.create_party(World2064.Peine.Home)
         player = SD_Player.blank({
             'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),
@@ -57,5 +57,5 @@ class start(MethodSD):
         await self.send_to_player(player, t('sd_story_1'))
         await self.send_to_player(player, t('sd_story_2'))
         await self.send_to_player(player, t('sd_story_3'))
-        await self.give_new_items(player, {'Pen': 1, 'Jeans': 1, 'TShirt': 1, 'Shoes': 1}, None)
+        await self.give_new_items(player, 'Jeans,TShirt,Shoes')
         await self.give_kp(player, player.get_party().get_location(), None)
