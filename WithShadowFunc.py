@@ -37,17 +37,6 @@ class WithShadowFunc(WithPlayerGDO):
     # Entities #
     ############
 
-    # def player(self, player: 'SD_Player'):
-    #     self._player = player
-    #     return self
-
-    # def get_player(self, user: GDO_User=None) -> 'SD_Player':
-    #     if hasattr(self, '_player'):
-    #         return self._player
-    #     from gdo.shadowdogs.SD_Player import SD_Player
-    #     user = user or self._env_user
-    #     return SD_Player.table().get_by('p_user', user.get_id())
-
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()
 
@@ -101,10 +90,6 @@ class WithShadowFunc(WithPlayerGDO):
     # Items #
     #########
 
-    # async def give_new_items(self, player: 'SD_Player', items: dict[str,int], announce_action: str=None, announce_source: str=None):
-    #     for item_name, count in items.items():
-    #         await self.give_new_item(player, item_name, count, announce_action, announce_source)
-
     async def give_new_items(self, player: 'SD_Player', item_name: str, announce_action: str=None, announce_source: str=None):
         from gdo.shadowdogs.engine.Factory import Factory
         items = []
@@ -113,12 +98,15 @@ class WithShadowFunc(WithPlayerGDO):
             if iname[0].isdigit():
                 item_count = int(Strings.substr_to(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, 1))
                 iname = Strings.substr_from(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, iname)
-            item = Factory.create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
-                            item_count,
-                            Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
-            items.append(item)
-        await self.give_items(player, items, announce_action, announce_source)
-
+            if iname == 'Nuyen':
+                player.give_nuyen(item_count)
+            else:
+                item = Factory.create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
+                                item_count,
+                                Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
+                items.append(item)
+        if items:
+            await self.give_items(player, items, announce_action, announce_source)
 
     async def give_items(self, player: 'SD_Player', items: list['SD_Item'], announce_action: str=None, announce_source: str=None):
         for item in items:
@@ -130,7 +118,7 @@ class WithShadowFunc(WithPlayerGDO):
     async def give_item(self, player: 'SD_Player', item: 'SD_Item', announce_action: str=None, announce_source: str=None):
         item.save_vals({
             'item_owner': player.get_id(),
-            'item_slot': 'inventory',
+            'item_slot': item.itm().sd_inv_type(),
         })
         player.inventory.append(item)
         if announce_action:

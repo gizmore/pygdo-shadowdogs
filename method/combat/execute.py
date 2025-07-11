@@ -7,9 +7,11 @@ from gdo.shadowdogs.item.classes.hack.Executable import Executable
 
 class execute(MethodSD):
 
+    @classmethod
     def gdo_trig(cls) -> str:
         return 'sdx'
 
+    @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdexe'
 

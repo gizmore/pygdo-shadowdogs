@@ -20,7 +20,7 @@ class MethodSDObstacle(MethodSD):
         if loc := self.get_location():
             if hasattr(loc, f'on_{for_trigger}') and self.sd_with_location():
                 obstacles.append(loc)
-            for obs in loc.OBSTACLES.get(self.get_action_name()):
+            for obs in loc.obstacles(self.get_action_name(), self.get_player()):
                 if hasattr(obs, f'on_{for_trigger}'):
                     obstacles.append(obs)
         return obstacles

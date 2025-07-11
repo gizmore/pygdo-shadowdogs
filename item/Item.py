@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Iterator
 
 from gdo.base.GDO import GDO
 from gdo.core.GDO_User import GDO_User
+from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -32,6 +33,9 @@ class Item(WithShadowFunc):
 
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item')
+
+    def sd_inv_type(self) -> str:
+        return GDT_Slot.INVENTORY
 
     @functools.cache
     def render_name(self) -> str:

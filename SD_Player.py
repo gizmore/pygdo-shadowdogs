@@ -202,6 +202,9 @@ class SD_Player(WithShadowFunc, GDO):
     def is_online(self) -> bool:
         return self.get_user().is_online()
 
+    def is_leader(self) -> bool:
+        return self.get_party().get_leader() == self
+
     ##########
     # Combat #
     ##########

@@ -71,6 +71,9 @@ class SD_Party(WithShadowFunc, GDO):
     # Members #
     ###########
 
+    def get_leader(self) -> 'SD_Player':
+        return self.members[0]
+
     async def join(self, player: 'SD_Player'):
         if player in self.members:
             self.members.remove(player)
@@ -109,6 +112,12 @@ class SD_Party(WithShadowFunc, GDO):
     ##########
     # Target #
     ##########
+
+    def other_players(self, player: 'SD_Player' = None) -> Iterator['SD_Player']:
+        yield from self.players_nearby()
+        if self.get_action_name() == Action.INSIDE:
+            for npc in self.get_location(Action.INSIDE).npcs(player or self.get_leader()):
+                yield npc
 
     def players_nearby(self) -> Iterator['SD_Player']:
         action = self.get_action_name()
