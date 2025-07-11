@@ -6,6 +6,10 @@ class Obstacle(Item):
 
     OBSTACLES: dict[str, 'Obstacle'] = {}
 
+    @staticmethod
+    def get_by_obstacle_id(id: str) -> 'Obstacle':
+        return Obstacle.OBSTACLES[id]
+
     def __init__(self, name: str):
         super().__init__(name)
         klass = self.__class__.__name__

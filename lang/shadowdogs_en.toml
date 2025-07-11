@@ -58,6 +58,7 @@ msg_sd_party_was_sleep = "%s were sleeping inside the %s."
 msg_sd_party_was_talk = "%s were talking to %s."
 msg_sd_party_was_travel = "%s were travelling to %s. %s"
 
+sd_busy = "%s busy."
 
 ########
 # GDTs #
