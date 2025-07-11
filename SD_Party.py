@@ -7,7 +7,7 @@ from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Action import GDT_Action
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
-from typing import TYPE_CHECKING, Self, Iterator
+from typing import TYPE_CHECKING, Iterator
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -114,6 +114,7 @@ class SD_Party(WithShadowFunc, GDO):
     ##########
 
     def other_players(self, player: 'SD_Player' = None) -> Iterator['SD_Player']:
+        from gdo.shadowdogs.actions.Action import Action
         yield from self.players_nearby()
         if self.get_action_name() == Action.INSIDE:
             for npc in self.get_location(Action.INSIDE).npcs(player or self.get_leader()):

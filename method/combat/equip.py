@@ -49,21 +49,22 @@ class equip(MethodSD):
         args.append(itm.get_slot())
         args.append(player.render_busy())
         await self.send_to_party(player.get_party(), key, tuple(args))
-        await self.send_to_party(player.get_enemy_party(), key, tuple(args))
+        if ep := player.get_enemy_party():
+            await self.send_to_party(ep, key, tuple(args))
         Application.EVENTS.add_timer(player.get_busy_seconds(), partial(self.equip, player, item))
         return self.empty()
 
     async def sd_execute(self):
         return self.empty()
 
-    def equip(self, player: SD_Player, item: SD_Item) -> bool:
+    async def equip(self, player: SD_Player, item: SD_Item) -> bool:
         player.inventory.remove(item)
         slot = item.itm().get_slot()
         item.save_val('item_slot', slot)
         player.save_val(slot, item.get_id())
         return True
 
-    def unequip(self, player: SD_Player, item_slot: str) -> bool:
+    async def unequip(self, player: SD_Player, item_slot: str) -> bool:
         if item := player.get_equip(item_slot):
             player.inventory.append(item)
             item.save_val('item_slot', GDT_Slot.INVENTORY)

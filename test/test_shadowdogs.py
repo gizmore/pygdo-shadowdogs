@@ -80,6 +80,12 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('received', out, 'gmi#1 does not work.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} Ping4.exe')
         self.assertIn('received', out, 'gmi#2 does not work.')
+        out = cli_plug(gizmore, '$sdeq Rhino')
+        self.assertIn('RhinoDeck', out, 'eq#1 does not work.')
+        await self.ticker(60)
+        out = all_private_messages()
+        out = cli_plug(gizmore, '$sdlook')
+        self.assertIn('PC', out, 'look does not work.')
 
 
 

@@ -98,7 +98,7 @@ class Item(WithShadowFunc):
         return GDO.EMPTY_LIST
 
     def get_equip_time(self) -> int:
-        return self.dm('et')
+        return self.dm('et') or 0
 
     def get_unequip_time(self) -> int:
         return self.get_equip_time() // 2

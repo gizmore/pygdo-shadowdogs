@@ -27,7 +27,6 @@ class GDT_Slot(GDT_Enum):
         'p_piercing',
         'p_mount',
         'p_cyberdeck',
-        # 'p_cyberware',
     ]
 
     def __init__(self, name: str):
@@ -46,10 +45,12 @@ class GDT_Slot(GDT_Enum):
             'p_earring': 'Earring',
             'p_piercing': 'Piercing',
             'p_mount': 'Vehicle',
+            'p_cyberdeck': 'Cyberdeck',
 
             'bank': 'Bank',
             'bazaar': 'Bazaar',
             'cyberdeck': 'Cyberdeck',
+            'cyberware': 'Cyberware',
             'inventory': 'Inventory',
             'mount': 'In Vehicle',
             'shop': 'Shop',
