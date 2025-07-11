@@ -86,6 +86,8 @@ class ShadowdogsTest(GDOTestCase):
         out = all_private_messages()
         out = cli_plug(gizmore, '$sdlook')
         self.assertIn('PC', out, 'look does not work.')
+        out = cli_plug(gizmore, '$sdhack')
+        self.assertIn('PC', out, 'hack does not work.')
 
 
 
