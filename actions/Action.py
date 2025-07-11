@@ -46,11 +46,11 @@ class Action(WithShadowFunc):
     def get_action_text_key(self, party: 'SD_Party', scope: str = 'start') -> str:
         return f"sd_action_{scope}_{self.get_name()}"
 
-    def get_action_text_args(self, party: 'SD_Party', scope: str = 'start') -> tuple[str,...]:
+    def get_action_text_args(self, party: 'SD_Party', scope: str = 'start') -> None|tuple[any,...]:
         if scope == 'start':
             if party.get_eta_s():
-                return party.render_members(), self.get_target(party).render_name(), self.render_busy(party)
-            return party.render_members(), self.get_target(party).render_name()
+                return party.render_members(), self.get_target(party, party.get_target_string()).render_name(), self.render_busy(party)
+            return party.render_members(), self.get_target(party, party.get_target_string()).render_name()
 
     def render_busy(self, party: 'SD_Party') -> str:
         return Time.human_duration(party.get_eta_s())
