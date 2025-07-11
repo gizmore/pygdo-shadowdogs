@@ -30,4 +30,3 @@ class whisper(MethodSD):
     async def sd_execute(self):
         await self.send_to_player(self.get_target(), 'msg_sd_whisper', (self.get_player().get_name(), self.get_text()))
         return self.empty()
-    

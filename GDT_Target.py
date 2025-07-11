@@ -15,7 +15,7 @@ class GDT_Target(GDT_String):
         super().__init__(name)
         self.ascii()
         self.case_s()
-        self.maxlen(96)
+        self.maxlen(128)
         self._last_target = False
 
     def get_party(self) -> 'SD_Party':

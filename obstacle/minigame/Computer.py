@@ -1,3 +1,4 @@
+from gdo.base.GDT import GDT
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
@@ -56,6 +57,6 @@ class Computer(Obstacle):
         self._maps[player] = map
         return map
 
-    async def on_hack(self):
+    async def on_hack(self, params: list[GDT]):
         pa = self.get_party()
         await pa.do(Action.HACK, self.__class__.__name__)

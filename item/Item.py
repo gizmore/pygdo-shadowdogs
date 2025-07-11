@@ -60,7 +60,7 @@ class Item(WithShadowFunc):
         self._modifiers = modifiers
         return self
 
-    def get_default_modifiers(self) -> dict[str, int]:
+    def get_default_modifiers(self) -> dict[str, int|str]:
         return items.ITEMS[self._name]
 
     def all_modifiers(self) -> Iterator[tuple[str, int]]:
@@ -73,7 +73,7 @@ class Item(WithShadowFunc):
     def g(self, field: str) -> int:
         return self.get_player().g(field)
 
-    def dm(self, field: str) -> int:
+    def dm(self, field: str) -> str:
         return self.get_default_modifiers().get(field)
 
     def dmi(self, field: str) -> int:
