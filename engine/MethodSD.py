@@ -7,7 +7,7 @@ class MethodSD(WithShadowMethod, MethodForm):
 
     async def form_submitted(self):
         if self.sd_method_is_instant():
-            return self.sd_execute()
+            return await self.sd_execute()
         player = self.get_player()
         if player.get_party().does(Action.FIGHT):
             player.combat_stack.command = self

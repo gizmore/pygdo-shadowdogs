@@ -82,16 +82,20 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
 
     def gdo_choices(self) -> dict:
         choices = {}
+        player = self.get_player()
+        party = self.get_party()
+        if self._me:
+            choices[player.get_name()] = player
         if self._foes:
             for epl in self.get_enemy_party().members:
                 choices[str(epl.party_pos)] = epl
         if self._friends:
             for pl in self.get_party().members:
-                choices[pl.render_name()] = pl
-        if self._obstacles and self.get_party().does(Action.INSIDE):
-            for obstacle in self.get_location().OBSTACLES:
+                choices[pl.get_name()] = pl
+        if self._obstacles:
+            for obstacle in self.get_location().obstacles(party.get_action_name(), player):
                 choices[obstacle.render_name()] = obstacle
         if self._others:
-            for pl in self.get_party().players_nearby():
-                choices[pl.render_name()] = pl
+            for pl in party.players_nearby():
+                choices[pl.get_name()] = pl
         return choices
