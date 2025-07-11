@@ -19,6 +19,6 @@ class look(MethodSD):
         for obstacle in location.obstacles(party.get_action_name(), self.get_player()):
             objs.append(obstacle.render_name())
         for player in party.other_players():
-            objs.append(player.render_name())
+            objs.append(player.get_name())
         return GDT_Trans().text('msg_sd_look', (Arrays.human_join(objs),))
 

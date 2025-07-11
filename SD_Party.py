@@ -120,11 +120,13 @@ class SD_Party(WithShadowFunc, GDO):
             for npc in self.get_location(Action.INSIDE).npcs(player or self.get_leader()):
                 yield npc
 
-    def players_nearby(self) -> Iterator['SD_Player']:
+    def players_nearby(self, exclude: 'SD_Player' = None) -> Iterator['SD_Player']:
         action = self.get_action_name()
         for epa in Shadowdogs.PARTIES.values():
             if epa.get_location(action) == self.get_location(action):
-                yield from epa.members
+                for player in epa.members:
+                    if player != exclude:
+                        yield player
 
     def get_target_string(self):
         return self.gdo_val('party_target')

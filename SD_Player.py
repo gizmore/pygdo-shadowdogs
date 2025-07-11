@@ -458,17 +458,11 @@ class SD_Player(WithShadowFunc, GDO):
             return True
         return False
 
-    # def busy(self, time: int) -> str:
-    #     self.command_eta = self.get_time() + time
-    #     return Time.human_duration(time)
-
     #######
     # NPC #
     #######
     def as_real_class(self):
         return self
-
-
 
     ##########
     # Render #
