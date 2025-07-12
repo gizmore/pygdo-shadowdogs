@@ -5,6 +5,9 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class fight(MethodSD):
 
+    def sd_is_leader_command(self) -> bool:
+        return True
+
     @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdfight'

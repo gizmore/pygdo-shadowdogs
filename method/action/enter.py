@@ -8,6 +8,9 @@ class enter(MethodSD):
             Action.OUTSIDE,
         ]
 
+    def sd_is_leader_command(self) -> bool:
+        return True
+
     def sd_is_location_specific(self) -> bool:
         return True
 

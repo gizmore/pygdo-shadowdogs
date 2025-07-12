@@ -3,6 +3,10 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 
 class exit(MethodSD):
+
+    def sd_is_leader_command(self) -> bool:
+        return True
+
     def sd_requires_action(self) -> list[str] | None:
         return [
             Action.INSIDE,

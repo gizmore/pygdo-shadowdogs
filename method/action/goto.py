@@ -9,6 +9,9 @@ from gdo.shadowdogs.locations.Location import Location
 
 class goto(MethodSD):
 
+    def sd_is_leader_command(self) -> bool:
+        return True
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_Location('to').known().same_city().not_null(),

@@ -13,6 +13,9 @@ class WithShadowMethod(WithShadowFunc):
     def gdo_trig(cls) -> str:
         return cls.gdo_trigger()[0:4]
 
+    def sd_is_leader_command(self) -> bool:
+        return False
+
     def sd_is_item_specific(self) -> bool:
         return False
 

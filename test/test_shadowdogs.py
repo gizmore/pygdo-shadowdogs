@@ -88,6 +88,10 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('PC', out, 'look does not work.')
         out = cli_plug(gizmore, '$sdhack')
         self.assertIn('PC', out, 'hack does not work.')
+        out = cli_plug(gizmore, '$sdmov r')
+        self.assertIn('free', out, 'movr#1 does not work.')
+        out = cli_plug(gizmore, '$sdmov r')
+        self.assertIn('vault', out, 'movr#2 does not work.')
 
 
 
