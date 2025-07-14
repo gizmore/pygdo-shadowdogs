@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+from gdo.core.GDT_Bool import GDT_Bool
 from gdo.core.GDT_Index import GDT_Index
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -28,6 +29,8 @@ class SD_Item(GDO):
             GDT_ItemName('item_name').not_null(),
             GDT_Modifiers('item_mods'),
             GDT_UInt('item_count').bytes(2).not_null().initial('1'),
+            GDT_Bool('item_hot').not_null().initial('0'), # hot items cannot be sold. most you find from enemies is hot, except random loot based on level, which is rare.
+            GDT_UInt('item_dur').bytes(2).not_null().initial('10000'), # duration in 10000/10000 per centimille or sth.
             GDT_Created('item_created'),
             GDT_Index('item_owner_index').index_fields('item_owner'),
         ]
