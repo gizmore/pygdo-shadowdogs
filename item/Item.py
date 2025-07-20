@@ -92,13 +92,13 @@ class Item(WithShadowFunc):
             player.apply('p_weight', int(weight))
 
     def sd_attack_time(self) -> int:
-        return self.dm('at')
+        return self.dmi('at')
 
     def sd_commands(self) -> list[str]:
         return GDO.EMPTY_LIST
 
     def get_equip_time(self) -> int:
-        return self.dm('et') or 0
+        return self.dmi('et') or 0
 
     def get_unequip_time(self) -> int:
         return self.get_equip_time() // 2

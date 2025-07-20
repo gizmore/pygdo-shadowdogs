@@ -174,7 +174,6 @@ class items:
 
         'Move.exe':     {'klass': 'Move',     'level': 1},
         'Strafe.exe':   {'klass': 'Move',     'level': 2},
-        'Tree.exe':     {'klass': 'Move',     'level': 4},
         'DMA.exe':      {'klass': 'DMA',      'level': 6},
         'Ping4.exe':    {'klass': 'Ping',     'level': 1},
         'Ping6.exe':    {'klass': 'Ping',     'level': 3},

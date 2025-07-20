@@ -9,5 +9,4 @@ class Move(Executable):
         ]
 
     def sd_run(self, args: str = None):
-
         pass
