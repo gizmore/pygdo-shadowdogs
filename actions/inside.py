@@ -11,3 +11,8 @@ class inside(Action):
         from gdo.shadowdogs.engine.World import World
         return World.get_location(target_string)
 
+    async def on_start(self, party: 'SD_Party'):
+        pass
+
+    async def on_completed(self, party: 'SD_Party'):
+        pass

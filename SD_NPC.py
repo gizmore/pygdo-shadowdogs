@@ -15,6 +15,9 @@ class SD_NPC(SD_Player):
     def get_user(self) -> GDO_User:
         return GDO_User.system()
 
+    def get_name(self):
+        return self.gdo_val('p_npc_name') + f"[{self.get_id()}]"
+
     def attack(self, target: SD_Player):
         pass
 

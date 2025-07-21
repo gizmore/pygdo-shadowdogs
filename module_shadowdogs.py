@@ -1,3 +1,5 @@
+import math
+
 from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.GDT import GDT
@@ -53,7 +55,7 @@ class module_shadowdogs(GDO_Module):
         ]
 
     def cfg_time(self) -> int:
-        return self.get_config_value('sd_time')
+        return math.floor(Application.TIME)
 
     def gdo_user_settings(self) -> list[GDT]:
         return [
@@ -70,8 +72,8 @@ class module_shadowdogs(GDO_Module):
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
 
     async def shadow_timer(self):
-        time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND
-        self.save_config_val('sd_time', str(time))
+        # time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND
+        # self.save_config_val('sd_time', str(time))
         for party in list(Shadowdogs.PARTIES.values()):
             await party.tick()
 

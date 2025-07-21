@@ -39,7 +39,11 @@ class CombatStack(WithShadowFunc):
 
     def get_default_command(self) -> MethodSD:
         cmd = attack().player(self.get_player()).env_user(self.get_user(), True).env_server(self.get_user().get_server())
-        pos = self.last_target.party_pos if self.last_target else self.get_enemy_party().random_member().party_pos
+        ep = self.get_enemy_party()
+        if self.last_target:
+            pos = self.last_target.party_pos
+        else:
+            pos = ep.random_member().party_pos
         return cmd.input('target', str(pos))
 
     async def tick(self):

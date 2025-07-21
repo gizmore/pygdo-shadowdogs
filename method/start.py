@@ -35,6 +35,7 @@ class start(MethodSD):
             'p_race': self.param_val('race'),
             'p_gender': self.param_val('gender'),
             'p_party': party.get_id(),
+            'p_npc_name': self._env_user.get_displayname(),
         }).insert()
         await party.join(player)
         self.msg('msg_sd_started', (

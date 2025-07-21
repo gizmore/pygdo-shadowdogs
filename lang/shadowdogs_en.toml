@@ -154,6 +154,7 @@ msg_sd_reset = "Your account has been deleted so you can start over."
 mt_shadowdogs_fight = "Fight"
 md_shadowdogs_fight = "Fight an opposing party."
 msg_sd_fight_started = "You encounter %s."
+sd_weapon_kill = "%s kills %s with %s (%d damage).%s"
 
 ##########
 # Search #
@@ -161,6 +162,7 @@ msg_sd_fight_started = "You encounter %s."
 mt_shadowdogs_search = "Search"
 md_shadowdogs_search = "Search a location or obstacle."
 msg_sd_search_nothing = "You searched the %s but couldn't find anything useful or interesting."
+
 
 ##########
 ### GM ###

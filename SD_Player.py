@@ -223,6 +223,9 @@ class SD_Player(WithShadowFunc, GDO):
     def is_dead(self) -> bool:
         return self.g('p_hp') <= 0
 
+    def is_alive(self) -> bool:
+        return not self.is_dead()
+
     async def kill(self):
         from gdo.shadowdogs.engine.Factory import Factory
         location = self.get_city().get_respawn_location(self)
@@ -273,7 +276,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Busy #
     ########
     def busy(self, seconds: int):
-        self.combat_stack.busy(seconds * Shadowdogs.SECONDS_PER_SECOND)
+        self.combat_stack.busy(seconds)
         return self
 
     def is_busy(self) -> bool:
@@ -324,7 +327,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Items #
     #########
 
-    def all_items(self) -> Generator[Item, any, None]:
+    def all_items(self) -> Generator[Item, Any, None]:
         yield from self.all_equipment()
         for item in self.inventory:
             yield item.itm()
@@ -338,7 +341,7 @@ class SD_Player(WithShadowFunc, GDO):
         for key, value in self.modified.items():
             if key in self._vals: # base
                 self.apply(key, self.gdo_value(key))
-        self.column('p_race').apply(self) # + gender
+        self.column('p_race').apply(self)
         self.column('p_faction').apply(self)
         self.level_column().apply(self)
         for slot in GDT_Slot.SLOTS:

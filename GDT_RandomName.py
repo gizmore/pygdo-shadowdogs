@@ -25,11 +25,9 @@ class GDT_RandomName(GDT_String):
         'dor', 'mir', 'ran', 'thas', 'vyr', 'zor', 'dus', 'lak', 'nir', 'thul', 'rax', 'zoth', 'vash', 'mon',
     ]
 
-    def gdo(self, gdo: GDO):
-        super().gdo(gdo)
+    def gdo_before_create(self, gdo):
         if self.get_val() is None:
             self.generate_random_name()
-        return self
 
     def generate_random_name(self):
         parts = []
@@ -39,4 +37,4 @@ class GDT_RandomName(GDT_String):
             parts.append(Random.list_item(self.MIDDLES))
         parts.append(Random.list_item(self.SUFFIXES))
         name = ''.join(parts).capitalize()
-        self.val(name)
+        self._gdo.set_val(self._name, name)

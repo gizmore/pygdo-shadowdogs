@@ -1,4 +1,4 @@
-from gdo.base.Util import html
+from gdo.base.Util import html, Random
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Party import SD_Party
@@ -37,6 +37,7 @@ class Factory(WithShadowFunc):
                 'type': name,
                 'p_race': 'human',
                 'p_gender': 'male',
+                'p_npc_name': name,
             }
             spec.update(npcs.NPCS.get(name))
             specs.append(spec)
@@ -58,6 +59,7 @@ class Factory(WithShadowFunc):
             'p_race': spec['p_race'],
             'p_gender': spec['p_gender'],
             'p_party': party.get_id(),
+            # 'p_seed': Random.mrand(),
         }).insert()
         for item_name in spec.get('eq', []):
             item = Factory.create_item_gmi(item_name, player, True)

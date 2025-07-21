@@ -8,6 +8,7 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.City import City
+    from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.SD_NPC import SD_NPC
 
@@ -21,8 +22,11 @@ class Location(WithShadowFunc):
     OBSTACLES_INSIDE: list[Obstacle] = GDO.EMPTY_LIST
     OBSTACLES_OUTSIDE: list[Obstacle] = GDO.EMPTY_LIST
 
+    def explore_find_chance(self, party: 'SD_Party') -> int:
+        return 100
+
     @classmethod
-    def item_names(cls, player: 'SD_Player') -> str:
+    def giving_item_names(cls, player: 'SD_Player') -> str:
         return cls.GIVING
 
     @classmethod
@@ -68,7 +72,7 @@ class Location(WithShadowFunc):
     ###########
 
     async def on_search(self, player: 'SD_Player'):
-        if items := self.item_names(player):
+        if items := self.giving_item_names(player):
             await self.give_new_items(player, items, 'search', self.get_name())
         else:
             await self.send_to_player(player, 'msg_sd_search_nothing')

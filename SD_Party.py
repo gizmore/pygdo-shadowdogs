@@ -31,6 +31,9 @@ class SD_Party(WithShadowFunc, GDO):
         super().__init__()
         self.members = []
 
+    def __repr__(self):
+        return f"Party({self.get_id()}):({self.render_members()})"
+
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('party_id'),
@@ -61,7 +64,7 @@ class SD_Party(WithShadowFunc, GDO):
     async def resume(self):
         if eta := self.gdo_value('party_last_eta'):
             eta += self.mod_sd().cfg_time()
-        return self.do(
+        return await self.do(
             self.gdo_val('party_last_action'),
             self.gdo_val('party_last_target'),
             eta,
@@ -70,6 +73,9 @@ class SD_Party(WithShadowFunc, GDO):
     ###########
     # Members #
     ###########
+
+    def is_empty(self) -> bool:
+        return len(self.members) == 0
 
     def get_leader(self) -> 'SD_Player':
         return self.members[0]

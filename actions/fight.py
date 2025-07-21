@@ -21,4 +21,12 @@ class fight(Action):
 
     async def on_completed(self, party: 'SD_Party'):
         for player in party.members:
-            await player.combat_tick()
+            if player.get_enemy_party().is_empty():
+                await party.resume()
+                break
+            else:
+                await player.combat_tick()
+                if party.is_empty():
+                    await self.get_enemy_party().resume()
+                    break
+

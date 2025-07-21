@@ -66,7 +66,7 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
     #######
     def to_value(self, val: str):
         if val:
-            return super().to_value(val)
+            return super().to_value(val) or self.get_enemy_party().random_member()
         if self._foes == self.FOES_RANDOM:
             return self.get_enemy_party().random_member()
         if self._default_room:
