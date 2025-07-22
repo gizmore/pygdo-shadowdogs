@@ -18,15 +18,17 @@ from gdo.shadowdogs.item.data.items import items
 class Item(WithShadowFunc):
 
     _name: str
-    # _owner: 'SD_Player|None'
     _count: int
     _modifiers: dict[str, int|str]
+    _hot: bool
+    _duration: int
 
     def __init__(self, name: str):
         self._name = name
-        # self._owner = None
         self._count = 1
         self._modifiers = GDO.EMPTY_DICT
+        self._hot = False
+        self._duration = 10000
 
     def __repr__(self):
         return f"{self.render_name()}"
@@ -48,10 +50,6 @@ class Item(WithShadowFunc):
             name += ",".join(joined)
         return self._name
 
-    # def owner(self, player: 'SD_Player'):
-    #     self._owner = player
-    #     return self
-
     def count(self, count: int):
         self._count = count
         return self
@@ -60,15 +58,20 @@ class Item(WithShadowFunc):
         self._modifiers = modifiers
         return self
 
+    def hot(self, hot: bool):
+        self._hot = hot
+        return self
+
+    def duration(self, duration: int):
+        self._duration = duration
+        return self
+
     def get_default_modifiers(self) -> dict[str, int|str]:
         return items.ITEMS[self._name]
 
     def all_modifiers(self) -> Iterator[tuple[str, int]]:
         yield from self.get_default_modifiers().items()
         yield from self._modifiers.items()
-
-    # def get_player(self, user: GDO_User=None) -> 'SD_Player':
-    #     return self._owner
 
     def g(self, field: str) -> int:
         return self.get_player().g(field)

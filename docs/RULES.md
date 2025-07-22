@@ -67,7 +67,7 @@ as they represent the physics, math, time, randomness
 the machines, robots and all the free and commercial software.
 
 Another **5 votes** go to the animals.
-The insects, the birds, the mammals, the fish and the reptiles.
+The insects, represented by the bees, the birds (ravens), the mammals (dogs), the fish (sharks) and the reptiles (alligators).
 
 Moreover, **5 votes** go the plants growing.
 The trees, the farn, the corals, the flowers and the herbs.
@@ -88,8 +88,8 @@ Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
-The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **8 votes,**
-totalling 46 which requires 24 votes to win.
+The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **6 votes,**
+totalling 44 which requires 23 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 gods.
@@ -179,3 +179,6 @@ Please donate so i can buy more weed and pizza. ;)
 - Element
 - Bazing
 - jmoncayo
+- ch0wch0w
+- matrixman
+- jusb3

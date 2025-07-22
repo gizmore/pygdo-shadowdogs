@@ -56,8 +56,16 @@ class Map(WithShadowFunc):
         except IndexError:
             vx = x + 1
             vy = y + 1
-            self._visible[x + (self._w+2) * y] = 2
+            self._visible[x + (self._w+2) * y] = Tile.VISIBLE
             return self.OOB.player(self.get_player())
 
     def get_tile_for(self, direction: str) -> Tile:
         return self.get_tile(self.get_x(direction), self.get_y(direction))
+
+    def set_visible(self, direction: str, visibility: int):
+        x = self.get_x(direction)
+        y = self.get_y(direction)
+        vx = x + 1
+        vy = y + 1
+        self._visible[vx + (self._w + 2) * vy] = visibility
+        return self

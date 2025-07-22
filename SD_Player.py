@@ -111,7 +111,7 @@ class SD_Player(WithShadowFunc, GDO):
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0,
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
-            'p_hp': 0, 'p_mp': 0, 'p_max_hp': 0, 'p_max_mp': 0,
+            'p_max_hp': 0, 'p_max_mp': 0,
             'p_attack': 0, 'p_defense': 0, 'p_at': 10,
             'p_min_dmg': 0, 'p_max_dmg': 0,
             'p_marm': 0, 'p_farm': 0,
@@ -119,6 +119,10 @@ class SD_Player(WithShadowFunc, GDO):
             'p_weight': 0, 'p_max_weight': 0,
             'p_level': 0,
         }
+        if 'p_hp' not in self.modified:
+            self.modified['p_hp'] = 0
+        if 'p_mp' not in self.modified:
+            self.modified['p_mp'] = 0
 
     def gdo_columns(self) -> list[GDT]:
         from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
@@ -195,8 +199,6 @@ class SD_Player(WithShadowFunc, GDO):
         return self.get_party().get_city()
 
     def get_name(self):
-        if name := self.gdo_val('p_npc_name'):
-            return f"{name}[{self.get_id()}]"
         return self.get_user().render_name()
 
     def is_online(self) -> bool:
@@ -339,7 +341,7 @@ class SD_Player(WithShadowFunc, GDO):
     def modify_all(self):
         self.reset_modified()
         for key, value in self.modified.items():
-            if key in self._vals: # base
+            if key in self._vals:
                 self.apply(key, self.gdo_value(key))
         self.column('p_race').apply(self)
         self.column('p_faction').apply(self)
@@ -376,6 +378,11 @@ class SD_Player(WithShadowFunc, GDO):
 
     def give_mp(self, mp: int):
         return self.s('p_mp', min(self.g('p_mp') + mp, self.g('p_max_mp')))
+
+    def heal_full(self):
+        self.s('p_hp', self.g('p_max_hp'))
+        self.s('p_mp', self.g('p_max_mp'))
+        return self
 
     ######
     # XP #
@@ -475,4 +482,3 @@ class SD_Player(WithShadowFunc, GDO):
 
     def render_race(self):
         self.column('p_race').render_txt()
-

@@ -55,16 +55,15 @@ class Factory(WithShadowFunc):
     def create_npc(cls, party: SD_Party, spec: dict[str,int|str]):
         player = npcs.NPCS[spec['type']]['klass'].blank({
             'p_npc_class': spec['type'],
-            # 'p_npc_name': spec['klass'],
+            'p_npc_name': spec['type'],
             'p_race': spec['p_race'],
             'p_gender': spec['p_gender'],
             'p_party': party.get_id(),
-            # 'p_seed': Random.mrand(),
         }).insert()
         for item_name in spec.get('eq', []):
             item = Factory.create_item_gmi(item_name, player, True)
             player.save_val(item.itm().get_slot(), item.get_id())
-        return player.modify_all()
+        return player.heal_full().modify_all()
 
     #########
     # Items #

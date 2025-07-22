@@ -147,7 +147,7 @@ Mostly early wheats and potatoes.
 
  - 7.Jul
 
-This is the second peace day where we forgive our enemies again
+This is the second peace day, where we forgive our enemies again
 
 
 ## Calling Reasons Day
@@ -160,3 +160,10 @@ Later it turned out to be anonymous,
 teaching us how to live economically.
 
 
+## Love Day
+
+ - 22.Jul
+
+This day is dedicated to making love.
+It is similar to the ancient valentine day.
+Enjoy!

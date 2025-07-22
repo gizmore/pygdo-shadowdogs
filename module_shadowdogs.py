@@ -72,8 +72,6 @@ class module_shadowdogs(GDO_Module):
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
 
     async def shadow_timer(self):
-        # time = self.cfg_time() + Shadowdogs.SECONDS_PER_SECOND
-        # self.save_config_val('sd_time', str(time))
         for party in list(Shadowdogs.PARTIES.values()):
             await party.tick()
 

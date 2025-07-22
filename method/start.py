@@ -42,7 +42,7 @@ class start(MethodSD):
             player.column('p_gender').render(self._env_mode),
             player.column('p_race').render(self._env_mode),))
         await self.character_created(player)
-        player.modify_all()
+        player.modify_all().heal_full()
         Shadowdogs.PLAYERS[player.get_id()] = player
         Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
         return self.empty()

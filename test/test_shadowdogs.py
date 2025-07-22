@@ -63,7 +63,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('Club_of_adonis as ', out, 'eq does not work.')
         out = cli_plug(gizmore, '$sdq')
         self.assertIn('Weapon: Club_of_adonis', out, '$sdq does not work.')
-        Random.init(1)
+        Random.init(6)
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer,lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(121)

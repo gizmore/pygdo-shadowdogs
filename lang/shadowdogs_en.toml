@@ -155,6 +155,8 @@ mt_shadowdogs_fight = "Fight"
 md_shadowdogs_fight = "Fight an opposing party."
 msg_sd_fight_started = "You encounter %s."
 sd_weapon_kill = "%s kills %s with %s (%d damage).%s"
+sd_weapon_miss = "%s misses %s with %s.%s"
+sd_combat_miss = "%s "
 
 ##########
 # Search #
