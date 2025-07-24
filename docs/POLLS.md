@@ -18,10 +18,19 @@ Historically global polls.
 
 ----
 
+23.7.2088
+
+1) 17
+2) 10
 
 # Effective Polls
 
 Historically Effective polls
+
+23.7.2088 - Shall we accuse players who 
+
+1) 17
+2) 12
 
 ----
 

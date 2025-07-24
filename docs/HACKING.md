@@ -46,3 +46,6 @@ clock cycles reduce cpu.
 - rootkit.exe  -  (8 cc) - Mark a field as backdoor recovery field when you hit any trap. The trap will reposition.
 - modkit.exe   - (10 cc) - Mark a field as backdoor recovery field when you hit any trap.
 - dma.sys - (5 + N cc) - Teleport to a memory address N steps away, also diagonally.
+
+
+

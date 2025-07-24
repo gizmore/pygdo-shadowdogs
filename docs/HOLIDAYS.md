@@ -167,3 +167,16 @@ teaching us how to live economically.
 This day is dedicated to making love.
 It is similar to the ancient valentine day.
 Enjoy!
+
+
+## ManOwaR Day
+
+ - 23.Jul
+
+This day is dedicated to the band ManOwaR.
+Alice revealed that their songs were guides to the heroes that saved a big part of the galaxy.
+They gave them hope and strength to carry on and fulfil their peaceful destiny,
+despite the topics of wars and battles, but also honor and friendship.
+Hail!
+
+

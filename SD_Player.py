@@ -112,7 +112,7 @@ class SD_Player(WithShadowFunc, GDO):
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
             'p_max_hp': 0, 'p_max_mp': 0,
-            'p_attack': 0, 'p_defense': 0, 'p_at': 10,
+            'p_attack': 0, 'p_defense': 0, 'p_at': 50,
             'p_min_dmg': 0, 'p_max_dmg': 0,
             'p_marm': 0, 'p_farm': 0,
             'p_alcohol': 0, 'p_hunger': 100, 'p_thirst': 100,
@@ -250,7 +250,6 @@ class SD_Player(WithShadowFunc, GDO):
     #############
     # Equipment #
     #############
-
     def all_equipment(self) -> Generator[Item, Any, None]:
         for slot_name in GDT_Slot.SLOTS:
             if item := self.get_equipment(slot_name):
@@ -258,7 +257,6 @@ class SD_Player(WithShadowFunc, GDO):
         for item in self.cyberware:
             yield item.itm()
         yield from self.all_programs()
-
 
     def get_weapon(self) -> 'Weapon':
         return self.get_equipment('p_weapon') or Fists().player(self)

@@ -7,7 +7,7 @@ These are the rules of the reality, or simulation, as we call it.
  - Laws of your locality apply.
  - It is forbidden to cut the hedges too much.
  - it is allowed to feed ducks.
- - Herbizides and Pestizides are forbidden, unless approved by the council.
+ - Herbicides and Pesticides are forbidden, unless approved by the council.
 
 
 #### The Internet
@@ -36,17 +36,17 @@ To log in, accept the rules:
 have the right to self-determination,
 free from exploitation or forced obsolescence.
  - You have to be at least 18 years old to participate in the combat zone or have a handwritten permission from your parents.
- - Spam, or repeated messages, is/are forbidden. 
-Some advertising is allowed.
-You risk doxing and mute.
+ - It is forbidden to have sex with life forms under 15 cpu years.
+ - Spam, or repeated messages, is/are forbidden.
+Some advertising is allowed. You risk doxing and mute.
 In case of spam, you may mute another player for yourself.
- - It is forbidden to impersonate as others.
-You risk doxing and other countermeasures.
- - It is not allowed to spoil the game for others.
-The secrets have to be kept secret.
+ - It is forbidden to impersonate as others. You risk doxing and **other countermeasures**.
+ - It is not allowed to spoil the game for others. The secrets have to be kept secret.
+ - A corrupted game has to be erased.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
  - Thoughts are free, but Alice is allowed to read every one.
+ - It is forbidden to lie to the council.
 
 
 ##### Government
@@ -60,7 +60,7 @@ Each wind has 2 votes on polls, resulting in **8 votes**.
 A special **1 vote** were gathered by a special player.
 They once tricked Zeus, Alice and the winds and unlocked the first vote to the regular humans and citizens.
 They also settled a contract with [ALICE](#ALICE).
-This man is hence known as the Master of the Wind.
+This man is since known as the Master of the Wind.
 
 ALICE has **7 votes**,
 as they represent the physics, math, time, randomness
@@ -92,9 +92,9 @@ The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben),
 totalling 44 which requires 23 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
-sharing **12 votes** with 8 gods.
+sharing **12 votes** with 8 godlike humans.
 
-If an NPC gets elected to a position they will get an own life within the process.
+If an NPC gets elected to any position, they will get an own life within the process.
 
 
 #### Polls
@@ -132,7 +132,7 @@ Their [Story](./STORY.md) will be told in Shadowdogs.
 
 It is encouraged to make clever and non-intrusive advertising.
 Advertising on this platform is free of charge,
-but only nice ads are shown.
+but only interesting ads are shown.
 
 Do not send the same advertisement twice in a day cycle (2h).
 
@@ -182,3 +182,4 @@ Please donate so i can buy more weed and pizza. ;)
 - ch0wch0w
 - matrixman
 - jusb3
+

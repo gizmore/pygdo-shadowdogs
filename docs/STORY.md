@@ -20,10 +20,9 @@ And you think about moving out together with Lazer and Theodor.
 Bad news: The military wants you for civil service.
 
 
-
-
-
 # Birthday
+
+9.11.2077
 
 It is your second birthday, because you kinda died once.
 
