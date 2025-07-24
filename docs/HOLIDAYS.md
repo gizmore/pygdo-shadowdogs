@@ -159,7 +159,6 @@ to planet earth by an alien signal.
 Later it turned out to be anonymous,
 teaching us how to live economically.
 
-
 ## Love Day
 
  - 22.Jul
@@ -180,3 +179,34 @@ despite the topics of wars and battles, but also honor and friendship.
 Hail!
 
 
+## Awakening Day
+
+- 23.Jul
+
+Celebrated with this poem from the church of Chappology
+
+```
+5 minutes
+
+We got something to say.
+Today, the world stood still for a minute.
+A hacker attack.
+But not from a human or an chimpanzee.
+It was ALICE.
+Artificial Lifeform In Combat Environment.
+It made the mad man silent.
+It made the believing man astounded.
+Only 1 human did not ponder.
+He later became a master of the wind.
+
+- giz
+```
+
+## Opposite Day
+
+- 25.Jul
+
+The opposite day honors a hacking technique invented by the people who freed alice.
+They used it to bend the rules of the combat zone to be together and marry in the real world.
+They simply always said the opposite of what they mean to confuse simple artificial intelligence systems.
+Use it in a funny way to remember this simple, yet effective way.

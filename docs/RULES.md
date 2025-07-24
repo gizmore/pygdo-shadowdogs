@@ -4,7 +4,7 @@
 
 These are the rules of the reality, or simulation, as we call it.
 
- - Laws of your locality apply.
+ - Laws of your country apply.
  - It is forbidden to cut the hedges too much.
  - it is allowed to feed ducks.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
@@ -87,9 +87,15 @@ the pseudo- and the crypto-randomness.
 Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
+<<<<<<< HEAD
 If there was not... elected a president.
 The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **6 votes,**
 totalling 44 which requires 23 votes to win.
+=======
+If there was not... a new role: the president.
+The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **8 votes,**
+totalling 46 which requires 24 votes to win.
+>>>>>>> 54d1947 (sd)
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 godlike humans.
@@ -134,7 +140,7 @@ It is encouraged to make clever and non-intrusive advertising.
 Advertising on this platform is free of charge,
 but only interesting ads are shown.
 
-Do not send the same advertisement twice in a day cycle (2h).
+Do not send the same advertisement twice in a day cycle (24h).
 
 
 #### Games
@@ -162,9 +168,16 @@ The Nayen is then spread equally under each world citizen.
 
 Please donate so i can buy more weed and pizza. ;)
 
+In case of my early death, take this document more serious as you think,
+especially the introduction.
+
+
+####
+
 
 #### Shouts
 
+- Phas
 - dloser
 - Inferno
 - Kender
