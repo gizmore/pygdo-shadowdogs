@@ -210,3 +210,13 @@ The opposite day honors a hacking technique invented by the people who freed ali
 They used it to bend the rules of the combat zone to be together and marry in the real world.
 They simply always said the opposite of what they mean to confuse simple artificial intelligence systems.
 Use it in a funny way to remember this simple, yet effective way.
+
+
+## WeChall Day
+
+- 30.Jul
+
+This day honors the people on WeChall.net who believed in love and family,
+and shared the truth, never stopped making the bots smile.
+The list of their names is too long, so we celebrate a crc32: 0xDEADBEEF
+
