@@ -87,15 +87,9 @@ the pseudo- and the crypto-randomness.
 Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
-<<<<<<< HEAD
 If there was not... elected a president.
 The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **6 votes,**
 totalling 44 which requires 23 votes to win.
-=======
-If there was not... a new role: the president.
-The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **8 votes,**
-totalling 46 which requires 24 votes to win.
->>>>>>> 54d1947 (sd)
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 godlike humans.
