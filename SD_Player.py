@@ -118,6 +118,8 @@ class SD_Player(WithShadowFunc, GDO):
             'p_alcohol': 0, 'p_hunger': 100, 'p_thirst': 100,
             'p_weight': 0, 'p_max_weight': 0,
             'p_level': 0,
+            'p_xp': 0, 'p_karma': 0,
+            'p_nuyen': 0, 'p_bank_nuyen': 0,
         }
         if 'p_hp' not in self.modified:
             self.modified['p_hp'] = 0
@@ -378,8 +380,8 @@ class SD_Player(WithShadowFunc, GDO):
         return self.s('p_mp', min(self.g('p_mp') + mp, self.g('p_max_mp')))
 
     def heal_full(self):
-        self.s('p_hp', self.g('p_max_hp'))
-        self.s('p_mp', self.g('p_max_mp'))
+        self.give_hp(self.g('p_max_hp'))
+        self.give_mp(self.g('p_max_mp'))
         return self
 
     ######
@@ -436,7 +438,6 @@ class SD_Player(WithShadowFunc, GDO):
     ##########
     # Places #
     ##########
-
     def has_kp(self, location: 'Location') -> bool:
         return SD_Place.has_location(self, location)
 

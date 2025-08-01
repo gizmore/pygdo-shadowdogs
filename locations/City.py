@@ -49,15 +49,15 @@ class City(WithShadowFunc):
     def get_explore_eta(self, party: 'SD_Party') -> int:
         return self.sd_square_km() * Shadowdogs.EXPLORE_ETA_PER_SQKM - party.gmin('p_qui') * Shadowdogs.EXPLORE_ETA_BONUS_PER_QUICKNESS
 
-    def on_explored(self, party: 'SD_Party'):
+    async def on_explored(self, party: 'SD_Party'):
         items = []
         for location in self.LOCATIONS:
             items.append((location, location.explore_find_chance(party)))
         location = WithProbability.probable_item(items, self.explore_non_chance(party))
         if location:
-            self.give_kp(party.get_leader(), location)
+            await self.give_kp(party.get_leader(), location)
         elif items:
-            self.send_to_party(party, 'msg_found_no_location')
+            await self.send_to_party(party, 'msg_found_no_location')
         else:
-            self.send_to_party(party, 'msg_no_more_locations')
+            await self.send_to_party(party, 'msg_no_more_locations')
         return self

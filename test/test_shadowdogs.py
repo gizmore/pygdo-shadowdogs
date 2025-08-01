@@ -39,7 +39,7 @@ class ShadowdogsTest(GDOTestCase):
         loader.init_cli()
         module_table.instance().save_config_val('table_ipp', '3')
 
-    async def test_00_start(self):
+    def fresh_gizmore(self):
         gizmore = cli_gizmore()
         # channel = gizmore.get_server().get_or_create_channel('gizmore')
         out = cli_plug(gizmore, '$sdenable')
@@ -52,6 +52,10 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
         self.assertIn('received Club_of_adonis', out, 'gmi does not work.')
+        return gizmore
+
+    async def test_00_start(self):
+        gizmore = self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdi')
         self.assertIn('page 1 of 2', out, '$sdi does not work.')
         out = cli_plug(gizmore, '$sdi 2')
@@ -71,13 +75,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('hit', out, 'attack does not work.')
 
     async def test_01_hack(self):
-        gizmore = cli_gizmore()
-        out = cli_plug(gizmore, '$sdenable')
-        self.assertIn('has been enabled', out, 'sdenable does not work.')
-        out = cli_plug(gizmore, '$sdreset --confirm=1')
-        self.assertIn('e', out, 'sdreset does not work.')
-        out = cli_plug(gizmore, '$sdstart male human')
-        self.assertIn('You created your character', out, 'sdstart throws an error.')
+        gizmore = self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmi gizmore{1} RhinoDeck')
         self.assertIn('received', out, 'gmi#1 does not work.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} Ping4.exe')
@@ -86,7 +84,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('RhinoDeck', out, 'eq#1 does not work.')
         await self.ticker(60)
         out = all_private_messages()
-        out = cli_plug(gizmore, '$sdlook')
+        out += cli_plug(gizmore, '$sdlook')
         self.assertIn('PC', out, 'look does not work.')
         out = cli_plug(gizmore, '$sdhack')
         self.assertIn('PC', out, 'hack does not work.')
@@ -94,6 +92,11 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('free', out, 'movr#1 does not work.')
         out = cli_plug(gizmore, '$sdmov r')
         self.assertIn('vault', out, 'movr#2 does not work.')
+
+    async def test_02_info(self):
+        gizmore = self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sds')
+        self.assertIn('kg', out, 'status does not work.')
 
 
 

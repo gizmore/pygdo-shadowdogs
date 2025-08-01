@@ -4,6 +4,7 @@ module_shadowdogs = "Shadowdogs"
 # Errors #
 ##########
 err_sd_stub = "%s is not implemented."
+err_sd_item_klass_required = "You need an item of type %s."
 
 ############
 # Factions #
@@ -117,6 +118,20 @@ err_sd_already_started = "You created a character already. You can $sdreset to s
 msg_sd_new_player = "A new player joined the underground shadowdogs; %s the %s %s!"
 sd_story_1 = "You wake up. Feeling dizy and still alcoholized."
 sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless. You somehow feel outta place..."
+
+########
+# Look #
+########
+mt_shadowdogs_look = "Look around"
+md_shadowdogs_look = "Look around inside or outside of a location."
+msg_sd_look = "You look around and see %s."
+
+##########
+# Status #
+##########
+mt_shadowdogs_status = "Character Status"
+md_shadowdogs_status = "Show your character status."
+msg_sd_status = "You are a %s %s L%d(%d) %d/%dHP - %d/%dMP ATK %d / %d DEF - MARM %d / %d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg / %.2fkg - %s + %s"
 
 #########
 # Equip #

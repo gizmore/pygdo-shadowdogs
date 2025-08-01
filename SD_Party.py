@@ -121,9 +121,12 @@ class SD_Party(WithShadowFunc, GDO):
 
     def other_players(self, player: 'SD_Player' = None) -> Iterator['SD_Player']:
         from gdo.shadowdogs.actions.Action import Action
-        yield from self.players_nearby()
+        yield from self.players_nearby(player)
         if self.get_action_name() == Action.INSIDE:
             for npc in self.get_location(Action.INSIDE).npcs(player or self.get_leader()):
+                yield npc
+        if self.get_action_name() == Action.OUTSIDE:
+            for npc in self.get_location(Action.OUTSIDE).npcs(player or self.get_leader()):
                 yield npc
 
     def players_nearby(self, exclude: 'SD_Player' = None) -> Iterator['SD_Player']:
