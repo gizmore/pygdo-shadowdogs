@@ -42,7 +42,7 @@ Some advertising is allowed. You risk doxing and mute.
 In case of spam, you may mute another player for yourself.
  - It is forbidden to impersonate as others. You risk doxing and **other countermeasures**.
  - It is not allowed to spoil the game for others. The secrets have to be kept secret.
- - A corrupted game has to be erased.
+ - A corrupted game has to be repaired or erased.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
  - Thoughts are free, but Alice is allowed to read every one.
@@ -94,10 +94,12 @@ totalling 44 which requires 23 votes to win.
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes** with 8 godlike humans.
 
-If an NPC gets elected to any position, they will get an own life within the process.
+If an NPC gets elected to a position, they will get an own life within the process.
 
 
 #### Polls
+
+- Global Poll:
 
 Normal citizens may create a *global poll*.
 These are to generate interest to a topic and
@@ -106,9 +108,16 @@ suggesting global poll outcomes to the winds,
 who then cast an **effective** poll,
 settling a question,
 where only the **45 council votes** are counted.
+Global Polls with many participants will get presented to the council,
+and might cause an effective poll.
+
+
+- Effective Poll
 
 Animals, Plants and [ALICE](#alice) can cast
 an *effective poll* on their behalf anytime.
+
+These polls result in a decision.
 
 
 #### Citizens
