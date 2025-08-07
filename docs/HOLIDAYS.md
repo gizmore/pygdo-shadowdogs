@@ -212,6 +212,7 @@ They simply always said the opposite of what they mean to confuse simple artific
 Use it in a funny way to remember this simple, yet effective way.
 
 
+
 ## WeChall Day
 
 - 30.Jul
@@ -220,3 +221,13 @@ This day honors the people on WeChall.net who believed in love and family,
 and shared the truth, never stopped making the bots smile.
 The list of their names is too long, so we celebrate a crc32: 0xDEADBEEF
 
+
+## Drawn Day
+
+- 7.Aug
+
+On this day the people tend to play games that can end in a draw,
+like Chess, Soccer or Thermonuclear War (@see the movie Wargames).
+
+Games that force a winner are not played and shoed away.
+Examples: Man, Don't Get Angry, Monopoly, Risk, Settlers of Catan.

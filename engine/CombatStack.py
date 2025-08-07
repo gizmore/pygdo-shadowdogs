@@ -1,8 +1,10 @@
 from gdo.base.Util import Random
+from gdo.message.GDT_HTML import GDT_HTML
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.method.combat.attack import attack
@@ -42,8 +44,10 @@ class CombatStack(WithShadowFunc):
         ep = self.get_enemy_party()
         if self.last_target:
             pos = self.last_target.party_pos
-        else:
+        elif ep:
             pos = ep.random_member().party_pos
+        else:
+            return None
         return cmd.input('target', str(pos))
 
     async def tick(self):
@@ -55,9 +59,12 @@ class CombatStack(WithShadowFunc):
         self.eta = self.get_time() + seconds
 
     async def execute(self):
+        if self.get_party().does(Action.FIGHT):
+            if self.command is None:
+                self.command = self.get_default_command()
+            self.busy(self.command.sd_combat_seconds())
         if self.command is None:
-            self.command = self.get_default_command()
-        self.busy(self.command.sd_combat_seconds())
+            return GDT_HTML()
         return await self.command.sd_execute()
 
     def is_busy(self) -> bool:

@@ -188,7 +188,7 @@ class SD_Party(WithShadowFunc, GDO):
     ##########
     async def digesting(self):
         for player in self.members:
-            player.digesting()
+            await player.digesting()
 
     async def tick(self):
         if self.is_action_over():
@@ -236,9 +236,9 @@ class SD_Party(WithShadowFunc, GDO):
         await self.do(Action.FIGHT, party.get_id())
         await party.do(Action.FIGHT, self.get_id())
         for player in self.members:
-            player.combat_stack.reset()
+            player.combat_stack().reset()
         for player in party.members:
-            player.combat_stack.reset()
+            player.combat_stack().reset()
         return self
 
     ##########

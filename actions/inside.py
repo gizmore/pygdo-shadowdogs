@@ -13,6 +13,3 @@ class inside(Action):
 
     async def on_start(self, party: 'SD_Party'):
         pass
-
-    async def on_completed(self, party: 'SD_Party'):
-        pass

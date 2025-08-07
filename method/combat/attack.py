@@ -37,6 +37,6 @@ class attack(MethodSD):
     async def sd_execute(self):
         player = self.get_player()
         target = self.get_target()
-        player.combat_stack.last_target = target
-        await player.get_weapon().attack(target)
+        player.combat_stack().last_target = target
+        await player.get_weapon().player(player).attack(target)
         return self.empty()

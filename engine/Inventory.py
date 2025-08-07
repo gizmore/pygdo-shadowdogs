@@ -6,7 +6,6 @@ class Inventory(list[SD_Item]):
 
     def __init__(self):
         super().__init__()
-        pass
 
     def has_item(self, item_name: str) -> bool:
         return self.item_count(item_name) > 0

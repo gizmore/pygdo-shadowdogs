@@ -34,7 +34,8 @@ class Action(WithShadowFunc):
         pass
 
     async def on_completed(self, party: 'SD_Party'):
-        raise ShadowdogsException('err_sd_stub', (f'{self.get_name()}.on_completed()',))
+        for member in party.members:
+            await member.combat_tick()
 
     ##########
     # Render #

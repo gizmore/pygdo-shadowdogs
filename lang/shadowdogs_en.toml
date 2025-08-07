@@ -78,6 +78,7 @@ sd_slot_p_ring = "Ring"
 sd_slot_p_earring = "Earring"
 sd_slot_p_piercing = "Piercing"
 sd_slot_p_mount = "Mount"
+sd_slot_p_cyberdec = "Cyberdeck"
 
 #########
 # Party #
@@ -131,7 +132,7 @@ msg_sd_look = "You look around and see %s."
 ##########
 mt_shadowdogs_status = "Character Status"
 md_shadowdogs_status = "Show your character status."
-msg_sd_status = "You are a %s %s L%d(%d) %d/%dHP - %d/%dMP ATK %d / %d DEF - MARM %d / %d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg / %.2fkg - %s + %s"
+msg_sd_status = "You are a %s %s L%d(L%d) %d/%dHP %d/%dMP - ATK %d/%d DEF - MARM %d/%d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg/%.2fkg - %s+%s"
 
 #########
 # Equip #

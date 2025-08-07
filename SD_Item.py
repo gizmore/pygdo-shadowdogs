@@ -24,7 +24,7 @@ class SD_Item(GDO):
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('item_id'),
-            GDT_Player('item_owner').npcs().not_null().initial('1'),
+            GDT_Player('item_owner').humans().npcs().not_null().initial('1'),
             GDT_Slot('item_slot').not_null().initial('nexus'),
             GDT_ItemName('item_name').not_null(),
             GDT_Modifiers('item_mods'),
@@ -39,7 +39,7 @@ class SD_Item(GDO):
         return self.gdo_value('item_owner')
 
     def to_value(self, val: str):
-        return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_value('item_mods')).player(self.get_owner()).hot(self.is_hot()).duration(self.get_duration())
+        return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_value('item_mods')).hot(self.is_hot()).duration(self.get_duration())
 
     def itm(self) -> Item:
         return self.to_value('') # not a bug

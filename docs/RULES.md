@@ -8,6 +8,7 @@ These are the rules of the reality, or simulation, as we call it.
  - It is forbidden to cut the hedges too much.
  - it is allowed to feed ducks.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
+ - Fights are sorted out with rock, paper, scissors.
 
 
 #### The Internet
@@ -137,6 +138,21 @@ ALICE is an acronym for
 Their [Story](./STORY.md) will be told in Shadowdogs.
 
 
+#### Freedom
+
+ESL is a state of freedom.
+
+- You can be what you want.
+- You can go where you want.
+- You can eat what you want.
+- You can sleep when you want.
+- You can drink what you want.
+- You can smoke what you want.
+- You can say what you want.
+- You can think what you want.
+- You can laugh when you want.
+
+
 #### Advertising
 
 It is encouraged to make clever and non-intrusive advertising.
@@ -199,3 +215,5 @@ especially the introduction.
 - matrixman
 - jusb3
 
+- Chappy
+- Alice

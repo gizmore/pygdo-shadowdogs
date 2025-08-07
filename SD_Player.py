@@ -7,7 +7,7 @@ from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
-from typing import TYPE_CHECKING, Generator, Any
+from typing import TYPE_CHECKING, Generator, Any, Self
 
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
@@ -73,7 +73,7 @@ class SD_Player(WithShadowFunc, GDO):
     cyberdeck: 'Inventory'
     party_pos: int
     distance: int
-    combat_stack: CombatStack
+    _combat_stack: CombatStack
 
     __slots__ = (
         'modified',
@@ -85,16 +85,11 @@ class SD_Player(WithShadowFunc, GDO):
         'cyberdeck',
         'party_pos',
         'distance',
-        'combat_stack',
-    )
-
-    STATS = (
-        'p_level',
+        '_combat_stack',
     )
 
     def __init__(self):
         super().__init__()
-        self.reset_modified()
         self.inventory = Inventory()
         self.mount = Inventory()
         self.bank = Inventory()
@@ -104,10 +99,19 @@ class SD_Player(WithShadowFunc, GDO):
         self.party_pos = 0
         self.distance = 0
         self.command_eta = 0
-        self.combat_stack = CombatStack(self)
+        self.modified = {
+            'p_hunger': 100,
+            'p_thirst': 100,
+        }
+        self._combat_stack = None
+
+    def combat_stack(self) -> CombatStack:
+        if self._combat_stack is None:
+            self._combat_stack = CombatStack(self)
+        return self._combat_stack
 
     def reset_modified(self):
-        self.modified = {
+        self.modified.update({
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0,
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
@@ -115,16 +119,15 @@ class SD_Player(WithShadowFunc, GDO):
             'p_attack': 0, 'p_defense': 0, 'p_at': 50,
             'p_min_dmg': 0, 'p_max_dmg': 0,
             'p_marm': 0, 'p_farm': 0,
-            'p_alcohol': 0, 'p_hunger': 100, 'p_thirst': 100,
+            'p_alcohol': 0,
             'p_weight': 0, 'p_max_weight': 0,
             'p_level': 0,
-            'p_xp': 0, 'p_karma': 0,
-            'p_nuyen': 0, 'p_bank_nuyen': 0,
-        }
-        if 'p_hp' not in self.modified:
-            self.modified['p_hp'] = 0
-        if 'p_mp' not in self.modified:
-            self.modified['p_mp'] = 0
+        })
+        return self
+        
+        
+    def on_reload(self):
+        super().on_reload()
 
     def gdo_columns(self) -> list[GDT]:
         from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
@@ -150,7 +153,7 @@ class SD_Player(WithShadowFunc, GDO):
             MP('p_mp'),
 
             Nuyen('p_nuyen'),
-            Nuyen('p_nuyen_bank'),
+            Nuyen('p_bank_nuyen'),
 
             GDT_Race('p_race').not_null().npcs(),
             GDT_Gender('p_gender').simple().not_null(),
@@ -214,10 +217,10 @@ class SD_Player(WithShadowFunc, GDO):
     ##########
 
     async def combat_tick(self):
-        await self.combat_stack.tick()
+        await self.combat_stack().tick()
 
     def new_combat(self, enemies: 'SD_Party'):
-        self.combat_stack.reset()
+        self.combat_stack().reset()
         return self
 
     def hit(self, dmg: int):
@@ -225,7 +228,7 @@ class SD_Player(WithShadowFunc, GDO):
         return self
 
     def is_dead(self) -> bool:
-        return self.g('p_hp') <= 0
+        return self.gb('p_hp') <= 0
 
     def is_alive(self) -> bool:
         return not self.is_dead()
@@ -278,19 +281,19 @@ class SD_Player(WithShadowFunc, GDO):
     # Busy #
     ########
     def busy(self, seconds: int):
-        self.combat_stack.busy(seconds)
+        self.combat_stack().busy(seconds)
         return self
 
     def is_busy(self) -> bool:
-        return self.combat_stack.is_busy()
+        return self.combat_stack().is_busy()
 
     def render_busy(self) -> str:
         if not self.is_busy():
             return ''
-        return " " + t('sd_busy', (Time.human_duration(self.combat_stack.get_busy_seconds()),))
+        return " " + t('sd_busy', (Time.human_duration(self.combat_stack().get_busy_seconds()),))
 
     def get_busy_seconds(self) -> int:
-        return self.combat_stack.get_busy_seconds()
+        return self.combat_stack().get_busy_seconds()
 
     ########
     # Data #
@@ -314,6 +317,10 @@ class SD_Player(WithShadowFunc, GDO):
     def s(self, key: str, value: int):
         self.modified[key] = value
         return self
+
+    def sb(self, key: str, value: int):
+        return self.set_value(key, value)
+
 
     ###########
     # Methods #
@@ -366,18 +373,28 @@ class SD_Player(WithShadowFunc, GDO):
             self.apply(key, val)
         return self
 
-    def digesting(self):
-        pass
+    async def digesting(self):
+        self.increment('p_hunger', -1)
+        self.increment('p_thirst', -2)
+        self.set_value('p_hunger', max(0, self.gdo_value('p_hunger')))
+        self.set_value('p_thirst', max(0, self.gdo_value('p_thirst')))
+        dmg = 0
+        if self.gdo_value('p_hunger') <= 0:
+            dmg += 1
+        if self.gdo_value('p_thirst') <= 0:
+            dmg += 1
+        self.give_hp(-dmg)
+        await self.send_to_player(self, 'msg_sd_not_saturated', (dmg,))
 
     #########
     # HP/MP #
     #########
 
     def give_hp(self, hp: int):
-        return self.s('p_hp', min(self.g('p_hp') + hp, self.g('p_max_hp')))
+        return self.sb('p_hp', min(self.gb('p_hp') + hp, self.g('p_max_hp')))
 
     def give_mp(self, mp: int):
-        return self.s('p_mp', min(self.g('p_mp') + mp, self.g('p_max_mp')))
+        return self.sb('p_mp', min(self.gb('p_mp') + mp, self.g('p_max_mp')))
 
     def heal_full(self):
         self.give_hp(self.g('p_max_hp'))
@@ -430,10 +447,14 @@ class SD_Player(WithShadowFunc, GDO):
         return self.gb('p_nuyen')
 
     def give_nuyen(self, nuyen: int):
-        return self.increment('p_nuyen', nuyen)
+        return self.set_value('p_nuyen', nuyen)
 
-    def render_ny(self) -> str:
-        return Shadowdogs.display_nuyen(self.get_nuyen())
+    def get_bank_nuyen(self) -> int:
+        return self.gb('p_bank_nuyen')
+
+    def give_bank_nuyen(self, nuyen: int):
+        return self.set_value('p_bank_nuyen', nuyen)
+
 
     ##########
     # Places #
@@ -477,7 +498,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Render #
     ##########
     def render_gender(self):
-        self.column('p_gender').render_txt()
+        return self.column('p_gender').render_txt()
 
     def render_race(self):
-        self.column('p_race').render_txt()
+        return self.column('p_race').render_txt()

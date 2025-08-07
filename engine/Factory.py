@@ -63,7 +63,7 @@ class Factory(WithShadowFunc):
         for item_name in spec.get('eq', []):
             item = Factory.create_item_gmi(item_name, player, True)
             player.save_val(item.itm().get_slot(), item.get_id())
-        return player.heal_full().modify_all()
+        return player.modify_all().heal_full()
 
     #########
     # Items #

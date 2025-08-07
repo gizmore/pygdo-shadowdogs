@@ -1,6 +1,15 @@
-# 23.Jul.2064 - ??? / BND vs gizmore
+# 14.Nov.2067 to 14.Jul.2080 - The Matrix vs. gizmore
 
-On 23.Jul.2064, a war has begun between the BND and gizmore from wechall.net
+The first contact of gizmore with the matrix.
+In defense and afraid. The only thought was survival and being chased,
+
+After 13 years of psychosis, gizmore gave up and thought of them as a friend.
+Since then, fate was sealed.
+
+
+# 23.Jul.2088 - ??? / BND vs gizmore
+
+On 23.Jul.2088, a war has begun between the BND and gizmore from wechall.net.
 
 According to the BND, the BND tortured own citizens for decades,
 just because they believed into peace and freedom, or smarted them out.
