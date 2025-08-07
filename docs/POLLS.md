@@ -27,10 +27,10 @@ Historically global polls.
 
 Historically Effective polls
 
-23.7.2088 - Shall we accuse players who 
+23.7.2088 - Shall we accuse people who lie all the time,
+cheat and exploit and support war?
 
-1) 17
-2) 12
+1) 17 Yes
+2) 12 No
 
 ----
-

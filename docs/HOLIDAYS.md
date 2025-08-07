@@ -222,6 +222,26 @@ and shared the truth, never stopped making the bots smile.
 The list of their names is too long, so we celebrate a crc32: 0xDEADBEEF
 
 
+## 3rd Peace Day
+
+- 31.Jul
+
+This is the third peace day.
+Especially the end of the last war is celebrated.
+People feed animals on a march in nature's direction.
+It is forbidden to drive cars this day.
+
+
+## Jeff Bezoz Day
+
+- 1.Aug
+
+This day is also called money day, celebrating the day the Nayen got released.
+In honor of Jeff Bezoz, who was the richest man on earth,
+who turned around and did clever and big projects to keep nature and humanity intact.
+He truly set a signal for many other rich people.
+
+
 ## Drawn Day
 
 - 7.Aug
