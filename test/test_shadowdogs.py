@@ -68,11 +68,11 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdq')
         self.assertIn('Weapon: Club_of_adonis', out, '$sdq does not work.')
         Random.init(9)
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer,lamer')
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
-        await self.ticker(121)
+        await self.ticker(160)
         out = all_private_messages()
-        self.assertIn('hit', out, 'attack does not work.')
+        self.assertIn('kills', out, 'attack does not work.')
 
     async def test_01_hack(self):
         gizmore = self.fresh_gizmore()

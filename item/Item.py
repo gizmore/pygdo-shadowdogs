@@ -31,7 +31,7 @@ class Item(WithShadowFunc):
         self._duration = 10000
 
     def __repr__(self):
-        return f"{self.render_name()}"
+        return f"{self.render_name()}{self._modifiers}"
 
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item')

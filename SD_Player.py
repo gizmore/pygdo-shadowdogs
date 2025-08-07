@@ -391,10 +391,10 @@ class SD_Player(WithShadowFunc, GDO):
     #########
 
     def give_hp(self, hp: int):
-        return self.sb('p_hp', min(self.gb('p_hp') + hp, self.g('p_max_hp')))
+        return self.sb('p_hp', max(0, min(self.gb('p_hp') + hp, self.g('p_max_hp'))))
 
     def give_mp(self, mp: int):
-        return self.sb('p_mp', min(self.gb('p_mp') + mp, self.g('p_max_mp')))
+        return self.sb('p_mp', max(0, min(self.gb('p_mp') + mp, self.g('p_max_mp'))))
 
     def heal_full(self):
         self.give_hp(self.g('p_max_hp'))

@@ -13,24 +13,24 @@ class mapping:
     """
 
     MATRIX = {
-        "bod": (('rhino',   8, 1, Sd.RARE_LOW), ('anubis',   16, 2, Sd.RARE_MEDIUM), ('adonis',     24, 3, Sd.RARE_HIGH)),
-        "mag": (('unicorn', 8, 1, Sd.RARE_LOW), ('isis',     16, 2, Sd.RARE_MEDIUM), ('medusa',     24, 3, Sd.RARE_HIGH)),
-        "str": (('bear',    7, 1, Sd.RARE_LOW), ('horus',    16, 2, Sd.RARE_MEDIUM), ('goliath',    24, 3, Sd.RARE_HIGH)),
-        "qui": (('gepard',  7, 1, Sd.RARE_LOW), ('shu',      16, 2, Sd.RARE_MEDIUM), ('chronos',    24, 3, Sd.RARE_HIGH)),
-        "dex": (('monkey',  7, 1, Sd.RARE_LOW), ('nephthys', 16, 2, Sd.RARE_MEDIUM), ('odysseus',   24, 3, Sd.RARE_HIGH)),
-        "int": (('raven',   6, 1, Sd.RARE_LOW), ('osiris',   16, 2, Sd.RARE_MEDIUM), ('prometheus', 24, 3, Sd.RARE_HIGH)),
-        "wis": (('owl',     6, 1, Sd.RARE_LOW), ('thoth',    16, 2, Sd.RARE_MEDIUM), ('athena',     24, 3, Sd.RARE_HIGH)),
-        "cha": (('peafowl', 6, 1, Sd.RARE_LOW), ('hathor',   16, 2, Sd.RARE_MEDIUM), ('aphrodite',  24, 3, Sd.RARE_HIGH)),
-        "tra": (('bacchus', 6, 1, Sd.RARE_LOW), ('ptah',     16, 2, Sd.RARE_MEDIUM), ('mercury',    24, 3, Sd.RARE_HIGH)),
-        "fig": (('lion',    6, 1, Sd.RARE_LOW), ('sekhmet',  16, 2, Sd.RARE_MEDIUM), ('ares',       24, 3, Sd.RARE_HIGH)),
+        "p_bod": (('rhino',   8, 1, Sd.RARE_LOW), ('anubis',   16, 2, Sd.RARE_MEDIUM), ('adonis',     24, 3, Sd.RARE_HIGH)),
+        "p_mag": (('unicorn', 8, 1, Sd.RARE_LOW), ('isis',     16, 2, Sd.RARE_MEDIUM), ('medusa',     24, 3, Sd.RARE_HIGH)),
+        "p_str": (('bear',    7, 1, Sd.RARE_LOW), ('horus',    16, 2, Sd.RARE_MEDIUM), ('goliath',    24, 3, Sd.RARE_HIGH)),
+        "p_qui": (('gepard',  7, 1, Sd.RARE_LOW), ('shu',      16, 2, Sd.RARE_MEDIUM), ('chronos',    24, 3, Sd.RARE_HIGH)),
+        "p_dex": (('monkey',  7, 1, Sd.RARE_LOW), ('nephthys', 16, 2, Sd.RARE_MEDIUM), ('odysseus',   24, 3, Sd.RARE_HIGH)),
+        "p_int": (('raven',   6, 1, Sd.RARE_LOW), ('osiris',   16, 2, Sd.RARE_MEDIUM), ('prometheus', 24, 3, Sd.RARE_HIGH)),
+        "p_wis": (('owl',     6, 1, Sd.RARE_LOW), ('thoth',    16, 2, Sd.RARE_MEDIUM), ('athena',     24, 3, Sd.RARE_HIGH)),
+        "p_cha": (('peafowl', 6, 1, Sd.RARE_LOW), ('hathor',   16, 2, Sd.RARE_MEDIUM), ('aphrodite',  24, 3, Sd.RARE_HIGH)),
+        "p_tra": (('bacchus', 6, 1, Sd.RARE_LOW), ('ptah',     16, 2, Sd.RARE_MEDIUM), ('mercury',    24, 3, Sd.RARE_HIGH)),
+        "p_fig": (('lion',    6, 1, Sd.RARE_LOW), ('sekhmet',  16, 2, Sd.RARE_MEDIUM), ('ares',       24, 3, Sd.RARE_HIGH)),
 
-        "attack":  (('tiger', 10, 1, Sd.RARE_MEDIUM),  ('papyrus', 20, 3, Sd.RARE_HIGH), ('troy',    30, 6, Sd.RARE_ULTRA)),
-        "defense": (('turtle', 13, 1, Sd.RARE_MEDIUM), ('mirror',  26, 2, Sd.RARE_HIGH), ('phalanx', 38, 4, Sd.RARE_ULTRA)),
+        "p_attack":  (('tiger', 10, 1, Sd.RARE_MEDIUM),  ('papyrus', 20, 3, Sd.RARE_HIGH), ('troy',    30, 6, Sd.RARE_ULTRA)),
+        "p_defense": (('turtle', 13, 1, Sd.RARE_MEDIUM), ('mirror',  26, 2, Sd.RARE_HIGH), ('phalanx', 38, 4, Sd.RARE_ULTRA)),
 
-        "marm": (('turtle', 11, 1, Sd.RARE_MEDIUM), ('tomb', 20, 2, Sd.RARE_HIGH), ('wall', 30, 3, Sd.RARE_ULTRA),),
-        "farm": (('squid',  12, 1, Sd.RARE_MEDIUM), ('reed', 24, 2, Sd.RARE_HIGH), ('oil', 36, 3, Sd.RARE_ULTRA),),
+        "p_marm": (('turtle', 11, 1, Sd.RARE_MEDIUM), ('tomb', 20, 2, Sd.RARE_HIGH), ('wall', 30, 3, Sd.RARE_ULTRA),),
+        "p_farm": (('squid',  12, 1, Sd.RARE_MEDIUM), ('reed', 24, 2, Sd.RARE_HIGH), ('oil', 36, 3, Sd.RARE_ULTRA),),
 
-        'max_weight': (('ant', 5, 2000, Sd.RARE_NO),   ('scarab', 13, 4000, Sd.RARE_MEDIUM)),
+        'p_max_weight': (('ant', 5, 2000, Sd.RARE_NO),   ('scarab', 13, 4000, Sd.RARE_MEDIUM)),
     }
 
     @classmethod

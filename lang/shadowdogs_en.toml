@@ -172,7 +172,10 @@ md_shadowdogs_fight = "Fight an opposing party."
 msg_sd_fight_started = "You encounter %s."
 sd_weapon_kill = "%s kills %s with %s (%d damage).%s"
 sd_weapon_miss = "%s misses %s with %s.%s"
-sd_combat_miss = "%s "
+sd_combat_miss = "%s tries to hit %s with %s. Dodged.%s"
+sd_weapon_hit = "%s hits %s with %s for %d damage.%s"
+sd_weapon_hit_ep = "%s hits %s with %s for %d damage. %d HP left.%s"
+
 
 ##########
 # Search #

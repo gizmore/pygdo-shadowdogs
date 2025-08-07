@@ -61,13 +61,13 @@ class equip(MethodSD):
         player.inventory.remove(item)
         slot = item.itm().player(player).get_slot()
         item.save_val('item_slot', slot)
-        player.save_val(slot, item.get_id())
+        player.save_val(slot, item.get_id()).modify_all()
         return True
 
     async def unequip(self, player: SD_Player, item_slot: str) -> bool:
         if item := player.get_equip(item_slot):
             player.inventory.append(item)
             item.save_val('item_slot', GDT_Slot.INVENTORY)
-            player.save_val(item_slot, None)
+            player.save_val(item_slot, None).modify_all()
             return True
         return False
