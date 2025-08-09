@@ -98,6 +98,12 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sds')
         self.assertIn('kg', out, 'status does not work.')
 
+    async def test_03_explore(self):
+        gizmore = self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdexplore')
+        self.assertIn('start to explore', out, 'explore does not work.')
+
+
 
 
 if __name__ == '__main__':
