@@ -244,11 +244,11 @@ He truly set a signal for many other rich people.
 
 ## Drawn Day
 
-- 7.Aug
+- 9.Aug
 
 On this day the people tend to play games that can end in a draw,
 like Chess, Soccer or Thermonuclear War (@see the movie Wargames).
 
-Games that force a winner are not played and shoed away.
-Examples: Man, Don't Get Angry, Monopoly, Risk, Settlers of Catan.
+Games that force a winner are not played and shooed away.
+Examples: "Man, Don't Get Angry", Monopoly, Risk and Settlers of Catan.
 

@@ -102,6 +102,7 @@ class ShadowdogsTest(GDOTestCase):
         gizmore = self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
+        await self.ticker(660)
 
 
 

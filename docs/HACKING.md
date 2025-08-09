@@ -1,4 +1,4 @@
-``# Hacking Minigame
+# Hacking Minigame
 
 This is the shadowdogs hacking minigame.
 

@@ -31,8 +31,8 @@ class explore(MethodSD):
     #     )
     #     super().gdo_create_form(form)
 
-    def form_submitted(self):
+    async def form_submitted(self):
         pa = self.get_party()
         city = self.get_city()
-        pa.do(Action.EXPLORE, city.get_name(), city.get_explore_eta(pa))
+        await pa.do(Action.EXPLORE, city.get_name(), city.get_explore_eta(pa))
         return self.empty()
