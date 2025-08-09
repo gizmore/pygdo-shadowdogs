@@ -251,4 +251,3 @@ like Chess, Soccer or Thermonuclear War (@see the movie Wargames).
 
 Games that force a winner are not played and shooed away.
 Examples: "Man, Don't Get Angry", Monopoly, Risk and Settlers of Catan.
-
