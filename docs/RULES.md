@@ -89,7 +89,7 @@ Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
-The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **6 votes,**
+The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **4 votes,**
 totalling 44 which requires 23 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
@@ -107,8 +107,8 @@ These are to generate interest to a topic and
 the master of the wind is responsible for
 suggesting global poll outcomes to the winds,
 who then cast an **effective** poll,
-settling a question,
-where only the **45 council votes** are counted.
+settling a question.
+
 Global Polls with many participants will get presented to the council,
 and might cause an effective poll.
 

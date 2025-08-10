@@ -15,7 +15,6 @@ if TYPE_CHECKING:
 
 class items:
 
-    KLASSES = {}
     ITEMS = {
         'Fists':           {'klass': 'Fists', 'level': 1, 'at': 60, 'et': 15, 'rng': 1, 'weight': 200, 'attack': 4, 'defense': 1, 'min_dmg': 1, 'max_dmg': 4, 'price': 50},
         'Bronze Knuckles': {'klass': 'Fists', 'level': 2, 'at': 59, 'et': 15, 'rng': 1, 'weight': 538, 'attack': 5, 'defense': 1, 'min_dmg': 2, 'max_dmg': 6, 'price': 5221},
@@ -49,23 +48,23 @@ class items:
         'Omega Blade':     {'klass': 'Sword', 'level': 30, 'at': 30, 'et': 15, 'rng': 2, 'weight': 10000, 'attack': 25, 'defense': 8, 'min_dmg': 40, 'max_dmg': 60, 'price': 150000},
 
         # firearms
-        'Rusty Pistol': {'klass': 'Firearm', 'level': 1, 'at': 50, 'et': 15, 'rng': 10, 'weight': 800, 'attack': 5, 'defense': 0, 'min_dmg': 8, 'max_dmg': 12, 'price': 100, 'ammo': '9mm', 'mag_size': 8},
-        '9mm Pistol': {'klass': 'Firearm', 'level': 2, 'at': 49, 'et': 16, 'rng': 10, 'weight': 1786, 'attack': 6, 'defense': 0, 'min_dmg': 10, 'max_dmg': 14, 'price': 34310, 'ammo': '9mm', 'mag_size': 12},
+        'Rusty Pistol':    {'klass': 'Firearm', 'level': 1, 'at': 50, 'et': 15, 'rng': 10, 'weight': 800, 'attack': 5, 'defense': 0, 'min_dmg': 8, 'max_dmg': 12, 'price': 100, 'ammo': '7mm', 'mag_size': 8},
+        '9mm Pistol':      {'klass': 'Firearm', 'level': 2, 'at': 49, 'et': 16, 'rng': 10, 'weight': 1786, 'attack': 6, 'defense': 0, 'min_dmg': 10, 'max_dmg': 14, 'price': 34310, 'ammo': '9mm', 'mag_size': 12},
         'Silenced Pistol': {'klass': 'Firearm', 'level': 3, 'at': 48, 'et': 18, 'rng': 10, 'weight': 2771, 'attack': 7, 'defense': 1, 'min_dmg': 12, 'max_dmg': 16, 'price': 68521, 'ammo': '9mm', 'mag_size': 12},
-        'Revolver': {'klass': 'Firearm', 'level': 4, 'at': 47, 'et': 19, 'rng': 10, 'weight': 3757, 'attack': 7, 'defense': 1, 'min_dmg': 15, 'max_dmg': 20, 'price': 102731, 'ammo': '45ACP', 'mag_size': 6},
-        'Compact SMG': {'klass': 'Firearm', 'level': 5, 'at': 46, 'et': 21, 'rng': 10, 'weight': 4743, 'attack': 8, 'defense': 1, 'min_dmg': 18, 'max_dmg': 24, 'price': 136041, 'ammo': '9mm', 'mag_size': 20},
-        'SMG': {'klass': 'Firearm', 'level': 6, 'at': 45, 'et': 22, 'rng': 10, 'weight': 5729, 'attack': 9, 'defense': 2, 'min_dmg': 20, 'max_dmg': 28, 'price': 169352, 'ammo': '9mm', 'mag_size': 30},
-        'Tactical SMG': {'klass': 'Firearm', 'level': 7, 'at': 44, 'et': 24, 'rng': 10, 'weight': 6714, 'attack': 10, 'defense': 2, 'min_dmg': 24, 'max_dmg': 34, 'price': 202662, 'ammo': '9mm', 'mag_size': 40},
-        'Shotgun': {'klass': 'Firearm', 'level': 8, 'at': 43, 'et': 26, 'rng': 10, 'weight': 7700, 'attack': 11, 'defense': 2, 'min_dmg': 28, 'max_dmg': 40, 'price': 235973, 'ammo': '12g', 'mag_size': 5},
-        'Auto Shotgun': {'klass': 'Firearm', 'level': 9, 'at': 42, 'et': 28, 'rng': 10, 'weight': 8686, 'attack': 12, 'defense': 2, 'min_dmg': 32, 'max_dmg': 50, 'price': 269283, 'ammo': '12g', 'mag_size': 8},
-        'Hunting Rifle': {'klass': 'Firearm', 'level': 10, 'at': 41, 'et': 30, 'rng': 30, 'weight': 9671, 'attack': 13, 'defense': 3, 'min_dmg': 36, 'max_dmg': 55, 'price': 302593, 'ammo': '7.62mm', 'mag_size': 5},
-        'Assault Rifle': {'klass': 'Firearm', 'level': 11, 'at': 40, 'et': 32, 'rng': 30, 'weight': 10657, 'attack': 14, 'defense': 3, 'min_dmg': 40, 'max_dmg': 60, 'price': 335904, 'ammo': '5.56mm', 'mag_size': 30},
-        'Carbine': {'klass': 'Firearm', 'level': 12, 'at': 39, 'et': 34, 'rng': 30, 'weight': 11643, 'attack': 15, 'defense': 4, 'min_dmg': 44, 'max_dmg': 65, 'price': 369214, 'ammo': '5.56mm', 'mag_size': 30},
-        'Sniper Rifle': {'klass': 'Firearm', 'level': 13, 'at': 38, 'et': 36, 'rng': 30, 'weight': 12629, 'attack': 16, 'defense': 4, 'min_dmg': 50, 'max_dmg': 80, 'price': 402525, 'ammo': '7.62mm', 'mag_size': 5},
-        'Battle Rifle': {'klass': 'Firearm', 'level': 14, 'at': 37, 'et': 38, 'rng': 30, 'weight': 13614, 'attack': 17, 'defense': 4, 'min_dmg': 55, 'max_dmg': 90, 'price': 435835, 'ammo': '7.62mm', 'mag_size': 20},
-        'LMG': {'klass': 'Firearm', 'level': 15, 'at': 36, 'et': 40, 'rng': 30, 'weight': 14600, 'attack': 18, 'defense': 5, 'min_dmg': 60, 'max_dmg': 95, 'price': 469145, 'ammo': '7.62mm', 'mag_size': 50},
-        'Heavy LMG': {'klass': 'Firearm', 'level': 16, 'at': 35, 'et': 42, 'rng': 30, 'weight': 15586, 'attack': 20, 'defense': 5, 'min_dmg': 70, 'max_dmg': 110, 'price': 502456, 'ammo': '7.62mm', 'mag_size': 75},
-        'Minigun': {'klass': 'Firearm', 'level': 17, 'at': 34, 'et': 45, 'rng': 30, 'weight': 16571, 'attack': 21, 'defense': 6, 'min_dmg': 80, 'max_dmg': 120, 'price': 535766, 'ammo': '7.62mm', 'mag_size': 200},
+        'Revolver':        {'klass': 'Firearm', 'level': 4, 'at': 47, 'et': 19, 'rng': 10, 'weight': 3757, 'attack': 7, 'defense': 1, 'min_dmg': 15, 'max_dmg': 20, 'price': 102731, 'ammo': '45ACP', 'mag_size': 6},
+        'Compact SMG':     {'klass': 'Firearm', 'level': 5, 'at': 46, 'et': 21, 'rng': 10, 'weight': 4743, 'attack': 8, 'defense': 1, 'min_dmg': 18, 'max_dmg': 24, 'price': 136041, 'ammo': '9mm', 'mag_size': 20},
+        'SMG':             {'klass': 'Firearm', 'level': 6, 'at': 45, 'et': 22, 'rng': 10, 'weight': 5729, 'attack': 9, 'defense': 2, 'min_dmg': 20, 'max_dmg': 28, 'price': 169352, 'ammo': '9mm', 'mag_size': 30},
+        'Tactical SMG':    {'klass': 'Firearm', 'level': 7, 'at': 44, 'et': 24, 'rng': 10, 'weight': 6714, 'attack': 10, 'defense': 2, 'min_dmg': 24, 'max_dmg': 34, 'price': 202662, 'ammo': '9mm', 'mag_size': 40},
+        'Shotgun':         {'klass': 'Firearm', 'level': 8, 'at': 43, 'et': 26, 'rng': 10, 'weight': 7700, 'attack': 11, 'defense': 2, 'min_dmg': 28, 'max_dmg': 40, 'price': 235973, 'ammo': '12g', 'mag_size': 5},
+        'Auto Shotgun':    {'klass': 'Firearm', 'level': 9, 'at': 42, 'et': 28, 'rng': 10, 'weight': 8686, 'attack': 12, 'defense': 2, 'min_dmg': 32, 'max_dmg': 50, 'price': 269283, 'ammo': '12g', 'mag_size': 8},
+        'Hunting Rifle':   {'klass': 'Firearm', 'level': 10, 'at': 41, 'et': 30, 'rng': 30, 'weight': 9671, 'attack': 13, 'defense': 3, 'min_dmg': 36, 'max_dmg': 55, 'price': 302593, 'ammo': '7mm', 'mag_size': 5},
+        'Assault Rifle':   {'klass': 'Firearm', 'level': 11, 'at': 40, 'et': 32, 'rng': 30, 'weight': 10657, 'attack': 14, 'defense': 3, 'min_dmg': 40, 'max_dmg': 60, 'price': 335904, 'ammo': '5mm', 'mag_size': 30},
+        'Carbine':         {'klass': 'Firearm', 'level': 12, 'at': 39, 'et': 34, 'rng': 30, 'weight': 11643, 'attack': 15, 'defense': 4, 'min_dmg': 44, 'max_dmg': 65, 'price': 369214, 'ammo': '5mm', 'mag_size': 30},
+        'Sniper Rifle':    {'klass': 'Firearm', 'level': 13, 'at': 38, 'et': 36, 'rng': 30, 'weight': 12629, 'attack': 16, 'defense': 4, 'min_dmg': 50, 'max_dmg': 80, 'price': 402525, 'ammo': '7mm', 'mag_size': 5},
+        'Battle Rifle':    {'klass': 'Firearm', 'level': 14, 'at': 37, 'et': 38, 'rng': 30, 'weight': 13614, 'attack': 17, 'defense': 4, 'min_dmg': 55, 'max_dmg': 90, 'price': 435835, 'ammo': '7mm', 'mag_size': 20},
+        'LMG':             {'klass': 'Firearm', 'level': 15, 'at': 36, 'et': 40, 'rng': 30, 'weight': 14600, 'attack': 18, 'defense': 5, 'min_dmg': 60, 'max_dmg': 95, 'price': 469145, 'ammo': '7mm', 'mag_size': 50},
+        'Heavy LMG': {'klass': 'Firearm', 'level': 16, 'at': 35, 'et': 42, 'rng': 30, 'weight': 15586, 'attack': 20, 'defense': 5, 'min_dmg': 70, 'max_dmg': 110, 'price': 502456, 'ammo': '7mm', 'mag_size': 75},
+        'Minigun': {'klass': 'Firearm', 'level': 17, 'at': 34, 'et': 45, 'rng': 30, 'weight': 16571, 'attack': 21, 'defense': 6, 'min_dmg': 80, 'max_dmg': 120, 'price': 535766, 'ammo': '7mm', 'mag_size': 200},
         'Grenade Launcher': {'klass': 'Firearm', 'level': 18, 'at': 33, 'et': 48, 'rng': 30, 'weight': 17557, 'attack': 22, 'defense': 6, 'min_dmg': 100, 'max_dmg': 150, 'price': 569077, 'ammo': '40mm', 'mag_size': 1},
         'Rocket Launcher': {'klass': 'Firearm', 'level': 19, 'at': 32, 'et': 50, 'rng': 30, 'weight': 18543, 'attack': 23, 'defense': 6, 'min_dmg': 120, 'max_dmg': 180, 'price': 602387, 'ammo': 'RPG', 'mag_size': 1},
         'Railgun': {'klass': 'Firearm', 'level': 20, 'at': 31, 'et': 52, 'rng': 30, 'weight': 19529, 'attack': 24, 'defense': 6, 'min_dmg': 140, 'max_dmg': 200, 'price': 635697, 'ammo': 'RailSlug', 'mag_size': 5},
@@ -188,6 +187,16 @@ class items:
         'WardenGloves': {'klass': 'Gloves', 'level': 29, 'et': 53, 'weight': 514, 'defense': 11, 'marm': 1, 'farm': 10, 'price': 2266.51},
         'OblivionClaws': {'klass': 'Gloves', 'level': 30, 'et': 79, 'weight': 636, 'defense': 10, 'marm': 9, 'farm': 1, 'price': 2344.8},
 
+        '5mm':        {'klass': 'Ammo', 'level': 2,  'weight': 20},
+        '7mm':        {'klass': 'Ammo', 'level': 2,  'weight': 25},
+        '9mm':        {'klass': 'Ammo', 'level': 3,  'weight': 45},
+        '40mm':       {'klass': 'Ammo', 'level': 3,  'weight': 155},
+        '12g':        {'klass': 'Ammo', 'level': 5,  'weight': 500},
+        '45ACP':      {'klass': 'Ammo', 'level': 6,  'weight': 180},
+        'RPG':        {'klass': 'Ammo', 'level': 20, 'weight': 750},
+        'EnergyCell': {'klass': 'Ammo', 'level': 24, 'weight': 1180},
+        'RailSlug':   {'klass': 'Ammo', 'level': 30, 'weight': 350},
+
         'Ring':         {'klass': 'Ring',        'level': 3,  'weight': 10, 'marm': 1},
         'RingOfTruth':  {'klass': 'Ring',        'level': 12, 'weight': 12, 'max_hp': 2},
         'WeddingRing':  {'klass': 'WeddingRing', 'level': 20, 'weight': 25},
@@ -200,13 +209,6 @@ class items:
 
         'Coke':        {'klass': 'Consumable', 'level': 1, 'weight': 400},
         'EnergyDrink': {'klass': 'Consumable', 'level': 1, 'weight': 300},
-
-        'Ammo7mm':      {'klass': 'Ammo', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 25, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
-        'Ammo8mm':      {'klass': 'Ammo', 'level': 2, 'at': 25, 'et': 15, 'rng': 4, 'weight': 40, 'attack': 7, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8},
-        'Ammo9mm':      {'klass': 'Ammo', 'level': 3, 'weight': 55},
-        'Ammo12Gauge':  {'klass': 'Ammo', 'level': 5, 'weight': 500},
-        'Ammo13':       {'klass': 'Ammo', 'level': 7, 'weight': 110},
-        '45ACP':        {'klass': 'Ammo', 'level': 6, 'weight': 180},
 
         'CyberEye':    {'klass': 'Implant', 'level': 6, 'weight': 100, 'marm': 0, 'farm': 0},
         'NeuralLink':  {'klass': 'Implant', 'level': 8, 'weight': 80, 'marm': 0, 'farm': 0},
@@ -235,6 +237,7 @@ class items:
         'EmailArmy':   {'klass': 'Email', 'key': 'sd_email_army'},
         'NoteGizmore': {'klass': 'Note',  'key': 'sd_note_gizmore'},
     }
+    KLASSES = {}
 
     @classmethod
     def load(cls):
