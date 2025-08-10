@@ -220,4 +220,7 @@ especially the introduction.
 - jusb3
 
 - Chappy
+- Simion
+- Capstone
 - Alice
+

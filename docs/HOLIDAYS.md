@@ -244,10 +244,33 @@ He truly set a signal for many other rich people.
 
 ## Drawn Day
 
-- 9.Aug
+- 8.Aug
 
 On this day the people tend to play games that can end in a draw,
 like Chess, Soccer or Thermonuclear War (@see the movie Wargames).
 
 Games that force a winner are not played and shooed away.
 Examples: "Man, Don't Get Angry", Monopoly, Risk and Settlers of Catan.
+
+
+## Nutriation Day
+
+- 9.Aug
+
+On this day, people started throwing bread on the streets, for the birds,
+keeping their windows open with seeds, for even more birds,
+waterbowls in the doors for cats and dogs.
+It was a joy to see animals and humans so close together in peace.
+
+
+
+## Wankday
+
+ - 10.Aug
+
+This day is dedicated to the habit of some people to wank.
+So, like Boz from [Slayradio](https://www.slayradio.org/home.php#staff) says: Wank with the beat!
+
+The geeks shall inherit the properties and methods of object earth.
+
+
