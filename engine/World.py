@@ -36,7 +36,10 @@ class World:
 
     @classmethod
     def get_location(cls, loc_str: str) -> 'Location':
-        year, city_name, loc_name = loc_str.split('.', 2)
+        try:
+            year, city_name, loc_name = loc_str.split('.', 2)
+        except ValueError:
+            return cls.get_city(loc_str+'.fake')
         city = cls.get_city(loc_str)
         if city is None:
             raise ValueError(f"Unknown city: {loc_str}")

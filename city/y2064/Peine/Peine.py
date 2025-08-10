@@ -8,9 +8,9 @@ from gdo.shadowdogs.locations.Location import Location
 
 class Peine(City):
 
+    Home: Home = Home()
     Marketplace: Marketplace = Marketplace()
     SeniorHome: SeniorHome = SeniorHome()
-    Home: Home = Home()
 
     LOCATIONS: list[Location] = [
         Marketplace,
@@ -18,9 +18,15 @@ class Peine(City):
         Home,
     ]
 
+    NPCS: list[tuple[str, int]] = [
+        ('lamer', 100),
+        ('haider', 100),
+        ('noob', 100),
+        ('gangster', 100),
+    ]
+
     def sd_npc_none_chance(self, party: 'SD_Party') -> int:
         return 1600
 
-    NPCS: list[tuple[str, int]] = [
-        ('lamer', 100)
-    ]
+    def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
+        return 0

@@ -187,6 +187,7 @@ class SD_Party(WithShadowFunc, GDO):
 
     @staticmethod
     def get_city_from_target(target) -> 'City':
+        from gdo.shadowdogs.locations.City import City
         if isinstance(target, City):
             return target
         if isinstance(target, Location):

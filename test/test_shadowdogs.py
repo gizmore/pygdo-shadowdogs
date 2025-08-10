@@ -100,9 +100,17 @@ class ShadowdogsTest(GDOTestCase):
 
     async def test_03_explore(self):
         gizmore = self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdeq Shir')
+        out = cli_plug(gizmore, '$sdeq Sand')
+        out = cli_plug(gizmore, '$sdeq Jean')
+        out = cli_plug(gizmore, '$sdeq _of_ado')
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
-        await self.ticker(660)
+        await self.ticker(1690)
+        out = all_private_messages()
+        self.assertIn('new loc', out, 'explore find does not work.')
+        out = cli_plug(gizmore, '$sdkp')
+        self.assertIn('2 locations in Peine', out, 'kp does not work.')
 
 
 
