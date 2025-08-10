@@ -1,5 +1,3 @@
-from torchgen.gen_functionalization_type import return_from_mutable_noop_redispatch
-
 from gdo.core.GDT_Enum import GDT_Enum
 
 

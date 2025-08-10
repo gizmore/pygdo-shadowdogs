@@ -10,11 +10,14 @@ if TYPE_CHECKING:
 class explore(Action):
 
     def get_target(self, party: 'SD_Party', target_string: str):
-        from gdo.shadowdogs.engine.World import World
-        return getattr(World, target_string)
+        return getattr(party.get_world(), target_string)
 
     async def on_start(self, party: 'SD_Party'):
         await self.send_to_party(party, self.get_action_text_key(party), self.get_action_text_args(party))
 
+    async def execute(self, party: 'SD_Party'):
+        await self.get_city().on_explore(party)
+
     async def on_completed(self, party: 'SD_Party'):
         await party.get_city().on_explored(party)
+

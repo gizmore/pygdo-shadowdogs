@@ -2,6 +2,7 @@ from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Util import Arrays, Random
 from gdo.core.GDT_AutoInc import GDT_AutoInc
+from gdo.core.GDT_Enum import GDT_Enum
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Action import GDT_Action
@@ -11,10 +12,11 @@ from typing import TYPE_CHECKING, Iterator
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
-from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 
 if TYPE_CHECKING:
+    from gdo.shadowdogs.locations.City import City
+    from gdo.shadowdogs.engine.World import World
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.actions.Action import Action
 
@@ -35,6 +37,7 @@ class SD_Party(WithShadowFunc, GDO):
         return f"Party({self.get_id()}):({self.render_members()})"
 
     def gdo_columns(self) -> list[GDT]:
+        from gdo.shadowdogs.engine.World import World
         return [
             GDT_AutoInc('party_id'),
             GDT_Action('party_action').not_null(),
@@ -43,6 +46,7 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Action('party_last_action'),
             GDT_Target('party_last_target').last_target(),
             GDT_UInt('party_last_eta'),
+            GDT_Enum('party_world').choices({'y2064': World.World2064, 'y2077': World.World2077, 'y2088': World.World2088}).not_null().initial('y2064'),
             GDT_Created('party_created'),
         ]
 
@@ -101,17 +105,33 @@ class SD_Party(WithShadowFunc, GDO):
             self.members.remove(player)
         return self
 
+    ###########
+    # Min/Max #
+    ###########
+
     def gmin(self, field: str) -> int:
+        return self.get_min(field, 'g')
+
+    def gbmin(self, field: str) -> int:
+        return self.get_min(field, 'gb')
+
+    def get_min(self, field: str, func: str) -> int:
         min = 65536
         for player in self.members:
-            v = player.g(field)
+            v = getattr(player, func)(field)
             min = v if v < min else min
         return min
 
     def gmax(self, field: str) -> int:
+        return self.get_max(field, 'g')
+
+    def gbmax(self, field: str) -> int:
+        return self.get_max(field, 'gb')
+
+    def get_max(self, field: str, func: str) -> int:
         max = 0
         for player in self.members:
-            v = player.g(field)
+            v = getattr(player, func)(field)
             max = v if v > max else max
         return max
 
@@ -158,12 +178,15 @@ class SD_Party(WithShadowFunc, GDO):
     def random_member(self) -> 'SD_Player|None':
         return Random.list_item(self.members)
 
-    def get_city(self) -> City|None:
+    def get_city(self) -> 'City':
         if city := self.get_city_from_target(self.get_target()): return city
         else: return self.get_city_from_target(self.get_last_target())
 
+    def get_world(self) -> 'World':
+        return self.gdo_value('party_world')
+
     @staticmethod
-    def get_city_from_target(target: City|Location) -> City|None:
+    def get_city_from_target(target) -> 'City':
         if isinstance(target, City):
             return target
         if isinstance(target, Location):
