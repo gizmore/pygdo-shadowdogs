@@ -61,6 +61,8 @@ msg_sd_party_was_travel = "%s were travelling to %s. %s"
 
 sd_busy = "%s busy."
 
+
+
 ########
 # GDTs #
 ########
@@ -84,6 +86,11 @@ sd_slot_p_cyberdec = "Cyberdeck"
 # Party #
 #########
 msg_sd_joined_party = "%s joined the party."
+
+##############
+# Saturation #
+##############
+msg_sd_not_saturated = "You are not saturated. %d damage. %d/%d HP left."
 
 #########
 # Items #
@@ -120,6 +127,12 @@ msg_sd_new_player = "A new player joined the underground shadowdogs; %s the %s %
 sd_story_1 = "You wake up. Feeling dizy and still alcoholized."
 sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless. You somehow feel outta place..."
 
+###########
+# Explore #
+###########
+msg_found_no_location = "Your exploration did not reveal any new location."
+msg_sd_new_kp = "You found a new place in %s: %s."
+
 ########
 # Look #
 ########
@@ -139,7 +152,7 @@ msg_sd_status = "You are a %s %s L%d(L%d) %d/%dHP %d/%dMP - ATK %d/%d DEF - MARM
 #########
 mt_shadowdogs_equip = "Equip Item"
 md_shadowdogs_equip = "Equip yourself with an Item."
-msg_sd_item_equip = "You use %s as your %s from now on. %s busy."
+msg_sd_item_equip = "You use %s as your %s from now on.%s"
 
 #############
 # Equipment #

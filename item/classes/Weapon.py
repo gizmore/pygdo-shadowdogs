@@ -19,7 +19,7 @@ class Weapon(Item):
         ep = d.get_party()
 
         print(a.modified)
-        print(b.modified)
+        print(d.modified)
 
         if Random.mrand(1, a.g('p_attack') + 1) >= Random.mrand(0, d.g('p_defense')):
             dmg = Random.mrand(a.g('p_min_dmg'), a.g('p_max_dmg')) - d.g(armor_field)

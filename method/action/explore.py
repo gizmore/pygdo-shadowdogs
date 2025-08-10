@@ -25,12 +25,6 @@ class explore(MethodSD):
     def gdo_trig(cls) -> str:
         return 'sdexp'
 
-    # def gdo_create_form(self, form: GDT_Form) -> None:
-    #     form.add_field(
-    #         GDT_City('area').known().not_null(),
-    #     )
-    #     super().gdo_create_form(form)
-
     async def form_submitted(self):
         pa = self.get_party()
         city = self.get_city()

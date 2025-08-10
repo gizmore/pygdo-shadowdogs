@@ -26,7 +26,7 @@ class Peine(City):
     ]
 
     def sd_npc_none_chance(self, party: 'SD_Party') -> int:
-        return 1600
+        return 500000
 
     def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
         return 0

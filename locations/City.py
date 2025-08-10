@@ -36,7 +36,7 @@ class City(WithShadowFunc):
         return Random.mrand(1, 1 + len(party.members))
 
     def sd_npc_none_chance(self, party: 'SD_Party') -> int:
-        return 1600
+        return 65535
 
     def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
         return 8
@@ -100,8 +100,11 @@ class City(WithShadowFunc):
         location = WithProbability.probable_item(items, self.explore_non_chance(party))
         if location:
             await self.give_kp(party.get_leader(), location)
+            await party.do(Action.OUTSIDE, location.get_location_key())
         elif items:
             await self.send_to_party(party, 'msg_found_no_location')
+            await party.do(Action.OUTSIDE, party.get_city().get_location_key())
         else:
             await self.send_to_party(party, 'msg_no_more_locations')
+            await party.do(Action.OUTSIDE, party.get_city().get_location_key())
         return self

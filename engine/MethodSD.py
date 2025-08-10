@@ -13,7 +13,7 @@ class MethodSD(WithShadowMethod, MethodForm):
             player.combat_stack().command = self
             return self.empty()
         if player.is_busy():
-            await self.send_to_player(player, 'err_sd_player_busy', (player.render_busy(),))
+            return await self.send_to_player(player, 'err_sd_player_busy', (player.render_busy(),))
         await self.sd_before_execute()
         return await self.sd_execute()
 

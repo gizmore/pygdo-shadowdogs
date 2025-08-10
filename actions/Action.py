@@ -48,7 +48,7 @@ class Action(WithShadowFunc):
         return f"msg_sd_{scope}_{self.get_name()}"
 
     def get_action_text_args(self, party: 'SD_Party', scope: str = 'start') -> None|tuple[any,...]:
-        if scope == 'start':
+        if scope in ('start', 'are', 'party'):
             if party.get_eta_s():
                 return party.render_members(), self.get_target(party, party.get_target_string()).get_name(), self.render_busy(party)
             return party.render_members(), self.get_target(party, party.get_target_string()).render_name()
@@ -57,4 +57,4 @@ class Action(WithShadowFunc):
         return Time.human_duration(party.get_eta_s())
 
     def render_action(self, party: 'SD_Party', scope: str = 'start') -> str:
-        return t(self.get_action_text_key(party, ''), self.get_action_text_args(party, 'party'))
+        return t(self.get_action_text_key(party, scope), self.get_action_text_args(party, scope))

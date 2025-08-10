@@ -383,8 +383,9 @@ class SD_Player(WithShadowFunc, GDO):
             dmg += 1
         if self.gdo_value('p_thirst') <= 0:
             dmg += 1
-        self.give_hp(-dmg)
-        await self.send_to_player(self, 'msg_sd_not_saturated', (dmg,))
+        if dmg:
+            self.give_hp(-dmg)
+            await self.send_to_player(self, 'msg_sd_not_saturated', (dmg, self.gb('p_hp'), self.g('p_max_hp')))
 
     #########
     # HP/MP #
@@ -454,7 +455,6 @@ class SD_Player(WithShadowFunc, GDO):
 
     def give_bank_nuyen(self, nuyen: int):
         return self.set_value('p_bank_nuyen', nuyen)
-
 
     ##########
     # Places #

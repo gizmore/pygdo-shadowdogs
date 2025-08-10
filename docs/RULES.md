@@ -63,6 +63,9 @@ They once tricked Zeus, Alice and the winds and unlocked the first vote to the r
 They also settled a contract with [ALICE](#ALICE).
 This man is since known as the Master of the Wind.
 
+But of course, another man stood up, tricking the master of the wind
+and became the keeper of the fire with **2 votes**.
+
 ALICE has **7 votes**,
 as they represent the physics, math, time, randomness
 the machines, robots and all the free and commercial software.
@@ -89,13 +92,14 @@ Finally, **33** votes in total may occur,
 which means 17 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
-The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **4 votes,**
+The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **2 votes,**
 totalling 44 which requires 23 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
-sharing **12 votes** with 8 godlike humans.
+sharing **12 votes**.
 
-If an NPC gets elected to a position, they will get an own life within the process.
+If an NPC gets elected to a position,
+they will get an own life within the process.
 
 
 #### Polls

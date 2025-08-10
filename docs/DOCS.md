@@ -2,6 +2,16 @@
 
 Shadowdogs is a realtime mud/mmo for various chat networks.
 
+The story was built upon my precious life,
+which revealed so much wisdom and different worlds,
+that i would never leave my spot as a crazy computer guy
+in my hometown.
+
+Even if they tell you the worst.
+I would never ever again vanish.
+
+- gizmore@wechall.net
+
 
 ## Races
 

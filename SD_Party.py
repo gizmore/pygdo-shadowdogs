@@ -66,12 +66,10 @@ class SD_Party(WithShadowFunc, GDO):
         return self
 
     async def resume(self):
-        if eta := self.gdo_value('party_last_eta'):
-            eta += self.mod_sd().cfg_time()
         return await self.do(
             self.gdo_val('party_last_action'),
             self.gdo_val('party_last_target'),
-            eta,
+            self.gdo_value('party_last_eta'),
         )
 
     ###########

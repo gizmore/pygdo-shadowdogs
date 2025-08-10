@@ -27,7 +27,8 @@ class SD_Place(GDO):
 
     @classmethod
     def has_location(cls, player: 'SD_Player', location: 'Location'):
-        return cls.table().get_by_id(player.get_id(), location.get_location_key())
+        loc = SD_Location.get_or_create(location)
+        return cls.table().get_by_id(player.get_id(), loc.get_id())
 
     @classmethod
     def give_kp(cls, player: 'SD_Player', location: 'Location'):
