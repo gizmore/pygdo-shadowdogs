@@ -133,6 +133,14 @@ sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless.
 msg_found_no_location = "Your exploration did not reveal any new location."
 msg_sd_new_kp = "You found a new place in %s: %s."
 
+##########
+# Places #
+##########
+mt_shadowdogs_places = "Known Places"
+mt_shadowdogs_places_t = "%d places in %s: %s."
+md_shadowdogs_places = "Show known places in an area."
+
+
 ########
 # Look #
 ########

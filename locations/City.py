@@ -1,7 +1,6 @@
 from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.actions.Action import Action
-from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.engine.WithProbability import WithProbability
@@ -54,6 +53,9 @@ class City(WithShadowFunc):
     # Location #
     ############
     def get_location_key(self) -> str:
+       return self.get_city_key()
+
+    def get_city_key(self) -> str:
         m = self.__class__.__module__.split('.')
         return m[3] + "." + m[-1]
 
@@ -83,6 +85,7 @@ class City(WithShadowFunc):
         return self.sd_square_km() * Shadowdogs.EXPLORE_ETA_PER_SQKM - party.gmin('p_qui') * Shadowdogs.EXPLORE_ETA_BONUS_PER_QUICKNESS
 
     async def on_explore(self, party: 'SD_Party'):
+        from gdo.shadowdogs.engine.Factory import Factory
         encounters = []
         npcs = self.get_npc_chances(party, self.sd_npc_explore_level_gap(party))
         for i in range(self.sd_npc_max_encounter(party)):

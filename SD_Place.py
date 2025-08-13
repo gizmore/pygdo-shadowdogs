@@ -3,10 +3,9 @@ from gdo.base.GDT import GDT
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Location import GDT_Location
 from gdo.shadowdogs.GDT_Player import GDT_Player
+from gdo.shadowdogs.SD_Location import SD_Location
 
 from typing import TYPE_CHECKING
-
-from gdo.shadowdogs.SD_Location import SD_Location
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -37,3 +36,7 @@ class SD_Place(GDO):
             'kp_player': player.get_id(),
             'kp_location': loc.get_id(),
         }).insert()
+
+    def get_location(self) -> 'Location':
+        from gdo.shadowdogs.engine.World import World
+        return World.get_location(self.gdo_val('kp_location'))

@@ -1,15 +1,13 @@
+from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
-from gdo.base.Method import Method
-from gdo.base.Result import Result
-from gdo.base.ResultArray import ResultArray
+from gdo.base.Query import Query
 from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.WithShadowMethod import WithShadowMethod
-from gdo.shadowdogs.engine.MethodSD import MethodSD
-from gdo.table.MethodTable import MethodTable
+from gdo.table.MethodQueryTable import MethodQueryTable
 
 
-class places(WithShadowMethod, MethodTable):
+class places(WithShadowMethod, MethodQueryTable):
 
     @classmethod
     def gdo_trigger(cls) -> str:
@@ -21,10 +19,16 @@ class places(WithShadowMethod, MethodTable):
 
     def gdo_parameters(self) -> list[GDT]:
         return [
-            GDT_City('City').default_current().not_null(),
+            GDT_City('city').default_current().not_null(),
         ]
 
-    def gdo_table_result(self) -> Result:
-        p = self.get_player()
-        SD_Place.table().select().where('sp')
-        return ResultArray(self.get_player().inventory, SD_Place.table())
+    def gdo_table(self) -> GDO:
+        return SD_Place.table()
+
+    def gdo_table_query(self) -> Query:
+        loc = self.parameter('city').player(self.get_player()).get_city().get_location_key()
+        return (SD_Place.table().select().where('kp_player='+self.get_player().get_id()).
+                join_object('kp_location').where(f'l_name LIKE "{loc}%"'))
+
+    def render_sd_place(self, gdt, gdo):
+        return 'a'

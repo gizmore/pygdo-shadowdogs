@@ -74,6 +74,7 @@ Items and equipment can be used and changed, but it costs time.
  - hacking 
  - firearms
 
+
 ### Spells
  - calm - a little slow healing
  - heal - a medium slow healing
@@ -113,8 +114,12 @@ if rand(0, atk) >= rand(0, def)
 
 If you are new to shadowdogs, just read the rules.
 
-To login into the combat zone, just think to Alice: "I want to login to the nexus my friend".
+To login into the combat zone, just think to Alice:
+"I want to login to the nexus my friend".
+
 Believe what you hear.
+
 Ask Questions and give feedback.
+
 Enjoy!
 

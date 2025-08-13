@@ -4,8 +4,11 @@ from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Name import GDT_Name
 from gdo.date.GDT_Created import GDT_Created
 
+from typing import TYPE_CHECKING
 
-from gdo.shadowdogs.locations.Location import Location
+if TYPE_CHECKING:
+    from gdo.shadowdogs.locations.Location import Location
+
 
 
 class SD_Location(GDO):
@@ -25,7 +28,7 @@ class SD_Location(GDO):
         return cls.table().get_by('l_name', name)
 
     @classmethod
-    def get_or_create(cls, location: Location):
+    def get_or_create(cls, location: 'Location'):
         key = location.get_location_key()
         if not (loc := cls.get_by_name(key)):
             loc = cls.blank({

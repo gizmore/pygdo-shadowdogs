@@ -115,7 +115,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('exploring Peine', out, 'party does not work.')
         await self.ticker(1800) # half an hour
         out = all_private_messages()
-        self.assertIn('new loc', out, 'explore find does not work.')
+        self.assertIn('new place in Peine', out, 'explore find does not work.')
         out = cli_plug(gizmore, '$sdpl')
         self.assertIn('2 locations in Peine', out, 'kp does not work.')
 

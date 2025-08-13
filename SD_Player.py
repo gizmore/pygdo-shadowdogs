@@ -23,7 +23,6 @@ from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.classes.Equipment import Equipment
-from gdo.shadowdogs.skill.Math import Math
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
 from gdo.shadowdogs.stat.Alcohol import Alcohol

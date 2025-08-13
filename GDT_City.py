@@ -1,7 +1,4 @@
-from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_Enum import GDT_Enum
-from gdo.core.WithGDO import WithGDO
-from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 
 
