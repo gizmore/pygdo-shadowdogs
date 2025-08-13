@@ -52,7 +52,7 @@ class SD_Party(WithShadowFunc, GDO):
 
     async def do(self, action: str, target: str = None, eta: int = 0):
         if last_eta := self.gdo_value('party_eta'):
-            last_eta = last_eta - self.get_time()
+            last_eta = max(0, last_eta - self.get_time())
         self.save_vals({
             'party_last_action': self.gdo_val('party_action'),
             'party_last_target': self.gdo_val('party_target'),

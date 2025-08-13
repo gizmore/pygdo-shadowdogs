@@ -40,3 +40,6 @@ class SD_Place(GDO):
     def get_location(self) -> 'Location':
         from gdo.shadowdogs.engine.World import World
         return World.get_location(self.gdo_val('kp_location'))
+
+    def render_name(self):
+        return self.get_location().render_name()

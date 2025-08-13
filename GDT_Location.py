@@ -1,4 +1,5 @@
 from gdo.base.GDO import GDO
+from gdo.base.Render import Mode
 from gdo.core.GDT_Object import GDT_Object
 from gdo.shadowdogs.SD_Location import SD_Location
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
@@ -41,3 +42,6 @@ class GDT_Location(WithPlayerGDO, GDT_Object):
     def city(self, city: 'City'):
         self._city = city
         return self
+
+    def render_cli(self, mode: Mode = Mode.HTML):
+        return self.get_place().render_name()

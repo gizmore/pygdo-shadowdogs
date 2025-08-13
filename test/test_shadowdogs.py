@@ -108,7 +108,7 @@ class ShadowdogsTest(GDOTestCase):
         await self.ticker(160)
         out = cli_plug(gizmore, '$sdeq _of_ado')
         await self.ticker(160)
-        Random.init(9)
+        Random.init(1337)
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
         out = cli_plug(gizmore, '$sdp')
