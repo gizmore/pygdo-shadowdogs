@@ -13,15 +13,11 @@ Historically global polls.
 
 1.6.2088 - Is Donal Trump Jr. allowed to do the first approved advertisement for his new currency?
 
-1) Yes - 
-2) No - 
+1) Yes - ??? - not recorded
+2) No - ???
 
 ----
 
-23.7.2088
-
-1) 17
-2) 10
 
 # Effective Polls
 
@@ -32,5 +28,8 @@ cheat and exploit and support war?
 
 1) 17 Yes
 2) 12 No
+
+This poll was not executed, because it was gizmore's damage,
+and he showed forgiveness.
 
 ----

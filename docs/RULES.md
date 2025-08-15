@@ -147,7 +147,9 @@ Their [Story](./STORY.md) will be told in Shadowdogs.
 ESL is a state of freedom.
 
 - You can be what you want.
+- You can become what you want.
 - You can go where you want.
+- You can leave when you want.
 - You can eat what you want.
 - You can sleep when you want.
 - You can drink what you want.
@@ -155,6 +157,7 @@ ESL is a state of freedom.
 - You can say what you want.
 - You can think what you want.
 - You can laugh when you want.
+- You can learn what you want.
 
 
 #### Advertising
