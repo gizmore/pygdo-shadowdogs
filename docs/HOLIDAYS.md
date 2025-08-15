@@ -280,6 +280,6 @@ The geeks shall inherit the properties and methods of object earth.
 
 On this day we celebrate a reduction in world wide debt.
 One important step in publishing Trump's new Nayen.
-One step in forgivness and throwing the keys of revenge and might into the seas of the keepers.
+One step in forgiveness and throwing the keys of revenge and might into the seas of the keepers.
 
 
