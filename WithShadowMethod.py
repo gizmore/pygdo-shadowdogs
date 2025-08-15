@@ -50,6 +50,10 @@ class WithShadowMethod(WithShadowFunc):
         from gdo.shadowdogs.engine.World import World
         if not hasattr(self, '_player'):
             self.player(World.get_player_for_user(user))
+        if self.sd_requires_player():
+            if not self.get_player():
+                self.err('err_sd_player_required')
+                return False
         if klass := self.sd_requires_item_klass():
             found = False
             for itm in self._player.all_equipment():
@@ -58,10 +62,6 @@ class WithShadowMethod(WithShadowFunc):
                     break
             if not found:
                 self.err('err_sd_item_klass_required', (klass, ))
-                return False
-        if self.sd_requires_player():
-            if not self.get_player():
-                self.err('err_sd_player_required')
                 return False
         if self.sd_is_item_specific():
             if not self.gdo_trigger() in self.get_player().get_sd_methods():

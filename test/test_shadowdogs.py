@@ -4,6 +4,8 @@ import unittest
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import Random
+from gdo.core.GDO_User import GDO_User
+from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
 from gdo.table.module_table import module_table
@@ -13,6 +15,10 @@ from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, c
 class ShadowdogsTest(GDOTestCase):
 
     TICKS: int = 0
+
+    async def ticker_for(self, user: 'GDO_User'=None):
+        user = user or cli_gizmore()
+        await self.ticker(Shadowdogs.USERMAP[user.get_id()].get_busy_seconds()+1)
 
     async def ticker(self, ticks: int=1):
         for i in range(0, ticks-1):
@@ -94,6 +100,9 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('vault', out, 'movr#2 does not work.')
 
     async def test_02_info(self):
+        cli_plug(cli_gizmore(), '$sdenable')
+        out = cli_plug(cli_gizmore(), '$sdi')
+        self.assertIn('start the game', out, 'Player check not working')
         gizmore = self.fresh_gizmore()
         out = cli_plug(gizmore, '$sds')
         self.assertIn('kg', out, 'status does not work.')
@@ -101,7 +110,7 @@ class ShadowdogsTest(GDOTestCase):
     async def test_03_explore(self):
         gizmore = self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdeq Shir')
-        await self.ticker(160)
+        await self.ticker_for()
         out = cli_plug(gizmore, '$sdeq Sand')
         await self.ticker(160)
         out = cli_plug(gizmore, '$sdeq Jean')
