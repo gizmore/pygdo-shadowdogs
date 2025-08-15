@@ -1,6 +1,5 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
-from gdo.base.Method import Method
 from gdo.base.Trans import t
 from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_AutoInc import GDT_AutoInc
@@ -17,6 +16,7 @@ from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.attr.Attribute import Attribute
+from gdo.shadowdogs.attr.Luck import Luck
 from gdo.shadowdogs.attr.Magic import Magic
 from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.engine.Modifier import Modifier
@@ -111,7 +111,7 @@ class SD_Player(WithShadowFunc, GDO):
 
     def reset_modified(self):
         self.modified.update({
-            'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0,
+            'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0, 'p_luc': 0,
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
             'p_max_hp': 0, 'p_max_mp': 0,
@@ -179,6 +179,7 @@ class SD_Player(WithShadowFunc, GDO):
             Intelligence('p_int'),
             Wisdom('p_wis'),
             Charisma('p_cha'),
+            Luck('p_luc'),
 
             Aim('p_aim'),
             Fight('p_fig'),
@@ -373,8 +374,8 @@ class SD_Player(WithShadowFunc, GDO):
         return self
 
     async def digesting(self):
-        self.increment('p_hunger', -1)
-        self.increment('p_thirst', -2)
+        self.increment('p_hunger', -Shadowdogs.FOOD_PER_TICK)
+        self.increment('p_thirst', -Shadowdogs.WATER_PER_TICK)
         self.set_value('p_hunger', max(0, self.gdo_value('p_hunger')))
         self.set_value('p_thirst', max(0, self.gdo_value('p_thirst')))
         dmg = 0
