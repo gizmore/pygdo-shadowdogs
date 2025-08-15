@@ -201,6 +201,7 @@ class items:
 
         'Ring':               {'klass': 'Ring',        'level':  3, 'weight':  10, 'marm': 1},
         'RingOfTruth':        {'klass': 'Ring',        'level': 12, 'weight':  12, 'max_hp': 2},
+        'RingOfFire':         {'klass': 'Ring',        'level': 16, 'weight':  12, 'strength': 1, 'attack': 3},
         'WeddingRing':        {'klass': 'WeddingRing', 'level': 20, 'weight':  25},
 
         'Pen':                {'klass': 'Pen',         'weight':  20},
