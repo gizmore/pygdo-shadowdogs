@@ -210,8 +210,10 @@ class items:
         'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500},
         'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200},
 
-        'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 400},
-        'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 300},
+        'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 333, 'price': 3, 'thirst': 15},
+        'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 200, 'price': 5, 'thirst': 10},
+        'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436, 'price': 6, 'hunger': 10, 'thirst': -3},
+        'Water':              {'klass': 'Consumable',  'level':  1, 'weight': 1500, 'price': 10, 'thirst': 50},
 
         'CyberEye':           {'klass': 'Implant',     'level':  6, 'weight': 100, 'marm': 0, 'farm': 0},
         'NeuralLink':         {'klass': 'Implant',     'level':  8, 'weight':  80, 'marm': 0, 'farm': 0},
