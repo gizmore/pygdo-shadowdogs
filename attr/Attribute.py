@@ -12,4 +12,5 @@ class Attribute(Modifier):
         'p_int',
         'p_wis',
         'p_cha',
+        'p_luc',
     ]
