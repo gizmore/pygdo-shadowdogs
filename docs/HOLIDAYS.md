@@ -274,5 +274,12 @@ So, like Boz from [Slayradio](https://www.slayradio.org/home.php#staff) says: Wa
 The geeks shall inherit the properties and methods of object earth.
 
 
-## 
+## RePayment Day
+
+ - 15.Aug
+
+On this day we celebrate a reduction in world wide debt.
+One important step in publishing Trump's new Nayen.
+One step in forgivness and throwing the keys of revenge and might into the seas of the keepers.
+
 

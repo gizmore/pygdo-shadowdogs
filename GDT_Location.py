@@ -24,7 +24,7 @@ class GDT_Location(WithPlayerGDO, GDT_Object):
         self._city = None
 
     def get_place(self) -> 'SD_Place':
-        return self._gdo
+        return self.get_value()
 
     # def gdo(self, gdo: GDO):
     #     super().gdo(gdo)
