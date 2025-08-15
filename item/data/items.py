@@ -16,6 +16,7 @@ if TYPE_CHECKING:
 class items:
 
     ITEMS = {
+        # Melee
         'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et': 15, 'rng': 1,  'weight':   200,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':     150},
         'Bronze Knuckles':    {'klass': 'Fists',   'level':  2, 'at': 59, 'et': 15, 'rng': 1,  'weight':   538,  'attack':  5, 'defense': 1, 'min_dmg':  2, 'max_dmg':  6, 'price':     450},
         'Steel Knuckles':     {'klass': 'Fists',   'level':  3, 'at': 58, 'et': 15, 'rng': 1,  'weight':   876,  'attack':  5, 'defense': 1, 'min_dmg':  4, 'max_dmg':  8, 'price':     950},
@@ -246,6 +247,43 @@ class items:
         'OblivionCrown':      {'klass': 'Helmet',  'level': 29, 'et': 80, 'weight':  972, 'defense': 11, 'marm': 5, 'farm': 6, 'price':   11020},
         'NovaCrest':          {'klass': 'Helmet',  'level': 30, 'et': 64, 'weight': 1267, 'defense': 12, 'marm':  1, 'farm':11, 'price':   11700},
 
+        'RingOfFire':         {'klass': 'Ring',        'level': 17, 'weight':  17, 'str': 2, 'attack': 4},
+        'RingOfWind':         {'klass': 'Ring',        'level': 18, 'weight':  17, 'int': 2, 'cha': 2, 'wis': 1},
+
+        # rings
+        'PlasticBand':         {'klass': 'Ring',          'level':  0, 'weight':   6, 'defense': 0, 'marm': 0, 'farm': 0, 'price':     20},   # effect: cosmetic; no gameplay bonus
+        'CopperLoop':          {'klass': 'Ring',          'level':  1, 'weight':   8, 'defense': 0, 'marm': 0, 'farm': 0, 'price':     50},   # effect: +1% vendor_buy on components
+        'SteelBand':           {'klass': 'Ring',          'level':  2, 'weight':  10, 'defense': 0, 'marm': 0, 'farm': 0, 'price':    120},   # effect: -2% fast_travel_cost
+        'Ring':                {'klass': 'Ring',          'level':  3, 'weight':  10, 'defense': 0, 'marm': 1, 'farm': 0, 'price':    300},   # effect: +1% rare_loot_chance
+        'SignetRing':          {'klass': 'Ring',          'level':  4, 'weight':  12, 'defense': 0, 'marm': 1, 'farm': 0, 'price':    600},   # effect: +2% mission_payout
+        'LuckyBand':           {'klass': 'Ring',          'level':  5, 'weight':   9, 'defense': 0, 'marm': 0, 'farm': 1, 'price':    900},   # effect: +1% crit_chance (clamped with weapon caps)
+        'CourierSignet':       {'klass': 'Ring',          'level':  6, 'weight':  11, 'defense': 0, 'marm': 0, 'farm': 1, 'price':   1300},   # effect: +5 inventory_slots (stash only, not carry)
+        'MechanicBand':        {'klass': 'Ring',          'level':  7, 'weight':  13, 'defense': 0, 'marm': 1, 'farm': 1, 'price':   1800},   # effect: -5% repair_cost
+        'MedtechLoop':         {'klass': 'Ring',          'level':  8, 'weight':   8, 'defense': 0, 'marm': 1, 'farm': 0, 'price':   2400},   # effect: +15% medkit_heal
+        'QuietStepRing':       {'klass': 'Ring',          'level':  9, 'weight':   7, 'defense': 0, 'marm': 0, 'farm': 1, 'price':   3100},   # effect: -5% encounter_rate while carrying hot items (no laundering)
+        'KnuckleGuard':        {'klass': 'Ring',          'level': 10, 'weight':  15, 'defense': 1, 'marm': 0, 'farm': 1, 'price':   3900},   # effect: -5% recoil/spread on SMGs
+        'BruteSeal':           {'klass': 'Ring',          'level': 11, 'weight':  16, 'defense': 1, 'marm': 0, 'farm': 1, 'price':   4800},   # effect: +2% melee_damage
+        'RingOfTruth':         {'klass': 'Ring',          'level': 12, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'price':   6000, 'max_hp': 2},   # effect: +2 max_hp (flat)
+        'QuartermasterSeal':   {'klass': 'Ring',          'level': 13, 'weight':  14, 'defense': 0, 'marm': 1, 'farm': 1, 'price':   7500},   # effect: +10% ammo_from_crates
+        'BackdoorSignet':      {'klass': 'Ring',          'level': 14, 'weight':  10, 'defense': 0, 'marm': 0, 'farm': 1, 'price':   9100},   # effect: +8% hack_speed (synergy with Backdoor/Rootkit.exe)
+        'NetrunnerLoop':       {'klass': 'Ring',          'level': 15, 'weight':   9, 'defense': 0, 'marm': 0, 'farm': 1, 'price':  10800},   # effect: +1 hac_slot (if deck present)
+        'AdrenalineBand':      {'klass': 'Ring',          'level': 16, 'weight':  11, 'defense': 0, 'marm': 1, 'farm': 1, 'price':  12600},   # effect: +5% move_speed for 5s after kill (cd 15s)
+        'StabilizerRing':      {'klass': 'Ring',          'level': 17, 'weight':  12, 'defense': 0, 'marm': 1, 'farm': 1, 'price':  14700},   # effect: -10% aim_punch / flinch
+        'PulseSyncRing':       {'klass': 'Ring',          'level': 18, 'weight':  13, 'defense': 0, 'marm': 1, 'farm': 1, 'price':  17000},   # effect: +5% reload_speed
+        'WardLoop':            {'klass': 'Ring',          'level': 19, 'weight':  14, 'defense': 1, 'marm': 1, 'farm': 1, 'price':  19600},   # effect: +10% status_resist (stun/bleed/gas)
+        'WeddingRing':         {'klass': 'WeddingRing',   'level': 20, 'weight':  25, 'defense': 0, 'marm': 0, 'farm': 0, 'price':  22500},   # effect: bonded: +1% xp & nuyen when teamed with partner
+        'AegisRing':           {'klass': 'Ring',          'level': 21, 'weight':  16, 'defense': 1, 'marm': 1, 'farm': 1, 'price':  25700},   # effect: +50 temp_shield out of combat (regen; cd 60s)
+        'ShadowBond':          {'klass': 'Ring',          'level': 22, 'weight':  10, 'defense': 0, 'marm': 1, 'farm': 2, 'price':  29200},   # effect: -10% heat_from_hot_items (can’t make them sellable)
+        'OmniPass':            {'klass': 'Ring',          'level': 23, 'weight':  11, 'defense': 0, 'marm': 0, 'farm': 2, 'price':  33000},   # effect: -15% fast_travel_cost
+        'PhaseBand':           {'klass': 'Ring',          'level': 24, 'weight':   9, 'defense': 0, 'marm': 2, 'farm': 1, 'price':  37100},   # effect: 1% chance ignore_incoming_hit (cd 60s)
+        'TitanBand':           {'klass': 'Ring',          'level': 25, 'weight':  18, 'defense': 1, 'marm': 1, 'farm': 1, 'price':  41600},   # effect: +10% carry_capacity
+        'NeuroLinkRing':       {'klass': 'Ring',          'level': 26, 'weight':   8, 'defense': 0, 'marm': 1, 'farm': 2, 'price':  46500},   # effect: +5% scan_speed & +2% hack_success
+        'GravClampRing':       {'klass': 'Ring',          'level': 27, 'weight':  19, 'defense': 1, 'marm': 2, 'farm': 1, 'price':  51800},   # effect: +15% climb_speed; -5% fall_damage
+        'EchoRing':            {'klass': 'Ring',          'level': 28, 'weight':  12, 'defense': 0, 'marm': 2, 'farm': 1, 'price':  57600},   # effect: +15m enemy_ping_range (synergy with NMap.exe)
+        'WardenSignet':        {'klass': 'Ring',          'level': 29, 'weight':  17, 'defense': 1, 'marm': 2, 'farm': 2, 'price':  63900},   # effect: +5% armor_effectiveness
+        'OblivionSeal':        {'klass': 'Ring',          'level': 30, 'weight':  20, 'defense': 1, 'marm': 2, 'farm': 2, 'price':  70700},   # effect: +5% payouts & -5% upkeep; unique_equip=1
+
+
 
         '5mm':                {'klass': 'Ammo',    'level':  2, 'weight':  20},
         '7mm':                {'klass': 'Ammo',    'level':  2, 'weight':  25},
@@ -256,11 +294,6 @@ class items:
         'RPG':                {'klass': 'Ammo',    'level': 20, 'weight': 750},
         'EnergyCell':         {'klass': 'Ammo',    'level': 24, 'weight':1180},
         'RailSlug':           {'klass': 'Ammo',    'level': 30, 'weight': 350},
-
-        'Ring':               {'klass': 'Ring',        'level':  3, 'weight':  10, 'marm': 1},
-        'RingOfTruth':        {'klass': 'Ring',        'level': 12, 'weight':  12, 'max_hp': 2},
-        'RingOfFire':         {'klass': 'Ring',        'level': 16, 'weight':  12, 'strength': 1, 'attack': 3},
-        'WeddingRing':        {'klass': 'WeddingRing', 'level': 20, 'weight':  25},
 
         'Pen':                {'klass': 'Pen',         'weight':  20},
         'MobilePhone':        {'klass': 'MobilePhone', 'weight': 488},
