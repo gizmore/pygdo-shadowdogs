@@ -2,7 +2,6 @@ from gdo.base.ResultArray import ResultArray
 from gdo.base.Result import Result
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.WithShadowMethod import WithShadowMethod
-from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.table.MethodTable import MethodTable
 
 

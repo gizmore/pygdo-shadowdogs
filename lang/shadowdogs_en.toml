@@ -27,6 +27,21 @@ sd___seeker = "The Seekers are the children of the stars, following the constell
 sd_i_aegis = "⚔️"
 sd___aegis = "Forged in blood and steel, the Aegis Pact was born from the fury of endless battlefields. Their warriors are bound by honor, their forges glow with the fires of conquest. They believe that only through strength can the world be remade. Yet the same iron that binds them also shackles them—if their fury turns inward, their empire of might could crumble, consumed by its own hunger for war."
 
+##############
+# Attributes #
+##############
+msg_sd_attributes = "Your attributes: %s."
+
+p_bod = "Body"
+p_mag = "Magic"
+p_str = "Strength"
+p_qui = "Quickness"
+p_dex = "Dexterity"
+p_int = "Intelligence"
+p_wis = "Wisdom"
+p_cha = "Charisma"
+p_luc = "Luck"
+
 
 ###########
 # Actions #

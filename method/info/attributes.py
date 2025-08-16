@@ -8,12 +8,16 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 class attributes(MethodSD):
 
     @classmethod
+    def gdo_trigger(cls) -> str:
+        return "sdattributes"
+
+    @classmethod
     def gdo_trig(cls) -> str:
         return "sdat"
 
-    def sd_execute(self):
+    async def sd_execute(self):
         attrs = []
         player = self.get_player()
         for key in Attribute.ATTRIBUTES:
-            attrs.append("%s: %d(%d)" % (key[2:], player.gb(key), player.g(key)))
+            attrs.append("%s: %d(%d)" % (t(key), player.gb(key), player.g(key)))
         return GDT_String('attributes').val(t('msg_sd_attributes', (", ".join(attrs),)))
