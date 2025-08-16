@@ -80,6 +80,17 @@ class items:
         'Disruptor Cannon':   {'klass': 'Firearm', 'level': 29, 'at': 30, 'et': 55, 'rng': 30, 'weight': 28400,  'attack': 34, 'defense':10, 'min_dmg':220, 'max_dmg':250, 'price':  505100,   'ammo': 'EnergyCell', 'mag_size':  5},
         'Omega Railcannon':   {'klass': 'Firearm', 'level': 30, 'at': 30, 'et': 60, 'rng': 30, 'weight': 30000,  'attack': 35, 'defense':12, 'min_dmg':250, 'max_dmg':250, 'price':  540500,   'ammo': 'RailSlug',   'mag_size':  1},
 
+        # Ammo
+        '5mm':                {'klass': 'Ammo',    'level':  2, 'weight':  20},
+        '7mm':                {'klass': 'Ammo',    'level':  2, 'weight':  25},
+        '9mm':                {'klass': 'Ammo',    'level':  3, 'weight':  45},
+        '40mm':               {'klass': 'Ammo',    'level':  3, 'weight': 155},
+        '12g':                {'klass': 'Ammo',    'level':  5, 'weight': 500},
+        '45ACP':              {'klass': 'Ammo',    'level':  6, 'weight': 180},
+        'RPG':                {'klass': 'Ammo',    'level': 20, 'weight': 750},
+        'EnergyCell':         {'klass': 'Ammo',    'level': 24, 'weight':1180},
+        'RailSlug':           {'klass': 'Ammo',    'level': 30, 'weight': 350},
+
         # armor
         'TShirt':                 {'klass': 'Armor',   'level':  0, 'et': 40, 'weight':   250,  'marm':  0, 'farm':  0, 'price':      10},
         'Clothes':                {'klass': 'Armor',   'level':  0, 'et': 50, 'weight':   750,  'marm':  1, 'farm':  0, 'price':      40},
@@ -314,18 +325,7 @@ class items:
         'KismetMedal':            {'klass': 'Amulet', 'level': 28, 'weight':  31, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 16, 'max_stam': 60, 'stam_regen': 2, 'crit': 3, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 3, 'carry':  0, 'loot': 4, 'heal_amp':  6, 'ooc_patch':  0, 'price': 2300000},  # fortune aura: tiny party luck?
         'MarshalBadge':           {'klass': 'Amulet', 'level': 29, 'weight':  38, 'defense': 3, 'marm': 2, 'farm': 2, 'max_hp': 17, 'max_stam': 62, 'stam_regen': 3, 'crit': 0, 'evade': 3, 'hack': 0, 'stealth': 0, 'xp': 4, 'carry':  0, 'loot': 1, 'heal_amp':  4, 'ooc_patch':  0, 'price': 3100000},  # +guard reputation; -heat gain?
         'OblivionPhylactery':     {'klass': 'Amulet', 'level': 30, 'weight':  25, 'defense': 2, 'marm': 2, 'farm': 2, 'max_hp': 20, 'max_stam': 70, 'stam_regen': 3, 'crit': 4, 'evade': 4, 'hack': 4, 'stealth': 4, 'xp': 5, 'carry': 10, 'loot': 4, 'heal_amp': 15, 'ooc_patch': 10, 'price': 5000000},  # once/day cheat-death at 10% HP (unique)
-
-
-        # Ammo
-        '5mm':                {'klass': 'Ammo',    'level':  2, 'weight':  20},
-        '7mm':                {'klass': 'Ammo',    'level':  2, 'weight':  25},
-        '9mm':                {'klass': 'Ammo',    'level':  3, 'weight':  45},
-        '40mm':               {'klass': 'Ammo',    'level':  3, 'weight': 155},
-        '12g':                {'klass': 'Ammo',    'level':  5, 'weight': 500},
-        '45ACP':              {'klass': 'Ammo',    'level':  6, 'weight': 180},
-        'RPG':                {'klass': 'Ammo',    'level': 20, 'weight': 750},
-        'EnergyCell':         {'klass': 'Ammo',    'level': 24, 'weight':1180},
-        'RailSlug':           {'klass': 'Ammo',    'level': 30, 'weight': 350},
+        'LionessAmulet':          {'klass': 'Amulet', 'level': 5, 'weight': 32, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
 
         'Pen':                {'klass': 'Pen',         'weight':  20},
         'MobilePhone':        {'klass': 'MobilePhone', 'weight': 488},
@@ -339,9 +339,39 @@ class items:
         'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 10, 'ef': {'thirst': 90}},
         'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 10, 'ef': {'thirst': 30}},
 
-        'CyberEye':           {'klass': 'Implant',     'level':  6, 'weight': 100, 'marm': 0, 'farm': 0},
-        'NeuralLink':         {'klass': 'Implant',     'level':  8, 'weight':  80, 'marm': 0, 'farm': 0},
+        # implants
+        'Neural Jack-Lite':    {'klass': 'Implant', 'level':  1, 'int': 1, 'cpu': 1, 'price':     1200},
+        'CyberEye I':          {'klass': 'Implant', 'level':  2, 'aim': 1, 'price':     1800},
+        'Dermal Weave I':      {'klass': 'Implant', 'level':  3, 'marm': 1, 'max_hp': 1, 'price':     2600},
+        'Muscle Wire I':       {'klass': 'Implant', 'level':  4, 'str': 1, 'price':     3400},
+        'Reflex Booster I':    {'klass': 'Implant', 'level':  5, 'dex': 1, 'qui': 1, 'price':     4300},
+        'CyberEye II':         {'klass': 'Implant', 'level':  6, 'aim': 2, 'price':     5600},
+        'Dermal Weave II':     {'klass': 'Implant', 'level':  7, 'marm': 2, 'max_hp': 1, 'price':     7200},
+        'NeuralLink I':        {'klass': 'Implant', 'level':  8, 'hac': 1, 'int': 1, 'cpu': 1, 'mcpu':  5, 'price':     9000},
+        'Bone Lacing I':       {'klass': 'Implant', 'level':  9, 'marm': 1, 'farm': 1, 'max_hp': 2, 'str': 1, 'price':    11200},
+        'Targeting Optics I':  {'klass': 'Implant', 'level': 10, 'aim': 3, 'dex': 1, 'price':    14000},
+        'Dermal Plating I':    {'klass': 'Implant', 'level': 11, 'marm': 3, 'farm': 1, 'max_hp': 2, 'price':    17200},
+        'CyberEye III':        {'klass': 'Implant', 'level': 12, 'aim': 3, 'dex': 1, 'price':    20800},
+        'Reflex Booster II':   {'klass': 'Implant', 'level': 13, 'dex': 2, 'qui': 2, 'price':    24800},
+        'Muscle Wire II':      {'klass': 'Implant', 'level': 14, 'max_hp': 1, 'str': 2, 'price':    29200},
+        'Subdermal Mesh':      {'klass': 'Implant', 'level': 15, 'marm': 4, 'farm': 2, 'max_hp': 3, 'price':    34000},
+        'Tactical HUD':        {'klass': 'Implant', 'level': 16, 'aim': 4, 'hac': 1, 'dex': 1, 'int': 1, 'cpu': 1, 'price':    39200},
+        'Neural Co-Processor': {'klass': 'Implant', 'level': 17, 'hac': 2, 'int': 2, 'cpu': 1, 'mcpu':  5, 'price':    44800},
+        'Dermal Plating II':   {'klass': 'Implant', 'level': 18, 'marm': 5, 'farm': 3, 'max_hp': 3, 'price':    50800},
+        'Eagle Eye Suite':     {'klass': 'Implant', 'level': 19, 'aim': 5, 'dex': 1, 'qui': 1, 'price':    57200},
+        'Titanium Lacing':     {'klass': 'Implant', 'level': 20, 'marm': 6, 'farm': 4, 'max_hp': 5, 'str': 1, 'price':    64000},
+        'Synaptic Accelerator': {'klass': 'Implant', 'level': 21, 'aim': 1, 'dex': 3, 'qui': 3, 'price':    71200},
+        'NeuralLink Pro':       {'klass': 'Implant', 'level': 22, 'hac': 3, 'int': 3, 'cpu': 2, 'mcpu': 10, 'price':    78800},
+        'Reactive Dermis':      {'klass': 'Implant', 'level': 23, 'marm': 7, 'farm': 5, 'max_hp': 5, 'price':    86800},
+        'Ghost Optics':         {'klass': 'Implant', 'level': 24, 'aim': 6, 'dex': 2, 'qui': 1, 'price':    95200},
+        'Warplate Underlay':    {'klass': 'Implant', 'level': 25, 'marm': 9, 'farm': 7, 'max_hp': 8, 'str': 2, 'price': 1200000},
+        'Omega Eye':            {'klass': 'Implant', 'level': 26, 'aim': 8, 'dex': 2, 'qui': 1, 'price': 1600000},
+        'Titan Lacing':         {'klass': 'Implant', 'level': 27, 'marm':11, 'farm': 8, 'max_hp':10, 'str': 3, 'price': 2100000},
+        'Neural Overclock':     {'klass': 'Implant', 'level': 28, 'hac': 4, 'int': 4, 'cpu': 3, 'mcpu': 20, 'dex': 1, 'price': 2800000},
+        'Phase Dermis':         {'klass': 'Implant', 'level': 29, 'marm':12, 'farm':10, 'max_hp':12, 'price': 3600000},
+        'GodSight Array':       {'klass': 'Implant', 'level': 30, 'aim':10, 'hac': 2, 'dex': 3, 'qui': 3, 'int': 2, 'cpu': 1, 'mcpu': 10, 'max_hp': 6, 'marm': 2, 'farm': 2, 'price': 4800000},
 
+        # Decks
         'RhinoDeck':          {'klass': 'Deck',        'level':  1, 'weight':  500, 'mcpu':  6},
         'UserDeck':           {'klass': 'Deck',        'level':  5, 'weight':  600, 'mcpu':  9},
         'ControlDeck':        {'klass': 'Deck',        'level':  8, 'weight': 1200, 'mcpu': 50},
