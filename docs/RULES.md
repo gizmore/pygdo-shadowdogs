@@ -48,8 +48,9 @@ In case of spam, you may mute another player for yourself.
  - It is forbidden to harm others. You risk your brain.
  - Thoughts are free, but Alice is allowed to read every one.
  - It is forbidden to lie to the council.
- - Nobody may alter this document without an effective Poll.
+ - **Noone** may alter this document without an effective Poll.
 The alteration has to be part of the poll question.
+ - Global Polls may be used to block an effective poll. The citizens have a veto.
 
 
 ##### Government
