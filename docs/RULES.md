@@ -74,7 +74,7 @@ Another **5 votes** go to the animals.
 The insects, represented by the bees, the birds (ravens), the mammals (dogs), the fish (sharks) and the reptiles (alligators).
 
 Moreover, **5 votes** go the plants growing.
-The trees, the farn, the corals, the flowers and the herbs.
+The trees(Oak), the farn(Wheat), the corals(..err..Coral), the flowers(Orchid) and the herbs(Thyme).
 
 So in total there are **26 votes** for a perfect balance.
 15 votes are enough to make a decision...
@@ -97,6 +97,9 @@ totalling 44 which requires 23 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes**.
+Interstingly, after a few month,
+the diagonal winds agreed to not to be able to vote,
+but wanted keep their assisting roles in the council.
 
 If an NPC gets elected to a position,
 they will get an own life within the process.
