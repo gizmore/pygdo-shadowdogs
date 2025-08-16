@@ -21,16 +21,17 @@ class ShadowdogsTest(GDOTestCase):
         await self.ticker(Shadowdogs.USERMAP[user.get_id()].get_busy_seconds()+1)
 
     async def ticker(self, ticks: int=1):
+        print(f"{ticks} ticks pass buy.")
         for i in range(0, ticks-1):
             i = self.TICKS + i
             Application.TIME += 1
             await Application.EVENTS.update_timers(module_shadowdogs.instance().cfg_time())
-            if (i % Shadowdogs.SECONDS_PER_TICK) == 0:
-                await module_shadowdogs.instance().shadow_timer()
-            if (i % Shadowdogs.SECONDS_PER_HP_SLEEP) == 0:
-                await module_shadowdogs.instance().shadow_hp_timer()
-            if (i % Shadowdogs.SECONDS_PER_FOODING) == 0:
-                await module_shadowdogs.instance().shadow_food_timer()
+            # if (i % Shadowdogs.SECONDS_PER_TICK) == 0:
+            #     await module_shadowdogs.instance().shadow_timer()
+            # if (i % Shadowdogs.SECONDS_PER_HP_SLEEP) == 0:
+            #     await module_shadowdogs.instance().shadow_hp_timer()
+            # if (i % Shadowdogs.SECONDS_PER_FOODING) == 0:
+            #     await module_shadowdogs.instance().shadow_food_timer()
         self.TICKS += ticks
 
     def setUp(self):
@@ -60,6 +61,8 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('received Club_of_adonis', out, 'gmi does not work.')
         if equip:
             out = cli_plug(gizmore, '$sdeq 1')
+            await self.ticker_for()
+            out += cli_plug(gizmore, '$sdi')
             await self.ticker_for()
             out += cli_plug(gizmore, '$sdeq 1')
             await self.ticker_for()

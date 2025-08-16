@@ -24,7 +24,7 @@ class SD_Item(GDO):
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('item_id'),
-            GDT_Player('item_owner').humans().npcs().not_null().initial('1'),
+            GDT_Player('item_owner').humans().npcs().not_null().initial('1').cascade_delete(),
             GDT_Slot('item_slot').not_null().initial('nexus'),
             GDT_ItemName('item_name').not_null(),
             GDT_Modifiers('item_mods'),
@@ -34,6 +34,9 @@ class SD_Item(GDO):
             GDT_Created('item_created'),
             GDT_Index('item_owner_index').index_fields('item_owner'),
         ]
+
+    def __repr__(self):
+        return self.render_name()
 
     def get_owner(self) -> 'SD_Player':
         return self.gdo_value('item_owner')

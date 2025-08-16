@@ -41,7 +41,7 @@ class equip(MethodSD):
         if old_item := player.get_equip(itm.get_slot()):
             key = 'msg_sd_item_re_equip'
             time = old_item.itm().get_unequip_time()
-            Application.EVENTS.add_timer(time, partial(self.unequip, player, itm.get_slot()))
+            Application.EVENTS.add_timer_async(time, partial(self.unequip, player, itm.get_slot()))
             args.append(old_item.render_name())
         time += itm.get_equip_time()
         player.busy(time)

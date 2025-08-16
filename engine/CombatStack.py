@@ -65,7 +65,9 @@ class CombatStack(WithShadowFunc):
             self.busy(self.command.sd_combat_seconds())
         if self.command is None:
             return GDT_HTML()
-        return await self.command.sd_execute()
+        gdt = await self.command.sd_execute()
+        self.command = None
+        return gdt
 
     def is_busy(self) -> bool:
         return self.eta > self.get_time()

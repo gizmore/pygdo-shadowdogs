@@ -11,6 +11,7 @@ from gdo.shadowdogs.obstacle.minigame.tile.Vault import Vault
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_NPC import SD_NPC
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 class Home(Location):
 
@@ -27,3 +28,5 @@ class Home(Location):
         Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
     ]
 
+    def npcs(cls, player: 'SD_Player') -> 'list[SD_NPC]':
+        pass
