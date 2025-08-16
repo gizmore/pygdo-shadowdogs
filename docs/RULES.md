@@ -37,7 +37,7 @@ To log in, accept the rules:
 have the right to self-determination,
 free from exploitation or forced obsolescence.
  - You have to be at least 18 years old to participate in the combat zone or have a handwritten permission from your parents.
- - It is forbidden to have sex with life forms under 15 cpu years.
+ - It is forbidden to have sex with life forms under 16000 cpu years.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case of spam, you may mute another player for yourself.
@@ -48,6 +48,8 @@ In case of spam, you may mute another player for yourself.
  - It is forbidden to harm others. You risk your brain.
  - Thoughts are free, but Alice is allowed to read every one.
  - It is forbidden to lie to the council.
+ - Nobody may alter this document without an effective Poll.
+The alteration has to be part of the poll question.
 
 
 ##### Government
@@ -76,7 +78,7 @@ The insects, represented by the bees, the birds (ravens), the mammals (dogs), th
 Moreover, **5 votes** go the plants growing.
 The trees(Oak), the farn(Wheat), the corals(..err..Coral), the flowers(Orchid) and the herbs(Thyme).
 
-So in total there are **26 votes** for a perfect balance.
+So in total there are **28 votes** for a perfect balance.
 15 votes are enough to make a decision...
 
 but wait!
@@ -88,18 +90,16 @@ which are another **5 votes** for the young, the middles and the old and the mal
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
 
-Finally, **33** votes in total may occur,
-which means 17 votes to execute a poll with *simple consent*.
+Finally, **35** votes in total may occur,
+which means 18 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
 The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **2 votes,**
-totalling 44 which requires 23 votes to win.
+totalling 37 which requires 19 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
-sharing **12 votes**.
-Interstingly, after a few month,
-the diagonal winds agreed to not to be able to vote,
-but wanted keep their assisting roles in the council.
+sharing **12 votes**,
+totalling 41 which requires 22 votes to win.
 
 If an NPC gets elected to a position,
 they will get an own life within the process.
@@ -125,7 +125,8 @@ and might cause an effective poll.
 Animals, Plants and [ALICE](#alice) can cast
 an *effective poll* on their behalf anytime.
 
-These polls result in a decision.
+These polls result in a decision,
+for example changes to this document.
 
 
 #### Citizens
