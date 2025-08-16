@@ -45,7 +45,7 @@ class ShadowdogsTest(GDOTestCase):
         loader.init_cli()
         module_table.instance().save_config_val('table_ipp', '3')
 
-    def fresh_gizmore(self):
+    async def fresh_gizmore(self, equip: bool=True):
         gizmore = cli_gizmore()
         # channel = gizmore.get_server().get_or_create_channel('gizmore')
         out = cli_plug(gizmore, '$sdenable')
@@ -58,10 +58,22 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
         self.assertIn('received Club_of_adonis', out, 'gmi does not work.')
+        if equip:
+            out = cli_plug(gizmore, '$sdeq 1')
+            await self.ticker_for()
+            out += cli_plug(gizmore, '$sdeq 1')
+            await self.ticker_for()
+            out += cli_plug(gizmore, '$sdeq 1')
+            await self.ticker_for()
+            out += cli_plug(gizmore, '$sdeq 1')
+            await self.ticker_for()
+            out += cli_plug(gizmore, '$sdq')
+            await self.ticker_for()
+            self.assertIn('You use Jeans as your', out, 'gmq does not work.')
         return gizmore
 
     async def test_00_start(self):
-        gizmore = self.fresh_gizmore()
+        gizmore = await self.fresh_gizmore(False)
         out = cli_plug(gizmore, '$sdi')
         self.assertIn('page 1 of 2', out, '$sdi does not work.')
         out = cli_plug(gizmore, '$sdi 2')
@@ -81,7 +93,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('kills', out, 'attack does not work.')
 
     async def test_01_hack(self):
-        gizmore = self.fresh_gizmore()
+        gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmi gizmore{1} RhinoDeck')
         self.assertIn('received', out, 'gmi#1 does not work.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} Ping4.exe')
@@ -102,12 +114,14 @@ class ShadowdogsTest(GDOTestCase):
     async def test_02_info(self):
         cli_plug(cli_gizmore(), '$sdenable')
         out = cli_plug(cli_gizmore(), '$sdi')
-        self.assertIn('start the game', out, 'Player check not working')
-        gizmore = self.fresh_gizmore()
+        self.assertIn('sdstart first', out, 'Player check not working')
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(cli_gizmore(), '$sdi')
+        self.assertIn('nventory', out, '$sdi not working')
 
 
     async def test_03_eat(self):
-        gizmore = self.fresh_gizmore()
+        gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmi giz Sandwich')
         self.assertIn('receive', out, 'gmi does not work.')
         out = cli_plug(gizmore, '$sds')
@@ -117,9 +131,13 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sds')
         self.assertIn('fed', out, 'not hungry.')
 
+    async def test_05_combat1(self):
+        gizmore = await self.fresh_gizmore(True)
+        out = cli_plug(gizmore, '$sdgmt noob')
+        pass
 
     async def test_09_explore(self):
-        gizmore = self.fresh_gizmore()
+        gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdeq Shir')
         await self.ticker_for()
         out = cli_plug(gizmore, '$sdeq Sand')

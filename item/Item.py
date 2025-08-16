@@ -2,6 +2,7 @@ import functools
 from typing import TYPE_CHECKING, Iterator
 
 from gdo.base.GDO import GDO
+from gdo.base.GDT import GDT
 from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
@@ -93,12 +94,13 @@ class Item(WithShadowFunc):
             if key in player_keys:
                 player.apply(key, val)
                 yield key, val
-        for key, val in self._modifiers:
-            key = f"p_{key}"
-            if key in player_keys:
-                player.apply(key, val)
-                yield key, val
-        return self
+        if self._modifiers:
+            for key, val in self._modifiers.items():
+                key = f"p_{key}"
+                if key in player_keys:
+                    player.apply(key, val)
+                    yield key, val
+                return self
 
     def apply_inv(self, player: 'SD_Player'):
         if weight := self.dm('weight'):
