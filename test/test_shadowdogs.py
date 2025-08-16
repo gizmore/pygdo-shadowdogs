@@ -104,15 +104,18 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(cli_gizmore(), '$sdi')
         self.assertIn('start the game', out, 'Player check not working')
         gizmore = self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sds')
-        self.assertIn('kg', out, 'status does not work.')
+
 
     async def test_03_eat(self):
         gizmore = self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmi giz Sandwich')
         self.assertIn('receive', out, 'gmi does not work.')
+        out = cli_plug(gizmore, '$sds')
+        self.assertIn('fed', out, 'not hungry.')
         out = cli_plug(gizmore, '$sduse Sandwich')
         self.assertIn('consumed', out, 'gmi does not work.')
+        out = cli_plug(gizmore, '$sds')
+        self.assertIn('fed', out, 'not hungry.')
 
 
     async def test_09_explore(self):
