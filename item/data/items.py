@@ -247,9 +247,6 @@ class items:
         'OblivionCrown':      {'klass': 'Helmet',  'level': 29, 'et': 80, 'weight':  972, 'defense': 11, 'marm': 5, 'farm': 6, 'price':   11020},
         'NovaCrest':          {'klass': 'Helmet',  'level': 30, 'et': 64, 'weight': 1267, 'defense': 12, 'marm':  1, 'farm':11, 'price':   11700},
 
-        'RingOfFire':         {'klass': 'Ring',        'level': 17, 'weight':  17, 'str': 2, 'attack': 4},
-        'RingOfWind':         {'klass': 'Ring',        'level': 18, 'weight':  17, 'int': 2, 'cha': 2, 'wis': 1},
-
         # rings
         'PlasticBand':         {'klass': 'Ring',          'level':  0, 'weight':   6, 'defense': 0, 'marm': 0, 'farm': 0, 'price':     20},   # effect: cosmetic; no gameplay bonus
         'CopperLoop':          {'klass': 'Ring',          'level':  1, 'weight':   8, 'defense': 0, 'marm': 0, 'farm': 0, 'price':     50},   # effect: +1% vendor_buy on components
@@ -282,40 +279,8 @@ class items:
         'EchoRing':            {'klass': 'Ring',          'level': 28, 'weight':  12, 'defense': 0, 'marm': 2, 'farm': 1, 'price':  57600},   # effect: +15m enemy_ping_range (synergy with NMap.exe)
         'WardenSignet':        {'klass': 'Ring',          'level': 29, 'weight':  17, 'defense': 1, 'marm': 2, 'farm': 2, 'price':  63900},   # effect: +5% armor_effectiveness
         'OblivionSeal':        {'klass': 'Ring',          'level': 30, 'weight':  20, 'defense': 1, 'marm': 2, 'farm': 2, 'price':  70700},   # effect: +5% payouts & -5% upkeep; unique_equip=1
-
-        # amulets
-        'StringCharm':            {'klass': 'Amulet', 'level':  0, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 0,  'max_stam':  0, 'hp_regen': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'price':     25},   # cute junk
-        'TinLocket':              {'klass': 'Amulet', 'level':  1, 'weight':  18, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 1,  'max_stam':  0, 'hp_regen': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'price':    120},
-        'CopperTalisman':         {'klass': 'Amulet', 'level':  2, 'weight':  22, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 1,  'max_stam':  5, 'hp_regen': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 1, 'price':    260},
-        'FibreCordSigil':         {'klass': 'Amulet', 'level':  3, 'weight':   9, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 2,  'max_stam':  6, 'hp_regen': 0, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 1, 'xp': 0, 'carry':  0, 'loot': 0, 'price':    550},
-        'DogTagMk1':              {'klass': 'Amulet', 'level':  4, 'weight':  24, 'defense': 1, 'marm': 0, 'farm': 0, 'max_hp': 2,  'max_stam':  8, 'hp_regen': 0, 'stam_regen': 1, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 1, 'carry':  0, 'loot': 0, 'price':    900},
-        'StitchedRelic':          {'klass': 'Amulet', 'level':  5, 'weight':  15, 'defense': 0, 'marm': 1, 'farm': 0, 'max_hp': 3,  'max_stam': 10, 'hp_regen': 0, 'stam_regen': 1, 'crit': 1, 'evade': 0, 'hack': 0, 'stealth': 1, 'xp': 0, 'carry':  0, 'loot': 0, 'price':   1300},
-        'GraphitePendant':        {'klass': 'Amulet', 'level':  6, 'weight':  20, 'defense': 0, 'marm': 1, 'farm': 0, 'max_hp': 3,  'max_stam': 12, 'hp_regen': 1, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 1, 'stealth': 0, 'xp': 0, 'carry':  3, 'loot': 0, 'price':   1800},
-        'PilgrimToken':           {'klass': 'Amulet', 'level':  7, 'weight':  14, 'defense': 0, 'marm': 0, 'farm': 1, 'max_hp': 4,  'max_stam': 14, 'hp_regen': 0, 'stam_regen': 1, 'crit': 1, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 1, 'carry':  0, 'loot': 0, 'price':   2400},
-        'SealOfFirstAid':         {'klass': 'Amulet', 'level':  8, 'weight':  16, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 4,  'max_stam': 16, 'hp_regen': 1, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 1, 'price':   3100},
-        'CourierMedallion':       {'klass': 'Amulet', 'level':  9, 'weight':  28, 'defense': 1, 'marm': 0, 'farm': 0, 'max_hp': 5,  'max_stam': 18, 'hp_regen': 0, 'stam_regen': 2, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  5, 'loot': 0, 'price':   3900},
-        'KnuckleboneCharm':       {'klass': 'Amulet', 'level': 10, 'weight':  11, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 5,  'max_stam': 20, 'hp_regen': 0, 'stam_regen': 0, 'crit': 2, 'evade': 0, 'hack': 0, 'stealth': 1, 'xp': 0, 'carry':  0, 'loot': 0, 'price':   4800},
-        'ColdIronAnkh':           {'klass': 'Amulet', 'level': 11, 'weight':  36, 'defense': 1, 'marm': 1, 'farm': 0, 'max_hp': 6,  'max_stam': 22, 'hp_regen': 1, 'stam_regen': 0, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 1, 'price':   5800},
-        'NetrunnerGlyph':         {'klass': 'Amulet', 'level': 12, 'weight':  13, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 6,  'max_stam': 24, 'hp_regen': 0, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 2, 'stealth': 1, 'xp': 0, 'carry':  0, 'loot': 0, 'price':   7000},  # +deck synergy
-        'SmugglerToken':          {'klass': 'Amulet', 'level': 13, 'weight':  19, 'defense': 0, 'marm': 0, 'farm': 1, 'max_hp': 7,  'max_stam': 26, 'hp_regen': 0, 'stam_regen': 1, 'crit': 1, 'evade': 2, 'hack': 0, 'stealth': 1, 'xp': 0, 'carry':  5, 'loot': 0, 'price':   8400},
-        'HexglassPendant':        {'klass': 'Amulet', 'level': 14, 'weight':  10, 'defense': 0, 'marm': 1, 'farm': 0, 'max_hp': 7,  'max_stam': 28, 'hp_regen': 2, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 1, 'carry':  0, 'loot': 0, 'price':  10000},
-        'SaintedReliquary':       {'klass': 'Amulet', 'level': 15, 'weight':  21, 'defense': 1, 'marm': 1, 'farm': 0, 'max_hp': 8,  'max_stam': 30, 'hp_regen': 1, 'stam_regen': 1, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 2, 'carry':  0, 'loot': 0, 'price':  12000},
-        'PulseDriverCharm':       {'klass': 'Amulet', 'level': 16, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 8,  'max_stam': 32, 'hp_regen': 0, 'stam_regen': 2, 'crit': 1, 'evade': 0, 'hack': 1, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 1, 'price':  14000},
-        'WardenScarab':           {'klass': 'Amulet', 'level': 17, 'weight':  27, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 9,  'max_stam': 34, 'hp_regen': 1, 'stam_regen': 1, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 1, 'price':  16500},
-        'GhostLattice':           {'klass': 'Amulet', 'level': 18, 'weight':   8, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 9,  'max_stam': 36, 'hp_regen': 0, 'stam_regen': 2, 'crit': 0, 'evade': 2, 'hack': 0, 'stealth': 2, 'xp': 0, 'carry':  0, 'loot': 0, 'price':  19000},
-        'HazardRosary':           {'klass': 'Amulet', 'level': 19, 'weight':  34, 'defense': 2, 'marm': 1, 'farm': 1, 'max_hp':10,  'max_stam': 38, 'hp_regen': 0, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 1, 'carry':  0, 'loot': 0, 'price':  22000},
-        'PhoenixVial':            {'klass': 'Amulet', 'level': 20, 'weight':  17, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp':10,  'max_stam': 40, 'hp_regen': 2, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'price':  25500},  # once/day auto-revive at 1HP?
-        'ArchivistSeal':          {'klass': 'Amulet', 'level': 21, 'weight':  22, 'defense': 0, 'marm': 1, 'farm': 0, 'max_hp':11,  'max_stam': 42, 'hp_regen': 0, 'stam_regen': 2, 'crit': 0, 'evade': 0, 'hack': 2, 'stealth': 0, 'xp': 2, 'carry':  0, 'loot': 0, 'price':  29000},
-        'ScavengerCharm':         {'klass': 'Amulet', 'level': 22, 'weight':  13, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp':11,  'max_stam': 44, 'hp_regen': 0, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 3, 'price':  33000},
-        'AegisHex':               {'klass': 'Amulet', 'level': 23, 'weight':  26, 'defense': 2, 'marm': 1, 'farm': 1, 'max_hp':12,  'max_stam': 46, 'hp_regen': 1, 'stam_regen': 1, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'price':  37500},
-        'NullfieldCharm':         {'klass': 'Amulet', 'level': 24, 'weight':  16, 'defense': 0, 'marm': 0, 'farm': 2, 'max_hp':12,  'max_stam': 48, 'hp_regen': 0, 'stam_regen': 2, 'crit': 0, 'evade': 2, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'price':  42000},  # resist flash/gas?
-        'LoadbearingTotem':       {'klass': 'Amulet', 'level': 25, 'weight':  44, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp':13,  'max_stam': 50, 'hp_regen': 0, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 10, 'loot': 0, 'price':  47000},
-        'OverclockGlyph':         {'klass': 'Amulet', 'level': 26, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp':13,  'max_stam': 52, 'hp_regen': 1, 'stam_regen': 2, 'crit': 0, 'evade': 0, 'hack': 3, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'price':  52500},  # +deck hac cap?
-        'SilentshadeIcon':        {'klass': 'Amulet', 'level': 27, 'weight':   9, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp':14,  'max_stam': 54, 'hp_regen': 0, 'stam_regen': 2, 'crit': 0, 'evade': 3, 'hack': 0, 'stealth': 3, 'xp': 0, 'carry':  0, 'loot': 0, 'price':  58500},
-        'KismetMedal':            {'klass': 'Amulet', 'level': 28, 'weight':  31, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp':14,  'max_stam': 56, 'hp_regen': 1, 'stam_regen': 1, 'crit': 2, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 2, 'carry':  0, 'loot': 2, 'price':  76000},
-        'MarshalBadge':           {'klass': 'Amulet', 'level': 29, 'weight':  38, 'defense': 2, 'marm': 2, 'farm': 2, 'max_hp':15,  'max_stam': 58, 'hp_regen': 0, 'stam_regen': 2, 'crit': 0, 'evade': 2, 'hack': 0, 'stealth': 0, 'xp': 3, 'carry':  0, 'loot': 0, 'price':  86000},
-        'OblivionPhylactery':     {'klass': 'Amulet', 'level': 30, 'weight':  25, 'defense': 2, 'marm': 2, 'farm': 2, 'max_hp':16,  'max_stam': 60, 'hp_regen': 2, 'stam_regen': 2, 'crit': 2, 'evade': 2, 'hack': 2, 'stealth': 2, 'xp': 3, 'carry':  5, 'loot': 3, 'price':  98000},  # once/day cheat-death at 10% HP?
-
+        'RingOfFire':         {'klass': 'Ring',        'level': 17, 'weight':  17, 'str': 2, 'attack': 4},
+        'RingOfWind':         {'klass': 'Ring',        'level': 18, 'weight':  17, 'int': 2, 'cha': 2, 'wis': 1},
 
         # amulets
         'StringCharm':            {'klass': 'Amulet', 'level':  0, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp':  0, 'max_stam':  0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'heal_amp':  0, 'ooc_patch':  0, 'price':      25},   # cute junk
@@ -343,8 +308,6 @@ class items:
         'ScavengerCharm':         {'klass': 'Amulet', 'level': 22, 'weight':  13, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 11, 'max_stam': 44, 'stam_regen': 1, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 3, 'heal_amp':  0, 'ooc_patch':  0, 'price':   33000},
         'AegisHex':               {'klass': 'Amulet', 'level': 23, 'weight':  26, 'defense': 2, 'marm': 1, 'farm': 1, 'max_hp': 12, 'max_stam': 46, 'stam_regen': 1, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'heal_amp':  5, 'ooc_patch':  4, 'price':   37500},
         'NullfieldCharm':         {'klass': 'Amulet', 'level': 24, 'weight':  16, 'defense': 0, 'marm': 0, 'farm': 2, 'max_hp': 12, 'max_stam': 48, 'stam_regen': 2, 'crit': 0, 'evade': 2, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'heal_amp':  0, 'ooc_patch':  0, 'price':   42000},
-
-        # CRAZY-TIER TRINKETS — aspirational (1–5M¥). Strong, but no in-combat sustain exploits.
         'LoadbearingTotem':       {'klass': 'Amulet', 'level': 25, 'weight':  44, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 14, 'max_stam': 50, 'stam_regen': 2, 'crit': 0, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 2, 'carry': 25, 'loot': 0, 'heal_amp':  6, 'ooc_patch':  5, 'price': 1000000},  # mule meta; -5% encumbrance?
         'OverclockGlyph':         {'klass': 'Amulet', 'level': 26, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 14, 'max_stam': 56, 'stam_regen': 3, 'crit': 1, 'evade': 0, 'hack': 5, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'heal_amp':  8, 'ooc_patch':  0, 'price': 1300000},  # +deck cap, +hack success%
         'SilentshadeIcon':        {'klass': 'Amulet', 'level': 27, 'weight':   9, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp': 15, 'max_stam': 58, 'stam_regen': 3, 'crit': 0, 'evade': 4, 'hack': 0, 'stealth': 5, 'xp': 0, 'carry':  0, 'loot': 0, 'heal_amp':  5, 'ooc_patch':  4, 'price': 1700000},  # footstep dampening, sensor mask
@@ -353,6 +316,7 @@ class items:
         'OblivionPhylactery':     {'klass': 'Amulet', 'level': 30, 'weight':  25, 'defense': 2, 'marm': 2, 'farm': 2, 'max_hp': 20, 'max_stam': 70, 'stam_regen': 3, 'crit': 4, 'evade': 4, 'hack': 4, 'stealth': 4, 'xp': 5, 'carry': 10, 'loot': 4, 'heal_amp': 15, 'ooc_patch': 10, 'price': 5000000},  # once/day cheat-death at 10% HP (unique)
 
 
+        # Ammo
         '5mm':                {'klass': 'Ammo',    'level':  2, 'weight':  20},
         '7mm':                {'klass': 'Ammo',    'level':  2, 'weight':  25},
         '9mm':                {'klass': 'Ammo',    'level':  3, 'weight':  45},
@@ -369,10 +333,11 @@ class items:
         'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500},
         'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200},
 
-        'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 333, 'price': 3, 'thirst': 15},
-        'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 200, 'price': 5, 'thirst': 10},
-        'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436, 'price': 6, 'hunger': 10, 'thirst': -3},
-        'Water':              {'klass': 'Consumable',  'level':  1, 'weight': 1500, 'price': 10, 'thirst': 50},
+        'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 333,  'price': 3,  'ef': {'thirst': 15}},
+        'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 200,  'price': 5,  'ef': {'thirst': 10}},
+        'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 6,  'ef': {'thirst': -3, 'hunger': 25}},
+        'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 10, 'ef': {'thirst': 90}},
+        'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 10, 'ef': {'thirst': 30}},
 
         'CyberEye':           {'klass': 'Implant',     'level':  6, 'weight': 100, 'marm': 0, 'farm': 0},
         'NeuralLink':         {'klass': 'Implant',     'level':  8, 'weight':  80, 'marm': 0, 'farm': 0},

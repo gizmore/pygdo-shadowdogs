@@ -83,12 +83,22 @@ class Item(WithShadowFunc):
         return int(self.dm(field))
 
     def apply(self, player: 'SD_Player'):
+        list(self.apply_cb(player))
+        return self
+
+    def apply_cb(self, player: 'SD_Player'):
+        player_keys = player.modified.keys()
         for key, val in self.get_default_modifiers().items():
             key = f"p_{key}"
-            if key in player.modified.keys():
+            if key in player_keys:
                 player.apply(key, val)
-        if self._modifiers:
-            player.modify(self._modifiers)
+                yield key, val
+        for key, val in self._modifiers:
+            key = f"p_{key}"
+            if key in player_keys:
+                player.apply(key, val)
+                yield key, val
+        return self
 
     def apply_inv(self, player: 'SD_Player'):
         if weight := self.dm('weight'):

@@ -1,4 +1,4 @@
-from gdo.shadowdogs.item.classes.Sword import Sword
+from gdo.shadowdogs.item.classes.weapon.Sword import Sword
 
 
 class Firesword(Sword):
