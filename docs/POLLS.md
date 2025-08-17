@@ -33,3 +33,8 @@ This poll was not executed, because it was gizmore's damage,
 and he showed forgiveness.
 
 ----
+
+16.8.2088 - Shall global polls be able to block an effective (veto for citizens)
+
+1)  Yes
+2)  No
