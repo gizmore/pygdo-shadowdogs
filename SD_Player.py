@@ -1,3 +1,4 @@
+from gdo.base.Cache import Cache
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Trans import t
@@ -123,8 +124,10 @@ class SD_Player(WithShadowFunc, GDO):
             'p_level': 0,
         })
         return self
-        
-        
+
+    def gdo_table_name(cls) -> str:
+        return 'sd_player'
+
     def on_reload(self):
         super().on_reload()
 
@@ -492,7 +495,15 @@ class SD_Player(WithShadowFunc, GDO):
     # NPC #
     #######
     def as_real_class(self):
-        return self
+        from gdo.shadowdogs.npcs.npcs import npcs
+        if npc_klass := self.gdo_val('p_npc_class'):
+            npc = npcs.NPCS[npc_klass]['klass']()
+            npc._vals = self._vals
+            npc._blank = False
+            Cache.OCACHE[npc.get_id()] = npc
+            return npc.all_dirty(False)
+        else:
+            return self
 
     ##########
     # Render #

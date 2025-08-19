@@ -53,20 +53,21 @@ class GDT_ItemArg(GDT_String):
     def to_value(self, val: str):
         p = self.get_player()
         val = val.lower()
+        candidates = []
         if self._equipment:
-            candidates = []
             for slot in GDT_Slot.SLOTS:
                 if slot[2:4] == val[0:2]:
                     return p.gdo_value(slot)
                 if item := p.get_equip(slot):
                     if item.render_name().lower().index(val) >= 0:
                         candidates.append(item)
-            if len(candidates) == 1:
-                return candidates[0]
-            elif len(candidates) > 1:
-                raise ShadowdogsException('err_item_name_ambiguous')
         if self._inventory:
             if val[0].isdigit():
                 return p.inventory[int(val) - 1]
-            return p.inventory.get_by_abbrev(val)
-
+            candidates.extend(p.inventory.get_by_abbrev(val))
+        if self._store:
+            pass
+        if len(candidates) == 1:
+            return candidates[0]
+        elif len(candidates) > 1:
+            raise ShadowdogsException('err_item_name_ambiguous', (candidates.__str__(),))

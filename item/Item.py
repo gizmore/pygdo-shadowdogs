@@ -74,6 +74,19 @@ class Item(WithShadowFunc):
         yield from self.get_default_modifiers().items()
         yield from self._modifiers.items()
 
+    def all_player_modifiers(self) -> Iterator[tuple[str, int]]:
+        player = self.get_player()
+        player_keys = player.modified.keys()
+        for key, value in self.get_default_modifiers().items():
+            key = f"p_{key}"
+            if key in player_keys:
+                yield key, value
+        if self._modifiers:
+            for key, value in self._modifiers.items():
+                key = f"p_{key}"
+                if key in player_keys:
+                    yield key, value
+
     def g(self, field: str) -> int:
         return self.get_player().g(field)
 
@@ -88,19 +101,10 @@ class Item(WithShadowFunc):
         return self
 
     def apply_cb(self, player: 'SD_Player'):
-        player_keys = player.modified.keys()
-        for key, val in self.get_default_modifiers().items():
-            key = f"p_{key}"
-            if key in player_keys:
-                player.apply(key, val)
-                yield key, val
-        if self._modifiers:
-            for key, val in self._modifiers.items():
-                key = f"p_{key}"
-                if key in player_keys:
-                    player.apply(key, val)
-                    yield key, val
-                return self
+        for key, val in self.all_player_modifiers():
+            player.apply(key, val)
+            yield key, val
+        return self
 
     def apply_inv(self, player: 'SD_Player'):
         if weight := self.dm('weight'):

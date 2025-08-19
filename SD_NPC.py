@@ -6,9 +6,6 @@ from gdo.shadowdogs.SD_Player import SD_Player
 
 class SD_NPC(SD_Player):
 
-    def gdo_table_name(cls) -> str:
-        return 'sd_player'
-
     def is_npc(self) -> bool:
         return True
 
@@ -17,6 +14,9 @@ class SD_NPC(SD_Player):
 
     def get_name(self):
         return self.gdo_val('p_npc_name') + f"[{self.get_id()}]"
+
+    def render_name(self):
+        return self.get_name()
 
     def attack(self, target: SD_Player):
         pass

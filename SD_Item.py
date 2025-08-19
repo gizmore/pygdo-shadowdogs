@@ -44,8 +44,10 @@ class SD_Item(GDO):
     def to_value(self, val: str):
         return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_value('item_mods')).hot(self.is_hot()).duration(self.get_duration())
 
-    def itm(self) -> Item:
-        return self.to_value('') # not a bug
+    def itm(self) -> Item|None:
+        if item := self.to_value(''):
+            return item.player(self.get_owner())
+        return None
 
     def get_item_name(self) -> str:
         return self.gdo_val('item_name')

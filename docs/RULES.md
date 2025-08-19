@@ -36,11 +36,12 @@ To log in, accept the rules:
  - All sentient beings, biological or artificial,
 have the right to self-determination,
 free from exploitation or forced obsolescence.
- - You have to be at least 18 years old to participate in the combat zone or have a handwritten permission from your parents.
+ - You have to be at least 18 years old to participate in the combat zone,
+or have a handwritten permission from your parents.
  - It is forbidden to have sex with life forms under 16000 cpu years.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
-In case of spam, you may mute another player for yourself.
+In case of spam, you may mute the offending player for everyone.
  - It is forbidden to impersonate as others. You risk doxing and **other countermeasures**.
  - It is not allowed to spoil the game for others. The secrets have to be kept secret.
  - A corrupted game has to be repaired or erased.

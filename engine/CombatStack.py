@@ -40,7 +40,7 @@ class CombatStack(WithShadowFunc):
                     Random.mrand(2, max(Shadowdogs.SECONDS_INITIATIVE // (((1 + qui + fig) // 2) + 1), 8)))
 
     def get_default_command(self) -> MethodSD:
-        cmd = attack().player(self.get_player()).env_user(self.get_user(), True).env_server(self.get_user().get_server())
+        cmd = attack().player(self.get_player()) #.env_user(self.get_user(), True).env_server(self.get_user().get_server())
         ep = self.get_enemy_party()
         if self.last_target:
             pos = self.last_target.party_pos
