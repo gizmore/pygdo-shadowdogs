@@ -1,6 +1,6 @@
-from gdo.shadowdogs.npcs.Peine.Lazer import Lazer
+from gdo.shadowdogs.city.y2064.Peine.npcs.home.Lazer import Lazer
+from gdo.shadowdogs.city.y2064.Peine.npcs.home.Mom import Mom
 from gdo.shadowdogs.npcs.Mob import Mob
-from gdo.shadowdogs.npcs.Peine.Mom import Mom
 
 
 class npcs:

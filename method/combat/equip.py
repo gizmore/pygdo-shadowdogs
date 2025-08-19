@@ -13,11 +13,18 @@ from gdo.shadowdogs.item.Item import Item
 class equip(MethodSD):
 
     @classmethod
+    def gdo_trigger(cls) -> str:
+        return 'sdequip'
+
+    @classmethod
     def gdo_trig(cls) -> str:
         return 'sdeq'
 
     def sd_combat_seconds(self) -> int:
-        return self.get_item().get_equip_time()
+        try:
+            return self.get_item().get_equip_time()
+        except AttributeError:
+            return 0
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
@@ -29,7 +36,8 @@ class equip(MethodSD):
         return self.param_value('item')
 
     def get_item(self) -> Item:
-        return self.get_SD_Item().itm()
+        item = self.get_SD_Item()
+        return item.itm() if item else None
 
     async def sd_before_execute(self):
         player = self.get_player()

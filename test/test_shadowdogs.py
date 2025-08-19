@@ -27,7 +27,6 @@ class ShadowdogsTest(GDOTestCase):
             i = self.TICKS + i
             Application.TIME += 1
             await Application.EVENTS.update_timers(module_shadowdogs.instance().cfg_time())
-        # await asyncio.sleep(1)
         self.TICKS += ticks
 
     def setUp(self):
