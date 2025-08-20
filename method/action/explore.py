@@ -28,5 +28,5 @@ class explore(MethodSD):
     async def form_submitted(self):
         pa = self.get_party()
         city = self.get_city()
-        await pa.do(Action.EXPLORE, city.get_name(), city.get_explore_eta(pa))
+        await pa.do(Action.EXPLORE, city.get_location_key(), city.get_explore_eta(pa))
         return self.empty()
