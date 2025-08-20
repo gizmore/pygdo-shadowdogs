@@ -1,3 +1,4 @@
+from gdo.base.Trans import t
 from gdo.base.Util import Random
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.actions.Action import Action
@@ -23,6 +24,9 @@ class City(WithShadowFunc):
 
     def get_name(self):
         return self.__class__.__name__
+
+    def render_name(self):
+        return t(self.__class__.__name__.replace('.', '_'))
 
     def sd_square_km(self) -> int:
         return 25

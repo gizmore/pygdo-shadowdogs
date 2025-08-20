@@ -151,10 +151,9 @@ msg_sd_new_kp = "You found a new place in %s: %s."
 ##########
 # Places #
 ##########
-mt_shadowdogs_places = "Known Places"
-mt_shadowdogs_places_t = "%d places in %s: %s."
-md_shadowdogs_places = "Show known places in an area."
-
+mt_shadowdogs_places = "%d Known Places in %s"
+md_shadowdogs_places = "Show known places for an area."
+msg_sd_places = "%d known places in %s: %s."
 
 ########
 # Look #

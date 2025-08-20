@@ -6,6 +6,7 @@ from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import Random
 from gdo.core.GDO_User import GDO_User
+from gdo.core.method.clear_cache import clear_cache
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
@@ -39,6 +40,7 @@ class ShadowdogsTest(GDOTestCase):
         Application.init_cli()
         loader.init_modules(True, True)
         loader.init_cli()
+        clear_cache().gdo_execute()
         module_table.instance().save_config_val('table_ipp', '3')
 
     async def fresh_gizmore(self, equip: bool=True):
@@ -136,24 +138,16 @@ class ShadowdogsTest(GDOTestCase):
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdeq Shir')
-        await self.ticker_for()
-        out = cli_plug(gizmore, '$sdeq Sand')
-        await self.ticker(160)
-        out = cli_plug(gizmore, '$sdeq Jean')
-        await self.ticker(160)
-        out = cli_plug(gizmore, '$sdeq _of_ado')
-        await self.ticker(160)
-        Random.init(1337)
+        Random.init(1339)
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('exploring Peine', out, 'party does not work.')
-        await self.ticker(2400) # half an hour
+        await self.ticker(3333) # half an hour
         out = all_private_messages()
         self.assertIn('new place in Peine', out, 'explore find does not work.')
         out = cli_plug(gizmore, '$sdpl')
-        self.assertIn('2 locations in Peine', out, 'kp does not work.')
+        self.assertIn('2 Known Places in Peine', out, 'kp does not work.')
 
 
 if __name__ == '__main__':

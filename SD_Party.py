@@ -46,7 +46,7 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Action('party_last_action'),
             GDT_Target('party_last_target').last_target(),
             GDT_UInt('party_last_eta'),
-            GDT_Enum('party_world').choices({'y2064': World.World2064, 'y2077': World.World2077, 'y2088': World.World2088}).not_null().initial('y2088'),
+            GDT_Enum('party_world').choices({'y2064': World.World2064, 'y2077': World.World2077, 'y2088': World.World2088}).not_null().initial('y2064'),
             GDT_Created('party_created'),
         ]
 

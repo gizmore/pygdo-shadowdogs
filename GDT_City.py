@@ -30,7 +30,7 @@ class GDT_City(WithPlayerGDO, GDT_Enum):
         choices = {}
         player = self.get_player()
         world = player.get_party().get_world()
-        for city in world.CITIES:
+        for city in world.CITIES.values():
             if self.player_knows_city(player, city):
                 choices[city.get_location_key()] = city
         return choices

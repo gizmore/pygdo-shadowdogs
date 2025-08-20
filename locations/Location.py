@@ -82,5 +82,5 @@ class Location(WithShadowFunc):
     ##########
 
     def render_name(self) -> str:
-        return self.t(self.get_location_key().lower())
+        return self.t(self.get_location_key().lower().replace('.', '_'))
 
