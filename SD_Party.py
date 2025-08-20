@@ -182,8 +182,12 @@ class SD_Party(WithShadowFunc, GDO):
         return Random.list_item(self.members)
 
     def get_city(self) -> 'City':
-        if city := self.get_city_from_target(self.get_target()): return city
-        else: return self.get_city_from_target(self.get_last_target())
+        if not self.get_target_string().isdigit():
+            if city := self.get_city_from_target(self.get_target()):
+                return city
+        else:
+            return self.get_city_from_target(self.get_last_target())
+        return None
 
     def get_world(self) -> 'World':
         return self.gdo_value('party_world')

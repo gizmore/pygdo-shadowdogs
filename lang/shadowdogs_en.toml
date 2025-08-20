@@ -5,6 +5,7 @@ module_shadowdogs = "Shadowdogs"
 ##########
 err_sd_stub = "%s is not implemented."
 err_sd_item_klass_required = "You need an item of type %s."
+err_sd_invalid_item_name = "Unknown Item: %s."
 
 ############
 # Factions #

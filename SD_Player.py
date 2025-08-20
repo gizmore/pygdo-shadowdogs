@@ -16,6 +16,7 @@ from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.attr.Attribute import Attribute
 from gdo.shadowdogs.attr.Luck import Luck
 from gdo.shadowdogs.attr.Magic import Magic
@@ -239,14 +240,19 @@ class SD_Player(WithShadowFunc, GDO):
     async def kill(self):
         from gdo.shadowdogs.engine.Factory import Factory
         location = self.get_city().get_respawn_location(self)
-        self.get_party().members.remove(self)
+        old_party = self.get_party()
+        old_party.members.remove(self)
         party = await Factory.create_party(location)
         party.members.append(self)
-        return self.save_vals({
+        self.party_pos = 1
+        await party.do(Action.INSIDE, location.get_location_key())
+        self.save_vals({
             'p_party': party.get_id(),
             'p_joined': str(self.get_time()),
         })
-
+        if old_party.is_empty():
+            old_party.delete()
+        return self
     ########
     # Hack #
     ########
@@ -377,10 +383,8 @@ class SD_Player(WithShadowFunc, GDO):
         return self
 
     async def digesting(self):
-        self.increment('p_hunger', -Shadowdogs.FOOD_PER_TICK)
-        self.increment('p_thirst', -Shadowdogs.WATER_PER_TICK)
-        self.set_value('p_hunger', max(0, self.gdo_value('p_hunger')))
-        self.set_value('p_thirst', max(0, self.gdo_value('p_thirst')))
+        self.set_value('p_hunger', max(0, self.gdo_value('p_hunger') - Shadowdogs.FOOD_PER_TICK))
+        self.set_value('p_thirst', max(0, self.gdo_value('p_thirst') - Shadowdogs.WATER_PER_TICK))
         dmg = 0
         if self.gdo_value('p_hunger') <= 0:
             dmg += 1

@@ -88,7 +88,7 @@ class ShadowdogsTest(GDOTestCase):
         Random.init(9)
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
-        await self.ticker(160)
+        await self.ticker(260)
         out = all_private_messages()
         self.assertIn('kills', out, 'attack does not work.')
 
@@ -131,16 +131,6 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sds')
         self.assertIn('not hungry', out, 'hungry?')
 
-    async def test_05_combat1(self):
-        gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdgmt giz noob')
-        Random.init(17)
-        self.assertIn('encounter', out, 'gmt no work')
-        self.ticker(6000)
-        out = all_private_messages()
-        self.assertIn('killed', out, 'combat does not work.')
-
-
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
         Random.init(1339)
@@ -165,6 +155,21 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('leaving', out, 'leave does not work.')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('outside', out, 'p does not work.')
+
+    async def test_11_combat(self):
+        gizmore = await self.fresh_gizmore()
+        Random.init(1337)
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
+        self.assertIn('encounter', out, 'gmt does not work.')
+        await self.ticker(3333) # half an hour
+        out += all_private_messages()
+        self.assertIn('kills lamer', out, 'combat does not work.')
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} noob,noob')
+        self.assertIn('encounter', out, 'gmt does not work.')
+        await self.ticker(3333) # half an hour
+        out += all_private_messages()
+        self.assertIn('kills noob', out, 'combat does not work.')
+
 
 if __name__ == '__main__':
     unittest.main()

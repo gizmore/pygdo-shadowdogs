@@ -127,7 +127,9 @@ class items:
         'OblivionAegis':          {'klass': 'Armor',   'level': 30, 'et': 85, 'weight':  7000,  'marm': 15, 'farm': 18, 'price':  165000},
 
         # boots
-        'Sandals':            {'klass': 'Boots',   'level':  0, 'et': 45, 'weight':  183, 'defense':  0, 'marm': 1, 'farm': 0, 'price':       8},
+        'Sandals':            {'klass': 'Boots',   'level':  0, 'et': 35, 'weight':  183, 'defense':  0, 'marm': 1, 'farm': 0, 'price':      18},
+        'Shoes':              {'klass': 'Boots',   'level':  2, 'et': 55, 'weight':  456, 'defense':  1, 'marm': 1, 'farm': 0, 'price':     100},
+        'Boots':              {'klass': 'Boots',   'level':  3, 'et': 65, 'weight':  690, 'defense':  1, 'marm': 1, 'farm': 1, 'price':     300},
         'RagShoes':           {'klass': 'Boots',   'level':  1, 'et': 31, 'weight':  167, 'defense':  1, 'marm': 0, 'farm': 1, 'price':      40},
         'WoolSlippers':       {'klass': 'Boots',   'level':  2, 'et': 38, 'weight':  165, 'defense':  1, 'marm': 1, 'farm': 0, 'price':      85},
         'Sneakers':           {'klass': 'Boots',   'level':  3, 'et': 37, 'weight':  215, 'defense':  2, 'marm': 1, 'farm': 1, 'price':     160},
