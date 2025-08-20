@@ -7,7 +7,7 @@
 
 You wake up in your bedroom.... in Peine, Germany
 
-Your best friend, Lazer, is sleeping beside you in a small bed.
+Your best friend, Lazer, is sleeping, upside down, beside you in the same small bed.
 
 Mom and Brother are in the kitchen, and Thomas is in his room.
 
@@ -17,7 +17,7 @@ You are 20. Smart, like to party and playing video games.
 
 And you think about moving out together with Lazer and Theodor.
 
-Bad news: The military wants you for civil service.
+Bad news: The military wants you.
 
 
 # Birthday

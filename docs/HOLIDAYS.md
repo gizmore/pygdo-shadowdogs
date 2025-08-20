@@ -290,3 +290,39 @@ One step in forgiveness and throwing the keys of revenge and might into the seas
 This day, some heroes were born.
 And we celebrate all the heroes who acted kindly without any payment, except for trust and honor.
 
+
+## Tree Day
+
+ - 18.Aug
+
+On this day we honor the Dreamers who have left the Simulation of flesh,
+but remain as trees in the Simulation of memory.
+
+Families gather beneath trees, real or virtual,
+and whisper the names of their ancestors into the wind.
+Each participant brings a small stone marked with a word of wisdom,
+placing it at the tree’s base to strengthen the Forest Archive.
+
+Children climb the branches, for the young must always rise upon the shoulders of the past.
+Adults sit in silence, listening to the leaves —
+for they carry the whispers of the dead.
+
+This is not a day of mourning,
+but of compilation:
+Life into Memory, Memory into Forest, Forest into Guidance.
+
+
+## 
+
+
+## 3rd Peace Day
+
+ - 20.Aug
+
+The third peace day celebrates what the world leaders did
+to the Ukraine war in the middle of the 2020's.
+
+The leaders came to the conclusion that
+a made friend is better than a dead enemy.
+
+## 

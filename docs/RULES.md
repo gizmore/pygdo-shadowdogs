@@ -169,7 +169,6 @@ ESL is a state of freedom. (peace + truth)
 
 Remember, peace is part of the freedom you have here.
 
-
 #### Advertising
 
 It is encouraged to make clever and non-intrusive advertising.
