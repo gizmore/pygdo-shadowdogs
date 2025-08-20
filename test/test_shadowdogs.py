@@ -132,9 +132,14 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('not hungry', out, 'hungry?')
 
     async def test_05_combat1(self):
-        gizmore = await self.fresh_gizmore(True)
-        out = cli_plug(gizmore, '$sdgmt noob')
-        pass
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgmt giz noob')
+        Random.init(17)
+        self.assertIn('encounter', out, 'gmt no work')
+        self.ticker(6000)
+        out = all_private_messages()
+        self.assertIn('killed', out, 'combat does not work.')
+
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
@@ -160,7 +165,6 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('leaving', out, 'leave does not work.')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('outside', out, 'p does not work.')
-
 
 if __name__ == '__main__':
     unittest.main()
