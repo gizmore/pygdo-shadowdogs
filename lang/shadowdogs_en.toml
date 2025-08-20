@@ -155,6 +155,21 @@ mt_shadowdogs_places = "%d Known Places in %s"
 md_shadowdogs_places = "Show known places for an area."
 msg_sd_places = "%d known places in %s: %s."
 
+#########
+# Enter #
+#########
+mt_shadowdogs_enter = "Enter a place"
+md_shadowdogs_enter = "Enter a place you are outside of."
+msg_sd_entering = "You are entering the %s."
+msg_sd_entered = "You have entered the %s."
+
+#########
+# Leave #
+#########
+mt_shadowdogs_leave = "Leave a place"
+md_shadowdogs_leave = "Leave a place, so you are outside of."
+msg_sd_leaving = "You are leaving the %s."
+
 ########
 # Look #
 ########

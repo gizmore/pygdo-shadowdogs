@@ -148,6 +148,18 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('new place in Peine', out, 'explore find does not work.')
         out = cli_plug(gizmore, '$sdpl')
         self.assertIn('2 Known Places in Peine', out, 'kp does not work.')
+        out = cli_plug(gizmore, '$sden')
+        await self.ticker_for()
+        out += all_private_messages()
+        self.assertIn('enter', out, 'en does not work.')
+        out = cli_plug(gizmore, '$sdp')
+        self.assertIn('inside', out, 'p does not work.')
+        out = cli_plug(gizmore, '$sdleave')
+        await self.ticker_for()
+        out += all_private_messages()
+        self.assertIn('leaving', out, 'leave does not work.')
+        out = cli_plug(gizmore, '$sdp')
+        self.assertIn('outside', out, 'p does not work.')
 
 
 if __name__ == '__main__':

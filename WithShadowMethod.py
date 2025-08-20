@@ -29,7 +29,7 @@ class WithShadowMethod(WithShadowFunc):
         return False
 
     def sd_location_actions(self) -> tuple[str]:
-        return Action.INSIDE,
+        return (Action.INSIDE,)
 
     def sd_requires_player(self) -> bool:
         if not self._player:

@@ -70,7 +70,7 @@ class CombatStack(WithShadowFunc):
         return gdt
 
     def is_busy(self) -> bool:
-        return self.eta > self.get_time()
+        return self.eta >= self.get_time()
 
     def get_busy_seconds(self) -> int:
         return max(self.eta - self.get_time(), 0)

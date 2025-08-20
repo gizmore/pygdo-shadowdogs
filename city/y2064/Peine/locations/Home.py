@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.city.y2064.Peine.npcs.home.DejaVu import DejaVu
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Lazer import Lazer
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Mom import Mom
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Thomas import Thomas
@@ -21,6 +22,7 @@ class Home(Location):
         Mom(),
         Lazer(),
         Thomas(),
+        DejaVu(),
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [

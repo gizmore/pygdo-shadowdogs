@@ -72,6 +72,11 @@ class SD_Party(WithShadowFunc, GDO):
             self.gdo_value('party_last_eta'),
         )
 
+    def all_busy(self, seconds: int):
+        for player in self.members:
+            player.busy(seconds)
+        return self
+
     ###########
     # Members #
     ###########
@@ -159,7 +164,7 @@ class SD_Party(WithShadowFunc, GDO):
         return self.gdo_val('party_target')
 
     def get_target(self) -> any:
-        return self.gdo_value('party_target')
+        return self.gdo_value('party_target').player(self.get_leader())
 
     def get_last_target_string(self) -> str:
         return self.gdo_val('party_last_target')
@@ -262,6 +267,11 @@ class SD_Party(WithShadowFunc, GDO):
         for player in party.members:
             player.combat_stack().reset()
         return self
+
+    ###################
+    # Enter and Leave #
+    ###################
+
 
     ##########
     # Render #

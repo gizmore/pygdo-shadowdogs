@@ -49,7 +49,16 @@ class Location(WithShadowFunc):
         return 100
 
     def sd_methods(self) -> list[str]:
-        return GDO.EMPTY_LIST
+        return [
+            'sdenter',
+            'sdleave',
+        ]
+
+    def sd_entrance_seconds(self) -> int:
+        return 10
+
+    async def on_entered(self):
+        await self.send_to_party(self.get_party(), 'msg_sd_entered', (self.get_location().render_name(),))
 
     ############
     # Location #
@@ -83,4 +92,3 @@ class Location(WithShadowFunc):
 
     def render_name(self) -> str:
         return self.t(self.get_location_key().lower().replace('.', '_'))
-

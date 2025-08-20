@@ -6,9 +6,13 @@ from gdo.shadowdogs.locations.Location import Location
 class Exit(Location):
 
     def sd_methods(self) -> list[str]:
-        return [
-            'sdleave',
-        ]
+        if self.get_party().get_action_name() == Action.OUTSIDE:
+            return ['sdenter']
+        else:
+            return ['sdleave']
+
+    def sd_location_actions(self) -> tuple[str]:
+        return (self.get_party().get_action_name(),)
 
     def sd_exit_to(self) -> Location:
         raise ShadowdogsException('err_sd_stub')
