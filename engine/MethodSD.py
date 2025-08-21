@@ -22,4 +22,4 @@ class MethodSD(WithShadowMethod, MethodForm):
         pass
 
     async def sd_execute(self):
-        return self.empty()
+         return self.empty()

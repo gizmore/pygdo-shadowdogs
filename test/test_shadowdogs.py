@@ -170,6 +170,14 @@ class ShadowdogsTest(GDOTestCase):
         out += all_private_messages()
         self.assertIn('kills noob', out, 'combat does not work.')
 
+    async def test_13_kw(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdsay Laz hi')
+        self.assertIn('a new', out, 'say and lazer does not work.')
+        out = cli_plug(gizmore, '$sdw')
+        self.assertIn('hello', out, 'known words does not work.')
+
+
 
 if __name__ == '__main__':
     unittest.main()

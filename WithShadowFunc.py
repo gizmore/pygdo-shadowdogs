@@ -9,6 +9,8 @@ from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
+    from gdo.shadowdogs.SD_Word import SD_Word
     from gdo.shadowdogs.locations.Location import Location
     from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -32,6 +34,9 @@ class WithShadowFunc(WithPlayerGDO):
     @classmethod
     def get_time(cls) -> int:
         return cls.mod_sd().cfg_time()
+
+    def nearby_players(self, player: 'SD_Player'):
+        return player.get_party().players_nearby()
 
     ############
     # Entities #
@@ -136,3 +141,16 @@ class WithShadowFunc(WithPlayerGDO):
                 SD_Place.give_kp(player, location)
                 if announce:
                     await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))
+
+    #########
+    # Words #
+    #########
+    async def give_word(self, player: 'SD_Player', word: str, announce: bool=True):
+        from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
+        from gdo.shadowdogs.SD_Word import SD_Word
+        word = SD_Word.get_or_create(word)
+        if not SD_KnownWord.has_word(player, word):
+            SD_KnownWord.give_word(player, word)
+            if announce:
+                await self.send_to_player(player, 'msg_sd_new_word', (word.get_name(),))
+

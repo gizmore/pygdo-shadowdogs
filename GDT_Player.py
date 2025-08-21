@@ -5,13 +5,14 @@ from typing import TYPE_CHECKING
 
 from gdo.core.GDT_User import GDT_User
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class GDT_Player(WithPlayerGDO, GDT_Object):
+class GDT_Player(WithShadowFunc, GDT_Object):
     """
     TODO annotate SD_Player, GDT_User
     TODO describe options members, online, nearby, humans by username, npcs (by id)
@@ -69,15 +70,29 @@ class GDT_Player(WithPlayerGDO, GDT_Object):
                 if player.get_id() in Shadowdogs.PLAYERS:
                     on.append(player)
             players = on
+        if not val.isdigit():
+            keep = []
+            for player in players:
+                if player.render_name().startswith(val):
+                    keep.append(player)
+            if len(keep) == 1:
+                return keep
+            keep = []
+            for player in players:
+                if val in player.render_name():
+                    keep.append(player)
+            players = keep
         return players
 
     def query_gdos2(self, val: str) -> list['SD_Player']:
         if self._members:
-            if val[0].isdigit():
+            if val.isdigit():
                 return [self.get_party().members[int(val)-1]]
-        if self._npcs:
+        if self._npcs and val.isdigit():
             if player := self._table.get_by_aid(val):
                 return [player]
+        if self._npcs and hasattr(self, '_player'):
+            return self.get_location().npcs(self.get_player())
         if self._humans:
             query = self._table.select().join_object('p_user')
             return self._gdt_user.val(val).query_gdos_query(val, query).exec().fetch_all()._items

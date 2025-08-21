@@ -14,9 +14,9 @@ class TalkingNPC(SD_NPC):
     def get_name(self):
         return self.__class__.__name__
 
-    def on_say(self, player: SD_Player, text: str):
+    async def on_say(self, player: SD_Player, text: str):
         key = 'msg_sd_talk_default_' + str(Random.mrand(1, 4))
-        self.send_to_player(self.get_player(), key)
+        await self.send_to_player(self.get_player(), key)
 
     def qv_set(self, key: str, val: str='1'):
         SD_QuestVal.qv_set(self.sd_quest(), self.get_player(), key, val)

@@ -216,6 +216,12 @@ class SD_Player(WithShadowFunc, GDO):
     def is_leader(self) -> bool:
         return self.get_party().get_leader() == self
 
+    ########
+    # Chat #
+    ########
+    async def on_say(self, player: 'SD_Player', word: str):
+        pass
+
     ##########
     # Combat #
     ##########
@@ -253,6 +259,7 @@ class SD_Player(WithShadowFunc, GDO):
         if old_party.is_empty():
             old_party.delete()
         return self
+
     ########
     # Hack #
     ########
@@ -381,6 +388,10 @@ class SD_Player(WithShadowFunc, GDO):
         for key, val in stats.items():
             self.apply(key, val)
         return self
+
+    ########
+    # Food #
+    ########
 
     async def digesting(self):
         self.set_value('p_hunger', max(0, self.gdo_value('p_hunger') - Shadowdogs.FOOD_PER_TICK))

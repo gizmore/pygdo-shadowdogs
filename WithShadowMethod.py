@@ -78,6 +78,14 @@ class WithShadowMethod(WithShadowFunc):
                 return False
         return True
 
+    def parameters(self, reset: bool = False) -> dict[str,GDT]:
+        params = super().parameters(reset)
+        for gdt in params:
+            if hasattr(gdt, 'player'):
+                gdt.player(self.get_player())
+        return params
+
+
     def sd_execute(self):
         return self.gdo_execute()
     

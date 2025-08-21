@@ -6,6 +6,7 @@ from gdo.base.GDT import GDT
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.shadowdogs.InstallShadowdogs import InstallShadowdogs
 from gdo.shadowdogs.SD_Item import SD_Item
+from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
 from gdo.shadowdogs.SD_Location import SD_Location
 from gdo.shadowdogs.SD_ObstacleVal import SD_ObstacleVal
 from gdo.shadowdogs.SD_Place import SD_Place
@@ -15,6 +16,7 @@ from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.SD_Spell import SD_Spell
+from gdo.shadowdogs.SD_Word import SD_Word
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.items import items
@@ -34,6 +36,8 @@ class module_shadowdogs(GDO_Module):
             SD_QuestDone,
             SD_QuestVal,
             SD_ObstacleVal,
+            SD_Word,
+            SD_KnownWord,
         ]
 
     def gdo_install(self):

@@ -151,6 +151,9 @@ class SD_Party(WithShadowFunc, GDO):
         if self.get_action_name() == Action.OUTSIDE:
             for npc in self.get_location(Action.OUTSIDE).npcs(player or self.get_leader()):
                 yield npc
+        if self.get_action_name() == Action.FIGHT or self.get_action_name() == Action.TALK:
+            yield from self.members
+            yield from self.get_enemy_party().members
 
     def players_nearby(self, exclude: 'SD_Player' = None) -> Iterator['SD_Player']:
         action = self.get_action_name()
