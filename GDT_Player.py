@@ -91,7 +91,7 @@ class GDT_Player(WithShadowFunc, GDT_Object):
         if self._npcs and val.isdigit():
             if player := self._table.get_by_aid(val):
                 return [player]
-        if self._npcs and hasattr(self, '_player'):
+        if self._npcs:
             return self.get_location().npcs(self.get_player())
         if self._humans:
             query = self._table.select().join_object('p_user')

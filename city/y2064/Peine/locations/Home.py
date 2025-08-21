@@ -31,4 +31,4 @@ class Home(Location):
     ]
 
     def npcs(cls, player: 'SD_Player') -> 'list[SD_NPC]':
-        pass
+        return cls.NPCS
