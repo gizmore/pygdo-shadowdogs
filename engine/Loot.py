@@ -7,10 +7,6 @@ if TYPE_CHECKING:
 
 
 class Loot(WithShadowFunc):
-    """
-
-    """
-
     @classmethod
     def on_killed(cls, killer: 'SD_Player', victim: 'SD_Player') -> list[SD_Item]:
 
@@ -21,17 +17,16 @@ class Loot(WithShadowFunc):
                 return cls.on_npc_killed_human(killer, victim)
         else:
             if victim.is_npc():
-                return []
+                return cls.on_human_killed_npc(killer, victim)
             else:
-                return cls.on_npc_killed_human(killer, victim)
-
-
-    @classmethod
-    def on_npc_killed_human(cls, killer: 'SD_Player', victim: 'SD_Player') -> list[SD_Item]:
-        return []
+                return cls.on_human_killed_human(killer, victim)
 
     @classmethod
     def on_human_killed_human(cls, killer: 'SD_Player', victim: 'SD_Player') -> list[SD_Item]:
+        return []
+
+    @classmethod
+    def on_npc_killed_human(cls, killer: 'SD_Player', victim: 'SD_Player') -> list[SD_Item]:
         return []
 
     @classmethod

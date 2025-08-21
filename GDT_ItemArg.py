@@ -56,17 +56,19 @@ class GDT_ItemArg(GDT_String):
         candidates = []
         if self._equipment:
             for slot in GDT_Slot.SLOTS:
-                if slot[2:4] == val[0:2]:
+                if slot[2:4] == val[0:2]: # 2 letter shortcut for $sdexamine ri
                     return p.gdo_value(slot)
                 if item := p.get_equip(slot):
                     if item.render_name().lower().index(val) >= 0:
                         candidates.append(item)
         if self._inventory:
-            if val[0].isdigit():
+            if val.isdigit():
                 return p.inventory[int(val) - 1]
             candidates.extend(p.inventory.get_by_abbrev(val))
         if self._store:
             pass
+        if self._mount:
+            candidates.extend(p.mount.get_by_abbrev(val))
         if len(candidates) == 1:
             return candidates[0]
         elif len(candidates) > 1:

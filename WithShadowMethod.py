@@ -2,9 +2,13 @@ from gdo.base.GDT import GDT
 from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.actions.Action import Action
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class WithShadowMethod(WithShadowFunc):
+
+    SD_INCLUDED = False
+
     @classmethod
     def gdo_trigger(cls) -> str:
         return 'sd' + cls.__name__
@@ -46,10 +50,17 @@ class WithShadowMethod(WithShadowFunc):
     def sd_combat_seconds(self) -> int:
         return 0
 
+    def gdo_before_execute(self):
+        if not self.SD_INCLUDED:
+            self.SD_INCLUDED = True
+            from gdo.shadowdogs.engine.World import World
+        player = Shadowdogs.CURRENT_PLAYER
+        if self._env_user.is_human():
+            player = World.get_player_for_user(self._env_user)
+            Shadowdogs.CURRENT_PLAYER = player
+        self.player(player)
+
     def gdo_has_permission(self, user: 'GDO_User'):
-        from gdo.shadowdogs.engine.World import World
-        if not hasattr(self, '_player'):
-            self.player(World.get_player_for_user(user))
         if self.sd_requires_player():
             if not self.get_player():
                 self.err('err_sd_player_required')

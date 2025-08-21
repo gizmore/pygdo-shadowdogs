@@ -14,6 +14,7 @@ class Shadowdogs:
     PARTIES: dict[str,'SD_Party'] = {}
     PLAYERS: dict[str,'SD_Player'] = {}
     USERMAP: dict[str,'SD_Player'] = {}
+    CURRENT_PLAYER: 'SD_Player' = None
 
     ITEM_COUNT_SEPERATOR = 'x'
     MODIFIER_SEPERATOR = '_of_'

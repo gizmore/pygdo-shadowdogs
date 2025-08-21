@@ -1,5 +1,7 @@
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+
 if TYPE_CHECKING:
     from gdo.core.GDO_User import GDO_User
     from gdo.shadowdogs.SD_Party import SD_Party
@@ -25,7 +27,7 @@ class WithPlayerGDO:
         if hasattr(self, '_env_user'):
             from gdo.shadowdogs.engine.World import World
             return World.get_player_for_user(self._env_user)
-        return None
+        return Shadowdogs.CURRENT_PLAYER
 
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()
