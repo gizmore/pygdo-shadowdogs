@@ -2,6 +2,7 @@ from gdo.core.GDO_User import GDO_User
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
@@ -9,7 +10,14 @@ class Loader(WithShadowFunc):
 
     @classmethod
     def load_npcs(cls):
-        pass
+        from gdo.shadowdogs.engine.World import World
+        for world in World.WORLDS.values():
+            for city in world.CITIES.values():
+                for location in city.LOCATIONS:
+                    for npc in location.NPCS:
+                        if not npc.gdo_value('p_party'):
+                            party = Factory.create_party(location)
+                            party.join_silent(npc)
 
     @classmethod
     def load_parties(cls):

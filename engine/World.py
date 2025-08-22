@@ -4,6 +4,7 @@ from gdo.shadowdogs.city.y2077.World2077 import World2077
 from gdo.shadowdogs.city.y2088.World2088 import World2088
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.WorldBase import WorldBase
 from gdo.shadowdogs.locations.Location import Location
 
 from typing import TYPE_CHECKING
@@ -18,7 +19,7 @@ class World:
     World2077: World2077 = World2077()
     World2088: World2088 = World2088()
 
-    WORLDS = {
+    WORLDS: dict[str,WorldBase] = {
         'y2064': World2064,
         'y2077': World2077,
         'y2088': World2088,

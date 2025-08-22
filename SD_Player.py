@@ -248,10 +248,9 @@ class SD_Player(WithShadowFunc, GDO):
         location = self.get_city().get_respawn_location(self)
         old_party = self.get_party()
         old_party.members.remove(self)
-        party = await Factory.create_party(location)
+        party = Factory.create_party(location)
         party.members.append(self)
         self.party_pos = 1
-        await party.do(Action.INSIDE, location.get_location_key())
         self.save_vals({
             'p_party': party.get_id(),
             'p_joined': str(self.get_time()),

@@ -15,13 +15,15 @@ from gdo.shadowdogs.npcs.npcs import npcs
 class Factory(WithShadowFunc):
 
     @classmethod
-    async def create_party(cls, location: Location) -> SD_Party:
+    def create_party(cls, location: Location) -> SD_Party:
         party = SD_Party.blank({
-            'party_action': 'outside',
+            'party_action': 'inside',
             'party_target': location.get_location_key(),
-            'party_eta': str(cls.mod_sd().cfg_time()),
+            'party_eta': '0',
+            'party_last_action': 'outside',
+            'party_last_target': location.get_location_key(),
+            'party_last_eta': '0',
         }).insert()
-        await party.do('inside')
         Shadowdogs.PARTIES[party.get_id()] = party
         return party
 
@@ -45,7 +47,7 @@ class Factory(WithShadowFunc):
 
     @classmethod
     async def create_npcs(cls, location: Location, *npc_specs: dict[str,int|str]) -> SD_Party:
-        party = await cls.create_party(location)
+        party = cls.create_party(location)
         for spec in npc_specs:
             npc = cls.create_npc(party, spec)
             await party.join(npc)

@@ -98,6 +98,14 @@ class SD_Party(WithShadowFunc, GDO):
         await self.send_to_party(self, 'msg_sd_joined_party', (player.render_name(),))
         return self.with_fresh_positions()
 
+    def join_silent(self, player: 'SD_Player'):
+        self.members.append(player)
+        player.save_vals({
+            'p_party': self.get_id(),
+            'p_joined': str(self.get_time()),
+        })
+        return self.with_fresh_positions()
+
     def with_fresh_positions(self):
         for n, player in enumerate(self.members):
             player.party_pos = n + 1
