@@ -12,8 +12,6 @@ if TYPE_CHECKING:
 
 class WithPlayerGDO:
 
-    SD_INCLUDED = False
-
     _player: 'SD_Player'
 
     def player(self, player: 'SD_Player'):
@@ -27,10 +25,10 @@ class WithPlayerGDO:
         if hasattr(self, '_player'):
             return self._player
         if hasattr(self, '_env_user'):
-            if not self.SD_INCLUDED:
-                self.SD_INCLUDED = True
+            if not self.__class__.World:
                 from gdo.shadowdogs.engine.World import World
-            return World.get_player_for_user(self._env_user)
+            self.__class__.World = World
+            return self.__class__.World.get_player_for_user(self._env_user)
         return Shadowdogs.CURRENT_PLAYER
 
     def get_party(self) -> 'SD_Party':

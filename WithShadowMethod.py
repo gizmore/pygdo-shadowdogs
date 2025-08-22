@@ -7,7 +7,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 class WithShadowMethod(WithShadowFunc):
 
-    SD_INCLUDED = False
+    World = None
 
     @classmethod
     def gdo_trigger(cls) -> str:
@@ -51,12 +51,12 @@ class WithShadowMethod(WithShadowFunc):
         return 0
 
     def gdo_before_execute(self):
-        if not self.SD_INCLUDED:
-            self.SD_INCLUDED = True
+        if not self.__class__.World:
             from gdo.shadowdogs.engine.World import World
+            self.__class__.World = World
         player = Shadowdogs.CURRENT_PLAYER
         if self._env_user.is_human():
-            player = World.get_player_for_user(self._env_user)
+            player = self.__class__.World.get_player_for_user(self._env_user)
             Shadowdogs.CURRENT_PLAYER = player
         self.player(player)
 

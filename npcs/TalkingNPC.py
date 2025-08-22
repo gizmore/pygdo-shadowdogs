@@ -8,6 +8,11 @@ from gdo.shadowdogs.city.y2064.Peine.quests.Awakening import Awakening
 
 class TalkingNPC(SD_NPC):
 
+    def __init__(self):
+        super().__init__()
+
+
+
     def sd_quest(self) -> SD_Quest|None:
         return Awakening.instance()
 
