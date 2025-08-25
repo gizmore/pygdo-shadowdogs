@@ -441,7 +441,7 @@ class SD_Player(WithShadowFunc, GDO):
 
     def give_xp(self, xp: int) -> str:
         total_karma = self.get_total_karma()
-        self.increment('p_xp', xp)
+        self.increment('p_xp', xp).save()
         out = t('msg_sd_got_xp', (xp,))
         out += self.check_karma_xp(total_karma)
         out += self.check_level_xp()
@@ -451,7 +451,7 @@ class SD_Player(WithShadowFunc, GDO):
         new_total_karma = self.get_total_karma()
         new_karma = new_total_karma - karma_before
         if new_karma > 0:
-            self.increment('p_karma', new_karma)
+            self.increment('p_karma', new_karma).save()
             return " " + t('msg_sd_gained_karma', (new_karma, self.gdo_value('p_karma')))
         return ''
 
@@ -459,7 +459,7 @@ class SD_Player(WithShadowFunc, GDO):
         output = ''
         xp = self.gdo_value('p_xp')
         while xp >= self.level_column().xp_needed(self):
-            self.increment('p_level', 1)
+            self.increment('p_level', 1).save()
             level = self.gdo_value('p_level')
             xp = self.gdo_value('p_xp')
             output += " " + t('msg_sd_gained_level', (level, self.level_column().xp_needed(self) - xp, level + 1))

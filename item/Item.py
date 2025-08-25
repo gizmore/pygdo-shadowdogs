@@ -13,6 +13,7 @@ from gdo.shadowdogs.item.data.mapping import mapping
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Item import SD_Item
     from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.data.items import items
 
@@ -47,6 +48,9 @@ class Item(WithShadowFunc):
         if self._sd_item:
             return self._sd_item.get_count()
         return self._count
+
+    def get_weight(self) -> int:
+        return self.dmi('weight', 0)
 
     def sd_inv_type(self) -> str:
         return GDT_Slot.INVENTORY
@@ -144,3 +148,6 @@ class Item(WithShadowFunc):
 
     def count(self, param):
         pass
+
+    async def on_use(self, target: 'SD_Player|Obstacle'):
+        await self.send_to_player(self.get_player(), 'err_sd_item_not_usable')

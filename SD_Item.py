@@ -75,7 +75,7 @@ class SD_Item(GDO):
 
     def use(self, amount: int=1):
         slot = self.gdo_val('item_slot')
-        self.increment('item_count', -amount)
+        self.increment('item_count', -amount).save()
         if self.get_count() <= 0:
             if slot == GDT_Slot.INVENTORY:
                 self.get_owner().inventory.remove(self)

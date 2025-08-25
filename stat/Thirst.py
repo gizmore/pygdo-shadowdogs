@@ -8,4 +8,4 @@ if TYPE_CHECKING:
 
 class Thirst(Modifier):
     def apply(self, target: 'SD_Player'):
-        pass
+        target.increment(self.get_name(), self.get_value()).save()

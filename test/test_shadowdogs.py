@@ -137,7 +137,7 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sduse Sandwich')
         self.assertIn('consumed', out, 'eat sandwich does not work.')
         out = cli_plug(gizmore, '$sduse Sandwich')
-        self.assertIn('consumed', out, 'eat sandwich does not work.')
+        self.assertIn('Item not found', out, 'eat sandwich does not work.')
         out = cli_plug(gizmore, '$sds')
         self.assertIn('Food 100%', out, 'hungry?')
 

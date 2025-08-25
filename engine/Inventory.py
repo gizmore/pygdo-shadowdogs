@@ -37,7 +37,7 @@ class Inventory(list[SD_Item]):
 
     def add_item(self, item: SD_Item) -> SD_Item:
         if old_item := self.get_by_name(item.render_name()):
-            old_item.increment('item_count', item.get_count())
+            old_item.increment('item_count', item.get_count()).save()
             item.delete()
             return old_item
         return item
@@ -52,6 +52,6 @@ class Inventory(list[SD_Item]):
             if count == 1:
                 self.remove(item)
                 return item
-            item.increment('item_count', -count)
+            item.increment('item_count', -count).save()
             return self.__class__.Factory.create_item(item_name, count, item.get_modifier_name())
         return None

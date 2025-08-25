@@ -3,13 +3,14 @@ from gdo.core.GDT_String import GDT_String
 from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class GDT_ItemArg(GDT_String):
+class GDT_ItemArg(WithShadowFunc, GDT_String):
 
     _equipment: bool
     _inventory: bool
@@ -48,19 +49,16 @@ class GDT_ItemArg(GDT_String):
         self._obstacles = obstacles
         return self
 
-    def get_player(self) -> 'SD_Player':
-        return self._gdo
-
     def to_value(self, val: str):
         p = self.get_player()
         val = val.lower()
         candidates = []
         if self._equipment:
             for slot in GDT_Slot.SLOTS:
-                if slot[2:4] == val[0:2]: # 2 letter shortcut for $sdexamine ri
+                if slot[2:4] == val[0:2]: # 2 letter shortcut for $sdexamine ar/we/bo/he
                     return p.gdo_value(slot)
                 if item := p.get_equip(slot):
-                    if item.render_name().lower().index(val) >= 0:
+                    if val in item.render_name().lower():
                         candidates.append(item)
         if self._inventory:
             if val.isdigit():
@@ -75,3 +73,10 @@ class GDT_ItemArg(GDT_String):
         elif len(candidates) > 1:
             raise ShadowdogsException('err_item_name_ambiguous', (candidates.__str__(),))
         return None
+
+    def validate(self, val: str|None) -> bool:
+        if value := self.get_value():
+            return True
+        if self._not_null:
+            return self.error('err_sd_unknown_item')
+        return True
