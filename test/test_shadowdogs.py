@@ -191,6 +191,10 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdw')
         self.assertIn('hello', out, 'known words does not work.')
 
+    async def test_15_spells(self):
+        gizmore = await self.fresh_gizmore()
+
+
 
 
 if __name__ == '__main__':
