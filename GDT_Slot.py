@@ -29,6 +29,18 @@ class GDT_Slot(GDT_Enum):
         'p_cyberdeck',
     ]
 
+    EQUIPMENT_SLOTS = [
+        'p_weapon',
+        'p_armor',
+        'p_helmet',
+        'p_trousers',
+        'p_boots',
+        'p_gloves',
+        'p_amulet',
+        'p_ring',
+        'p_earring',
+    ]
+
     def __init__(self, name: str):
         super().__init__(name)
 

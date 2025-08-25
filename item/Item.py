@@ -11,6 +11,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.mapping import mapping
 
 if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Item import SD_Item
     from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.data.items import items
@@ -23,6 +24,7 @@ class Item(WithShadowFunc):
     _modifiers: dict[str, int|str]
     _hot: bool
     _duration: int
+    _sd_item: 'SD_Item|None'
 
     def __init__(self, name: str):
         self._name = name
@@ -30,12 +32,21 @@ class Item(WithShadowFunc):
         self._modifiers = GDO.EMPTY_DICT
         self._hot = False
         self._duration = 10000
+        self._sd_item = None
 
     def __repr__(self):
         return f"{self.render_name()}{self._modifiers}"
 
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item')
+
+    def get_level(self) -> int:
+        return self.dmi('level', 1)
+
+    def get_count(self) -> int:
+        if self._sd_item:
+            return self._sd_item.get_count()
+        return self._count
 
     def sd_inv_type(self) -> str:
         return GDT_Slot.INVENTORY
@@ -51,12 +62,12 @@ class Item(WithShadowFunc):
             name += ",".join(joined)
         return self._name
 
-    def count(self, count: int):
-        self._count = count
-        return self
-
     def modifiers(self, modifiers: dict[str,int]):
         self._modifiers = modifiers
+        return self
+
+    def item(self, item: 'SD_Item'):
+        self._sd_item = item
         return self
 
     def hot(self, hot: bool):
@@ -90,11 +101,11 @@ class Item(WithShadowFunc):
     def g(self, field: str) -> int:
         return self.get_player().g(field)
 
-    def dm(self, field: str) -> str:
-        return self.get_default_modifiers().get(field)
+    def dm(self, field: str, default=None) -> str:
+        return self.get_default_modifiers().get(field, default)
 
-    def dmi(self, field: str) -> int:
-        return int(self.dm(field))
+    def dmi(self, field: str, default=0) -> int:
+        return int(self.dm(field, default))
 
     def apply(self, player: 'SD_Player'):
         list(self.apply_cb(player))
@@ -121,3 +132,15 @@ class Item(WithShadowFunc):
 
     def get_unequip_time(self) -> int:
         return self.get_equip_time() // 2
+
+    def get_loot_chance(self, default:int=100) -> int:
+        return self.dmi('loot_chance', self.get_default_loot_chance(default))
+
+    def get_default_loot_chance(self, default: int=100) -> int:
+        return default
+
+    def get_default_count(self) -> int:
+        return 1
+
+    def count(self, param):
+        pass

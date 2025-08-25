@@ -15,3 +15,6 @@ class Usable(Item):
 
     async def on_use(self):
         raise GDOException('err_not_implemented')
+
+    def get_default_count(self) -> int:
+        return self.dmi('package', 1)

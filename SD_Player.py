@@ -7,7 +7,7 @@ from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
-from typing import TYPE_CHECKING, Generator, Any, Self
+from typing import TYPE_CHECKING, Generator, Any
 
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
@@ -16,7 +16,6 @@ from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
-from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.attr.Attribute import Attribute
 from gdo.shadowdogs.attr.Luck import Luck
 from gdo.shadowdogs.attr.Magic import Magic
@@ -75,6 +74,8 @@ class SD_Player(WithShadowFunc, GDO):
     party_pos: int
     distance: int
     _combat_stack: CombatStack
+
+    Loot = None
 
     __slots__ = (
         'modified',
@@ -243,8 +244,13 @@ class SD_Player(WithShadowFunc, GDO):
     def is_alive(self) -> bool:
         return not self.is_dead()
 
-    async def kill(self):
+    async def kill(self, killer: 'SD_Player'):
+        if not self.__class__.Loot:
+            from gdo.shadowdogs.engine.Loot import Loot
+            self.__class__.Loot = Loot
         from gdo.shadowdogs.engine.Factory import Factory
+        if killer:
+            await Loot(killer, self).on_kill()
         location = self.get_city().get_respawn_location(self)
         old_party = self.get_party()
         old_party.members.remove(self)
@@ -283,7 +289,7 @@ class SD_Player(WithShadowFunc, GDO):
 
     def get_equip(self, slot_name: str) -> 'SD_Item|None':
         try:
-            return self.gdo_value(GDT_Slot.map(slot_name))
+            return self.gdo_value(slot_name)
         except AttributeError as ex:
             return None
 
@@ -291,6 +297,10 @@ class SD_Player(WithShadowFunc, GDO):
         if item := self.get_equip(slot_name):
             return item.itm()
         return None
+
+    # def unequip(self, item: 'SD_Item'):
+    #     self.save_val(item.itm().get_slot(), None)
+    #     return self
 
     ########
     # Busy #

@@ -25,6 +25,7 @@ class GDT_ItemArg(GDT_String):
         self._equipment = False
         self._inventory = False
         self._store = False
+        self._mount = False
         self._obstacles = False
 
     def equipment(self, equipment: bool = True):
@@ -73,3 +74,4 @@ class GDT_ItemArg(GDT_String):
             return candidates[0]
         elif len(candidates) > 1:
             raise ShadowdogsException('err_item_name_ambiguous', (candidates.__str__(),))
+        return None

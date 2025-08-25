@@ -10,7 +10,7 @@ class use(MethodSD):
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_ItemArg('item').inventory().equipment().not_null(),
-            GDT_TargetArg('target').obstacles().friends().foes().positional(),
+            GDT_TargetArg('target').me().obstacles().friends().foes().positional(),
         )
         super().gdo_create_form(form)
 

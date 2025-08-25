@@ -14,5 +14,6 @@ class Consumable(Usable):
             ef.append(f"{t(f'sd_{key}')}({sign}{value})")
         if not ef:
             ef.append(t('none'))
+        self._sd_item.use(1)
         await self.send_to_party(player.get_party(), 'msg_sd_consumed', (self.render_name(), ",".join(ef), player.render_busy()))
         return GDT_HTML()

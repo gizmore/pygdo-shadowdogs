@@ -32,7 +32,7 @@ class Weapon(Item):
                     a.combat_stack().last_target = None
                     await self.send_to_party(op, 'sd_weapon_kill', (a.render_name(), d.render_name(), self.render_name(), dmg, a.render_busy()))
                     await self.send_to_party(ep, 'sd_weapon_kill', (a.render_name(), d.render_name(), self.render_name(), dmg, a.render_busy()))
-                    await d.kill()
+                    await d.kill(a)
                 else:
                     await self.send_to_party(op, 'sd_weapon_hit', (a.render_name(), d.render_name(), self.render_name(), dmg, a.render_busy()))
                     await self.send_to_party(ep, 'sd_weapon_hit_ep', (a.render_name(), d.render_name(), self.render_name(), dmg, d.gb('p_hp'), a.render_busy()))

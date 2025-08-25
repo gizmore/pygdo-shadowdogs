@@ -6,7 +6,4 @@ if TYPE_CHECKING:
 
 
 class HP(Modifier):
-
-    def apply(self, target: 'SD_Player'):
-        if target.gdo_val('p_hp') <= 0:
-            target.kill()
+    pass

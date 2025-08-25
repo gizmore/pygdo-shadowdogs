@@ -17,7 +17,7 @@ class items:
 
     ITEMS = {
         # Melee
-        'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et': 15, 'rng': 1,  'weight':   200,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':     150},
+        'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et': 15, 'rng': 1,  'weight':   200,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
         'Bronze Knuckles':    {'klass': 'Fists',   'level':  2, 'at': 59, 'et': 15, 'rng': 1,  'weight':   538,  'attack':  5, 'defense': 1, 'min_dmg':  2, 'max_dmg':  6, 'price':     450},
         'Steel Knuckles':     {'klass': 'Fists',   'level':  3, 'at': 58, 'et': 15, 'rng': 1,  'weight':   876,  'attack':  5, 'defense': 1, 'min_dmg':  4, 'max_dmg':  8, 'price':     950},
         'Club':               {'klass': 'Thrust',  'level':  4, 'at': 57, 'et': 15, 'rng': 1,  'weight':  1214,  'attack':  6, 'defense': 2, 'min_dmg':  5, 'max_dmg': 10, 'price':    1650},
@@ -49,7 +49,7 @@ class items:
         'Omega Blade':        {'klass': 'Sword',   'level': 30, 'at': 30, 'et': 15, 'rng': 2,  'weight': 10000,  'attack': 25, 'defense': 8, 'min_dmg': 40, 'max_dmg': 60, 'price':   90050},
 
         # firearms
-        'Rusty Pistol':       {'klass': 'Firearm', 'level':  1, 'at': 50, 'et': 15, 'rng': 10, 'weight':   800,  'attack':  5, 'defense': 0, 'min_dmg':  8, 'max_dmg': 12, 'price':     500,   'ammo': '7mm',        'mag_size':  8},
+        'Rusty Pistol':       {'klass': 'Firearm', 'level':  1, 'at': 50, 'et': 15, 'rng': 10, 'weight':   800,  'attack':  5, 'defense': 0, 'min_dmg':  8, 'max_dmg': 12, 'price':     600,   'ammo': '7mm',        'mag_size':  8},
         '9mm Pistol':         {'klass': 'Firearm', 'level':  2, 'at': 49, 'et': 16, 'rng': 10, 'weight':  1786,  'attack':  6, 'defense': 0, 'min_dmg': 10, 'max_dmg': 14, 'price':    1400,   'ammo': '9mm',        'mag_size': 12},
         'Silenced Pistol':    {'klass': 'Firearm', 'level':  3, 'at': 48, 'et': 18, 'rng': 10, 'weight':  2771,  'attack':  7, 'defense': 1, 'min_dmg': 12, 'max_dmg': 16, 'price':    2900,   'ammo': '9mm',        'mag_size': 12},
         'Revolver':           {'klass': 'Firearm', 'level':  4, 'at': 47, 'et': 19, 'rng': 10, 'weight':  3757,  'attack':  7, 'defense': 1, 'min_dmg': 15, 'max_dmg': 20, 'price':    5000,   'ammo': '45ACP',      'mag_size':  6},
@@ -81,15 +81,15 @@ class items:
         'Omega Railcannon':   {'klass': 'Firearm', 'level': 30, 'at': 30, 'et': 60, 'rng': 30, 'weight': 30000,  'attack': 35, 'defense':12, 'min_dmg':250, 'max_dmg':250, 'price':  540500,   'ammo': 'RailSlug',   'mag_size':  1},
 
         # Ammo
-        '5mm':                {'klass': 'Ammo',    'level':  2, 'weight':  20},
-        '7mm':                {'klass': 'Ammo',    'level':  2, 'weight':  25},
-        '9mm':                {'klass': 'Ammo',    'level':  3, 'weight':  45},
-        '40mm':               {'klass': 'Ammo',    'level':  3, 'weight': 155},
-        '12g':                {'klass': 'Ammo',    'level':  5, 'weight': 500},
-        '45ACP':              {'klass': 'Ammo',    'level':  6, 'weight': 180},
-        'RPG':                {'klass': 'Ammo',    'level': 20, 'weight': 750},
-        'EnergyCell':         {'klass': 'Ammo',    'level': 24, 'weight':1180},
-        'RailSlug':           {'klass': 'Ammo',    'level': 30, 'weight': 350},
+        '5mm':       {'klass': 'Ammo', 'magsize': 20, 'level':  2, 'weight':  20,  'price':    20},
+        '7mm':       {'klass': 'Ammo', 'magsize': 15, 'level':  2, 'weight':  25,  'price':    30},
+        '9mm':       {'klass': 'Ammo', 'magsize': 12, 'level':  3, 'weight':  45,  'price':    40},
+        '40mm':      {'klass': 'Ammo', 'magsize':  1, 'level':  3, 'weight': 155,  'price':    80},
+        '12g':       {'klass': 'Ammo', 'magsize':  8, 'level':  5, 'weight': 500,  'price':   290},
+        '45ACP':     {'klass': 'Ammo', 'magsize':  7, 'level':  6, 'weight': 180,  'price':  1500},
+        'RPG':       {'klass': 'Ammo', 'magsize':  1, 'level': 20, 'weight': 750,  'price':  4000},
+        'EnergyCell':{'klass': 'Ammo', 'magsize': 50, 'level': 24, 'weight':1180,  'price':  2000},
+        'RailSlug':  {'klass': 'Ammo', 'magsize':  1, 'level': 30, 'weight': 350,  'price': 25000},
 
         # armor
         'TShirt':                 {'klass': 'Armor',   'level':  0, 'et': 40, 'weight':   250,  'marm':  0, 'farm':  0, 'price':      10},
@@ -292,8 +292,8 @@ class items:
         'EchoRing':            {'klass': 'Ring',          'level': 28, 'weight':  12, 'defense': 0, 'marm': 2, 'farm': 1, 'price':  57600},   # effect: +15m enemy_ping_range (synergy with NMap.exe)
         'WardenSignet':        {'klass': 'Ring',          'level': 29, 'weight':  17, 'defense': 1, 'marm': 2, 'farm': 2, 'price':  63900},   # effect: +5% armor_effectiveness
         'OblivionSeal':        {'klass': 'Ring',          'level': 30, 'weight':  20, 'defense': 1, 'marm': 2, 'farm': 2, 'price':  70700},   # effect: +5% payouts & -5% upkeep; unique_equip=1
-        'RingOfFire':         {'klass': 'Ring',        'level': 17, 'weight':  17, 'str': 2, 'attack': 4},
-        'RingOfWind':         {'klass': 'Ring',        'level': 18, 'weight':  17, 'int': 2, 'cha': 2, 'wis': 1},
+        'RingOfFire':          {'klass': 'Ring',        'level': 17, 'weight':  17, 'str': 2, 'attack': 4},
+        'RingOfWind':          {'klass': 'Ring',        'level': 18, 'weight':  17, 'int': 2, 'cha': 2, 'wis': 1},
 
         # amulets
         'StringCharm':            {'klass': 'Amulet', 'level':  0, 'weight':  12, 'defense': 0, 'marm': 0, 'farm': 0, 'max_hp':  0, 'max_stam':  0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry':  0, 'loot': 0, 'heal_amp':  0, 'ooc_patch':  0, 'price':      25},   # cute junk
@@ -411,9 +411,11 @@ class items:
         return cls.KLASSES[klass](name)
 
     @classmethod
-    def get_item(cls, name: str, count: int = 1, mods: str | None = None):
+    def get_item(cls, name: str, count: int = None, mods: dict[str,str] | None = None):
         data = cls.ITEMS[name]
-        return cls.instance(name, data['klass']).count(count).modifiers(mods)
+        item = cls.instance(name, data['klass'])
+        item.count(count or item.get_default_count())
+        return item.modifiers(mods)
 
     @classmethod
     def load_dir(cls, items_path: str):
