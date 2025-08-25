@@ -44,6 +44,26 @@ p_cha = "Charisma"
 p_luc = "Luck"
 
 
+##########
+# Skills #
+##########
+msg_sd_skills = "Your skills: %s."
+p_aim = "Aiming"
+p_fig = "Fighting"
+p_hac = "Hacking"
+p_tra = "Trading"
+p_mat = "Math"
+p_cry = "Crypto"
+
+
+#########
+# Stats #
+#########
+p_thirst = "Thirst"
+p_hunger = "Hunger"
+p_alcohol = "Alcohol"
+
+
 ###########
 # Actions #
 ###########
@@ -85,18 +105,18 @@ sd_busy = "%s busy."
 err_sd_unknown_mods_mapping = "Unknown modifier magic word: %s."
 
 # slot
-sd_slot_p_weapon = "Weapon"
-sd_slot_p_armor = "Armor"
-sd_slot_p_helmet = "Helmet"
-sd_slot_p_trousers = "Trousers"
-sd_slot_p_boots = "Boots"
-sd_slot_p_gloves = "Gloves"
-sd_slot_p_amulet = "Amulet"
-sd_slot_p_ring = "Ring"
-sd_slot_p_earring = "Earring"
-sd_slot_p_piercing = "Piercing"
-sd_slot_p_mount = "Mount"
-sd_slot_p_cyberdec = "Cyberdeck"
+p_weapon = "Weapon"
+p_armor = "Armor"
+p_helmet = "Helmet"
+p_trousers = "Trousers"
+p_boots = "Boots"
+p_gloves = "Gloves"
+p_amulet = "Amulet"
+p_ring = "Ring"
+p_earring = "Earring"
+p_piercing = "Piercing"
+p_mount = "Mount"
+p_cyberdeck = "Cyberdeck"
 
 #########
 # Party #
@@ -183,7 +203,7 @@ msg_sd_look = "You look around and see %s."
 ##########
 mt_shadowdogs_status = "Character Status"
 md_shadowdogs_status = "Show your character status."
-msg_sd_status = "You are a %s %s L%d(L%d) %d/%dHP %d/%dMP - Food %d%%/%d%% Water - ATK %d/%d DEF - MARM %d/%d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg/%.2fkg - %s+%s"
+msg_sd_status = "You are a %s %s L%d(L%d) %d/%dHP %d/%dMP - ATK %d/%d DEF - MARM %d/%d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg/%.2fkg - %s + %s - Food %d%%/%d%% Water"
 
 #########
 # Equip #

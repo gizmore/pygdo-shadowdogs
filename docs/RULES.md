@@ -54,7 +54,7 @@ The alteration has to be part of the poll question.
  - Global Polls may be used to block an effective poll. The citizens have a veto.
 
 
-##### Government
+##### Government Weights
 
 The four winds rule over the combat zone.
 They are the humans who hold the highscores in ESL,

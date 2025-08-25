@@ -7,7 +7,7 @@ from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
-from typing import TYPE_CHECKING, Generator, Any
+from typing import TYPE_CHECKING, Generator, Any, Self
 
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
@@ -24,6 +24,7 @@ from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.classes.Equipment import Equipment
+from gdo.shadowdogs.skill.Crypto import Crypto
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
 from gdo.shadowdogs.stat.Alcohol import Alcohol
@@ -101,10 +102,7 @@ class SD_Player(WithShadowFunc, GDO):
         self.party_pos = 0
         self.distance = 0
         self.command_eta = 0
-        self.modified = {
-            'p_hunger': 100,
-            'p_thirst': 100,
-        }
+        self.modified = {}
         self._combat_stack = None
 
     def combat_stack(self) -> CombatStack:
@@ -115,15 +113,15 @@ class SD_Player(WithShadowFunc, GDO):
     def reset_modified(self):
         self.modified.update({
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0, 'p_luc': 0,
-            'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0,
+            'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0, 'p_cry': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
             'p_max_hp': 0, 'p_max_mp': 0,
             'p_attack': 0, 'p_defense': 0, 'p_at': 50,
             'p_min_dmg': 0, 'p_max_dmg': 0,
             'p_marm': 0, 'p_farm': 0,
-            'p_alcohol': 0,
             'p_weight': 0, 'p_max_weight': 0,
             'p_level': 0,
+            'p_hunger': 0, 'p_thirst': 0, 'p_alcohol': 0,
         })
         return self
 
@@ -191,6 +189,7 @@ class SD_Player(WithShadowFunc, GDO):
             Hacking('p_hac'),
             Trading('p_tra'),
             Math('p_mat'),
+            Crypto('p_cry'),
 
             Alcohol('p_alcohol'),
             Hunger('p_hunger').initial('50'),
@@ -389,8 +388,30 @@ class SD_Player(WithShadowFunc, GDO):
             self.c(key).apply(self)
         return self
 
-    def apply(self, name: str, inc: int):
+    def apply(self, name: str, inc: int) -> Self:
         self.modified[name] += inc
+        return self
+
+    def inc(self, key: str, by: int):
+        gdt = self.column(key)
+        old = self.modified.get(key)
+        new = old + by
+        if gdt._min is not None and new < gdt._min:
+            new = gdt._min
+        if gdt._max is not None and new > gdt._max:
+            new = gdt._max
+        self.modified[key] = new
+        return self
+
+    def incb(self, key: str, by: int):
+        gdt = self.column(key)
+        old = self.gb(key)
+        new = old + by
+        if gdt._min is not None and new < gdt._min:
+            new = gdt._min
+        if gdt._max is not None and new > gdt._max:
+            new = gdt._max
+        self.sb(key, new)
         return self
 
     def modify(self, stats: dict[str, int]):
@@ -403,12 +424,12 @@ class SD_Player(WithShadowFunc, GDO):
     ########
 
     async def digesting(self):
-        self.set_value('p_hunger', max(0, self.gdo_value('p_hunger') - Shadowdogs.FOOD_PER_TICK))
-        self.set_value('p_thirst', max(0, self.gdo_value('p_thirst') - Shadowdogs.WATER_PER_TICK))
+        self.incb('p_hunger', -Shadowdogs.FOOD_PER_TICK)
+        self.incb('p_thirst', -Shadowdogs.WATER_PER_TICK)
         dmg = 0
-        if self.gdo_value('p_hunger') <= 0:
+        if self.gb('p_hunger') == 0:
             dmg += 1
-        if self.gdo_value('p_thirst') <= 0:
+        if self.gb('p_thirst') == 0:
             dmg += 1
         if dmg:
             self.give_hp(-dmg)
@@ -451,7 +472,7 @@ class SD_Player(WithShadowFunc, GDO):
         new_total_karma = self.get_total_karma()
         new_karma = new_total_karma - karma_before
         if new_karma > 0:
-            self.increment('p_karma', new_karma).save()
+            self.increment('p_karma', new_karma)
             return " " + t('msg_sd_gained_karma', (new_karma, self.gdo_value('p_karma')))
         return ''
 
@@ -459,7 +480,7 @@ class SD_Player(WithShadowFunc, GDO):
         output = ''
         xp = self.gdo_value('p_xp')
         while xp >= self.level_column().xp_needed(self):
-            self.increment('p_level', 1).save()
+            self.increment('p_level', 1)
             level = self.gdo_value('p_level')
             xp = self.gdo_value('p_xp')
             output += " " + t('msg_sd_gained_level', (level, self.level_column().xp_needed(self) - xp, level + 1))

@@ -16,13 +16,14 @@ class Consumable(Usable):
     async def on_use(self, target: 'SD_Player|Obstacle'):
         player = self.get_player()
         ef = []
-        for key,value in self.dm('ef', {}).items():
+        for key, value in self.dm('ef', {}).items():
             key = f"p_{key}"
-            player.column(key).apply(player)
+            player.inc(key, value)
             sign = '+' if value > 0 else ''
-            ef.append(f"{t(f'sd_{key}')}({sign}{value})")
+            ef.append(f"{t(key)}({sign}{value})")
         if not ef:
             ef.append(t('none'))
         self._sd_item.use(1)
+        player.modify_all()
         await self.send_to_party(player.get_party(), 'msg_sd_consumed', (self.render_name(), ",".join(ef), player.render_busy()))
         return GDT_HTML()

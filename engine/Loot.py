@@ -34,7 +34,7 @@ class Loot(WithShadowFunc):
 
     def  loot(self) -> SD_Item|None:
         choices = []
-        luck = self._killer.g('p_luck')
+        luck = self._killer.g('p_luc')
         choices.append((self.loot_nuyen, Shadowdogs.LOOT_CHANCE_NUYEN + Shadowdogs.LOOT_CHANCE_NUYEN_PER_LUCK * luck))
         choices.append((self.loot_inventory, Shadowdogs.LOOT_CHANCE_INVENTORY + Shadowdogs.LOOT_CHANCE_INVENTORY_PER_LUCK * luck))
         choices.append((self.loot_equipment, Shadowdogs.LOOT_CHANCE_EQUIPMENT + Shadowdogs.LOOT_CHANCE_EQUIPMENT_PER_LUCK * luck))
@@ -44,7 +44,7 @@ class Loot(WithShadowFunc):
         return None
 
     def loot_nuyen(self) -> SD_Item|None:
-        luck = self._killer.g('p_luck')
+        luck = self._killer.g('p_luc')
         if self._victim.is_npc():
             nuyen = self._victim.gb('p_level') * Shadowdogs.LOOT_NUYEN_PER_LEVEL + Shadowdogs.LOOT_NUYEN_PER_LUCK * luck
             nuyen = Random.mrand(1, nuyen)
@@ -77,7 +77,7 @@ class Loot(WithShadowFunc):
 
 
     def loot_random(self) -> SD_Item|None:
-        luck = self._killer.g('p_luck')
+        luck = self._killer.g('p_luc')
         itms = []
         for item_name in items.ITEMS.keys():
             item = items.get_item(item_name)

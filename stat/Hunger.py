@@ -6,5 +6,23 @@ if TYPE_CHECKING:
 
 
 class Hunger(Modifier):
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self.min(0)
+        self.max(200)
+        self.bytes(1)
+        self.initial('100')
+
     def apply(self, target: 'SD_Player'):
-        target.increment(self.get_name(), self.get_value()).save()
+        sat = self.get_value()
+        malus = 0
+        if sat > 140:
+            malus = -1
+        if sat > 180:
+            malus = -3
+        if sat < 50:
+            target.apply('p_str', -2)
+        if malus:
+            target.apply('p_qui', -malus)
+            target.apply('p_dex', -malus)

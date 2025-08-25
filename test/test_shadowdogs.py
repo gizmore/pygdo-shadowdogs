@@ -118,6 +118,10 @@ class ShadowdogsTest(GDOTestCase):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(cli_gizmore(), '$sdi')
         self.assertIn('nventory', out, '$sdi not working')
+        out = cli_plug(cli_gizmore(), '$sdat')
+        self.assertIn('Str:', out, '$sdattr not working')
+        out = cli_plug(cli_gizmore(), '$sdsk')
+        self.assertIn('Trading:', out, '$sdskills not working')
 
 
     async def test_03_eat(self):
@@ -139,7 +143,7 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sduse Sandwich')
         self.assertIn('Item not found', out, 'eat sandwich does not work.')
         out = cli_plug(gizmore, '$sds')
-        self.assertIn('Food 100%', out, 'hungry?')
+        self.assertIn('Food 200%', out, 'hungry?')
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()

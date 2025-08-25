@@ -3,21 +3,22 @@ from gdo.core.GDT_String import GDT_String
 from gdo.shadowdogs.attr.Attribute import Attribute
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.skill.Skill import Skill
 
 
-class attributes(MethodSD):
+class skills(MethodSD):
 
     @classmethod
     def gdo_trigger(cls) -> str:
-        return "sdattributes"
+        return "sdskills"
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return "sdat"
+        return "sdsk"
 
     async def sd_execute(self):
-        attrs = []
+        skills = []
         player = self.get_player()
-        for key in Attribute.ATTRIBUTES:
-            attrs.append("%s: %d(%d)" % (t(key)[:3], player.gb(key), player.g(key)))
-        return self.reply('msg_sd_attributes', (", ".join(attrs),))
+        for key in Skill.SKILLS:
+            skills.append("%s: %d(%d)" % (t(key), player.gb(key), player.g(key)))
+        return self.reply('msg_sd_skills', (", ".join(skills),))

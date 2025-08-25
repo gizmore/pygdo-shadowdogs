@@ -83,4 +83,4 @@ class GDT_Slot(GDT_Enum):
 
     @classmethod
     def display_slot(cls, slot: str):
-        return t('sd_slot_' + slot)
+        return t(slot)

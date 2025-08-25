@@ -325,4 +325,12 @@ to the Ukraine war in the middle of the 2020's.
 The leaders came to the conclusion that
 a made friend is better than a dead enemy.
 
-## 
+
+## Car Day
+
+ - 25.Aug
+
+This day in 2ß88, producing new cars got forbidden.
+
+Existing cars got shared and re-distributed nicely among all citizens who have the skill to drive.
+
