@@ -16,9 +16,11 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.SD_Item import SD_Item
     from gdo.shadowdogs.SD_Party import SD_Party
+    from gdo.shadowdogs.SD_Spell import SD_Spell
     from gdo.shadowdogs.SD_Place import SD_Place
     from gdo.shadowdogs.engine.MethodSD import MethodSD
     from gdo.shadowdogs.actions.Action import Action
+    from gdo.shadowdogs.spells.Spell import Spell
 
 from gdo.base.Trans import Trans, t
 from gdo.core.GDO_Channel import GDO_Channel
@@ -154,3 +156,13 @@ class WithShadowFunc(WithPlayerGDO):
             if announce:
                 await self.send_to_player(player, 'msg_sd_new_word', (word.get_name(),))
 
+    ##########
+    # Spells #
+    ##########
+    def has_spell(self, player: 'SD_Player', spell: 'Spell', announce: bool=True) -> bool:
+        return SD_Spell.get_for_player(player, spell) is not None
+
+    async def give_spell(self, player: 'SD_Player', spell: 'Spell', announce: bool=True):
+        SD_Spell.table().se
+        if announce:
+            await self.send_to_player(player, 'msg_sd_new_spell', (spell.render_name(),))

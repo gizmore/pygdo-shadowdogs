@@ -3,9 +3,24 @@ from gdo.base.GDT import GDT
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Player import GDT_Player
 from gdo.shadowdogs.GDT_Spell import GDT_Spell
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.spells.Spell import Spell
 
 
 class SD_Spell(GDO):
+
+    @classmethod
+    def get_for_player(cls, player: 'SD_Player', spell: 'Spell') -> 'SD_Spell|None':
+        return cls.table().select().where(f"sp_player={player.get_id()} AND sp_spell='{spell.get_name()}'").first().exec().fetch_object()
+
+    @classmethod
+    def create_for_player(cls, player: 'SD_Player', spell: 'Spell') -> 'SD_Spell|None':
+        return cls.blank({
+            'sp_spell': spell.get_name(),
+            'sp_player': player.get_id(),
+        }).soft_replace()
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -13,3 +28,6 @@ class SD_Spell(GDO):
             GDT_Player('sp_player').primary().cascade_delete(),
             GDT_Created('sp_created'),
         ]
+
+    def get_spell(self) -> 'Spell':
+        return self.gdo_value('sp_spell')
