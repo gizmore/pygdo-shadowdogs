@@ -25,3 +25,4 @@ class gmsp(MethodSD):
         to = self.get_target()
         spell = self.get_spell()
         await self.give_spell(to, spell)
+        return self.reply('msg_sd_gmsp', (spell.render_name(),))
