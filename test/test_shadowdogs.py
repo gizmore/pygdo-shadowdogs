@@ -193,7 +193,8 @@ class ShadowdogsTest(GDOTestCase):
 
     async def test_15_spells(self):
         gizmore = await self.fresh_gizmore()
-
+        out = cli_plug(gizmore, '$sdgmsp giz calm')
+        self.assertIn('hello', out, 'known words does not work.')
 
 
 

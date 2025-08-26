@@ -327,7 +327,8 @@ class items:
         'KismetMedal':            {'klass': 'Amulet', 'level': 28, 'weight':  31, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 16, 'max_stam': 60, 'stam_regen': 2, 'crit': 3, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 3, 'carry':  0, 'loot': 4, 'heal_amp':  6, 'ooc_patch':  0, 'price': 2300000},  # fortune aura: tiny party luck?
         'MarshalBadge':           {'klass': 'Amulet', 'level': 29, 'weight':  38, 'defense': 3, 'marm': 2, 'farm': 2, 'max_hp': 17, 'max_stam': 62, 'stam_regen': 3, 'crit': 0, 'evade': 3, 'hack': 0, 'stealth': 0, 'xp': 4, 'carry':  0, 'loot': 1, 'heal_amp':  4, 'ooc_patch':  0, 'price': 3100000},  # +guard reputation; -heat gain?
         'OblivionPhylactery':     {'klass': 'Amulet', 'level': 30, 'weight':  25, 'defense': 2, 'marm': 2, 'farm': 2, 'max_hp': 20, 'max_stam': 70, 'stam_regen': 3, 'crit': 4, 'evade': 4, 'hack': 4, 'stealth': 4, 'xp': 5, 'carry': 10, 'loot': 4, 'heal_amp': 15, 'ooc_patch': 10, 'price': 5000000},  # once/day cheat-death at 10% HP (unique)
-        'LionessAmulet':          {'klass': 'Amulet', 'level': 5, 'weight': 32, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
+        'MonAmulet':          {'klass': 'Amulet', 'level': 37, 'weight': 65, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
+        'LionessAmulet':          {'klass': 'Amulet', 'level': 45, 'weight': 32, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
 
         'Pen':                {'klass': 'Pen',         'weight':  20},
         'MobilePhone':        {'klass': 'MobilePhone', 'weight': 488},
@@ -397,6 +398,7 @@ class items:
 
         'EmailArmy':          {'klass': 'Email',       'key': 'sd_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
+        'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
     }
     KLASSES = {}
 

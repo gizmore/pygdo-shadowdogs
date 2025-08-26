@@ -14,7 +14,7 @@ class Usable(Item):
     def sd_use_time(self) -> int:
         return 0
 
-    async def on_use(self, target: 'SD_Player|Obstacle'):
+    async def on_use(self, target: 'SD_Player|Obstacle|None'):
         raise GDOException('err_not_implemented')
 
     def get_default_count(self) -> int:

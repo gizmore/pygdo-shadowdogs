@@ -52,6 +52,7 @@ In case of spam, you may mute the offending player for everyone.
  - **Noone** may alter this document without an effective Poll.
 The alteration has to be part of the poll question.
  - Global Polls may be used to block an effective poll. The citizens have a veto.
+ - Global Polls can exchange the user associated with a role.
 
 
 ##### Government Weights

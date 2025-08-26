@@ -31,3 +31,6 @@ class Spell(WithShadowFunc):
 
     async def cast(self, player: SD_Player, target: SD_Player|Item):
         raise ShadowdogsException('err_stub', (f"{self.get_name()}.cast()", ))
+
+    def render_name(self):
+        return t("sd_spell_"+self.get_name())   
