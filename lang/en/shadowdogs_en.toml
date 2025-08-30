@@ -133,6 +133,7 @@ msg_sd_not_saturated = "You are not saturated. %d damage. %d/%d HP left."
 #########
 sd_receive_item_gmi = "You received %s from the GM %s."
 sd_receive_item_loot = "You received %s from looting the %s."
+msg_killed_and_lost = "You got killed by %s and lost your %s."
 
 ################
 ### Commands ###
@@ -267,12 +268,9 @@ mt_shadowdogs_gmi = "GM Item"
 md_shadowdogs_gmi = "GM Command - Create an item for a player."
 msg_sd_gmi_success = "You successfully gave %s for %s."
 
-##############
-### Quests ###
-##############
-sdq0001_title = "Peninsula"
-sdq0001_descr = "Find out where the weird pen is from."
-
-sdq0002_title = "Connection"
-sdq0002_descr = "Try to contact lazer to find out what might have happened."
-
+#############
+### Nuyen ###
+#############
+mt_shadowdogs_nuyen = "Show Nuyen Amount"
+md_shadowdogs_nuyen = "Show the parties Nuyen amount."
+msg_sd_nuyen = "Your party has %d Nuyen: %s."

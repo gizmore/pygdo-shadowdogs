@@ -32,7 +32,7 @@ class Factory(WithShadowFunc):
     ########
 
     @classmethod
-    async def create_default_npcs(cls, location: Location, *class_names: str):
+    async def create_default_npcs(cls, location: Location, *class_names: str) -> SD_Party:
         specs = []
         for name in class_names:
             spec = {
@@ -50,11 +50,11 @@ class Factory(WithShadowFunc):
         party = cls.create_party(location)
         for spec in npc_specs:
             npc = cls.create_npc(party, spec)
-            await party.join(npc)
+            party.join_silent(npc)
         return party
 
     @classmethod
-    def create_npc(cls, party: SD_Party, spec: dict[str,int|str]):
+    def create_npc(cls, party: SD_Party, spec: dict[str,int|str]) -> SD_Player:
         player = npcs.NPCS[spec['type']]['klass'].blank({
             'p_npc_class': spec['type'],
             'p_npc_name': spec['type'],

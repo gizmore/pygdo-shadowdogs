@@ -2,11 +2,9 @@ import functools
 from typing import TYPE_CHECKING, Iterator
 
 from gdo.base.GDO import GDO
-from gdo.base.GDT import GDT
-from gdo.core.GDO_User import GDO_User
+from gdo.base.Trans import t
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
-from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.mapping import mapping
 
@@ -66,6 +64,9 @@ class Item(WithShadowFunc):
             name += ",".join(joined)
         return self._name
 
+    def render_slot(self) -> str:
+        return t(self.get_slot())
+
     def modifiers(self, modifiers: dict[str,int]):
         self._modifiers = modifiers
         return self
@@ -105,7 +106,7 @@ class Item(WithShadowFunc):
     def g(self, field: str) -> int:
         return self.get_player().g(field)
 
-    def dm(self, field: str, default=None) -> str:
+    def dm(self, field: str, default=None) -> str|bool|int:
         return self.get_default_modifiers().get(field, default)
 
     def dmi(self, field: str, default=0) -> int:
@@ -146,8 +147,12 @@ class Item(WithShadowFunc):
     def get_default_count(self) -> int:
         return 1
 
-    def count(self, param):
-        pass
+    def count(self, count: int):
+        self._count = count
+        return self
 
     async def on_use(self, target: 'SD_Player|Obstacle'):
         await self.send_to_player(self.get_player(), 'err_sd_item_not_usable')
+
+    def can_loot(self) -> bool:
+        return self.dm('no_loot', False)

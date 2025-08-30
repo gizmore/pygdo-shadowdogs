@@ -10,6 +10,10 @@ if TYPE_CHECKING:
 class attack(MethodSD):
 
     @classmethod
+    def sd_trigger(cls) -> str:
+        return "sdattack"
+
+    @classmethod
     def sd_trig(cls) -> str:
         return "sda"
 

@@ -9,6 +9,8 @@ from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING, Generator, Any, Self
 
+from gdo.shadowdogs.item.classes.Nuyen import Nuyen as NY
+
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
@@ -249,7 +251,7 @@ class SD_Player(WithShadowFunc, GDO):
             self.__class__.Loot = Loot
         from gdo.shadowdogs.engine.Factory import Factory
         if killer:
-            await Loot(killer, self).on_kill()
+            await self.__class__.Loot (killer, self).on_kill()
         location = self.get_city().get_respawn_location(self)
         old_party = self.get_party()
         old_party.members.remove(self)
@@ -284,7 +286,7 @@ class SD_Player(WithShadowFunc, GDO):
         yield from self.all_programs()
 
     def get_weapon(self) -> 'Weapon':
-        return self.get_equipment('p_weapon') or Fists().player(self)
+        return self.get_equipment('p_weapon') or Fists('Fists').player(self)
 
     def get_equip(self, slot_name: str) -> 'SD_Item|None':
         try:
@@ -493,7 +495,8 @@ class SD_Player(WithShadowFunc, GDO):
         return self.get_nuyen() >= nuyen
 
     def get_nuyen(self) -> int:
-        return self.gb('p_nuyen')
+        item = self.inventory.get_by_name('Nuyen') or NY('Nuyen')
+        return item.get_count()
 
     def give_nuyen(self, nuyen: int):
         return self.set_value('p_nuyen', nuyen)

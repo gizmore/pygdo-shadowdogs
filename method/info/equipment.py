@@ -24,8 +24,11 @@ class equipment(WithShadowMethod, Method):
         display = []
         for slot in GDT_Slot.SLOTS:
             if item := pl.get_equip(slot):
-                item_name = item.render_name()
+                item_name = Render.bold(item.render_name(), self._env_mode)
             else:
-                item_name = Render.italic(t('none'), self._env_mode)
+                continue
+                # item_name = Render.italic(t('none'), self._env_mode)
             display.append(GDT_Slot.display_slot(slot) + ': ' + item_name)
+        if not display:
+            display.append(Render.italic(t('none'), self._env_mode))
         return self.msg('msg_sd_equipment', ("; ".join(display),))

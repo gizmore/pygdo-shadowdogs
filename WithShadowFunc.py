@@ -123,11 +123,11 @@ class WithShadowFunc(WithPlayerGDO):
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item_names, announce_source))
 
     async def give_item(self, player: 'SD_Player', item: 'SD_Item', announce_action: str=None, announce_source: str=None):
-        item.save_vals({
+        item.set_vals({
             'item_owner': player.get_id(),
             'item_slot': item.itm().sd_inv_type(),
         })
-        player.inventory.append(item)
+        player.inventory.add_item(item)
         if announce_action:
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item.render_name(), announce_source))
 
@@ -163,6 +163,7 @@ class WithShadowFunc(WithPlayerGDO):
         return SD_Spell.get_for_player(player, spell) is not None
 
     async def give_spell(self, player: 'SD_Player', spell: 'Spell', announce: bool=True):
-        SD_Spell.table().se
-        if announce:
-            await self.send_to_player(player, 'msg_sd_new_spell', (spell.render_name(),))
+        if not self.has_spell(player, spell, announce):
+            SD_Spell.create_for_player(player, spell)
+            if announce:
+                await self.send_to_player(player, 'msg_sd_new_spell', (spell.render_name(),))

@@ -18,8 +18,12 @@ class items:
     ITEMS = {
         # Melee
         'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et': 15, 'rng': 1,  'weight':   200,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
+        'Broken Bottle':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et': 15, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 30},
+        'Shiv':               {'klass': 'Sword', 'level': 1, 'at': 60, 'et': 15, 'rng': 1, 'weight': 160, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 4, 'price': 60},
+        'Pipe':               {'klass': 'Thrust', 'level': 2, 'at': 59, 'et': 15, 'rng': 1, 'weight': 980, 'attack': 4, 'defense': 1, 'min_dmg': 2, 'max_dmg': 6, 'price': 220},
         'Bronze Knuckles':    {'klass': 'Fists',   'level':  2, 'at': 59, 'et': 15, 'rng': 1,  'weight':   538,  'attack':  5, 'defense': 1, 'min_dmg':  2, 'max_dmg':  6, 'price':     450},
         'Steel Knuckles':     {'klass': 'Fists',   'level':  3, 'at': 58, 'et': 15, 'rng': 1,  'weight':   876,  'attack':  5, 'defense': 1, 'min_dmg':  4, 'max_dmg':  8, 'price':     950},
+        'Crowbar':            {'klass': 'Thrust', 'level': 3, 'at': 58, 'et': 15, 'rng': 1, 'weight': 1450, 'attack': 5, 'defense': 1, 'min_dmg': 3, 'max_dmg': 8, 'price': 500},
         'Club':               {'klass': 'Thrust',  'level':  4, 'at': 57, 'et': 15, 'rng': 1,  'weight':  1214,  'attack':  6, 'defense': 2, 'min_dmg':  5, 'max_dmg': 10, 'price':    1650},
         'Short Sword':        {'klass': 'Thrust',  'level':  5, 'at': 56, 'et': 15, 'rng': 1,  'weight':  1552,  'attack':  7, 'defense': 2, 'min_dmg':  6, 'max_dmg': 12, 'price':    2550},
         'Sword':              {'klass': 'Thrust',  'level':  6, 'at': 55, 'et': 15, 'rng': 1,  'weight':  1890,  'attack':  7, 'defense': 2, 'min_dmg':  8, 'max_dmg': 14, 'price':    3650},
@@ -49,47 +53,50 @@ class items:
         'Omega Blade':        {'klass': 'Sword',   'level': 30, 'at': 30, 'et': 15, 'rng': 2,  'weight': 10000,  'attack': 25, 'defense': 8, 'min_dmg': 40, 'max_dmg': 60, 'price':   90050},
 
         # firearms
-        'Rusty Pistol':       {'klass': 'Firearm', 'level':  1, 'at': 50, 'et': 15, 'rng': 10, 'weight':   800,  'attack':  5, 'defense': 0, 'min_dmg':  8, 'max_dmg': 12, 'price':     600,   'ammo': '7mm',        'mag_size':  8},
-        '9mm Pistol':         {'klass': 'Firearm', 'level':  2, 'at': 49, 'et': 16, 'rng': 10, 'weight':  1786,  'attack':  6, 'defense': 0, 'min_dmg': 10, 'max_dmg': 14, 'price':    1400,   'ammo': '9mm',        'mag_size': 12},
-        'Silenced Pistol':    {'klass': 'Firearm', 'level':  3, 'at': 48, 'et': 18, 'rng': 10, 'weight':  2771,  'attack':  7, 'defense': 1, 'min_dmg': 12, 'max_dmg': 16, 'price':    2900,   'ammo': '9mm',        'mag_size': 12},
-        'Revolver':           {'klass': 'Firearm', 'level':  4, 'at': 47, 'et': 19, 'rng': 10, 'weight':  3757,  'attack':  7, 'defense': 1, 'min_dmg': 15, 'max_dmg': 20, 'price':    5000,   'ammo': '45ACP',      'mag_size':  6},
-        'Compact SMG':        {'klass': 'Firearm', 'level':  5, 'at': 46, 'et': 21, 'rng': 10, 'weight':  4743,  'attack':  8, 'defense': 1, 'min_dmg': 18, 'max_dmg': 24, 'price':    7700,   'ammo': '9mm',        'mag_size': 20},
-        'SMG':                {'klass': 'Firearm', 'level':  6, 'at': 45, 'et': 22, 'rng': 10, 'weight':  5729,  'attack':  9, 'defense': 2, 'min_dmg': 20, 'max_dmg': 28, 'price':   11000,   'ammo': '9mm',        'mag_size': 30},
-        'Tactical SMG':       {'klass': 'Firearm', 'level':  7, 'at': 44, 'et': 24, 'rng': 10, 'weight':  6714,  'attack': 10, 'defense': 2, 'min_dmg': 24, 'max_dmg': 34, 'price':   14900,   'ammo': '9mm',        'mag_size': 40},
-        'Shotgun':            {'klass': 'Firearm', 'level':  8, 'at': 43, 'et': 26, 'rng': 10, 'weight':  7700,  'attack': 11, 'defense': 2, 'min_dmg': 28, 'max_dmg': 40, 'price':   19400,   'ammo': '12g',        'mag_size':  5},
-        'Auto Shotgun':       {'klass': 'Firearm', 'level':  9, 'at': 42, 'et': 28, 'rng': 10, 'weight':  8686,  'attack': 12, 'defense': 2, 'min_dmg': 32, 'max_dmg': 50, 'price':   24500,   'ammo': '12g',        'mag_size':  8},
-        'Hunting Rifle':      {'klass': 'Firearm', 'level': 10, 'at': 41, 'et': 30, 'rng': 30, 'weight':  9671,  'attack': 13, 'defense': 3, 'min_dmg': 36, 'max_dmg': 55, 'price':   30200,   'ammo': '7mm',        'mag_size':  5},
-        'Assault Rifle':      {'klass': 'Firearm', 'level': 11, 'at': 40, 'et': 32, 'rng': 30, 'weight': 10657,  'attack': 14, 'defense': 3, 'min_dmg': 40, 'max_dmg': 60, 'price':   36500,   'ammo': '5mm',        'mag_size': 30},
-        'Carbine':            {'klass': 'Firearm', 'level': 12, 'at': 39, 'et': 34, 'rng': 30, 'weight': 11643,  'attack': 15, 'defense': 4, 'min_dmg': 44, 'max_dmg': 65, 'price':   43400,   'ammo': '5mm',        'mag_size': 30},
-        'Sniper Rifle':       {'klass': 'Firearm', 'level': 13, 'at': 38, 'et': 36, 'rng': 30, 'weight': 12629,  'attack': 16, 'defense': 4, 'min_dmg': 50, 'max_dmg': 80, 'price':   50900,   'ammo': '7mm',        'mag_size':  5},
-        'Battle Rifle':       {'klass': 'Firearm', 'level': 14, 'at': 37, 'et': 38, 'rng': 30, 'weight': 13614,  'attack': 17, 'defense': 4, 'min_dmg': 55, 'max_dmg': 90, 'price':   59000,   'ammo': '7mm',        'mag_size': 20},
-        'LMG':                {'klass': 'Firearm', 'level': 15, 'at': 36, 'et': 40, 'rng': 30, 'weight': 14600,  'attack': 18, 'defense': 5, 'min_dmg': 60, 'max_dmg': 95, 'price':   67700,   'ammo': '7mm',        'mag_size': 50},
-        'Heavy LMG':          {'klass': 'Firearm', 'level': 16, 'at': 35, 'et': 42, 'rng': 30, 'weight': 15586,  'attack': 20, 'defense': 5, 'min_dmg': 70, 'max_dmg':110, 'price':   77000,   'ammo': '7mm',        'mag_size': 75},
-        'Minigun':            {'klass': 'Firearm', 'level': 17, 'at': 34, 'et': 45, 'rng': 30, 'weight': 16571,  'attack': 21, 'defense': 6, 'min_dmg': 80, 'max_dmg':120, 'price':   86900,   'ammo': '7mm',        'mag_size':200},
-        'Grenade Launcher':   {'klass': 'Firearm', 'level': 18, 'at': 33, 'et': 48, 'rng': 30, 'weight': 17557,  'attack': 22, 'defense': 6, 'min_dmg':100, 'max_dmg':150, 'price':   97400,   'ammo': '40mm',       'mag_size':  1},
-        'Rocket Launcher':    {'klass': 'Firearm', 'level': 19, 'at': 32, 'et': 50, 'rng': 30, 'weight': 18543,  'attack': 23, 'defense': 6, 'min_dmg':120, 'max_dmg':180, 'price':  108500,   'ammo': 'RPG',        'mag_size':  1},
-        'Railgun':            {'klass': 'Firearm', 'level': 20, 'at': 31, 'et': 52, 'rng': 30, 'weight': 19529,  'attack': 24, 'defense': 6, 'min_dmg':140, 'max_dmg':200, 'price':  120200,   'ammo': 'RailSlug',   'mag_size':  5},
-        'Laser Pistol':       {'klass': 'Firearm', 'level': 21, 'at': 30, 'et': 30, 'rng': 30, 'weight': 20514,  'attack': 25, 'defense': 7, 'min_dmg': 50, 'max_dmg': 80, 'price':  265100,   'ammo': 'EnergyCell', 'mag_size': 20},
-        'Laser Rifle':        {'klass': 'Firearm', 'level': 22, 'at': 30, 'et': 35, 'rng': 30, 'weight': 21500,  'attack': 26, 'defense': 7, 'min_dmg': 80, 'max_dmg':120, 'price':  290900,   'ammo': 'EnergyCell', 'mag_size': 30},
-        'Plasma Carbine':     {'klass': 'Firearm', 'level': 23, 'at': 30, 'et': 38, 'rng': 30, 'weight': 22486,  'attack': 28, 'defense': 8, 'min_dmg':100, 'max_dmg':150, 'price':  317900,   'ammo': 'EnergyCell', 'mag_size': 25},
-        'Plasma Rifle':       {'klass': 'Firearm', 'level': 24, 'at': 30, 'et': 40, 'rng': 30, 'weight': 23471,  'attack': 29, 'defense': 8, 'min_dmg':120, 'max_dmg':180, 'price':  346100,   'ammo': 'EnergyCell', 'mag_size': 30},
-        'Plasma Cannon':      {'klass': 'Firearm', 'level': 25, 'at': 30, 'et': 42, 'rng': 30, 'weight': 24457,  'attack': 30, 'defense': 8, 'min_dmg':140, 'max_dmg':200, 'price':  375500,   'ammo': 'EnergyCell', 'mag_size': 10},
-        'Gauss Rifle':        {'klass': 'Firearm', 'level': 26, 'at': 30, 'et': 45, 'rng': 30, 'weight': 25443,  'attack': 31, 'defense': 8, 'min_dmg':160, 'max_dmg':220, 'price':  406100,   'ammo': 'EnergyCell', 'mag_size': 10},
-        'Ion Blaster':        {'klass': 'Firearm', 'level': 27, 'at': 30, 'et': 48, 'rng': 30, 'weight': 26429,  'attack': 32, 'defense': 9, 'min_dmg':180, 'max_dmg':240, 'price':  437900,   'ammo': 'EnergyCell', 'mag_size': 20},
-        'Photon Sniper':      {'klass': 'Firearm', 'level': 28, 'at': 30, 'et': 50, 'rng': 30, 'weight': 27414,  'attack': 33, 'defense':10, 'min_dmg':200, 'max_dmg':250, 'price':  470900,   'ammo': 'EnergyCell', 'mag_size':  5},
-        'Disruptor Cannon':   {'klass': 'Firearm', 'level': 29, 'at': 30, 'et': 55, 'rng': 30, 'weight': 28400,  'attack': 34, 'defense':10, 'min_dmg':220, 'max_dmg':250, 'price':  505100,   'ammo': 'EnergyCell', 'mag_size':  5},
-        'Omega Railcannon':   {'klass': 'Firearm', 'level': 30, 'at': 30, 'et': 60, 'rng': 30, 'weight': 30000,  'attack': 35, 'defense':12, 'min_dmg':250, 'max_dmg':250, 'price':  540500,   'ammo': 'RailSlug',   'mag_size':  1},
+        'Pipe Pistol':        {'klass': 'Firearms', 'level':  1, 'at': 51, 'et': 16, 'rng':  8, 'weight':   700, 'attack':  4, 'defense': 0, 'min_dmg':  6, 'max_dmg': 10, 'price':    250, 'ammo': '9mm',        'mag_size':  1, 'rt': 48},
+        'Rusty Revolver':     {'klass': 'Firearms', 'level':  2, 'at': 50, 'et': 18, 'rng':  9, 'weight':  1200, 'attack':  5, 'defense': 0, 'min_dmg':  9, 'max_dmg': 13, 'price':    800, 'ammo': '45ACP',      'mag_size':  5, 'rt': 54},
+
+        'Rusty Pistol':       {'klass': 'Firearms', 'level':  1, 'at': 50, 'et': 15, 'rng': 10, 'weight':   800, 'attack':  5, 'defense': 0, 'min_dmg':  8, 'max_dmg': 12, 'price':    600, 'ammo': '7mm',        'mag_size':  8, 'rt': 38},
+        '9mm Pistol':         {'klass': 'Firearms', 'level':  2, 'at': 49, 'et': 16, 'rng': 10, 'weight':  1786, 'attack':  6, 'defense': 0, 'min_dmg': 10, 'max_dmg': 14, 'price':   1400, 'ammo': '9mm',        'mag_size': 12, 'rt': 40},
+        'Silenced Pistol':    {'klass': 'Firearms', 'level':  3, 'at': 48, 'et': 18, 'rng': 10, 'weight':  2771, 'attack':  7, 'defense': 1, 'min_dmg': 12, 'max_dmg': 16, 'price':   2900, 'ammo': '9mm',        'mag_size': 12, 'rt': 42},
+        'Revolver':           {'klass': 'Firearms', 'level':  4, 'at': 47, 'et': 19, 'rng': 10, 'weight':  3757, 'attack':  7, 'defense': 1, 'min_dmg': 15, 'max_dmg': 20, 'price':   5000, 'ammo': '45ACP',      'mag_size':  6, 'rt': 52},
+        'Compact SMG':        {'klass': 'Firearms', 'level':  5, 'at': 46, 'et': 21, 'rng': 10, 'weight':  4743, 'attack':  8, 'defense': 1, 'min_dmg': 18, 'max_dmg': 24, 'price':   7700, 'ammo': '9mm',        'mag_size': 20, 'rt': 46},
+        'SMG':                {'klass': 'Firearms', 'level':  6, 'at': 45, 'et': 22, 'rng': 10, 'weight':  5729, 'attack':  9, 'defense': 2, 'min_dmg': 20, 'max_dmg': 28, 'price':  11000, 'ammo': '9mm',        'mag_size': 30, 'rt': 50},
+        'Tactical SMG':       {'klass': 'Firearms', 'level':  7, 'at': 44, 'et': 24, 'rng': 10, 'weight':  6714, 'attack': 10, 'defense': 2, 'min_dmg': 24, 'max_dmg': 34, 'price':  14900, 'ammo': '9mm',        'mag_size': 40, 'rt': 52},
+        'Shotgun':            {'klass': 'Firearms', 'level':  8, 'at': 43, 'et': 26, 'rng': 10, 'weight':  7700, 'attack': 11, 'defense': 2, 'min_dmg': 28, 'max_dmg': 40, 'price':  19400, 'ammo': '12g',        'mag_size':  5, 'rt': 62},
+        'Auto Shotgun':       {'klass': 'Firearms', 'level':  9, 'at': 42, 'et': 28, 'rng': 10, 'weight':  8686, 'attack': 12, 'defense': 2, 'min_dmg': 32, 'max_dmg': 50, 'price':  24500, 'ammo': '12g',        'mag_size':  8, 'rt': 68},
+        'Hunting Rifle':      {'klass': 'Firearms', 'level': 10, 'at': 41, 'et': 30, 'rng': 30, 'weight':  9671, 'attack': 13, 'defense': 3, 'min_dmg': 36, 'max_dmg': 55, 'price':  30200, 'ammo': '7mm',        'mag_size':  5, 'rt': 64},
+        'Assault Rifle':      {'klass': 'Firearms', 'level': 11, 'at': 40, 'et': 32, 'rng': 30, 'weight': 10657, 'attack': 14, 'defense': 3, 'min_dmg': 40, 'max_dmg': 60, 'price':  36500, 'ammo': '5mm',        'mag_size': 30, 'rt': 50},
+        'Carbine':            {'klass': 'Firearms', 'level': 12, 'at': 39, 'et': 34, 'rng': 30, 'weight': 11643, 'attack': 15, 'defense': 4, 'min_dmg': 44, 'max_dmg': 65, 'price':  43400, 'ammo': '5mm',        'mag_size': 30, 'rt': 48},
+        'Sniper Rifle':       {'klass': 'Firearms', 'level': 13, 'at': 38, 'et': 36, 'rng': 30, 'weight': 12629, 'attack': 16, 'defense': 4, 'min_dmg': 50, 'max_dmg': 80, 'price':  50900, 'ammo': '7mm',        'mag_size':  5, 'rt': 72},
+        'Battle Rifle':       {'klass': 'Firearms', 'level': 14, 'at': 37, 'et': 38, 'rng': 30, 'weight': 13614, 'attack': 17, 'defense': 4, 'min_dmg': 55, 'max_dmg': 90, 'price':  59000, 'ammo': '7mm',        'mag_size': 20, 'rt': 56},
+        'LMG':                {'klass': 'Firearms', 'level': 15, 'at': 36, 'et': 40, 'rng': 30, 'weight': 14600, 'attack': 18, 'defense': 5, 'min_dmg': 60, 'max_dmg': 95, 'price':  67700, 'ammo': '7mm',        'mag_size': 50, 'rt': 80},
+        'Heavy LMG':          {'klass': 'Firearms', 'level': 16, 'at': 35, 'et': 42, 'rng': 30, 'weight': 15586, 'attack': 20, 'defense': 5, 'min_dmg': 70, 'max_dmg':110, 'price':  77000, 'ammo': '7mm',        'mag_size': 75, 'rt': 90},
+        'Minigun':            {'klass': 'Firearms', 'level': 17, 'at': 34, 'et': 45, 'rng': 30, 'weight': 16571, 'attack': 21, 'defense': 6, 'min_dmg': 80, 'max_dmg':120, 'price':  86900, 'ammo': '7mm',        'mag_size':200, 'rt':120},
+        'Grenade Launcher':   {'klass': 'Firearms', 'level': 18, 'at': 33, 'et': 48, 'rng': 30, 'weight': 17557, 'attack': 22, 'defense': 6, 'min_dmg':100, 'max_dmg':150, 'price':  97400, 'ammo': '40mm',       'mag_size':  1, 'rt': 90},
+        'Rocket Launcher':    {'klass': 'Firearms', 'level': 19, 'at': 32, 'et': 50, 'rng': 30, 'weight': 18543, 'attack': 23, 'defense': 6, 'min_dmg':120, 'max_dmg':180, 'price': 108500, 'ammo': 'RPG',        'mag_size':  1, 'rt':110},
+        'Railgun':            {'klass': 'Firearms', 'level': 20, 'at': 31, 'et': 52, 'rng': 30, 'weight': 19529, 'attack': 24, 'defense': 6, 'min_dmg':140, 'max_dmg':200, 'price': 120200, 'ammo': 'RailSlug',   'mag_size':  5, 'rt': 88},
+        'Laser Pistol':       {'klass': 'Firearms', 'level': 21, 'at': 30, 'et': 30, 'rng': 30, 'weight': 20514, 'attack': 25, 'defense': 7, 'min_dmg': 50, 'max_dmg': 80, 'price': 265100, 'ammo': 'EnergyCell', 'mag_size': 20, 'rt': 60},
+        'Laser Rifle':        {'klass': 'Firearms', 'level': 22, 'at': 30, 'et': 35, 'rng': 30, 'weight': 21500, 'attack': 26, 'defense': 7, 'min_dmg': 80, 'max_dmg':120, 'price': 290900, 'ammo': 'EnergyCell', 'mag_size': 30, 'rt': 70},
+        'Plasma Carbine':     {'klass': 'Firearms', 'level': 23, 'at': 30, 'et': 38, 'rng': 30, 'weight': 22486, 'attack': 28, 'defense': 8, 'min_dmg':100, 'max_dmg':150, 'price': 317900, 'ammo': 'EnergyCell', 'mag_size': 25, 'rt': 72},
+        'Plasma Rifle':       {'klass': 'Firearms', 'level': 24, 'at': 30, 'et': 40, 'rng': 30, 'weight': 23471, 'attack': 29, 'defense': 8, 'min_dmg':120, 'max_dmg':180, 'price': 346100, 'ammo': 'EnergyCell', 'mag_size': 30, 'rt': 78},
+        'Plasma Cannon':      {'klass': 'Firearms', 'level': 25, 'at': 30, 'et': 42, 'rng': 30, 'weight': 24457, 'attack': 30, 'defense': 8, 'min_dmg':140, 'max_dmg':200, 'price': 375500, 'ammo': 'EnergyCell', 'mag_size': 10, 'rt': 84},
+        'Gauss Rifle':        {'klass': 'Firearms', 'level': 26, 'at': 30, 'et': 45, 'rng': 30, 'weight': 25443, 'attack': 31, 'defense': 8, 'min_dmg':160, 'max_dmg':220, 'price': 406100, 'ammo': 'EnergyCell', 'mag_size': 10, 'rt': 82},
+        'Ion Blaster':        {'klass': 'Firearms', 'level': 27, 'at': 30, 'et': 48, 'rng': 30, 'weight': 26429, 'attack': 32, 'defense': 9, 'min_dmg':180, 'max_dmg':240, 'price': 437900, 'ammo': 'EnergyCell', 'mag_size': 20, 'rt': 80},
+        'Photon Sniper':      {'klass': 'Firearms', 'level': 28, 'at': 30, 'et': 50, 'rng': 30, 'weight': 27414, 'attack': 33, 'defense':10, 'min_dmg':200, 'max_dmg':250, 'price': 470900, 'ammo': 'EnergyCell', 'mag_size':  5, 'rt': 90},
+        'Disruptor Cannon':   {'klass': 'Firearms', 'level': 29, 'at': 30, 'et': 55, 'rng': 30, 'weight': 28400, 'attack': 34, 'defense':10, 'min_dmg':220, 'max_dmg':250, 'price': 505100, 'ammo': 'EnergyCell', 'mag_size':  5, 'rt': 92},
+        'Omega Railcannon':   {'klass': 'Firearms', 'level': 30, 'at': 30, 'et': 60, 'rng': 30, 'weight': 30000, 'attack': 35, 'defense':12, 'min_dmg':250, 'max_dmg':250, 'price': 540500, 'ammo': 'RailSlug',   'mag_size':  1, 'rt':130},
 
         # Ammo
-        '5mm':       {'klass': 'Ammo', 'magsize': 20, 'level':  2, 'weight':  20,  'price':    20},
-        '7mm':       {'klass': 'Ammo', 'magsize': 15, 'level':  2, 'weight':  25,  'price':    30},
-        '9mm':       {'klass': 'Ammo', 'magsize': 12, 'level':  3, 'weight':  45,  'price':    40},
-        '40mm':      {'klass': 'Ammo', 'magsize':  1, 'level':  3, 'weight': 155,  'price':    80},
-        '12g':       {'klass': 'Ammo', 'magsize':  8, 'level':  5, 'weight': 500,  'price':   290},
-        '45ACP':     {'klass': 'Ammo', 'magsize':  7, 'level':  6, 'weight': 180,  'price':  1500},
-        'RPG':       {'klass': 'Ammo', 'magsize':  1, 'level': 20, 'weight': 750,  'price':  4000},
-        'EnergyCell':{'klass': 'Ammo', 'magsize': 50, 'level': 24, 'weight':1180,  'price':  2000},
-        'RailSlug':  {'klass': 'Ammo', 'magsize':  1, 'level': 30, 'weight': 350,  'price': 25000},
+        'Ammo5mm':       {'klass': 'Ammo', 'magsize': 20, 'level':  2, 'weight':  20,  'price':    20},
+        'Ammo7mm':       {'klass': 'Ammo', 'magsize': 15, 'level':  2, 'weight':  25,  'price':    30},
+        'Ammo9mm':       {'klass': 'Ammo', 'magsize': 12, 'level':  3, 'weight':  45,  'price':    40},
+        'Ammo40mm':      {'klass': 'Ammo', 'magsize':  1, 'level':  3, 'weight': 155,  'price':    80},
+        'Ammo12g':       {'klass': 'Ammo', 'magsize':  8, 'level':  5, 'weight': 500,  'price':   290},
+        'Ammo45ACP':     {'klass': 'Ammo', 'magsize':  7, 'level':  6, 'weight': 180,  'price':  1500},
+        'AmmoRPG':       {'klass': 'Ammo', 'magsize':  1, 'level': 20, 'weight': 750,  'price':  4000},
+        'AmmoEnergyCell':{'klass': 'Ammo', 'magsize': 50, 'level': 24, 'weight':1180,  'price':  2000},
+        'AmmoRailSlug':  {'klass': 'Ammo', 'magsize':  1, 'level': 30, 'weight': 350,  'price': 25000},
 
         # armor
         'TShirt':                 {'klass': 'Armor',   'level':  0, 'et': 40, 'weight':   250,  'marm':  0, 'farm':  0, 'price':      10},
@@ -327,7 +334,7 @@ class items:
         'KismetMedal':            {'klass': 'Amulet', 'level': 28, 'weight':  31, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 16, 'max_stam': 60, 'stam_regen': 2, 'crit': 3, 'evade': 1, 'hack': 0, 'stealth': 0, 'xp': 3, 'carry':  0, 'loot': 4, 'heal_amp':  6, 'ooc_patch':  0, 'price': 2300000},  # fortune aura: tiny party luck?
         'MarshalBadge':           {'klass': 'Amulet', 'level': 29, 'weight':  38, 'defense': 3, 'marm': 2, 'farm': 2, 'max_hp': 17, 'max_stam': 62, 'stam_regen': 3, 'crit': 0, 'evade': 3, 'hack': 0, 'stealth': 0, 'xp': 4, 'carry':  0, 'loot': 1, 'heal_amp':  4, 'ooc_patch':  0, 'price': 3100000},  # +guard reputation; -heat gain?
         'OblivionPhylactery':     {'klass': 'Amulet', 'level': 30, 'weight':  25, 'defense': 2, 'marm': 2, 'farm': 2, 'max_hp': 20, 'max_stam': 70, 'stam_regen': 3, 'crit': 4, 'evade': 4, 'hack': 4, 'stealth': 4, 'xp': 5, 'carry': 10, 'loot': 4, 'heal_amp': 15, 'ooc_patch': 10, 'price': 5000000},  # once/day cheat-death at 10% HP (unique)
-        'MonAmulet':          {'klass': 'Amulet', 'level': 37, 'weight': 65, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
+        'MonAmulet':              {'klass': 'Amulet', 'level': 37, 'weight': 65, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
         'LionessAmulet':          {'klass': 'Amulet', 'level': 45, 'weight': 32, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
 
         'Pen':                {'klass': 'Pen',         'weight':  20},
@@ -341,6 +348,7 @@ class items:
         'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 6,  'ef': {'thirst': -3, 'hunger': 25}},
         'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 10, 'ef': {'thirst': 90}},
         'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 10, 'ef': {'thirst': 30}},
+        '5gHash':             {'klass': 'QuestItem',   'level':  1, 'weight': 4,    'price': 64, 'ef': {'thirst': -100}},
 
         # implants
         'Neural Jack-Lite':    {'klass': 'Implant', 'level':  1, 'int': 1, 'cpu': 1, 'price':     1200},
@@ -399,6 +407,8 @@ class items:
         'EmailArmy':          {'klass': 'Email',       'key': 'sd_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
+
+        'Nuyen':              {'klass': 'Nuyen', 'level': 0, 'weight': 1, 'no_loot': True}
     }
     KLASSES = {}
 
@@ -413,7 +423,7 @@ class items:
         return cls.KLASSES[klass](name)
 
     @classmethod
-    def get_item(cls, name: str, count: int = None, mods: dict[str,str] | None = None):
+    def get_item(cls, name: str, count: int = None, mods: dict[str,int] | None = None) -> 'Item':
         data = cls.ITEMS[name]
         item = cls.instance(name, data['klass'])
         item.count(count or item.get_default_count())

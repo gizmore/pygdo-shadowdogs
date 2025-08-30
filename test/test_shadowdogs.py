@@ -1,4 +1,3 @@
-import asyncio
 import os
 import unittest
 
@@ -7,7 +6,9 @@ from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import Random
 from gdo.core.GDO_User import GDO_User
 from gdo.core.method.clear_cache import clear_cache
-from gdo.shadowdogs.SD_Player import SD_Player
+from gdo.shadowdogs.engine.Factory import Factory
+from gdo.shadowdogs.engine.Loader import Loader
+from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
 from gdo.table.module_table import module_table
@@ -180,7 +181,7 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('kills lamer', out, 'combat does not work.')
         out = cli_plug(gizmore, '$sdgmt gizmore{1} noob,noob')
         self.assertIn('encounter', out, 'gmt does not work.')
-        await self.ticker(3333) # half an hour
+        await self.ticker(8888) # half an hour
         out += all_private_messages()
         self.assertIn('kills noob', out, 'combat does not work.')
 
@@ -195,6 +196,20 @@ class ShadowdogsTest(GDOTestCase):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmsp giz calm')
         self.assertIn('hello', out, 'known words does not work.')
+
+    async def test_17_loot(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        ep = await Factory.create_default_npcs(giz.get_location(), 'noob')
+        loot = Loot(giz, ep.get_leader())
+        Random.init(1337)
+        for i in range(100):
+            await loot.on_kill()
+        out = all_private_messages()
+        self.assertGreater(giz.get_nuyen(), 100, "Not enough nuyen looted.")
+        self.assertLess(giz.get_nuyen(), 200, "Not enough nuyen looted.")
+        out = cli_plug(gizmore, "$sdny")
+        self.assertIn(Shadowdogs.NUYEN, out, '$ny does not work.')
 
 
 

@@ -11,8 +11,6 @@ class TalkingNPC(SD_NPC):
     def __init__(self):
         super().__init__()
 
-
-
     def sd_quest(self) -> SD_Quest|None:
         return Awakening.instance()
 
@@ -29,3 +27,6 @@ class TalkingNPC(SD_NPC):
 
     def qv_get(self, key: str) -> str:
         return SD_QuestVal.qv_get(self.sd_quest(), self.get_player(), key)
+
+    async def digesting(self):
+        return self

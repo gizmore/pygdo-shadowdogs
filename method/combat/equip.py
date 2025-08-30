@@ -42,7 +42,7 @@ class equip(MethodSD):
     async def sd_before_execute(self):
         player = self.get_player()
         item = self.get_SD_Item()
-        itm = item.itm().player(player)
+        itm = item.itm()
         time = 0
         key = 'msg_sd_item_equip'
         args = []
@@ -54,7 +54,7 @@ class equip(MethodSD):
         time += itm.get_equip_time()
         player.busy(time)
         args.append(item.render_name())
-        args.append(itm.get_slot())
+        args.append(itm.render_slot())
         args.append(player.render_busy())
         await self.send_to_party(player.get_party(), key, tuple(args))
         if ep := player.get_enemy_party():

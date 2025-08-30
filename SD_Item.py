@@ -68,11 +68,6 @@ class SD_Item(GDO):
     def modifier_column(self) -> GDT_Modifiers|GDT:
         return self.column('item_mods')
 
-    def render_name(self) -> str:
-        if modifiers := self.modifier_column().get_val():
-            return t('item_name_modified', (t('sd_item_'+self.get_item_name()), t("sd_of_"+modifiers)))
-        return t('sd_item_'+self.get_item_name())
-
     def use(self, amount: int=1):
         slot = self.gdo_val('item_slot')
         self.increment('item_count', -amount)
@@ -80,4 +75,15 @@ class SD_Item(GDO):
             if slot == GDT_Slot.INVENTORY:
                 self.get_owner().inventory.remove(self)
                 self.delete()
+
+    def render_name(self) -> str:
+        count = self.get_count()
+        name = self.render_name_wc()
+        return name if count <= 1 else f"{count}{Shadowdogs.ITEM_COUNT_SEPERATOR}{name}"
+
+    def render_name_wc(self) -> str:
+        name = t(self.get_item_name())
+        if modifiers := self.modifier_column().get_val():
+            return t('item_name_modified', (name, t("sd_of_"+modifiers)))
+        return name
 

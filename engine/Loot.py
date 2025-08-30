@@ -28,9 +28,10 @@ class Loot(WithShadowFunc):
         items = []
         while item := self.loot():
             items.append(item)
-        await self.give_items(self._killer, items, 'killing', self._victim.render_name())
-        lost_string = Arrays.human_join([item.render_name() for item in items])
-        await self.send_to_player(self._victim, 'msg_killed_and_lost', (lost_string,))
+        if items:
+            await self.give_items(self._killer, items, 'loot', self._victim.render_name())
+            lost_string = Arrays.human_join([item.render_name() for item in items])
+            await self.send_to_player(self._victim, 'msg_killed_and_lost', (self._killer.render_name(), lost_string))
 
     def  loot(self) -> SD_Item|None:
         choices = []
@@ -50,10 +51,12 @@ class Loot(WithShadowFunc):
             nuyen = Random.mrand(1, nuyen)
             return Factory.create_item('Nuyen', nuyen)
         else:
-            nuyen = self._victim.gb('p_nuyen')
-            nuyen = Random.mrand(1, min(2, nuyen))
-            self._victim.give_nuyen(-nuyen)
-            return Factory.create_item('Nuyen', nuyen)
+            nuyen = self._victim.get_nuyen()
+            if nuyen:
+                nuyen = Random.mrand(1, min(2, nuyen))
+                self._victim.give_nuyen(-nuyen)
+                return Factory.create_item('Nuyen', nuyen)
+        return None
 
     def loot_inventory(self) -> SD_Item|None:
         items = self._victim.inventory
@@ -81,7 +84,7 @@ class Loot(WithShadowFunc):
         itms = []
         for item_name in items.ITEMS.keys():
             item = items.get_item(item_name)
-            if not item.dm('no_loot', False):
+            if item.can_loot():
                 itms.append((item_name, item.get_loot_chance(100) + luck * item.get_level()))
         item_name = WithProbability.probable_item(itms)
         if Random.mrand(0, 1000) < Shadowdogs.LOOT_CHANCE_RANDOM_MODIFIER + int(Shadowdogs.LOOT_CHANCE_RANDOM_MODIFIER_PER_LUCK * luck):

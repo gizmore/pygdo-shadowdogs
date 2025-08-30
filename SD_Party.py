@@ -24,14 +24,17 @@ if TYPE_CHECKING:
 class SD_Party(WithShadowFunc, GDO):
 
     members: list['SD_Player']
+    combat_direction: bool
 
     __slots__ = (
         'members',
+        'combat_direction',
     )
 
     def __init__(self):
         super().__init__()
         self.members = []
+        self.combat_direction = True # positive
 
     def __repr__(self):
         return f"Party({self.get_id()}):({self.render_members()})"
@@ -279,8 +282,12 @@ class SD_Party(WithShadowFunc, GDO):
         await party.do(Action.FIGHT, self.get_id())
         for player in self.members:
             player.combat_stack().reset()
+            player.distance = Random.mrand(2, Shadowdogs.MAX_DISTANCE)
         for player in party.members:
             player.combat_stack().reset()
+            player.distance = Random.mrand(-Shadowdogs.MAX_DISTANCE, -2)
+        self.combat_diraction = True
+        party.combat_direction = False
         return self
 
     ###################
@@ -294,3 +301,6 @@ class SD_Party(WithShadowFunc, GDO):
 
     def render_members(self) -> str:
         return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])
+
+    def combat_diraction_sign(self) -> int:
+        pass

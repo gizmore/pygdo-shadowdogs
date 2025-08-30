@@ -7,10 +7,7 @@ if TYPE_CHECKING:
 
 
 class Fists(Melee):
-    
-    def __init__(self):
-        super().__init__('Fists')
-
+    pass
     # def get_actions(self, player: 'SD_Player') -> list[str]:
     #     return [
     #         'sdpunch',

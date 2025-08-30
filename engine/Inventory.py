@@ -17,7 +17,7 @@ class Inventory(list[SD_Item]):
     def get_by_name(self, item_name: str) -> SD_Item|None:
         item_name = item_name.lower()
         for item in self:
-            if item.render_name().lower() == item_name:
+            if item.render_name_wc().lower() == item_name:
                 return item
         return None
 
@@ -25,22 +25,26 @@ class Inventory(list[SD_Item]):
         val = val.lower()
         candidates = []
         for item in self:
-            if item.render_name().lower().startswith(val):
+            if item.render_name_wc().lower().startswith(val):
                 candidates.append(item)
         if len(candidates) == 1:
             return [candidates[0]]
         candidates = []
         for item in self:
-            if val in item.render_name().lower():
+            if val in item.render_name_wc().lower():
                 candidates.append(item)
         return candidates
 
     def add_item(self, item: SD_Item) -> SD_Item:
-        if old_item := self.get_by_name(item.render_name()):
+        if old_item := self.get_by_name(item.render_name_wc()):
             old_item.increment('item_count', item.get_count()).save()
+            # old_item.itm().count(old_item.get_count())
             item.delete()
             return old_item
-        return item
+        else:
+            self.append(item)
+            item.save()
+            return item
 
     def remove_item(self, item_name: str, count: int=1) -> SD_Item|None:
         if not self.__class__.Factory:
