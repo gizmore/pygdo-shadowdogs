@@ -1,7 +1,18 @@
 from gdo.base.Trans import t
+from gdo.shadowdogs.SD_Item import SD_Item
 
 
 class ShadowdogsException(Exception):
 
     def __init__(self, key: str, args: tuple[str] = None):
         super().__init__(t(key, args))
+
+class SDTooMuchMatchesException(ShadowdogsException):
+
+    def __init__(self, matches: list[SD_Item]):
+        match_str = ", ".join([match.render_name() for match in matches])
+        super().__init__('sd_too_much_matches', (match_str,))
+
+class SDUnknownItemException(ShadowdogsException):
+    def __init__(self):
+        super().__init__('sd_unknown_item')

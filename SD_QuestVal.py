@@ -1,3 +1,5 @@
+from email.policy import default
+
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.core.GDT_Name import GDT_Name
@@ -32,5 +34,6 @@ class SD_QuestVal(GDO):
         }).soft_replace()
 
     @classmethod
-    def qv_get(cls, quest: SD_Quest, player: SD_Player, key: str, val: str) -> str:
-        return cls.table().select('qv_val').where(f"qv_quest={quest.get_id()} AND qv_player={player.get_id()} AND qv_key='{key}'").first().exec().fetch_val()
+    def qv_get(cls, quest: SD_Quest, player: SD_Player, key: str, default: str = None) -> str:
+        val = cls.table().select('qv_val').where(f"qv_quest={quest.get_id()} AND qv_player={player.get_id()} AND qv_key='{key}'").first().exec().fetch_val()
+        return val if val else default

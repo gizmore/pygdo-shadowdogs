@@ -19,10 +19,12 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.engine.World import World
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.actions.Action import Action
+    from gdo.shadowdogs.engine.WorldBase import WorldBase
 
 
 class SD_Party(WithShadowFunc, GDO):
 
+    World = None
     members: list['SD_Player']
     combat_direction: bool
 
@@ -40,8 +42,7 @@ class SD_Party(WithShadowFunc, GDO):
         return f"Party({self.get_id()}):({self.render_members()})"
 
     def gdo_columns(self) -> list[GDT]:
-        from gdo.shadowdogs.engine.World import World
-        return [
+         return [
             GDT_AutoInc('party_id'),
             GDT_Action('party_action').not_null(),
             GDT_Target('party_target').not_null(),
@@ -49,7 +50,7 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Action('party_last_action'),
             GDT_Target('party_last_target').last_target(),
             GDT_UInt('party_last_eta'),
-            GDT_Enum('party_world').choices({'y2064': World.World2064, 'y2077': World.World2077, 'y2088': World.World2088}).not_null().initial('y2064'),
+            GDT_Enum('party_world').choices({'y2064': 'World2064', 'y2077': 'World2077', 'y2088': 'World2088'}).not_null().initial('y2064'),
             GDT_Created('party_created'),
         ]
 
@@ -90,6 +91,9 @@ class SD_Party(WithShadowFunc, GDO):
     def get_leader(self) -> 'SD_Player':
         return self.members[0]
 
+    def last_member(self) -> 'SD_Player':
+        return self.members[-1]
+
     async def join(self, player: 'SD_Player'):
         if player in self.members:
             self.members.remove(player)
@@ -102,6 +106,8 @@ class SD_Party(WithShadowFunc, GDO):
         return self.with_fresh_positions()
 
     def join_silent(self, player: 'SD_Player'):
+        if player in self.members:
+            self.members.remove(player)
         self.members.append(player)
         player.save_vals({
             'p_party': self.get_id(),
@@ -203,8 +209,11 @@ class SD_Party(WithShadowFunc, GDO):
             return self.get_city_from_target(self.get_last_target())
         return None
 
-    def get_world(self) -> 'World':
-        return self.gdo_value('party_world')
+    def get_world(self) -> 'WorldBase':
+        if not self.__class__.World:
+            from gdo.shadowdogs.engine.World import World
+            self.__class__.World = World
+        return self.__class__.World.WORLDS.get(self.gdo_val('party_world'))
 
     @staticmethod
     def get_city_from_target(target) -> 'City':

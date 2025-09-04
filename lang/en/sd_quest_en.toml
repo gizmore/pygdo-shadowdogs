@@ -7,3 +7,13 @@ sdq0001_descr = "Find out where the weird pen is from."
 sdq0002_title = "Connection"
 sdq0002_descr = "Try to contact lazer to find out what might have happened."
 
+#########
+# Purse #
+#########
+sdqt_purse = "The Purse"
+sdqd_purse = "Theo and you are looking for his dope which they cannot find."
+sdqs_purse_hello1 = "Morning... all fine?"
+sdqs_purse_hello2 = "I have a little sidequest for you ^^"
+sdqs_purse_quest = "Yeah... i lost my dope... wanna help find me?"
+sdqs_purse_no = "Oh, maybe later..."
+sdqs_purse_other = "I bet you crave for my dope already!"

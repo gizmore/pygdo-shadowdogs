@@ -10,6 +10,7 @@ from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.item.classes.weapon.Fists import Fists
 from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
 from gdo.table.module_table import module_table
 from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, cli_gizmore, all_private_messages
@@ -34,6 +35,7 @@ class ShadowdogsTest(GDOTestCase):
     def setUp(self):
         super().setUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
+        clear_cache().gdo_execute()
         loader = ModuleLoader.instance()
         loader.load_modules_db(True)
         reinstall_module('shadowdogs')
@@ -41,7 +43,6 @@ class ShadowdogsTest(GDOTestCase):
         Application.init_cli()
         loader.init_modules(True, True)
         loader.init_cli()
-        clear_cache().gdo_execute()
         module_table.instance().save_config_val('table_ipp', '3')
 
     async def fresh_gizmore(self, equip: bool=True):
@@ -171,6 +172,12 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('outside', out, 'p does not work.')
 
+    async def test_10_gml(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz in jaw')
+        out += all_private_messages()
+        self.assertIn('new place', out, '$gml does not work.')
+
     async def test_11_combat(self):
         gizmore = await self.fresh_gizmore()
         Random.init(1337)
@@ -202,15 +209,53 @@ class ShadowdogsTest(GDOTestCase):
         giz = Loader.load_user(gizmore)
         ep = await Factory.create_default_npcs(giz.get_location(), 'noob')
         loot = Loot(giz, ep.get_leader())
-        Random.init(1337)
+        Random.init(1339)
         for i in range(100):
             await loot.on_kill()
         out = all_private_messages()
-        self.assertGreater(giz.get_nuyen(), 100, "Not enough nuyen looted.")
-        self.assertLess(giz.get_nuyen(), 200, "Not enough nuyen looted.")
+        self.assertGreater(giz.get_nuyen(), 250, "Not enough nuyen looted.")
+        self.assertLess(giz.get_nuyen(), 1000, "Not enough nuyen looted.")
         out = cli_plug(gizmore, "$sdny")
         self.assertIn(Shadowdogs.NUYEN, out, '$ny does not work.')
+        self.assertFalse(Fists().can_sell(), 'Can sell fists.')
+        self.assertFalse(Fists().can_loot(), 'Can loot fists.')
 
+    async def test_20_store(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        out = cli_plug(gizmore, '$sdgml giz inside peine.jawoll')
+        out += all_private_messages()
+        self.assertIn('a new place', out, '$gml does not work.')
+        out = cli_plug(gizmore, '$sdview')
+        self.assertIn('Pizza', out, '$gmview does not see pizza.')
+        out = cli_plug(gizmore, '$sdvi 1')
+        self.assertIn('Pizza is a Consumable', out, '$gmview does not examine pizza.')
+
+    async def test_22_info(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        out = cli_plug(gizmore, '$sdinfo')
+        out += all_private_messages()
+        self.assertIn('ome sweet', out, '$info does not work.')
+        self.assertIn('Fridge', out, '$info does not work#2.')
+        out = cli_plug(gizmore, '$sdlook')
+        out += all_private_messages()
+        self.assertIn('Lazer', out, '$look does not work.')
+        self.assertIn('Theo', out, '$look does not work#2.')
+
+
+    async def test_25_quest(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdtalk theo hello')
+        self.assertIn('says:', out, '$sdtalk does not work.')
+        out = cli_plug(gizmore, '$sdtalk theo quest')
+        self.assertIn('says:', out, '$sdtalk does not work#2.')
+        out = cli_plug(gizmore, '$sdtalk theo yes')
+        self.assertIn('says:', out, '$sdtalk does not work#3.')
+        out = cli_plug(gizmore, '$sdqus')
+        self.assertIn('1-', out, '$sdquests does not work.')
+        out = cli_plug(gizmore, '$sdqu')
+        self.assertIn('Purse', out, '$sdquest does not work.')
 
 
 if __name__ == '__main__':

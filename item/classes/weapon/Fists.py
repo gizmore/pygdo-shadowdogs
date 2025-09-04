@@ -7,9 +7,9 @@ if TYPE_CHECKING:
 
 
 class Fists(Melee):
-    pass
-    # def get_actions(self, player: 'SD_Player') -> list[str]:
-    #     return [
-    #         'sdpunch',
-    #         'sdkick',
-    #     ]
+
+    def can_loot(self) -> bool:
+        return False
+
+    def can_sell(self) -> bool:
+        return False

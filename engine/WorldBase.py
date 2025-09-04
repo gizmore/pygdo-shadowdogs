@@ -6,3 +6,6 @@ class WorldBase(WithShadowFunc):
 
     CITIES: dict[str,City] = {
     }
+
+    def __repr__(self):
+        return self.__class__.__name__

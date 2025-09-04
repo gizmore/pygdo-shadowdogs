@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.DejaVu import DejaVu
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Lazer import Lazer
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Mom import Mom
+from gdo.shadowdogs.city.y2064.Peine.npcs.home.Theodor import Theodor
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Thomas import Thomas
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
@@ -11,18 +12,19 @@ from gdo.shadowdogs.obstacle.minigame.Computer import Computer
 from gdo.shadowdogs.obstacle.minigame.tile.Vault import Vault
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.SD_NPC import SD_NPC
+    from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
     from gdo.shadowdogs.SD_Player import SD_Player
 
 class Home(Location):
 
     GIVING: str = 'Pullover,Jeans,Shoes,12xNuyen,GizmoreNote'
 
-    NPCS: list['SD_NPC'] = [
-        Mom(),
-        Lazer(),
-        Thomas(),
-        DejaVu(),
+    NPCS: list['type[TalkingNPC]'] = [
+        Mom,
+        Lazer,
+        Thomas,
+        DejaVu,
+        Theodor,
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [

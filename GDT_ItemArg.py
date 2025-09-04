@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
+from gdo.shadowdogs.locations.Store import Store
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -49,6 +50,9 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
         self._obstacles = obstacles
         return self
 
+    def get_store(self) -> Store:
+        return self.get_location()
+
     def to_value(self, val: str):
         p = self.get_player()
         val = val.lower()
@@ -57,7 +61,7 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
             for slot in GDT_Slot.SLOTS:
                 if slot[2:4] == val[0:2]: # 2 letter shortcut for $sdexamine ar/we/bo/he
                     return p.gdo_value(slot)
-                if item := p.get_equip(slot):
+                if item := p.get_equipment(slot):
                     if val in item.render_name().lower():
                         candidates.append(item)
         if self._inventory:
@@ -65,7 +69,9 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
                 return p.inventory[int(val) - 1]
             candidates.extend(p.inventory.get_by_abbrev(val))
         if self._store:
-            pass
+            store = self.get_store()
+            items = store.get_shop_items(self.get_player())
+            return items.get_item_by_arg(val)
         if self._mount:
             candidates.extend(p.mount.get_by_abbrev(val))
         if len(candidates) == 1:

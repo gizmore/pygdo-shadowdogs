@@ -10,12 +10,15 @@ class Obstacle(Item):
     def get_by_obstacle_id(id: str) -> 'Obstacle':
         return Obstacle.OBSTACLES[id]
 
-    def __init__(self, name: str):
-        super().__init__(name)
-        klass = self.__class__.__name__
-        if klass in self.OBSTACLES:
-            raise RuntimeError(f"Obstacle {klass} already defined")
-        self.OBSTACLES[klass] = self
+    def __init__(self, name: str = None):
+        super().__init__()
+        if name:
+            self.fill_defaults()
+            self._name = name
+            klass = self.__class__.__name__
+            if klass in self.__class__.OBSTACLES:
+                raise RuntimeError(f"Obstacle {klass} already defined")
+            self.__class__.OBSTACLES[klass] = self
 
     def sd_commands(self) -> list[str]:
         return [
@@ -24,6 +27,10 @@ class Obstacle(Item):
 
     async def on_search(self):
         await self.send_to_player(self.get_player(), 'sd_on_search_nothing')
+
+    def gdo_can_persist(self) -> bool:
+        return False
+
 
     ########
     # Data #

@@ -9,6 +9,15 @@ class help(MethodSD):
 
     HELP = {
         'shadowdogs': {
+            '0': 'Bold words have an own $t$help page.',
+            'commands': {},
+            'places': {
+                'abstract_locations': {
+                    'Shops': {
+
+                    }
+                }
+            },
             'attributes': {
                 'body': 'increases HP.',
             },

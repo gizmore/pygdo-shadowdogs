@@ -44,6 +44,12 @@ class Action(WithShadowFunc):
     def get_name(self) -> str:
         return self.__class__.__name__
 
+    def __repr__(self):
+        return f"Action:{self.get_name()}"
+
+    def render_name(self) -> str:
+        return t(self.__class__.__name__)
+
     def get_action_text_key(self, party: 'SD_Party', scope: str = 'start') -> str:
         return f"msg_sd_{scope}_{self.get_name()}"
 

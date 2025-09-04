@@ -9,5 +9,5 @@ if TYPE_CHECKING:
 
 class Horus(Location):
     NPCS: list['SD_NPC'] = [
-        Hoe(),
+        Hoe,
     ]

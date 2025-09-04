@@ -9,13 +9,13 @@ from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING, Generator, Any, Self
 
+from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.item.classes.Nuyen import Nuyen as NY
 
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
-from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.attr.Attribute import Attribute
@@ -132,6 +132,13 @@ class SD_Player(WithShadowFunc, GDO):
 
     def on_reload(self):
         super().on_reload()
+
+    @classmethod
+    def gdo_real_class(cls, vals: dict[str,str]) -> type[GDO]:
+        from gdo.shadowdogs.npcs.npcs import npcs
+        if klass := vals.get('p_npc_class'):
+            return GDT_NPCClass.TALKING_NPCS.get(klass, npcs.NPCS.get(klass))
+        return cls
 
     def gdo_columns(self) -> list[GDT]:
         from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
@@ -269,38 +276,30 @@ class SD_Player(WithShadowFunc, GDO):
     ########
     # Hack #
     ########
-    def all_programs(self) -> Generator[Item, Any, None]:
+    def all_programs(self) -> Generator[SD_Item, Any, None]:
         for program in self.cyberdeck:
-            yield program.itm()
-
+            yield program
 
     #############
     # Equipment #
     #############
-    def all_equipment(self) -> Generator[Item, Any, None]:
+    def all_equipment(self) -> Generator[SD_Item, Any, None]:
         for slot_name in GDT_Slot.SLOTS:
             if item := self.get_equipment(slot_name):
                 yield item
-        for item in self.cyberware:
-            yield item.itm()
-        yield from self.all_programs()
+        yield from self.cyberware
 
     def get_weapon(self) -> 'Weapon':
         return self.get_equipment('p_weapon') or Fists('Fists').player(self)
 
-    def get_equip(self, slot_name: str) -> 'SD_Item|None':
+    def get_equipment(self, slot_name: str) -> 'SD_Item|None':
         try:
             return self.gdo_value(slot_name)
         except AttributeError as ex:
             return None
 
-    def get_equipment(self, slot_name: str) -> 'Equipment|Item|None':
-        if item := self.get_equip(slot_name):
-            return item.itm()
-        return None
-
     # def unequip(self, item: 'SD_Item'):
-    #     self.save_val(item.itm().get_slot(), None)
+    #     self.save_val(item.get_slot(), None)
     #     return self
 
     ########
@@ -362,10 +361,9 @@ class SD_Player(WithShadowFunc, GDO):
     # Items #
     #########
 
-    def all_items(self) -> Generator[Item, Any, None]:
+    def all_items(self) -> Generator[SD_Item, Any, None]:
         yield from self.all_equipment()
-        for item in self.inventory:
-            yield item.itm()
+        yield from self.inventory
 
     ##########
     # Modify #
@@ -381,9 +379,9 @@ class SD_Player(WithShadowFunc, GDO):
         self.level_column().apply(self)
         for slot in GDT_Slot.SLOTS:
             if item := self.gdo_value(slot):
-                item.itm().apply(self)
+                item.apply(self)
         for item in self.inventory:
-            item.itm().apply_inv(self)
+            item.apply_inv(self)
         for key in Attribute.ATTRIBUTES:
             self.c(key).apply(self)
         for key in Skill.SKILLS:
@@ -511,6 +509,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Places #
     ##########
     def has_kp(self, location: 'Location') -> bool:
+        from gdo.shadowdogs.SD_Place import SD_Place
         return SD_Place.has_location(self, location)
 
     #########
@@ -529,6 +528,8 @@ class SD_Player(WithShadowFunc, GDO):
     def is_near(self, player: 'SD_Player') -> bool:
         p = self.get_party()
         ep = player.get_party()
+        if p is None:
+            self.get_party()
         if p == ep:
             return True
         if p.get_target() == ep:

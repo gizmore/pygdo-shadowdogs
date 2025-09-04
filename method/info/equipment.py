@@ -23,7 +23,7 @@ class equipment(WithShadowMethod, Method):
         pl = self.get_player()
         display = []
         for slot in GDT_Slot.SLOTS:
-            if item := pl.get_equip(slot):
+            if item := pl.get_equipment(slot):
                 item_name = Render.bold(item.render_name(), self._env_mode)
             else:
                 continue

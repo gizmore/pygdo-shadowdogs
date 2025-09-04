@@ -1,8 +1,5 @@
 from gdo.base.Trans import t
-from gdo.core.GDT_String import GDT_String
-from gdo.shadowdogs.attr.Attribute import Attribute
 from gdo.shadowdogs.engine.MethodSD import MethodSD
-from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.skill.Skill import Skill
 
 

@@ -21,9 +21,10 @@ class examine(MethodSD):
             GDT_ItemArg('item').inventory().equipment().not_null(),
         ]
 
-    def get_item_arg(self) -> SD_Item:
+    def get_item(self) -> SD_Item:
         return self.param_value('item')
 
     def gdo_execute(self) -> GDT:
-        item = self.get_item_arg().itm().player(self.get_player())
-        return GDT_String('examined').val(t('msg_sd_examine', (item.render_name(), f"{item.all_player_modifiers()}")))
+        item = self.get_item()
+        mods = {t(k): v for k, v in item.all_player_modifiers() if v != 0}
+        return GDT_String('examined').val(t('msg_sd_examine', (item.render_name(), f"{mods}")))

@@ -64,7 +64,7 @@ class Factory(WithShadowFunc):
         }).insert()
         for item_name in spec.get('eq', []):
             item = Factory.create_item_gmi(item_name, player, True)
-            player.save_val(item.itm().get_slot(), item.get_id())
+            player.save_val(item.get_slot(), item.get_id())
         return player.modify_all().heal_full()
 
     #########
@@ -96,9 +96,10 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_item(cls, item_name: str, count: int=1, mods: str=None, player_id: str=None, equipped: bool=False):
-        return SD_Item.blank({
+        item = items.get_item(item_name)
+        return item.set_vals({
             'item_owner': player_id or '1',
-            'item_slot': items.get_item(item_name, count, mods).get_slot() if equipped else GDT_Slot.NEXUS,
+            'item_slot': item.get_slot() if equipped else GDT_Slot.NEXUS,
             'item_name': item_name,
             'item_mods': mods,
             'item_count': str(count),

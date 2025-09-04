@@ -3,6 +3,8 @@ import math
 from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.GDT import GDT
+from gdo.base.Message import Message
+from gdo.core.GDT_Char import GDT_Char
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.shadowdogs.InstallShadowdogs import InstallShadowdogs
 from gdo.shadowdogs.SD_Item import SD_Item
@@ -24,6 +26,9 @@ from gdo.shadowdogs.item.data.items import items
 
 class module_shadowdogs(GDO_Module):
 
+    def __init__(self):
+        super().__init__()
+
     def gdo_classes(self):
         return [
             SD_Location,
@@ -41,11 +46,14 @@ class module_shadowdogs(GDO_Module):
         ]
 
     def gdo_install(self):
+        Loader.init_npc_classes()
         InstallShadowdogs.install()
 
     def gdo_init(self):
+        Loader.init_npc_classes()
         if not Application.IS_HTTP and self.is_persisted():
             items.load()
+            Loader.cleanup()
             Loader.load_npcs()
             Loader.load_parties()
 
@@ -64,6 +72,7 @@ class module_shadowdogs(GDO_Module):
     def gdo_user_settings(self) -> list[GDT]:
         return [
             GDT_UInt('sd_distance').not_null().min(2).max(Shadowdogs.MAX_DISTANCE).initial('2'),
+            GDT_Char('sd_shortcut').not_null().initial('#').maxlen(1).minlen(1).not_null().initial('#'),
         ]
 
     ##########
@@ -74,6 +83,7 @@ class module_shadowdogs(GDO_Module):
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_TICK, self.shadow_timer, 1000000000)
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP_SLEEP, self.shadow_hp_timer, 1000000000)
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
+        Application.EVENTS.subscribe('new_message', self.sd_alias)
 
     async def shadow_timer(self):
         for party in list(Shadowdogs.PARTIES.values()):
@@ -86,3 +96,8 @@ class module_shadowdogs(GDO_Module):
     async def shadow_food_timer(self):
         for party in Shadowdogs.PARTIES.values():
             await party.digesting()
+
+    async def sd_alias(self, message: Message):
+        trig = message._env_user.get_setting_val('sd_shortcut')
+        if message._message.startswith(f"{trig}"):
+            message._message = message.get_trigger() + "sd" + message._message[1:]

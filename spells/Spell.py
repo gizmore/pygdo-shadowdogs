@@ -1,3 +1,4 @@
+from gdo.base.Trans import t
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException

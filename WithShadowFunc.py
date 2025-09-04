@@ -1,16 +1,15 @@
 from typing import TYPE_CHECKING
-from unicodedata import digit
 
 import aioconsole
 
 from gdo.base.ModuleLoader import ModuleLoader
+from gdo.base.Render import Render
 from gdo.base.Util import Strings
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
-    from gdo.shadowdogs.SD_Word import SD_Word
     from gdo.shadowdogs.locations.Location import Location
     from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -23,10 +22,11 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.spells.Spell import Spell
 
 from gdo.base.Trans import Trans, t
-from gdo.core.GDO_Channel import GDO_Channel
 
 
 class WithShadowFunc(WithPlayerGDO):
+
+    Loader = None
 
     @classmethod
     def mod_sd(cls) -> 'module_shadowdogs':
@@ -37,8 +37,8 @@ class WithShadowFunc(WithPlayerGDO):
     def get_time(cls) -> int:
         return cls.mod_sd().cfg_time()
 
-    def nearby_players(self, player: 'SD_Player'):
-        return player.get_party().players_nearby()
+    def nearby_players(self, player: 'SD_Player', same: bool = False):
+        return player.get_party().players_nearby(player if not same else None)
 
     ############
     # Entities #
@@ -84,9 +84,25 @@ class WithShadowFunc(WithPlayerGDO):
         for player in party.members:
             await self.send_to_player(player, key, args)
 
+    def get_loader(self):
+        if not self.__class__.Loader:
+            from gdo.shadowdogs.engine.Loader import Loader
+            self.__class__.Loader = Loader
+        return self.__class__.Loader
+
+    async def send_to_all(self, key: str, args: tuple[str | int | float, ...] | None = None):
+        active_channels = self.get_loader().channels_with_shadowlamb()
+        for player in self.nearby_players(p):
+            user = player.get_user()
+            for active_channel in active_channels:
+                if active_channel.is_user_online(user):
+                    continue
+            await self.send_to_player(player, key, args)
+        for active_channel in active_channels:
+            await active_channel.send(self.t(key, args))
+
     async def broadcast(self, key: str, args: tuple = None):
-        from gdo.shadowdogs.method.info.stats import stats
-        for channel in GDO_Channel.with_setting(stats(), 'disabled', '0', '1'):
+        for channel in self.get_loader().channels_with_shadowlamb():
             with Trans(channel.get_lang_iso()):
                 await channel.send(Trans.t(key, args))
 
@@ -105,13 +121,10 @@ class WithShadowFunc(WithPlayerGDO):
             if iname[0].isdigit():
                 item_count = int(Strings.substr_to(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, 1))
                 iname = Strings.substr_from(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, iname)
-            if iname == 'Nuyen':
-                player.give_nuyen(item_count)
-            else:
-                item = Factory.create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
-                                item_count,
-                                Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
-                items.append(item)
+            item = Factory.create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
+                            item_count,
+                            Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
+            items.append(item)
         if items:
             await self.give_items(player, items, announce_action, announce_source)
 
@@ -125,7 +138,7 @@ class WithShadowFunc(WithPlayerGDO):
     async def give_item(self, player: 'SD_Player', item: 'SD_Item', announce_action: str=None, announce_source: str=None):
         item.set_vals({
             'item_owner': player.get_id(),
-            'item_slot': item.itm().sd_inv_type(),
+            'item_slot': item.sd_inv_type(),
         })
         player.inventory.add_item(item)
         if announce_action:
@@ -149,12 +162,10 @@ class WithShadowFunc(WithPlayerGDO):
     #########
     async def give_word(self, player: 'SD_Player', word: str, announce: bool=True):
         from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
-        from gdo.shadowdogs.SD_Word import SD_Word
-        word = SD_Word.get_or_create(word)
         if not SD_KnownWord.has_word(player, word):
             SD_KnownWord.give_word(player, word)
             if announce:
-                await self.send_to_player(player, 'msg_sd_new_word', (word.get_name(),))
+                await self.send_to_player(player, 'msg_sd_new_word', (Render.bold(word),))
 
     ##########
     # Spells #

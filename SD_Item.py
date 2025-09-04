@@ -4,11 +4,12 @@ from gdo.base.Trans import t
 from gdo.core.GDT_Bool import GDT_Bool
 from gdo.core.GDT_Index import GDT_Index
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
-from gdo.shadowdogs.item.Item import Item
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.item.Item import Item
 
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
@@ -21,7 +22,15 @@ from gdo.shadowdogs.GDT_Player import GDT_Player
 from gdo.shadowdogs.item.data.items import items
 
 
-class SD_Item(GDO):
+class SD_Item(WithShadowFunc, GDO):
+
+    @classmethod
+    def gdo_real_class(cls, vals: dict[str,str]) -> type[GDO]:
+        return items.get_klass(vals['item_name'])
+
+    def gdo_table_name(cls) -> str:
+        return 'sd_item'
+
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('item_id'),
@@ -36,19 +45,14 @@ class SD_Item(GDO):
             GDT_Index('item_owner_index').index_fields('item_owner'),
         ]
 
+    def __init__(self):
+        super().__init__()
+
     def __repr__(self):
         return self.render_name()
 
     def get_owner(self) -> 'SD_Player':
         return self.gdo_value('item_owner')
-
-    def to_value(self, val: str):
-        return items.get_item(self.gdo_val('item_name'), self.gdo_value('item_count'), self.gdo_value('item_mods')).hot(self.is_hot()).duration(self.get_duration())
-
-    def itm(self) -> Item|None:
-        if item := self.to_value(''):
-            return item.player(self.get_owner()).item(self)
-        return None
 
     def get_item_name(self) -> str:
         return self.gdo_val('item_name')
@@ -83,7 +87,6 @@ class SD_Item(GDO):
 
     def render_name_wc(self) -> str:
         name = t(self.get_item_name())
-        if modifiers := self.modifier_column().get_val():
-            return t('item_name_modified', (name, t("sd_of_"+modifiers)))
+        if mod := self.gdo_val('item_mods'):
+            return t('item_name_modified', (name, t("sd_of_"+mod)))
         return name
-

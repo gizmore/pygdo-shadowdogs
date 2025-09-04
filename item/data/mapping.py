@@ -38,9 +38,16 @@ class mapping:
         """
         Yield (field, name, level, bonus, chance) for all entries.
         """
-        for field, entries in cls.MATRIX.items():
-            for name, level, bonus, chance in entries:
-                yield (field, name, level, bonus, chance)
+        for field in cls.MATRIX.keys():
+            yield from cls.iter_entries_for_field(field)
+
+    @classmethod
+    def iter_entries_for_field(cls, field: str) -> Iterator[Tuple[str, str, int, int, int]]:
+        """
+        Yield (field, name, level, bonus, chance) for all entries.
+        """
+        for name, level, bonus, chance in cls.MATRIX.get(field):
+            yield field, name, level, bonus, chance
 
     @classmethod
     @functools.cache
@@ -49,6 +56,11 @@ class mapping:
             if f == field and b == bonus:
                 return name
         return None
+
+    @classmethod
+    @functools.cache
+    def get_all_bonus(cls, name: str) -> dict[str, int]:
+        return {field: bonus for field, name, level, bonus, chance in cls.iter_entries()}
 
     @classmethod
     @functools.cache

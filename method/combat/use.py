@@ -5,6 +5,7 @@ from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.item.Item import Item
+from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 
 class use(MethodSD):
@@ -16,17 +17,14 @@ class use(MethodSD):
         )
         super().gdo_create_form(form)
 
-    def get_sd_item(self) -> SD_Item:
+    def get_item(self) -> Item:
         return self.param_value('item')
 
-    def get_item(self) -> Item:
-        return self.get_sd_item().itm()
-
-    def get_target(self) -> SD_Player:
+    def get_target(self) -> SD_Player|Obstacle:
         return self.param_value('target')
 
     def sd_combat_seconds(self) -> float:
-        return self.get_item().itm().sd_attack_time()
+        return self.get_item().sd_use_time()
 
     async def form_submitted(self):
         await self.get_item().on_use(self.get_target())

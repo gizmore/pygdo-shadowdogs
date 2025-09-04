@@ -1,7 +1,5 @@
 from typing import TYPE_CHECKING
 
-from gdo.base.Util import Strings
-
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -10,7 +8,7 @@ if TYPE_CHECKING:
 
 class Shadowdogs:
 
-    NPCS: dict[str,'SD_NPC'] = {}
+    LOCATION_NPCS: dict[str,'SD_NPC'] = {}
     PARTIES: dict[str,'SD_Party'] = {}
     PLAYERS: dict[str,'SD_Player'] = {}
     USERMAP: dict[str,'SD_Player'] = {}
@@ -71,20 +69,29 @@ class Shadowdogs:
     EXPLORE_ETA_BONUS_PER_QUICKNESS = 4
     EXPLORE_NONE_CHANCE_PER_SQKM = 15
 
-    LOOT_CHANCE_NOTHING = 400
+    LOOT_CHANCE_NOTHING = 455
     LOOT_CHANCE_EQUIPMENT = 8
-    LOOT_CHANCE_EQUIPMENT_PER_LUCK = 1
+    LOOT_CHANCE_EQUIPMENT_PER_LUCK = 0.5
     LOOT_CHANCE_INVENTORY = 10
-    LOOT_CHANCE_INVENTORY_PER_LUCK = 1
+    LOOT_CHANCE_INVENTORY_PER_LUCK = 0.5
     LOOT_CHANCE_RANDOM = 4
     LOOT_CHANCE_RANDOM_PER_LUCK = 1
     LOOT_CHANCE_RANDOM_MODIFIER = 2
     LOOT_CHANCE_RANDOM_MODIFIER_PER_LUCK = 0.5
-    LOOT_CHANCE_NUYEN = 15
-    LOOT_CHANCE_NUYEN_PER_LUCK = 1
-    LOOT_NUYEN_PER_LEVEL = 20
-    LOOT_NUYEN_PER_LUCK = 1
+    LOOT_CHANCE_NUYEN = 33
+    LOOT_CHANCE_NUYEN_PER_LUCK = 0.5
+    LOOT_NUYEN_BASE = 40
+    LOOT_NUYEN_EXP_LEVEL = 1.6
+    LOOT_NUYEN_PER_LUCK = 2
+
+    SHOUT_MIN_LEVEL = 10
+    SHOUT_TIMEOUT = 500
+    SHOUT_TIMEOUT_PER_LEVEL = 10
 
     @classmethod
     def display_nuyen(cls, nuyen: int) -> str:
         return str(nuyen) + cls.NUYEN
+
+    @classmethod
+    def get_npc(cls, klass: 'type[SD_NPC]'):
+        return cls.LOCATION_NPCS[klass.__name__]

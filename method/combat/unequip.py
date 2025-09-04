@@ -16,13 +16,10 @@ class unequip(MethodSD):
         )
         super().gdo_create_form(form)
 
-    def get_SD_Item(self) -> SD_Item:
+    def get_item(self) -> Item:
         return self.param_value('item')
 
-    def get_item(self) -> Item:
-        return self.get_SD_Item().itm()
-
-    def form_submitted(self):
+    async def sd_execute(self):
         p = self.get_player()
-        item = self.get_SD_Item()
+        item = self.get_item()
         

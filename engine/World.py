@@ -52,3 +52,11 @@ class World:
     # @classmethod
     # def get_npc_class(cls, name: str) -> type[SD_NPC]:
     #     return npcs.NPCS.NPCS.NPCScls.NPCs.get(name.lower(), Mob)
+    @classmethod
+    def get_city_by_abbrev(cls, player: 'SD_Player', s: str) -> list['City']:
+        back = []
+        s = s.lower()
+        for city in player.get_party().get_world().CITIES.values():
+            if s in city.render_name().lower():
+                back.append(city)
+        return back

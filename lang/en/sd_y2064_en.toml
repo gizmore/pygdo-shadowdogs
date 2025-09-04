@@ -1,3 +1,10 @@
-y2064_peine_home = "Home"
 y2064_peine_garagepub = "GaragePub"
+y2064_peine_jawoll = "Jawoll"
+
+########
+# Home #
+########
+y2064_peine_home = "Home"
+y2064_peine_home_inside = "Home sweet home :)"
+y2064_peine_home_outside = "You recognize your Home. Mom, Thomas, DejaVu, Lazer and Theo are most often around."
 

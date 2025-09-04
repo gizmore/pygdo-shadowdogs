@@ -57,6 +57,7 @@ class GDT_Player(WithShadowFunc, GDT_Object):
         return self
 
     def query_gdos(self, val: str) -> list[GDO]:
+        val = val.lower()
         players = self.query_gdos2(val)
         if self._nearby:
             near = []
@@ -73,13 +74,13 @@ class GDT_Player(WithShadowFunc, GDT_Object):
         if not val.isdigit():
             keep = []
             for player in players:
-                if player.render_name().startswith(val):
+                if player.render_name().lower().startswith(val):
                     keep.append(player)
             if len(keep) == 1:
                 return keep
             keep = []
             for player in players:
-                if val in player.render_name():
+                if val in player.render_name().lower():
                     keep.append(player)
             players = keep
         return players
@@ -92,7 +93,7 @@ class GDT_Player(WithShadowFunc, GDT_Object):
             if player := self._table.get_by_aid(val):
                 return [player]
         if self._npcs:
-            return self.get_location().npcs(self.get_player())
+            return [p.player(Shadowdogs.CURRENT_PLAYER) for p in self.get_location().NPC_INSTANCES]
         if self._humans:
             query = self._table.select().join_object('p_user')
             return self._gdt_user.val(val).query_gdos_query(val, query).exec().fetch_all()._items

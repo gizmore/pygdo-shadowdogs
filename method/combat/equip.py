@@ -32,29 +32,24 @@ class equip(MethodSD):
         )
         super().gdo_create_form(form)
 
-    def get_SD_Item(self) -> SD_Item:
-        return self.param_value('item')
-
     def get_item(self) -> Item:
-        item = self.get_SD_Item()
-        return item.itm() if item else None
+        return self.param_value('item')
 
     async def sd_before_execute(self):
         player = self.get_player()
-        item = self.get_SD_Item()
-        itm = item.itm()
+        item = self.get_item()
         time = 0
         key = 'msg_sd_item_equip'
         args = []
-        if old_item := player.get_equip(itm.get_slot()):
+        if old_item := player.get_equipment(item.get_slot()):
             key = 'msg_sd_item_re_equip'
-            time = old_item.itm().get_unequip_time()
+            time = old_item.get_unequip_time()
             Application.EVENTS.add_timer_async(time, partial(self.unequip, player, itm.get_slot()))
             args.append(old_item.render_name())
-        time += itm.get_equip_time()
+        time += item.get_equip_time()
         player.busy(time)
         args.append(item.render_name())
-        args.append(itm.render_slot())
+        args.append(item.render_slot())
         args.append(player.render_busy())
         await self.send_to_party(player.get_party(), key, tuple(args))
         if ep := player.get_enemy_party():
@@ -67,13 +62,13 @@ class equip(MethodSD):
 
     async def equip(self, player: SD_Player, item: SD_Item) -> bool:
         item = player.inventory.remove_item(item.render_name(), 1)
-        slot = item.itm().player(player).get_slot()
+        slot = item.player(player).get_slot()
         item.save_val('item_slot', slot)
         player.save_val(slot, item.get_id()).modify_all()
         return True
 
     async def unequip(self, player: SD_Player, item_slot: str) -> bool:
-        if item := player.get_equip(item_slot):
+        if item := player.get_equipment(item_slot):
             player.inventory.add_item(item)
             item.save_val('item_slot', GDT_Slot.INVENTORY)
             player.save_val(item_slot, None).modify_all()

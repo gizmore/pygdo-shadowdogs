@@ -26,11 +26,6 @@ class GDT_Location(WithPlayerGDO, GDT_Object):
     def get_place(self) -> 'SD_Place':
         return self.get_value()
 
-    # def gdo(self, gdo: GDO):
-    #     super().gdo(gdo)
-    #     player = self.get_place().get_player()
-    #     return self.player(player).city(self.get_party().get_city())
-
     def known(self, known: bool = True):
         self._known = known
         return self

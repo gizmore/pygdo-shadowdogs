@@ -36,24 +36,25 @@ class Loot(WithShadowFunc):
     def  loot(self) -> SD_Item|None:
         choices = []
         luck = self._killer.g('p_luc')
-        choices.append((self.loot_nuyen, Shadowdogs.LOOT_CHANCE_NUYEN + Shadowdogs.LOOT_CHANCE_NUYEN_PER_LUCK * luck))
-        choices.append((self.loot_inventory, Shadowdogs.LOOT_CHANCE_INVENTORY + Shadowdogs.LOOT_CHANCE_INVENTORY_PER_LUCK * luck))
-        choices.append((self.loot_equipment, Shadowdogs.LOOT_CHANCE_EQUIPMENT + Shadowdogs.LOOT_CHANCE_EQUIPMENT_PER_LUCK * luck))
-        choices.append((self.loot_random, Shadowdogs.LOOT_CHANCE_RANDOM + Shadowdogs.LOOT_CHANCE_RANDOM_PER_LUCK * luck))
+        choices.append((self.loot_nuyen, int(Shadowdogs.LOOT_CHANCE_NUYEN + Shadowdogs.LOOT_CHANCE_NUYEN_PER_LUCK * luck)))
+        choices.append((self.loot_inventory, int(Shadowdogs.LOOT_CHANCE_INVENTORY + Shadowdogs.LOOT_CHANCE_INVENTORY_PER_LUCK * luck)))
+        choices.append((self.loot_equipment, int(Shadowdogs.LOOT_CHANCE_EQUIPMENT + Shadowdogs.LOOT_CHANCE_EQUIPMENT_PER_LUCK * luck)))
+        choices.append((self.loot_random, int(Shadowdogs.LOOT_CHANCE_RANDOM + Shadowdogs.LOOT_CHANCE_RANDOM_PER_LUCK * luck)))
         if func := WithProbability.probable_item(choices, Shadowdogs.LOOT_CHANCE_NOTHING):
             return func()
         return None
 
     def loot_nuyen(self) -> SD_Item|None:
         luck = self._killer.g('p_luc')
+        level = self._victim.gb('p_level')
         if self._victim.is_npc():
-            nuyen = self._victim.gb('p_level') * Shadowdogs.LOOT_NUYEN_PER_LEVEL + Shadowdogs.LOOT_NUYEN_PER_LUCK * luck
-            nuyen = Random.mrand(1, nuyen)
+            nuyen = int(Shadowdogs.LOOT_NUYEN_BASE * (level ** Shadowdogs.LOOT_NUYEN_EXP_LEVEL) + Shadowdogs.LOOT_NUYEN_PER_LUCK * luck)
+            nuyen = Random.mrand(5, nuyen)
             return Factory.create_item('Nuyen', nuyen)
         else:
             nuyen = self._victim.get_nuyen()
             if nuyen:
-                nuyen = Random.mrand(1, min(2, nuyen))
+                nuyen = Random.mrand(nuyen // 3, nuyen)
                 self._victim.give_nuyen(-nuyen)
                 return Factory.create_item('Nuyen', nuyen)
         return None
@@ -72,10 +73,10 @@ class Loot(WithShadowFunc):
     def loot_equipment(self) -> SD_Item|None:
         items = []
         for slot_name in GDT_Slot.EQUIPMENT_SLOTS:
-            if item := self._victim.get_equip(slot_name):
+            if item := self._victim.get_equipment(slot_name):
                 items.append(item)
         item = Random.list_item(items)
-        self._victim.save_val(item.itm().get_slot(), None)
+        self._victim.save_val(item.get_slot(), None)
         return item
 
 

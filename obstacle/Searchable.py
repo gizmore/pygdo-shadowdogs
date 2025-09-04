@@ -7,7 +7,7 @@ class Searchable(Obstacle):
 
     _giving: list[str]
 
-    def __init__(self, name: str):
+    def __init__(self, name: str = None):
         super().__init__(name)
         self._giving = []
 

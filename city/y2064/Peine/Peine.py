@@ -3,6 +3,7 @@ from gdo.shadowdogs.city.y2064.Peine.locations.Home import Home
 from gdo.shadowdogs.city.y2064.Peine.locations.Marketplace import Marketplace
 from gdo.shadowdogs.city.y2064.Peine.locations.GaragePub import GaragePub
 from gdo.shadowdogs.city.y2064.Peine.locations.SeniorHome import SeniorHome
+from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 
@@ -13,12 +14,14 @@ class Peine(City):
     Marketplace: Marketplace = Marketplace()
     SeniorHome: SeniorHome = SeniorHome()
     GaragePub: GaragePub = GaragePub()
+    Jawoll: Jawoll = Jawoll()
 
     LOCATIONS: list[Location] = [
         Marketplace,
         SeniorHome,
         Home,
         GaragePub,
+        Jawoll,
     ]
 
     NPCS: list[tuple[str, int]] = [

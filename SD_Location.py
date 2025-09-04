@@ -6,12 +6,16 @@ from gdo.date.GDT_Created import GDT_Created
 
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.GDT_City import GDT_City
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.Location import Location
-
+    from gdo.shadowdogs.engine.World import World
 
 
 class SD_Location(GDO):
+
+    World = None
 
     def gdo_persistent(self) -> bool:
         return False
@@ -20,12 +24,22 @@ class SD_Location(GDO):
         return [
             GDT_AutoInc('l_id'),
             GDT_Name('l_name').maxlen(128).ascii().case_s().not_null().pattern('/^[a-zA-Z][-._a-zA-Z0-9]$/'),
+            GDT_City('l_city').all().not_null(),
             GDT_Created('l_created'),
         ]
+
+    def get_location_key(self) -> str:
+        return self.gdo_val('l_name')
 
     @classmethod
     def get_by_name(cls, name: str):
         return cls.table().get_by('l_name', name)
+
+    def get_location(self) -> 'Location':
+        if not self.__class__.World:
+            from gdo.shadowdogs.engine.World import World
+            self.__class__.World = World
+        return self.__class__.World.get_location(self.get_location_key())
 
     @classmethod
     def get_or_create(cls, location: 'Location'):
@@ -33,5 +47,6 @@ class SD_Location(GDO):
         if not (loc := cls.get_by_name(key)):
             loc = cls.blank({
                 'l_name': key,
+                'l_city': location.get_city().get_location_key(),
             }).insert()
         return loc

@@ -31,6 +31,9 @@ class City(WithShadowFunc):
     def sd_square_km(self) -> int:
         return 25
 
+    def __repr__(self):
+        return f"{self.__class__.__module__.split('.')[3]}.{self.__class__.__name__}"
+
     #######
     # NPC #
     #######

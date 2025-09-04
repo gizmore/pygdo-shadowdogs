@@ -5,10 +5,20 @@ from gdo.shadowdogs.engine.MethodSD import MethodSD
 
 class shout(MethodSD):
 
+    SHOUT_KEY = 'sd_shout'
+
+    LAST_SHOUTS: dict[str,int] = {}
+
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return 'sdshout'
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_RestOfText('message').not_null(),
         )
 
     def sd_execute(self):
-        pass
+        player = self.get_player()
+        player.set_temp(self.get_time())
+        self.send_to_all('msg_sd_shout', (player.render_name(), self.param_value('message')))

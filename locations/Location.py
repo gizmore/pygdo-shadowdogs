@@ -1,4 +1,5 @@
 import functools
+from functools import lru_cache
 
 from gdo.base.GDO import GDO
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
@@ -7,6 +8,7 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
     from gdo.shadowdogs.locations.City import City
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -17,10 +19,18 @@ class Location(WithShadowFunc):
 
     GIVING: str = GDO.EMPTY_STR
 
-    NPCS: list['SD_NPC'] = GDO.EMPTY_LIST
+    NPCS: list['type[TalkingNPC]'] = GDO.EMPTY_LIST
+    NPC_INSTANCES: 'list[TalkingNPC]'
 
     OBSTACLES_INSIDE: list[Obstacle] = GDO.EMPTY_LIST
     OBSTACLES_OUTSIDE: list[Obstacle] = GDO.EMPTY_LIST
+
+    def __init__(self):
+        super().__init__()
+        self.NPC_INSTANCES = []
+
+    def __repr__(self):
+        return self.get_name()
 
     def explore_find_chance(self, party: 'SD_Party') -> int:
         return 100
@@ -30,8 +40,11 @@ class Location(WithShadowFunc):
         return cls.GIVING
 
     @classmethod
-    def npcs(cls, player: 'SD_Player') -> 'list[SD_NPC]':
+    def npcs(cls, player: 'SD_Player') -> 'type[SD_NPC]':
         return cls.NPCS
+
+    def get_npcs(self, player: 'SD_Player'):
+        return self.NPC_INSTANCES
 
     @classmethod
     def obstacles(cls, action: str, player: 'SD_Player') -> list[Obstacle]:
@@ -86,9 +99,20 @@ class Location(WithShadowFunc):
         else:
             await self.send_to_player(player, 'msg_sd_search_nothing')
 
+    #########
+    # Descr #
+    #########
+
+    def get_t_key(self) -> str:
+        return self.get_location_key().lower().replace('.', '_')
+
+    def render_descr(self, player: 'SD_Player') -> str:
+        return self.t(self.get_t_key() + '_' + player.get_action_name())
+
     ##########
     # Render #
     ##########
 
+    @lru_cache
     def render_name(self) -> str:
-        return self.t(self.get_location_key().lower().replace('.', '_'))
+        return self.t(self.get_t_key())

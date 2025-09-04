@@ -4,6 +4,6 @@ from gdo.shadowdogs.locations.Location import Location
 
 class GaragePub(Location):
 
-    NPCS: list[SD_NPC] = [
+    NPCS: list['type[TalkingNPC]'] = [
 
     ]

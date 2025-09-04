@@ -1,94 +1,54 @@
-import functools
 from typing import TYPE_CHECKING, Iterator
 
 from gdo.base.GDO import GDO
 from gdo.base.Trans import t
+from gdo.base.Util import Arrays
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
-from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+
+from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
-from gdo.shadowdogs.item.data.mapping import mapping
 
 if TYPE_CHECKING:
-    from gdo.shadowdogs.SD_Item import SD_Item
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.data.items import items
 
 
-class Item(WithShadowFunc):
+class Item(SD_Item):
 
-    _name: str
-    _count: int
-    _modifiers: dict[str, int|str]
-    _hot: bool
-    _duration: int
-    _sd_item: 'SD_Item|None'
+    _buy_price: int
+    _shop_pos: int
 
-    def __init__(self, name: str):
-        self._name = name
-        self._count = 1
-        self._modifiers = GDO.EMPTY_DICT
-        self._hot = False
-        self._duration = 10000
-        self._sd_item = None
+    __slots__ = (
+        '_buy_price',
+        '_shop_pos',
+    )
 
-    def __repr__(self):
-        return f"{self.render_name()}{self._modifiers}"
+    def __init__(self):
+        super().__init__()
+        self._buy_price = 0
+        self._shop_pos = 0
 
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item')
 
-    def get_level(self) -> int:
-        return self.dmi('level', 1)
-
-    def get_count(self) -> int:
-        if self._sd_item:
-            return self._sd_item.get_count()
-        return self._count
-
-    def get_weight(self) -> int:
-        return self.dmi('weight', 0)
-
     def sd_inv_type(self) -> str:
         return GDT_Slot.INVENTORY
 
-    @functools.cache
-    def render_name(self) -> str:
-        name = self._name
-        if self._modifiers:
-            name += Shadowdogs.MODIFIER_SEPERATOR
-            joined = []
-            for key, val in self._modifiers.items():
-                joined.append(mapping.get_fancy_word(key, val))
-            name += ",".join(joined)
-        return self._name
+    def get_level(self) -> int:
+        return self.dmi('level', 1)
 
-    def render_slot(self) -> str:
-        return t(self.get_slot())
-
-    def modifiers(self, modifiers: dict[str,int]):
-        self._modifiers = modifiers
-        return self
-
-    def item(self, item: 'SD_Item'):
-        self._sd_item = item
-        return self
-
-    def hot(self, hot: bool):
-        self._hot = hot
-        return self
-
-    def duration(self, duration: int):
-        self._duration = duration
-        return self
+    def get_weight(self) -> int:
+        return self.dmi('weight', 1337)
 
     def get_default_modifiers(self) -> dict[str, int|str]:
-        return items.ITEMS[self._name]
+        return items.ITEMS[self.get_item_name()]
 
     def all_modifiers(self) -> Iterator[tuple[str, int]]:
         yield from self.get_default_modifiers().items()
-        yield from self._modifiers.items()
+        if mods := self.gdo_value('item_mods'):
+            yield from mods
 
     def all_player_modifiers(self) -> Iterator[tuple[str, int]]:
         player = self.get_player()
@@ -97,8 +57,8 @@ class Item(WithShadowFunc):
             key = f"p_{key}"
             if key in player_keys:
                 yield key, value
-        if self._modifiers:
-            for key, value in self._modifiers.items():
+        if mod:= self.gdo_value('item_mods'):
+            for key, value in mod.items():
                 key = f"p_{key}"
                 if key in player_keys:
                     yield key, value
@@ -144,15 +104,40 @@ class Item(WithShadowFunc):
     def get_default_loot_chance(self, default: int=100) -> int:
         return default
 
-    def get_default_count(self) -> int:
-        return 1
-
-    def count(self, count: int):
-        self._count = count
-        return self
-
     async def on_use(self, target: 'SD_Player|Obstacle'):
         await self.send_to_player(self.get_player(), 'err_sd_item_not_usable')
 
     def can_loot(self) -> bool:
         return self.dm('no_loot', False)
+
+    def can_sell(self) -> bool:
+        if not self.dm('sell', True):
+            return False
+        return self.is_hot()
+
+    def buy_price(self, price: int):
+        self._buy_price = price
+        return self
+
+    def shop_position(self, pos: int):
+        self._shop_pos = pos
+        return self
+
+    def get_shop_position(self) -> int:
+        return self._shop_pos or 0
+
+    def render_slot(self) -> str:
+        return t(self.get_slot())
+
+    def render_buy_price(self) -> str:
+        return Shadowdogs.display_nuyen(self._buy_price)
+
+    def render_examine(self, price: int=None):
+        price = price or self._buy_price or self.dmi('price') or t('unknown')
+        mods = []
+        nmod = ('price', 'klass', 'ef')
+        for k,v in self.all_modifiers():
+            if k not in nmod:
+                mods.append(f"{t(k)}: {v}")
+        return t('sd_examine_string', (self.render_name_wc(), self.__class__.__name__, ", ".join(mods), str(price)))
+

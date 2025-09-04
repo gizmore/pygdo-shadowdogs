@@ -11,7 +11,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 class give(MethodSD):
 
     def sd_combat_seconds(self) -> int:
-        return self.get_item().itm().get_weight() // Shadowdogs,GIVE_SECONDS_PER_WEIGHT
+        return self.get_item().get_weight() // Shadowdogs,GIVE_SECONDS_PER_WEIGHT
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(

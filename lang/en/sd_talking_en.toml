@@ -1,3 +1,7 @@
+no_what = "No what?!"
+yes_what = "Yes what?!"
+sd_npc_says = '%s says: "%s"'
+
 # Default NPC
 msg_sd_talk_default_1 = "Hello"
 msg_sd_talk_default_2 = "You got lighter?"

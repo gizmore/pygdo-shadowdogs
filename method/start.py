@@ -34,13 +34,13 @@ class start(MethodSD):
             'p_user': self._env_user.get_id(),
             'p_race': self.param_val('race'),
             'p_gender': self.param_val('gender'),
-            'p_party': party.get_id(),
-            'p_npc_name': self._env_user.get_displayname(),
+            # 'p_party': party.get_id(),
         }).insert()
+        await party.join(player)
         Shadowdogs.PLAYERS[player.get_id()] = player
         Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
+        Shadowdogs.CURRENT_PLAYER = player
         player.modify_all().heal_full()
-        await party.join(player)
         self.msg('msg_sd_started', (
             player.column('p_gender').render(self._env_mode),
             player.column('p_race').render(self._env_mode),))
