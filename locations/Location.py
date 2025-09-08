@@ -40,7 +40,7 @@ class Location(WithShadowFunc):
         return cls.GIVING
 
     @classmethod
-    def npcs(cls, player: 'SD_Player') -> 'type[SD_NPC]':
+    def npcs(cls, player: 'SD_Player') -> 'list[type[SD_NPC]]':
         return cls.NPCS
 
     def get_npcs(self, player: 'SD_Player'):
@@ -69,6 +69,9 @@ class Location(WithShadowFunc):
 
     def sd_entrance_seconds(self) -> int:
         return 10
+
+    def sd_is_respawn(self, player: 'SD_Player') -> bool:
+        return False
 
     async def on_entered(self):
         await self.send_to_party(self.get_party(), 'msg_sd_entered', (self.get_location().render_name(),))

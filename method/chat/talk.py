@@ -28,7 +28,6 @@ class talk(MethodSD):
 
     async def sd_execute(self):
         p = self.get_player()
-        for player in self.nearby_players(p):
-            await self.send_to_player(player, 'msg_sd_say', (self.get_player().render_name(), html(self.param_value('word'))))
-        await self.get_target().player(p).on_say(p, self.param_value('word'))
+        t = self.get_target()
+        await t.player(p).on_say(p, self.param_value('word'))
         return self.empty()

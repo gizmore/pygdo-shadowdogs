@@ -6,6 +6,7 @@ from gdo.core.GDT_Index import GDT_Index
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -50,6 +51,9 @@ class SD_Item(WithShadowFunc, GDO):
 
     def __repr__(self):
         return self.render_name()
+
+    def get_slot(self) -> str:
+        raise ShadowdogsException('err_sd_no_slot_defined_for_item', (self.get_item_name(),))
 
     def get_owner(self) -> 'SD_Player':
         return self.gdo_value('item_owner')

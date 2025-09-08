@@ -5,6 +5,7 @@ from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Enum import GDT_Enum
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
+from gdo.date.Time import Time
 from gdo.shadowdogs.GDT_Action import GDT_Action
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
@@ -159,7 +160,10 @@ class SD_Party(WithShadowFunc, GDO):
     # Target #
     ##########
 
-    def other_players(self, player: 'SD_Player' = None) -> Iterator['SD_Player']:
+    def other_players(self, player: 'SD_Player' = None, own_members: bool=True) -> Iterator['SD_Player']:
+        """
+        Get current other players a player sees.
+        """
         from gdo.shadowdogs.actions.Action import Action
         yield from self.players_nearby(player)
         if self.get_action_name() == Action.INSIDE:
@@ -274,7 +278,7 @@ class SD_Party(WithShadowFunc, GDO):
         city = location.get_city()
         sqkm = city.sd_square_km()
         nloc = len(city.LOCATIONS)
-        return round((sqkm ** 3) / nloc)
+        return round((sqkm ** 2) / nloc)
 
     def is_action_over(self) -> bool:
         return self.get_eta() <= self.get_time()
@@ -313,3 +317,6 @@ class SD_Party(WithShadowFunc, GDO):
 
     def combat_diraction_sign(self) -> int:
         pass
+
+    def render_busy(self) -> str:
+        return self.t('sd_busy', (Time.human_duration(self.get_eta_s()),))

@@ -1,5 +1,8 @@
+from functools import lru_cache
+
 from gdo.base.Trans import t
 from gdo.base.Util import Random
+from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -7,7 +10,7 @@ from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.engine.WithProbability import WithProbability
 from gdo.shadowdogs.locations.Location import Location
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Generator
 
 from gdo.shadowdogs.npcs.npcs import npcs
 
@@ -38,11 +41,11 @@ class City(WithShadowFunc):
     # NPC #
     #######
 
-    def sd_npc_max_encounter(self, party: 'SD_Party') -> int:
-        return Random.mrand(1, 1 + len(party.members))
+    def sd_npc_max_encounters(self, party: 'SD_Party') -> int:
+        return Random.mrand(Shadowdogs.MIN_ENCOUNTERS, Shadowdogs.MAX_ENCOUNTER_BASE + len(party.members) + party.get_max('p_level', 'g') // Shadowdogs.LEVELS_PER_MAX_ENCOUNTER)
 
     def sd_npc_none_chance(self, party: 'SD_Party') -> int:
-        return 65535
+        return Shadowdogs.NPC_ENCOUNTER_NONE_CHANCE
 
     def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
         return 8
@@ -62,6 +65,7 @@ class City(WithShadowFunc):
     def get_location_key(self) -> str:
        return self.get_city_key()
 
+    @lru_cache
     def get_city_key(self) -> str:
         m = self.__class__.__module__.split('.')
         return m[3] + "." + m[-1]
@@ -77,9 +81,11 @@ class City(WithShadowFunc):
             return matches[0]
         raise ShadowdogsException('err_sd_much_matches')
 
-    def get_respawn_location(self, player: 'SD_Player') -> Location:
-        from gdo.shadowdogs.city.y2064.World2064 import World2064
-        return World2064.Peine.Home
+    def get_respawn_location(self, player: 'SD_Player') -> Location|None:
+        for place in SD_Place.query_for_player(player).order('kp_found DESC').exec():
+            if place.sd_is_respawn():
+                return place.get_location()
+        return None
 
     ###########
     # Explore #
@@ -92,16 +98,29 @@ class City(WithShadowFunc):
         return self.sd_square_km() * Shadowdogs.EXPLORE_ETA_PER_SQKM - party.gmin('p_qui') * Shadowdogs.EXPLORE_ETA_BONUS_PER_QUICKNESS
 
     async def on_explore(self, party: 'SD_Party'):
-        from gdo.shadowdogs.engine.Factory import Factory
+        if await self.on_explore_mobs(party):
+            return self
+        if await self.on_meet_humans(party):
+            return self
+        return self
+
+    async def on_explore_mobs(self, party: 'SD_Party'):
         encounters = []
         npcs = self.get_npc_chances(party, self.sd_npc_explore_level_gap(party))
-        for i in range(self.sd_npc_max_encounter(party)):
+        for i in range(self.sd_npc_max_encounters(party)):
             if npc := WithProbability.probable_item(npcs, self.sd_npc_none_chance(party)):
                 encounters.append(npc)
         if encounters:
-            ep = await Factory.create_default_npcs(party.get_city(), *encounters)
+            ep = await self.factory().create_default_npcs(party.get_city(), *encounters)
             await ep.do(Action.OUTSIDE, party.get_city().get_location_key())
             await ep.fight(party)
+
+    async def on_meet_humans(self, party: 'SD_Party'):
+        for ep in self.parties_doing((Action.EXPLORE, Action.GOTO)):
+            if ep is not party:
+                chance_total = Shadowdogs.MEET_CHANCE_TOTAL / (self.sd_square_km() * Shadowdogs.MEET_CHANCE_DIV_PER_SQKM)
+                if Random.mrand(0, int(chance_total)) < Shadowdogs.MEET_CHANCE_MEET:
+                   await ep.fight(party)
 
     async def on_explored(self, party: 'SD_Party'):
         items = []
@@ -118,3 +137,8 @@ class City(WithShadowFunc):
             await self.send_to_party(party, 'msg_no_more_locations')
             await party.do(Action.OUTSIDE, party.get_city().get_location_key())
         return self
+
+    def parties_doing(self, actions: tuple[str,...]) -> Generator['SD_Party', None, None]:
+        for party in Shadowdogs.PARTIES.values():
+            if party.get_action_name() in actions:
+                yield party

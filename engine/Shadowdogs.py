@@ -30,7 +30,21 @@ class Shadowdogs:
 
     RUNNING_LEVEL: int = 5
 
-    XP_PER_KARMA = 10
+    XP_PER_KARMA = 9
+    XP_PER_KARMA_PER_LEVEL = 1
+    KARMA_PER_SKILL = 3
+    KARMA_PER_ATTRIBUTE = 3
+
+    XP_PER_LEVEL_BASE = 7
+    XP_PER_LEVEL_POW = {
+        'elve': 2.75,
+        'halfelve': 2.53,
+        'human': 2.44,
+        'dwarf': 2.40,
+        'halforc': 2.35,
+        'orc': 2.30,
+        'troll': 2.25,
+    }
 
     SECONDS_PER_TICK = 1
     SECONDS_PER_HP_SLEEP = 30
@@ -65,6 +79,19 @@ class Shadowdogs:
 
     MAX_DISTANCE = 24
 
+    GOTO_SECONDS_POW = 2.4
+    GOTO_DIVISOR_PER_PLACE = 1
+
+    NPC_ENCOUNTER_CHANCE = 100 # base per ncp class avail
+    NPC_ENCOUNTER_NONE_CHANCE = 30000
+    MIN_ENCOUNTERS = 1
+    MAX_ENCOUNTER_BASE = 2
+    LEVELS_PER_MAX_ENCOUNTER = 8
+
+    MEET_CHANCE_MEET = 25
+    MEET_CHANCE_TOTAL = 100000
+    MEET_CHANCE_DIV_PER_SQKM = 1.0
+
     EXPLORE_ETA_PER_SQKM = 45
     EXPLORE_ETA_BONUS_PER_QUICKNESS = 4
     EXPLORE_NONE_CHANCE_PER_SQKM = 15
@@ -91,7 +118,3 @@ class Shadowdogs:
     @classmethod
     def display_nuyen(cls, nuyen: int) -> str:
         return str(nuyen) + cls.NUYEN
-
-    @classmethod
-    def get_npc(cls, klass: 'type[SD_NPC]'):
-        return cls.LOCATION_NPCS[klass.__name__]

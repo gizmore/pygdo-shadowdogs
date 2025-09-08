@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class Loot(WithShadowFunc):
+class Loot(WithShadowFunc): # <-- t = type[Loot];  t(killer, victim)
 
     _killer: 'SD_Player'
     _victim: 'SD_Player'
@@ -24,7 +24,7 @@ class Loot(WithShadowFunc):
         self._killer = killer
         self._victim = victim
 
-    async def on_kill(self) -> list[SD_Item]:
+    async def on_kill(self):
         items = []
         while item := self.loot():
             items.append(item)
@@ -32,6 +32,8 @@ class Loot(WithShadowFunc):
             await self.give_items(self._killer, items, 'loot', self._victim.render_name())
             lost_string = Arrays.human_join([item.render_name() for item in items])
             await self.send_to_player(self._victim, 'msg_killed_and_lost', (self._killer.render_name(), lost_string))
+        await self.on_kill_xp()
+        return self
 
     def  loot(self) -> SD_Item|None:
         choices = []
@@ -92,3 +94,9 @@ class Loot(WithShadowFunc):
             pass # TODO
         count = items.get_item(item_name).get_default_count()
         return Factory.create_item(item_name, count)
+
+    async def on_kill_xp(self):
+        level = self._victim.gb('p_level')
+        xp = Random.mrand(1, level)
+        await self._killer.give_xp(xp)
+        return self

@@ -1,3 +1,5 @@
+from typing import Any
+
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Trans import t
@@ -7,7 +9,10 @@ from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_Virtual import GDT_Virtual
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_City import GDT_City
+from gdo.shadowdogs.SD_Player import SD_Player
+from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class SD_Quest(WithShadowFunc, GDO):
@@ -75,8 +80,18 @@ class SD_Quest(WithShadowFunc, GDO):
         self.qd().succeed(self, self.get_player())
         if items := self.reward():
             await self.give_new_items(self.get_player(), items, 'reward', self.reward_source())
-        await self.send_to_player(self.get_player(), 'msg_sd_quest_denied', (self.render_title(),))
+        await self.send_to_player(self.get_player(), 'msg_sd_quest_done', (self.render_title(),))
 
+    ######
+    # QV #
+    ######
+
+    def qv_get(self, key: str, default: str=None, player: 'SD_Player'=None) -> str:
+        return SD_QuestVal.qv_get(self, player or Shadowdogs.CURRENT_PLAYER, key, default)
+
+    def qv_set(self, key: str, val: str, player: 'SD_Player'=None):
+        SD_QuestVal.qv_set(self, player or Shadowdogs.CURRENT_PLAYER, key, val)
+        return self
 
     ##########
     # Render #
@@ -87,5 +102,4 @@ class SD_Quest(WithShadowFunc, GDO):
 
     def render_descr(self) -> str:
         return t(f'sdqd_{self.__class__.__name__.lower()}')
-
 

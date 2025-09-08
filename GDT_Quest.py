@@ -7,3 +7,4 @@ class GDT_Quest(GDT_Object):
     def __init__(self, name: str):
         super().__init__(name)
         self.table(SD_Quest.table())
+

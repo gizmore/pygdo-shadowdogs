@@ -10,6 +10,7 @@ from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING, Generator, Any, Self
 
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.item.classes.Nuyen import Nuyen as NY
 
 from gdo.date.Time import Time
@@ -40,6 +41,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.locations.City import City
     from gdo.shadowdogs.locations.Location import Location
+    from gdo.shadowdogs.engine.Loot import Loot
 
 from gdo.shadowdogs.GDT_Faction import GDT_Faction
 from gdo.shadowdogs.GDT_Item import GDT_Item
@@ -79,6 +81,11 @@ class SD_Player(WithShadowFunc, GDO):
     _combat_stack: CombatStack
 
     Loot = None
+    def loot(self) -> 'type[Loot]':
+        if self.__class__.Loot is None:
+            from gdo.shadowdogs.engine.Loot import Loot
+            self.__class__.Loot = Loot
+        return self.__class__.Loot
 
     __slots__ = (
         'modified',
@@ -147,7 +154,7 @@ class SD_Player(WithShadowFunc, GDO):
 
             GDT_User('p_user'),
 
-            GDT_Party('p_party'),
+            GDT_Party('p_party').cascade_delete(),
             GDT_UInt('p_joined').bytes(8),
 
             GDT_RandomSeed('p_seed').init_random().not_null(),
@@ -156,6 +163,7 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_RandomName('p_npc_name'),
 
             XP('p_xp'),
+            GDT_UInt('p_xp_karma').initial('0').not_null(),
             Karma('p_karma'),
             GDT_UInt('p_karma_spent').bytes(2).not_null().initial('0').max(65535),
             Level('p_level').initial('1'),
@@ -253,25 +261,33 @@ class SD_Player(WithShadowFunc, GDO):
         return not self.is_dead()
 
     async def kill(self, killer: 'SD_Player'):
-        if not self.__class__.Loot:
-            from gdo.shadowdogs.engine.Loot import Loot
-            self.__class__.Loot = Loot
-        from gdo.shadowdogs.engine.Factory import Factory
         if killer:
-            await self.__class__.Loot (killer, self).on_kill()
-        location = self.get_city().get_respawn_location(self)
+            loot = self.loot()
+            await loot(killer, self).on_kill()
+
         old_party = self.get_party()
         old_party.members.remove(self)
-        party = Factory.create_party(location)
-        party.members.append(self)
-        self.party_pos = 1
-        self.save_vals({
-            'p_party': party.get_id(),
-            'p_joined': str(self.get_time()),
-        })
-        if old_party.is_empty():
-            old_party.delete()
-        return self
+
+        if not (location := self.get_city().get_respawn_location(self)):
+            if old_party.is_empty(): # MOB + Empty
+                old_party.delete()
+                return self
+            else:
+                return self.delete() # Mob
+
+        if old_party.is_empty(): # Human Empty
+            await old_party.do(Action.INSIDE, location.get_location_key())
+            old_party.join_silent(self)
+            return self
+        else: # Human respawn
+            party = self.factory().create_party(location)
+            party.members.append(self)
+            self.party_pos = 1
+            self.save_vals({
+                'p_party': party.get_id(),
+                'p_joined': str(self.get_time()),
+            })
+            return self
 
     ########
     # Hack #
@@ -290,7 +306,7 @@ class SD_Player(WithShadowFunc, GDO):
         yield from self.cyberware
 
     def get_weapon(self) -> 'Weapon':
-        return self.get_equipment('p_weapon') or Fists('Fists').player(self)
+        return self.get_equipment('p_weapon') or Fists().fill_defaults({'item_name': 'Fists', 'item_owner': self.get_id()}).player(self)
 
     def get_equipment(self, slot_name: str) -> 'SD_Item|None':
         try:
@@ -457,33 +473,38 @@ class SD_Player(WithShadowFunc, GDO):
     def level_column(self) -> Level|GDT:
         return self.column('p_level')
 
-    def get_total_karma(self) -> int:
-        return self.gdo_value('p_xp') // Shadowdogs.XP_PER_KARMA
+    def get_xp_per_karma(self) -> int:
+        return Shadowdogs.XP_PER_KARMA + Shadowdogs.XP_PER_KARMA_PER_LEVEL * self.gb('p_level')
 
-    def give_xp(self, xp: int) -> str:
-        total_karma = self.get_total_karma()
-        self.increment('p_xp', xp).save()
-        out = t('msg_sd_got_xp', (xp,))
-        out += self.check_karma_xp(total_karma)
-        out += self.check_level_xp()
+    async def give_xp(self, xp: int) -> str:
+        out = ''
+        out += self.check_karma_xp(xp)
+        out += self.check_level_xp(xp)
+        out = out.strip()
+        if out:
+            await self.send_to_player(self, 'msg_sd_gain_xp', (xp, out,))
         return out.strip()
 
-    def check_karma_xp(self, karma_before: int) -> str:
-        new_total_karma = self.get_total_karma()
-        new_karma = new_total_karma - karma_before
-        if new_karma > 0:
-            self.increment('p_karma', new_karma)
-            return " " + t('msg_sd_gained_karma', (new_karma, self.gdo_value('p_karma')))
+    def check_karma_xp(self, xp: int) -> str:
+        self.increment('p_xp', xp).increment('p_xp_karma', xp)
+        xp_need = self.get_xp_per_karma()
+        karma_gain = 0
+        while self.gb('p_xp_karma') >= xp_need:
+            self.increment('p_xp_karma', -xp_need)
+            karma_gain += 1
+        if karma_gain:
+            self.increment('p_karma', karma_gain)
+            return " " + t('msg_sd_gained_karma', (karma_gain, self.gdo_value('p_karma')))
         return ''
 
-    def check_level_xp(self) -> str:
+    def check_level_xp(self, xp: int) -> str:
         output = ''
         xp = self.gdo_value('p_xp')
         while xp >= self.level_column().xp_needed(self):
             self.increment('p_level', 1)
             level = self.gdo_value('p_level')
             xp = self.gdo_value('p_xp')
-            output += " " + t('msg_sd_gained_level', (level, self.level_column().xp_needed(self) - xp, level + 1))
+            output += " " + t('msg_sd_gained_level', (level,))
         return output
 
     #########
@@ -515,8 +536,6 @@ class SD_Player(WithShadowFunc, GDO):
     #########
     # Spell #
     #########
-    def has_spell(self, spell_name: str) -> bool:
-        return False
 
     #########
     # Party #

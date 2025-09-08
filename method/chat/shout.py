@@ -13,6 +13,10 @@ class shout(MethodSD):
     def gdo_trigger(cls) -> str:
         return 'sdshout'
 
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sdsh'
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_RestOfText('message').not_null(),

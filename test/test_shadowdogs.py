@@ -4,14 +4,12 @@ import unittest
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Util import Random
-from gdo.core.GDO_User import GDO_User
 from gdo.core.method.clear_cache import clear_cache
 from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.classes.weapon.Fists import Fists
-from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
 from gdo.table.module_table import module_table
 from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, cli_gizmore, all_private_messages
 
@@ -19,18 +17,6 @@ from gdotest.TestUtil import reinstall_module, WebPlug, GDOTestCase, cli_plug, c
 class ShadowdogsTest(GDOTestCase):
 
     TICKS: int = 0
-
-    async def ticker_for(self, user: 'GDO_User'=None):
-        user = user or cli_gizmore()
-        await self.ticker(Shadowdogs.USERMAP[user.get_id()].get_busy_seconds()+2)
-
-    async def ticker(self, ticks: int=1):
-        print(f"{ticks} ticks pass buy.")
-        for i in range(0, ticks-1):
-            i = self.TICKS + i
-            Application.TIME += 1
-            await Application.EVENTS.update_timers(module_shadowdogs.instance().cfg_time())
-        self.TICKS += ticks
 
     def setUp(self):
         super().setUp()
@@ -243,20 +229,65 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('Lazer', out, '$look does not work.')
         self.assertIn('Theo', out, '$look does not work#2.')
 
-
     async def test_25_quest(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdtalk theo hello')
         self.assertIn('says:', out, '$sdtalk does not work.')
+        out = cli_plug(gizmore, '$sdtalk theo hello')
+        self.assertIn('sidequest', out, '$sdtalk does not work.')
         out = cli_plug(gizmore, '$sdtalk theo quest')
         self.assertIn('says:', out, '$sdtalk does not work#2.')
         out = cli_plug(gizmore, '$sdtalk theo yes')
         self.assertIn('says:', out, '$sdtalk does not work#3.')
+        out = cli_plug(gizmore, '$sdtalk theo yes')
+        self.assertIn('says:', out, '$sdtalk does not work#3.')
         out = cli_plug(gizmore, '$sdqus')
         self.assertIn('1-', out, '$sdquests does not work.')
-        out = cli_plug(gizmore, '$sdqu')
-        self.assertIn('Purse', out, '$sdquest does not work.')
+        out = cli_plug(gizmore, '$sdqu 1')
+        self.assertIn('Purse:', out, '$sdquest does not work.')
+        out = cli_plug(gizmore, '$sdtalk theo purse')
+        self.assertIn('says:', out, '$sdtalk does not work#3.')
+        out = cli_plug(gizmore, '$sdi')
+        self.assertIn('Purse', out, 'have no purse.')
+        out = cli_plug(gizmore, '$sdu urse') + all_private_messages()
+        self.assertIn('You search the purse...', out, '$sdu purse does not work.')
+        out = cli_plug(gizmore, '$sdu urse') + all_private_messages()
+        self.assertIn('You search the purse...', out, '$sdu purse does not work#2.')
+        out = cli_plug(gizmore, '$sdu urse') + all_private_messages()
+        self.assertIn('You search the purse... et voila', out, '$sdu purse does not work#3.')
 
+    async def test_30_goto(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz ins jaw') # move gizmore to Jawoll via gm powers.
+        self.assertIn('Jawoll', out, '$sdgml purse does not work.')
+        out = cli_plug(gizmore, '$sdgoto Home')
+        Random.init(1337)
+        await self.ticker(3600)  # an hour
+        out = cli_plug(gizmore, '$sdp')
+        self.assertIn('Home', out, '$goto does not work.')
+
+    async def test_35_info(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdsk')
+        self.assertIn('skills', out, '$sk does not work.')
+        out = cli_plug(gizmore, '$sdat')
+        self.assertIn('attributes', out, '$at does not work.')
+        out = cli_plug(gizmore, '$sds')
+        self.assertIn('male', out, '$s does not work.')
+
+    async def test_40_lvlup(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        ep = await Factory.create_default_npcs(giz.get_location(), 'noob')
+        noob = ep.get_leader()
+        from gdo.shadowdogs.engine.Loot import Loot
+        for i in range(100):
+            await Loot(giz, noob).on_kill_xp()
+        out = all_private_messages()
+        self.assertIn('karma', out, '$l does not work.')
+        self.assertIn('level', out, '$l does not work.')
+        out = cli_plug(gizmore, '$sdl strength')
+        self.assertIn('leveled up', out, '$l does not work.')
 
 if __name__ == '__main__':
     unittest.main()

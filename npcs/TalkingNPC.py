@@ -8,12 +8,17 @@ from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.city.y2064.Peine.quests.Awakening import Awakening
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class TalkingNPC(SD_NPC):
 
     def __init__(self):
         super().__init__()
+
+    @classmethod
+    def instance(cls):
+        return Shadowdogs.LOCATION_NPCS[cls.fqcn()]
 
     def sd_quest(self) -> type[SD_Quest]|None:
         return Awakening

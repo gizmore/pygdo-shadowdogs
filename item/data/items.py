@@ -175,9 +175,9 @@ class items:
 
         # trousers
         'Trousers':               {'klass': 'Trousers','level':  0, 'et': 50, 'weight':   600, 'defense':  0, 'marm': 1, 'farm': 0, 'price':      15},
-        'Sweatpants': {'klass': 'Trousers', 'level': 0, 'et': 48, 'weight': 500, 'defense': 0, 'marm': 1, 'farm': 0, 'price': 20},
-        'TrackPants': {'klass': 'Trousers', 'level': 1, 'et': 52, 'weight': 700, 'defense': 1, 'marm': 1, 'farm': 0, 'price': 70},
-        'Jeans':                  {'klass': 'Trousers','level':  1, 'et': 55, 'weight':   800, 'defense':  1, 'marm': 1, 'farm': 1, 'price':      60},
+        'Sweatpants':             {'klass': 'Trousers', 'level': 0, 'et': 48, 'weight': 500, 'defense': 0, 'marm': 1, 'farm': 0, 'price': 20},
+        'TrackPants':             {'klass': 'Trousers', 'level': 1, 'et': 52, 'weight': 700, 'defense': 1, 'marm': 1, 'farm': 0, 'price': 70},
+        'Jeans':                  {'klass': 'Trousers','level':  1, 'et':  8, 'weight':   800, 'defense':  1, 'marm': 1, 'farm': 1, 'price':      60},
         'CargoPants':             {'klass': 'Trousers','level':  2, 'et': 56, 'weight':   900, 'defense':  1, 'marm': 1, 'farm': 1, 'price':     130},
         'ReinforcedPants':        {'klass': 'Trousers','level':  3, 'et': 58, 'weight':  1100, 'defense':  2, 'marm': 2, 'farm': 1, 'price':     280},
         'PaddedPants':            {'klass': 'Trousers','level':  4, 'et': 60, 'weight':  1300, 'defense':  2, 'marm': 2, 'farm': 2, 'price':     520},
@@ -363,7 +363,7 @@ class items:
         'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 12,  'ef': {'thirst': -3, 'hunger': 25}},
         'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 24, 'ef': {'thirst': 90}},
         'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 12, 'ef': {'thirst': 30}},
-        '5gHash':             {'klass': 'QuestItem',   'level':  1, 'weight': 4,    'price': 64, 'ef': {'thirst': -100}},
+        'Hash':                {'klass': 'QuestItem',   'level':  2, 'weight': 1,    'price': 30, 'ef': {'thirst': -100}},
         'Apple':              {'klass': 'Consumable', 'level': 1, 'weight': 160, 'price': 2, 'ef': {'hunger': 15, 'thirst': 15}},
         'InstantNoodles':     {'klass': 'Consumable', 'level': 1, 'weight': 90, 'price': 4, 'ef': {'hunger': 20, 'thirst': 0}},
 
@@ -406,6 +406,7 @@ class items:
         'HackingDeck':        {'klass': 'Deck',        'level': 16, 'weight':  700, 'mcpu': 30, 'hac': 4},
         'MetaDeck':           {'klass': 'Deck',        'level': 24, 'weight':  700, 'mcpu': 50, 'hac': 5},
 
+        # EXE
         'Move.exe':           {'klass': 'Move',        'level':  1},
         'Strafe.exe':         {'klass': 'Move',        'level':  2},
         'DMA.exe':            {'klass': 'DMA',         'level':  6},
@@ -421,10 +422,12 @@ class items:
         'TraceNT.exe':        {'klass': 'Trace',       'level':  4},
         'TraceNG.exe':        {'klass': 'Trace',       'level':  6},
 
+        # Quest Items
         'EmailArmy':          {'klass': 'Email',       'key': 'sd_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
 
+        # Special
         'Nuyen':              {'klass': 'Nuyen', 'level': 0, 'weight': 0.25, 'no_loot': True}
     }
 

@@ -1,5 +1,9 @@
 from gdo.base.Trans import t
-from gdo.shadowdogs.SD_Item import SD_Item
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Item import SD_Item
 
 
 class ShadowdogsException(Exception):
@@ -9,7 +13,7 @@ class ShadowdogsException(Exception):
 
 class SDTooMuchMatchesException(ShadowdogsException):
 
-    def __init__(self, matches: list[SD_Item]):
+    def __init__(self, matches: list['SD_Item']):
         match_str = ", ".join([match.render_name() for match in matches])
         super().__init__('sd_too_much_matches', (match_str,))
 

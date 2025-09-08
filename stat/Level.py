@@ -18,4 +18,7 @@ class Level(Modifier):
         player.apply('p_max_mp', int(level * Shadowdogs.MP_PER_LEVEL))
 
     def xp_needed(self, player: 'SD_Player') -> int:
-        return math.ceil((self.get_value() + 1) ** GDT_Race.LEVEL_CONSTS[player.gdo_val('p_race')])
+        lvl_pow = Shadowdogs.XP_PER_LEVEL_POW[player.gdo_val('p_race')]
+        level = self.get_value()
+        base = Shadowdogs.XP_PER_LEVEL_BASE
+        return math.ceil(base * sum((i + 1) ** lvl_pow for i in range(level)))

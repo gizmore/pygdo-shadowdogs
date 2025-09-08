@@ -10,10 +10,18 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 class use(MethodSD):
 
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return 'sduse'
+
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sdu'
+
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_ItemArg('item').inventory().equipment().not_null(),
-            GDT_TargetArg('target').me().obstacles().friends().foes().positional(),
+            GDT_TargetArg('target').me().obstacles().friends().foes().inventory().positional(),
         )
         super().gdo_create_form(form)
 

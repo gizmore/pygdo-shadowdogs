@@ -7,6 +7,9 @@ err_sd_stub = "%s is not implemented."
 err_sd_item_klass_required = "You need an item of type %s."
 err_sd_invalid_item_name = "Unknown Item: %s."
 err_sd_unknown_item = "Item not found."
+err_sd_no_slot_defined_for_item = "Item %s has no slot."
+err_sd_player_busy = "You are still busy for %s"
+
 ############
 # Factions #
 ############
@@ -87,15 +90,15 @@ msg_sd_party_outside = "%s are outside the %s."
 msg_sd_party_sleep = "%s are sleeping inside the %s."
 msg_sd_party_talk = "%s are talking to %s."
 msg_sd_party_travel = "%s are travelling to %s. %s"
-msg_sd_party_was_explore = "%s were exploring %s. %s."
-msg_sd_party_was_fight = "%s were fighting %s."
-msg_sd_party_was_goto = "%s were going to %s. %s."
-msg_sd_party_was_hack = "%s were trying to crack the %s. %s."
-msg_sd_party_was_inside = "%s were inside the %s."
-msg_sd_party_was_outside = "%s were outside the %s."
-msg_sd_party_was_sleep = "%s were sleeping inside the %s."
-msg_sd_party_was_talk = "%s were talking to %s."
-msg_sd_party_was_travel = "%s were travelling to %s. %s"
+msg_sd_was_explore = "%s were exploring %s."
+msg_sd_was_fight = "%s were fighting %s."
+msg_sd_was_goto = "%s reached the %s."
+msg_sd_was_hack = "%s were trying to crack the %s."
+msg_sd_was_inside = "%s were inside the %s."
+msg_sd_was_outside = "%s were outside the %s."
+msg_sd_was_sleep = "%s were sleeping inside the %s."
+msg_sd_was_talk = "%s were talking to %s."
+msg_sd_was_travel = "%s were travelling to %s."
 
 sd_busy = "%s busy."
 
@@ -143,6 +146,9 @@ msg_sd_not_saturated = "You are not saturated. %d damage. %d/%d HP left."
 #########
 sd_receive_item_gmi = "You received %s from the GM %s."
 sd_receive_item_loot = "You received %s from looting the %s."
+sd_receive_item_gave = "You received %s from %s."
+sd_receive_item_search = "You find %s by searching %s."
+sd_receive_item_reward = "You get %s as reward from %s."
 msg_killed_and_lost = "You got killed by %s and lost your %s."
 
 ################
@@ -152,7 +158,7 @@ msg_killed_and_lost = "You got killed by %s and lost your %s."
 ############
 # MethodSD #
 ############
-err_sd_player_required = "You need to $trigger$sdstart first."
+err_sd_player_required = "You need to $t$sdstart first."
 err_sd_not_here = "This does not work here."
 err_sd_not_now = "You cannot do this now."
 
@@ -186,6 +192,17 @@ msg_sd_new_kp = "You found a new place in %s: %s."
 mt_shadowdogs_places = "%d Known Places in %s"
 md_shadowdogs_places = "Show known places for an area."
 msg_sd_places = "%d known places in %s: %s."
+
+#########
+# Lvlup #
+#########
+mt_shadowdogs_lvlup = "Level-Up"
+md_shadowdogs_lvlup = "Increase the level of a skill or attribute."
+err_sd_lvlup_karma = "You want to level up %s from %d to %d, but you need %d karma and only have %d."
+msg_sd_lvlup = "You used %d karma and leveled up %s from %d to %d."
+msg_sd_gain_xp = "You gained %d XP. %s "
+msg_sd_gained_karma = "You gained %d karma and now have %d."
+msg_sd_gained_level = "You reached level %d"
 
 #########
 # Enter #
@@ -289,6 +306,22 @@ md_shadowdogs_talk = "Talk to an NPC inside a location."
 msg_sd_new_word = "You have learned a new word: \"%s\"."
 msg_sd_quest_accepted = "You have a new quest: %s - %s"
 
+
+##########
+# Quests #
+##########
+mt_shadowdogs_quests = "%s quests in %s"
+md_shadowdogs_quests = "List your quests in a city."
+sd_quest = "%d-%s"
+msg_sd_quest_done = "You have accomplished the **%s** quest."
+msg_sd_quest_denied = "You have denied the **%s** quest."
+
+##########
+# Quests #
+##########
+mt_shadowdogs_quest = "Quest Info"
+md_shadowdogs_quest = "Show information for a quest."
+msg_sd_quest = "%s: %s"
 
 #############
 # Party Msg #

@@ -7,7 +7,6 @@ from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.WithShadowMethod import WithShadowMethod
-from gdo.shadowdogs.locations.City import City
 from gdo.table.MethodQueryTable import MethodQueryTable
 
 
@@ -39,6 +38,9 @@ class quests(WithShadowMethod, MethodQueryTable):
     def get_type(self) -> str:
         return self.param_val('type')
 
+    def gdo_render_title(self) -> str:
+        return self.t('mt_shadowdogs_quests', (self.t(self.get_type()), self.param_value('city').render_name()))
+
     def gdo_table_query(self) -> Query:
         query = SD_QuestDone.table().select().fetch_as(SD_Quest.table()).join_object('qd_quest').where(f"qd_player={self.get_player().get_id()} AND q_city={self.quote(self.get_city())}").order('qd_noticed ASC')
         type = self.get_type()
@@ -49,4 +51,5 @@ class quests(WithShadowMethod, MethodQueryTable):
         return query
 
     def render_gdo(self, gdo: GDO, mode: Mode) -> any:
+        self._curr_table_row_id += 1
         return self.t('sd_quest', (self._curr_table_row_id, gdo.render_name()))

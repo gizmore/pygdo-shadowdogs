@@ -17,6 +17,7 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
     _friends: bool
     _obstacles: bool
     _default_room: bool
+    _inventory: bool
 
     def __init__(self, name: str):
         super().__init__(name)
@@ -29,6 +30,7 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
         self._friends = False
         self._obstacles = False
         self._default_room = False
+        self._inventory = False
 
     ########
     # Opts #
@@ -59,6 +61,10 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
 
     def default_room(self, default_room: bool = True):
         self._default_room = default_room
+        return self
+
+    def inventory(self, inventory: bool = True):
+        self._inventory = inventory
         return self
 
     #######
@@ -98,4 +104,7 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
         if self._others:
             for pl in party.players_nearby():
                 choices[pl.get_name()] = pl
+        if self._inventory:
+            for item in player.inventory:
+                choices[item.render_name()] = item
         return choices

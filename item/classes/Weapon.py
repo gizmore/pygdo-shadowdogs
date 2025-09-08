@@ -10,8 +10,10 @@ class Weapon(Item):
     def get_slot(self) -> str:
         return 'p_weapon'
 
-    def get_actions(self) -> list[str]:
-        return ['attack']
+    def sd_commands(self) -> list[str]:
+        return [
+            'attack'
+        ]
 
     async def attack(self, d: 'SD_Player', armor_field: str = 'p_marm'):
         a = self.get_player()

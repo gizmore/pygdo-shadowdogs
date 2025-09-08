@@ -7,16 +7,6 @@ if TYPE_CHECKING:
 
 class GDT_Race(GDT_Enum):
 
-    LEVEL_CONSTS = {
-        'elve':     2.75,
-        'halfelve': 2.53,
-        'human':    2.44,
-        'dwarf':    2.40,
-        'halforc':  2.35,
-        'orc':      2.30,
-        'troll':    2.25,
-    }
-
     BONUS: dict[str,dict[str,int]] = {
         'mob':      {},
         'animal':   {},
@@ -66,11 +56,9 @@ class GDT_Race(GDT_Enum):
 
     def all_bonuses(self, player: 'SD_Player') -> Iterator[Tuple[str, int]]:
         bonus = self.BONUS[self.get_val()]
-        for key, val in bonus.items():
-            yield key, val
+        yield from bonus.items()
         bonus = self.GENDER[player.gdo_val('p_gender')]
-        for key, val in bonus.items():
-            yield key, val
+        yield from bonus.items()
 
     def apply(self, player: 'SD_Player'):
         for key, val in self.all_bonuses(player):

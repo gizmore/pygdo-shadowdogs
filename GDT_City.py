@@ -1,7 +1,10 @@
 from gdo.core.GDT_Enum import GDT_Enum
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
-from gdo.shadowdogs.locations.City import City
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.locations.City import City
 
 
 class GDT_City(WithPlayerGDO, GDT_Enum):
@@ -51,11 +54,11 @@ class GDT_City(WithPlayerGDO, GDT_Enum):
                 choices[city.get_city_key()] = city
         return choices
 
-    def player_knows_city(self, player: SD_Player, city: City) -> bool:
+    def player_knows_city(self, player: SD_Player, city: 'City') -> bool:
         from gdo.shadowdogs.SD_Place import SD_Place
         return SD_Place.table().select().join_object('kp_location').where(f'l_city="{city.get_location_key()}" AND kp_player={player.get_id()}').exec().fetch_val() is not None
 
-    def all_city_choices(self) -> dict[str, City]:
+    def all_city_choices(self) -> dict[str, 'City']:
         from gdo.shadowdogs.engine.World import World
         back = {}
         for world in World.WORLDS.values():

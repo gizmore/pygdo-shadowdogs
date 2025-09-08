@@ -14,6 +14,10 @@ from gdo.shadowdogs.npcs.npcs import npcs
 
 class Factory(WithShadowFunc):
 
+    #########
+    # Party #
+    #########
+
     @classmethod
     def create_party(cls, location: Location) -> SD_Party:
         party = SD_Party.blank({
@@ -55,8 +59,9 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_npc(cls, party: SD_Party, spec: dict[str,int|str]) -> SD_Player:
-        player = npcs.NPCS[spec['type']]['klass'].blank({
-            'p_npc_class': spec['type'],
+        klass = npcs.NPCS[spec['type']]['klass']
+        player = klass.blank({
+            'p_npc_class': klass.fqcn(),
             'p_npc_name': spec['type'],
             'p_race': spec['p_race'],
             'p_gender': spec['p_gender'],

@@ -51,12 +51,9 @@ class WithShadowMethod(WithShadowFunc):
         return 0
 
     def gdo_before_execute(self):
-        if not self.__class__.World:
-            from gdo.shadowdogs.engine.World import World
-            self.__class__.World = World
         player = Shadowdogs.CURRENT_PLAYER
         if self._env_user.is_human():
-            player = self.__class__.World.get_player_for_user(self._env_user)
+            player = self.world().get_player_for_user(self._env_user)
             Shadowdogs.CURRENT_PLAYER = player
         self.player(player)
 

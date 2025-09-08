@@ -75,6 +75,9 @@ class module_shadowdogs(GDO_Module):
             GDT_Char('sd_shortcut').not_null().initial('#').maxlen(1).minlen(1).not_null().initial('#'),
         ]
 
+    def cfg_shortcut(self) -> str:
+        return self.get_config_val('sd_shortcut')
+
     ##########
     # Events #
     ##########

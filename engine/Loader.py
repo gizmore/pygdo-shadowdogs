@@ -46,6 +46,7 @@ class Loader(WithShadowFunc):
             else:
                 player.get_party().join_silent(player)
             location.NPC_INSTANCES.append(player)
+            Shadowdogs.LOCATION_NPCS[player.fqcn()] = player
             Shadowdogs.PARTIES[player.gdo_val('p_party')] = player.get_party()
 
     @classmethod
@@ -68,7 +69,7 @@ class Loader(WithShadowFunc):
             pids = SD_Player.table().select().order('p_created DESC').where(f'p_party={party.get_id()}').exec(False).fetch_column()
             for pid in pids:
                 if pid not in Shadowdogs.PLAYERS:
-                    player = SD_Player.table().get_by_aid(pid).as_real_class().modify_all()
+                    player = SD_Player.table().get_by_aid(pid).modify_all()
                     Shadowdogs.PLAYERS[player.get_id()] = player
                     Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
                     cls.load_items(player)

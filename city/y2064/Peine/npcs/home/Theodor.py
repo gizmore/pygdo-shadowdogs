@@ -10,13 +10,14 @@ class Theodor(TalkingNPC):
         return Purse
 
     async def on_say(self, player: SD_Player, text: str):
+        q = self.q()
         if text == 'hello':
-            if not self.qv_get('hello'):
+            if q.qv_get('hello'):
                 await self.say('sdqs_purse_hello1')
-                self.qv_set('hello', '1')
+                q.set('hello', '1')
             else:
-                await self.send_to_player(player, 'sdqs_purse_hello2')
-            await self.give_word(player, 'quest')
+                await self.say('sdqs_purse_hello2')
+                await self.give_word(player, 'quest')
         elif text == 'quest':
             await self.say('sdqs_purse_quest')
             self.qv_set('hello', '2')
@@ -39,7 +40,7 @@ class Theodor(TalkingNPC):
             if self.qv_get('hello') == '3':
                 self.qv_set('hello', '4')
                 await self.say('sdqs_purse_purse')
-                await self.give_new_items(player, 'Purse', 'gaave', self.render_name())
+                await self.give_new_items(player, 'TheosPurse', 'gave', self.render_name())
             elif self.qv_get('hello') == '4':
                 await self.say('sdqs_purse_purse4')
             else:

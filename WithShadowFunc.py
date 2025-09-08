@@ -2,6 +2,7 @@ from typing import TYPE_CHECKING
 
 import aioconsole
 
+from gdo.base.GDT import GDT
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Render import Render
 from gdo.base.Util import Strings
@@ -57,6 +58,29 @@ class WithShadowFunc(WithPlayerGDO):
         return self.get_action().get_name()
 
     ##########
+    # Engine #
+    ##########
+    World = None
+    def world(self):
+        if self.__class__.World is None:
+            from gdo.shadowdogs.engine.World import World
+            self.__class__.World = World
+        return self.__class__.World
+
+    Factory = None
+    def factory(self):
+        if self.__class__.Factory is None:
+            from gdo.shadowdogs.engine.Factory import Factory
+            self.__class__.Factory = Factory
+        return self.__class__.Factory
+
+    def get_loader(self):
+        if not self.__class__.Loader:
+            from gdo.shadowdogs.engine.Loader import Loader
+            self.__class__.Loader = Loader
+        return self.__class__.Loader
+
+    ##########
     # Method #
     ##########
 
@@ -66,6 +90,9 @@ class WithShadowFunc(WithPlayerGDO):
 
     def gdo_method_hidden(self) -> bool:
         return True
+
+    def sd_methods(self,player: 'SD_Player') -> list[str]:
+        return GDT.EMPTY_LIST
 
     def get_method(self, name: str) -> 'MethodSD':
         return ModuleLoader.instance()._methods.get(name)
@@ -84,12 +111,6 @@ class WithShadowFunc(WithPlayerGDO):
         for player in party.members:
             await self.send_to_player(player, key, args)
 
-    def get_loader(self):
-        if not self.__class__.Loader:
-            from gdo.shadowdogs.engine.Loader import Loader
-            self.__class__.Loader = Loader
-        return self.__class__.Loader
-
     async def send_to_all(self, key: str, args: tuple[str | int | float, ...] | None = None):
         active_channels = self.get_loader().channels_with_shadowlamb()
         for player in self.nearby_players(p):
@@ -107,7 +128,7 @@ class WithShadowFunc(WithPlayerGDO):
                 await channel.send(Trans.t(key, args))
 
     def t(self, key: str, args: tuple[str|int|float,...]=None):
-        return Trans.t(key, args)
+        return Trans.t(key, args).replace('$t$', self.get_player().get_user().get_setting_val('sd_shortcut'))
 
     #########
     # Items #
@@ -153,7 +174,7 @@ class WithShadowFunc(WithPlayerGDO):
         party = player.get_party()
         for member in party.members:
             if not member.has_kp(location):
-                SD_Place.give_kp(player, location)
+                SD_Place.give_place(player, location)
                 if announce:
                     await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))
 

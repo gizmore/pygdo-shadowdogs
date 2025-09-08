@@ -11,7 +11,6 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.obstacle.Obstacle import Obstacle
-from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.data.items import items
 
 
@@ -27,11 +26,9 @@ class Item(SD_Item):
 
     def __init__(self):
         super().__init__()
+        self.fill_defaults()
         self._buy_price = 0
         self._shop_pos = 0
-
-    def get_slot(self) -> str:
-        raise ShadowdogsException('err_sd_no_slot_defined_for_item')
 
     def sd_inv_type(self) -> str:
         return GDT_Slot.INVENTORY
@@ -90,7 +87,11 @@ class Item(SD_Item):
         return self.dmi('at')
 
     def sd_commands(self) -> list[str]:
-        return GDO.EMPTY_LIST
+        cmds = []
+        for base in self.__class__.__mro__:
+            if "sd_commands" in base.__dict__ and base != 'Item':
+                cmds.extend(base.sd_commands(self))
+        return sorted(set(cmds))
 
     def get_equip_time(self) -> int:
         return self.dmi('et') or 0

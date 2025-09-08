@@ -7,13 +7,13 @@ from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.GDT_City import GDT_City
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.locations.Location import Location
-    from gdo.shadowdogs.engine.World import World
 
 
-class SD_Location(GDO):
+class SD_Location(WithShadowFunc, GDO):
 
     World = None
 
@@ -36,10 +36,7 @@ class SD_Location(GDO):
         return cls.table().get_by('l_name', name)
 
     def get_location(self) -> 'Location':
-        if not self.__class__.World:
-            from gdo.shadowdogs.engine.World import World
-            self.__class__.World = World
-        return self.__class__.World.get_location(self.get_location_key())
+        return self.world().get_location(self.get_location_key())
 
     @classmethod
     def get_or_create(cls, location: 'Location'):

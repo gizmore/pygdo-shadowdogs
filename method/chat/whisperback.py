@@ -8,8 +8,8 @@ class whisperback(MethodSD):
         return 'sdwhisperback'
 
     @classmethod
-    def gdo_trigger(cls) -> str:
-        return 'sdwhisperback'
+    def gdo_trig(cls) -> str:
+        return 'sdwb'
 
     async def sd_execute(self):
         pass

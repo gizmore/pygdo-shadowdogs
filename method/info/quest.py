@@ -22,7 +22,7 @@ class quest(MethodSD):
      def get_quest(self) -> SD_Quest:
          return self.param_value('quest')
 
-     def sd_execute(self):
+     async def sd_execute(self):
          if not (quest := self.get_quest()):
              return self.execute_command('sdquests')
-         return self.reply('msg_sd_quest', (quest.render_name(),quest.render_descr()))
+         return self.reply('msg_sd_quest', (quest.render_name(), quest.render_descr()))
