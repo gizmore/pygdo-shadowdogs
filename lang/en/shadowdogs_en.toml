@@ -203,6 +203,7 @@ msg_sd_lvlup = "You used %d karma and leveled up %s from %d to %d."
 msg_sd_gain_xp = "You gained %d XP. %s "
 msg_sd_gained_karma = "You gained %d karma and now have %d."
 msg_sd_gained_level = "You reached level %d"
+msg_sd_lvlup_simulate = "To level up your %s to level %d you need %d from %d karma"
 
 #########
 # Enter #

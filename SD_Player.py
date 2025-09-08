@@ -514,7 +514,7 @@ class SD_Player(WithShadowFunc, GDO):
         return self.get_nuyen() >= nuyen
 
     def get_nuyen(self) -> int:
-        item = self.inventory.get_by_name('Nuyen') or NY('Nuyen')
+        item = self.inventory.get_by_name('Nuyen') or NY().name('Nuyen')
         return item.get_count()
 
     def give_nuyen(self, nuyen: int):

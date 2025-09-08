@@ -284,10 +284,14 @@ class ShadowdogsTest(GDOTestCase):
         for i in range(100):
             await Loot(giz, noob).on_kill_xp()
         out = all_private_messages()
-        self.assertIn('karma', out, '$l does not work.')
-        self.assertIn('level', out, '$l does not work.')
+        self.assertIn('karma', out, '$l does not work#1.')
+        self.assertIn('level', out, '$l does not work#2.')
         out = cli_plug(gizmore, '$sdl strength')
-        self.assertIn('leveled up', out, '$l does not work.')
+        self.assertIn('level up', out, '$l does not work.')
+        out = cli_plug(gizmore, '$sdl --confirm=1 strength')
+        self.assertIn('leveled up', out, '$l does not work.#2')
+        out = cli_plug(gizmore, '$sdl --confirm=1 strength')
+        self.assertIn('want to level up', out, '$l does not work.#3')
 
 if __name__ == '__main__':
     unittest.main()

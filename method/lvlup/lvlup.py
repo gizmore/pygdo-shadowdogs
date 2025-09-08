@@ -17,7 +17,7 @@ class lvlup(MethodSD):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
-            GDT_Bool('simulate').not_null().initial('0'),
+            GDT_Bool('confirm').not_null().initial('0'),
             GDT_SkillAttribute('field').skills().attributes().not_null(),
         )
         super().gdo_create_form(form)
@@ -42,8 +42,10 @@ class lvlup(MethodSD):
         new_lvl = old_lvl + 1
         need_karma = (old_lvl + 1) * mul
         have_karma = player.gb('p_karma')
+        if not self.param_value('confirm'):
+            return self.reply('msg_sd_lvlup_simulate', (self.t(field), new_lvl, need_karma, have_karma))
         if have_karma < need_karma:
             return self.err('err_sd_lvlup_karma', (self.t(field), old_lvl, new_lvl, need_karma, have_karma))
         player.increment(field, 1)
-        player.increment('p_karma', -1)
+        player.increment('p_karma', -need_karma)
         return self.reply('msg_sd_lvlup', (need_karma, self.t(field), old_lvl, new_lvl))
