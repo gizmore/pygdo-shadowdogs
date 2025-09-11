@@ -12,7 +12,7 @@ class levels(MethodSD):
     def gdo_trig(cls) -> str:
         return 'sdlev'
 
-    def sd_execute(self):
+    async def sd_execute(self):
         party = self.get_party()
-        lvls = [f"L{p.gb('p_level')}({p.g('p_level')}){p.render_name()}" for p in party.members]
-        return self.reply('msg_sd_levels', (Arrays.human_join(lvls),))
+        lvls = [f"{p.render_name()}:L{p.gb('p_level')}({p.g('p_level')})" for p in party.members]
+        return self.msg('msg_sd_levels', (Arrays.human_join(lvls),))

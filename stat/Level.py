@@ -21,4 +21,4 @@ class Level(Modifier):
         lvl_pow = Shadowdogs.XP_PER_LEVEL_POW[player.gdo_val('p_race')]
         level = self.get_value()
         base = Shadowdogs.XP_PER_LEVEL_BASE
-        return math.ceil(base * sum((i + 1) ** lvl_pow for i in range(level)))
+        return math.ceil(base * sum((i + 1) ** lvl_pow for i in range(level + 1)))

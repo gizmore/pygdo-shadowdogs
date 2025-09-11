@@ -396,6 +396,8 @@ class SD_Player(WithShadowFunc, GDO):
         for slot in GDT_Slot.SLOTS:
             if item := self.gdo_value(slot):
                 item.apply(self)
+        if not self.get_equipment('p_weapon'):
+            self.get_weapon().apply(self)
         for item in self.inventory:
             item.apply_inv(self)
         for key in Attribute.ATTRIBUTES:

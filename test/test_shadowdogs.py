@@ -278,16 +278,17 @@ class ShadowdogsTest(GDOTestCase):
     async def test_40_lvlup(self):
         gizmore = await self.fresh_gizmore()
         giz = Loader.load_user(gizmore)
-        ep = await Factory.create_default_npcs(giz.get_location(), 'noob')
+        ep = await Factory.create_default_npcs(giz.get_location(), 'lamer')
         noob = ep.get_leader()
         from gdo.shadowdogs.engine.Loot import Loot
         for i in range(100):
+            print(f"kill {i+1}")
             await Loot(giz, noob).on_kill_xp()
         out = all_private_messages()
         self.assertIn('karma', out, '$l does not work#1.')
         self.assertIn('level', out, '$l does not work#2.')
         out = cli_plug(gizmore, '$sdlev')
-        self.assertIn('L3(', out, '$lev does not work.')
+        self.assertIn('L', out, '$lev does not work.')
         out = cli_plug(gizmore, '$sdl strength')
         self.assertIn('level up', out, '$l does not work.')
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')

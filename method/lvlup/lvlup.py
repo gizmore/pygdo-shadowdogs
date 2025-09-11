@@ -43,14 +43,14 @@ class lvlup(MethodSD):
             cap = Shadowdogs.MAX_SKILL_LEVEL
         old_lvl = player.gb(field)
         new_lvl = old_lvl + 1
-        if new_lvl > cap:
-            return self.err('err_sd_lvlup_cap', (self.t(field), old_lvl))
         need_karma = (old_lvl + 1) * mul
         have_karma = player.gb('p_karma')
         if not self.param_value('confirm'):
             return self.reply('msg_sd_lvlup_simulate', (self.t(field), new_lvl, need_karma, have_karma))
         if have_karma < need_karma:
             return self.err('err_sd_lvlup_karma', (self.t(field), old_lvl, new_lvl, need_karma, have_karma))
+        if new_lvl > cap:
+            return self.err('err_sd_lvlup_cap', (self.t(field), old_lvl))
         player.increment(field, 1)
         player.increment('p_karma', -need_karma)
         return self.reply('msg_sd_lvlup', (need_karma, self.t(field), old_lvl, new_lvl))
