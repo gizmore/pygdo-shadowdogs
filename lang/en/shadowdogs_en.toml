@@ -199,11 +199,19 @@ msg_sd_places = "%d known places in %s: %s."
 mt_shadowdogs_lvlup = "Level-Up"
 md_shadowdogs_lvlup = "Increase the level of a skill or attribute."
 err_sd_lvlup_karma = "You want to level up %s from %d to %d, but you need %d karma and only have %d."
+err_sd_lvlup_cap = "You have reached your max level for %s, which is %d."
 msg_sd_lvlup = "You used %d karma and leveled up %s from %d to %d."
 msg_sd_gain_xp = "You gained %d XP. %s "
 msg_sd_gained_karma = "You gained %d karma and now have %d."
 msg_sd_gained_level = "You reached level %d"
 msg_sd_lvlup_simulate = "To level up your %s to level %d you need %d from %d karma"
+
+##########
+# Levels #
+##########
+mt_shadowdogs_levels = "Party Levels"
+md_shadowdogs_levels = "List the levels of your current party members-"
+msg_sd_levels = "Party Levels: %s."
 
 #########
 # Enter #

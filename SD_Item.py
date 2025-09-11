@@ -29,6 +29,7 @@ class SD_Item(WithShadowFunc, GDO):
     def gdo_real_class(cls, vals: dict[str,str]) -> type[GDO]:
         return items.get_klass(vals['item_name'])
 
+    @classmethod
     def gdo_table_name(cls) -> str:
         return 'sd_item'
 

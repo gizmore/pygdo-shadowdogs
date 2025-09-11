@@ -286,12 +286,17 @@ class ShadowdogsTest(GDOTestCase):
         out = all_private_messages()
         self.assertIn('karma', out, '$l does not work#1.')
         self.assertIn('level', out, '$l does not work#2.')
+        out = cli_plug(gizmore, '$sdlev')
+        self.assertIn('L3(', out, '$lev does not work.')
         out = cli_plug(gizmore, '$sdl strength')
         self.assertIn('level up', out, '$l does not work.')
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')
         self.assertIn('leveled up', out, '$l does not work.#2')
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')
         self.assertIn('want to level up', out, '$l does not work.#3')
+
+    async def test_45_(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()

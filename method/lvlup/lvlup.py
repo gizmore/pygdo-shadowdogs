@@ -1,5 +1,6 @@
 from gdo.core.GDT_Bool import GDT_Bool
 from gdo.form.GDT_Form import GDT_Form
+from gdo.shadowdogs.GDT_Race import GDT_Race
 from gdo.shadowdogs.GDT_SkillAttribute import GDT_SkillAttribute
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -36,10 +37,14 @@ class lvlup(MethodSD):
         player = self.get_player()
         field = self.param_val('field')
         mul = Shadowdogs.KARMA_PER_ATTRIBUTE
+        cap = Shadowdogs.MAX_ATTRIBUTE_LEVEL + GDT_Race.BONUS.get(player.gdo_val('p_race')).get(field, 0) * Shadowdogs.MAX_ATTRIBUTE_PER_BONUS
         if skill := self.get_skill():
             mul = Shadowdogs.KARMA_PER_SKILL
+            cap = Shadowdogs.MAX_SKILL_LEVEL
         old_lvl = player.gb(field)
         new_lvl = old_lvl + 1
+        if new_lvl > cap:
+            return self.err('err_sd_lvlup_cap', (self.t(field), old_lvl))
         need_karma = (old_lvl + 1) * mul
         have_karma = player.gb('p_karma')
         if not self.param_value('confirm'):

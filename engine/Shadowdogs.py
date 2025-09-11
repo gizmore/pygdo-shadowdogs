@@ -34,8 +34,11 @@ class Shadowdogs:
     XP_PER_KARMA_PER_LEVEL = 1
     KARMA_PER_SKILL = 3
     KARMA_PER_ATTRIBUTE = 3
+    MAX_ATTRIBUTE_LEVEL = 12
+    MAX_ATTRIBUTE_PER_BONUS = 2
+    MAX_SKILL_LEVEL = 24
 
-    XP_PER_LEVEL_BASE = 7
+    XP_PER_LEVEL_BASE = 8
     XP_PER_LEVEL_POW = {
         'elve': 2.75,
         'halfelve': 2.53,
@@ -45,6 +48,7 @@ class Shadowdogs:
         'orc': 2.30,
         'troll': 2.25,
     }
+
 
     SECONDS_PER_TICK = 1
     SECONDS_PER_HP_SLEEP = 30
