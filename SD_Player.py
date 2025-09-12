@@ -111,7 +111,7 @@ class SD_Player(WithShadowFunc, GDO):
         self.party_pos = 0
         self.distance = 0
         self.command_eta = 0
-        self.modified = {}
+        self.modified = {'p_hp': 1, 'p_mp': 1}
         self._combat_stack = None
 
     def combat_stack(self) -> CombatStack:
@@ -146,6 +146,10 @@ class SD_Player(WithShadowFunc, GDO):
         if klass := vals.get('p_npc_class'):
             return GDT_NPCClass.TALKING_NPCS.get(klass, npcs.NPCS.get(klass))
         return cls
+
+    @classmethod
+    def gdo_base_class(cls) -> type[GDO]:
+        return SD_Player
 
     def gdo_columns(self) -> list[GDT]:
         from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass

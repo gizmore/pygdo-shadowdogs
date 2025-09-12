@@ -6,6 +6,7 @@ from gdo.base.GDT import GDT
 from gdo.base.Message import Message
 from gdo.core.GDT_Char import GDT_Char
 from gdo.core.GDT_UInt import GDT_UInt
+from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.InstallShadowdogs import InstallShadowdogs
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
@@ -63,7 +64,7 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_module_config(self) -> list[GDT]:
         return [
-            GDT_UInt('sd_time').not_null().initial('2966371200'),
+            # GDT_UInt('sd_time').not_null().initial('2966371200'),
         ]
 
     def cfg_time(self) -> int:
@@ -87,6 +88,20 @@ class module_shadowdogs(GDO_Module):
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP_SLEEP, self.shadow_hp_timer, 1000000000)
         Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
         Application.EVENTS.subscribe('new_message', self.sd_alias)
+        Application.EVENTS.subscribe('clear_cache', self.on_clear_cache)
+
+    async def on_clear_cache(self):
+        Shadowdogs.PLAYERS.clear()
+        Shadowdogs.PARTIES.clear()
+        Shadowdogs.LOCATION_NPCS.clear()
+        Shadowdogs.USERMAP.clear()
+        # GDT_NPCClass.TALKING_NPCS.clear()
+        # items.ITEMS.clear()
+        items.KLASSES.clear()
+        items.load()
+        Loader.cleanup()
+        Loader.load_npcs()
+        Loader.load_parties()
 
     async def shadow_timer(self):
         for party in list(Shadowdogs.PARTIES.values()):

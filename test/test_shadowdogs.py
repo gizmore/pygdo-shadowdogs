@@ -296,8 +296,21 @@ class ShadowdogsTest(GDOTestCase):
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')
         self.assertIn('want to level up', out, '$l does not work.#3')
 
-    async def test_45_(self):
-        pass
+    async def test_45_cache_and_loader(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        out = cli_plug(gizmore, '$cc')
+        self.assertIn('cleared', out, '$cc does not work.')
+        out = cli_plug(gizmore, '$sds')
+        self.assertIn('male', out, '#s does not work.')
+        out = cli_plug(gizmore, '$sds')
+        self.assertIn('male', out, '#s does not work.')
+
+    async def test_50_store(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        out = cli_plug(gizmore, '$cc')
+
 
 if __name__ == '__main__':
     unittest.main()

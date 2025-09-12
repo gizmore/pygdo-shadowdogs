@@ -194,6 +194,13 @@ md_shadowdogs_places = "Show known places for an area."
 msg_sd_places = "%d known places in %s: %s."
 
 #########
+# World #
+#########
+mt_shadowdogs_world = "World Stats"
+md_shadowdogs_world = "Print shadowlamb world statistics."
+msg_sd_world = "In Shadowdogs %s are %d areas with %d locations. There are %d perties: %d walking. %d talking. %d fighting. %d located. %d hacking. %d travelling. Total %d players: NPC(%d), Human(%d), Mobs(%d). Total Nuyen: %s"
+
+#########
 # Lvlup #
 #########
 mt_shadowdogs_lvlup = "Level-Up"

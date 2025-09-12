@@ -30,6 +30,10 @@ class SD_Item(WithShadowFunc, GDO):
         return items.get_klass(vals['item_name'])
 
     @classmethod
+    def gdo_base_class(cls) -> type[GDO]:
+        return SD_Item
+
+    @classmethod
     def gdo_table_name(cls) -> str:
         return 'sd_item'
 
@@ -51,7 +55,7 @@ class SD_Item(WithShadowFunc, GDO):
         super().__init__()
 
     def __repr__(self):
-        return self.render_name()
+        return f"{self.render_name()}({self.__class__.__name__})"
 
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item', (self.get_item_name(),))

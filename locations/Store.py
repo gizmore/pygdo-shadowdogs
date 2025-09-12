@@ -22,7 +22,6 @@ class Store(Location):
     def sd_allow_buy(self) -> bool:
         return True
 
-
     def get_shop_items(self, player: SD_Player):
         item_list = ItemList()
         i = 1

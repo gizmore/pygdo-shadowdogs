@@ -5,6 +5,7 @@ from gdo.shadowdogs.city.y2064.Peine.npcs.home.Lazer import Lazer
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Mom import Mom
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Theodor import Theodor
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Thomas import Thomas
+from gdo.shadowdogs.locations.Bedroom import Bedroom
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.obstacle.Searchable import Searchable
@@ -15,7 +16,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
     from gdo.shadowdogs.SD_Player import SD_Player
 
-class Home(Location):
+class Home(Bedroom,Location):
 
     GIVING: str = 'Pullover,Jeans,Shoes,12xNuyen,GizmoreNote'
 

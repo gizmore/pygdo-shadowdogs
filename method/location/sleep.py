@@ -15,6 +15,6 @@ class sleep(MethodSDObstacle):
     def sd_is_location_specific(self) -> bool:
         return True
 
-    def sd_execute(self) -> GDT:
-        self.get_party().do('sleep')
+    async def sd_execute(self) -> GDT:
+        await self.get_party().do('sleep')
         return self.msg('msg_sd_go_sleeping')
