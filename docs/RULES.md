@@ -55,7 +55,6 @@ The alteration has to be part of the poll question.
  - Global Polls can exchange the user associated with a role.
  - Global Polls can only be voted by non-council members.
 
-
 ##### Government Weights
 
 The four winds rule over the combat zone.
