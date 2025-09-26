@@ -30,6 +30,9 @@ class Item(SD_Item):
         self._buy_price = 0
         self._shop_pos = 0
 
+    def __repr__(self):
+        return self.render_name()
+
     def sd_inv_type(self) -> str:
         return GDT_Slot.INVENTORY
 
@@ -133,6 +136,9 @@ class Item(SD_Item):
     def render_buy_price(self) -> str:
         return Shadowdogs.display_nuyen(self._buy_price)
 
+    def render_description(self) -> str:
+        return self.t(self._name+'_descr')
+
     def render_examine(self, price: int=None):
         price = price or self._buy_price or self.dmi('price') or t('unknown')
         mods = []
@@ -140,5 +146,5 @@ class Item(SD_Item):
         for k,v in self.all_modifiers():
             if k not in nmod:
                 mods.append(f"{t(k)}: {v}")
-        return t('sd_examine_string', (self.render_name_wc(), self.__class__.__name__, ", ".join(mods), str(price)))
+        return t('sd_examine_string', (self.render_name_wc(), t(self.__class__.__name__), self.render_description(), ", ".join(mods), str(price)))
 

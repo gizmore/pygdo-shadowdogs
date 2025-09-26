@@ -10,6 +10,7 @@ from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
+    from gdo.shadowdogs.locations.Bank import Bank
     from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
     from gdo.shadowdogs.locations.Location import Location
     from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
@@ -21,6 +22,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.engine.MethodSD import MethodSD
     from gdo.shadowdogs.actions.Action import Action
     from gdo.shadowdogs.spells.Spell import Spell
+    from gdo.shadowdogs.locations.Store import Store
 
 from gdo.base.Trans import Trans, t
 
@@ -28,11 +30,14 @@ from gdo.base.Trans import Trans, t
 class WithShadowFunc(WithPlayerGDO):
 
     Loader = None
+    module_shadowdogs = None
 
     @classmethod
     def mod_sd(cls) -> 'module_shadowdogs':
-        from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
-        return module_shadowdogs.instance()
+        if not cls.module_shadowdogs:
+            from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
+            cls.module_shadowdogs = module_shadowdogs
+        return cls.module_shadowdogs.instance()
 
     @classmethod
     def get_time(cls) -> int:
@@ -48,7 +53,7 @@ class WithShadowFunc(WithPlayerGDO):
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()
 
-    def get_location(self) -> 'Location':
+    def get_location(self) -> 'Location|Store|Bank':
         return self.get_party().get_location()
 
     def get_action(self) -> 'Action':
@@ -96,6 +101,10 @@ class WithShadowFunc(WithPlayerGDO):
 
     def get_method(self, name: str) -> 'MethodSD':
         return ModuleLoader.instance()._methods.get(name)
+
+    def execute_sd_method(self, line: str) -> GDT:
+        pass
+        
 
     ############
     # Messages #

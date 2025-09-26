@@ -7,8 +7,8 @@ class Inventory(ItemList):
     Factory = None
 
     def add_item(self, item: SD_Item) -> SD_Item:
-        if old_item := self.get_by_name(item.render_name_wc()):
-            old_item.increment('item_count', item.get_count()).save()
+        if item.is_stackable() and (old_item := self.get_by_name(item.render_name_wc())):
+            old_item.increment('item_count', item.get_count())
             item.delete()
             return old_item
         else:
@@ -26,6 +26,13 @@ class Inventory(ItemList):
             if count == 1:
                 self.remove(item)
                 return item
-            item.increment('item_count', -count).save()
+            item.increment('item_count', -count)
             return self.__class__.Factory.create_item(item_name, count, item.get_modifier_name())
         return None
+
+    def use_item(self, item_name: str, count: int=1):
+        if item := self.get_by_name(item_name):
+            item.increment('item_count', -count)
+            if item.get_count() < 1:
+                self.remove(item)
+                item.delete()

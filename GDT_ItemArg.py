@@ -54,6 +54,8 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
         return self.get_location()
 
     def to_value(self, val: str):
+        if not val:
+            return None
         p = self.get_player()
         val = val.lower()
         candidates = []

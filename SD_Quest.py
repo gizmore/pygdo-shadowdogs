@@ -78,9 +78,13 @@ class SD_Quest(WithShadowFunc, GDO):
 
     async def accomplished(self):
         self.qd().succeed(self, self.get_player())
+        await self.on_reward()
+        await self.send_to_player(self.get_player(), 'msg_sd_quest_done', (self.render_title(),))
+
+    async def on_reward(self):
         if items := self.reward():
             await self.give_new_items(self.get_player(), items, 'reward', self.reward_source())
-        await self.send_to_player(self.get_player(), 'msg_sd_quest_done', (self.render_title(),))
+
 
     ######
     # QV #

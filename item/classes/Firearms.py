@@ -7,5 +7,9 @@ if TYPE_CHECKING:
 
 class Firearms(Weapon):
 
+    def is_stackable(self) -> bool:
+        return False
+
     async def attack(self, d: 'SD_Player', armor_field: str = 'p_farm'):
-        return await super().attack(d, armor_field)
+        a = self.get_player()
+        return self.attack_b(d, a.g('p_attack'), d.g('p_defense'), d.g('p_farm'))

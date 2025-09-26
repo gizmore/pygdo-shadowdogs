@@ -20,3 +20,10 @@ sdqs_purse_no = "I don't think so either."
 sdqs_purse_other = "I bet you crave for my dope already!"
 sdqa_purse_search = "You search the purse... nuts..."
 sdqa_purse_search_success = "You search the purse... et voila!"
+
+#################
+# Civil Service #
+#################
+sdqt_civilservice = "Civil Service"
+sdqd_civilservice = "Work 11 months in the SeniorHeme"
+sdqa_email_army = "Another mail from the army. Your request for Alternative military service got accepted. Go find yourself inside the **Senior Home**."

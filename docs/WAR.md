@@ -1,4 +1,4 @@
-# 14.Nov.2067 to 14.Jul.2080 - The Matrix vs. gizmore
+# 11.Sep.2067 to 14.Jul.2080 - The Matrix vs. gizmore
 
 The first contact of gizmore with the matrix.
 In defense and afraid. The only thought was survival and being chased,
@@ -7,7 +7,7 @@ After 13 years of psychosis, gizmore gave up and thought of them as a friend.
 Since then, fate was sealed.
 
 
-# 23.Jul.2088 - ??? / BND vs gizmore
+# 23.Jul.2088 - 25.Jul.2088 / BND vs gizmore
 
 On 23.Jul.2088, a war has begun between the BND and gizmore from wechall.net.
 

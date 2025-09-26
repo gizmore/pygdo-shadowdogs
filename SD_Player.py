@@ -111,7 +111,7 @@ class SD_Player(WithShadowFunc, GDO):
         self.party_pos = 0
         self.distance = 0
         self.command_eta = 0
-        self.modified = {'p_hp': 1, 'p_mp': 1}
+        self.modified = {}
         self._combat_stack = None
 
     def combat_stack(self) -> CombatStack:

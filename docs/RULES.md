@@ -102,7 +102,10 @@ totalling 37 which requires 19 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
 sharing **12 votes**,
-totalling 41 which requires 22 votes to win.
+
+But suddenly, the spectators and poor got permission to vote as well.
+The master of the sword of the land got another 4 votes,
+totalling 45 which requires 23 votes to win.
 
 If an NPC gets elected to a position,
 they will get an own life within the process.

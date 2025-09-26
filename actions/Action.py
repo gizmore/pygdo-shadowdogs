@@ -20,6 +20,7 @@ class Action(WithShadowFunc):
     SLEEP = 'sleep'
     TALK = 'talk'
     TRAVEL = 'travel'
+    WORK = 'work'
 
     def get_target(self, party: 'SD_Party', target_string: str):
         raise ShadowdogsException('err_sd_stub', (f'{self.get_name()}.get_target()',))

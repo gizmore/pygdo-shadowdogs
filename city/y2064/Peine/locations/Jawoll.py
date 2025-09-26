@@ -8,5 +8,6 @@ class Jawoll(Store):
         ('Pizza', 25),
         ('Coke', 15),
         ('Lighter', 3),
+        ('Jacket', 49),
+        ('Hoodie', 35),
     ]
-

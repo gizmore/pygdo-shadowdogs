@@ -423,7 +423,7 @@ class items:
         'TraceNG.exe':        {'klass': 'Trace',       'level':  6},
 
         # Quest Items
-        'EmailArmy':          {'klass': 'Email',       'key': 'sd_email_army'},
+        'EmailArmy':          {'klass': 'Email',       'key': 'sdqa_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
 

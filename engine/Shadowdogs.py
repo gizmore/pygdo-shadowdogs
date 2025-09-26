@@ -119,6 +119,11 @@ class Shadowdogs:
     SHOUT_TIMEOUT = 500
     SHOUT_TIMEOUT_PER_LEVEL = 10
 
+    STORE_PRICE_REDUCTION_PER_TRADE = 0.005
+
+    RELOAD_MIN_TIME = 10
+    RELOAD_SECONDS_PER_QUICKNESS = 1
+
     @classmethod
     def display_nuyen(cls, nuyen: int) -> str:
         return str(nuyen) + cls.NUYEN

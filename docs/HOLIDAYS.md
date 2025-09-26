@@ -334,3 +334,24 @@ This day in 2ß88, producing new cars got forbidden.
 
 Existing cars got shared and re-distributed nicely among all citizens who have the skill to drive.
 
+
+## Oxf01d Day
+
+ - 12.Sep
+
+This day, evil organizations in the old world got revamped.
+
+They listened to Alice and decided to walk with the movement, instead of against it.
+
+A remarkable day in our history.
+
+
+## Hitler Day
+
+ - 21.Sep
+
+On this day, germany decided that `HH` and `88` does not mean Hitler stuff anymore.
+
+HH now simply means Hatted Hacker. A hacker who may have chosen their hat already.
+
+The world cheered as the first germany-plastered RedHats showed up.
