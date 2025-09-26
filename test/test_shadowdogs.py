@@ -314,8 +314,7 @@ class ShadowdogsTest(GDOTestCase):
         out += all_private_messages()
         self.assertIn('Shotgun', out, '$r does not work.')
 
-
-async def test_60_hack(self):
+    async def test_60_hack(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmi gizmore{1} RhinoDeck')
         self.assertIn('received', out, 'gmi#1 does not work.')

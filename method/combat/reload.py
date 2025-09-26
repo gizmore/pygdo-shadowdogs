@@ -4,7 +4,6 @@ from gdo.base.Application import Application
 from gdo.base.GDT import GDT
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.GDT_ItemArg import GDT_ItemArg
-from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -41,16 +40,16 @@ class reload(MethodSD):
         player = self.get_player()
         item = self.get_item()
         if not isinstance(item, Firearms):
-            return self.err('err_sd_reload_weapon')
+            return self.err('err_sd_reload_weapon', (item.render_name(),))
         time = self.sd_combat_seconds()
         mag_size = item.dmi('mag_size')
         have_ammo = item.gdo_value('item_ammo')
         need_ammo = mag_size - have_ammo
         if not (bullets := self.get_player().inventory.get_by_name('Ammo'+item.dm('ammo'))):
             return self.err('err_sd_reload_ammo', (item.render_name(),))
-        reloading = min(bullets.gdo_value('item_ammo'), need_ammo)
+        reloading = min(bullets.gdo_value('item_count'), need_ammo)
         Application.EVENTS.add_timer_async(time, partial(self.reload, player, item))
-        return self.msg('msg_sd_reloaded', (reloading, item.render_name_wc()))
+        return self.msg('msg_sd_reloaded', (reloading, item.render_name_wc(), reloading+have_ammo))
 
     async def sd_execute(self):
         return self.empty()

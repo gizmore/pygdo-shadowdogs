@@ -524,7 +524,12 @@ class SD_Player(WithShadowFunc, GDO):
         return item.get_count()
 
     def give_nuyen(self, nuyen: int):
-        return self.set_value('p_nuyen', nuyen)
+        item = self.inventory.get_by_name('Nuyen') or NY().name('Nuyen').slot(GDT_Slot.INVENTORY)
+        item.increment('item_count', nuyen)
+        if item.get_count() <= 0:
+            self.inventory.remove(item)
+            item.delete()
+        return self
 
     def get_bank_nuyen(self) -> int:
         return self.gb('p_bank_nuyen')

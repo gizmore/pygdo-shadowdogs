@@ -60,6 +60,10 @@ class SD_Item(WithShadowFunc, GDO):
     def get_slot(self) -> str:
         raise ShadowdogsException('err_sd_no_slot_defined_for_item', (self.get_item_name(),))
 
+    def slot(self, slot: str):
+        self.set_val('item_slot', slot)
+        return self
+
     def get_owner(self) -> 'SD_Player':
         return self.gdo_value('item_owner')
 

@@ -291,6 +291,16 @@ sd_combat_miss = "%s tries to hit %s with %s. Dodged.%s"
 sd_weapon_hit = "%s hits %s with %s for %d damage.%s"
 sd_weapon_hit_ep = "%s hits %s with %s for %d damage. %d HP left.%s"
 
+##########
+# Reload #
+##########
+mt_shadowdogs_reload = "Reload"
+md_shadowdogs_reload = "Reload a fireweapon."
+err_sd_reload_weapon = "%s is not a fireweapon."
+err_sd_reload_ammo = "You don't have %s."
+msg_sd_reloaded = "You put %d bullets in your %s which now holds %d."
+
+
 ########
 # Info #
 ########
@@ -361,6 +371,14 @@ mt_shadowdogs_view_item = "Shop items"
 md_shadowdogs_view_item = "View a list of all Shop items in a loccation."
 msg_sd_view_item = "Item **%d** - %s"
 sd_examine_string = "%s is a %s. %s - %s - Price: %s"
+
+#######
+# Buy #
+#######
+mt_shadowdogs_buy = "Buy Shop item"
+md_shadowdogs_buy = "Buy a shop item."
+err_sd_money_to_buy = "You cannot buy the %s. You need %s and only have %s."
+msg_sd_bought = "You bought %s for %s and have %s left."
 
 ##########
 ### GM ###

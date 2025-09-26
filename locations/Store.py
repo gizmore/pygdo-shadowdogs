@@ -51,6 +51,7 @@ class Store(Location):
         have_ny = player.get_nuyen()
         need_ny = item._buy_price * amt
         if need_ny > have_ny:
-            return GDT_Error().text('err_sd_money_to_buy', (item.render_name(), need_ny, have_ny))
+            return GDT_Error().text('err_sd_money_to_buy', (item.render_name(), Shadowdogs.display_nuyen(need_ny), Shadowdogs.display_nuyen(have_ny)))
         await self.give_item(player, item.set_value('item_count', amt))
-        return GDT_Success().text('msg_sd_bought', (item.render_name(), need_ny, have_ny - need_ny))
+        player.give_nuyen(-need_ny)
+        return GDT_Success().text('msg_sd_bought', (item.render_name(), Shadowdogs.display_nuyen(need_ny), Shadowdogs.display_nuyen(have_ny - need_ny)))
