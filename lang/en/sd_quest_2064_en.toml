@@ -1,0 +1,29 @@
+##############
+### Quests ###
+##############
+sdq0001_title = "Peninsula"
+sdq0001_descr = "Find out where the weird pen is from."
+
+sdq0002_title = "Connection"
+sdq0002_descr = "Try to contact lazer to find out what might have happened."
+
+#########
+# Purse #
+#########
+sdqt_purse = "The Purse"
+sdqd_purse = "Theo and you are looking for his dope which Theo cannot find, apperantly."
+sdqs_purse_hello1 = "Morning... all fine? You wanna smoke again?! Cannot find my dope dude..."
+sdqs_purse_hello2 = "Ok, i have a little sidequest for you ^^"
+sdqs_purse_quest = "Stop it... it should be in the **purse**, right?"
+sdqs_purse_yes = "ok have a look. try $t$use purse."
+sdqs_purse_no = "I don't think so either."
+sdqs_purse_other = "I bet you crave for my dope already!"
+sdqa_purse_search = "You search the purse... nuts..."
+sdqa_purse_search_success = "You search the purse... et voila!"
+
+#################
+# Civil Service #
+#################
+sdqt_civilservice = "Civil Service"
+sdqd_civilservice = "Work 11 months in the SeniorHeme"
+sdqa_email_army = "Another mail from the army. Your request for Alternative military service got accepted. Go find yourself inside the **Senior Home**."
