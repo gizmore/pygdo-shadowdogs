@@ -52,5 +52,7 @@ class start(MethodSD):
         await self.send_to_player(player, t('sd_story_1'))
         await self.send_to_player(player, t('sd_story_2'))
         await self.send_to_player(player, t('sd_story_3'))
-        await self.give_new_items(player, 'Jeans,TShirt,Sandals')
+        await self.give_new_items(player, 'Shorts,TShirt')
+        player.inventory.remove_item('Shorts').equip()
+        player.inventory.remove_item('TShirt').equip()
         await self.give_kp(player, player.get_party().get_location(), None)

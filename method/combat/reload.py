@@ -49,6 +49,7 @@ class reload(MethodSD):
             return self.err('err_sd_reload_ammo', (item.render_name(),))
         reloading = min(bullets.gdo_value('item_count'), need_ammo)
         Application.EVENTS.add_timer_async(time, partial(self.reload, player, item))
+        player.busy(time)
         return self.msg('msg_sd_reloaded', (reloading, item.render_name_wc(), reloading+have_ammo))
 
     async def sd_execute(self):

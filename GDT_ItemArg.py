@@ -61,7 +61,7 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
         candidates = []
         if self._equipment:
             for slot in GDT_Slot.SLOTS:
-                if slot[2:4] == val[0:2]: # 2 letter shortcut for $sdexamine ar/we/bo/he
+                if slot[2:4] == val: # 2 letter shortcut for $sdexamine ar/we/bo/he
                     return p.gdo_value(slot)
                 if item := p.get_equipment(slot):
                     if val in item.render_name().lower():

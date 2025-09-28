@@ -46,7 +46,7 @@ class quests(WithShadowMethod, MethodQueryTable):
         type = self.get_type()
         if type == 'open': query.where("qd_declined IS NULL and qd_success IS NULL AND qd_failed IS NULL")
         elif type == 'failed': query.where("qd_failed IS NOT NULL")
-        elif type == 'denied': query.where("qd_declinedIS NOT NULL")
+        elif type == 'denied': query.where("qd_declined IS NOT NULL")
         elif type == 'done': query.where("qd_success IS NOT NULL")
         return query
 

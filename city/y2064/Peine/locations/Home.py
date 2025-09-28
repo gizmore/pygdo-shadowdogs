@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 
 class Home(Bedroom,Location):
 
-    GIVING: str = 'Pullover,Jeans,Shoes,12xNuyen,GizmoreNote'
+    GIVING: str = 'Jeans,Shoes,12xNuyen,ArmyLetter'
 
     NPCS: list['type[TalkingNPC]'] = [
         Mom,
@@ -30,7 +30,7 @@ class Home(Bedroom,Location):
 
     OBSTACLES_INSIDE: list[Obstacle] = [
         Searchable('Fridge').giving('Coke,LargeBeer'),
-        Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
+        # Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
     ]
 
     def sd_is_respawn(self, player: 'SD_Player') -> bool:

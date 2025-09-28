@@ -34,6 +34,6 @@ class use(MethodSD):
     def sd_combat_seconds(self) -> float:
         return self.get_item().sd_use_time()
 
-    async def form_submitted(self):
+    async def sd_execute(self):
         await self.get_item().on_use(self.get_target())
         return self.empty()

@@ -144,14 +144,13 @@ class WithShadowFunc(WithPlayerGDO):
     #########
 
     async def give_new_items(self, player: 'SD_Player', item_name: str, announce_action: str=None, announce_source: str=None):
-        from gdo.shadowdogs.engine.Factory import Factory
         items = []
         for iname in item_name.split(Shadowdogs.ITEM_SEPERATOR):
             item_count = 1
             if iname[0].isdigit():
                 item_count = int(Strings.substr_to(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, 1))
                 iname = Strings.substr_from(iname, Shadowdogs.ITEM_COUNT_SEPERATOR, iname)
-            item = Factory.create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
+            item = self.factory().create_item(Strings.substr_to(iname, Shadowdogs.MODIFIER_SEPERATOR, iname),
                             item_count,
                             Strings.substr_from(item_name, Shadowdogs.MODIFIER_SEPERATOR))
             items.append(item)

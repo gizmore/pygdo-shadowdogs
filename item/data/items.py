@@ -174,7 +174,8 @@ class items:
         'OblivionStriders':   {'klass': 'Boots',   'level': 30, 'et': 75, 'weight':  882, 'defense': 10, 'marm':  2, 'farm': 8, 'price':   24300},
 
         # trousers
-        'Trousers':               {'klass': 'Trousers','level':  0, 'et': 50, 'weight':   600, 'defense':  0, 'marm': 1, 'farm': 0, 'price':      15},
+        'Shorts':                 {'klass': 'Trousers','level':  0, 'et': 40, 'weight':   400, 'defense':  0, 'marm': 0, 'farm': 0, 'price':      10},
+        'Trousers':               {'klass': 'Trousers','level':  0, 'et': 50, 'weight':   600, 'defense':  0, 'marm': 1, 'farm': 0, 'price':      25},
         'Sweatpants':             {'klass': 'Trousers', 'level': 0, 'et': 48, 'weight': 500, 'defense': 0, 'marm': 1, 'farm': 0, 'price': 20},
         'TrackPants':             {'klass': 'Trousers', 'level': 1, 'et': 52, 'weight': 700, 'defense': 1, 'marm': 1, 'farm': 0, 'price': 70},
         'Jeans':                  {'klass': 'Trousers','level':  1, 'et':  8, 'weight':   800, 'defense':  1, 'marm': 1, 'farm': 1, 'price':      60},
@@ -423,7 +424,7 @@ class items:
         'TraceNG.exe':        {'klass': 'Trace',       'level':  6},
 
         # Quest Items
-        'EmailArmy':          {'klass': 'Email',       'key': 'sdqa_email_army'},
+        'ArmyLetter':         {'klass': 'ArmyLetter',  'key': 'sdqa_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
 

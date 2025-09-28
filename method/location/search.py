@@ -20,7 +20,7 @@ class search(MethodSD):
     def get_target(self) -> Obstacle|Location:
         return self.param_value('target')
 
-    def form_submitted(self):
+    async def sd_execute(self):
         what = self.get_target()
-        what.on_search(self.get_player())
+        await what.on_search(self.get_player())
         return self.empty()

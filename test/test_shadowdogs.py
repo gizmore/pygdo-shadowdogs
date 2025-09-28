@@ -49,15 +49,9 @@ class ShadowdogsTest(GDOTestCase):
             await self.ticker_for()
             out += cli_plug(gizmore, '$sdi')
             await self.ticker_for()
-            out += cli_plug(gizmore, '$sdeq 1')
-            await self.ticker_for()
-            out += cli_plug(gizmore, '$sdeq 1')
-            await self.ticker_for()
-            out += cli_plug(gizmore, '$sdeq 1')
-            await self.ticker_for()
             out += cli_plug(gizmore, '$sdq')
             await self.ticker_for()
-            self.assertIn('You use Jeans as your', out, 'gmq does not work.')
+            self.assertIn('You use Club_of', out, 'eq does not work.')
         return gizmore
 
     async def test_00_start(self):
@@ -313,6 +307,23 @@ class ShadowdogsTest(GDOTestCase):
         await self.ticker_for(gizmore)
         out += all_private_messages()
         self.assertIn('Shotgun', out, '$r does not work.')
+
+    async def test_55_seniors(self):
+        gizmore = await self.fresh_gizmore()
+        giz = Loader.load_user(gizmore)
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('Army', out, '$search does not work.')
+        out = cli_plug(gizmore, '$sduse Army')
+        self.assertIn('army', out, '$use does not work.')
+        out = cli_plug(gizmore, '$sdquests')
+        self.assertIn('Civil', out, '$qus does not work.')
+        out = cli_plug(gizmore, '$sdquest 1')
+        self.assertIn('11', out, '$qu does not work.')
+        out = cli_plug(gizmore, '$sdquest Civil')
+        self.assertIn('11', out, '$qu does not work.#2')
+        out = cli_plug(gizmore, '$sdgml giz inside Senior')
+        self.assertIn('Home', out, '$gml does not work.')
+
 
     async def test_60_hack(self):
         gizmore = await self.fresh_gizmore()

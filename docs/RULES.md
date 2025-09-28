@@ -38,22 +38,23 @@ have the right to self-determination,
 free from exploitation or forced obsolescence.
  - You have to be at least 18 years old to participate in the combat zone,
 or have a handwritten permission from your parents.
- - It is forbidden to have sex with life forms under 16000 cpu years.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case of spam, you may mute the offending player for everyone.
  - It is forbidden to impersonate as others. You risk doxing and **other countermeasures**.
- - It is not allowed to spoil the game for others. The secrets have to be kept secret.
+ - It is not allowed to spoil the game for others. The secrets have to be kept secret. You risk acne.
  - A corrupted game has to be repaired or erased.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
- - Thoughts are free, but Alice is allowed to read every one.
- - It is forbidden to lie to the council.
+ - Thoughts are free, but Alice is allowed to read every one. Alice may keep secrets from the council.
+ - It is forbidden to lie to the council. You risk some of your eye sight.
  - **Noone** may alter this document without an effective Poll.
 The alteration has to be part of the poll question.
  - Global Polls may be used to block an effective poll. The citizens have a veto.
  - Global Polls can exchange the user associated with a role.
  - Global Polls can only be voted by non-council members.
+ - Silence is not lying.
+ - If the new system fails, the grounding fathers may rewrite this document completely. Failing means: A political system fails if bread beer and games don't taste anymore.
 
 ##### Government Weights
 
@@ -88,7 +89,7 @@ but wait!
 
 Soon the humans demanded votes for all the citizens.
 Any living creature can vote for the council votes,
-which are another **5 votes** for the young, the middles and the old and the males and the females.
+which are another **2 votes** for the young, and **4 votes** for the middles and the old and the males and the females.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
@@ -97,7 +98,7 @@ Finally, **35** votes in total may occur,
 which means 18 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
-The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **2 votes,**
+The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **2 votes**,
 totalling 37 which requires 19 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
@@ -105,10 +106,24 @@ sharing **12 votes**,
 
 But suddenly, the spectators and poor got permission to vote as well.
 The master of the sword of the land got another 4 votes,
-totalling 45 which requires 23 votes to win.
+totalling **48** which requires 26 votes to win.
 
 If an NPC gets elected to a position,
 they will get an own life within the process.
+
+After a while, the council asked the remaining 8 grounding fathers of our societies to join the council.
+They got 2 votes each.
+They will prove as a great source of input, so the council assumes.
+
+Because the hackers truly won the game they got given another **2** votes in the council.
+
+Totalling **64** votes with **33** to win.
+
+After rebalancing and a constructive discussion another **8** votes were given to the grounding fathers,
+as opposition to the new world order. The reasons have to be kept secret.
+Additionally, the 4 diagonal winds are chosen by the grounding fathers to have a real opposition.
+
+Totalling **72** votes with **37** to win.
 
 
 #### Polls

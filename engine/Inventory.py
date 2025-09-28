@@ -1,12 +1,13 @@
-from gdo.shadowdogs.SD_Item import SD_Item
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
+from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.engine.ItemList import ItemList
 
 
-class Inventory(ItemList):
+class Inventory(WithShadowFunc, ItemList):
 
     Factory = None
 
-    def add_item(self, item: SD_Item) -> SD_Item:
+    def add_item(self, item: Item) -> Item:
         if item.is_stackable() and (old_item := self.get_by_name(item.render_name_wc())):
             old_item.increment('item_count', item.get_count())
             item.delete()
@@ -16,10 +17,7 @@ class Inventory(ItemList):
             item.save()
             return item
 
-    def remove_item(self, item_name: str, count: int=1) -> SD_Item|None:
-        if not self.__class__.Factory:
-            from gdo.shadowdogs.engine.Factory import Factory
-            self.__class__.Factory = Factory
+    def remove_item(self, item_name: str, count: int=1) -> Item|None:
         if item := self.get_by_name(item_name):
             if item.get_count() < count:
                 return None
@@ -27,7 +25,7 @@ class Inventory(ItemList):
                 self.remove(item)
                 return item
             item.increment('item_count', -count)
-            return self.__class__.Factory.create_item(item_name, count, item.get_modifier_name())
+            return self.factory().create_item(item_name, count, item.get_modifier_name())
         return None
 
     def use_item(self, item_name: str, count: int=1):

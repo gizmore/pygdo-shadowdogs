@@ -10,5 +10,11 @@ if TYPE_CHECKING:
 
 class Email(Usable):
 
+    def get_key(self) -> str:
+        return self.dm('key')
+
+    def get_args(self) -> tuple:
+        return ()
+
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
-        pass
+        await self.send_to_player(self.get_player(), self.get_key(), self.get_args())

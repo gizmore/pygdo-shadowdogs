@@ -109,7 +109,16 @@ class Item(SD_Item):
         return default
 
     async def on_use(self, target: 'SD_Player|Obstacle'):
-        await self.send_to_player(self.get_player(), 'err_sd_item_not_usable')
+        await self.send_to_player(self.get_player(), 'err_sd_item_not_usable', (self.render_name_wc(),))
+
+    def equip(self):
+        slot = self.get_slot()
+        self.save_val('item_slot', slot)
+        self.get_player().save_val(slot, self.get_id()).modify_all()
+
+    def unequip(self):
+        self.save_val('item_slot', GDT_Slot.INVENTORY)
+        self.get_player().save_val(self.get_slot(), None).modify_all()
 
     def can_loot(self) -> bool:
         return self.dm('no_loot', False)
