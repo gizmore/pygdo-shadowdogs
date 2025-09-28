@@ -55,6 +55,8 @@ The alteration has to be part of the poll question.
  - Global Polls can only be voted by non-council members.
  - Silence is not lying.
  - If the new system fails, the grounding fathers may rewrite this document completely. Failing means: A political system fails if bread beer and games don't taste anymore.
+ - gizmore may cheat if life is in danger.
+ - gizmore is ultra resistent to any chemical substances that were only made for killing.
 
 ##### Government Weights
 
