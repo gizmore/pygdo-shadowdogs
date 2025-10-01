@@ -22,7 +22,11 @@ class SeniorHome(Location):
         ]
 
     async def on_work(self):
-        await self.get_party().do(Action.WORK, self.get_location_key(), Time.ONE_HOUR)
+        if CivilService.instance().is_in_quest():
+            await self.get_party().do(Action.WORK, self.get_location_key(), Time.ONE_HOUR)
+            await self.send_to_party(self.get_party(), 'sdqs_working')
+        else:
+            await self.send_to_party(self.get_party(), 'sdqs_no_work_here')
 
     async def on_work_over(self):
         await CivilService.instance().on_worked()

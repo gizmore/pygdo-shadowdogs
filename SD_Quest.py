@@ -1,5 +1,3 @@
-from typing import Any
-
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Trans import t
@@ -10,6 +8,7 @@ from gdo.core.GDT_Virtual import GDT_Virtual
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.SD_Player import SD_Player
+from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -45,21 +44,21 @@ class SD_Quest(WithShadowFunc, GDO):
         return True
 
     def gdo_columns(self) -> list[GDT]:
-        from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
-        t = SD_QuestDone.table()
-        query_accept = t.select('COUNT(*)').where('qd_accepted IS NOT NULL AND qd_quest=q_id')
-        query_denied = t.select('COUNT(*)').where('qd_declined IS NOT NULL AND qd_quest=q_id')
-        query_solved = t.select('COUNT(*)').where('qd_success IS NOT NULL AND qd_quest=q_id')
-        query_failed = t.select('COUNT(*)').where('qd_failed IS NOT NULL AND qd_quest=q_id')
+        # from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
+        # t = SD_QuestDone.table()
+        # query_accept = t.select('COUNT(*)').where('qd_accepted IS NOT NULL AND qd_quest=q_id')
+        # query_denied = t.select('COUNT(*)').where('qd_declined IS NOT NULL AND qd_quest=q_id')
+        # query_solved = t.select('COUNT(*)').where('qd_success IS NOT NULL AND qd_quest=q_id')
+        # query_failed = t.select('COUNT(*)').where('qd_failed IS NOT NULL AND qd_quest=q_id')
         return [
             GDT_AutoInc('q_id'),
             GDT_Name('q_name').not_null(),
             GDT_City('q_city').all().not_null(),
             GDT_Created('q_created'),
-            GDT_Virtual(GDT_UInt('q_num_accept')).query(query_accept),
-            GDT_Virtual(GDT_UInt('q_num_denied')).query(query_denied),
-            GDT_Virtual(GDT_UInt('q_num_solved')).query(query_solved),
-            GDT_Virtual(GDT_UInt('q_num_failed')).query(query_failed),
+            # GDT_Virtual(GDT_UInt('q_num_accept')).query(query_accept),
+            # GDT_Virtual(GDT_UInt('q_num_denied')).query(query_denied),
+            # GDT_Virtual(GDT_UInt('q_num_solved')).query(query_solved),
+            # GDT_Virtual(GDT_UInt('q_num_failed')).query(query_failed),
         ]
 
     def reward(self) -> str|None:
@@ -84,6 +83,12 @@ class SD_Quest(WithShadowFunc, GDO):
     async def on_reward(self):
         if items := self.reward():
             await self.give_new_items(self.get_player(), items, 'reward', self.reward_source())
+
+    def is_accepted(self) -> bool:
+        return SD_QuestDone.for_player(self, self.get_player()).is_accepted()
+
+    def is_is_queset(self) -> bool:
+        return SD_QuestDone.for_player(self, self.get_player()).is_in_quest()
 
 
     ######

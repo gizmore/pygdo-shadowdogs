@@ -323,6 +323,12 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('11', out, '$qu does not work.#2')
         out = cli_plug(gizmore, '$sdgml giz inside Senior')
         self.assertIn('Home', out, '$gml does not work.')
+        out = cli_plug(gizmore, '$sdtalk nurse hello')
+        self.assertIn('Oh hello', out, '$talk does not work.')
+        out = cli_plug(gizmore, '$sdtalk nurse work')
+        self.assertIn('work', out, '$talk does not work.')
+        out = cli_plug(gizmore, '$sdtalk nurse yes')
+        self.assertIn('new quest', out, '$talk does not work.')
 
 
     async def test_60_hack(self):

@@ -5,7 +5,7 @@ from gdo.shadowdogs.SD_Quest import SD_Quest
 class CivilService(SD_Quest):
 
     def reward(self) -> str|None:
-        return '100xNuyen'
+        return '50xNuyen'
 
     def reward_source(self) -> str:
         return t('sdqa_from_civil_service')
