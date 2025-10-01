@@ -8,6 +8,7 @@ from gdo.shadowdogs.actions.outside import outside
 from gdo.shadowdogs.actions.sleep import sleep
 from gdo.shadowdogs.actions.talk import talk
 from gdo.shadowdogs.actions.travel import travel
+from gdo.shadowdogs.actions.work import work
 
 
 class GDT_Action(GDT_Enum):
@@ -23,4 +24,5 @@ class GDT_Action(GDT_Enum):
             'sleep': sleep(),
             'talk': talk(),
             'travel': travel(),
+            'work': work(),
         }

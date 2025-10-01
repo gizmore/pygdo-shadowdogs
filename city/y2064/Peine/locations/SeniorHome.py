@@ -30,4 +30,3 @@ class SeniorHome(Location):
 
     async def on_work_over(self):
         await CivilService.instance().on_worked()
-        await self.get_party().do(Action.WORK, self.get_location_key(), Time.ONE_HOUR)

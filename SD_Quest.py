@@ -87,7 +87,7 @@ class SD_Quest(WithShadowFunc, GDO):
     def is_accepted(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_accepted()
 
-    def is_is_queset(self) -> bool:
+    def is_in_quest(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_in_quest()
 
 

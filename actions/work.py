@@ -9,15 +9,15 @@ if TYPE_CHECKING:
 class work(Action):
 
     def get_target(self, party: 'SD_Party', target_string: str):
-        return None
+        return self.world().get_location(target_string)
 
     async def on_start(self, party: 'SD_Party'):
         pass
 
     async def execute(self, party: 'SD_Party'):
-        await self.get_city().on_explore(party)
+        pass
 
     async def on_completed(self, party: 'SD_Party'):
 #        await self.send_to_party(party, self.get_action_text_key(party, 'was'), self.get_action_text_args(party, 'was'))
-        await self.get_target(party, party.get_target_string()).on_work_over()
         await party.resume()
+        await self.get_target(party, party.get_target_string()).on_work_over()

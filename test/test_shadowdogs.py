@@ -329,7 +329,17 @@ class ShadowdogsTest(GDOTestCase):
         self.assertIn('work', out, '$talk does not work.')
         out = cli_plug(gizmore, '$sdtalk nurse yes')
         self.assertIn('new quest', out, '$talk does not work.')
-
+        out = cli_plug(gizmore, '$sdqus')
+        self.assertIn('Civil', out, 'qus does not work.')
+        for i in range(11):
+            out = cli_plug(gizmore, '$sdwork')
+            self.assertIn('one hour', out, 'work does not work.')
+            await self.party_ticker_for(gizmore)
+            out += all_private_messages()
+            self.assertIn('reward', out, 'work does not work.')
+        self.assertIn('accomplished', out, 'work does not work.')
+        out = cli_plug(gizmore, '$sdny')
+        self.assertIn('562', out, 'ny does not work.')
 
     async def test_60_hack(self):
         gizmore = await self.fresh_gizmore()

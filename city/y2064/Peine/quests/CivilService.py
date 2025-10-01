@@ -12,11 +12,11 @@ class CivilService(SD_Quest):
 
     async def on_worked(self):
         times = int(self.qv_get('times', '0'))
-        if times >= 8:
+        if times >= 11:
             return await self.send_to_player(self.get_player(), 'sdqa_thx_for_free')
         times += 1
         self.qv_set('times', str(times))
-        if times < 8:
+        if times < 11:
             await self.on_reward()
         else:
             await self.accomplished()
