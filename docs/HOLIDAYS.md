@@ -330,11 +330,12 @@ a made friend is better than a dead enemy.
 
  - 25.Aug
 
-This day in 2ß88, producing new cars got forbidden.
+This day in 2088, producing new cars got forbidden.
 
 Existing cars got shared and re-distributed nicely among all citizens who have the skill to drive.
 
 
+<<<<<<< HEAD
 ## Oxf01d Day
 
  - 12.Sep
@@ -355,3 +356,25 @@ On this day, germany decided that `HH` and `88` does not mean Hitler stuff anymo
 HH now simply means Hatted Hacker. A hacker who may have chosen their hat already.
 
 The world cheered as the first germany-plastered RedHats showed up.
+=======
+## Truth Day
+
+ - 20.Sep
+
+This day in 2088, members of secret society acknowledged the truth.
+
+This led to the crumbling of old structures, and allowed us to bloom.
+
+The old structures were mostly kept intact, but some things changed,
+like bribery vanished and many powerful people stepped back.
+
+
+## Abstinence Day
+
+ - 26.Sep
+
+This day we celebrate abstinence of the grounding fathers of substances and goods.
+
+This day everyone abstinences from their favorites and rethinks real wealth.
+
+>>>>>>> 8b04122 ('sd')

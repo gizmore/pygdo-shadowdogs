@@ -30,7 +30,7 @@ class mapping:
         "p_marm": (('turtle', 11, 1, Sd.RARE_MEDIUM), ('tomb', 20, 2, Sd.RARE_HIGH), ('wall', 30, 3, Sd.RARE_ULTRA),),
         "p_farm": (('squid',  12, 1, Sd.RARE_MEDIUM), ('reed', 24, 2, Sd.RARE_HIGH), ('oil', 36, 3, Sd.RARE_ULTRA),),
 
-        'p_max_weight': (('ant', 5, 2000, Sd.RARE_NO),   ('scarab', 13, 4000, Sd.RARE_MEDIUM)),
+        'p_max_weight': (('ant', 5, 2000, Sd.RARE_NO), ('scarab', 13, 4000, Sd.RARE_MEDIUM)),
     }
 
     @classmethod
