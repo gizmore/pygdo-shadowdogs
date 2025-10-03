@@ -37,8 +37,11 @@ class SD_QuestDone(WithShadowFunc, GDO):
             GDT_Timestamp('qd_failed'),
         ]
 
-    def is_accepted(self):
+    def is_accepted(self) -> bool:
         return self.gdo_val('qd_accepted') is not None
+
+    def is_accomplished(self) -> bool:
+        return bool(self.gdo_val('qd_success'))
 
     def is_done(self) -> bool:
         return bool(self.gdo_val('qd_declined') or self.gdo_val('qd_success') or self.gdo_val('qd_failed'))

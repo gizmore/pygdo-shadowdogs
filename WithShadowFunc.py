@@ -174,6 +174,12 @@ class WithShadowFunc(WithPlayerGDO):
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item.render_name(), announce_source))
 
     ######
+    # XP #
+    ######
+    async def give_xp(self, player: 'SD_Player', xp: int):
+        await player.give_xp(xp, True)
+
+    ######
     # KP #
     ######
 

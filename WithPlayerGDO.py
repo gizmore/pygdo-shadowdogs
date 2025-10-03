@@ -27,7 +27,7 @@ class WithPlayerGDO:
         if hasattr(self, '_env_user'):
             if not self.__class__.World:
                 from gdo.shadowdogs.engine.World import World
-            self.__class__.World = World
+                self.__class__.World = World
             return self.__class__.World.get_player_for_user(self._env_user)
         return Shadowdogs.CURRENT_PLAYER
 

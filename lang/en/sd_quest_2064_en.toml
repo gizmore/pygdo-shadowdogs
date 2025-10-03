@@ -34,3 +34,31 @@ sdqs_civil_service_no = "Ok"
 sdqs_civil_service_hello = "Oh hello... what do you want? Wanna **work** here?"
 sdqa_from_civil_service = "working in the Senior Home"
 sdqs_working = "You do your labour for one hour."
+
+###############
+# Etablisment #
+###############
+sdqt_etablisment = "Etablisment"
+sdqd_etablisment = "Try to find a flat"
+sdqs_etablisment_work = "Yeah find a job, and even better; Move out with Lazer and find a new **home**. Mommy loves you."
+sdqs_etablisment_home1 = "Yeah... i am done with you. go find a new home!"
+sdqs_etablisment_home2 = "Did you find the letter from the army? Try $t$search!"
+sdqs_etablisment_hello = "Hello, i am upset of you guys hanging around. Lazer should get a job, and you too!"
+sdqs_etablisment_loveyou = "Love you!"
+sdqs_moellring_hello = "Hello young man, what do you want?"
+sdqs_moellring_home1 = "Oh you are looking for an apartment? A new **Home**?"
+sdqs_moellring_home2 = "Yeah, you can live here with your three friends. The caution is only %s, what do you think?"
+#sdqs_moellring_home3
+sdqs_moellring_no_money = "Oh, you are short on money."
+sdqs_moellring_give_money = "Great. You can now sleep here."
+sdqs_moellring_tell_rent = "Oh.... the rent of %s is due within %s."
+sdqs_moellring_generic_yes = "Yes yes..."
+sdqs_moellring_home_no = "Ok, maybe later."
+sdqs_moellring_generic_no = "Ah no."
+sdqs_moellring_what = "How can i help you?"
+
+########
+# Rent #
+########
+sdqt_rent = "Rent"
+sdqd_rent = "Pay the rent of %s within %s."

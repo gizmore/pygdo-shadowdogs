@@ -482,12 +482,12 @@ class SD_Player(WithShadowFunc, GDO):
     def get_xp_per_karma(self) -> int:
         return Shadowdogs.XP_PER_KARMA + Shadowdogs.XP_PER_KARMA_PER_LEVEL * self.gb('p_level')
 
-    async def give_xp(self, xp: int) -> str:
-        out = ''
+    async def give_xp(self, xp: int, force_msg: bool=False) -> str:
+        out = ""
         out += self.check_karma_xp(xp)
         out += self.check_level_xp(xp)
         out = out.strip()
-        if out:
+        if out or force_msg:
             await self.send_to_player(self, 'msg_sd_gain_xp', (xp, out,))
         return out.strip()
 

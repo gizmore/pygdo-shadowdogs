@@ -63,8 +63,6 @@ class Location(WithShadowFunc):
 
     def sd_methods(self) -> list[str]:
         return [
-            'sdenter',
-            'sdleave',
         ]
 
     def sd_entrance_seconds(self) -> int:

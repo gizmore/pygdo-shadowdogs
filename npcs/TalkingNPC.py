@@ -49,7 +49,7 @@ class TalkingNPC(SD_NPC):
         key = 'msg_sd_talk_default_' + str(Random.mrand(1, 4))
         await self.send_to_player(self.get_player(), key)
 
-    async def say(self, key: str, args: tuple[str|int] = None):
+    async def say(self, key: str, args: tuple[str|int,...] = None):
         await self.send_to_player(self.get_player(), 'sd_npc_says', (self.__class__.__name__, t(key, args)))
 
 

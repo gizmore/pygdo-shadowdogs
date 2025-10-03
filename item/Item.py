@@ -108,6 +108,9 @@ class Item(SD_Item):
     def get_default_loot_chance(self, default: int=100) -> int:
         return default
 
+    def sd_use_time(self) -> int:
+        return 0
+
     async def on_use(self, target: 'SD_Player|Obstacle'):
         await self.send_to_player(self.get_player(), 'err_sd_item_not_usable', (self.render_name_wc(),))
 

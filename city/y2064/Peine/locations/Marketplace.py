@@ -1,9 +1,22 @@
-from gdo.shadowdogs.locations.Exit import Entry
+from gdo.shadowdogs.city.y2064.Peine.npcs.Moellring import Moellring
+from gdo.shadowdogs.city.y2064.Peine.quests.Etablisment import Etablisment
+from gdo.shadowdogs.locations.Bedroom import Bedroom
 from gdo.shadowdogs.locations.Location import Location
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
-class Marketplace(Entry):
+class Marketplace(Bedroom, Location):
 
-    def sd_exit_to(self) -> Location:
-        from gdo.shadowdogs.city.y2064.World2064 import World2064
-        return World2064.Marketplace.Entrance
+    NPCS: list['type[TalkingNPC]'] = [
+        Moellring,
+        # Hempel,
+    ]
+
+    def sd_methods(self) -> list[str]:
+        if Etablisment.instance().is_accomplished():
+            return [
+                'sdsleep',
+            ]
+        return []

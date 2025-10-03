@@ -11,9 +11,6 @@ class Usable(Item):
             'sduse',
         ]
 
-    def sd_use_time(self) -> int:
-        return 0
-
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         raise GDOException('err_not_implemented')
 

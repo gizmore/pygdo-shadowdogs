@@ -3,8 +3,6 @@ from gdo.base.GDT import GDT
 from gdo.base.Trans import t
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Name import GDT_Name
-from gdo.core.GDT_UInt import GDT_UInt
-from gdo.core.GDT_Virtual import GDT_Virtual
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.SD_Player import SD_Player
@@ -64,12 +62,19 @@ class SD_Quest(WithShadowFunc, GDO):
     def reward(self) -> str|None:
         return None
 
+    def reward_xp(self) -> int:
+        return 0
+
     def reward_source(self) -> str:
         return self.render_name()
 
     async def accept(self):
         self.qd().accept(self, self.get_player())
+        await self.on_accept()
         await self.send_to_player(self.get_player(), 'msg_sd_quest_accepted', (self.render_title(), self.render_descr()))
+
+    async def on_accept(self):
+        pass
 
     async def deny(self):
         self.qd().deny(self, self.get_player())
@@ -83,9 +88,14 @@ class SD_Quest(WithShadowFunc, GDO):
     async def on_reward(self):
         if items := self.reward():
             await self.give_new_items(self.get_player(), items, 'reward', self.reward_source())
+        if xp := self.reward_xp():
+            await self.give_xp(self.get_player(), xp)
 
     def is_accepted(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_accepted()
+
+    def is_accomplished(self) -> bool:
+        return SD_QuestDone.for_player(self, self.get_player()).is_accomplished()
 
     def is_in_quest(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_in_quest()
