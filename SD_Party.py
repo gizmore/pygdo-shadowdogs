@@ -188,7 +188,8 @@ class SD_Party(WithShadowFunc, GDO):
         return self.gdo_val('party_target')
 
     def get_target(self) -> any:
-        return self.gdo_value('party_target').player(self.get_leader())
+        target = self.gdo_value('party_target')
+        return target.player(self.get_leader()) if target else None
 
     def get_last_target_string(self) -> str:
         return self.gdo_val('party_last_target')

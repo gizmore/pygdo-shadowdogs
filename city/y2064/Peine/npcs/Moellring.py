@@ -14,6 +14,14 @@ class Moellring(TalkingNPC):
 
     async def on_say(self, player: SD_Player, text: str):
         q = self.q()
+        q2 = Rent.instance()
+
+        if q2.is_accepted():
+            if q2.is_done():
+                return await self.on_say3(player, text)
+            else:
+                return await self.on_say2(player, text)
+
         if text == 'hello':
             await self.say('sdqs_moellring_hello')
         elif text == 'home':
@@ -45,3 +53,19 @@ class Moellring(TalkingNPC):
         else:
             await self.say('sdqs_moellring_what')
             await self.give_word(self.get_player(), 'hello')
+
+    async def on_say2(self, player: SD_Player, text: str):
+        q2 = Rent.instance()
+        if text == 'hello':
+            await self.say('sdqs_moellring_what')
+        else:
+            if player.get_nuyen() < Rent.RENT:
+                await self.say('sdqs_moellring_no_money2', (Shadowdogs.display_nuyen(Rent.RENT),))
+            else:
+                player.give_nuyen(-Rent.RENT)
+                await self.say('sdqs_moellring_give_money2', (Shadowdogs.display_nuyen(Rent.RENT),))
+                await q2.accomplished()
+
+    async def on_say3(self, player: SD_Player, text: str):
+        await self.say('sdqs_moellring_what')
+

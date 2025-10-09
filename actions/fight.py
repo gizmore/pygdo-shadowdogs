@@ -20,13 +20,15 @@ class fight(Action):
         await self.send_to_party(party, 'msg_sd_fight_started', (epa.render_members(),))
 
     async def on_completed(self, party: 'SD_Party'):
-        for player in party.members:
-            if player.get_enemy_party().is_empty():
-                await party.resume()
-                break
-            else:
-                await player.combat_tick()
-                if party.is_empty():
-                    await self.get_enemy_party().resume()
+        if ep := party.get_enemy_party():
+            for player in party.members:
+                if ep.is_empty():
+                    await party.resume()
                     break
-
+                else:
+                    await player.combat_tick()
+                    if party.is_empty():
+                        await self.get_enemy_party().resume()
+                        break
+        else:
+            await party.resume()

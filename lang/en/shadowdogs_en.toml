@@ -69,6 +69,14 @@ p_hunger = "Hunger"
 p_alcohol = "Alcohol"
 
 
+#########
+# Sleep #
+#########
+mt_shadowdogs_sleep = "Sleep"
+md_shadowdogs_sleeo = "Go to bed and rest to recover HP and MP."
+msg_sd_go_sleeping = "You are going to bed."
+
+
 ###########
 # Actions #
 ###########

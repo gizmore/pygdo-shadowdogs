@@ -26,11 +26,22 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdtalk moell yes')
         self.assertIn('money', out, 'moellring does not work.')
         out = cli_plug(gizmore, '$sdgmi giz 400xNuyen')
-        out = cli_plug(gizmore, '$sdtalk moell yes')
+        out += cli_plug(gizmore, '$sdtalk moell yes')
         self.assertIn('sleep', out, 'moellring does not work.')
         self.assertIn('accomplished', out, 'moellring does not work.')
+        out = cli_plug(gizmore, '$sdsleep')
+        self.assertIn('to bed', out, 'quest no work.')
+        out = cli_plug(gizmore, '$sdgmi giz 800xNuyen')
+        out += cli_plug(gizmore, '$sdtalk moell rent')
+        self.assertIn('to bed', out, 'quest no work.')
+        self.assertIn('accomplished', out, 'quest no work.')
 
 
+
+    async def test_10_home2(self):
+        gizmore = await self.fresh_gizmore(False)
+        out = cli_plug(gizmore, '$sdgml giz inside Marketpl')
+        pass
 
 if __name__ == '__main__':
     unittest.main()

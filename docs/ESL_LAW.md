@@ -6,10 +6,15 @@ We try to keep it simple, and this document may only be changed by effective vot
 
 Of course, citizens have a veto.
 
+I first thought about patching an existent country set of laws,
+but germany sucks and i don't know other countries much, so...
+let us start fresh.
+
 
 ## Rights
 
  - You have the right of free food.
+ - You have the right of 20NY/h wage.
  - 
 
 ## Deeds

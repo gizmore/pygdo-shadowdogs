@@ -16,3 +16,12 @@ class npcs:
         'gangster': {'klass': Mob,     'p_level': 5,                  'p_max_hp': (5,10), 'eq': ['Shoes', 'Trousers', 'Pullover', 'Bytegun']},
         'ork':      {'klass': Mob,     'p_level': 6, 'p_race': 'ork', 'p_max_hp': (8,12), 'eq': ['CombatBoots', 'Jeans', 'LeatherVest', 'Sword']},
     }
+
+    CLASSES = {
+        Mob.__name__: Mob,
+        Police.__name__: Police,
+    }
+
+    @classmethod
+    def get_class(cls, klass: str):
+        return cls.CLASSES.get(klass, Mob)
