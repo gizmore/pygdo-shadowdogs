@@ -25,7 +25,7 @@ sdqa_purse_search_success = "You search the purse... et voila!"
 # Civil Service #
 #################
 sdqt_civilservice = "Civil Service"
-sdqd_civilservice = "Work 11 months in the SeniorHeme."
+sdqd_civilservice = "Work 11 months in the **SeniorHome**."
 sdqa_email_army = "Another mail from the army. Your request for Alternative military service got accepted. Go find yourself inside the **Senior Home**."
 sdqs_civil_service_good = "Aaah you must be %s. So you wanna, or have to ^^, work here?"
 sdqs_civil_service_accepted = "Ok... simply $t$work here and be nice to the clientel."

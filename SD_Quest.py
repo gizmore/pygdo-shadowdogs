@@ -1,8 +1,11 @@
+from importlib import import_module
+
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Trans import t
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Name import GDT_Name
+from gdo.core.GDT_String import GDT_String
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.SD_Player import SD_Player
@@ -36,7 +39,33 @@ class SD_Quest(WithShadowFunc, GDO):
         return cls.blank({
             'q_name': cls.__name__,
             'q_city': f"{split[3]}.{split[4]}",
+            'q_klass': cls.__module__ + "." + cls.__name__,
         }).insert()
+
+    @classmethod
+    def gdo_real_class(cls, vals: dict[str,str]) -> type[GDO]:
+        path = vals.get('q_klass') or f"{cls.__module__}.{cls.__name__}"
+        mod_path, sep, class_name = path.rpartition('.')
+        if not sep:
+            raise ValueError(f"q_klass must be 'package.module.Class', got: {path!r}")
+        try:
+            mod = import_module(mod_path)
+        except Exception as e:
+            raise ImportError(f"Cannot import module {mod_path!r} (q_klass={path!r}): {e}") from e
+
+        try:
+            typ = getattr(mod, class_name)
+        except AttributeError as e:
+            raise ImportError(f"Module {mod_path!r} has no attribute {class_name!r} (q_klass={path!r})") from e
+
+        if not isinstance(typ, type) or not issubclass(typ, GDO):
+            raise TypeError(f"{path!r} is not a subclass of GDO")
+
+        return typ
+
+    @classmethod
+    def gdo_base_class(cls) -> type[GDO]:
+        return SD_Quest
 
     def gdo_persistent(self) -> bool:
         return True
@@ -52,6 +81,7 @@ class SD_Quest(WithShadowFunc, GDO):
             GDT_AutoInc('q_id'),
             GDT_Name('q_name').not_null(),
             GDT_City('q_city').all().not_null(),
+            GDT_String('q_klass').not_null().ascii().case_s(),
             GDT_Created('q_created'),
             # GDT_Virtual(GDT_UInt('q_num_accept')).query(query_accept),
             # GDT_Virtual(GDT_UInt('q_num_denied')).query(query_denied),
@@ -116,9 +146,12 @@ class SD_Quest(WithShadowFunc, GDO):
     # Render #
     ##########
 
+    def render_name(self):
+        return self.render_title()
+
     def render_title(self) -> str:
-        return t(f'sdqt_{self.__class__.__name__.lower()}')
+        return self.t(f'sdqt_{self.__class__.__name__.lower()}')
 
     def render_descr(self) -> str:
-        return t(f'sdqd_{self.__class__.__name__.lower()}')
+        return self.t(f'sdqd_{self.__class__.__name__.lower()}')
 

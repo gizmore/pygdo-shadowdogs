@@ -215,7 +215,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
         noob = ep.get_leader()
         from gdo.shadowdogs.engine.Loot import Loot
         for i in range(100):
-            print(f"kill {i+1}")
             await Loot(giz, noob).on_kill_xp()
         out = all_private_messages()
         self.assertIn('karma', out, '$l does not work#1.')

@@ -257,12 +257,20 @@ mt_shadowdogs_status = "Character Status"
 md_shadowdogs_status = "Show your character status."
 msg_sd_status = "You are a %s %s L%d(L%d) %d/%dHP %d/%dMP - ATK %d/%d DEF - MARM %d/%d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg/%.2fkg - %s + %s - Food %d%%/%d%% Water"
 
+########
+# Drop #
+########
+mt_shadowdogs_drop = "Drop Item"
+md_shadowdogs_drop = "Drop an item from your inventory."
+msg_sd_dropped_item = "You drop %d of your %s and they are lost forever!"
+
 #########
 # Equip #
 #########
 mt_shadowdogs_equip = "Equip Item"
 md_shadowdogs_equip = "Equip yourself with an Item."
 msg_sd_item_equip = "You use %s as your %s from now on.%s"
+msg_sd_item_re_equip = "You put off your %s and use %s as %s from now on.%s"
 
 #############
 # Equipment #
@@ -338,7 +346,7 @@ msg_sd_say = "%s says: \"%s\""
 mt_shadowdogs_talk = "Talk"
 md_shadowdogs_talk = "Talk to an NPC inside a location."
 msg_sd_new_word = "You have learned a new word: \"%s\"."
-msg_sd_quest_accepted = "You have a new quest: %s - %s"
+msg_sd_quest_accepted = "You have a new quest: **%s** - %s"
 
 
 ##########

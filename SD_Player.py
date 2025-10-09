@@ -144,7 +144,6 @@ class SD_Player(WithShadowFunc, GDO):
     def gdo_real_class(cls, vals: dict[str,str]) -> type[GDO]:
         from gdo.shadowdogs.npcs.npcs import npcs
         if klass := vals.get('p_npc_class'):
-            print(klass)
             return GDT_NPCClass.TALKING_NPCS.get(klass, npcs.get_class(klass))
         return cls
 

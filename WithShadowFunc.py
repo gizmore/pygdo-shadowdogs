@@ -1,11 +1,11 @@
+import re
 from typing import TYPE_CHECKING
 
-import aioconsole
-
+from gdo.base.Application import Application
 from gdo.base.GDT import GDT
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.base.Render import Render
-from gdo.base.Util import Strings
+from gdo.base.Util import Strings, gdo_print
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
@@ -112,7 +112,7 @@ class WithShadowFunc(WithPlayerGDO):
 
     async def send_to_player(self, player: 'SD_Player', key: str, args: tuple = None):
         if player.is_npc():
-            await aioconsole.aprint(t(key, args))
+            gdo_print(self.t(key, args))
         else:
             await player.get_user().send(key, args)
 
@@ -136,8 +136,11 @@ class WithShadowFunc(WithPlayerGDO):
             with Trans(channel.get_lang_iso()):
                 await channel.send(Trans.t(key, args))
 
+    REGEX_BOLD = re.compile(r'\*\*(.+?)\*\*')
+
     def t(self, key: str, args: tuple[str|int|float,...]=None):
-        return Trans.t(key, args).replace('$t$', self.get_player().get_user().get_setting_val('sd_shortcut'))
+        s = Trans.t(key, args).replace('$t$', self.get_player().get_user().get_setting_val('sd_shortcut'))
+        return self.REGEX_BOLD.sub(lambda m: Render.bold(m.group(1), Application.get_mode()), s)
 
     #########
     # Items #
@@ -161,7 +164,7 @@ class WithShadowFunc(WithPlayerGDO):
         for item in items:
             await self.give_item(player, item)
         if announce_action:
-            item_names = ''.join([item.render_name() for item in items])
+            item_names = ', '.join([item.render_name() for item in items])
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item_names, announce_source))
 
     async def give_item(self, player: 'SD_Player', item: 'SD_Item', announce_action: str=None, announce_source: str=None):
