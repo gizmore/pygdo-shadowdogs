@@ -10,12 +10,13 @@ from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_LocationVal import SD_LocationVal
     from gdo.shadowdogs.locations.Location import Location
 
 
 class SD_Location(WithShadowFunc, GDO):
 
-    World = None
+    SD_LocationVal = None
 
     def gdo_persistent(self) -> bool:
         return False
@@ -47,3 +48,21 @@ class SD_Location(WithShadowFunc, GDO):
                 'l_city': location.get_city().get_location_key(),
             }).insert()
         return loc
+
+    def lv(self):
+        if not self.__class__.SD_LocationVal:
+            from gdo.shadowdogs.SD_LocationVal import SD_LocationVal
+            self.__class__.SD_LocationVal = SD_LocationVal
+        return self.__class__.SD_LocationVal
+
+    def lv_get(self, key: str) -> str:
+        return self.lv().table().select('lv_val').where(f"lv_player={self.get_player().get_id()} AND lv_location={self.get_id()} AND lv_key='{key}'").first().exec(False).fetch_val()
+
+    def lv_set(self, key: str, val: str):
+        self.lv().blank({
+            'lv_player': self.get_player().get_id(),
+            'lv_location': self.get_id(),
+            'lv_key': key,
+            'lv_val': val,
+        }).soft_replace()
+        return self

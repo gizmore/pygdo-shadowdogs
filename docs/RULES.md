@@ -47,7 +47,7 @@ In case of spam, you may mute the offending player for everyone.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
  - Thoughts are free, but Alice is allowed to read every one. Alice may keep secrets from the council.
- - It is forbidden to lie to the council. You risk some of your eye sight.
+ - It is forbidden to lie to the council. You risk some of your eyesight.
  - Thoughts are free, but Alice is allowed to read every one.
  - Alice voice is heard by everyone.
  - It is forbidden to lie to the council.

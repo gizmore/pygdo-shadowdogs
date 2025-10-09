@@ -6,11 +6,11 @@ from gdo.base.GDT import GDT
 from gdo.base.Message import Message
 from gdo.core.GDT_Char import GDT_Char
 from gdo.core.GDT_UInt import GDT_UInt
-from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.InstallShadowdogs import InstallShadowdogs
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
 from gdo.shadowdogs.SD_Location import SD_Location
+from gdo.shadowdogs.SD_LocationVal import SD_LocationVal
 from gdo.shadowdogs.SD_ObstacleVal import SD_ObstacleVal
 from gdo.shadowdogs.SD_Place import SD_Place
 from gdo.shadowdogs.SD_Party import SD_Party
@@ -44,6 +44,7 @@ class module_shadowdogs(GDO_Module):
             SD_ObstacleVal,
             SD_Word,
             SD_KnownWord,
+            SD_LocationVal,
         ]
 
     def gdo_install(self):
@@ -95,8 +96,6 @@ class module_shadowdogs(GDO_Module):
         Shadowdogs.PARTIES.clear()
         Shadowdogs.LOCATION_NPCS.clear()
         Shadowdogs.USERMAP.clear()
-        # GDT_NPCClass.TALKING_NPCS.clear()
-        # items.ITEMS.clear()
         items.KLASSES.clear()
         items.load()
         Loader.cleanup()

@@ -170,6 +170,14 @@ err_sd_player_required = "You need to $t$sdstart first."
 err_sd_not_here = "This does not work here."
 err_sd_not_now = "You cannot do this now."
 
+########
+# help #
+########
+mt_shadowdogs_help = "Help"
+md_shadowdogs_help = "Browse the shadowhelp files."
+err_sd_unknown_help_suggest = "Unknown help topic. Did you mean %s?"
+err_sd_unknown_help = "Unknown help topic %s. Try %shelp"
+
 ##########
 # Enable #
 ##########

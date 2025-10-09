@@ -1,11 +1,8 @@
-from typing import Self
-
 from gdo.base.Trans import t
 from gdo.base.Util import Random
 from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Quest import SD_Quest
-from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.city.y2064.Peine.quests.Awakening import Awakening
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
@@ -51,7 +48,6 @@ class TalkingNPC(SD_NPC):
 
     async def say(self, key: str, args: tuple[str|int,...] = None):
         await self.send_to_player(self.get_player(), 'sd_npc_says', (self.__class__.__name__, t(key, args)))
-
 
     async def digesting(self):
         return self

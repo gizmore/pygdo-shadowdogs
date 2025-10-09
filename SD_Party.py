@@ -90,7 +90,7 @@ class SD_Party(WithShadowFunc, GDO):
         return len(self.members) == 0
 
     def get_leader(self) -> 'SD_Player':
-        return self.members[0]
+        return self.members[0] if self.members else None
 
     def last_member(self) -> 'SD_Player':
         return self.members[-1]

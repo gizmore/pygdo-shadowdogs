@@ -130,7 +130,6 @@ class SD_Player(WithShadowFunc, GDO):
             'p_marm': 0, 'p_farm': 0,
             'p_weight': 0, 'p_max_weight': 0,
             'p_level': 0,
-            'p_hunger': 0, 'p_thirst': 0, 'p_alcohol': 0,
         })
         return self
 
@@ -212,14 +211,17 @@ class SD_Player(WithShadowFunc, GDO):
             Math('p_mat'),
             Crypto('p_cry'),
 
-            Alcohol('p_alcohol'),
             Hunger('p_hunger').initial('50'),
             Thirst('p_thirst').initial('30'),
+            Alcohol('p_alcohol'),
 
             GDT_Created('p_created'),
         ]
 
     def is_npc(self) -> bool:
+        return False
+
+    def is_mob(self) -> bool:
         return False
 
     def get_user(self) -> GDO_User:
@@ -394,8 +396,9 @@ class SD_Player(WithShadowFunc, GDO):
         for key, value in self.modified.items():
             if key in self._vals:
                 self.apply(key, self.gdo_value(key))
-        self.column('p_race').apply(self)
-        self.column('p_faction').apply(self)
+        if not self.is_mob():
+            self.column('p_race').apply(self)
+            self.column('p_faction').apply(self)
         self.level_column().apply(self)
         for slot in GDT_Slot.SLOTS:
             if item := self.gdo_value(slot):
@@ -449,12 +452,14 @@ class SD_Player(WithShadowFunc, GDO):
         self.incb('p_hunger', -Shadowdogs.FOOD_PER_TICK)
         self.incb('p_thirst', -Shadowdogs.WATER_PER_TICK)
         dmg = 0
-        if self.gb('p_hunger') == 0:
+        if self.gb('p_hunger') <= 0:
             dmg += 1
-        if self.gb('p_thirst') == 0:
+        if self.gb('p_thirst') <= 0:
             dmg += 1
         if dmg:
             self.give_hp(-dmg)
+        else:
+            self.save()
             await self.send_to_player(self, 'msg_sd_not_saturated', (dmg, self.gb('p_hp'), self.g('p_max_hp')))
 
     #########

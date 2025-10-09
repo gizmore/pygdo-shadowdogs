@@ -298,6 +298,12 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdny')
         self.assertIn('562', out, 'ny does not work.')
 
+    async def test_57_help(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdhelp')
+        self.assertIn('know', out, '$help does not work.')
+
+
     async def test_60_hack(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgmi gizmore{1} RhinoDeck')

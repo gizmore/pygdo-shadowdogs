@@ -1,5 +1,5 @@
-import functools
 from functools import lru_cache
+import functools
 
 from gdo.base.GDO import GDO
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
@@ -8,6 +8,7 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Location import SD_Location
     from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
     from gdo.shadowdogs.locations.City import City
     from gdo.shadowdogs.SD_Party import SD_Party
@@ -78,6 +79,11 @@ class Location(WithShadowFunc):
     # Location #
     ############
 
+    @functools.lru_cache(maxsize=1)
+    def get_location_klass(self) -> 'SD_Location':
+        from gdo.shadowdogs.SD_Location import SD_Location
+        return SD_Location.get_by_name(self.get_location_key())
+
     def get_name(self) -> str:
         return self.__class__.__name__
 
@@ -87,18 +93,24 @@ class Location(WithShadowFunc):
         return m[3] + "." + m[-3] + "." + m[-1]
 
     def get_city(self) -> 'City':
-        from gdo.shadowdogs.engine.World import World
-        return World.get_city(self.get_location_key())
+        return self.world().get_city(self.get_location_key())
+
+    def lv_get(self, key: str) -> str:
+        return self.get_location_klass().lv_get(key)
+
+    def lv_set(self, key: str, val: str) -> str:
+        return self.get_location_klass().lv_set(key, val)
 
     ###########
     # Methods #
     ###########
 
     async def on_search(self, player: 'SD_Player'):
-        if items := self.giving_item_names(player):
+        if not self.lv_get('searched') and (items := self.giving_item_names(player)):
+            self.lv_set('searched', '1')
             await self.give_new_items(player, items, 'search', self.get_name())
         else:
-            await self.send_to_player(player, 'msg_sd_search_nothing')
+            await self.send_to_player(player, 'msg_sd_search_nothing', (self.render_name(),))
 
     #########
     # Descr #

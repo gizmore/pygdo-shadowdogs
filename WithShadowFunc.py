@@ -139,8 +139,15 @@ class WithShadowFunc(WithPlayerGDO):
     REGEX_BOLD = re.compile(r'\*\*(.+?)\*\*')
 
     def t(self, key: str, args: tuple[str|int|float,...]=None):
-        s = Trans.t(key, args).replace('$t$', self.get_player().get_user().get_setting_val('sd_shortcut'))
-        return self.REGEX_BOLD.sub(lambda m: Render.bold(m.group(1), Application.get_mode()), s)
+        s = Trans.t(key, args)
+        return self.replace_output(s)
+
+    def get_sd_shortcut(self) -> str:
+        return self.get_player().get_user().get_setting_val('sd_shortcut')
+
+    def replace_output(self, text: str) -> str:
+        text = text.replace('$t$', self.get_sd_shortcut())
+        return self.REGEX_BOLD.sub(lambda m: Render.bold(m.group(1), Application.get_mode()), text)
 
     #########
     # Items #
