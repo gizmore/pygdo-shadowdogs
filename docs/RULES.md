@@ -81,7 +81,7 @@ as they represent the physics, math, time, randomness
 the machines, robots and all the free and commercial software.
 
 Another **5 votes** go to the animals.
-The insects, represented by the bees, the birds (ravens), the mammals (dogs), the fish (sharks) and the reptiles (alligators).
+The insects, represented by the insects(bees), the birds (ravens), the mammals (dogs), the fish (sharks) and the reptiles (alligators).
 
 Moreover, **5 votes** go the plants growing.
 The trees(Oak), the farn(Wheat), the corals(..err..Coral), the flowers(Orchid) and the herbs(Thyme).
@@ -123,7 +123,7 @@ Because the hackers truly won the game they got given another **2** votes in the
 
 Totalling **64** votes with **33** to win.
 
-After rebalancing and a constructive discussion another **8** votes were given to the grounding fathers,
+After balancing and a constructive discussion another **8** votes were given to the grounding fathers,
 as opposition to the new world order. The reasons have to be kept secret.
 Additionally, the 4 diagonal winds are chosen by the grounding fathers to have a real opposition.
 

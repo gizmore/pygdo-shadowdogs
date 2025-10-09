@@ -378,3 +378,10 @@ This day we celebrate abstinence of the grounding fathers of substances and good
 This day everyone abstinences from their favorites and rethinks real wealth.
 
 
+## Substance Day
+
+ - 6.Oct
+
+This day we celebrate the effect of various substances.
+
+Organic and Chemic Experiments are made and all people have red eyes with sharp fangs. 
