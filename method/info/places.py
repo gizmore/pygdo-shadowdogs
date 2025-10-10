@@ -22,7 +22,7 @@ class places(WithShadowMethod, MethodQueryTable):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'sdpl'
+        return 'sdkp'
 
     def gdo_paginated(self) -> bool:
         return False

@@ -13,7 +13,7 @@ class exit(MethodSD):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'sdexi'
+        return 'sdx'
 
     def sd_requires_action(self) -> list[str] | None:
         return [Action.INSIDE]

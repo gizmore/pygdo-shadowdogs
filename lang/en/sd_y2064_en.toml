@@ -15,3 +15,9 @@ y2064_peine_seniorhome = "SeniorHome"
 y2064_peine_seniorhome_inside = "You see the reception and a **Nurse**."
 y2064_peine_seniorhome_outside = "You find a home for the elderly people. It looks like an old military building."
 
+###############
+# Waffen Kief #
+###############
+y2064_peine_waffenkief = "WeaponKief"
+y2064_peine_waffenkief_inside = "You see the reception and a **Salesman**."
+y2064_peine_waffenkief_outside = "Inside the city you find a weapon store. Probably not the hottest stuff, but worth a look."

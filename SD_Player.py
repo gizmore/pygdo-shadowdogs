@@ -239,6 +239,18 @@ class SD_Player(WithShadowFunc, GDO):
     def is_leader(self) -> bool:
         return self.get_party().get_leader() == self
 
+    #######
+    # GDO #
+    #######
+    def delete(self):
+        del Shadowdogs.PLAYERS[self.get_id()]
+        del Shadowdogs.USERMAP[self.get_user().get_id()]
+        p = self.get_party()
+        p.kick(self)
+        if p.is_empty():
+            p.delete()
+        return super().delete()
+
     ########
     # Chat #
     ########
@@ -319,10 +331,6 @@ class SD_Player(WithShadowFunc, GDO):
             return self.gdo_value(slot_name)
         except AttributeError as ex:
             return None
-
-    # def unequip(self, item: 'SD_Item'):
-    #     self.save_val(item.get_slot(), None)
-    #     return self
 
     ########
     # Busy #
@@ -419,7 +427,7 @@ class SD_Player(WithShadowFunc, GDO):
 
     def inc(self, key: str, by: int):
         gdt = self.column(key)
-        old = self.modified.get(key)
+        old = self.g(key)
         new = old + by
         if gdt._min is not None and new < gdt._min:
             new = gdt._min
@@ -458,7 +466,6 @@ class SD_Player(WithShadowFunc, GDO):
             dmg += 1
         if dmg:
             self.give_hp(-dmg)
-        else:
             self.save()
             await self.send_to_player(self, 'msg_sd_not_saturated', (dmg, self.gb('p_hp'), self.g('p_max_hp')))
 

@@ -83,7 +83,7 @@ class City(WithShadowFunc):
 
     def get_respawn_location(self, player: 'SD_Player') -> Location|None:
         for place in SD_Place.query_for_player(player).order('kp_found DESC').exec():
-            if place.sd_is_respawn():
+            if place.get_location().sd_is_respawn():
                 return place.get_location()
         return None
 
@@ -128,8 +128,8 @@ class City(WithShadowFunc):
             items.append((location, location.explore_find_chance(party)))
         location = WithProbability.probable_item(items, self.explore_non_chance(party))
         if location:
-            await self.give_kp(party.get_leader(), location)
             await party.do(Action.OUTSIDE, location.get_location_key())
+            await self.give_kp(party.get_leader(), location)
         elif items:
             await self.send_to_party(party, 'msg_found_no_location')
             await party.do(Action.OUTSIDE, party.get_city().get_location_key())

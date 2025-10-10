@@ -28,8 +28,8 @@ class SD_QuestDone(WithShadowFunc, GDO):
     def gdo_columns(self) -> list[GDT]:
         from gdo.shadowdogs.SD_Quest import SD_Quest
         return [
-            GDT_Object('qd_quest').table(SD_Quest.table()).primary(),
-            GDT_Player('qd_player').primary(),
+            GDT_Object('qd_quest').table(SD_Quest.table()).primary().cascade_delete(),
+            GDT_Player('qd_player').primary().cascade_delete(),
             GDT_Created('qd_noticed'),
             GDT_Timestamp('qd_accepted'),
             GDT_Timestamp('qd_declined'),

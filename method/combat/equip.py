@@ -1,6 +1,7 @@
 from functools import partial
 
 from gdo.base.Application import Application
+from gdo.base.Render import Render
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
@@ -45,16 +46,16 @@ class equip(MethodSD):
             key = 'msg_sd_item_re_equip'
             time = old_item.get_unequip_time()
             Application.EVENTS.add_timer_async(time, partial(self.unequip, player, old_item.get_slot()))
-            args.append(old_item.render_name())
+            args.append(old_item.render_name_wc())
         time += item.get_equip_time()
         player.busy(time)
-        args.append(item.render_name())
+        args.append(Render.bold(item.render_name_wc(), Application.get_mode()))
         args.append(item.render_slot())
         args.append(player.render_busy())
         await self.send_to_party(player.get_party(), key, tuple(args))
         if ep := player.get_enemy_party():
             await self.send_to_party(ep, key, tuple(args))
-        Application.EVENTS.add_timer_async(player.get_busy_seconds(), partial(self.equip, player, item))
+        Application.EVENTS.add_timer_async(time, partial(self.equip, player, item))
         return self.empty()
 
     async def sd_execute(self):

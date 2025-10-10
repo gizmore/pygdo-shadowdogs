@@ -7,6 +7,14 @@ from gdo.shadowdogs.locations.Location import Location
 
 class goto(MethodSD):
 
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return 'sdgoto'
+
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return 'sdg'
+
     def sd_is_leader_command(self) -> bool:
         return True
 

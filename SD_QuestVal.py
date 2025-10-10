@@ -17,8 +17,8 @@ class SD_QuestVal(GDO):
     def gdo_columns(self) -> list[GDT]:
         from gdo.shadowdogs.GDT_Quest import GDT_Quest
         return [
-            GDT_Quest('qv_quest').primary(),
-            GDT_Player('qv_player').primary(),
+            GDT_Quest('qv_quest').primary().cascade_delete(),
+            GDT_Player('qv_player').primary().cascade_delete(),
             GDT_Name('qv_key').primary(),
             GDT_String('qv_val').not_null(),
             GDT_Edited('qv_edited'),

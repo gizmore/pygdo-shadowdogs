@@ -12,19 +12,18 @@ class ShadowdogsTestCase(GDOTestCase):
     def setUp(self):
         super().setUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
-        clear_cache().gdo_execute()
         loader = ModuleLoader.instance()
         loader.load_modules_db(True)
         reinstall_module('shadowdogs')
+        clear_cache().gdo_execute()
         WebPlug.COOKIES = {}
         Application.init_cli()
         loader.init_modules(True, True)
         loader.init_cli()
-        module_table.instance().save_config_val('table_ipp', '3')
+        module_table.instance().save_config_val('table_ipp', '4')
 
     async def fresh_gizmore(self, equip: bool = True):
         gizmore = cli_gizmore()
-        # channel = gizmore.get_server().get_or_create_channel('gizmore')
         out = cli_plug(gizmore, '$sdenable')
         self.assertIn('has been enabled', out, 'sdenable does not work.')
         out = cli_plug(gizmore, '$sdreset --confirm=1')
@@ -33,14 +32,17 @@ class ShadowdogsTestCase(GDOTestCase):
         self.assertIn('Suggestions', out, 'sdstart throws no error.')
         out = cli_plug(gizmore, '$sdstart male human')
         self.assertIn('You created your character', out, 'sdstart throws an error.')
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('12', out, 'search does not work.')
         out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
         self.assertIn('received Club_of_Adonis', out, 'gmi does not work.')
         if equip:
-            out = cli_plug(gizmore, '$sdeq 1')
+            out = cli_plug(gizmore, '$sdeq club')
             await self.ticker_for()
             out += cli_plug(gizmore, '$sdi')
             await self.ticker_for()
             out += cli_plug(gizmore, '$sdq')
             await self.ticker_for()
-            self.assertIn('You use Club_of', out, 'eq does not work.')
+            self.assertIn('You use', out, 'eq does not work.')
+            self.assertIn('Club_of', out, 'eq does not work.#2')
         return gizmore

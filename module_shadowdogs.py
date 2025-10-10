@@ -91,11 +91,12 @@ class module_shadowdogs(GDO_Module):
         Application.EVENTS.subscribe('new_message', self.sd_alias)
         Application.EVENTS.subscribe('clear_cache', self.on_clear_cache)
 
-    async def on_clear_cache(self):
+    def on_clear_cache(self):
         Shadowdogs.PLAYERS.clear()
         Shadowdogs.PARTIES.clear()
         Shadowdogs.LOCATION_NPCS.clear()
         Shadowdogs.USERMAP.clear()
+        Shadowdogs.CURRENT_PLAYER = None
         items.KLASSES.clear()
         items.load()
         Loader.cleanup()

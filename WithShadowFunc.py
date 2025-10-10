@@ -200,7 +200,7 @@ class WithShadowFunc(WithPlayerGDO):
             if not member.has_kp(location):
                 SD_Place.give_place(player, location)
                 if announce:
-                    await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name()))
+                    await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name(), location.render_descr(player)))
 
     #########
     # Words #

@@ -36,8 +36,6 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('to bed', out, 'quest no work.')
         self.assertIn('accomplished', out, 'quest no work.')
 
-
-
     async def test_10_home2(self):
         gizmore = await self.fresh_gizmore(False)
         out = cli_plug(gizmore, '$sdgml giz inside Marketpl')

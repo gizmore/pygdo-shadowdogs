@@ -11,8 +11,8 @@ class SD_LocationVal(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
-            GDT_Player('lv_player').not_null().primary(),
-            GDT_Location('lv_location').not_null().primary(),
+            GDT_Player('lv_player').not_null().primary().cascade_delete(),
+            GDT_Location('lv_location').not_null().primary().cascade_delete(),
             GDT_Name('lv_key').not_null().primary(),
             GDT_String('lv_val').case_s().ascii(),
             GDT_Edited('lv_edited'),

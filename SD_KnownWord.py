@@ -1,5 +1,6 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
+from gdo.base.Trans import t
 from gdo.core.GDT_Object import GDT_Object
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Player import GDT_Player
@@ -11,8 +12,8 @@ class SD_KnownWord(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
-            GDT_Object('kw_word').table(SD_Word.table()).primary(),
-            GDT_Player('kw_player').primary(),
+            GDT_Object('kw_word').table(SD_Word.table()).primary().cascade_delete(),
+            GDT_Player('kw_player').primary().cascade_delete(),
             GDT_Created('kw_created'),
         ]
 
@@ -28,3 +29,6 @@ class SD_KnownWord(GDO):
             'kw_word': obj.get_id(),
             'kw_player': player.get_id(),
         }).insert()
+
+    def render_name(self):
+        return t('sdkw_'+self.gdo_value('kw_word').gdo_val('w_name'))

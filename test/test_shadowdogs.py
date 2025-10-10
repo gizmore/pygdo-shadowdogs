@@ -1,6 +1,7 @@
 import unittest
 
 from gdo.base.Util import Random
+from gdo.date.Time import Time
 from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Loot import Loot
@@ -22,9 +23,10 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdeq _of_ado')
         await self.ticker(121)
         out += all_private_messages()
-        self.assertIn('Club_of_Adonis as ', out, 'eq does not work.')
+        self.assertIn('Club_of_Adonis', out, 'eq does not work.')
         out = cli_plug(gizmore, '$sdq')
-        self.assertIn('Weapon: Club_of_Adonis', out, '$sdq does not work.')
+        self.assertIn('Club_of_Adonis', out, '$sdq does not work.')
+        self.assertIn('Weapon', out, '$sdq does not work.#2')
         Random.init(9)
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
@@ -47,10 +49,20 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_03_eat(self):
         gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdgmi giz 5xSandwich')
+        out = cli_plug(gizmore, '$sdgmi giz 10xSandwich')
         self.assertIn('receive', out, 'gmi does not work.')
         out = cli_plug(gizmore, '$sds')
         self.assertIn('Food', out, 'not hungry?')
+        out = cli_plug(gizmore, '$sduse Sandwich')
+        self.assertIn('consumed', out, 'eat sandwich does not work.')
+        out = cli_plug(gizmore, '$sduse Sandwich')
+        self.assertIn('consumed', out, 'eat sandwich does not work.')
+        out = cli_plug(gizmore, '$sduse Sandwich')
+        self.assertIn('consumed', out, 'eat sandwich does not work.')
+        out = cli_plug(gizmore, '$sduse Sandwich')
+        self.assertIn('consumed', out, 'eat sandwich does not work.')
+        out = cli_plug(gizmore, '$sduse Sandwich')
+        self.assertIn('consumed', out, 'eat sandwich does not work.')
         out = cli_plug(gizmore, '$sduse Sandwich')
         self.assertIn('consumed', out, 'eat sandwich does not work.')
         out = cli_plug(gizmore, '$sduse Sandwich')
@@ -68,7 +80,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
-        Random.init(1339)
+        Random.init(31337)
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
         out = cli_plug(gizmore, '$sdp')
@@ -76,7 +88,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         await self.ticker(3333) # half an hour
         out = all_private_messages()
         self.assertIn('new place in Peine', out, 'explore find does not work.')
-        out = cli_plug(gizmore, '$sdpl')
+        out = cli_plug(gizmore, '$sdkp')
         self.assertIn('2 Known Places in Peine', out, 'kp does not work.')
         out = cli_plug(gizmore, '$sden')
         await self.ticker_for()
@@ -84,12 +96,17 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('enter', out, 'en does not work.')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('inside', out, 'p does not work.')
-        out = cli_plug(gizmore, '$sdleave')
+        out = cli_plug(gizmore, '$sdx')
         await self.ticker_for()
         out += all_private_messages()
         self.assertIn('leaving', out, 'leave does not work.')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('outside', out, 'p does not work.')
+        out = cli_plug(gizmore, '$sdg home')
+        self.assertIn('going', out, 'goto does not work.')
+        await self.ticker(3333) # half an hour
+        out = all_private_messages()
+        self.assertIn('Home', out, 'goto does not work ending.')
 
     async def test_10_gml(self):
         gizmore = await self.fresh_gizmore()
@@ -113,15 +130,12 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_13_kw(self):
         gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdsay Laz hi')
+        out = cli_plug(gizmore, '$sdtalk Laz hi')
+        out += cli_plug(gizmore, '$sdtalk Laz hi')
+        out += cli_plug(gizmore, '$sdtalk Laz hi')
         self.assertIn('a new', out, 'say and lazer does not work.')
-        out = cli_plug(gizmore, '$sdw')
-        self.assertIn('hello', out, 'known words does not work.')
-
-    async def test_15_spells(self):
-        gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdgmsp giz calm')
-        self.assertIn('hello', out, 'known words does not work.')
+        out = cli_plug(gizmore, '$sdkw')
+        self.assertIn('home', out, 'known words does not work.')
 
     async def test_17_loot(self):
         gizmore = await self.fresh_gizmore()
@@ -134,7 +148,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = all_private_messages()
         self.assertGreater(giz.get_nuyen(), 250, "Not enough nuyen looted.")
         self.assertLess(giz.get_nuyen(), 1000, "Not enough nuyen looted.")
-        out = cli_plug(gizmore, "$sdny")
+        out += cli_plug(gizmore, "$sdny")
         self.assertIn(Shadowdogs.NUYEN, out, '$ny does not work.')
         self.assertFalse(Fists().can_sell(), 'Can sell fists.')
         self.assertFalse(Fists().can_loot(), 'Can loot fists.')
@@ -304,6 +318,25 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('know', out, '$help does not work.')
         out = cli_plug(gizmore, '$sdhelp attr')
         self.assertIn('ributes:', out, '$help does not work.#2')
+
+    async def test_58_equip(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('Jeans', out, '$search does not work.')
+        out = cli_plug(gizmore, '$sdeq jean')
+        self.assertIn('Jeans', out, '$equip does not work.')
+        self.assertIn('Shorts', out, '$equip does not work.#2')
+        await self.ticker_for(gizmore)
+        out = cli_plug(gizmore, '$sdi')
+        self.assertNotIn('Jeans', out, '$equip does not work.#3')
+        self.assertIn('Shorts', out, '$equip does not work.#4')
+
+    async def test_59_starve(self):
+        gizmore = await self.fresh_gizmore()
+        await self.ticker(Time.ONE_DAY * 2)
+        out = all_private_messages()
+        self.assertIn('You are not saturated. 2 damage. 0/10 HP left.', out, 'no starve effect.')
+
 
 
     async def test_60_hack(self):

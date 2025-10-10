@@ -4,6 +4,7 @@ from gdo.core.GDT_Bool import GDT_Bool
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.MethodSD import MethodSD
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
 class reset(MethodSD):

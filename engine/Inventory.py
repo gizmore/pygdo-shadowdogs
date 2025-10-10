@@ -21,7 +21,7 @@ class Inventory(WithShadowFunc, ItemList):
         if item := self.get_by_name(item_name):
             if item.get_count() < count:
                 return None
-            if count == 1:
+            if item.get_count() == count:
                 self.remove(item)
                 return item
             item.increment('item_count', -count)

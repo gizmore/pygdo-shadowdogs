@@ -40,7 +40,7 @@ class SD_Party(WithShadowFunc, GDO):
         self.combat_direction = True # positive
 
     def __repr__(self):
-        return f"Party({self.get_id()}):({self.render_members()})"
+        return f"Party({self.get_id()}):({self.render_members()}) {self.get_action_name()} {self.get_target_string()}"
 
     def gdo_columns(self) -> list[GDT]:
          return [
@@ -54,6 +54,17 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Enum('party_world').choices({'y2064': 'World2064', 'y2077': 'World2077', 'y2088': 'World2088'}).not_null().initial('y2064'),
             GDT_Created('party_created'),
         ]
+
+    #######
+    # GDO #
+    #######
+    def delete(self):
+        del Shadowdogs.PARTIES[self.get_id()]
+        return super().delete()
+
+    ##########
+    # Action #
+    ##########
 
     async def do(self, action: str, target: str = None, eta: int = 0):
         if last_eta := self.gdo_value('party_eta'):
@@ -263,10 +274,10 @@ class SD_Party(WithShadowFunc, GDO):
         return self.gdo_val('party_last_action')
 
     def get_action(self) -> 'Action':
-        return self.gdo_value('party_action')
+        return self.gdo_value('party_action').player(self.get_leader())
 
     def get_last_action(self) -> 'Action':
-        return self.gdo_value('party_last_action')
+        return self.gdo_value('party_last_action').player(self.get_leader())
 
     def get_eta(self) -> int:
         return self.gdo_value('party_eta')

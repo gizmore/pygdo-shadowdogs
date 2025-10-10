@@ -204,7 +204,7 @@ sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless.
 # Explore #
 ###########
 msg_found_no_location = "Your exploration did not reveal any new location."
-msg_sd_new_kp = "You found a new place in %s: %s."
+msg_sd_new_kp = "You found a new place in %s: %s. %s"
 
 ##########
 # Places #

@@ -15,7 +15,7 @@ class words(WithShadowMethod, MethodQueryTable):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return "sdw"
+        return "sdkw"
 
     def gdo_table(self) -> GDO:
         return SD_KnownWord.table()

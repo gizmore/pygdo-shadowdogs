@@ -2,7 +2,6 @@ from importlib import import_module
 
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
-from gdo.base.Trans import t
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Name import GDT_Name
 from gdo.core.GDT_String import GDT_String
@@ -52,15 +51,12 @@ class SD_Quest(WithShadowFunc, GDO):
             mod = import_module(mod_path)
         except Exception as e:
             raise ImportError(f"Cannot import module {mod_path!r} (q_klass={path!r}): {e}") from e
-
         try:
             typ = getattr(mod, class_name)
         except AttributeError as e:
             raise ImportError(f"Module {mod_path!r} has no attribute {class_name!r} (q_klass={path!r})") from e
-
         if not isinstance(typ, type) or not issubclass(typ, GDO):
             raise TypeError(f"{path!r} is not a subclass of GDO")
-
         return typ
 
     @classmethod

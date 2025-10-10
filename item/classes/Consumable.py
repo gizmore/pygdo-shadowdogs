@@ -18,12 +18,11 @@ class Consumable(Usable):
         ef = []
         for key, value in self.dm('ef', {}).items():
             key = f"p_{key}"
-            player.inc(key, value)
+            player.incb(key, value)
             sign = '+' if value > 0 else ''
             ef.append(f"{t(key)}({sign}{value})")
         if not ef:
             ef.append(t('none'))
-        self._sd_item.use(1)
-        player.modify_all()
+        self.use(1)
         await self.send_to_party(player.get_party(), 'msg_sd_consumed', (self.render_name(), ",".join(ef), player.render_busy()))
         return GDT_HTML()

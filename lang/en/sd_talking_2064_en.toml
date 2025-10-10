@@ -10,6 +10,5 @@ msg_sd_talk_default_4 = "Asshole!"
 
 # 2064 home lazer
 sd_lazer_home_intro1 = "Morning... we should eat something."
-sd_lazer_home_intro2 = "The punks yesterday were funny, right? I bet we see some of them today again, walking below the window... should be buy snacks?"
-sd_lazer_home_intro3 = "Should we walk to Mr.Marokko again? That shit is tough!"
-
+sd_lazer_home_intro2 = "The punks yesterday were funny, right? I bet we see some of them today again, walking below the window... should we buy snacks?"
+sd_lazer_home_intro3 = "Should we walk to Mr.Marokko again? That shit is tough! Damn maybe we should better find a new **home**"

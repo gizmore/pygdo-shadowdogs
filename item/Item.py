@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, Iterator
+from collections import OrderedDict
+from typing import TYPE_CHECKING, Iterator, Mapping
 
 from gdo.base.GDO import GDO
 from gdo.base.Trans import t
@@ -50,18 +51,35 @@ class Item(SD_Item):
         if mods := self.gdo_value('item_mods'):
             yield from mods
 
-    def all_player_modifiers(self) -> Iterator[tuple[str, int]]:
+    def all_player_modifiers(self, *, only_player_known: bool = True, include_missing_as_zero: bool = False) -> Mapping[str, int]:
         player = self.get_player()
-        player_keys = player.modified.keys()
-        for key, value in self.get_default_modifiers().items():
-            key = f"p_{key}"
-            if key in player_keys:
-                yield key, value
-        if mod:= self.gdo_value('item_mods'):
-            for key, value in mod.items():
-                key = f"p_{key}"
-                if key in player_keys:
-                    yield key, value
+        player_keys = set(player.modified.keys())
+        out: "OrderedDict[str, int]" = OrderedDict()
+        def add_many(prefix: str, src: Mapping[str, float | int] | None):
+            if not src: return
+            for k, v in src.items():
+                pk = f"p_{k}"
+                if not only_player_known or pk in player_keys:
+                    out[pk] = int(v)
+        add_many("p_", self.get_default_modifiers())
+        add_many("p_", self.gdo_value('item_mods'))
+        if include_missing_as_zero and only_player_known:
+            for pk in player_keys:
+                out.setdefault(pk, 0)
+        return out
+
+    # def all_player_modifiers(self) -> Iterator[tuple[str, int]]:
+    #     player = self.get_player()
+    #     player_keys = player.modified.keys()
+    #     for key, value in self.get_default_modifiers().items():
+    #         key = f"p_{key}"
+    #         if key in player_keys:
+    #             yield key, value
+    #     if mod:= self.gdo_value('item_mods'):
+    #         for key, value in mod.items():
+    #             key = f"p_{key}"
+    #             if key in player_keys:
+    #                 yield key, value
 
     def g(self, field: str) -> int:
         return self.get_player().g(field)
@@ -77,7 +95,7 @@ class Item(SD_Item):
         return self
 
     def apply_cb(self, player: 'SD_Player'):
-        for key, val in self.all_player_modifiers():
+        for key, val in self.all_player_modifiers().items():
             player.apply(key, val)
             yield key, val
         return self

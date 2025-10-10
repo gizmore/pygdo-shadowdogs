@@ -10,12 +10,12 @@ class GDT_Quest(GDT_Object):
 
     def __init__(self, name: str):
         super().__init__(name)
-        self.table(SD_QuestDone.table())
+        self.table(SD_Quest.table())
 
     def query_gdos(self, val: str) -> list[GDO]:
         if val is None:
             return GDT.EMPTY_LIST
         if val.isdigit():
-            if gdo := self._table.select().join_object('qd_quest').fetch_as(SD_Quest.table()).where(f"qd_player={Shadowdogs.CURRENT_PLAYER.get_id()}").limit(1, int(val)-1).first().exec().fetch_object():
+            if gdo := SD_QuestDone.table().select().join_object('qd_quest').fetch_as(SD_Quest.table()).where(f"qd_player={Shadowdogs.CURRENT_PLAYER.get_id()}").limit(1, int(val)-1).first().exec().fetch_object():
                 return [gdo]
-        return self._table.select().join_object('qd_quest').fetch_as(SD_Quest.table()).where(f"qd_player={Shadowdogs.CURRENT_PLAYER.get_id()} AND LOWER(q_name) LIKE '%{GDO.escape(val.lower())}%'").exec().fetch_all()
+        return SD_QuestDone.table().select().join_object('qd_quest').fetch_as(SD_Quest.table()).where(f"qd_player={Shadowdogs.CURRENT_PLAYER.get_id()} AND LOWER(q_name) LIKE '%{GDO.escape(val.lower())}%'").exec().fetch_all()
