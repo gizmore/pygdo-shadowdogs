@@ -366,6 +366,8 @@ class items:
         'Pizza':              {'klass': 'Consumable',  'level':  1, 'weight': 517,  'price': 25,  'ef': {'thirst': 15}},
         'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 200,  'price': 25,  'ef': {'thirst': 10}},
         'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 12,  'ef': {'thirst': -3, 'hunger': 25}},
+        'SmallBeer':          {'klass': 'Consumable',  'level':  2, 'weight': 350,  'price': 12,  'ef': {'thirst': 15, 'hunger':  5, 'alcohol': 2}},
+        'LargeBeer':          {'klass': 'Consumable',  'level':  1, 'weight': 530,  'price': 12,  'ef': {'thirst': 25, 'hunger': 10, 'alcohol': 3}},
         'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 24, 'ef': {'thirst': 90}},
         'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 12, 'ef': {'thirst': 30}},
         'Hash':                {'klass': 'QuestItem',   'level':  2, 'weight': 1,    'price': 30, 'ef': {'thirst': -100}},

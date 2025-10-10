@@ -29,7 +29,7 @@ class Home(Bedroom,Location):
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [
-        Searchable('Fridge').giving('Coke,LargeBeer'),
+        Searchable('Fridge').giving('Coke,LargeBeer,Sandwich'),
         # Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
     ]
 

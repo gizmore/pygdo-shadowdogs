@@ -47,13 +47,20 @@ class Location(WithShadowFunc):
     def get_npcs(self, player: 'SD_Player'):
         return self.NPC_INSTANCES
 
+    def obstacles(self, action: str, player: 'SD_Player') -> list[Obstacle]:
+        obstacles = self.__class__.get_obstacles(action, player)
+        for obstacle in obstacles:
+            obstacle.location = self
+        return obstacles
+
     @classmethod
-    def obstacles(cls, action: str, player: 'SD_Player') -> list[Obstacle]:
+    def get_obstacles(cls, action: str, player: 'SD_Player') -> list[Obstacle]:
         if action == Action.INSIDE:
             return cls.OBSTACLES_INSIDE
         elif action == Action.OUTSIDE:
             return cls.OBSTACLES_OUTSIDE
         return GDO.EMPTY_LIST
+
 
     ############
     # Abstract #
@@ -79,6 +86,9 @@ class Location(WithShadowFunc):
     ############
     # Location #
     ############
+
+    def get_location_id(self) -> str:
+        return self.get_location_klass().get_id()
 
     @functools.lru_cache(maxsize=1)
     def get_location_klass(self) -> 'SD_Location':

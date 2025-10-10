@@ -312,6 +312,15 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdny')
         self.assertIn('562', out, 'ny does not work.')
 
+    async def test_56_fridge(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdinfo')
+        self.assertIn('Fridge', out, 'info fridge does not work.')
+        out = cli_plug(gizmore, '$sdsearch Frid')
+        self.assertIn('Sandwich', out, 'search fridge does not work.')
+        out = cli_plug(gizmore, '$sdse fri')
+        self.assertNotIn('Sandwich', out, 'search fridge does not work.')
+
     async def test_57_help(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdhelp')
@@ -336,8 +345,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
         await self.ticker(Time.ONE_DAY * 2)
         out = all_private_messages()
         self.assertIn('You are not saturated. 2 damage. 0/10 HP left.', out, 'no starve effect.')
-
-
 
     async def test_60_hack(self):
         gizmore = await self.fresh_gizmore()

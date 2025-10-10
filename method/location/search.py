@@ -8,12 +8,20 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 class search(MethodSD):
 
+    @classmethod
+    def gdo_trigger(cls) -> str:
+        return "sdsearch"
+
+    @classmethod
+    def gdo_trig(cls) -> str:
+        return "sdse"
+
     def sd_is_location_specific(self) -> bool:
         return True
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
-            GDT_TargetArg('target').gdo(self.get_player()).default_room().obstacles(),
+            GDT_TargetArg('target').default_room().obstacles().positional(),
         )
         super().gdo_create_form(form)
 
