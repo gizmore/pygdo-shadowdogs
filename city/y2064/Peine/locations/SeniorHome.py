@@ -21,6 +21,14 @@ class SeniorHome(Location):
             'sdwork',
         ]
 
+    async def on_entered(self):
+        for player in self.get_party().members:
+            if not CivilService.instance().is_accepted(player):
+                await self.send_to_party(self.get_party(), 'msg_sd_senior_home_quest')
+                await self.get_party().do(Action.OUTSIDE)
+                return self
+        return await super().on_entered()
+
     async def on_work(self):
         if CivilService.instance().is_in_quest():
             await self.get_party().do(Action.WORK, self.get_location_key(), Time.ONE_HOUR)

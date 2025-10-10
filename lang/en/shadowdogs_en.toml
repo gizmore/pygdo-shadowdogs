@@ -139,11 +139,6 @@ p_piercing = "Piercing"
 p_mount = "Mount"
 p_cyberdeck = "Cyberdeck"
 
-#########
-# Party #
-#########
-msg_sd_joined_party = "%s joined the party."
-
 ##############
 # Saturation #
 ##############
@@ -169,6 +164,15 @@ msg_killed_and_lost = "You got killed by %s and lost your %s."
 err_sd_player_required = "You need to $t$sdstart first."
 err_sd_not_here = "This does not work here."
 err_sd_not_now = "You cannot do this now."
+
+#########
+# Party #
+#########
+mt_shadowdogs_party = "Party Status"
+md_shadowdogs_party = "Show your party status."
+msg_sd_party_info = "%s %s"
+sd_party_busytime = "%s(%s)"
+msg_sd_joined_party = "%s joined the party."
 
 ########
 # help #
@@ -280,6 +284,13 @@ md_shadowdogs_equip = "Equip yourself with an Item."
 msg_sd_item_equip = "You use %s as your %s from now on.%s"
 msg_sd_item_re_equip = "You put off your %s and use %s as %s from now on.%s"
 
+###########
+# Unequip #
+###########
+mt_shadowdogs_unequip = "Unequip Item"
+md_shadowdogs_unequip = "Unequip an equipped item."
+msg_sd_item_unequip = "You unequip your %s %s. %s"
+
 #############
 # Equipment #
 #############
@@ -324,7 +335,6 @@ err_sd_reload_weapon = "%s is not a fireweapon."
 err_sd_reload_ammo = "You don't have %s."
 msg_sd_reloaded = "You put %d bullets in your %s which now holds %d."
 
-
 ########
 # Info #
 ########
@@ -339,14 +349,12 @@ mt_shadowdogs_search = "Search"
 md_shadowdogs_search = "Search a location or obstacle."
 msg_sd_search_nothing = "You searched the %s but couldn't find anything useful or interesting."
 
-
 #######
 # Say #
 #######
 mt_shadowdogs_say = "Say"
 md_shadowdogs_say = "Say something to all nearby players."
 msg_sd_say = "%s says: \"%s\""
-
 
 ########
 # Talk #
@@ -380,13 +388,11 @@ mt_shadowdogs_partymessage = "Party Message"
 md_shadowdogs_partymessage = "Send a message to all your party members."
 msg_sd_party_message = "%s says: \"%s\""
 
-
 ########
 # View #
 ########
 mt_shadowdogs_view = "Shop items"
 md_shadowdogs_view = "View a list of all Shop items in a loccation."
-
 
 #############
 # View Item #

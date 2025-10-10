@@ -305,7 +305,7 @@ class SD_Player(WithShadowFunc, GDO):
     #############
     # Equipment #
     #############
-    def all_equipment(self) -> Generator[SD_Item, Any, None]:
+    def all_equipment(self) -> Generator[Item, Any, None]:
         for slot_name in GDT_Slot.SLOTS:
             if item := self.get_equipment(slot_name):
                 yield item
@@ -314,7 +314,7 @@ class SD_Player(WithShadowFunc, GDO):
     def get_weapon(self) -> 'Weapon':
         return self.get_equipment('p_weapon') or Fists().fill_defaults({'item_name': 'Fists', 'item_owner': self.get_id()}).player(self)
 
-    def get_equipment(self, slot_name: str) -> 'SD_Item|None':
+    def get_equipment(self, slot_name: str) -> 'Item|None':
         try:
             return self.gdo_value(slot_name)
         except AttributeError as ex:
@@ -525,11 +525,12 @@ class SD_Player(WithShadowFunc, GDO):
         return self.get_nuyen() >= nuyen
 
     def get_nuyen(self) -> int:
-        item = self.inventory.get_by_name('Nuyen') or NY().name('Nuyen')
-        return item.get_count()
+        if item := self.inventory.get_by_name('Nuyen'):
+            return item.get_count()
+        return 0
 
     def give_nuyen(self, nuyen: int):
-        item = self.inventory.get_by_name('Nuyen') or NY().name('Nuyen').slot(GDT_Slot.INVENTORY)
+        item = self.inventory.get_by_name('Nuyen') or NY().name('Nuyen').slot(GDT_Slot.INVENTORY).count(0)
         item.increment('item_count', nuyen)
         if item.get_count() <= 0:
             self.inventory.remove(item)
@@ -558,7 +559,7 @@ class SD_Player(WithShadowFunc, GDO):
     #########
 
     def get_party(self) -> 'SD_Party':
-        return self.gdo_value('p_party')
+        return self.gdo_value('p_party').player(self)
 
     def is_near(self, player: 'SD_Player') -> bool:
         p = self.get_party()

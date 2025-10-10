@@ -15,5 +15,8 @@ class work(MethodSD):
     def sd_is_location_specific(self) -> bool:
         return True
 
+    def sd_requires_action(self) -> list[str] | None:
+        return [Action.INSIDE]
+
     async def sd_execute(self):
         return await self.get_location().on_work()

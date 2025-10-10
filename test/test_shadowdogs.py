@@ -302,6 +302,8 @@ class ShadowdogsTest(ShadowdogsTestCase):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdhelp')
         self.assertIn('know', out, '$help does not work.')
+        out = cli_plug(gizmore, '$sdhelp attr')
+        self.assertIn('ributes:', out, '$help does not work.#2')
 
 
     async def test_60_hack(self):

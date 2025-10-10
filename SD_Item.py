@@ -64,6 +64,10 @@ class SD_Item(WithShadowFunc, GDO):
         self.set_val('item_slot', slot)
         return self
 
+    def count(self, count: int):
+        self.set_value('item_count', count)
+        return self
+
     def get_owner(self) -> 'SD_Player':
         return self.gdo_value('item_owner')
 

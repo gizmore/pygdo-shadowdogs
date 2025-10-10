@@ -21,8 +21,10 @@ class enter(MethodSD):
     def sd_is_leader_command(self) -> bool:
         return True
 
-    def sd_is_location_specific(self) -> bool:
-        return True
+    def sd_requires_action(self) -> list[str] | None:
+        return [
+            Action.OUTSIDE,
+        ]
 
     def sd_combat_seconds(self) -> int:
         return self.get_location().sd_entrance_seconds()
@@ -36,5 +38,4 @@ class enter(MethodSD):
 
     async def on_enter(self):
         party = self.get_party()
-        await party.do(Action.INSIDE)
         await party.get_target().on_entered()

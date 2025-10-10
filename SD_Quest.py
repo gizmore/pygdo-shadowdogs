@@ -121,8 +121,8 @@ class SD_Quest(WithShadowFunc, GDO):
         if xp := self.reward_xp():
             await self.give_xp(self.get_player(), xp)
 
-    def is_accepted(self) -> bool:
-        return SD_QuestDone.for_player(self, self.get_player()).is_accepted()
+    def is_accepted(self, player: 'SD_Player') -> bool:
+        return SD_QuestDone.for_player(self, player or self.get_player()).is_accepted()
 
     def is_accomplished(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_accomplished()

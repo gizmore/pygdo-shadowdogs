@@ -73,6 +73,7 @@ class Location(WithShadowFunc):
         return False
 
     async def on_entered(self):
+        await self.get_party().do(Action.INSIDE)
         await self.send_to_party(self.get_party(), 'msg_sd_entered', (self.get_location().render_name(),))
 
     ############
@@ -116,6 +117,7 @@ class Location(WithShadowFunc):
     # Descr #
     #########
 
+    @functools.lru_cache(maxsize=1)
     def get_t_key(self) -> str:
         return self.get_location_key().lower().replace('.', '_')
 

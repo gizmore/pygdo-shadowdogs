@@ -8,3 +8,10 @@ y2064_peine_home = "Home"
 y2064_peine_home_inside = "Home sweet home :)"
 y2064_peine_home_outside = "You recognize your Home. Mom, Thomas, DejaVu, Lazer and Theo are most often around."
 
+###############
+# Senior Home #
+###############
+y2064_peine_seniorhome = "SeniorHome"
+y2064_peine_seniorhome_inside = "You see the reception and a **Nurse**."
+y2064_peine_seniorhome_outside = "You find a home for the elderly people. It looks like an old military building."
+

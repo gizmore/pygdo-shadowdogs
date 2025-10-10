@@ -29,7 +29,7 @@ class help(MethodSD):
         super().gdo_create_form(form)
 
     def _lang(self) -> str:
-        return Application.LANG_ISO
+        return Application.STORAGE.lang
 
     def _help_root(self) -> dict[str, Any]:
         lang = self.HELP.get(self._lang(), self.HELP['en'])
@@ -54,7 +54,7 @@ class help(MethodSD):
         subs = [k for k in node.keys() if k != "0"]
         if not subs:
             return intro
-        subs.sort(key=str.casefold)
+        # subs.sort(key=str.casefold)
         subs_bold = [f"**{k}**" for k in subs]
         return f"{intro} {', '.join(subs_bold)}."
 

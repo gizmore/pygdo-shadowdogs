@@ -32,7 +32,7 @@ class WithPlayerGDO:
         return Shadowdogs.CURRENT_PLAYER
 
     def get_party(self) -> 'SD_Party':
-        return self.get_player().get_party()
+        return self.get_player().get_party().player(self.get_player())
 
     def get_enemy_party(self) -> 'SD_Party':
         return self.get_party().get_target_party()

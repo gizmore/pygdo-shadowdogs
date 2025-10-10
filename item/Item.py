@@ -117,11 +117,11 @@ class Item(SD_Item):
     def equip(self):
         slot = self.get_slot()
         self.save_val('item_slot', slot)
-        self.get_player().save_val(slot, self.get_id()).modify_all()
+        self.get_player().save_val(slot, self.get_id())
 
     def unequip(self):
         self.save_val('item_slot', GDT_Slot.INVENTORY)
-        self.get_player().save_val(self.get_slot(), None).modify_all()
+        self.get_player().save_val(self.get_slot(), None)
 
     def can_loot(self) -> bool:
         return self.dm('no_loot', False)
