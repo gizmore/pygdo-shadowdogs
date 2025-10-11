@@ -83,7 +83,7 @@ class City(WithShadowFunc):
 
     def get_respawn_location(self, player: 'SD_Player') -> Location|None:
         for place in SD_Place.query_for_player(player).order('kp_found DESC').exec():
-            if place.get_location().sd_is_respawn():
+            if place.get_location().sd_is_respawn(player):
                 return place.get_location()
         return None
 

@@ -1,5 +1,6 @@
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
+from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_Player import GDT_Player
 from gdo.shadowdogs.GDT_Spell import GDT_Spell
@@ -26,6 +27,7 @@ class SD_Spell(GDO):
         return [
             GDT_Spell('sp_spell').primary(),
             GDT_Player('sp_player').primary().cascade_delete(),
+            GDT_UInt('sp_casted').not_null().initial('0'),
             GDT_Created('sp_created'),
         ]
 

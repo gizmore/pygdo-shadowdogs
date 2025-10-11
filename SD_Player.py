@@ -4,6 +4,7 @@ from gdo.base.GDT import GDT
 from gdo.base.Trans import t
 from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_AutoInc import GDT_AutoInc
+from gdo.core.GDT_Bool import GDT_Bool
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.core.GDT_User import GDT_User
 from gdo.date.GDT_Created import GDT_Created
@@ -26,7 +27,6 @@ from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
-from gdo.shadowdogs.item.classes.Equipment import Equipment
 from gdo.shadowdogs.skill.Crypto import Crypto
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
@@ -156,6 +156,7 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_AutoInc('p_id'),
 
             GDT_User('p_user'),
+            GDT_Bool('p_runner').not_null().initial('0'),
 
             GDT_Party('p_party').cascade_delete(),
             GDT_UInt('p_joined').bytes(8),
@@ -243,8 +244,9 @@ class SD_Player(WithShadowFunc, GDO):
     # GDO #
     #######
     def delete(self):
-        del Shadowdogs.PLAYERS[self.get_id()]
-        del Shadowdogs.USERMAP[self.get_user().get_id()]
+        if not self.is_npc():
+            del Shadowdogs.PLAYERS[self.get_id()]
+            del Shadowdogs.USERMAP[self.get_user().get_id()]
         p = self.get_party()
         p.kick(self)
         if p.is_empty():
@@ -255,7 +257,7 @@ class SD_Player(WithShadowFunc, GDO):
     # Chat #
     ########
     async def on_say(self, player: 'SD_Player', word: str):
-        pass
+        await self.send_to_player(player, '%s', (word,))
 
     ##########
     # Combat #
@@ -451,6 +453,9 @@ class SD_Player(WithShadowFunc, GDO):
         for key, val in stats.items():
             self.apply(key, val)
         return self
+
+    def is_runner(self) -> bool:
+        return self.gdo_value('p_runner')
 
     ########
     # Food #

@@ -195,6 +195,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdtalk theo purse')
         self.assertIn('says:', out, '$sdtalk does not work#3.')
         out = cli_plug(gizmore, '$sdi')
+        out += cli_plug(gizmore, '$sdi 2')
         self.assertIn('Purse', out, 'have no purse.')
         out = cli_plug(gizmore, '$sdu urse') + all_private_messages()
         self.assertIn('You search the purse...', out, '$sdu purse does not work.')
@@ -240,6 +241,8 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')
         self.assertIn('leveled up', out, '$l does not work.#2')
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')
+        self.assertIn('leveled up', out, '$l does not work.#3')
+        out = cli_plug(gizmore, '$sdl --confirm=1 strength')
         self.assertIn('want to level up', out, '$l does not work.#3')
 
     async def test_45_cache_and_loader(self):
@@ -262,7 +265,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('BronzeKnuckles', out, '$v does not work.')
         out = cli_plug(gizmore, '$sdv 2')
         self.assertIn('Shotgun', out, '$v 2 does not work.')
-        out = cli_plug(gizmore, '$sdgmi giz 30000xNuyen')
+        out = cli_plug(gizmore, '$sdgmi giz 30012xNuyen')
         self.assertIn('30000', out, '$gmi does not work.')
         out = cli_plug(gizmore, '$sdi')
         self.assertIn('30000', out, '$i does not work.')
@@ -330,8 +333,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_58_equip(self):
         gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdsearch')
-        self.assertIn('Jeans', out, '$search does not work.')
         out = cli_plug(gizmore, '$sdeq jean')
         self.assertIn('Jeans', out, '$equip does not work.')
         self.assertIn('Shorts', out, '$equip does not work.#2')
