@@ -385,3 +385,26 @@ This day everyone abstinences from their favorites and rethinks real wealth.
 This day we celebrate the effect of various substances.
 
 Organic and Chemic Experiments are made and all people have red eyes with sharp fangs. 
+
+## Peace among Worlds day
+
+ - 10.Oct
+
+This day, not only peace between upper and lower worlds were tightened,
+also the people realized that peace is the consequence of being connected,
+and exposed via the hackers and chappy.
+Like Rick foretold: "Peace among worlds."
+In retrospect, this day, the whole world cheered and loved each other.
+
+
+## Wedding Day
+
+ - 11.Oct
+
+This day, men and women realized how nice it is to play with open hearts and cards.
+and how great things work out, if you tell your feelings, wishes and dreams.
+and some fell so in love, men and women had to cry happy tears,
+so we are celebrating the marriage.
+
+
+## 
