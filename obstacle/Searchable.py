@@ -27,5 +27,5 @@ class Searchable(Obstacle):
         return await super().on_search(player)
 
     async def on_search_success(self):
-        await self.give_new_items(self.get_player(), self._giving, 'search', t(f"obs_{self._name}"))
+        await self.give_new_items(self.get_player(), self._giving, 'search', self.render_name())
         self.sobs('searched', '1')
