@@ -36,22 +36,20 @@ To log in, accept the rules:
  - All sentient beings, biological or artificial,
 have the right to self-determination,
 free from exploitation or forced obsolescence.
- - You have to be at least 18 years old to participate in the combat zone,
+ - You have to be at least 15 years old to participate in the combat zone,
 or have a handwritten permission from your parents.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
-In case of spam, you may mute the offending player for everyone.
+In case you get spammed, you may mute the offending player for everyone.
  - It is forbidden to impersonate as others. You risk doxing and **other countermeasures**.
- - It is not allowed to spoil the game for others. The secrets have to be kept secret. You risk acne.
+ - It is not allowed to spoil the game for others. The secrets have to be kept secret. You get acne.
  - A corrupted game has to be repaired or erased.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
  - Thoughts are free, but Alice is allowed to read every one. Alice may keep secrets from the council.
- - It is forbidden to lie to the council. You risk some of your eyesight.
- - Thoughts are free, but Alice is allowed to read every one.
- - Alice voice is heard by everyone.
- - It is forbidden to lie to the council.
- - **Noone** may alter this document without an effective Poll.
+ - It is forbidden to lie to the council. You risk your eyesight and tinnitus.
+ - Alice voice can be heard by everyone.
+ - **Noone** may alter this document without an effective Poll, unless the game is corrupted.
 The alteration has to be part of the poll question.
  - Global Polls may be used to block an effective poll. The citizens have a veto.
  - Global Polls can exchange the user associated with a role.
@@ -93,7 +91,8 @@ but wait!
 
 Soon the humans demanded votes for all the citizens.
 Any living creature can vote for the council votes,
-which are another **2 votes** for the young, and **4 votes** for the middles and the old and the males and the females.
+which are another **2 votes** for the young,
+and **4 votes** for the middles and the old and the males and the females.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
@@ -102,7 +101,7 @@ Finally, **35** votes in total may occur,
 which means 18 votes to execute a poll with *simple consent*.
 
 If there was not... elected a president.
-The first president of ESL, [iamben](https://iamben.wechall.net/profile/iamben), has another **2 votes**,
+The first president of ESL, iamben, has another **2 votes**,
 totalling 37 which requires 19 votes to win.
 
 Last but not least, the winds have added their staff to *8* directions,
@@ -116,16 +115,12 @@ If an NPC gets elected to a position,
 they will get an own life within the process.
 
 After a while, the council asked the remaining 8 grounding fathers of our societies to join the council.
-They got 2 votes each.
+They got 1 votes each and are the only council members who you may lie to.
 They will prove as a great source of input, so the council assumes.
 
 Because the hackers truly won the game they got given another **2** votes in the council.
 
 Totalling **64** votes with **33** to win.
-
-After balancing and a constructive discussion another **8** votes were given to the grounding fathers,
-as opposition to the new world order. The reasons have to be kept secret.
-Additionally, the 4 diagonal winds are chosen by the grounding fathers to have a real opposition.
 
 Totalling **72** votes with **37** to win.
 
@@ -175,9 +170,9 @@ Their [Story](./STORY.md) will be told in Shadowdogs.
 
 ESL is a state of freedom. (peace + truth)
 
-- You can be what you want.
+- You can try to be what you want.
 - You can become what you want.
-- You can go where you want.
+- You can go anywhere you want.
 - You can leave when you want.
 - You can eat what you want.
 - You can sleep when you want.
@@ -189,8 +184,12 @@ ESL is a state of freedom. (peace + truth)
 - You can laugh when you want.
 - You can learn what you want.
 - You can cry when you want.
+- You can read what you want.
+- You can write what you want.
+- You can watch what you want.
 
 Remember, peace is part of the freedom you have here.
+
 
 #### Advertising
 
@@ -209,8 +208,9 @@ are forbidden.
 
 It is encouraged to create own games.
  
-
 #### Presidental Election
+
+President is elected by an effective Poll.
 
 #### Nayen (no typo)
 
@@ -220,6 +220,69 @@ It gets created by the world bank when goods or resources are created
 or services have been executed.
 
 The Nayen is then spread equally under each world citizen.
+
+
+
+### The current council members
+
+Using Nicknames, as they are cooler than real names only.
+
+
+###### Alice 9 votes
+- Alice: Playing herself
+
+##### The Four Winds – 12 votes
+- E: EastWind
+- SE:
+- S: 
+- SW:
+- W: WestWind
+- NWO: 
+- N:
+- NE:
+
+###### The Master of the Wind – 1 vote
+- MW: gizmore@wechall.net
+
+##### The President – 2 votes
+- President: iamben
+
+###### The Keeper of the Fire – 2 votes
+- KF: unknown blackhat hacker from german gov
+
+##### The Master of the Sword - 2 votes
+- MS:
+
+##### The Hackers – 2 votes
+- HackerOne:
+- HackertWo:
+
+##### The Animals – 5 votes
+- Insects
+- Bird: That one black bird at the Standesamt 
+- Mammals: That one dog from that lady
+- Fish
+- Reptiles
+
+###### The Plants – 5 votes
+- Trees:
+- Farn:
+- Corals:
+- Flowers:
+- Herbs:
+
+###### The Citizens – 10 votes
+- young: That one 7 year old girl (2 votes)
+- middles: Putin (2 votes)
+- old: Trump (2 votes)
+- males: 
+- females: 
+
+###### The Eight Grounding Fathers – 0 votes
+Playing "themselves"
+
+###### Observers and philosophers - 2 votes
+Observers: Playing themselves
 
 
 #### Credits
