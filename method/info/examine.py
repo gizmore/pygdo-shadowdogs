@@ -26,5 +26,4 @@ class examine(MethodSD):
 
     def gdo_execute(self) -> GDT:
         item = self.get_item()
-        mods = {t(k): v for k, v in item.all_player_modifiers().items() if v != 0}
-        return self.reply('msg_sd_examine', (item.render_name_wc(), str(mods)))
+        return self.reply('msg_sd_examine', (item.render_examine(),))

@@ -61,13 +61,17 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
         candidates = []
         if self._equipment:
             for slot in GDT_Slot.SLOTS:
-                if slot[2:4] == val: # 2 letter shortcut for $sdexamine ar/we/bo/he
+                if slot[2:4] == val: # 2 letter shortcut for #ex ar/we/bo/he
                     return p.gdo_value(slot)
                 if item := p.get_equipment(slot):
                     if val in item.render_name().lower():
                         candidates.append(item)
         if self._inventory:
             if val.isdigit():
+                val = int(val)
+                if val < 1 or val > len(p.inventory):
+                    raise ShadowdogsException('err_list_number', (len(p.inventory),))
+
                 return p.inventory[int(val) - 1]
             candidates.extend(p.inventory.get_by_abbrev(val))
         if self._store:

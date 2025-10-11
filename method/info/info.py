@@ -21,6 +21,6 @@ class info(MethodSD):
     async def sd_execute(self):
         pl = self.get_player()
         loc = self.get_location()
-        obs = [o.render_name() for o in loc.obstacles(pl.get_action_name(), pl)] or self.t('nothing')
+        obs = [o.render_name() for o in loc.obstacles(pl.get_action_name(), pl)] or [self.t('nothing')]
         return self.reply('msg_sd_info', (loc.render_name(), loc.render_descr(pl), Arrays.human_join(obs) ))
 
