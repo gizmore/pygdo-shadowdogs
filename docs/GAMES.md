@@ -7,6 +7,7 @@ Games featured on pygdo chats and friends.
  - various cardgames via Dog, PyGDO Chatbot
  - Shadowdogs via Dog, the PyGDO Chatbot
  - Slapwarz (tm)
+ - NWO-TruthorDare: You can simply ask or command someone you want to torture.
 
 
 ## CardGames

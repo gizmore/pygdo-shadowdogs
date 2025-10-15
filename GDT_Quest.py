@@ -3,10 +3,11 @@ from gdo.base.GDT import GDT
 from gdo.core.GDT_Object import GDT_Object
 from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
+from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 
-class GDT_Quest(GDT_Object):
+class GDT_Quest(WithPlayerGDO, GDT_Object):
 
     def __init__(self, name: str):
         super().__init__(name)
@@ -16,6 +17,10 @@ class GDT_Quest(GDT_Object):
         if val is None:
             return GDT.EMPTY_LIST
         if val.isdigit():
-            if gdo := SD_QuestDone.table().select().join_object('qd_quest').fetch_as(SD_Quest.table()).where(f"qd_player={Shadowdogs.CURRENT_PLAYER.get_id()}").limit(1, int(val)-1).first().exec().fetch_object():
-                return [gdo]
-        return SD_QuestDone.table().select().join_object('qd_quest').fetch_as(SD_Quest.table()).where(f"qd_player={Shadowdogs.CURRENT_PLAYER.get_id()} AND LOWER(q_name) LIKE '%{GDO.escape(val.lower())}%'").exec().fetch_all()
+            return [self.get_player().get_quests()[int(val) - 1]]
+        back = []
+        val = val.lower()
+        for quest in self.get_player().get_quests():
+            if val in quest.render_name().lower() or val in quest.render_descr().lower():
+                back.append(quest)
+        return back

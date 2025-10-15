@@ -7,6 +7,7 @@ from gdo.shadowdogs.city.y2064.Peine.npcs.home.Theodor import Theodor
 from gdo.shadowdogs.city.y2064.Peine.npcs.home.Thomas import Thomas
 from gdo.shadowdogs.locations.Bedroom import Bedroom
 from gdo.shadowdogs.locations.Location import Location
+from gdo.shadowdogs.obstacle.Bed import Bed
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.obstacle.Searchable import Searchable
 from gdo.shadowdogs.obstacle.minigame.Computer import Computer
@@ -29,7 +30,8 @@ class Home(Bedroom,Location):
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [
-        Searchable('Fridge').giving('Coke,LargeBeer,Sandwich'),
+        Searchable('fridge').giving('Coke,LargeBeer,Sandwich'),
+        Bed('bed'),
         # Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
     ]
 

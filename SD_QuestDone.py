@@ -67,6 +67,7 @@ class SD_QuestDone(WithShadowFunc, GDO):
 
     @classmethod
     def change_state(cls, quest: 'SD_Quest', player: 'SD_Player', key: str) -> 'SD_QuestDone':
+        player.reload_quests()
         qd = cls.for_player(quest, player)
         if not qd.gdo_val(key):
             qd.save_val(key, Time.get_date())

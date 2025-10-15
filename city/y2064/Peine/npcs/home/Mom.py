@@ -14,7 +14,7 @@ class Mom(TalkingNPC):
             await self.say('sdqs_etablisment_work')
             await self.give_word(player, 'home')
         elif text == 'home':
-            if self.q().is_accepted():
+            if self.q().is_accepted(player):
                 await self.say('sdqs_etablisment_home2')
             else:
                 await self.say('sdqs_etablisment_home1')

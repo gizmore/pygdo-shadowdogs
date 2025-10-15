@@ -11,6 +11,7 @@ from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING, Generator, Any, Self
 
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
+from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.item.classes.Nuyen import Nuyen as NY
 
@@ -78,7 +79,8 @@ class SD_Player(WithShadowFunc, GDO):
     cyberdeck: 'Inventory'
     party_pos: int
     distance: int
-    _combat_stack: CombatStack
+    _combat_stack: CombatStack|None
+    quests: list[SD_Quest]|None
 
     Loot = None
     def loot(self) -> 'type[Loot]':
@@ -98,6 +100,7 @@ class SD_Player(WithShadowFunc, GDO):
         'party_pos',
         'distance',
         '_combat_stack',
+        'quests',
     )
 
     def __init__(self):
@@ -113,6 +116,8 @@ class SD_Player(WithShadowFunc, GDO):
         self.command_eta = 0
         self.modified = {}
         self._combat_stack = None
+        self.quests = None
+
 
     def combat_stack(self) -> CombatStack:
         if self._combat_stack is None:
@@ -239,6 +244,23 @@ class SD_Player(WithShadowFunc, GDO):
 
     def is_leader(self) -> bool:
         return self.get_party().get_leader() == self
+
+    ##########
+    # Quests #
+    ##########
+    def get_quests(self) -> list[SD_Quest]:
+        if self.quests is None:
+            self.quests = self.load_quests()
+        return self.quests
+
+    def load_quests(self):
+        from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
+        return (SD_QuestDone.table().select().join_object('qd_quest').fetch_as(SD_Quest.table()).
+                where(f"qd_player={self.get_id()} AND q_city='{self.get_city().get_city_key()}' AND qd_accepted IS NOT NULL").exec().fetch_all())
+
+    def reload_quests(self):
+        self.quests = None
+        return self
 
     #######
     # GDO #

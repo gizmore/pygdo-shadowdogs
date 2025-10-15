@@ -19,9 +19,7 @@ class Inventory(WithShadowFunc, ItemList):
 
     def remove_item(self, item_name: str, count: int=1) -> Item|None:
         if item := self.get_by_name(item_name):
-            if item.get_count() < count:
-                return None
-            if item.get_count() == count:
+            if item.get_count() <= count:
                 self.remove(item)
                 return item
             item.increment('item_count', -count)

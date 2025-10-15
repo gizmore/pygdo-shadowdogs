@@ -62,3 +62,16 @@ sdqs_moellring_what = "How can i help you?"
 ########
 sdqt_rent = "Rent"
 sdqd_rent = "Pay the rent of %s within %s."
+
+############
+# Delivery #
+############
+sdqt_delivery = "Delivery"
+sdqd_delivery = "Deliver %s to the barkeeper in the Garage pub."
+sdqs_barkeeper_else = "Sup young man?"
+sdqs_barkeeper_home = "You are looking for a place to live? I can hold my ears open."
+sdqs_barkeeper_hello = "Yeah, hello, what do you want?"
+sdqs_barkeeper_work1 = "Oh, you are looking for a job? You can do a little **work** for me if you quickly need a few bucks."
+sdqs_barkeeper_work2 = "Ok, our beer is almost empty and the next delivery will be too late. Can you buy %d LargeBeer from the Jawoll Market?"
+sdqs_barkeeper_accept = "Alright, please hurry a little. The evening will start soon."
+sdqs_barkeeper_deny = "Aww... but good luck finding a job!"

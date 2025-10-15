@@ -7,11 +7,14 @@ from gdo.core.GDT_Name import GDT_Name
 from gdo.core.GDT_String import GDT_String
 from gdo.date.GDT_Created import GDT_Created
 from gdo.shadowdogs.GDT_City import GDT_City
-from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class SD_Quest(WithShadowFunc, GDO):
