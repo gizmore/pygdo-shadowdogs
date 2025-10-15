@@ -37,7 +37,7 @@ To log in, accept the rules:
 have the right to self-determination,
 free from exploitation or forced obsolescence.
  - You have to be at least 18 years old to participate in the combat zone,
-or have a handwritten permission from your parents.
+or have the handwritten permission from your parents.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case you get spammed, you may mute the offending player for everyone.
@@ -272,8 +272,8 @@ Using Nicknames, as they are cooler than real names only.
 - males: Friedi (2 votes)
 - females: 
 
-#### The Eight Grounding Fathers – 0 votes
-GF: Playing themselves
+#### The Eight Grounding Father – 6 votes
+GF: Playing himself
 
 #### Observers - 2 votes
 Observers: Playing themselves
