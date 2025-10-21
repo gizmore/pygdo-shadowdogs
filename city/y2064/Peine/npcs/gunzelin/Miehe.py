@@ -8,12 +8,14 @@ from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 class Miehe(TalkingNPC):
 
+    MIN_LEVEL = 1
+
     def sd_quest(self) -> type[SD_Quest]|None:
         return BaM
 
     async def on_say(self, player: SD_Player, text: str):
 
-        if player.gb('p_mat') <= 1 or not self.qv_get('init'):
+        if player.gb('p_mat') < self.MIN_LEVEL or not self.qv_get('init'):
             await self.say('sdqs_miehe_nono')
             await self.give_word(player, 'learn')
             await self.q().accept()
@@ -30,7 +32,7 @@ class Miehe(TalkingNPC):
             task1 = int(self.qv_get('task1'))
             task2 = int(self.qv_get('task2'))
             solution = str(2 ** task2)
-            solution += ['k', 'm', 'g', 't', 'p'][task1-1]
+            solution += ['k', 'm', 'g', 't', 'p'][task1-2]
             time = float(self.qv_get('t'))
             taken = Application.TIME - time
             if text == solution:
@@ -41,7 +43,7 @@ class Miehe(TalkingNPC):
                     await self.q().accomplished()
                     player.incb('p_mat', 1)
             else:
-                await self.say('sdqs_miehe_wrong_answer', (solution,))
+                await self.say('sdqs_miehe_wrong_answer')
         else:
             await self.say('sdqs_miehe_else', (player.render_name_short(),))
         self.qv_set('init', '1')

@@ -1,5 +1,6 @@
 import unittest
 
+from gdo.base.Util import Random
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug
 
@@ -66,8 +67,24 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('Math', out, 'courses no work.')
         out = cli_plug(gizmore, '$sdgmi giz 1000xNuy')
         self.assertIn('1000', out, 'gmi no work.')
+        out = cli_plug(gizmore, '$sdtalk Mi hello')
+        self.assertIn('Besser als Miehe', out, 'talk#1 no work.')
         out = cli_plug(gizmore, '$sdlearn mat')
         self.assertIn('Math', out, 'learn no work.')
+        out = cli_plug(gizmore, '$sdgmk giz 10')
+        self.assertIn('You gave', out, 'learn no work.')
+        out = cli_plug(gizmore, '$sdlvlup --confirm=1 mat')
+        self.assertIn('Math', out, 'lvlup does not work.')
+        out = cli_plug(gizmore, '$sdtalk Mi hello')
+        self.assertIn('learn', out, 'talk#2 no work.')
+        Random.init(31337)
+        out = cli_plug(gizmore, '$sdtalk Mi learn')
+        self.assertIn('powered by', out, 'talk#2 no work.')
+        out = cli_plug(gizmore, '$sdtalk Mi 2t')
+        self.assertIn('correct', out, 'talk#3 no work.')
+        self.assertIn('accomplish', out, 'talk#3.1 no work.')
+        self.assertIn('rewarded with skill', out, 'talk#3.2 no work.')
+
 
 
 if __name__ == '__main__':

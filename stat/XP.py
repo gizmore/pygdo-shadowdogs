@@ -14,3 +14,4 @@ class XP(WithShadowFunc, Modifier):
     def __init__(self, name: str):
         super().__init__(name)
         self.bytes(4)
+        self.signed(False)

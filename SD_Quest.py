@@ -2,6 +2,8 @@ from importlib import import_module
 
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
+from gdo.base.Trans import t
+from gdo.base.Util import Arrays
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Name import GDT_Name
 from gdo.core.GDT_String import GDT_String
@@ -97,7 +99,7 @@ class SD_Quest(WithShadowFunc, GDO):
     def reward_xp(self) -> int:
         return 0
 
-    def reward_skill(self) -> dict[str, int]:
+    def reward_skills(self, player: 'SD_Player') -> dict[str, int]:
         return GDT.EMPTY_DICT
 
     def reward_source(self) -> str:
@@ -121,10 +123,18 @@ class SD_Quest(WithShadowFunc, GDO):
         await self.send_to_player(self.get_player(), 'msg_sd_quest_done', (self.render_title(),))
 
     async def on_reward(self):
+        player = self.get_player()
         if items := self.reward():
-            await self.give_new_items(self.get_player(), items, 'reward', self.reward_source())
+            await self.give_new_items(player, items, 'reward', self.reward_source())
         if xp := self.reward_xp():
-            await self.give_xp(self.get_player(), xp)
+            await self.give_xp(player, xp)
+        if skills := self.reward_skills(player):
+            out = []
+            for field, inc in skills.items():
+                player.incb(field, inc)
+                out.append(f"{t(field)}({inc})")
+            player.save()
+            await self.send_to_player(self.get_player(), 'msg_sd_quest_reward_skill', (Arrays.human_join(out),))
 
     def is_accepted(self, player: 'SD_Player') -> bool:
         return SD_QuestDone.for_player(self, player or self.get_player()).is_accepted()

@@ -2,4 +2,7 @@ from gdo.shadowdogs.engine.Modifier import Modifier
 
 
 class Karma(Modifier):
-    pass
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self.signed(False)

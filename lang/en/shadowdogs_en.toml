@@ -10,6 +10,7 @@ err_sd_unknown_item = "Item not found."
 err_sd_no_slot_defined_for_item = "Item %s has no slot."
 err_sd_player_busy = "You are still busy for %s"
 err_sd_item_not_usable = "%s is not usable."
+
 ############
 # Factions #
 ############
@@ -68,6 +69,10 @@ p_thirst = "Thirst"
 p_hunger = "Hunger"
 p_alcohol = "Alcohol"
 
+##########
+# Quests #
+##########
+msg_sd_quest_reward_skill = "You were rewarded with skill or attribute boost: %s."
 
 #########
 # Sleep #
@@ -458,6 +463,14 @@ msg_sd_gml = "The party of %s %s %s."
 mt_shadowdogs_gmi = "GM Item"
 md_shadowdogs_gmi = "GM Command - Create an item for a player."
 msg_sd_gmi_success = "You successfully gave %s for %s."
+
+#######
+# GMK #
+#######
+mt_shadowdogs_gmk = "GM Karma"
+md_shadowdogs_gmk = "GM Command - Give a player some cheaty karma."
+msg_sd_gmk_you = "The GM %s gave you %d karma and you now have %d."
+msg_sd_gmk = "You gave %s %d karma and they now have %d."
 
 #############
 ### Nuyen ###
