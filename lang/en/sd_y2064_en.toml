@@ -32,3 +32,17 @@ y2064_peine_jawoll_outside = "You found your discount supermarket directly in fr
 y2064_peine_garagepub = "GaragePub"
 y2064_peine_garagepub_inside = "You are inside the GaragePub. Rock music is playing. You see a bartender, and Matthew and Marcus playing pool billard."
 y2064_peine_garagepub_outsids = "You are outside the GaragePub. A cheap punk and rock scene pub. Enough room for 80 or 100 people, if they stick on each other."
+
+###############
+# Marketplace #
+###############
+y2064_peine_marketplace = "Marketplace"
+y2064_peine_marketplace_inside = "You enter the Moellring facility."
+y2064_peine_marketplace_outside = "You find the marketplace. You see various restaurants and Moellring, a Construction Shop.."
+
+############
+# Gunzelin #
+############
+y2064_peine_gunzelinschool = "GunzelinSchool"
+y2064_peine_gunzelinschool_inside = "You enter the school and goto class."
+y2064_peine_gunzelinschool_outside = "You find the gunzelin middleschool, where gizmore finally gained a middle school diploma at the age of 20."

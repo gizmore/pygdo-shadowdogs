@@ -20,7 +20,7 @@ class Location(WithShadowFunc):
 
     GIVING: str = GDO.EMPTY_STR
 
-    NPCS: list['type[TalkingNPC]'] = GDO.EMPTY_LIST
+    NPCS: 'list[type[TalkingNPC]]' = GDO.EMPTY_LIST
     NPC_INSTANCES: 'list[TalkingNPC]'
 
     OBSTACLES_INSIDE: list[Obstacle] = GDO.EMPTY_LIST

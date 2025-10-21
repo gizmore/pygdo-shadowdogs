@@ -7,24 +7,39 @@ if TYPE_CHECKING:
 
 class GDT_Race(GDT_Enum):
 
-    BONUS: dict[str,dict[str,int]] = {
-        'mob':      {},
-        'animal':   {},
-        'drone':    {},
-        'dragon':   {},
+    BASE: dict[str, dict[str, int]] = {
+        'mob': {},
+        'animal': {},
+        'drone': {},
+        'dragon': {},
 
-        'elve':     {'bod': 0, 'mag': 2, 'str': 1, 'dex': 1, 'qui': 1, 'int': 6, 'wis': 2, 'cha': 2, 'luc': 1, 'max_hp': 1, 'max_mp': 5, 'min_dmg': 0, 'max_dmg': 0},
-        'halfelve': {'bod': 1, 'mag': 1, 'str': 2, 'dex': 1, 'qui': 1, 'int': 5, 'wis': 1, 'cha': 2, 'luc': 1, 'max_hp': 1, 'max_mp': 2, 'min_dmg': 0, 'max_dmg': 1},
-        'human':    {'bod': 1, 'mag': 0, 'str': 3, 'dex': 1, 'qui': 1, 'int': 4, 'wis': 1, 'cha': 1, 'luc': 1, 'max_hp': 2, 'max_mp': 1, 'min_dmg': 0, 'max_dmg': 1},
-        'dwarf':    {'bod': 2, 'mag': 0, 'str': 4, 'dex': 1, 'qui': 0, 'int': 3, 'wis': 1, 'cha': 1, 'luc': 2, 'max_hp': 2, 'max_mp': 1, 'min_dmg': 0, 'max_dmg': 1},
-        'halforc':  {'bod': 2, 'mag':-1, 'str': 5, 'dex': 0, 'qui': 0, 'int': 2, 'wis': 0, 'cha': 0, 'luc': 1, 'max_hp': 3, 'max_mp': 0, 'min_dmg': 1, 'max_dmg': 1},
-        'orc':      {'bod': 2, 'mag':-2, 'str': 6, 'dex': 0, 'qui': 0, 'int': 1, 'wis': 0, 'cha': 0, 'luc': 1, 'max_hp': 3, 'max_mp': 0, 'min_dmg': 1, 'max_dmg': 2},
-        'troll':    {'bod': 3, 'mag':-3, 'str': 7, 'dex': 0, 'qui': 0, 'int': 0, 'wis': 0, 'cha': 0, 'luc': 1, 'max_hp': 4, 'max_mp': 0, 'min_dmg': 2, 'max_dmg': 3},
+        'elve':     {'p_bod': 1, 'p_mag': 2, 'p_str': 1, 'p_dex': 1, 'p_qui': 1, 'p_int': 6, 'p_wis': 2, 'p_cha': 2, 'p_luc': 1},
+        'halfelve': {'p_bod': 1, 'p_mag': 1, 'p_str': 2, 'p_dex': 1, 'p_qui': 1, 'p_int': 5, 'p_wis': 1, 'p_cha': 2, 'p_luc': 1},
+        'human':    {'p_bod': 1, 'p_mag': 0, 'p_str': 3, 'p_dex': 1, 'p_qui': 1, 'p_int': 4, 'p_wis': 1, 'p_cha': 1, 'p_luc': 1},
+        'dwarf':    {'p_bod': 2, 'p_mag': 0, 'p_str': 4, 'p_dex': 1, 'p_qui': 0, 'p_int': 3, 'p_wis': 1, 'p_cha': 1, 'p_luc': 2},
+        'halforc':  {'p_bod': 2, 'p_mag': -1, 'p_str': 5, 'p_dex': 0, 'p_qui': 0, 'p_int': 2, 'p_wis': 0, 'p_cha': 0, 'p_luc': 1},
+        'orc':      {'p_bod': 2, 'p_mag': -2, 'p_str': 6, 'p_dex': 0, 'p_qui': 0, 'p_int': 1, 'p_wis': 0, 'p_cha': 0, 'p_luc': 1},
+        'troll':    {'p_bod': 3, 'p_mag': -3, 'p_str': 7, 'p_dex': 0, 'p_qui': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0, 'p_luc': 1},
+    }
+
+    BONUS: dict[str, dict[str, int]] = {
+        'mob': {},
+        'animal': {},
+        'drone': {},
+        'dragon': {},
+
+        'elve':     {'p_dex': 1, 'p_int': 2, 'p_wis': 1, 'max_hp': 1, 'p_max_mp': 5, 'p_min_dmg': 0, 'p_max_dmg': 0},
+        'halfelve': {'p_dex': 1, 'p_int': 1, 'p_cha': 1, 'p_mag': 1, 'p_max_hp': 1, 'p_max_mp': 2, 'p_min_dmg': 0, 'p_max_dmg': 1},
+        'human':    {'p_dex': 1, 'p_wis': 1, 'p_cha': 1, 'p_luc': 1, 'p_max_hp': 2, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
+        'dwarf':    {'p_str': 2, 'p_bod': 1, 'p_wis': 1, 'p_max_hp': 2, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
+        'halforc':  {'p_str': 2, 'p_bod': 1, 'p_luc': 1, 'p_max_hp': 3, 'p_max_mp': 0, 'p_min_dmg': 1, 'p_max_dmg': 1},
+        'orc':      {'p_str': 3, 'p_bod': 1, 'p_max_hp': 3, 'p_max_mp': 0, 'p_min_dmg': 1, 'p_max_dmg': 2},
+        'troll':    {'p_str': 3, 'p_bod': 1, 'p_max_hp': 4, 'p_max_mp': 0, 'p_min_dmg': 2, 'p_max_dmg': 3},
     }
 
     GENDER: dict[str,dict[str,int]] = {
-        'male':   {'bod': 1, 'str': 1},
-        'female': {'mag': 1, 'int': 1, 'cha': 2, 'luc': 1},
+        'male':   {'p_bod': 1, 'p_str': 1},
+        'female': {'p_mag': 1, 'p_int': 1, 'p_cha': 2, 'p_luc': 1},
     }
 
     _npcs: bool
@@ -62,4 +77,4 @@ class GDT_Race(GDT_Enum):
 
     def apply(self, player: 'SD_Player'):
         for key, val in self.all_bonuses(player):
-            player.apply(f"p_{key}", val)
+            player.apply(key, val)

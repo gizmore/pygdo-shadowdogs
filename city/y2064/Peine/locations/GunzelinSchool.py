@@ -1,11 +1,14 @@
+from gdo.shadowdogs.city.y2064.Peine.npcs.gunzelin.Miehe import Miehe
 from gdo.shadowdogs.locations.School import School
-from gdo.shadowdogs.skill.Math import Math
-from gdo.shadowdogs.skill.Skill import Skill
+from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 
 class GunzelinSchool(School):
 
-    LESSONS: list[Skill] = [
-        Math,
+    NPCS: 'list[type[TalkingNPC]]' = [
+        Miehe,
     ]
 
+    LESSONS: list[tuple[str, int]] = [
+        ('p_mat', 350),
+    ]

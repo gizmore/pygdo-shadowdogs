@@ -1,14 +1,13 @@
-### Rules
+     ### Rules
 
 #### Real VR
 
 These are the rules of the reality, or simulation, as we call it.
 
- - Laws of your country apply.
  - It is forbidden to cut the hedges too much.
  - it is allowed to feed ducks.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
- - Fights are sorted out with rock, paper, scissors.
+ - Fights between citizen are sorted out without weapons
 
 
 #### The Internet
@@ -55,9 +54,10 @@ The alteration has to be part of the poll question.
  - Global Polls can exchange the user associated with a role.
  - Global Polls can only be voted by non-council members.
  - Silence is not lying. For breaking the silence you might get rewarded.
- - If the new system fails, the grounding fathers may rewrite this document completely. Failing means: A political system fails if bread beer and games don't taste anymore.
+ - If the new system fails, the grounding fathers may rewrite this document completely.
+Failing means: A political system fails if bread beer and games don't taste anymore.
 
-**SIGNED**
+**UNSIGNED**
 
 ##### Government Weights
 

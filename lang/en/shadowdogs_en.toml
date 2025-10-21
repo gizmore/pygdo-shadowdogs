@@ -57,7 +57,7 @@ p_aim = "Aiming"
 p_fig = "Fighting"
 p_hac = "Hacking"
 p_tra = "Trading"
-p_mat = "Math"
+p_mat = "Maths"
 p_cry = "Crypto"
 
 
@@ -227,6 +227,7 @@ mt_shadowdogs_lvlup = "Level-Up"
 md_shadowdogs_lvlup = "Increase the level of a skill or attribute."
 err_sd_lvlup_karma = "You want to level up %s from %d to %d, but you need %d karma and only have %d."
 err_sd_lvlup_cap = "You have reached your max level for %s, which is %d."
+err_sd_lvlup_too_low = "You have to leearn %s first."
 msg_sd_lvlup = "You used %d karma and leveled up %s from %d to %d."
 msg_sd_gain_xp = "You gained %d XP. %s "
 msg_sd_gained_karma = "You gained %d karma and now have %d."
@@ -349,6 +350,21 @@ mt_shadowdogs_search = "Search"
 md_shadowdogs_search = "Search a location or obstacle."
 msg_sd_search_nothing = "You searched the %s but couldn't find anything useful or interesting."
 
+###########
+# Courses #
+###########
+mt_shadowdogs_courses = "Courses"
+md_shadowdogs_courses = "List available courses to learn in a location."
+msg_sd_courses = "Courses: %s."
+
+#########
+# Learn #
+#########
+mt_shadowdogs_learn = "Learn"
+md_shadowdogs_learn = "Learn a new skill via a course in a location."
+err_sd_learn_money = "You need %s to learn %s but you only have %s"
+msg_sd_learned = "You pay %s and learn %s. Your level of this is %d now and you have %s left."
+
 #######
 # Say #
 #######
@@ -380,6 +396,14 @@ msg_sd_quest_denied = "You have denied the **%s** quest."
 mt_shadowdogs_quest = "Quest Info"
 md_shadowdogs_quest = "Show information for a quest."
 msg_sd_quest = "%s: %s"
+
+########
+# Give #
+########
+mt_shadowdogs_give = "Give Items"
+md_shadowdogs_give = "Give items to an NPC or player."
+msg_sd_give_item = "You give **%s** to **%s**.%s"
+sdqs_given_thx = "Thank you very much."
 
 #############
 # Party Msg #

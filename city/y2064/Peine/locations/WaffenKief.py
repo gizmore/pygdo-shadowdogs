@@ -1,7 +1,12 @@
 from gdo.shadowdogs.locations.Store import Store
+from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 
 class WaffenKief(Store):
+
+    NPCS: 'list[type[TalkingNPC]]' = [
+
+    ]
 
     ITEMS: list[tuple[str,int]] = [
         ('BronzeKnuckles', 100),

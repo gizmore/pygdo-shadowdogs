@@ -1,6 +1,5 @@
-from gdo.base.Util import html, Random
+from gdo.base.Trans import t
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
-from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
@@ -86,18 +85,29 @@ class Factory(WithShadowFunc):
             count, full_item_name = full_item_name.split('x', 1)
         data = full_item_name.split(Shadowdogs.MODIFIER_SEPERATOR)
         mods = data[1] if len(data) > 1 else None
-        key = data[0]
-        found = False
-        for key in items.ITEMS.keys():
-            if key.lower() == data[0].lower():
-                found = True
+        key = data[0].lower()
+        firsts = []
+        candidates = []
+        for k in items.ITEMS.keys():
+            name = t(k).lower()
+            if name == key:
+                candidates = [k]
                 break
-        if not found:
-            raise ShadowdogsException('err_sd_invalid_item_name', (html(data[0]),))
+            if name.startswith(key):
+                firsts.append(k)
+                candidates.append(k)
+            elif key in name:
+                candidates.append(k)
+        if len(firsts) == 1:
+            candidates = firsts
+        if not candidates:
+            raise ShadowdogsException('err_sd_invalid_item_name', (t(full_item_name),))
         if not mapping.is_valid(mods):
             raise ShadowdogsException('err_sd_invalid_modifier', (mods,))
+        if len(candidates) > 1:
+            raise ShadowdogsException('err_sd_ambiguous', (len(candidates), ", ".join([t(c) for c in candidates[:5]]),))
         player_id = player.get_id() if player else None
-        return cls.create_item(key, count, mods, player_id, equipped)
+        return cls.create_item(candidates[0], count, mods, player_id, equipped)
 
     @classmethod
     def create_item(cls, item_name: str, count: int=1, mods: str=None, player_id: str=None, equipped: bool=False):

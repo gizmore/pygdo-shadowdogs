@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING, Iterator, Mapping
 
 from gdo.base.GDO import GDO
 from gdo.base.Trans import t
-from gdo.base.Util import Arrays
+from gdo.base.Util import Arrays, Strings
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 
 from gdo.shadowdogs.SD_Item import SD_Item
@@ -107,13 +107,6 @@ class Item(SD_Item):
     def sd_attack_time(self) -> int:
         return self.dmi('at')
 
-    def sd_commands(self) -> list[str]:
-        cmds = []
-        for base in self.__class__.__mro__:
-            if "sd_commands" in base.__dict__ and base != 'Item':
-                cmds.extend(base.sd_commands(self))
-        return sorted(set(cmds))
-
     def get_equip_time(self) -> int:
         return self.dmi('et') or 0
 
@@ -177,4 +170,11 @@ class Item(SD_Item):
             if k not in nmod:
                 mods.append(f"{t(k)}: {v}")
         return t('sd_examine_string', (self.render_name_wc(), t(self.__class__.__name__), self.render_description(), ", ".join(mods), str(price)))
+
+    @classmethod
+    def get_count_from_item_name(cls, item_name: str):
+        count = 1
+        if item_name[0].isdigit():
+            count = int(Strings.substr_to(item_name, 'x'))
+        return count
 

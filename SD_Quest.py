@@ -13,6 +13,9 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 from typing import TYPE_CHECKING
+
+from gdo.shadowdogs.item.Item import Item
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
@@ -94,6 +97,9 @@ class SD_Quest(WithShadowFunc, GDO):
     def reward_xp(self) -> int:
         return 0
 
+    def reward_skill(self) -> dict[str, int]:
+        return GDT.EMPTY_DICT
+
     def reward_source(self) -> str:
         return self.render_name()
 
@@ -140,6 +146,12 @@ class SD_Quest(WithShadowFunc, GDO):
     def qv_set(self, key: str, val: str, player: 'SD_Player'=None):
         SD_QuestVal.qv_set(self, player or Shadowdogs.CURRENT_PLAYER, key, val)
         return self
+
+    ########
+    # Give #
+    ########
+    async def on_give(self, item: Item) -> bool:
+        return False
 
     ##########
     # Render #

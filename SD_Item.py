@@ -110,3 +110,11 @@ class SD_Item(WithShadowFunc, GDO):
         if mod := self.gdo_val('item_mods'):
             return t('item_name_modified', (name, t("sd_of_"+mod)))
         return name
+
+    def sd_commands(self) -> list[str]:
+        cmds = []
+        for base in self.__class__.__mro__:
+            if "sd_commands" in base.__dict__ and base != 'SD_Item':
+                cmds.extend(base.sd_commands(self))
+        return sorted(set(cmds))
+

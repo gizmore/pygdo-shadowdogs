@@ -24,7 +24,7 @@ class status(MethodSD):
             p.g('p_marm'), p.g('p_farm'),
             p.g('p_min_dmg'), p.g('p_max_dmg'),
             p.gb('p_karma'), p.gb('p_xp'),
-            p.g('p_weight') / 1000, p.g('p_max_weight') / 1000,
+            p.g('p_weight') / 1000, p.weight.max_weight(p) / 1000,
             Shadowdogs.display_nuyen(p.get_nuyen()), Shadowdogs.display_nuyen(p.get_bank_nuyen()),
             p.gb('p_hunger'), p.gb('p_thirst'),
         ))

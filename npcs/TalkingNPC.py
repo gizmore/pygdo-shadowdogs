@@ -6,6 +6,7 @@ from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.city.y2064.Peine.quests.Awakening import Awakening
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.item.Item import Item
 
 
 class TalkingNPC(SD_NPC):
@@ -51,3 +52,9 @@ class TalkingNPC(SD_NPC):
 
     async def digesting(self):
         return self
+
+    async def on_give(self, item: Item):
+        if not await self.q().on_give(item):
+            await self.say('sdq_item_no_need')
+        item.delete()
+

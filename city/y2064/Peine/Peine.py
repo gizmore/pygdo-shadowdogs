@@ -1,5 +1,5 @@
 from gdo.shadowdogs.SD_Party import SD_Party
-from gdo.shadowdogs.city.y2064.Peine.locations import WaffenKief
+from gdo.shadowdogs.city.y2064.Peine.locations.GunzelinSchool import GunzelinSchool
 from gdo.shadowdogs.city.y2064.Peine.locations.Home import Home
 from gdo.shadowdogs.city.y2064.Peine.locations.Marketplace import Marketplace
 from gdo.shadowdogs.city.y2064.Peine.locations.GaragePub import GaragePub
@@ -19,6 +19,7 @@ class Peine(City):
     GaragePub: GaragePub = GaragePub()
     Jawoll: Jawoll = Jawoll()
     WaffenKief: WaffenKief = WaffenKief()
+    GunzelinSchool: GunzelinSchool = GunzelinSchool()
 
     LOCATIONS: list[Location] = [
         Marketplace,
@@ -27,6 +28,7 @@ class Peine(City):
         GaragePub,
         Jawoll,
         WaffenKief,
+        GunzelinSchool,
     ]
 
     NPCS: list[tuple[str, int]] = [

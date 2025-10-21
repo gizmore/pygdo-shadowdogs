@@ -5,8 +5,14 @@ The council tries to meet regularly.
 
 ## Meetings
 
-28.Aug.2088
+18.Oct.2025
 
-28.Sep.2088
+- Brief an Abgeordnete
+- Verhandlungen beobachten
+- Vogeltränke (optional)
+- mit Olli treffen
+- Reglevotes neu ausrechnen
+- Zettel neu gestalten
+- 
 
-
+*UNSIGNED*

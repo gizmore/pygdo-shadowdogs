@@ -50,12 +50,13 @@ sdqs_moellring_home1 = "Oh you are looking for an apartment? A new **Home**?"
 sdqs_moellring_home2 = "Yeah, you can live here with your three friends. The caution is only %s, what do you think?"
 #sdqs_moellring_home3
 sdqs_moellring_no_money = "Oh, you are short on money."
-sdqs_moellring_give_money = "Great. You can now sleep here."
+sdqs_moellring_give_money = "Great. You can now live here with your friends."
 sdqs_moellring_tell_rent = "Oh.... the rent of %s is due within %s."
 sdqs_moellring_generic_yes = "Yes yes..."
 sdqs_moellring_home_no = "Ok, maybe later."
 sdqs_moellring_generic_no = "Ah no."
 sdqs_moellring_what = "How can i help you?"
+sdqs_moellring_give_money2 = "You give him the %s and he says: \"Thanks young man, do not forget to pay this monthly.\""
 
 ########
 # Rent #
@@ -72,6 +73,22 @@ sdqs_barkeeper_else = "Sup young man?"
 sdqs_barkeeper_home = "You are looking for a place to live? I can hold my ears open."
 sdqs_barkeeper_hello = "Yeah, hello, what do you want?"
 sdqs_barkeeper_work1 = "Oh, you are looking for a job? You can do a little **work** for me if you quickly need a few bucks."
-sdqs_barkeeper_work2 = "Ok, our beer is almost empty and the next delivery will be too late. Can you buy %d LargeBeer from the Jawoll Market?"
+sdqs_barkeeper_work2 = "Ok, our beer is almost empty and the next delivery will be too late. Can you buy %d LargeBeer from the **Jawoll** Market?"
 sdqs_barkeeper_accept = "Alright, please hurry a little. The evening will start soon."
 sdqs_barkeeper_deny = "Aww... but good luck finding a job!"
+sdqs_barkeeper_jawoll = "Oh you do not know where it is? I tell you, go check your $t$kp."
+
+#######
+# BaM #
+#######
+sdqt_bam = "BaM"
+sdqd_bam = "The **Besser als Miehe** badge is given to those who has beaten their teacher in a finals question."
+sdqs_miehe_nono = "NoNo, you first have to **learn** the basics of math, before you can challenge me."
+sdqs_miehe_hello = "Hello my student... Did you **learn** enough for the finals?"
+sdqs_miehe_learn = "Tell me how much is %s powered by %s in an estimation like 2 powered by 11 is 2k."
+sdqs_miehe_no_idea = "I have no idea what you could mean."
+sdqs_miehe_too_slow = "Correct, but way too slow... learn harder and try faster!"
+sdqs_miehe_correct = "That's correct... your finals are over with the BaM badge!"
+sdqs_miehe_correct2 = "I really earned this badge in my finals because Mr. Miehe was wrong on some simple geometry problem... 9th grade math is not that difficult in middle school..."
+sdqs_miehe_wrong_answer = "That's wrong. Tip: use k,m,g,t,p as unit."
+sdqs_miehe_else = "Do not disturb the classes so much, %s!"

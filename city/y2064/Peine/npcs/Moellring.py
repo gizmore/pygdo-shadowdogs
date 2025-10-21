@@ -16,8 +16,8 @@ class Moellring(TalkingNPC):
         q = self.q()
         q2 = Rent.instance()
 
-        if q2.is_accepted():
-            if q2.is_done():
+        if q2.is_accepted(player):
+            if q2.is_accomplished():
                 return await self.on_say3(player, text)
             else:
                 return await self.on_say2(player, text)
@@ -53,6 +53,7 @@ class Moellring(TalkingNPC):
         else:
             await self.say('sdqs_moellring_what')
             await self.give_word(self.get_player(), 'hello')
+        return None
 
     async def on_say2(self, player: SD_Player, text: str):
         q2 = Rent.instance()

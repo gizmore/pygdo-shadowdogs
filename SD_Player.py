@@ -18,7 +18,6 @@ from gdo.shadowdogs.item.classes.Nuyen import Nuyen as NY
 from gdo.date.Time import Time
 from gdo.math.GDT_RandomSeed import GDT_RandomSeed
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
-from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.GDT_RandomName import GDT_RandomName
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.attr.Attribute import Attribute
@@ -36,6 +35,7 @@ from gdo.shadowdogs.stat.Hunger import Hunger
 from gdo.shadowdogs.stat.Karma import Karma
 from gdo.shadowdogs.stat.Nuyen import Nuyen
 from gdo.shadowdogs.stat.Thirst import Thirst
+from gdo.shadowdogs.stat.Weight import Weight
 from gdo.shadowdogs.stat.XP import XP
 
 if TYPE_CHECKING:
@@ -81,6 +81,7 @@ class SD_Player(WithShadowFunc, GDO):
     distance: int
     _combat_stack: CombatStack|None
     quests: list[SD_Quest]|None
+    weight: Weight
 
     Loot = None
     def loot(self) -> 'type[Loot]':
@@ -117,7 +118,7 @@ class SD_Player(WithShadowFunc, GDO):
         self.modified = {}
         self._combat_stack = None
         self.quests = None
-
+        self.weight = Weight('p_weight').gdo(self)
 
     def combat_stack(self) -> CombatStack:
         if self._combat_stack is None:
@@ -239,6 +240,9 @@ class SD_Player(WithShadowFunc, GDO):
     def get_name(self):
         return self.get_user().render_name()
 
+    def render_name_short(self):
+        return self.get_user().gdo_val('u_name')
+
     def is_online(self) -> bool:
         return self.get_user().is_online()
 
@@ -334,7 +338,7 @@ class SD_Player(WithShadowFunc, GDO):
     ########
     # Hack #
     ########
-    def all_programs(self) -> Generator[SD_Item, Any, None]:
+    def all_programs(self) -> Generator[Item, Any, None]:
         for program in self.cyberdeck:
             yield program
 
@@ -415,9 +419,16 @@ class SD_Player(WithShadowFunc, GDO):
     # Items #
     #########
 
-    def all_items(self) -> Generator[SD_Item, Any, None]:
+    def all_items(self) -> Generator[Item, Any, None]:
         yield from self.all_equipment()
         yield from self.inventory
+
+    async def on_give(self, item: Item):
+        item.save_vals({
+            'item_owner': self.get_id(),
+            'item_slot': item.sd_inv_type(),
+        })
+        self.inventory.add_item(item)
 
     ##########
     # Modify #
@@ -443,6 +454,7 @@ class SD_Player(WithShadowFunc, GDO):
             self.c(key).apply(self)
         for key in Skill.SKILLS:
             self.c(key).apply(self)
+        self.weight.apply(self)
         return self
 
     def apply(self, name: str, inc: int) -> Self:
@@ -632,3 +644,9 @@ class SD_Player(WithShadowFunc, GDO):
 
     def render_race(self):
         return self.column('p_race').render_txt()
+
+    def cannot_move(self) -> bool:
+        return Weight('p_weight').gdo(self).is_overloaded()
+
+    def is_overloaded(self) -> bool:
+        return self.weight.is_overloaded(self)

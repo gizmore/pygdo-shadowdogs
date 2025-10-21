@@ -1,10 +1,12 @@
-from gdo.core.GDT_UInt import GDT_UInt
 from typing import TYPE_CHECKING
+
+from gdo.core.GDT_Int import GDT_Int
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class Modifier(GDT_UInt):
+class Modifier(GDT_Int):
 
     def __init__(self, name: str):
         super().__init__(name)

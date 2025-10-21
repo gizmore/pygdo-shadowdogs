@@ -15,13 +15,14 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.locations.Location import Location
     from gdo.shadowdogs.module_shadowdogs import module_shadowdogs
     from gdo.shadowdogs.SD_Player import SD_Player
-    from gdo.shadowdogs.SD_Item import SD_Item
+    from gdo.shadowdogs.item.Item import Item
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Spell import SD_Spell
     from gdo.shadowdogs.SD_Place import SD_Place
     from gdo.shadowdogs.engine.MethodSD import MethodSD
     from gdo.shadowdogs.actions.Action import Action
     from gdo.shadowdogs.spells.Spell import Spell
+    from gdo.shadowdogs.locations.School import School
     from gdo.shadowdogs.locations.Store import Store
 
 from gdo.base.Trans import Trans, t
@@ -53,7 +54,7 @@ class WithShadowFunc(WithPlayerGDO):
     def get_party(self) -> 'SD_Party':
         return self.get_player().get_party()
 
-    def get_location(self) -> 'Location|Store|Bank':
+    def get_location(self) -> 'Location|Store|Bank|School':
         return self.get_party().get_location()
 
     def get_action(self) -> 'Action':
@@ -167,19 +168,15 @@ class WithShadowFunc(WithPlayerGDO):
         if items:
             await self.give_items(player, items, announce_action, announce_source)
 
-    async def give_items(self, player: 'SD_Player', items: list['SD_Item'], announce_action: str=None, announce_source: str=None):
+    async def give_items(self, player: 'SD_Player', items: 'list[Item]', announce_action: str=None, announce_source: str=None):
         for item in items:
             await self.give_item(player, item)
         if announce_action:
             item_names = ', '.join([item.render_name() for item in items])
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item_names, announce_source))
 
-    async def give_item(self, player: 'SD_Player', item: 'SD_Item', announce_action: str=None, announce_source: str=None):
-        item.set_vals({
-            'item_owner': player.get_id(),
-            'item_slot': item.sd_inv_type(),
-        })
-        player.inventory.add_item(item)
+    async def give_item(self, player: 'SD_Player', item: 'Item', announce_action: str=None, announce_source: str=None):
+        await player.on_give(item)
         if announce_action:
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item.render_name(), announce_source))
 

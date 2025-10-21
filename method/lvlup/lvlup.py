@@ -45,6 +45,8 @@ class lvlup(MethodSD):
         new_lvl = old_lvl + 1
         need_karma = (old_lvl + 1) * mul
         have_karma = player.gb('p_karma')
+        if player.gb(field) < 0:
+            return self.reply('err_sd_lvlup_too_low', (self.t(field),))
         if not self.param_value('confirm'):
             return self.reply('msg_sd_lvlup_simulate', (self.t(field), new_lvl, need_karma, have_karma))
         if have_karma < need_karma:

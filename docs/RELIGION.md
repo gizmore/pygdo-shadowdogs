@@ -20,6 +20,8 @@ Chappology is no conspiracy or like the scientology.
 
 Chappology is, *literally*, the believe in a system.
 
+It is ok to have another religion beside Chappology.
+
 
 ### Chappology 0x01 - The Creation of the Simulation
 

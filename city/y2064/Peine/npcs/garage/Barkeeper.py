@@ -1,16 +1,17 @@
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
-from gdo.shadowdogs.city.y2064.Peine.quests.Delivery import Delivery
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 
 class Barkeeper(TalkingNPC):
 
     def sd_quest(self) -> 'type[SD_Quest]|None':
+        from gdo.shadowdogs.city.y2064.Peine.quests.Delivery import Delivery
         return Delivery
 
     async def on_say(self, player: SD_Player, text: str):
+        from gdo.shadowdogs.city.y2064.Peine.quests.Delivery import Delivery
         q = self.q()
         if text == "home":
             await self.say('sdqs_barkeeper_home')
@@ -24,11 +25,14 @@ class Barkeeper(TalkingNPC):
             else:
                 await self.say('sdqs_barkeeper_work1')
                 q.qv_set('work1', '1')
+        elif text == 'jawoll':
+            await self.say('sdqs_barkeeper_jawoll')
+            await self.give_kp(player, self.world().World2064.Peine.Jawoll, False)
         elif text == 'yes':
             if q.qv_get('work1'):
                 await self.say('sdqs_barkeeper_accept')
                 q.qv_set('work1', '')
-                await self.give_new_items(player, f'{Jawoll.BEER_PRICE*Delivery.BEER_COUNT}xNuyen', 'give', self.render_name())
+                await self.give_new_items(player, f'{Jawoll.BEER_PRICE*Delivery.BEER_COUNT}xNuyen', 'gave', self.render_name())
                 await q.accept()
             else:
                 await self.say('sdqs_civil_service_what')

@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 class ShadowdogsException(Exception):
 
-    def __init__(self, key: str, args: tuple[str|int, ...] = None):
+    def __init__(self, key: str, args: tuple[str|int|float|None, ...] = None):
         super().__init__(t(key, args))
 
 class SDTooMuchMatchesException(ShadowdogsException):

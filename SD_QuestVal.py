@@ -27,12 +27,15 @@ class SD_QuestVal(GDO):
 
     @classmethod
     def qv_set(cls, quest: 'SD_Quest', player: 'SD_Player', key: str, val: str):
-        cls.blank({
-            'qv_quest': quest.get_id(),
-            'qv_player': player.get_id(),
-            'qv_key': key,
-            'qv_val': val,
-        }).soft_replace()
+        if not val:
+            cls.table().delete_where(f"qv_quest={quest.get_id()} AND qv_player={player.get_id()} AND qv_key='{key}'")
+        else:
+            cls.blank({
+                'qv_quest': quest.get_id(),
+                'qv_player': player.get_id(),
+                'qv_key': key,
+                'qv_val': val,
+            }).soft_replace()
 
     @classmethod
     def qv_get(cls, quest: 'SD_Quest', player: 'SD_Player', key: str, default: str = None) -> str:

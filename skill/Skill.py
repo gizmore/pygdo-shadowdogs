@@ -13,5 +13,9 @@ class Skill(Modifier):
         'p_fig',
         'p_hac',
         'p_cry',
-        # 'p_mat',
+        'p_mat',
     ]
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self.initial('-1')

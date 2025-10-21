@@ -30,9 +30,10 @@ class start(MethodSD):
         if self.get_player():
             return self.err('err_sd_already_started')
         party = Factory.create_party(World2064.Peine.Home)
+        race = self.param_val('race')
         player = SD_Player.blank({
             'p_user': self._env_user.get_id(),
-            'p_race': self.param_val('race'),
+            'p_race': race,
             'p_gender': self.param_val('gender'),
             # 'p_party': party.get_id(),
         }).insert()
@@ -40,6 +41,7 @@ class start(MethodSD):
         Shadowdogs.PLAYERS[player.get_id()] = player
         Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
         Shadowdogs.CURRENT_PLAYER = player
+        player.save_vals(GDT_Race.BASE[race])
         player.modify_all().heal_full()
         self.msg('msg_sd_started', (
             player.column('p_gender').render(self._env_mode),

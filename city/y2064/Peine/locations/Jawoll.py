@@ -4,15 +4,15 @@ from gdo.shadowdogs.locations.Store import Store
 
 class Jawoll(Store):
 
-    BEER_PRICE = 12
+    BEER_PRICE = 3
 
     ITEMS: list[tuple[Item,int]] = [
         ('Jacket', 49),
         ('Hoodie', 29),
         ('Jeans', 49),
         ('Pizza', 19),
-        ('Coke', 15),
+        ('Coke', 4),
         ('LargeBeer', BEER_PRICE),
-        ('Lighter', 3),
-        ('Pen', 4),
+        ('Lighter', 2),
+        ('Pen', 2),
     ]
