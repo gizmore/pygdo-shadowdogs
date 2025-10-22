@@ -1,5 +1,8 @@
+from binascii import crc32
+
 from gdo.base.Render import Mode
 from gdo.base.Trans import t
+from gdo.base.Util import Random
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.GDT_Race import GDT_Race
@@ -41,6 +44,9 @@ class start(MethodSD):
         Shadowdogs.PLAYERS[player.get_id()] = player
         Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
         Shadowdogs.CURRENT_PLAYER = player
+        Random.init(crc32(player.get_user().render_name().encode()))
+        bonus_bonus = ['p_bod', 'p_str', 'p_int', 'p_wis', 'p_dex', 'p_qui'][Random.mrand(0, 5)]
+        player.incb(bonus_bonus, 1).save()
         player.save_vals(GDT_Race.BASE[race])
         player.modify_all().heal_full()
         self.msg('msg_sd_started', (

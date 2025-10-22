@@ -12,7 +12,16 @@ class Usable(Item):
         ]
 
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
-        raise GDOException('err_not_implemented')
+        target = target or self.get_player()
+        for k, v in self.dm('ef').items():
+            target.apply(k, v)
+        await self.send_use_message(target)
 
-    def get_default_count(self) -> int:
-        return self.dmi('package', 1)
+    async def send_use_message(self, target: 'SD_Player|Obstacle|None'):
+        out = []
+        for k, v in self.dm('ef').items():
+            sign = '+' if v > 0 else '-'
+            out.append(f"{self.t(k)}{sign}{v}")
+        await self.send_to_party(self.get_party(), 'sd_use_item', (self.get_player().render_name(), self.render_name_wc(), target.render_name(), ", ".join(out), self.get_player().render_busy()))
+        if ep := self.get_enemy_party():
+            await self.send_to_party(ep, 'sd_use_item', (self.get_player().render_name(), self.render_name_wc(), target.render_name(), ", ".join(out), self.get_player().render_busy()))

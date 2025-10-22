@@ -4,6 +4,7 @@ from gdo.core.GDT_RestOfText import GDT_RestOfText
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.GDT_Player import GDT_Player
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 
@@ -34,6 +35,8 @@ class gmt(MethodSD):
         player = self.get_target()
         npc_names = self.param_value('npcs').split(',')
         party = player.get_party()
+        if party.does(Action.FIGHT, Action.TALK, Action.HACK):
+            return self.err('err_sd_gmt_party_busy')
         enemies = await Factory.create_default_npcs(party.get_location(), *npc_names)
         await party.fight(enemies)
         return self.empty()

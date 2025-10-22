@@ -127,6 +127,9 @@ class Shadowdogs:
     RELOAD_MIN_TIME = 10
     RELOAD_SECONDS_PER_QUICKNESS = 1
 
+    CRIT_CHANCE_PERCENT = 10
+    CRIT_CHANCE_PER_AIM = 1
+
     @classmethod
     def display_nuyen(cls, nuyen: int) -> str:
         return str(nuyen) + cls.NUYEN

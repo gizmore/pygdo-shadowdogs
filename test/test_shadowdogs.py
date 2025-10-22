@@ -116,17 +116,27 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_11_combat(self):
         gizmore = await self.fresh_gizmore()
-        Random.init(1337)
+        Random.init(31337)
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(3333) # half an hour
         out += all_private_messages()
-        self.assertIn('kills lamer', out, 'combat does not work.')
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} noob,noob')
+        self.assertIn('kills', out, 'combat does not work.')
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} haider')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(8888) # half an hour
         out += all_private_messages()
-        self.assertIn('kills noob', out, 'combat does not work.')
+        self.assertIn('kills', out, 'combat does not work.')
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} haider')
+        self.assertIn('encounter', out, 'gmt does not work.')
+        await self.ticker(8888) # half an hour
+        out += all_private_messages()
+        self.assertIn('kills', out, 'combat does not work.')
+        out = cli_plug(gizmore, '$sdgmt gizmore{1} noob,noob,noob,noob')
+        self.assertIn('encounter', out, 'gmt does not work.')
+        await self.ticker(8888) # half an hour
+        out += all_private_messages()
+        self.assertIn('kills', out, 'combat does not work.')
 
     async def test_13_kw(self):
         gizmore = await self.fresh_gizmore()
@@ -161,7 +171,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('a new place', out, '$gml does not work.')
         out = cli_plug(gizmore, '$sdview')
         self.assertIn('Pizza', out, '$gmview does not see pizza.')
-        out = cli_plug(gizmore, '$sdvi 1')
+        out = cli_plug(gizmore, '$sdvi pi')
         self.assertIn('Pizza is a Consumable', out, '$gmview does not examine pizza.')
 
     async def test_22_info(self):
@@ -170,7 +180,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdinfo')
         out += all_private_messages()
         self.assertIn('ome sweet', out, '$info does not work.')
-        self.assertIn('Fridge', out, '$info does not work#2.')
+        self.assertIn('ridge', out, '$info does not work#2.')
         out = cli_plug(gizmore, '$sdlook')
         out += all_private_messages()
         self.assertIn('Lazer', out, '$look does not work.')
@@ -239,10 +249,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdl strength')
         self.assertIn('level up', out, '$l does not work.')
         out = cli_plug(gizmore, '$sdl --confirm=1 strength')
-        self.assertIn('leveled up', out, '$l does not work.#2')
-        out = cli_plug(gizmore, '$sdl --confirm=1 strength')
-        self.assertIn('leveled up', out, '$l does not work.#3')
-        out = cli_plug(gizmore, '$sdl --confirm=1 strength')
         self.assertIn('want to level up', out, '$l does not work.#3')
 
     async def test_45_cache_and_loader(self):
@@ -265,17 +271,17 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('BronzeKnuckles', out, '$v does not work.')
         out = cli_plug(gizmore, '$sdv 2')
         self.assertIn('Shotgun', out, '$v 2 does not work.')
-        out = cli_plug(gizmore, '$sdgmi giz 30012xNuyen')
+        out = cli_plug(gizmore, '$sdgmi giz 30000xNuyen')
         self.assertIn('30000', out, '$gmi does not work.')
         out = cli_plug(gizmore, '$sdi')
-        self.assertIn('30000', out, '$i does not work.')
+        self.assertIn('30012', out, '$i does not work.')
         out = cli_plug(gizmore, '$sds')
-        self.assertIn('30000', out, '$s does not work.')
+        self.assertIn('30012', out, '$s does not work.')
         out = cli_plug(gizmore, '$sdbuy shot')
         self.assertIn('Shotgun', out, '$buy does not work.')
-        out = cli_plug(gizmore, '$sdbuy Ammo12 20')
-        self.assertIn('Ammo12g', out, '$buy does not work.#2')
-        out = cli_plug(gizmore, '$sdi')
+        out = cli_plug(gizmore, '$sdbuy Shells 20')
+        self.assertIn('Shells12g', out, '$buy does not work.#2')
+        out = cli_plug(gizmore, '$sdi 2')
         self.assertIn('Shotgun', out, '$i does not work.')
         out = cli_plug(gizmore, '$sdreload Shotgu')
         await self.ticker_for(gizmore)

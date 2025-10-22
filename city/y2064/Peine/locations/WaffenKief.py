@@ -1,3 +1,4 @@
+from gdo.shadowdogs.city.y2064.Peine.npcs.Kief.Cashier import Cashier
 from gdo.shadowdogs.locations.Store import Store
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
@@ -5,7 +6,7 @@ from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 class WaffenKief(Store):
 
     NPCS: 'list[type[TalkingNPC]]' = [
-
+        Cashier,
     ]
 
     ITEMS: list[tuple[str,int]] = [

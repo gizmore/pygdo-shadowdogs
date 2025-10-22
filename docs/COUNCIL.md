@@ -10,7 +10,7 @@ The council tries to meet regularly.
 - Brief an Abgeordnete
 - Verhandlungen beobachten
 - Vogeltränke (optional)
-- mit Olli treffen
+x mit Olli treffen
 - Reglevotes neu ausrechnen
 - Zettel neu gestalten
 - 

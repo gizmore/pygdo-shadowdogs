@@ -1,3 +1,5 @@
+import re
+
 from gdo.base.Util import Strings
 from gdo.core.GDT_String import GDT_String
 
@@ -59,8 +61,9 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
             return None
         p = self.get_player()
         val = val.lower()
-        if val[0].isdigit():
-            val = Strings.substr_from(val, 'x')
+
+        m = re.match(r"^(\d+)x(.*)$", val)
+        if m: val = m.group(2)
         candidates = []
         if self._equipment:
             for slot in GDT_Slot.SLOTS:

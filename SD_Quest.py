@@ -39,15 +39,16 @@ class SD_Quest(WithShadowFunc, GDO):
 
     @classmethod
     def instance(cls):
-        if quest := (cls.table().select().where(f"q_name={GDO.quote(cls.__name__)}").
-                     fetch_as(cls).first().exec().fetch_object()):
-            return quest
-        split = cls.__module__.split('.')
-        return cls.blank({
-            'q_name': cls.__name__,
-            'q_city': f"{split[3]}.{split[4]}",
-            'q_klass': cls.__module__ + "." + cls.__name__,
-        }).insert()
+        if not (quest := (cls.table().select().where(f"q_name={GDO.quote(cls.__name__)}").
+                     fetch_as(cls).first().exec().fetch_object())):
+            split = cls.__module__.split('.')
+            quest = cls.blank({
+                'q_name': cls.__name__,
+                'q_city': f"{split[3]}.{split[4]}",
+                'q_klass': cls.__module__ + "." + cls.__name__,
+            }).insert()
+        quest.sd_init_quest()
+        return quest
 
     @classmethod
     def gdo_real_class(cls, vals: dict[str,str]) -> type[GDO]:
@@ -75,22 +76,12 @@ class SD_Quest(WithShadowFunc, GDO):
         return True
 
     def gdo_columns(self) -> list[GDT]:
-        # from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
-        # t = SD_QuestDone.table()
-        # query_accept = t.select('COUNT(*)').where('qd_accepted IS NOT NULL AND qd_quest=q_id')
-        # query_denied = t.select('COUNT(*)').where('qd_declined IS NOT NULL AND qd_quest=q_id')
-        # query_solved = t.select('COUNT(*)').where('qd_success IS NOT NULL AND qd_quest=q_id')
-        # query_failed = t.select('COUNT(*)').where('qd_failed IS NOT NULL AND qd_quest=q_id')
         return [
             GDT_AutoInc('q_id'),
             GDT_Name('q_name').not_null(),
             GDT_City('q_city').all().not_null(),
             GDT_String('q_klass').not_null().ascii().case_s(),
             GDT_Created('q_created'),
-            # GDT_Virtual(GDT_UInt('q_num_accept')).query(query_accept),
-            # GDT_Virtual(GDT_UInt('q_num_denied')).query(query_denied),
-            # GDT_Virtual(GDT_UInt('q_num_solved')).query(query_solved),
-            # GDT_Virtual(GDT_UInt('q_num_failed')).query(query_failed),
         ]
 
     def reward(self) -> str|None:
@@ -176,3 +167,5 @@ class SD_Quest(WithShadowFunc, GDO):
     def render_descr(self) -> str:
         return self.t(f'sdqd_{self.__class__.__name__.lower()}')
 
+    def sd_init_quest(self):
+        pass

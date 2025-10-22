@@ -2,11 +2,17 @@ from gdo.base.Trans import t
 from gdo.base.Util import Random
 from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Player import SD_Player
-from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
 from gdo.shadowdogs.city.y2064.Peine.quests.Awakening import Awakening
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
+
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Quest import SD_Quest
+    from gdo.shadowdogs.quest.DeliveryQuest import DeliveryQuest
+    from gdo.shadowdogs.quest.KillQuest import KillQuest
 
 
 class TalkingNPC(SD_NPC):
@@ -18,7 +24,7 @@ class TalkingNPC(SD_NPC):
     def instance(cls):
         return Shadowdogs.LOCATION_NPCS[cls.fqcn()]
 
-    def sd_quest(self) -> type[SD_Quest]|None:
+    def sd_quest(self) -> 'type[SD_Quest]|None':
         return Awakening
 
     @classmethod
@@ -28,7 +34,7 @@ class TalkingNPC(SD_NPC):
             'p_gender': 'male',
         }
 
-    def q(self) -> SD_Quest|None:
+    def q(self) -> 'SD_Quest|KillQuest|DeliveryQuest|None':
         return self.sd_quest().instance().player(self.get_player())
 
     def qv_set(self, key: str, val: str='1'):

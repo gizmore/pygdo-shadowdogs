@@ -1,6 +1,7 @@
 import unittest
 
 from gdo.base.Util import Random
+from gdo.shadowdogs.city.y2064.Peine.quests.Hate import Hate
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug
 
@@ -84,6 +85,26 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('correct', out, 'talk#3 no work.')
         self.assertIn('accomplish', out, 'talk#3.1 no work.')
         self.assertIn('rewarded with skill', out, 'talk#3.2 no work.')
+
+    async def test_30_quest_hate(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz inside Waff')
+        self.assertIn('Kief', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdtalk cash hello')
+        self.assertIn('Hello', out, 'talk#1 no work.')
+        out = cli_plug(gizmore, '$sdtalk cash work')
+        self.assertIn('looking', out, 'talk#2 no work.')
+        out = cli_plug(gizmore, '$sdtalk cash yes')
+        self.assertIn('quest', out, 'talk#3 no work.')
+        out = cli_plug(gizmore, '$sdgmi giz 8xMedki')
+        self.assertIn('Medkit', out, 'talk#3 no work.')
+        for i in range(Hate.NUM_KILLS):
+            cli_plug(gizmore, '$sdgmt giz haider')
+            await self.party_ticker_for()
+            cli_plug(gizmore, '$sduse Medkit')
+            await self.ticker_for()
+        out = cli_plug(gizmore, '$sdtalk cash yes')
+        self.assertIn('accomplished', out, 'talk#4 no work.')
 
 
 

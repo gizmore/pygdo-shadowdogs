@@ -41,5 +41,5 @@ class ItemList(list[Item]):
             return items[0]
         if len(items) > 1:
             raise SDTooMuchMatchesException(items)
-        raise SDUnknownItemException()
+        raise SDUnknownItemException(arg)
 

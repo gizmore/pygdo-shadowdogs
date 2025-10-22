@@ -125,6 +125,9 @@ class Item(SD_Item):
     async def on_use(self, target: 'SD_Player|Obstacle'):
         await self.send_to_player(self.get_player(), 'err_sd_item_not_usable', (self.render_name_wc(),))
 
+    def is_equipment(self) -> bool:
+        return False
+
     def equip(self):
         slot = self.get_slot()
         self.save_val('item_slot', slot)
@@ -177,4 +180,7 @@ class Item(SD_Item):
         if item_name[0].isdigit():
             count = int(Strings.substr_to(item_name, 'x'))
         return count
+
+    def get_default_count(self) -> int:
+        return self.dmi('magsize', 1)
 

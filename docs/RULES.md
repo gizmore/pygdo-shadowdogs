@@ -85,29 +85,22 @@ The insects, represented by the insects(bees), the birds (ravens), the mammals (
 Moreover, **5 votes** go the plants growing.
 The trees(Oak), the farn(Wheat), the corals(..err..Coral), the flowers(Orchid) and the herbs(Thyme).
 
-So in total there are **28 votes** for a perfect balance.
-15 votes are enough to make a decision...
-
-but wait!
-
 Soon the humans demanded votes for all the citizens.
 Any living creature can vote for the council votes,
-which are another **2 votes** for the young,
-and **4 votes** for the middles and the old and the males and the females.
+which are another **12 votes** for the young,
+and **8 votes** for the middles and the old and the males and the females.
 
 Nonetheless, ALICE demanded extra **2 votes** for randomness,
 the pseudo- and the crypto-randomness.
 
-Finally, **35** votes in total may occur,
-which means 18 votes to execute a poll with *simple consent*.
-
 If there was not... elected a president.
-The first president of ESL, iamben, has another **2 votes**,
-totalling 37 which requires 19 votes to win.
+The first president of ESL, iamben, has another **2 votes**.
 
 But suddenly, the spectators and poor got permission to vote as well.
-The master of the sword of the land got another 4 votes,
-totalling **48** which requires 26 votes to win.
+The master of the sword of the land got another 2 votes,
+
+Totalling **72** votes with **37** to win.
+
 
 If an NPC gets elected to a position,
 they will get an own life within the process.
@@ -118,9 +111,6 @@ They will prove as a great source of input, so the council assumes.
 
 Because the hackers truly won the game they got given another **2** votes in the council.
 
-Totalling **64** votes with **33** to win.
-
-Totalling **72** votes with **37** to win.
 
 
 #### Polls
@@ -226,6 +216,9 @@ The Nayen is then spread equally under each world citizen.
 Using Nicknames, as they are cooler than real names only.
 
 
+9+8+7+14+15+11
+24 + 40 64 / 2 == 32 33 WINS
+
 #### Alice - 9 votes
 - Alice: Playing herself
 
@@ -252,8 +245,8 @@ Using Nicknames, as they are cooler than real names only.
 - HackertWo: Q
 
 #### The Animals – 5 votes
-- Insects: Wanda
-- Bird: That one black bird at the Standesamt 
+- Insects: 
+- Bird: That one black bird
 - Mammals: That one dog from that lady
 - Fish:
 - Reptiles:
@@ -265,17 +258,17 @@ Using Nicknames, as they are cooler than real names only.
 - Flowers:
 - Herbs:
 
-#### The Citizens – 10 votes
-- young: That one girl (2 votes)
+#### The Citizens – 15 votes
+- young: That one girl 5 votes)
 - middles: VP (2 votes)
 - elderly: Henker (2 votes)
-- males: Peachy (2 votes)
-- females: 
+- males: Friedi (2 votes)
+- females: - (4 votes)
 
-#### The Eight Grounding Father – 6 votes
+#### The Grounding Father – 8 votes
 GF: Playing himself
 
-#### Observers - 2 votes
+#### Observers - 3 votes
 Observers: Playing themselves
 
 

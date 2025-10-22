@@ -20,7 +20,7 @@ class view_item(MethodSD):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
-            GDT_ItemArg('item').store().not_null(),
+            GDT_ItemArg('item').store().not_null().positional(),
         )
         super().gdo_create_form(form)
 

@@ -66,10 +66,10 @@ class Loot(WithShadowFunc): # <-- t = type[Loot];  t(killer, victim)
         item = Random.list_item(items)
         if not item:
             return None
-        count = item.get_item_count()
+        count = item.get_count()
         if item.is_equipment():
             count = 1
-        count = Random.mrand(1+count//4, count)
+        count = Random.mrand(1+count//2, count)
         return self._victim.inventory.remove_item(item.render_name(), count)
 
     def loot_equipment(self) -> SD_Item|None:

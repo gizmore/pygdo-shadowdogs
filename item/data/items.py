@@ -358,8 +358,8 @@ class items:
         'Lighter':            {'klass': 'Lighter',     'weight':  22},
 
         # Heal
-        'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500},
-        'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200},
+        'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
+        'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200, 'ef': {'p_hp': 15}},
 
         # Consumeable
         'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 333,  'price': 8,  'ef': {'thirst': 15}},

@@ -45,4 +45,8 @@ class ShadowdogsTestCase(GDOTestCase):
             await self.ticker_for()
             self.assertIn('You use', out, 'eq does not work.')
             self.assertIn('Club_of', out, 'eq does not work.#2')
+            out = cli_plug(gizmore, '$sdeq shoe')
+            await self.ticker_for()
+            out = cli_plug(gizmore, '$sdeq jean')
+            await self.ticker_for()
         return gizmore

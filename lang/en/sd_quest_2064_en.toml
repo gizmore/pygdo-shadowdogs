@@ -92,3 +92,18 @@ sdqs_miehe_correct = "That's correct... your finals are over with the BaM badge!
 sdqs_miehe_correct2 = "I really earned this badge in my finals because Mr. Miehe was wrong on some simple geometry problem... 9th grade math is not that difficult in middle school..."
 sdqs_miehe_wrong_answer = "That's wrong. Tip: use k, m, g, t, p as unit."
 sdqs_miehe_else = "Do not disturb the classes so much, %s!"
+
+########
+# Hate #
+########
+sdqt_hate = "Hate"
+sdqd_hate = "Kill %s and return to the WaffenKief store in Peine."
+sdqs_kief_hello = "Hello young man!"
+sdqs_kief_work = "You are looking for a job? You can shooe of some haiders that roam in the city and harass people. Knock out %d of them and i will pay you %d bucks. Okay?"
+sdqs_kief_work_so = "What do you think?"
+sdqs_kief_yes_and = "Umm aha?"
+sdqs_kief_yes = "Excellent"
+sdqs_kief_too_bad = "Oh... too bad"
+sdqs_kief_home = "You could ask some shop owners in the Marketplace about a new place to live."
+sdqs_kief_else = "My prices are the best in lower saxony!"
+sdqs_kief_not_done_yet = "Oh, i see you are not done yet."

@@ -1,7 +1,9 @@
+from gdo.base.Application import Application
 from gdo.base.Cache import Cache
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Trans import t
+from gdo.base.Util import Strings
 from gdo.core.GDO_User import GDO_User
 from gdo.core.GDT_AutoInc import GDT_AutoInc
 from gdo.core.GDT_Bool import GDT_Bool
@@ -119,6 +121,7 @@ class SD_Player(WithShadowFunc, GDO):
         self._combat_stack = None
         self.quests = None
         self.weight = Weight('p_weight').gdo(self)
+        self.reset_modified()
 
     def combat_stack(self) -> CombatStack:
         if self._combat_stack is None:
@@ -180,6 +183,9 @@ class SD_Player(WithShadowFunc, GDO):
 
             HP('p_hp'),
             MP('p_mp'),
+
+            GDT_UInt('p_max_hp').initial('0').not_null(),
+            GDT_UInt('p_max_mp').initial('0').not_null(),
 
             Nuyen('p_nuyen'),
             Nuyen('p_bank_nuyen'),
@@ -275,8 +281,8 @@ class SD_Player(WithShadowFunc, GDO):
             del Shadowdogs.USERMAP[self.get_user().get_id()]
         p = self.get_party()
         p.kick(self)
-        if p.is_empty():
-            p.delete()
+        # if p.is_empty():
+        #     p.delete()
         return super().delete()
 
     ########
@@ -307,33 +313,30 @@ class SD_Player(WithShadowFunc, GDO):
         return not self.is_dead()
 
     async def kill(self, killer: 'SD_Player'):
+
+        if self.is_mob():
+            klass = self.gdo_val('p_npc_name')
+            Application.EVENTS.publish(f"sd_kill_{klass}", killer, self)
+        elif self.is_npc():
+            Application.EVENTS.publish('sd_kill_npc', killer, self)
+        else:
+            Application.EVENTS.publish('sd_kill_player', killer, self)
+
         if killer:
             loot = self.loot()
             await loot(killer, self).on_kill()
 
+        location = self.get_city().get_respawn_location(self)
+
         old_party = self.get_party()
         old_party.members.remove(self)
 
-        if not (location := self.get_city().get_respawn_location(self)):
-            if old_party.is_empty(): # MOB + Empty
-                old_party.delete()
-                return self
-            else:
-                return self.delete() # Mob
-
-        if old_party.is_empty(): # Human Empty
-            await old_party.do(Action.INSIDE, location.get_location_key())
-            old_party.join_silent(self)
-            return self
-        else: # Human respawn
+        if self.is_mob():
+            self.delete()
+        else:
             party = self.factory().create_party(location)
-            party.members.append(self)
-            self.party_pos = 1
-            self.save_vals({
-                'p_party': party.get_id(),
-                'p_joined': str(self.get_time()),
-            })
-            return self
+            party.join_silent(self)
+        return self
 
     ########
     # Hack #
@@ -359,6 +362,15 @@ class SD_Player(WithShadowFunc, GDO):
             return self.gdo_value(slot_name)
         except AttributeError as ex:
             return None
+
+    ########
+    # Move #
+    ########
+    def cannot_move(self) -> bool:
+        return self.weight.is_overloaded(self)
+
+    def is_overloaded(self) -> bool:
+        return self.weight.is_overloaded(self)
 
     ########
     # Busy #
@@ -458,7 +470,12 @@ class SD_Player(WithShadowFunc, GDO):
         return self
 
     def apply(self, name: str, inc: int) -> Self:
-        self.modified[name] += inc
+        if name == "p_hp":
+            self.give_hp(inc)
+        elif name == "p_mp":
+            self.give_mp(inc)
+        else:
+            self.modified[name] += inc
         return self
 
     def inc(self, key: str, by: int):
@@ -644,9 +661,3 @@ class SD_Player(WithShadowFunc, GDO):
 
     def render_race(self):
         return self.column('p_race').render_txt()
-
-    def cannot_move(self) -> bool:
-        return Weight('p_weight').gdo(self).is_overloaded()
-
-    def is_overloaded(self) -> bool:
-        return self.weight.is_overloaded(self)

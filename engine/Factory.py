@@ -1,4 +1,6 @@
 from gdo.base.Trans import t
+from gdo.base.Util import Random
+from gdo.shadowdogs import SD_NPC
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
@@ -9,6 +11,10 @@ from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.item.data.mapping import mapping
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.npcs.npcs import npcs
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_NPC import SD_NPC
 
 
 class Factory(WithShadowFunc):
@@ -58,18 +64,24 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_npc(cls, party: SD_Party, spec: dict[str,int|str]) -> SD_Player:
-        klass = npcs.NPCS[spec['type']]['klass']
+        spec2 = npcs.NPCS[spec['type']]
+        klass: 'SD_NPC' = spec2['klass']
         player = klass.blank({
             'p_npc_class': klass.fqcn(),
             'p_npc_name': spec['type'],
             'p_race': spec['p_race'],
             'p_gender': spec['p_gender'],
             'p_party': party.get_id(),
-        }).insert()
+        })
+        for k, v in spec2.items():
+            if k in player.modified:
+                if type(v) == tuple:
+                    v = Random.mrand(v[0], v[1])
+                player.sb(k, v)
         for item_name in spec.get('eq', []):
             item = Factory.create_item_gmi(item_name, player, True)
-            player.save_val(item.get_slot(), item.get_id())
-        return player.modify_all().heal_full()
+            player.set_val(item.get_slot(), item.get_id())
+        return player.modify_all().heal_full().save()
 
     #########
     # Items #

@@ -10,6 +10,10 @@ err_sd_unknown_item = "Item not found."
 err_sd_no_slot_defined_for_item = "Item %s has no slot."
 err_sd_player_busy = "You are still busy for %s"
 err_sd_item_not_usable = "%s is not usable."
+sd_too_much_matches = "Too many matches like %s."
+sd_unknown_item = "No item found matching **%s**."
+err_item_name_ambiguous = "Too many matches like %s."
+err_sd_gmt_party_busy = "The target party is busy."
 
 ############
 # Factions #
@@ -326,11 +330,27 @@ msg_sd_reset = "Your account has been deleted so you can start over."
 mt_shadowdogs_fight = "Fight"
 md_shadowdogs_fight = "Fight an opposing party."
 msg_sd_fight_started = "You encounter %s."
+
+#######
+# Use #
+#######
+mt_shadowdogs_use = "Use"
+md_shadowdogs_use = "Use an item on a player or obstacle."
+sd_use_item = "%s uses %s on %s. %s.%s"
+
+##########
+# Attack #
+##########
+mt_shadowdogs_attack = "Attack"
+md_shadowdogs_attack = "Use your equipped weapon to strike an enemy.."
 sd_weapon_kill = "%s kills %s with %s (%d damage).%s"
 sd_weapon_miss = "%s misses %s with %s.%s"
 sd_combat_miss = "%s tries to hit %s with %s. Dodged.%s"
 sd_weapon_hit = "%s hits %s with %s for %d damage.%s"
 sd_weapon_hit_ep = "%s hits %s with %s for %d damage. %d HP left.%s"
+sd_weapon_kill_critically = "%s hits %s with %s (%d damage) **critically** and kills him.%s"
+sd_weapon_hit_critically = "%s hits %s **critically** with their %s and caused %d damage.%s"
+sd_weapon_hit_ep_critically = "%s hits %s **critically** with their %s and caused %d damage. %d HP left.%s"
 
 ##########
 # Reload #

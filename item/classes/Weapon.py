@@ -1,5 +1,8 @@
-from gdo.base.Util import Random
+from gdo.base.Util import Random, gdo_print
 from typing import TYPE_CHECKING
+
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.item.Item import Item
@@ -21,13 +24,15 @@ class Weapon(Item):
 
     async def attack_b(self, d: 'SD_Player', attack: int, defense: int, armor: int):
         a = self.get_player()
+        gdo_print(str(a.modified))
+        gdo_print(str(d.modified))
         op = a.get_party()
         ep = d.get_party()
-        if Random.mrand(1, attack + 1) >= Random.mrand(0, defense):
+        if Random.mrand(1, attack + 1) >= Random.mrand(1, defense + 1):
             crit = ''
             dmg = Random.mrand(a.g('p_min_dmg'), a.g('p_max_dmg'))
-            if dmg == a.g('p_max_dmg'):
-                dmg += Random.mrand(0, a.g('p_max_dmg'))
+            if Random.mrand(0, 1000) < Shadowdogs.CRIT_CHANCE_PERCENT + a.g('p_aim') * Shadowdogs.CRIT_CHANCE_PER_AIM:
+                dmg += Random.mrand(0, a.g('p_min_dmg'))
                 crit = '_critically'
             dmg -= armor
             if dmg <= 0:

@@ -2,6 +2,8 @@ from gdo.base.Trans import t
 
 from typing import TYPE_CHECKING
 
+from gdo.base.Util import html
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Item import SD_Item
 
@@ -18,5 +20,5 @@ class SDTooMuchMatchesException(ShadowdogsException):
         super().__init__('sd_too_much_matches', (match_str,))
 
 class SDUnknownItemException(ShadowdogsException):
-    def __init__(self):
-        super().__init__('sd_unknown_item')
+    def __init__(self, arg: str):
+        super().__init__('sd_unknown_item', (html(arg), ))

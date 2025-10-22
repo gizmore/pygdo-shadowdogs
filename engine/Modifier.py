@@ -15,5 +15,7 @@ class Modifier(GDT_Int):
         self.initial('0')
 
     def apply(self, target: 'SD_Player'):
-        target.apply(self.get_name(), self.get_value())
+        value = self.get_value()
+        if value > 0:
+            target.apply(self.get_name(), self.get_value())
         return self
