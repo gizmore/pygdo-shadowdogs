@@ -267,9 +267,9 @@ Using Nicknames, as they are cooler than real names only.
 
 #### The Citizens – 10 votes
 - young: That one girl (2 votes)
-- middles: Putin (2 votes)
-- elderly: Trump (2 votes)
-- males: Friedi (2 votes)
+- middles: VP (2 votes)
+- elderly: Henker (2 votes)
+- males: Peachy (2 votes)
 - females: 
 
 #### The Eight Grounding Father – 6 votes
