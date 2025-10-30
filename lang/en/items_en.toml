@@ -6,6 +6,7 @@ Shotgun_descr = "Ahandsomebarrelshotgun."
 
 # --- Melee ---
 Fists = "Fists"
+Claws = "Claws"
 BrokenBottle = "BrokenBottle"
 KitchenKnife = "KitchenKnife"
 Shiv = "Shiv"

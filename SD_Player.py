@@ -175,6 +175,7 @@ class SD_Player(WithShadowFunc, GDO):
             GDT_NPCClass('p_npc_class'),
             GDT_RandomName('p_npc_name'),
 
+            GDT_UInt('p_kills').unsigned().not_null().initial('0'),
             XP('p_xp'),
             GDT_UInt('p_xp_karma').initial('0').not_null(),
             Karma('p_karma'),
@@ -313,6 +314,9 @@ class SD_Player(WithShadowFunc, GDO):
         return not self.is_dead()
 
     async def kill(self, killer: 'SD_Player'):
+
+        killer.increment('p_kills', 1)
+        killer.get_party().increment('party_kills', 1)
 
         if self.is_mob():
             klass = self.gdo_val('p_npc_name')

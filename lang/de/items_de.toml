@@ -4,6 +4,7 @@ item_name_modified = "%s_of_%s"
 
 # --- Melee ---
 Fists = "Fäuste"
+Claws = "Klauen"
 BrokenBottle = "ZerbrocheneFlasche"
 KitchenKnife = "Küchenmesser"
 Shiv = "ImprovisiertesMesser"

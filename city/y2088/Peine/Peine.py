@@ -1,8 +1,8 @@
 from gdo.shadowdogs.SD_Party import SD_Party
-from gdo.shadowdogs.city.y2064.Peine.locations.Home import Home
-from gdo.shadowdogs.city.y2064.Peine.locations.Marketplace import Marketplace
-from gdo.shadowdogs.city.y2064.Peine.locations.GaragePub import GaragePub
-from gdo.shadowdogs.city.y2064.Peine.locations.SeniorHome import SeniorHome
+from gdo.shadowdogs.city.y2064.Peine.locations.home.Home import Home
+from gdo.shadowdogs.city.y2064.Peine.locations.market.Marketplace import Marketplace
+from gdo.shadowdogs.city.y2064.Peine.locations.garage.GaragePub import GaragePub
+from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.SeniorHome import SeniorHome
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 

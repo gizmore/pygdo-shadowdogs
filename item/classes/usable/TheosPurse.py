@@ -1,6 +1,4 @@
-from gdo.shadowdogs.SD_Quest import SD_Quest
-from gdo.shadowdogs.city.y2064.Peine.npcs.home.Theodor import Theodor
-from gdo.shadowdogs.city.y2064.Peine.quests.Purse import Purse
+from gdo.shadowdogs.city.y2064.Peine.locations.home.quest.Purse import Purse
 from gdo.shadowdogs.item.classes.Usable import Usable
 
 from typing import TYPE_CHECKING

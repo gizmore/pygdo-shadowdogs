@@ -25,8 +25,7 @@ class Loader(WithShadowFunc):
 
     @classmethod
     def get_location_npc_classes(cls) -> Iterator[tuple[WorldBase,City,Location,type[SD_NPC]]]:
-        from gdo.shadowdogs.engine.World import World
-        for world in World.WORLDS.values():
+        for world in cls.world().WORLDS.values():
             for city in world.CITIES.values():
                 for location in city.LOCATIONS:
                     for klass in location.NPCS:

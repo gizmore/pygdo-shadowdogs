@@ -8,7 +8,7 @@ that i would never leave my spot as a crazy computer guy
 in my hometown.
 
 Even if they tell you the worst.
-I would never ever again vanish.
+I would never ever vanish.
 
 - gizmore@wechall.net
 

@@ -104,6 +104,9 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
         if self._others:
             for pl in party.players_nearby():
                 choices[pl.get_name()] = pl
+            if location := self.get_location():
+                for npc in location.get_npcs(player):
+                    choices[npc.render_name()] = npc
         if self._inventory:
             for item in player.inventory:
                 choices[item.render_name()] = item

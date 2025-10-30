@@ -34,7 +34,7 @@ class Store(Location):
         return item_list
 
     def get_buy_price(self, player: SD_Player, price: int) -> int:
-        return player.c('p_tra').reduce_buy_price(player, price)
+        return player.c('p_tra').adjust_buy_price(player, price)
 
     @functools.lru_cache(maxsize=None)
     def sd_methods(self) -> list[str]:

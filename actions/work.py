@@ -18,6 +18,5 @@ class work(Action):
         pass
 
     async def on_completed(self, party: 'SD_Party'):
-#        await self.send_to_party(party, self.get_action_text_key(party, 'was'), self.get_action_text_args(party, 'was'))
         await party.resume()
         await self.get_target(party, party.get_target_string()).on_work_over()

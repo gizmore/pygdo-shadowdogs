@@ -67,11 +67,12 @@ class WithShadowFunc(WithPlayerGDO):
     # Engine #
     ##########
     World = None
-    def world(self):
-        if self.__class__.World is None:
+    @classmethod
+    def world(cls):
+        if cls.World is None:
             from gdo.shadowdogs.engine.World import World
-            self.__class__.World = World
-        return self.__class__.World
+            cls.World = World
+        return cls.World
 
     Factory = None
     def factory(self):

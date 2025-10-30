@@ -133,8 +133,8 @@ class SD_Quest(WithShadowFunc, GDO):
     def is_accomplished(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_accomplished()
 
-    def is_in_quest(self) -> bool:
-        return SD_QuestDone.for_player(self, self.get_player()).is_in_quest()
+    def is_in_quest(self, player: 'SD_Player'=None) -> bool:
+        return SD_QuestDone.for_player(self, player or self.get_player()).is_in_quest()
 
 
     ######
@@ -147,6 +147,12 @@ class SD_Quest(WithShadowFunc, GDO):
     def qv_set(self, key: str, val: str, player: 'SD_Player'=None):
         SD_QuestVal.qv_set(self, player or Shadowdogs.CURRENT_PLAYER, key, val)
         return self
+
+    def qv_get_inced(self, key: str, player: 'SD_Player'=None, max_=2000111222) -> int:
+        n = int(self.qv_get(key, '0', player))
+        n = min(n + 1, max_)
+        self.qv_set(key, str(n), player)
+        return n
 
     ########
     # Give #

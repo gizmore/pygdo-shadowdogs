@@ -16,7 +16,8 @@ if TYPE_CHECKING:
 class items:
     ITEMS = {
         # Melee
-        'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   200,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
+        'Claws':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  0, 'defense': 0, 'min_dmg':  0, 'max_dmg':  0, 'price':       0, 'no_loot': True},
+        'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
         'BrokenBottle':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 20, 'sell': False},
         'KitchenKnife':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 30},
         'Shiv':               {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 160, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 4, 'price': 60},
@@ -356,6 +357,9 @@ class items:
         'Pen':                {'klass': 'Pen',         'weight':  20},
         'MobilePhone':        {'klass': 'MobilePhone', 'weight': 488},
         'Lighter':            {'klass': 'Lighter',     'weight':  22},
+        'Stone':              {'klass': 'Stone',       'weight': 232},
+        'Bottle':             {'klass': 'Bottle',      'weight':  42},
+        'Twig':               {'klass': 'Recipe',      'weight': 41},
 
         # Heal
         'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},

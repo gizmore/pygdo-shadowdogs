@@ -1,7 +1,8 @@
 import unittest
 
 from gdo.base.Util import Random
-from gdo.shadowdogs.city.y2064.Peine.quests.Hate import Hate
+from gdo.shadowdogs.actions.Action import Action
+from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.Hate import Hate
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug
 
@@ -105,6 +106,30 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
             await self.ticker_for()
         out = cli_plug(gizmore, '$sdtalk cash yes')
         self.assertIn('accomplished', out, 'talk#4 no work.')
+
+    async def test_40_quest_jungle(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz inside alf')
+        self.assertIn('Alfred', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish yes')
+        self.assertIn('new quest', out, '#talk no work.')
+        out = cli_plug(gizmore, '$sdgml giz inside woods')
+        Random.init(31337)
+        i = 0
+        f = 0
+        for i in range(150):
+            out = cli_plug(gizmore, '$sdsearch')
+            if 'accomplished' in out: break
+            if self.sd_gizmore().get_party().does(Action.FIGHT):
+                await self.party_ticker_for()
+                f += 1
+        self.assertLess(i, 99, 'quest is borked #1.')
+        self.assertLess(f, 20, 'quest is borked #2.')
 
 
 

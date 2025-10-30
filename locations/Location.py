@@ -101,7 +101,7 @@ class Location(WithShadowFunc):
     @functools.cache
     def get_location_key(self) -> str:
         m = self.__class__.__module__.split('.')
-        return m[3] + "." + m[-3] + "." + m[-1]
+        return m[3] + "." + m[4] + "." + m[-1]
 
     def get_city(self) -> 'City':
         return self.world().get_city(self.get_location_key())

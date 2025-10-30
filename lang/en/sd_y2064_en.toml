@@ -46,3 +46,10 @@ y2064_peine_marketplace_outside = "You find the marketplace. You see various res
 y2064_peine_gunzelinschool = "GunzelinSchool"
 y2064_peine_gunzelinschool_inside = "You enter the school and goto class."
 y2064_peine_gunzelinschool_outside = "You find the gunzelin middleschool, where gizmore finally gained a middle school diploma at the age of 20."
+
+#########
+# Woods #
+#########
+y2064_peine_woods = "Woods"
+y2064_peine_woods_inside = "You enter the woods."
+y2064_peine_woods_outside = "You find the swanoy woods of Telchte."

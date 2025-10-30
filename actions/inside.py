@@ -8,8 +8,7 @@ if TYPE_CHECKING:
 class inside(Action):
 
     def get_target(self, party: 'SD_Party', target_string: str):
-        from gdo.shadowdogs.engine.World import World
-        return World.get_location(target_string)
+        return self.world().get_location(target_string)
 
     async def on_start(self, party: 'SD_Party'):
         pass

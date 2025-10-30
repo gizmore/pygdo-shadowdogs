@@ -1,6 +1,5 @@
 from gdo.core.GDT_Enum import GDT_Enum
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
-from gdo.shadowdogs.engine.World import World
 
 
 class GDT_World(WithShadowFunc, GDT_Enum):
@@ -21,8 +20,9 @@ class GDT_World(WithShadowFunc, GDT_Enum):
         return val
 
     def gdo_choices(self) -> dict:
+        World = self.world()
         return {
-            '2064': World.World2064,
-            '2077': World.World2077,
-            '2088': World.World2088,
+            'y2064': World.World2064,
+            'y2077': World.World2077,
+            'y2088': World.World2088,
         }

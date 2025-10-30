@@ -1,4 +1,5 @@
 from gdo.core.GDO_User import GDO_User
+from gdo.shadowdogs.GDT_Location import GDT_Location
 from gdo.shadowdogs.city.y2064.World2064 import World2064
 from gdo.shadowdogs.city.y2077.World2077 import World2077
 from gdo.shadowdogs.city.y2088.World2088 import World2088
@@ -32,13 +33,13 @@ class World:
 
     @classmethod
     def get_city(cls, loc_str: str) -> 'City | None':
-        year, city_name, loc_name = loc_str.split('.', 2)
+        year, city_name, loc_name = GDT_Location.split_locstr(loc_str)
         return cls.WORLDS.get(year).CITIES.get(city_name)
 
     @classmethod
     def get_location(cls, loc_str: str) -> 'Location':
         try:
-            year, city_name, loc_name = loc_str.split('.', 2)
+            year, city_name, loc_name = GDT_Location.split_locstr(loc_str)
         except ValueError:
             return cls.get_city(loc_str+'.fake')
         city = cls.get_city(loc_str)

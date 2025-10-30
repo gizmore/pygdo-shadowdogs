@@ -8,8 +8,10 @@ if TYPE_CHECKING:
 class outside(Action):
 
     def get_target(self, party: 'SD_Party', target_string: str):
-        from gdo.shadowdogs.engine.World import World
-        return World.get_location(target_string)
+        if target_string.count('.') == 2:
+            return self.world().get_location(target_string)
+        else:
+            return self.world().get_city(target_string)
 
     async def on_start(self, party: 'SD_Party'):
         pass

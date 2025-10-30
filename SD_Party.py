@@ -2,15 +2,16 @@ from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Util import Arrays, Random
 from gdo.core.GDT_AutoInc import GDT_AutoInc
-from gdo.core.GDT_Enum import GDT_Enum
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.date.GDT_Created import GDT_Created
 from gdo.date.Time import Time
 from gdo.shadowdogs.GDT_Action import GDT_Action
+from gdo.shadowdogs.GDT_LootMode import GDT_LootMode
 from gdo.shadowdogs.GDT_Target import GDT_Target
 
 from typing import TYPE_CHECKING, Iterator
 
+from gdo.shadowdogs.GDT_World import GDT_World
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.Location import Location
@@ -51,7 +52,9 @@ class SD_Party(WithShadowFunc, GDO):
             GDT_Action('party_last_action'),
             GDT_Target('party_last_target').last_target(),
             GDT_UInt('party_last_eta'),
-            GDT_Enum('party_world').choices({'y2064': 'World2064', 'y2077': 'World2077', 'y2088': 'World2088'}).not_null().initial('y2064'),
+            GDT_World('party_world').not_null().initial('y2064'),
+            GDT_UInt('party_kills').not_null().initial('0'),
+            GDT_LootMode('party_loot_mode').not_null().initial(GDT_LootMode.KILLER),
             GDT_Created('party_created'),
         ]
 

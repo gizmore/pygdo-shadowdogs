@@ -14,6 +14,7 @@ from gdo.shadowdogs.npcs.npcs import npcs
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from gdo.shadowdogs.npcs.Hireling import Hireling
     from gdo.shadowdogs.SD_NPC import SD_NPC
 
 
@@ -39,6 +40,9 @@ class Factory(WithShadowFunc):
     ########
     # NPCs #
     ########
+    @classmethod
+    def create_hireling(cls, klass: 'type[Hireling]') -> 'Hireling':
+        return klass.blank().insert()
 
     @classmethod
     async def create_default_npcs(cls, location: Location, *class_names: str) -> SD_Party:
@@ -74,7 +78,7 @@ class Factory(WithShadowFunc):
             'p_party': party.get_id(),
         })
         for k, v in spec2.items():
-            if k in player.modified:
+            if player.column(k):
                 if type(v) == tuple:
                     v = Random.mrand(v[0], v[1])
                 player.sb(k, v)

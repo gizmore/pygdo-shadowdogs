@@ -20,5 +20,5 @@ let us start fresh.
 ## Deeds
 
  - You can be told todo labour of 8h/week for no compensation, except your rights.
- - You may not leave the path or the way. This means ethical thinking and acting, no harm others, etc.
- - 
+ - You may not leave the path or the way. This means ethical thinking and acting.
+

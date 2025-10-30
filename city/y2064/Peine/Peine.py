@@ -1,14 +1,21 @@
-from gdo.shadowdogs.SD_Party import SD_Party
-from gdo.shadowdogs.city.y2064.Peine.locations.GunzelinSchool import GunzelinSchool
-from gdo.shadowdogs.city.y2064.Peine.locations.Home import Home
-from gdo.shadowdogs.city.y2064.Peine.locations.Marketplace import Marketplace
-from gdo.shadowdogs.city.y2064.Peine.locations.GaragePub import GaragePub
-from gdo.shadowdogs.city.y2064.Peine.locations.SeniorHome import SeniorHome
+from gdo.shadowdogs.city.y2064.Peine.locations.TrainStation import TrainStation
+from gdo.shadowdogs.city.y2064.Peine.locations.alfred.Alfred import Alfred
+from gdo.shadowdogs.city.y2064.Peine.locations.gunzelin.GunzelinSchool import GunzelinSchool
+from gdo.shadowdogs.city.y2064.Peine.locations.home.Home import Home
+from gdo.shadowdogs.city.y2064.Peine.locations.market.Marketplace import Marketplace
+from gdo.shadowdogs.city.y2064.Peine.locations.garage.GaragePub import GaragePub
+from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.SeniorHome import SeniorHome
 from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
-from gdo.shadowdogs.city.y2064.Peine.locations.WaffenKief import WaffenKief
+from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.WaffenKief import WaffenKief
+from gdo.shadowdogs.city.y2064.Peine.locations.woods.Woods import Woods
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
+
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from gdo.shadowdogs.SD_Party import SD_Party
 
 
 class Peine(City):
@@ -20,6 +27,9 @@ class Peine(City):
     Jawoll: Jawoll = Jawoll()
     WaffenKief: WaffenKief = WaffenKief()
     GunzelinSchool: GunzelinSchool = GunzelinSchool()
+    Alfred: Alfred = Alfred()
+    Woods: Woods = Woods()
+    TrainStation: TrainStation = TrainStation()
 
     LOCATIONS: list[Location] = [
         Marketplace,
@@ -29,6 +39,9 @@ class Peine(City):
         Jawoll,
         WaffenKief,
         GunzelinSchool,
+        Alfred,
+        Woods,
+        TrainStation,
     ]
 
     NPCS: list[tuple[str, int]] = [

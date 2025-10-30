@@ -3,6 +3,7 @@ import os
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.core.method.clear_cache import clear_cache
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.table.module_table import module_table
 from gdotest.TestUtil import GDOTestCase, reinstall_module, WebPlug, cli_gizmore, cli_plug
 
@@ -21,6 +22,10 @@ class ShadowdogsTestCase(GDOTestCase):
         loader.init_modules(True, True)
         loader.init_cli()
         module_table.instance().save_config_val('table_ipp', '4')
+
+    def sd_gizmore(self):
+        gizmore = cli_gizmore()
+        return Shadowdogs.USERMAP[gizmore.get_id()]
 
     async def fresh_gizmore(self, equip: bool = True):
         gizmore = cli_gizmore()

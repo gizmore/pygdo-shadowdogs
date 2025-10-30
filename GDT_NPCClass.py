@@ -8,6 +8,12 @@ class GDT_NPCClass(GDT_Enum):
 
     TALKING_NPCS: dict[str,type['TalkingNPC']] = {}
 
+    def __init__(self, name: str):
+        super().__init__(name)
+        self.ascii()
+        self.maxlen(255)
+        self.case_s()
+
     def gdo_choices(self) -> dict:
         from gdo.shadowdogs.npcs.npcs import npcs
         from gdo.shadowdogs.engine.Loader import Loader

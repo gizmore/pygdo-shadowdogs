@@ -41,7 +41,8 @@ or have the handwritten permission from your parents.
 Some advertising is allowed. You risk doxing and mute.
 In case you get spammed, you may mute the offending player for everyone.
  - It is forbidden to impersonate as others. You risk doxing and **other countermeasures**.
- - It is not allowed to spoil the game for others. The secrets have to be kept secret. You get acne and risk loss of hearing.
+ - It is not allowed to spoil the game for others. The secrets have to be kept secret.
+You risk getting acne and loss of hearing.
  - A corrupted game has to be repaired or erased.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
@@ -99,7 +100,9 @@ The first president of ESL, iamben, has another **2 votes**.
 But suddenly, the spectators and poor got permission to vote as well.
 The master of the sword of the land got another 2 votes,
 
-Totalling **72** votes with **37** to win.
+
+Totalling **64** votes with **33** to win.
+
 
 
 If an NPC gets elected to a position,
@@ -276,9 +279,9 @@ Observers: Playing themselves
 
 There are 55 special players in the game, which apparently know too much and try to subvert the current society. 
 
-Those get contacted by Alice by giving them a card from a French card game.
+Those get contacted by unknown parties by giving them a card from a French card game.
 
-Those are soldiers of Alice, and some get really supported by her.
+What this is about, you have to find out yourself.
 
 ### Card meanings
 
@@ -288,10 +291,10 @@ Those are soldiers of Alice, and some get really supported by her.
 ♥J
 ♠J
 ♣J
-♦Q
-♥Q
-♣Q
-♠Q
+♦Q New Love
+♥Q True Love
+♣Q Marriage?
+♠Q Loss of Love
 ♦K
 ♥K
 ♠K
@@ -300,6 +303,10 @@ Those are soldiers of Alice, and some get really supported by her.
 ♥A
 ♠A
 ♣A
+jack
+Jack
+JACK
+
 
 #### Credits
 

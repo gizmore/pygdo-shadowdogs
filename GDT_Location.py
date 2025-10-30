@@ -40,3 +40,11 @@ class GDT_Location(WithPlayerGDO, GDT_Object):
 
     def render_cli(self, mode: Mode = Mode.HTML):
         return self.get_place().render_name()
+
+    @classmethod
+    def split_locstr(cls, loc_str: str) -> tuple[str, str, str]:
+        parts = loc_str.split('.')
+        year = parts[0]
+        city = parts[1]
+        loc = parts[-1]
+        return year, city, loc

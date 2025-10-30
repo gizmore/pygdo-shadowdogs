@@ -41,8 +41,8 @@ class TalkingNPC(SD_NPC):
         SD_QuestVal.qv_set(self.q(), self.get_player(), key, val)
         return self
 
-    def qv_get(self, key: str) -> str:
-        return SD_QuestVal.qv_get(self.q(), self.get_player(), key)
+    def qv_get(self, key: str, default: str = None) -> str:
+        return SD_QuestVal.qv_get(self.q(), self.get_player(), key, default)
 
 
     def get_name(self):
@@ -64,3 +64,9 @@ class TalkingNPC(SD_NPC):
             await self.say('sdq_item_no_need')
         item.delete()
 
+
+    def sd_can_hire(self) -> bool:
+        return False
+
+    async def on_hire(self):
+        return await self.send_to_player(self.get_player(), 'err_sd_cannot_hire', (self.render_name(),))

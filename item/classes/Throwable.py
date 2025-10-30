@@ -5,5 +5,5 @@ class Throwable(Item):
 
     def sd_methods(self,player: 'SD_Player') -> list[str]:
         return [
-            "throw",
+            "sdthrow",
         ]

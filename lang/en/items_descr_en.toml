@@ -2,6 +2,7 @@
 
 # --- Melee ---
 Fists_descr = "Your bare hands. Reliable when all else fails."
+Claws_descr = "Sharp and long claws."
 BrokenBottle_descr = "Jagged glass shard; desperate, dirty, and deadly up close."
 KitchenKnife_descr = "Everyday chef’s knife, quick and quiet in tight spaces."
 Shiv_descr = "Improvised prison blade; sneaky, light, and mean."

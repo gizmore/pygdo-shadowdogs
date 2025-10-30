@@ -1,6 +1,4 @@
-from gdo.base.Trans import t
 from gdo.shadowdogs.SD_Player import SD_Player
-from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 

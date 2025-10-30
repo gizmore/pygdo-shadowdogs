@@ -8,6 +8,6 @@ class Marketplace(City):
     Entrance: Entrance = Entrance()
 
     LOCATIONS: list[Location] = [
-        Entrance,
+        Entrance
     ]
 

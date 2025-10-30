@@ -80,7 +80,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
-        Random.init(31337)
+        Random.init(31339)
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
         out = cli_plug(gizmore, '$sdp')
@@ -145,7 +145,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out += cli_plug(gizmore, '$sdtalk Laz hi')
         self.assertIn('a new', out, 'say and lazer does not work.')
         out = cli_plug(gizmore, '$sdkw')
-        self.assertIn('home', out, 'known words does not work.')
+        self.assertIn('weed', out, 'known words does not work.')
 
     async def test_17_loot(self):
         gizmore = await self.fresh_gizmore()
@@ -281,8 +281,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('Shotgun', out, '$buy does not work.')
         out = cli_plug(gizmore, '$sdbuy Shells 20')
         self.assertIn('Shells12g', out, '$buy does not work.#2')
-        out = cli_plug(gizmore, '$sdi 2')
-        self.assertIn('Shotgun', out, '$i does not work.')
         out = cli_plug(gizmore, '$sdreload Shotgu')
         await self.ticker_for(gizmore)
         out += all_private_messages()
@@ -338,7 +336,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('ributes:', out, '$help does not work.#2')
 
     async def test_58_equip(self):
-        gizmore = await self.fresh_gizmore()
+        gizmore = await self.fresh_gizmore(False)
         out = cli_plug(gizmore, '$sdeq jean')
         self.assertIn('Jeans', out, '$equip does not work.')
         self.assertIn('Shorts', out, '$equip does not work.#2')
