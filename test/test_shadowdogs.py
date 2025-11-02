@@ -1,5 +1,6 @@
 import unittest
 
+from gdo.base.Trans import Trans
 from gdo.base.Util import Random
 from gdo.date.Time import Time
 from gdo.shadowdogs.engine.Factory import Factory
@@ -7,6 +8,7 @@ from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.classes.weapon.Fists import Fists
+from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug, cli_gizmore, all_private_messages
 
@@ -369,6 +371,24 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('free', out, 'movr#1 does not work.')
         out = cli_plug(gizmore, '$sdmov r')
         self.assertIn('vault', out, 'movr#2 does not work.')
+
+    async def test_70_item_trans(self):
+        for klass in items.ITEMS.keys():
+            self.assertTrue(Trans.has(klass), f"Item {klass} has no trans #1")
+            self.assertTrue(Trans.has(klass+'_descr'), f"Item {klass} has no trans #2")
+
+    async def test_80_hireling(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz inside Alf')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish weed')
+        out = cli_plug(gizmore, '$sdtalk fish yes')
+        out = cli_plug(gizmore, '$sdgml giz inside wood')
+        out = cli_plug(gizmore, '$sdhire fish 100')
+        out = cli_plug(gizmore, '$sdp')
+        self.assertIn('Fish', out, 'p does not work.')
+
 
 
 if __name__ == '__main__':

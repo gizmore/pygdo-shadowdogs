@@ -127,11 +127,16 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_item(cls, item_name: str, count: int=1, mods: str=None, player_id: str=None, equipped: bool=False):
+        return cls.get_item(item_name, count, mods, player_id, equipped).insert()
+
+    @classmethod
+    def get_item(cls, item_name: str, count: int=0, mods: str=None, player_id: str=None, equipped: bool=False):
         item = items.get_item(item_name)
         return item.set_vals({
             'item_owner': player_id or '1',
-            'item_slot': item.get_slot() if equipped else GDT_Slot.NEXUS,
+            'item_slot': item.get_slot() if equipped else item.sd_inv_type(),
             'item_name': item_name,
             'item_mods': mods,
-            'item_count': str(count),
-        }).validated().insert()
+            'item_count': count if count else item.get_default_count(),
+        }).validated()
+

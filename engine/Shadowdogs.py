@@ -1,5 +1,7 @@
 from typing import TYPE_CHECKING
 
+from gdo.date.Time import Time
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
     from gdo.shadowdogs.SD_Player import SD_Player
@@ -56,6 +58,9 @@ class Shadowdogs:
     SECONDS_INITIATIVE = 60
     SECONDS_INITIATIVE_BONUS_PER_QUICKNESS = 1
     SECONDS_PER_METER = 10
+
+    SECONDS_PEINE_OBERG = Time.ONE_MINUTE * 35
+
     METERS_PER_FORWARD = 2
     GIVE_SECONDS_PER_WEIGHT = 0.003
 
@@ -130,6 +135,9 @@ class Shadowdogs:
 
     CRIT_CHANCE_PERCENT = 10
     CRIT_CHANCE_PER_AIM = 1
+
+    THROW_TTME_PER_QUICKNESS = 1
+    THROW_TIME_BASE = 30
 
     @classmethod
     def display_nuyen(cls, nuyen: int) -> str:

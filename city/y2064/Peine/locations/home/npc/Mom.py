@@ -21,6 +21,8 @@ class Mom(TalkingNPC):
                 await self.q().accept()
         elif text == 'yes' or text == 'no':
             await self.say('sdqs_etablisment_loveyou')
+        elif text == 'weed':
+            await self.say('sdqs_mom_no_weed')
         else:
             await self.say('sdqs_etablisment_hello')
             await self.give_word(player, 'work')

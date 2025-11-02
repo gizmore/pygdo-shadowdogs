@@ -7,11 +7,11 @@ class loot(MethodSD):
 
     @classmethod
     def gdo_trigger(cls) -> str:
-        return 'loot'
+        return 'sdloot'
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'lo'
+        return 'sdlo'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(GDT_LootMode('mode').not_null(),)

@@ -22,7 +22,7 @@ class Woods(Location):
         n = int(q.qv_get_inced('jungle_searched'))
         if Random.mrand(0, 1000) < self.CHANCE_PERMILLE and Jungle.instance().is_in_quest():
             await self.send_to_player(player, 'sdqs_found_farm')
-            Jungle.instance().accomplished()
+            await Jungle.instance().accomplished()
         elif Random.mrand(0, 100) < self.WOLF_PERCENT and Jungle.instance().is_in_quest():
             enemies = await Factory.create_default_npcs(player.get_party().get_location(), "wolf")
             await player.get_party().fight(enemies)

@@ -10,7 +10,14 @@ class Matthew(TalkingNPC):
         return Baptism
 
     async def on_say(self, player: SD_Player, text: str):
-        if text == "work":
+
+        if self.q().is_in_quest(player):
+            if self.q().check_accomplished():
+                await self.say('sdqs_matthew_accomplished')
+                await self.q().accomplished()
+            else:
+                await self.say('sdqs_matthew_more_kills')
+        elif text == "work":
             await self.say('sdqs_matthew_work')
         elif text == "home":
             n = self.q().qv_get_inced('home', player, 5)

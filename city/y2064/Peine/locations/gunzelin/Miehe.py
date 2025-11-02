@@ -2,7 +2,7 @@ from gdo.base.Application import Application
 from gdo.base.Util import Random
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Quest import SD_Quest
-from gdo.shadowdogs.city.y2064.Peine.quests.BaM import BaM
+from gdo.shadowdogs.city.y2064.Peine.locations.gunzelin.BaM import BaM
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 

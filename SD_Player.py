@@ -123,6 +123,9 @@ class SD_Player(WithShadowFunc, GDO):
         self.weight = Weight('p_weight').gdo(self)
         self.reset_modified()
 
+    def gdo_ipc(self) -> bool:
+        return False
+
     def combat_stack(self) -> CombatStack:
         if self._combat_stack is None:
             self._combat_stack = CombatStack(self)

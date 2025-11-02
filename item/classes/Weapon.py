@@ -15,7 +15,8 @@ class Weapon(Item):
 
     def sd_commands(self) -> list[str]:
         return [
-            'attack'
+            'sdattack',
+            'sdthrow',
         ]
 
     async def attack(self, d: 'SD_Player', armor_field: str = 'p_marm'):

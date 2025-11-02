@@ -54,4 +54,5 @@ class ShadowdogsTestCase(GDOTestCase):
             await self.ticker_for()
             out = cli_plug(gizmore, '$sdeq jean')
             await self.ticker_for()
+        Shadowdogs.CURRENT_PLAYER = self.sd_gizmore()
         return gizmore

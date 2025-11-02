@@ -2,8 +2,10 @@ from collections import OrderedDict
 from typing import TYPE_CHECKING, Iterator, Mapping
 
 from gdo.base.GDO import GDO
+from gdo.base.GDT import GDT
 from gdo.base.Trans import t
 from gdo.base.Util import Arrays, Strings
+from gdo.message.GDT_HTML import GDT_HTML
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 
 from gdo.shadowdogs.SD_Item import SD_Item
@@ -184,3 +186,9 @@ class Item(SD_Item):
     def get_default_count(self) -> int:
         return self.dmi('magsize', 1)
 
+    def sd_craft_time(self) -> int:
+        return self.get_equip_time() * 2
+
+    async def on_craft(self, item: 'Item') -> GDT:
+        await self.send_to_player(self.get_owner(), 'err_sd_no_craft')
+        return GDT_HTML()

@@ -1,4 +1,4 @@
-from gdo.shadowdogs.city.y2064.Peine.locations.TrainStation import TrainStation
+from gdo.shadowdogs.city.y2064.Peine.locations.trains.TrainStation import TrainStation
 from gdo.shadowdogs.city.y2064.Peine.locations.alfred.Alfred import Alfred
 from gdo.shadowdogs.city.y2064.Peine.locations.gunzelin.GunzelinSchool import GunzelinSchool
 from gdo.shadowdogs.city.y2064.Peine.locations.home.Home import Home

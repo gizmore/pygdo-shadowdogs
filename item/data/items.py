@@ -17,6 +17,7 @@ class items:
     ITEMS = {
         # Melee
         'Claws':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  0, 'defense': 0, 'min_dmg':  0, 'max_dmg':  0, 'price':       0, 'no_loot': True},
+        'Stone':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  3, 'defense': 0, 'min_dmg':  1, 'max_dmg':  5, 'price':       0},
         'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
         'BrokenBottle':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 20, 'sell': False},
         'KitchenKnife':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 30},
@@ -357,9 +358,12 @@ class items:
         'Pen':                {'klass': 'Pen',         'weight':  20},
         'MobilePhone':        {'klass': 'MobilePhone', 'weight': 488},
         'Lighter':            {'klass': 'Lighter',     'weight':  22},
-        'Stone':              {'klass': 'Stone',       'weight': 232},
         'Bottle':             {'klass': 'Bottle',      'weight':  42},
-        'Twig':               {'klass': 'Recipe',      'weight': 41},
+        'Twig':               {'klass': 'Recipe',      'weight': 333},
+        'Rags':               {'klass': 'Recipe',      'weight': 333},
+        'Torch':              {'klass': 'Lighter',     'weight': 377},
+        'DryTorch':           {'klass': 'Recipe',      'weight': 377},
+        'Petrol':             {'klass': 'Recipe',      'weight': 512},
 
         # Heal
         'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
@@ -372,11 +376,12 @@ class items:
         'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 12,  'ef': {'thirst': -3, 'hunger': 25}},
         'SmallBeer':          {'klass': 'Consumable',  'level':  2, 'weight': 350,  'price': 12,  'ef': {'thirst': 15, 'hunger':  5, 'alcohol': 2}},
         'LargeBeer':          {'klass': 'Consumable',  'level':  1, 'weight': 530,  'price': 12,  'ef': {'thirst': 25, 'hunger': 10, 'alcohol': 3}},
-        'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 24, 'ef': {'thirst': 90}},
+        'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 24, 'ef': {'thirst': 150}},
         'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 12, 'ef': {'thirst': 30}},
         'Hash':                {'klass': 'QuestItem',   'level':  2, 'weight': 1,    'price': 30, 'ef': {'thirst': -100}},
         'Apple':              {'klass': 'Consumable', 'level': 1, 'weight': 160, 'price': 2, 'ef': {'hunger': 15, 'thirst': 15}},
         'InstantNoodles':     {'klass': 'Consumable', 'level': 1, 'weight': 90, 'price': 4, 'ef': {'hunger': 20, 'thirst': 0}},
+        'WaterBottle':        {'klass': 'FilledBottle', 'level': 1, 'weight': 560, 'price': 8, 'ef': {'hunger': 0, 'thirst': 50}},
 
         # implants
         'NeuralJackLite':    {'klass': 'Implant', 'level':  1, 'int': 1, 'cpu': 1, 'price':     1200},
@@ -385,7 +390,7 @@ class items:
         'MuscleWireI':       {'klass': 'Implant', 'level':  4, 'str': 1, 'price':     3400},
         'ReflexBoosterI':    {'klass': 'Implant', 'level':  5, 'dex': 1, 'qui': 1, 'price':     4300},
         'CyberEyeII':         {'klass': 'Implant', 'level':  6, 'aim': 2, 'price':     5600},
-        'DermalWeave II':     {'klass': 'Implant', 'level':  7, 'marm': 2, 'max_hp': 1, 'price':     7200},
+        'DermalWeaveII':     {'klass': 'Implant', 'level':  7, 'marm': 2, 'max_hp': 1, 'price':     7200},
         'NeuralLinkI':        {'klass': 'Implant', 'level':  8, 'hac': 1, 'int': 1, 'cpu': 1, 'mcpu':  5, 'price':     9000},
         'BoneLacingI':       {'klass': 'Implant', 'level':  9, 'marm': 1, 'farm': 1, 'max_hp': 2, 'str': 1, 'price':    11200},
         'TargetingOpticsI':  {'klass': 'Implant', 'level': 10, 'aim': 3, 'dex': 1, 'price':    14000},

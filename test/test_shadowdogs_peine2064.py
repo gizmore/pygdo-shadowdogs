@@ -131,6 +131,34 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertLess(i, 99, 'quest is borked #1.')
         self.assertLess(f, 20, 'quest is borked #2.')
 
+    async def test_50_baptism(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz inside gar')
+        self.assertIn('GarageP', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdtalk matt hello')
+        self.assertIn('Oh hell', out, 'talk#1 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt work')
+        self.assertIn('civilian', out, 'talk#2 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt home')
+        self.assertIn('looking', out, 'talk#3 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt home')
+        self.assertIn('video', out, 'talk#4 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt home')
+        self.assertIn('baptism', out, 'talk#5 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt home')
+        self.assertIn('enemies', out, 'talk#6 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt home')
+        self.assertIn('lamers', out, 'talk#7 no work.')
+        out = cli_plug(gizmore, '$sdtalk matt yes')
+        self.assertIn('new quest', out, 'talk#8 no work.')
+        for i in range(6):
+            out = cli_plug(gizmore, '$sdexp')
+            await self.party_ticker_until(Action.OUTSIDE)
+        out = cli_plug(gizmore, '$sdgml giz inside gar')
+        self.assertIn('GarageP', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdtalk matt hello')
+        self.assertIn('accomplished', out, 'talk#10 no work.')
+
 
 
 if __name__ == '__main__':

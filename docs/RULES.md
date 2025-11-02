@@ -57,6 +57,8 @@ The alteration has to be part of the poll question.
  - Silence is not lying. For breaking the silence you might get rewarded.
  - If the new system fails, the grounding fathers may rewrite this document completely.
 Failing means: A political system fails if bread beer and games don't taste anymore.
+ - If you have reached an age of 88 years, the truth will be revealed to you.
+
 
 **UNSIGNED**
 
@@ -178,6 +180,7 @@ ESL is a state of freedom. (peace + truth)
 - You can read what you want.
 - You can write what you want.
 - You can watch what you want.
+- You can love who you want.
 
 Remember, peace is part of the freedom you have here.
 
@@ -213,14 +216,10 @@ or services have been executed.
 The Nayen is then spread equally under each world citizen.
 
 
-
 ## The current council members
 
 Using Nicknames, as they are cooler than real names only.
 
-
-9+8+7+14+15+11
-24 + 40 64 / 2 == 32 33 WINS
 
 #### Alice - 9 votes
 - Alice: Playing herself
@@ -235,13 +234,13 @@ Using Nicknames, as they are cooler than real names only.
 - President: iamben
 
 #### The Master of the Wind – 1 vote
-- MW: giz
+- MW: g
 
 #### The Keeper of the Fire – 2 votes
 - KF: mw23
 
 #### The Master of the Sword - 2 votes
-- MS: 0xf01d
+- MS: Blödel
 
 #### The Hackers – 4 votes
 - HackerOne: MK
@@ -257,19 +256,19 @@ Using Nicknames, as they are cooler than real names only.
 #### The Plants – 5 votes
 - Trees:
 - Farn:
-- Corals:
+- Corals: Hase
 - Flowers:
-- Herbs:
+- Herbs: 
 
-#### The Citizens – 15 votes
-- young: That one girl 5 votes)
-- middles: VP (2 votes)
-- elderly: Henker (2 votes)
-- males: Friedi (2 votes)
+#### The Citizens – 21 votes
+- young: L (7 votes)
+- middles: VP (4 votes)
+- elderly: Henker (4 votes)
+- males: Friedi (4 votes)
 - females: - (4 votes)
 
-#### The Grounding Father – 8 votes
-GF: Playing himself
+#### The Grounding Father – 0 votes
+GF: playing thyself
 
 #### Observers - 3 votes
 Observers: Playing themselves

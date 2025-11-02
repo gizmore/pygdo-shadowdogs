@@ -133,3 +133,22 @@ sdqs_found_farm = "You found a hidden hemp farm."
 sdqs_jungle_keep_on_1 = "Keep om **$t$search**ing. We will surely find some stash."
 sdqs_jungle_keep_on_2 = "You can also $t$hire me, so we can search together."
 sdqs_jungle_keep_on_3 = "Are you ready? Let us keep searching."
+
+###########
+# Baptism #
+###########
+sdqt_baptism = "Jungle"
+sdqd_baptism = "Kill %s and return to Metthew in the GaragePub."
+sdqs_matthew_work = "Oh... you gonna work civilian service... better than plaing war."
+sdqs_matthew_home_1 = "I am looking for a new place as well."
+sdqs_matthew_home_2 = "Man, this is a video game. What do you expect from me? The protagonist will get crazy soon and have a sip of the essence of the matrix."
+sdqs_matthew_home_3 = "In the real happenings, he haa not really harmed anyone. But before we continue with the story, you have todo the fire baptism,"
+sdqs_matthew_home_4 = "You have to proof you would take the red pill. And how could you prove it better than by killing some simulated enemies."
+sdqs_matthew_home_5 = "How about you kill a few lamers?"
+sdqs_matthew_accept = "OK. Come back when you are done."
+sdqs_matthew_yes = "Yes what?"
+sdqs_matthew_deny = "OK. You better take the blue pill."
+sdqs_matthew_no = "Oh no?!"
+sdqs_matthew_hello = "Oh hello"
+sdqs_matthew_accomplished = "Well done!"
+sdqs_matthew_more_kills = "Kill more!"

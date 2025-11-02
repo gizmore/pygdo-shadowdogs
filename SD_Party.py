@@ -1,3 +1,4 @@
+from gdo.base.Application import Application
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
 from gdo.base.Util import Arrays, Random
@@ -43,6 +44,9 @@ class SD_Party(WithShadowFunc, GDO):
     def __repr__(self):
         return f"Party({self.get_id()}):({self.render_members()}) {self.get_action_name()} {self.get_target_string()}"
 
+    def gdo_ipc(self) -> bool:
+        return False
+
     def gdo_columns(self) -> list[GDT]:
          return [
             GDT_AutoInc('party_id'),
@@ -82,6 +86,7 @@ class SD_Party(WithShadowFunc, GDO):
         })
         if self.members:
             await self.get_action().player(self.members[0]).on_start(self)
+        Application.EVENTS.publish(f"party_starts_{action}", self, action)
         return self
 
     async def resume(self):

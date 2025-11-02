@@ -1,5 +1,5 @@
-from gdo.shadowdogs.item.classes.Consumable import Consumable
+from gdo.shadowdogs.item.classes.usable.FilledBottle import FilledBottle
 
 
-class Potion(Consumable):
+class Potion(FilledBottle):
     pass
