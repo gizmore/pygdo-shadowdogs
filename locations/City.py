@@ -102,6 +102,11 @@ class City(WithShadowFunc):
             return self
         if await self.on_meet_humans(party):
             return self
+        if await self.sd_on_explore(party):
+            return self
+        return self
+
+    async def sd_on_explore(self, party: 'SD_Party'):
         return self
 
     async def on_explore_mobs(self, party: 'SD_Party'):

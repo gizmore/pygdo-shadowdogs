@@ -1,3 +1,4 @@
+from gdo.base.Util import Random
 from gdo.shadowdogs.city.y2064.Peine.locations.park.Park import Park
 from gdo.shadowdogs.city.y2064.Peine.locations.trains.TrainStation import TrainStation
 from gdo.shadowdogs.city.y2064.Peine.locations.alfred.Alfred import Alfred
@@ -62,3 +63,9 @@ class Peine(City):
 
     def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
         return 0
+
+    async def sd_on_explore(self, party: 'SD_Party'):
+        for member in party.members:
+            if Random.mrand(0, 1000) < 1:
+                await self.give_new_items(member, 'Bottle', 'explore', self.render_name())
+        return self

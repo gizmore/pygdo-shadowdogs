@@ -9,6 +9,8 @@ if TYPE_CHECKING:
 
 class Marketplace(Bedroom, Location):
 
+    GIVING: str = "Bottle"
+
     NPCS: list['type[TalkingNPC]'] = [
         Moellring,
         # Hempel,

@@ -10,6 +10,8 @@ from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 class Woods(Location):
 
+    GIVING: str = 'Bottle'
+
     NPCS: 'list[type[TalkingNPC]]' = [
         Fish,
     ]

@@ -161,8 +161,18 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
 
     async def test_60_bottles(self):
         gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz in Par')
+        self.assertIn('Park', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('Bottle', out, 'bottlesearch#2 no work.')
+        out = cli_plug(gizmore, '$sdgml giz in market')
+        self.assertIn('Marketplace', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('Bottle', out, 'bottlesearch#5 no work.')
         out = cli_plug(gizmore, '$sdgml giz in train')
         self.assertIn('TrainStat', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('Stone', out, 'bottlesearch#3 no work.')
         out = cli_plug(gizmore, '$sdtalk bum hello')
         self.assertIn('ello frie', out, 'talk#1 no work.')
         out = cli_plug(gizmore, '$sdtalk bum work')
@@ -170,7 +180,22 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdtalk bum weed')
         self.assertIn('need weed.', out, 'talk#3 no work.')
         out = cli_plug(gizmore, '$sdtalk bum work')
-        self.assertIn('anymore', out, 'talk#4 no work.')
+        self.assertIn('easy money', out, 'talk#4 no work.')
+        out = cli_plug(gizmore, '$sdtalk bum work')
+        self.assertIn('collect', out, 'talk#4 no work.')
+        out = cli_plug(gizmore, '$sdtalk bum yes')
+        self.assertIn('new quest', out, 'talk#4 no work.')
+        out = cli_plug(gizmore, '$sdexplore')
+        await self.party_ticker_until('outside')
+        out = cli_plug(gizmore, '$sdexplore')
+        await self.party_ticker_until('outside')
+        out = cli_plug(gizmore, '$sdi')
+        self.assertIn('xBottle', out, 'i no work.')
+        out = cli_plug(gizmore, '$sdgml giz in train')
+        out = cli_plug(gizmore, '$sdgive bum 6xBottle')
+        self.assertIn('accompli', out, 'quest no work.')
+
+
 
 
 

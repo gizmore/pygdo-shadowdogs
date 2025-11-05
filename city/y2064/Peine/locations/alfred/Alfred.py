@@ -6,6 +6,8 @@ from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 class Alfred(Location):
 
+    GIVING: str = 'Bottle'
+
     NPCS: 'list[type[TalkingNPC]]' = [
         Alf,
         Fish,

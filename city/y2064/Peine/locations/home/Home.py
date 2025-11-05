@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 class Home(Bedroom,Location):
 
-    GIVING: str = 'Jeans,Shoes,12xNuyen,ArmyLetter'
+    GIVING: str = 'Jeans,Shoes,12xNuyen,ArmyLetter,Bottle'
 
     NPCS: list['type[TalkingNPC]'] = [
         Mom,
