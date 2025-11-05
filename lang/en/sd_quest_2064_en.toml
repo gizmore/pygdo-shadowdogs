@@ -152,3 +152,21 @@ sdqs_matthew_no = "Oh no?!"
 sdqs_matthew_hello = "Oh hello"
 sdqs_matthew_accomplished = "Well done!"
 sdqs_matthew_more_kills = "Kill more!"
+
+###########
+# Bottles #
+###########
+sdqt_bottles = "Bottles"
+sdqd_bottles = "Bring %s to the Bum in the Peine TrainStation."
+sd_peine_bum_accomplished = "Thank you frien'"
+sd_peine_bum_not_accomplished = "Do you have more o them, bottles?"
+sd_peine_bum_weed = "I don't need weed. If you need money maybe **work** for it... Oh you wanna purchase.... from a bum?! Hah.. i can show you a trick!"
+sd_peine_bum_work_0 = "I don't work anymore. I was a carpenter once."
+sd_peine_bum_work_1 = "Yeah... with this trick you can make easy money."
+sd_peine_bum_work_2 = "Oh yeah, you can collect bottles, and with a Bum pass you can turn them to money."
+sd_peine_bum_work_3 = "Oh... you wanna collect me some bottles?"
+sd_peine_bum_accept = "Ok frien'"
+sd_peine_bum_yes = "Yes frien'"
+sd_peine_bum_deny = "Was just an offer frien'"
+sd_peine_bum_no = "No frien'"
+sd_peine_bum_hello = "Hello frien'"

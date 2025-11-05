@@ -11,8 +11,11 @@ class Bum(TalkingNPC):
 
     async def on_say(self, player: SD_Player, text: str):
         q = self.q()
-        if text == 'hello':
-            await self.say('sd_peine_bum_hello')
+        if q.is_in_quest():
+            if q.check_accomplished():
+                await self.say('sd_peine_bum_accomplished')
+            else:
+                await self.say('sd_peine_bum_not_accomplished')
         elif text == 'weed':
             await self.say(f'sd_peine_bum_weed')
             q.qv_set('work_count', '1')
@@ -30,7 +33,7 @@ class Bum(TalkingNPC):
                 await q.accept()
             else:
                 await self.say(f'sd_peine_bum_yes')
-                q.qv_set('work_count', '0')
+            q.qv_set('work_count', '0')
         elif text == 'no':
             n = int(q.qv_get('work_count', '0'))
             if n == 3:
@@ -38,3 +41,6 @@ class Bum(TalkingNPC):
                 await q.deny()
             else:
                 await self.say(f'sd_peine_bum_no')
+            q.qv_set('work_count', '0')
+        else:
+            await self.say('sd_peine_bum_hello')

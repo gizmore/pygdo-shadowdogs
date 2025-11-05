@@ -159,6 +159,20 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdtalk matt hello')
         self.assertIn('accomplished', out, 'talk#10 no work.')
 
+    async def test_60_bottles(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz in train')
+        self.assertIn('TrainStat', out, 'gml no work.')
+        out = cli_plug(gizmore, '$sdtalk bum hello')
+        self.assertIn('ello frie', out, 'talk#1 no work.')
+        out = cli_plug(gizmore, '$sdtalk bum work')
+        self.assertIn('anymore', out, 'talk#2 no work.')
+        out = cli_plug(gizmore, '$sdtalk bum weed')
+        self.assertIn('need weed.', out, 'talk#3 no work.')
+        out = cli_plug(gizmore, '$sdtalk bum work')
+        self.assertIn('anymore', out, 'talk#4 no work.')
+
+
 
 
 if __name__ == '__main__':
