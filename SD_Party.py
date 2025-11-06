@@ -297,8 +297,8 @@ class SD_Party(WithShadowFunc, GDO):
     def calc_goto_eta_s(self, location: Location) -> int:
         city = location.get_city()
         sqkm = city.sd_square_km()
-        nloc = len(city.LOCATIONS)
-        return round((sqkm ** 2) / nloc)
+        # nloc = len(city.LOCATIONS)
+        return int(round((sqkm ** Shadowdogs.GOTO_SECONDS_POW)))
 
     def is_action_over(self) -> bool:
         return self.get_eta() <= self.get_time()

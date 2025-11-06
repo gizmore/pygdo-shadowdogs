@@ -1,11 +1,11 @@
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.GDT_LocationTarget import GDT_LocationTarget
 from gdo.shadowdogs.actions.Action import Action
-from gdo.shadowdogs.engine.MethodSD import MethodSD
+from gdo.shadowdogs.engine.MethodMove import MethodMove
 from gdo.shadowdogs.locations.Location import Location
 
 
-class goto(MethodSD):
+class goto(MethodMove):
 
     @classmethod
     def gdo_trigger(cls) -> str:
@@ -14,17 +14,6 @@ class goto(MethodSD):
     @classmethod
     def gdo_trig(cls) -> str:
         return 'sdg'
-
-    def sd_is_leader_command(self) -> bool:
-        return True
-
-    def sd_requires_action(self) -> list[str] | None:
-        return [
-            Action.INSIDE,
-            Action.OUTSIDE,
-            Action.GOTO,
-            Action.EXPLORE,
-        ]
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(

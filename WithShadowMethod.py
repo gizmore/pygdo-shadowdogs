@@ -82,7 +82,7 @@ class WithShadowMethod(WithShadowFunc):
                 return False
         if actions := self.sd_requires_action():
             if self.get_party().get_action_name() not in actions:
-                self.err('err_sd_not_now', ())
+                self.err('err_sd_not_now')
                 return False
         return True
 

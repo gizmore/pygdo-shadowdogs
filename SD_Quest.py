@@ -97,9 +97,10 @@ class SD_Quest(WithShadowFunc, GDO):
         return self.render_name()
 
     async def accept(self):
-        self.qd().accept(self, self.get_player())
-        await self.on_accept()
-        await self.send_to_player(self.get_player(), 'msg_sd_quest_accepted', (self.render_title(), self.render_descr()))
+        if not self.is_accepted(self.get_player()):
+            self.qd().accept(self, self.get_player())
+            await self.on_accept()
+            await self.send_to_player(self.get_player(), 'msg_sd_quest_accepted', (self.render_title(), self.render_descr()))
 
     async def on_accept(self):
         pass

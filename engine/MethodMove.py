@@ -11,15 +11,23 @@ class MethodMove(MethodSD):
     def sd_is_leader_command(self) -> bool:
         return True
 
+    def sd_requires_action(self) -> list[str] | None:
+        return [
+            Action.INSIDE,
+            Action.OUTSIDE,
+            Action.EXPLORE,
+            Action.GOTO,
+            Action.TALK,
+        ]
+
     def gdo_has_permission(self, user: 'GDO_User'):
         if not super().gdo_has_permission(user):
             return False
-        player = self.get_player()
         overloaded = []
         for member in self.get_party().members:
             if member.cannot_move():
                 overloaded.append(member)
         if overloaded:
-            self.err('err_sd_player_required')
+            self.err('err_sd_move_overloaded')
             return False
         return True

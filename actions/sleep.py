@@ -21,7 +21,7 @@ class sleep(Action):
         for player in party.members:
             player.give_hp(player.g('p_bod') * Shadowdogs.HP_PER_BODY_SLEEP)
             player.give_mp(player.g('p_mag') * Shadowdogs.MP_PER_MAGIC_SLEEP)
-            if (player.g('p_hp') < player.g('p_max_hp')) or (player.g('p_mp') < player.g('p_max_mp')):
+            if (player.gb('p_hp') < player.g('p_max_hp')) or (player.gb('p_mp') < player.g('p_max_mp')):
                 wakeup = False
         if wakeup:
             await party.resume()

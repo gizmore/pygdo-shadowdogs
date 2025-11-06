@@ -84,7 +84,7 @@ msg_sd_quest_reward_skill = "You were rewarded with skill or attribute boost: %s
 mt_shadowdogs_sleep = "Sleep"
 md_shadowdogs_sleeo = "Go to bed and rest to recover HP and MP."
 msg_sd_go_sleeping = "You are going to bed."
-
+msg_sd_woke_up = "You wake up and feel refreshed."
 
 ###########
 # Actions #

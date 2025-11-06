@@ -10,6 +10,7 @@ from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.obstacle.Bed import Bed
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 from gdo.shadowdogs.obstacle.Searchable import Searchable
+from gdo.shadowdogs.obstacle.Sink import Sink
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
@@ -28,8 +29,9 @@ class Home(Bedroom,Location):
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [
-        Searchable('fridge').giving('Coke,LargeBeer,Sandwich'),
+        Searchable('fridge').giving('2xCoke,2xLargeBeer,2xSandwich'),
         Bed('bed'),
+        Sink('sink'),
         # Computer('PC').tile(Vault().password('gizmore', 4).giving('EmailArmy')),
     ]
 

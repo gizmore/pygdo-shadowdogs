@@ -109,6 +109,8 @@ class module_shadowdogs(GDO_Module):
                 party.delete()
             else:
                 await party.tick()
+            for member in party.members:
+                member.save()
 
     async def shadow_hp_timer(self):
         for party in Shadowdogs.PARTIES.values():
