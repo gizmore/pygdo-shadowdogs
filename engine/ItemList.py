@@ -1,14 +1,21 @@
+import re
+
 from gdo.shadowdogs.engine.ShadowdogsException import SDTooMuchMatchesException, SDUnknownItemException
 from gdo.shadowdogs.item.Item import Item
 
 
 class ItemList(list[Item]):
 
-    def has_item(self, item_name: str) -> bool:
-        return self.item_count(item_name) > 0
+    def has_item(self, item_name: str, count: int=1) -> bool:
+        if m := re.match(r"^(\d+)x(.*)$", item_name):
+            count = int(m.group(1))
+            item_name = m.group(2)
+        return self.item_count(item_name) >= count
 
     def item_count(self, item_name: str) -> int:
-        return self.get_by_name(item_name).get_count()
+        if item := self.get_by_name(item_name):
+            return item.get_count()
+        return 0
 
     def get_by_name(self, item_name: str) -> Item | None:
         item_name = item_name.lower()

@@ -1,0 +1,47 @@
+class usables:
+
+    USABLES = {
+        # Usable
+        'Pen':                {'klass': 'Pen',          'weight':  20},
+        'MobilePhone':        {'klass': 'MobilePhone',  'weight': 488},
+        'Lighter':            {'klass': 'Lighter',      'weight':  22},
+        'Torch':              {'klass': 'Lighter',      'weight': 377},
+        'Fireplace':          {'klass': 'Fireplace',    'weight': 800},
+        'Bottle':             {'klass': 'Bottle',       'weight':  42},
+        'Twig':               {'klass': 'Recipe',       'weight':  60},
+        'Branch':             {'klass': 'Recipe',       'weight': 333},
+        'Rags':               {'klass': 'Recipe',       'weight': 333},
+        'Petrol':             {'klass': 'Recipe',       'weight': 512},
+        'Tissu':              {'klass': 'Recipe',       'weight': 40},
+        'WieldStick':         {'klass': 'Recipe',       'weight': 85},
+        'Gunpowder':          {'klass': 'Recipe',       'weight': 1},
+        'Coal':               {'klass': 'Recipe',       'weight': 10},
+        'Sulfur':             {'klass': 'Recipe',       'weight': 10},
+        'Saltpeter':          {'klass': 'Recipe',       'weight': 10},
+        'Fuse':               {'klass': 'Recipe',       'weight': 6},
+        'WalkieTalkie':       {'klass': 'WalkieTalkie', 'weight': 820},
+
+        # Heal
+        'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
+        'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200, 'ef': {'p_hp': 15}},
+
+        # Consumeable
+        'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 333,  'price': 8,  'ef': {'thirst': 15}},
+        'Pizza':              {'klass': 'Consumable',  'level':  1, 'weight': 517,  'price': 25,  'ef': {'thirst': 15}},
+        'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 200,  'price': 25,  'ef': {'thirst': 10}},
+        'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 12,  'ef': {'thirst': -3, 'hunger': 25}},
+        'SmallBeer':          {'klass': 'Consumable',  'level':  2, 'weight': 350,  'price': 12,  'ef': {'thirst': 15, 'hunger':  5, 'alcohol': 2}},
+        'LargeBeer':          {'klass': 'Consumable',  'level':  1, 'weight': 530,  'price': 12,  'ef': {'thirst': 25, 'hunger': 10, 'alcohol': 3}},
+        'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 24, 'ef': {'thirst': 150}},
+        'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 12, 'ef': {'thirst': 30}},
+        'Hash':                {'klass': 'QuestItem',   'level':  2, 'weight': 1,    'price': 30, 'ef': {'thirst': -100}},
+        'Apple':              {'klass': 'Consumable', 'level': 1, 'weight': 160, 'price': 2, 'ef': {'hunger': 15, 'thirst': 15}},
+        'InstantNoodles':     {'klass': 'Consumable', 'level': 1, 'weight': 90, 'price': 4, 'ef': {'hunger': 20, 'thirst': 0}},
+        'WaterBottle':        {'klass': 'FilledBottle', 'level': 1, 'weight': 560, 'price': 8, 'ef': {'hunger': 0, 'thirst': 50}},
+
+
+      # Quest Items
+        'ArmyLetter':         {'klass': 'ArmyLetter',  'key': 'sdqa_email_army'},
+        'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
+        'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
+    }

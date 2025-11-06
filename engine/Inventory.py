@@ -1,4 +1,4 @@
-from typing import re
+import re
 
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.item.Item import Item

@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING
 from gdo.base.Application import Application
 from gdo.base.Logger import Logger
 from gdo.base.Util import Strings
+from gdo.shadowdogs.item.data.usables import usables
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.item.Item import Item
@@ -19,6 +20,7 @@ class items:
         'Claws':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  0, 'defense': 0, 'min_dmg':  0, 'max_dmg':  0, 'price':       0, 'no_loot': True},
         'Stone':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  4, 'defense': 0, 'min_dmg':  1, 'max_dmg':  6, 'price':       0},
         'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
+        'IronRod':           {'klass': 'Thrust',   'level':  1, 'at': 60, 'et':  1, 'rng': 2,  'weight':   0,  'attack':  6, 'defense': 1, 'min_dmg':  1, 'max_dmg':  5, 'price':       0},
         'BrokenBottle':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 20, 'sell': False},
         'KitchenKnife':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 30},
         'Shiv':               {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 160, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 4, 'price': 60},
@@ -53,6 +55,14 @@ class items:
         'EnergyScythe':      {'klass': 'Thrust',  'level': 28, 'at': 33, 'et': 11, 'rng': 2,  'weight':  9326,  'attack': 21, 'defense': 8, 'min_dmg': 37, 'max_dmg': 58, 'price':   78450},
         'PlasmaSword':       {'klass': 'Sword',   'level': 29, 'at': 32, 'et':  9, 'rng': 2,  'weight':  9664,  'attack': 22, 'defense': 8, 'min_dmg': 38, 'max_dmg': 60, 'price':   84150},
         'OmegaBlade':        {'klass': 'Sword',   'level': 30, 'at': 30, 'et': 10, 'rng': 2,  'weight': 10000,  'attack': 25, 'defense': 8, 'min_dmg': 40, 'max_dmg': 60, 'price':   90050},
+
+        # Bows
+        'IronRodBow': {'klass': 'Bow', 'level': 1, 'at': 51, 'et': 5, 'rng': 8, 'weight': 700, 'attack': 5, 'defense': 0, 'min_dmg': 2, 'max_dmg': 6, 'price': 0, 'ammo': 'Arrow', 'mag_size': 1, 'rt': 30},
+
+        # Arrows
+        'SteelArrow':  {'klass': 'Arrow', 'level': 6, 'min_dmg': 1, 'max_dmg': 2, 'weight': 110},
+        'PoisonArrow': {'klass': 'Arrow', 'level': 6, 'min_dmg': 1, 'max_dmg': 2, 'weight': 110, 'ef': {}},
+        'RamboArrow':  {'klass': 'Arrow', 'level': 6, 'min_dmg': 8, 'max_dmg': 16, 'weight': 240},
 
         # firearms
         'PipePistol':        {'klass': 'Firearms', 'level':  1, 'at': 51, 'et':  5, 'rng':  8, 'weight':   700, 'attack':  4, 'defense': 0, 'min_dmg':  6, 'max_dmg': 10, 'price':    250, 'ammo': '9mm',        'mag_size':  1, 'rt': 48},
@@ -99,6 +109,10 @@ class items:
         'AmmoRPG':       {'klass': 'Ammo', 'magsize':  1, 'level': 20, 'weight': 750,  'price':  4000},
         'AmmoEnergyCell':{'klass': 'Ammo', 'magsize': 50, 'level': 24, 'weight':1180,  'price':  2000},
         'AmmoRailSlug':  {'klass': 'Ammo', 'magsize':  1, 'level': 30, 'weight': 350,  'price': 25000},
+
+        # Grenade
+        'Molotov':  {'klass': 'Grenade', 'level': 5, 'min_dmg': 6,  'max_dmg': 12, 'radius': 4, 'reduce': 0.2, 'weight': 680, 'price': 0},
+        'PipeBomb': {'klass': 'Grenade', 'level': 5, 'min_dmg': 12, 'max_dmg': 24, 'radius': 6, 'reduce': 0.1, 'weight': 680, 'price': 0},
 
         # armor
         'TShirt':                 {'klass': 'Armor',   'level':  0, 'et': 10, 'weight':   250,  'marm':  0, 'farm':  0, 'price':      10},
@@ -354,39 +368,6 @@ class items:
         'MonAmulet':              {'klass': 'Amulet', 'level': 37, 'weight': 65, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
         'LionessAmulet':          {'klass': 'Amulet', 'level': 45, 'weight': 32, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
 
-        # Usable
-        'Pen':                {'klass': 'Pen',          'weight':  20},
-        'MobilePhone':        {'klass': 'MobilePhone',  'weight': 488},
-        'Lighter':            {'klass': 'Lighter',      'weight':  22},
-        'Torch':              {'klass': 'Lighter',      'weight': 377},
-        'Fireplace':          {'klass': 'Recipe',       'weight': 377},
-        'Bottle':             {'klass': 'Bottle',       'weight':  42},
-        'Twig':               {'klass': 'Recipe',       'weight': 333},
-        'Branch':             {'klass': 'Recipe',       'weight': 333},
-        'Rags':               {'klass': 'Recipe',       'weight': 333},
-        'DryTorch':           {'klass': 'Recipe',       'weight': 377},
-        'Petrol':             {'klass': 'Recipe',       'weight': 512},
-        'WieldKit':           {'klass': 'Recipe',       'weight': 1260},
-        'WalkieTalkie':       {'klass': 'WalkieTalkie', 'weight': 820},
-
-        # Heal
-        'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
-        'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200, 'ef': {'p_hp': 15}},
-
-        # Consumeable
-        'Coke':               {'klass': 'Consumable',  'level':  1, 'weight': 333,  'price': 8,  'ef': {'thirst': 15}},
-        'Pizza':              {'klass': 'Consumable',  'level':  1, 'weight': 517,  'price': 25,  'ef': {'thirst': 15}},
-        'EnergyDrink':        {'klass': 'Consumable',  'level':  1, 'weight': 200,  'price': 25,  'ef': {'thirst': 10}},
-        'Sandwich':           {'klass': 'Consumable',  'level':  1, 'weight': 436,  'price': 12,  'ef': {'thirst': -3, 'hunger': 25}},
-        'SmallBeer':          {'klass': 'Consumable',  'level':  2, 'weight': 350,  'price': 12,  'ef': {'thirst': 15, 'hunger':  5, 'alcohol': 2}},
-        'LargeBeer':          {'klass': 'Consumable',  'level':  1, 'weight': 530,  'price': 12,  'ef': {'thirst': 25, 'hunger': 10, 'alcohol': 3}},
-        'Water1.5':           {'klass': 'Consumable',  'level':  1, 'weight': 1510, 'price': 24, 'ef': {'thirst': 150}},
-        'Water0.5':           {'klass': 'Consumable',  'level':  1, 'weight': 510,  'price': 12, 'ef': {'thirst': 30}},
-        'Hash':                {'klass': 'QuestItem',   'level':  2, 'weight': 1,    'price': 30, 'ef': {'thirst': -100}},
-        'Apple':              {'klass': 'Consumable', 'level': 1, 'weight': 160, 'price': 2, 'ef': {'hunger': 15, 'thirst': 15}},
-        'InstantNoodles':     {'klass': 'Consumable', 'level': 1, 'weight': 90, 'price': 4, 'ef': {'hunger': 20, 'thirst': 0}},
-        'WaterBottle':        {'klass': 'FilledBottle', 'level': 1, 'weight': 560, 'price': 8, 'ef': {'hunger': 0, 'thirst': 50}},
-
         # implants
         'NeuralJackLite':    {'klass': 'Implant', 'level':  1, 'int': 1, 'cpu': 1, 'price':     1200},
         'CyberEyeI':          {'klass': 'Implant', 'level':  2, 'aim': 1, 'price':     1800},
@@ -454,14 +435,11 @@ class items:
         'TraceNT.exe':        {'klass': 'Trace',       'level':  4},
         'TraceNG.exe':        {'klass': 'Trace',       'level':  6},
 
-        # Quest Items
-        'ArmyLetter':         {'klass': 'ArmyLetter',  'key': 'sdqa_email_army'},
-        'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
-        'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
-
         # Special
         'Nuyen':              {'klass': 'Nuyen', 'level': 0, 'weight': 0.25, 'no_loot': True}
     }
+
+    ITEMS.update(usables.USABLES)
 
     KLASSES = {}
 

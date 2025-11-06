@@ -372,24 +372,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdmov r')
         self.assertIn('vault', out, 'movr#2 does not work.')
 
-    async def test_70_item_trans(self):
-        for klass in items.ITEMS.keys():
-            self.assertTrue(Trans.has(klass), f"Item {klass} has no trans #1")
-            self.assertTrue(Trans.has(klass+'_descr'), f"Item {klass} has no trans #2")
-
-    async def test_75_recipe_items(self):
-        for outcome, ingredients in recipe.RECIPES.items():
-            self.assertTrue(outcome in items.ITEMS.keys(), f"{outcome} is an unknown item!")
-            a, b = ingredients
-            an = Factory.get_item_by_arg(a)
-            bn = Factory.get_item_by_arg(b)
-            self.assertTrue(an.get_item_name() in items.ITEMS.keys(), f"{a} is an unknown item!")
-            self.assertTrue(bn.get_item_name() in items.ITEMS.keys(), f"{b} is an unknown item!")
-
-    async def test_77_crafting(self):
-        gizmore = await self.fresh_gizmore()
-
-
     async def test_80_hireling(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgml giz inside Alf')

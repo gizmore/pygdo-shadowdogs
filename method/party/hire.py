@@ -9,16 +9,16 @@ class hire(MethodSD):
 
     @classmethod
     def gdo_trigger(cls) -> str:
-        return 'hire'
+        return 'sdhire'
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'hi'
+        return 'sdhi'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_field(
             GDT_TargetArg('npc').others().not_null().positional(),
-            # GDT_UInt('nuyen').not_null().positional().initial('100'),
+            GDT_UInt('nuyen').not_null().positional().initial('0'),
         )
         super().gdo_create_form(form)
 
@@ -27,5 +27,5 @@ class hire(MethodSD):
 
     def sd_execute(self):
         hireling = self.get_target().player(self.get_player())
-        hireling.on_hire()
+        hireling.on_hire(self.get_player(), self.param_value('nuyen'))
         return self.empty()

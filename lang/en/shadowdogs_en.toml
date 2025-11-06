@@ -317,6 +317,16 @@ mt_shadowdogs_inventory = "Inventory"
 md_shadowdogs_inventory = "Show your inventory. Page is the first parameter. Use --search=foo to search."
 
 #########
+# Craft #
+#########
+mt_shadowdogs_craft = "Craft"
+md_shadowdogs_craft = "Craft new items out of existing ones. This is real hacking, man."
+msg_sd_craft_no_idea = "You have no idea what you could craft with your current inventory."
+msg_sd_craft_list = "You got %d idea(s): %s."
+msg_sd_crafted = "You succesfully crafted %s into a nice %s."
+err_sd_craft_ingredients = "You need %s to craft a new %s."
+
+#########
 # Reset #
 #########
 mt_shadowdogs_reset = "Reset Character"
