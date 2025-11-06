@@ -15,6 +15,11 @@ sd_unknown_item = "No item found matching **%s**."
 err_item_name_ambiguous = "Too many matches like %s."
 err_sd_gmt_party_busy = "The target party is busy."
 
+#############
+# Obstacles #
+#############
+msg_sd_drink_pond = "You drink and feel refreshed."
+
 ############
 # Factions #
 ############
