@@ -68,5 +68,5 @@ class TalkingNPC(SD_NPC):
     def sd_can_hire(self) -> bool:
         return False
 
-    async def on_hire(self):
+    async def on_hire(self, player: SD_Player, nuyen: int):
         return await self.send_to_player(self.get_player(), 'err_sd_cannot_hire', (self.render_name(),))

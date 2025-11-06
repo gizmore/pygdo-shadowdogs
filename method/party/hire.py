@@ -25,7 +25,7 @@ class hire(MethodSD):
     def get_target(self) -> Hireling:
         return self.param_value('npc')
 
-    def sd_execute(self):
+    async def sd_execute(self):
         hireling = self.get_target().player(self.get_player())
-        hireling.on_hire(self.get_player(), self.param_value('nuyen'))
+        await hireling.on_hire(self.get_player(), self.param_value('nuyen'))
         return self.empty()
