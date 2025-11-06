@@ -5,11 +5,10 @@ from gdo.shadowdogs.locations.Location import Location
 
 class Exit(Location):
 
-    def sd_methods(self) -> list[str]:
-        if self.get_party().get_action_name() == Action.OUTSIDE:
-            return ['sdenter']
-        else:
-            return ['sdleave']
+    async def on_entered(self):
+        await self.get_party().do(Action.INSIDE)
+
+        await self.send_to_party(self.get_party(), 'msg_sd_entered', (self.get_location().render_name(),))
 
     def sd_location_actions(self) -> tuple[str]:
         return (self.get_party().get_action_name(),)

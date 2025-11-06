@@ -134,6 +134,9 @@ class SD_Quest(WithShadowFunc, GDO):
     def is_accomplished(self) -> bool:
         return SD_QuestDone.for_player(self, self.get_player()).is_accomplished()
 
+    def is_done(self) -> bool:
+        return SD_QuestDone.for_player(self, self.get_player()).is_done()
+
     def is_in_quest(self, player: 'SD_Player'=None) -> bool:
         return SD_QuestDone.for_player(self, player or self.get_player()).is_in_quest()
 

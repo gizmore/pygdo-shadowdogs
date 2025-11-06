@@ -3,12 +3,16 @@ import os
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.core.method.clear_cache import clear_cache
+from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.WorldBase import WorldBase
+from gdo.shadowdogs.locations.City import City
+from gdo.shadowdogs.method.info.world import world
 from gdo.table.module_table import module_table
 from gdotest.TestUtil import GDOTestCase, reinstall_module, WebPlug, cli_gizmore, cli_plug
 
 
-class ShadowdogsTestCase(GDOTestCase):
+class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
 
     def setUp(self):
         super().setUp()
@@ -56,3 +60,16 @@ class ShadowdogsTestCase(GDOTestCase):
             await self.ticker_for()
         Shadowdogs.CURRENT_PLAYER = self.sd_gizmore()
         return gizmore
+
+    def all_locations(self):
+        w = self.world()
+        yield from self.all_year_locations(w.World2064)
+        yield from self.all_year_locations(w.World2077)
+        yield from self.all_year_locations(w.World2088)
+
+    def all_year_locations(self, world: WorldBase):
+        for city in world.CITIES.values():
+            yield from self.all_city_locations(city)
+
+    def all_city_locations(self, city: City):
+        yield from city.LOCATIONS

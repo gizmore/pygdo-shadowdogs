@@ -197,8 +197,19 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
 
     async def test_70_police(self):
         gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgmi giz WalkieT')
+        self.assertIn('Talkie', out, 'gmi no work.')
+        out = cli_plug(gizmore, '$sdu walkie')
+        self.assertIn('white noise', out, 'walkie talkie no work.')
         out = cli_plug(gizmore, '$sdgml giz outside Police')
         self.assertIn('Police Station', out, 'i no work.')
+
+        out = cli_plug(gizmore, '$sdenter')
+        self.assertIn('Police Station', out, 'i no work.')
+
+        out = cli_plug(gizmore, '$sdu walkie')
+        self.assertIn('new quest', out, 'walkie talkie #2 no work.')
+        self.assertIn('Time left: ca. 1h', out, 'walkie talkie #2 no work.')
 
 
 

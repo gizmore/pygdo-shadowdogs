@@ -376,6 +376,7 @@ Fuse = "Fuse"
 WalkieTalkie = "WalkieTalkie"
 
 # --- Heal ---
+Painkiller = "Painkiller"
 Medkit = "Medkit"
 Stimulant = "Stimulant"
 
@@ -392,6 +393,7 @@ Hash = "Hash"
 Apple = "Apple"
 InstantNoodles = "InstantNoodles"
 WaterBottle = "WaterBottle"
+Cocaine = "Cocaine"
 
 # --- Implants ---
 NeuralJackLite = "NeuralJackLite"

@@ -1,5 +1,5 @@
 from gdo.shadowdogs.city.y2064.Peine.locations.market.Moellring import Moellring
-from gdo.shadowdogs.city.y2064.Peine.quests.Etablisment import Etablisment
+from gdo.shadowdogs.city.y2064.Marketplace.Etablisment import Etablisment
 from gdo.shadowdogs.locations.Bedroom import Bedroom
 from gdo.shadowdogs.locations.Location import Location
 

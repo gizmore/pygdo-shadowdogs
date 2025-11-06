@@ -53,6 +53,16 @@ class ShadowdogsTest(ShadowdogsTestCase):
                 Factory.get_item_by_arg(item_name)
         self.assertFalse(failure, 'Ooops')
 
+    async def test_50_location_search_items(self):
+        failure = True
+        for location in self.all_locations():
+            if giving := location.GIVING:
+                item_names = giving.split(Shadowdogs.ITEM_SEPERATOR)
+                for item_name in item_names:
+                    self.assertTrue(Factory.get_item_by_arg(item_name), f"{item_name} is unknown.")
+                    failure = False
+        self.assertFalse(failure, 'Ooops')
+
 
 
 
