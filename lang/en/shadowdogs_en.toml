@@ -338,6 +338,7 @@ msg_sd_fight_started = "You encounter %s."
 mt_shadowdogs_use = "Use"
 md_shadowdogs_use = "Use an item on a player or obstacle."
 sd_use_item = "%s uses %s on %s. %s.%s"
+msg_sd_consumed = "You consume the %s - %s."
 
 ##########
 # Attack #

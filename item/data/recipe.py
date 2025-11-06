@@ -1,6 +1,7 @@
 class recipe:
 
     RECIPES = {
-        'BrokenBottle': 'Stone,Bottle',
-
+        'BrokenBottle': ('Stone','Bottle'),
+        'DryTorch': ('Stick', 'Rags'),
+        'Torch': ('DryTorch', 'Petrol'),
     }

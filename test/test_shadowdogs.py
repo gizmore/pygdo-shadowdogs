@@ -9,6 +9,7 @@ from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.classes.weapon.Fists import Fists
 from gdo.shadowdogs.item.data.items import items
+from gdo.shadowdogs.item.data.recipe import recipe
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug, cli_gizmore, all_private_messages
 
@@ -376,6 +377,13 @@ class ShadowdogsTest(ShadowdogsTestCase):
         for klass in items.ITEMS.keys():
             self.assertTrue(Trans.has(klass), f"Item {klass} has no trans #1")
             self.assertTrue(Trans.has(klass+'_descr'), f"Item {klass} has no trans #2")
+
+    async def test_75_recipe_items(self):
+        for outcome, ingredients in recipe.RECIPES.items():
+            self.assertTrue(outcome in items.ITEMS.keys(), f"{outcome} is an unknown item!")
+            a, b = ingredients
+            self.assertTrue(a in items.ITEMS.keys(), f"{a} is an unknown item!")
+            self.assertTrue(b in items.ITEMS.keys(), f"{b} is an unknown item!")
 
     async def test_80_hireling(self):
         gizmore = await self.fresh_gizmore()

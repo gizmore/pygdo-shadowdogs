@@ -86,7 +86,7 @@ class Item(SD_Item):
     def g(self, field: str) -> int:
         return self.get_player().g(field)
 
-    def dm(self, field: str, default=None) -> str|bool|int:
+    def dm(self, field: str, default=None) -> str|bool|int|dict:
         return self.get_default_modifiers().get(field, default)
 
     def dmi(self, field: str, default=0) -> int:

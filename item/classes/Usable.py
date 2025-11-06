@@ -1,4 +1,3 @@
-from gdo.base.Exceptions import GDOException
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
@@ -13,8 +12,9 @@ class Usable(Item):
 
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         target = target or self.get_player()
-        for k, v in self.dm('ef').items():
-            target.apply(k, v)
+        if ef := self.dm('ef'):
+            for k, v in ef.items():
+                target.apply(k, v)
         await self.send_use_message(target)
 
     async def send_use_message(self, target: 'SD_Player|Obstacle|None'):
