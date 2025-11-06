@@ -53,3 +53,24 @@ y2064_peine_gunzelinschool_outside = "You find the gunzelin middleschool, where 
 y2064_peine_woods = "Woods"
 y2064_peine_woods_inside = "You enter the woods."
 y2064_peine_woods_outside = "You find the swanoy woods of Telchte."
+
+##########
+# Police #
+##########
+y2064_peine_police = "Police"
+y2064_peine_police_inside = "You enter the Police Station."
+y2064_peine_police_outside = "The local Police Station. Your friend and savior. And your ignorant stubborn lier, you think to yourself."
+
+#############
+# Drugstore #
+#############
+y2064_peine_drugstore = "Drugstore"
+y2064_peine_drugstore_inside = "You enter the pharmacy."
+y2064_peine_drugstore_outside = "You found a small drugstore that sells pharmacy."
+
+##############
+# Cornershop #
+##############
+y2064_peine_cornershop = "Cornershop"
+y2064_peine_cornershop_inside = "You enter the small store."
+y2064_peine_cornershop_outside = "...."

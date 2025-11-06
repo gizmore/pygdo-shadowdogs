@@ -15,5 +15,5 @@ class Jawoll(Store):
         ('LargeBeer', BEER_PRICE),
         ('Lighter', 2),
         ('Pen', 2),
-        ('Petrol', 35),
+        ('Petrol', 3),
     ]

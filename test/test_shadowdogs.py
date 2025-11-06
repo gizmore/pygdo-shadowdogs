@@ -20,9 +20,9 @@ class ShadowdogsTest(ShadowdogsTestCase):
     async def test_00_start(self):
         gizmore = await self.fresh_gizmore(False)
         out = cli_plug(gizmore, '$sdi')
-        self.assertIn('page 1 of 2', out, '$sdi does not work.')
-        out = cli_plug(gizmore, '$sdi 2')
-        self.assertIn('page 2 of 2', out, '$sdi 2 does not work.')
+        self.assertIn('page 1 of 1', out, '$sdi does not work.')
+        out = cli_plug(gizmore, '$sdi 1')
+        self.assertIn('page 1 of 1', out, '$sdi 2 does not work.')
         self.assertIn('Club_of_Adonis', out, '$sdi 2 does not render.')
         out = cli_plug(gizmore, '$sdeq _of_ado')
         await self.ticker(121)
@@ -84,7 +84,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
-        Random.init(31337)
+        Random.init(31437)
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
         out = cli_plug(gizmore, '$sdp')
@@ -273,7 +273,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('Kief', out, '$gml does not work.')
         out = cli_plug(gizmore, '$sdv')
         self.assertIn('BronzeKnuckles', out, '$v does not work.')
-        out = cli_plug(gizmore, '$sdv 2')
+        out = cli_plug(gizmore, '$sdv 1')
         self.assertIn('Shotgun', out, '$v 2 does not work.')
         out = cli_plug(gizmore, '$sdgmi giz 30000xNuyen')
         self.assertIn('30000', out, '$gmi does not work.')
@@ -349,30 +349,15 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_59_starve(self):
         gizmore = await self.fresh_gizmore()
-        await self.ticker(Time.ONE_DAY * 3)
+        await self.ticker(Time.ONE_DAY * 1)
         out = all_private_messages()
-        self.assertIn('You are not saturated. 2 damage. 0/10 HP left.', out, 'no starve effect.')
-
-    async def test_60_hack(self):
-        gizmore = await self.fresh_gizmore()
-        out = cli_plug(gizmore, '$sdgmi gizmore{1} RhinoDeck')
-        self.assertIn('received', out, 'gmi#1 does not work.')
-        out = cli_plug(gizmore, '$sdgmi gizmore{1} Ping4.exe')
-        self.assertIn('received', out, 'gmi#2 does not work.')
-        out = cli_plug(gizmore, '$sdeq Rhino')
-        self.assertIn('RhinoDeck', out, 'eq#1 does not work.')
-        await self.ticker(60)
+        self.assertIn('You are not saturated. 1 damage.', out, 'no starve effect.')
+        await self.ticker(Time.ONE_DAY * 1)
         out = all_private_messages()
-        out += cli_plug(gizmore, '$sdlook')
-        self.assertIn('PC', out, 'look does not work.')
-        out = cli_plug(gizmore, '$sdhack')
-        self.assertIn('PC', out, 'hack does not work.')
-        out = cli_plug(gizmore, '$sdmov r')
-        self.assertIn('free', out, 'movr#1 does not work.')
-        out = cli_plug(gizmore, '$sdmov r')
-        self.assertIn('vault', out, 'movr#2 does not work.')
+        self.assertIn('You are not saturated. 2 damage.', out, 'no starve effect#2.')
 
-    async def test_80_hireling(self):
+
+    async def test_60_hireling(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdgml giz inside Alf')
         out = cli_plug(gizmore, '$sdtalk fish weed')

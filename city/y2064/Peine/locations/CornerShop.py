@@ -2,7 +2,8 @@ from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.locations.Store import Store
 
 
-class Obi(Store):
-    ITEMS: list[Item] = [
+class CornerShop(Store):
 
+    ITEMS: list[tuple[Item,int]] = [
+        ('Saltpeter', 5),
     ]

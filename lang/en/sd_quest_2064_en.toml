@@ -169,3 +169,9 @@ sd_peine_bum_yes = "Yes frien'"
 sd_peine_bum_deny = "Was just an offer frien'"
 sd_peine_bum_no = "No frien'"
 sd_peine_bum_hello = "Hello frien'"
+
+#############
+# Jack Pott #
+#############
+sdqt_peine_jackpott = "JackPott"
+sdqd_peine_jackpott = "Infiltrate the Peine Police Station and make your way to the Evidence Room before the majority of cops are back. Time left: ca. %s"

@@ -195,6 +195,10 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdgive bum 6xBottle')
         self.assertIn('accompli', out, 'quest no work.')
 
+    async def test_70_police(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz outside Police')
+        self.assertIn('Police Station', out, 'i no work.')
 
 
 

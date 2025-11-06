@@ -22,6 +22,7 @@ class usables:
         'WalkieTalkie':       {'klass': 'WalkieTalkie', 'weight': 820},
 
         # Heal
+        'Painkiller':         {'klass': 'Usable',      'level':  0, 'weight': 50,  'ef': {'p_hp': 1}},
         'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
         'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200, 'ef': {'p_hp': 15}},
 
@@ -38,9 +39,9 @@ class usables:
         'Apple':              {'klass': 'Consumable', 'level': 1, 'weight': 160, 'price': 2, 'ef': {'hunger': 15, 'thirst': 15}},
         'InstantNoodles':     {'klass': 'Consumable', 'level': 1, 'weight': 90, 'price': 4, 'ef': {'hunger': 20, 'thirst': 0}},
         'WaterBottle':        {'klass': 'FilledBottle', 'level': 1, 'weight': 560, 'price': 8, 'ef': {'hunger': 0, 'thirst': 50}},
+        'Cocaine':            {'klass': 'Consumable', 'level': 16, 'weight': 1, 'price': 100, 'ef': {'alcohol': 1}},
 
-
-      # Quest Items
+        # Quest Items
         'ArmyLetter':         {'klass': 'ArmyLetter',  'key': 'sdqa_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
