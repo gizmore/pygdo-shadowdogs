@@ -35,7 +35,7 @@ class Loot(WithShadowFunc): # <-- t = type[Loot];  t(killer, victim)
         await self.on_kill_xp()
         return self
 
-    def  loot(self) -> SD_Item|None:
+    def loot(self) -> SD_Item|None:
         choices = []
         luck = self._killer.g('p_luc')
         choices.append((self.loot_nuyen, int(Shadowdogs.LOOT_CHANCE_NUYEN + Shadowdogs.LOOT_CHANCE_NUYEN_PER_LUCK * luck)))
@@ -50,8 +50,8 @@ class Loot(WithShadowFunc): # <-- t = type[Loot];  t(killer, victim)
         luck = self._killer.g('p_luc')
         level = self._victim.gb('p_level')
         if self._victim.is_npc():
-            nuyen = int(Shadowdogs.LOOT_NUYEN_BASE * (level ** Shadowdogs.LOOT_NUYEN_EXP_LEVEL) + Shadowdogs.LOOT_NUYEN_PER_LUCK * luck)
-            nuyen = Random.mrand(5, nuyen)
+            nuyen = int(Shadowdogs.LOOT_NUYEN_BASE + (level ** Shadowdogs.LOOT_NUYEN_EXP_LEVEL) + Shadowdogs.LOOT_NUYEN_PER_LUCK * luck)
+            nuyen = Random.mrand(Shadowdogs.LOOT_NUYEN_MIN, nuyen)
             return Factory.create_item('Nuyen', nuyen)
         else:
             nuyen = self._victim.get_nuyen()

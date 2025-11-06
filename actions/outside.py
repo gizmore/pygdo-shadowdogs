@@ -14,4 +14,4 @@ class outside(Action):
             return self.world().get_city(target_string)
 
     async def on_start(self, party: 'SD_Party'):
-        pass
+        await self.send_to_party(party, self.get_action_text_key(party), self.get_action_text_args(party))

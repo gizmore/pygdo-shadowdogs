@@ -7,4 +7,5 @@ if TYPE_CHECKING:
 
 class Magic(Attribute):
     def apply(self, target: 'SD_Player'):
+        super().apply(target)
         target.modified['p_max_mp'] += self.get_value() * Shadowdogs.MP_PER_MAGIC

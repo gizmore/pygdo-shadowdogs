@@ -47,7 +47,7 @@ class start(MethodSD):
         Random.init(crc32(player.get_user().render_name().encode()))
         bonus_bonus = ['p_bod', 'p_str', 'p_int', 'p_wis', 'p_dex', 'p_qui'][Random.mrand(0, 5)]
         player.incb(bonus_bonus, 1).save()
-        player.save_vals(GDT_Race.BASE[race])
+        player.save_values(GDT_Race.BASE[race])
         player.modify_all().heal_full()
         self.msg('msg_sd_started', (
             player.column('p_gender').render(self._env_mode),

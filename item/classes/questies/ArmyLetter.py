@@ -10,4 +10,4 @@ if TYPE_CHECKING:
 class ArmyLetter(Email):
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         await super().on_use(target)
-        await CivilService.instance().accept()
+        # await CivilService.instance().accept()

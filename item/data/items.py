@@ -17,7 +17,7 @@ class items:
     ITEMS = {
         # Melee
         'Claws':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  0, 'defense': 0, 'min_dmg':  0, 'max_dmg':  0, 'price':       0, 'no_loot': True},
-        'Stone':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  3, 'defense': 0, 'min_dmg':  1, 'max_dmg':  5, 'price':       0},
+        'Stone':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  4, 'defense': 0, 'min_dmg':  1, 'max_dmg':  6, 'price':       0},
         'Fists':              {'klass': 'Fists',   'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  4, 'defense': 1, 'min_dmg':  1, 'max_dmg':  4, 'price':       0, 'no_loot': True},
         'BrokenBottle':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 20, 'sell': False},
         'KitchenKnife':      {'klass': 'Sword', 'level': 1, 'at': 60, 'et':  3, 'rng': 1, 'weight': 120, 'attack': 3, 'defense': 0, 'min_dmg': 1, 'max_dmg': 3, 'price': 30},
@@ -355,15 +355,19 @@ class items:
         'LionessAmulet':          {'klass': 'Amulet', 'level': 45, 'weight': 32, 'defense': 1, 'marm': 1, 'farm': 1, 'max_hp': 1, 'max_stam': 0, 'stam_regen': 0, 'crit': 0, 'evade': 0, 'hack': 0, 'stealth': 0, 'xp': 0, 'carry': 0, 'loot': 0, 'heal_amp': 0, 'ooc_patch': 0, 'price': 728000},
 
         # Usable
-        'Pen':                {'klass': 'Pen',         'weight':  20},
-        'MobilePhone':        {'klass': 'MobilePhone', 'weight': 488},
-        'Lighter':            {'klass': 'Lighter',     'weight':  22},
-        'Bottle':             {'klass': 'Bottle',      'weight':  42},
-        'Twig':               {'klass': 'Recipe',      'weight': 333},
-        'Rags':               {'klass': 'Recipe',      'weight': 333},
-        'Torch':              {'klass': 'Lighter',     'weight': 377},
-        'DryTorch':           {'klass': 'Recipe',      'weight': 377},
-        'Petrol':             {'klass': 'Recipe',      'weight': 512},
+        'Pen':                {'klass': 'Pen',          'weight':  20},
+        'MobilePhone':        {'klass': 'MobilePhone',  'weight': 488},
+        'Lighter':            {'klass': 'Lighter',      'weight':  22},
+        'Torch':              {'klass': 'Lighter',      'weight': 377},
+        'Fireplace':          {'klass': 'Recipe',       'weight': 377},
+        'Bottle':             {'klass': 'Bottle',       'weight':  42},
+        'Twig':               {'klass': 'Recipe',       'weight': 333},
+        'Branch':             {'klass': 'Recipe',       'weight': 333},
+        'Rags':               {'klass': 'Recipe',       'weight': 333},
+        'DryTorch':           {'klass': 'Recipe',       'weight': 377},
+        'Petrol':             {'klass': 'Recipe',       'weight': 512},
+        'WieldKit':           {'klass': 'Recipe',       'weight': 1260},
+        'WalkieTalkie':       {'klass': 'WalkieTalkie', 'weight': 820},
 
         # Heal
         'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
@@ -414,6 +418,18 @@ class items:
         'NeuralOverclock':     {'klass': 'Implant', 'level': 28, 'hac': 4, 'int': 4, 'cpu': 3, 'mcpu': 20, 'dex': 1, 'price': 2800000},
         'PhaseDermis':         {'klass': 'Implant', 'level': 29, 'marm':12, 'farm':10, 'max_hp':12, 'price': 3600000},
         'GodSightArray':       {'klass': 'Implant', 'level': 30, 'aim':10, 'hac': 2, 'dex': 3, 'qui': 3, 'int': 2, 'cpu': 1, 'mcpu': 10, 'max_hp': 6, 'marm': 2, 'farm': 2, 'price': 4800000},
+
+        # Mounts
+        'Backpack':           {'klass': 'Mount', 'level':  0,  'speed':  0, 'storage': 3000,  'seats': 1, 'price': 100,    'overload': 0},
+        'Skateboard':         {'klass': 'Mount', 'level':  0,  'speed':  1, 'storage': 0,     'seats': 1, 'price': 150,    'overload': 0},
+        'OldBike':            {'klass': 'Mount', 'level':  1,  'speed':  1, 'storage': 2000,  'seats': 1, 'price': 300,    'overload': 1000},
+        'RoadBike':           {'klass': 'Mount', 'level':  1,  'speed':  2, 'storage': 1000,  'seats': 1, 'price': 1200,   'overload': 500},
+        'MZ50':               {'klass': 'Mount', 'level':  5,  'speed':  4, 'storage': 2500,  'seats': 2, 'price': 20000,  'overload': 200},
+        'FordFiesta':         {'klass': 'Mount', 'level': 10,  'speed':  6, 'storage': 30000, 'seats': 4, 'price': 50000,  'overload': 1000},
+        'OpelKadett':         {'klass': 'Mount', 'level': 10,  'speed':  8, 'storage': 25000, 'seats': 4, 'price': 60000,  'overload': 1500},
+        'Famstar':            {'klass': 'Mount', 'level': 12,  'speed':  6, 'storage': 45000, 'seats': 5, 'price': 95000,  'overload': 1000},
+        'Calibra':            {'klass': 'Mount', 'level': 16,  'speed': 11, 'storage': 15000, 'seats': 2, 'price': 125000, 'overload': 500},
+        'MercedesSL500':      {'klass': 'Mount', 'level': 18,  'speed': 10, 'storage': 35000, 'seats': 4, 'price': 160000, 'overload': 800},
 
         # Decks
         'RhinoDeck':          {'klass': 'Deck',        'level':  1, 'weight':  500, 'mcpu':  6},

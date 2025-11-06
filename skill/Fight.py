@@ -6,6 +6,4 @@ if TYPE_CHECKING:
 
 
 class Fight(Modifier):
-
-    def apply(self, target: 'SD_Player'):
-        pass
+    pass

@@ -34,7 +34,7 @@ class ItemList(list[Item]):
     def get_item_by_arg(self, arg: str) -> Item:
         if arg.isdigit():
             if int(arg) < 1 or int(arg) > len(self):
-                raise SDUnknownItemException()
+                raise SDUnknownItemException(arg)
             return self[int(arg)-1]
         items = self.get_by_abbrev(arg)
         if len(items) == 1:

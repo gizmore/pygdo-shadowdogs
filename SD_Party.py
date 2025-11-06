@@ -175,6 +175,26 @@ class SD_Party(WithShadowFunc, GDO):
             max = v if v > max else max
         return max
 
+    #########
+    # Mount #
+    #########
+
+    def get_mount_speed(self) -> int | None:
+        without_mount = []
+        with_mount = []
+        seats = 0
+        min_speed = 100
+        for member in self.members:
+            if mount := member.get_mount():
+                with_mount.append(member)
+                seats += mount.get_seats()
+                min_speed = min(min_speed, mount.get_real_speed())
+            else:
+                without_mount.append(member)
+        if len(without_mount) > seats or min_speed == 0:
+            return None
+        return min_speed
+
     ##########
     # Target #
     ##########
@@ -340,3 +360,4 @@ class SD_Party(WithShadowFunc, GDO):
 
     def render_busy(self) -> str:
         return self.t('sd_busy', (Time.human_duration(self.get_eta_s()),))
+

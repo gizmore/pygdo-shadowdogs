@@ -16,6 +16,7 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.SD_NPC import SD_NPC
 
 
+
 class Location(WithShadowFunc):
 
     GIVING: str = GDO.EMPTY_STR

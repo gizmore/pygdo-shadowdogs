@@ -1,3 +1,5 @@
+from typing import re
+
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.engine.ItemList import ItemList
@@ -18,6 +20,9 @@ class Inventory(WithShadowFunc, ItemList):
             return item
 
     def remove_item(self, item_name: str, count: int=1) -> Item|None:
+        if m := re.match(r"^(\d+)x(.*)$", item_name):
+            count = int(m.group(1))
+            item_name = m.group(2)
         if item := self.get_by_name(item_name):
             if item.get_count() <= count:
                 self.remove(item)

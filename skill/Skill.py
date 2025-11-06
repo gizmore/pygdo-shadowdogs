@@ -8,12 +8,13 @@ if TYPE_CHECKING:
 class Skill(Modifier):
 
     SKILLS = [
-        'p_tra',
         'p_aim',
+        'p_cra',
+        'p_cry',
         'p_fig',
         'p_hac',
-        'p_cry',
         'p_mat',
+        'p_tra',
     ]
 
     def __init__(self, name: str):

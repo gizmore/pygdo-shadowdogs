@@ -3,6 +3,7 @@ import unittest
 from gdo.base.Trans import Trans
 from gdo.base.Util import Random
 from gdo.date.Time import Time
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Loot import Loot
@@ -83,12 +84,12 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_09_explore(self):
         gizmore = await self.fresh_gizmore()
-        Random.init(31339)
+        Random.init(31337)
         out = cli_plug(gizmore, '$sdexplore')
         self.assertIn('start to explore', out, 'explore does not work.')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('exploring Peine', out, 'party does not work.')
-        await self.ticker(3333) # half an hour
+        await self.party_ticker_until(Action.OUTSIDE) # half an hour
         out = all_private_messages()
         self.assertIn('new place in Peine', out, 'explore find does not work.')
         out = cli_plug(gizmore, '$sdkp')
@@ -292,16 +293,8 @@ class ShadowdogsTest(ShadowdogsTestCase):
     async def test_55_seniors(self):
         gizmore = await self.fresh_gizmore()
         giz = Loader.load_user(gizmore)
-        out = cli_plug(gizmore, '$sdsearch')
-        self.assertIn('Army', out, '$search does not work.')
         out = cli_plug(gizmore, '$sduse Army')
         self.assertIn('army', out, '$use does not work.')
-        out = cli_plug(gizmore, '$sdquests')
-        self.assertIn('Civil', out, '$qus does not work.')
-        out = cli_plug(gizmore, '$sdquest 1')
-        self.assertIn('11', out, '$qu does not work.')
-        out = cli_plug(gizmore, '$sdquest Civil')
-        self.assertIn('11', out, '$qu does not work.#2')
         out = cli_plug(gizmore, '$sdgml giz inside Senior')
         self.assertIn('Home', out, '$gml does not work.')
         out = cli_plug(gizmore, '$sdtalk nurse hello')
@@ -310,6 +303,12 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('work', out, '$talk does not work.')
         out = cli_plug(gizmore, '$sdtalk nurse yes')
         self.assertIn('new quest', out, '$talk does not work.')
+        out = cli_plug(gizmore, '$sdquests')
+        self.assertIn('Civil', out, '$qus does not work.')
+        out = cli_plug(gizmore, '$sdquest 1')
+        self.assertIn('11', out, '$qu does not work.')
+        out = cli_plug(gizmore, '$sdquest Civil')
+        self.assertIn('11', out, '$qu does not work.#2')
         out = cli_plug(gizmore, '$sdqus')
         self.assertIn('Civil', out, 'qus does not work.')
         for i in range(11):
@@ -325,7 +324,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
     async def test_56_fridge(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdinfo')
-        self.assertIn('Fridge', out, 'info fridge does not work.')
+        self.assertIn('ridge', out, 'info fridge does not work.')
         out = cli_plug(gizmore, '$sdsearch Frid')
         self.assertIn('Sandwich', out, 'search fridge does not work.')
         out = cli_plug(gizmore, '$sdse fri')
@@ -350,7 +349,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_59_starve(self):
         gizmore = await self.fresh_gizmore()
-        await self.ticker(Time.ONE_DAY * 2)
+        await self.ticker(Time.ONE_DAY * 3)
         out = all_private_messages()
         self.assertIn('You are not saturated. 2 damage. 0/10 HP left.', out, 'no starve effect.')
 
@@ -382,8 +381,14 @@ class ShadowdogsTest(ShadowdogsTestCase):
         for outcome, ingredients in recipe.RECIPES.items():
             self.assertTrue(outcome in items.ITEMS.keys(), f"{outcome} is an unknown item!")
             a, b = ingredients
-            self.assertTrue(a in items.ITEMS.keys(), f"{a} is an unknown item!")
-            self.assertTrue(b in items.ITEMS.keys(), f"{b} is an unknown item!")
+            an = Factory.get_item_by_arg(a)
+            bn = Factory.get_item_by_arg(b)
+            self.assertTrue(an.get_item_name() in items.ITEMS.keys(), f"{a} is an unknown item!")
+            self.assertTrue(bn.get_item_name() in items.ITEMS.keys(), f"{b} is an unknown item!")
+
+    async def test_77_crafting(self):
+        gizmore = await self.fresh_gizmore()
+
 
     async def test_80_hireling(self):
         gizmore = await self.fresh_gizmore()

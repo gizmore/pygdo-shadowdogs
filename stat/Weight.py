@@ -21,4 +21,9 @@ class Weight(Modifier):
         return player.g('p_str') * Shadowdogs.MAX_WEIGHT_PER_STRENGTH + player.g('p_bod') * Shadowdogs.MAX_WEIGHT_PER_BODY + Shadowdogs.MAX_WEIGHT_BASE
 
     def is_overloaded(self, player: 'SD_Player'):
-        return player.g('p_weight') > int(self.max_weight(player) * Shadowdogs.MAX_WEIGHT_FACTOR)
+        if player.g('p_weight') > int(self.max_weight(player) * Shadowdogs.MAX_WEIGHT_FACTOR):
+            return True
+        if mount := player.get_mount():
+            if not mount.can_move():
+                return True
+        return False

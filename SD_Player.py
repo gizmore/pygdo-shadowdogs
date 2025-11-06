@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING, Generator, Any, Self
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
 from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.actions.Action import Action
+from gdo.shadowdogs.item.classes.Mount import Mount
 from gdo.shadowdogs.item.classes.Nuyen import Nuyen as NY
 
 from gdo.date.Time import Time
@@ -29,6 +30,7 @@ from gdo.shadowdogs.engine.CombatStack import CombatStack
 from gdo.shadowdogs.engine.Modifier import Modifier
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
+from gdo.shadowdogs.skill.Crafting import Crafting
 from gdo.shadowdogs.skill.Crypto import Crypto
 from gdo.shadowdogs.skill.Skill import Skill
 from gdo.shadowdogs.skill.Trading import Trading
@@ -134,7 +136,7 @@ class SD_Player(WithShadowFunc, GDO):
     def reset_modified(self):
         self.modified.update({
             'p_bod': 0, 'p_mag': 0, 'p_str': 0, 'p_qui': 0, 'p_dex': 0, 'p_int': 0, 'p_wis': 0, 'p_cha': 0, 'p_luc': 0,
-            'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0, 'p_cry': 0,
+            'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0, 'p_cry': 0, 'p_cra': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
             'p_max_hp': 0, 'p_max_mp': 0,
             'p_attack': 0, 'p_defense': 0, 'p_at': 50,
@@ -222,11 +224,12 @@ class SD_Player(WithShadowFunc, GDO):
             Luck('p_luc'),
 
             Aim('p_aim'),
+            Crafting('p_cra'),
+            Crypto('p_cry'),
             Fight('p_fig'),
             Hacking('p_hac'),
-            Trading('p_tra'),
             Math('p_mat'),
-            Crypto('p_cry'),
+            Trading('p_tra'),
 
             Hunger('p_hunger').initial('50'),
             Thirst('p_thirst').initial('30'),
@@ -365,10 +368,13 @@ class SD_Player(WithShadowFunc, GDO):
         return self.get_equipment('p_weapon') or Fists().fill_defaults({'item_name': 'Fists', 'item_owner': self.get_id()}).player(self)
 
     def get_equipment(self, slot_name: str) -> 'Item|None':
-        try:
-            return self.gdo_value(slot_name)
-        except AttributeError as ex:
-            return None
+        # try:
+        return self.gdo_value(slot_name)
+        # except AttributeError as ex:
+        #     return None
+
+    def get_mount(self) -> Mount|Item|None:
+        return self.get_equipment('p_mount')
 
     ########
     # Move #

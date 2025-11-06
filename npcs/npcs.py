@@ -16,6 +16,7 @@ class npcs:
         'gangster': {'klass': Mob,     'p_level': 5,                  'p_max_hp': (3, 4), 'eq': ['Shoes', 'Trousers', 'Pullover', 'Bytegun']},
         'goblin':   {'klass': Mob,     'p_level': 6, 'p_race': 'ork', 'p_max_hp': (3, 5), 'eq': ['Shoes', 'Trousers', 'Pullover', 'Bytegun']},
         'ork':      {'klass': HardMob, 'p_level': 8, 'p_race': 'ork', 'p_max_hp': (4, 6), 'eq': ['CombatBoots', 'Jeans', 'LeatherVest', 'Sword']},
+        'peine_cop': {'klass': HardMob, 'p_level': 8, 'p_race': 'human', 'p_max_hp': (6, 8), 'eq': ['CombatBoots', 'CombatJeans', 'CombatVest', 'Baretta']},
 
         'wolf':     {'klass': Mob,     'p_level': 3,                  'p_max_hp': (4, 6), 'p_max_dmg': 1, 'eq': {'Claws'}},
     }

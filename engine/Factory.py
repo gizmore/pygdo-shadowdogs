@@ -1,12 +1,16 @@
+import re
+
 from gdo.base.Trans import t
 from gdo.base.Util import Random
 from gdo.shadowdogs import SD_NPC
+from gdo.shadowdogs.GDT_ItemArg import GDT_ItemArg
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
+from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.item.data.mapping import mapping
 from gdo.shadowdogs.locations.Location import Location
@@ -130,13 +134,23 @@ class Factory(WithShadowFunc):
         return cls.get_item(item_name, count, mods, player_id, equipped).insert()
 
     @classmethod
-    def get_item(cls, item_name: str, count: int=0, mods: str=None, player_id: str=None, equipped: bool=False):
+    def get_item_by_arg(cls, item_name: str, player_id: str=None, equipped: bool=False) -> Item:
+        count = 1
+        m = re.match(r"^(\d+)x(.*)$", item_name)
+        if m:
+            count = int(m.group(1))
+            item_name = m.group(2)
+        item_name, mods = (item_name.split(Shadowdogs.MODIFIER_SEPERATOR, 1) + [None])[:2]
+        return cls.get_item(item_name, count, mods, player_id, equipped)
+
+    @classmethod
+    def get_item(cls, item_name: str, count: int=0, mods: str=None, player_id: str=None, equipped: bool=False) -> Item:
         item = items.get_item(item_name)
         return item.set_vals({
             'item_owner': player_id or '1',
             'item_slot': item.get_slot() if equipped else item.sd_inv_type(),
             'item_name': item_name,
             'item_mods': mods,
-            'item_count': count if count else item.get_default_count(),
+            'item_count': str(count if count else item.get_default_count()),
         }).validated()
 

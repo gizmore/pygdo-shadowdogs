@@ -10,6 +10,7 @@ from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.SeniorHome import Seni
 from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
 from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.WaffenKief import WaffenKief
 from gdo.shadowdogs.city.y2064.Peine.locations.woods.Woods import Woods
+from gdo.shadowdogs.city.y2064.Peine.locations.police.Police import Police
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
@@ -33,6 +34,7 @@ class Peine(City):
     Woods: Woods = Woods()
     TrainStation: TrainStation = TrainStation()
     Park: Park = Park()
+    Police: Police = Police()
 
     LOCATIONS: list[Location] = [
         Marketplace,
@@ -46,6 +48,7 @@ class Peine(City):
         Woods,
         TrainStation,
         Park,
+        Police,
     ]
 
     NPCS: list[tuple[str, int]] = [

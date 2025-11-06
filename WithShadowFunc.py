@@ -187,7 +187,6 @@ class WithShadowFunc(WithPlayerGDO):
     ######
     # KP #
     ######
-
     async def give_kp(self, player: 'SD_Player', location: 'Location', announce: bool=True):
         from gdo.shadowdogs.SD_Place import SD_Place
         party = player.get_party()
