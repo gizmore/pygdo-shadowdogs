@@ -15,3 +15,5 @@ class outside(Action):
 
     async def on_start(self, party: 'SD_Party'):
         await self.send_to_party(party, self.get_action_text_key(party), self.get_action_text_args(party))
+        await self.give_party_kp(party, self.get_location())
+        await self.get_location().sd_on_exited()

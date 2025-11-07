@@ -21,7 +21,7 @@ class Weapon(Item):
 
     async def attack(self, d: 'SD_Player', armor_field: str = 'p_marm'):
         a = self.get_player()
-        return await self.attack_b(d, a.g('p_attack'), d.g('p_defense'), d.g('p_marm'))
+        await self.attack_b(d, a.g('p_attack'), d.g('p_defense'), d.g('p_marm'))
 
     async def attack_b(self, d: 'SD_Player', attack: int, defense: int, armor: int):
         a = self.get_player()
@@ -53,3 +53,4 @@ class Weapon(Item):
         else:
             await self.send_to_party(op, 'sd_combat_miss', (a.render_name(), d.render_name(), self.render_name(), a.render_busy()))
             await self.send_to_party(ep, 'sd_combat_miss', (a.render_name(), d.render_name(), self.render_name(), a.render_busy()))
+        return

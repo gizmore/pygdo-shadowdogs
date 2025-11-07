@@ -80,9 +80,19 @@ class Location(WithShadowFunc):
     def sd_is_respawn(self, player: 'SD_Player') -> bool:
         return False
 
+    async def sd_on_entered(self):
+        return
+
+    async def sd_on_exited(self):
+        return
+
     async def on_entered(self):
         await self.get_party().do(Action.INSIDE)
         await self.send_to_party(self.get_party(), 'msg_sd_entered', (self.get_location().render_name(),))
+
+    async def on_exited(self):
+        await self.get_party().do(Action.OUTSIDE)
+        await self.send_to_party(self.get_party(), 'msg_sd_exited', (self.get_location().render_name(),))
 
     ############
     # Location #

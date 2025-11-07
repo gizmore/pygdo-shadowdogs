@@ -5,6 +5,7 @@ from gdo.shadowdogs.city.y2064.PoliceStation.locations.InterrogationRoom import 
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.JailRoom import JailRoom
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.LockerRoom import LockerRoom
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.OfficeRoom import OfficeRoom
+from gdo.shadowdogs.city.y2064.PoliceStation.locations.Reception import Reception
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.Toilets import Toilets
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
@@ -22,6 +23,7 @@ class PoliceStation(City):
     JailRoom: JailRoom = JailRoom()
     LockerRoom: LockerRoom = LockerRoom()
     OfficeRoom: OfficeRoom = OfficeRoom()
+    Reception: Reception = Reception()
     Toilets: Toilets = Toilets()
 
     LOCATIONS: list[Location] = [
@@ -32,6 +34,7 @@ class PoliceStation(City):
         JailRoom,
         LockerRoom,
         OfficeRoom,
+        Reception,
         Toilets,
     ]
 

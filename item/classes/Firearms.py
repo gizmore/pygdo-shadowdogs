@@ -12,4 +12,4 @@ class Firearms(Weapon):
 
     async def attack(self, d: 'SD_Player', armor_field: str = 'p_farm'):
         a = self.get_player()
-        return self.attack_b(d, a.g('p_attack'), d.g('p_defense'), d.g('p_farm'))
+        return await self.attack_b(d, a.g('p_attack'), d.g('p_defense'), d.g('p_farm'))

@@ -11,7 +11,9 @@ class inside(Action):
         return self.world().get_location(target_string)
 
     async def on_start(self, party: 'SD_Party'):
-        pass
+        for member in party.members:
+            await member.give_kp(member, self.get_location())
+        await self.get_location().sd_on_entered()
 
     async def on_completed(self, party: 'SD_Party'):
         pass

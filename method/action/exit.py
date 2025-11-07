@@ -33,4 +33,4 @@ class exit(MethodSD):
 
     async def on_leave(self):
         party = self.get_party()
-        await party.do(Action.OUTSIDE)
+        await party.get_target().on_exited()

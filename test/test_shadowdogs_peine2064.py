@@ -4,7 +4,7 @@ from gdo.base.Util import Random
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.Hate import Hate
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
-from gdotest.TestUtil import cli_plug
+from gdotest.TestUtil import cli_plug, all_private_messages
 
 
 class ShadowdogsPeine2064Test(ShadowdogsTestCase):
@@ -203,13 +203,21 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('white noise', out, 'walkie talkie no work.')
         out = cli_plug(gizmore, '$sdgml giz outside Police')
         self.assertIn('Police Station', out, 'i no work.')
-
         out = cli_plug(gizmore, '$sdenter')
-        self.assertIn('Police Station', out, 'i no work.')
-
+        await self.ticker(60)
+        out += all_private_messages()
+        self.assertIn('no time', out, 'enter no work.')
         out = cli_plug(gizmore, '$sdu walkie')
         self.assertIn('new quest', out, 'walkie talkie #2 no work.')
-        self.assertIn('Time left: ca. 1h', out, 'walkie talkie #2 no work.')
+        self.assertIn('Time left: ca. 1h', out, 'walkie talkie #3 no work.')
+        out = cli_plug(gizmore, '$sdenter')
+        await self.ticker(60)
+        out += all_private_messages()
+        self.assertIn('entered', out, 'enter no work #2.')
+        Random.init(31337)
+        out = cli_plug(gizmore, '$sdexp')
+        self.assertIn('explore', out, 'walkie talkie #3 no work.')
+
 
 
 

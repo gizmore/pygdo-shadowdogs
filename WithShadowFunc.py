@@ -88,6 +88,14 @@ class WithShadowFunc(WithPlayerGDO):
         return self.__class__.Loader
 
     ##########
+    # Attack #
+    ##########
+
+    async def mob_attack(self, party: 'SD_Party', mob_names: str):
+        ep = await self.factory().create_default_npcs(party.get_location(), mob_names)
+        await party.fight(ep)
+
+    ##########
     # Method #
     ##########
 
@@ -98,7 +106,7 @@ class WithShadowFunc(WithPlayerGDO):
     def gdo_method_hidden(self) -> bool:
         return True
 
-    def sd_methods(self,player: 'SD_Player') -> list[str]:
+    def sd_methods(self, player: 'SD_Player') -> list[str]:
         return GDT.EMPTY_LIST
 
     def get_method(self, name: str) -> 'MethodSD':
@@ -195,6 +203,10 @@ class WithShadowFunc(WithPlayerGDO):
                 SD_Place.give_place(player, location)
                 if announce:
                     await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name(), location.render_descr(player)))
+
+    async def give_party_kp(self, party: 'SD_Party', location: 'Location', announce: bool=True):
+        for member in party.members:
+            await self.give_kp(member, location, announce)
 
     #########
     # Words #

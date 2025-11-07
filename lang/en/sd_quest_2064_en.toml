@@ -180,3 +180,4 @@ sdqs_police_surveilance_1 = "You catch something: 'To all units, we are having a
 sdqs_police_surveilance_2 = "'We need reinforcements from Brunswick for this, until then we need any man we can bear.'"
 sdqs_police_surveilance_3 = "'Make sure at least a handful of officers remains protecting the station.' - You come up with an evil plan..."
 sdqs_nothing_at_all = "You try out your radio transmitter receiver but you only catch white noise."
+sdqs_police_no_time = "The officers ask for your intentions. 'We have no time for this now.' - they say."

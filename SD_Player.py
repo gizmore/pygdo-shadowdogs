@@ -426,8 +426,8 @@ class SD_Player(WithShadowFunc, GDO):
         self.modified[key] = value
         return self
 
-    def sb(self, key: str, value: int):
-        return self.set_value(key, value)
+    def sb(self, key: str, val: str|int):
+        return self.set_val(key, str(val))
 
 
     ###########

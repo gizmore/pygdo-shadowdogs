@@ -21,9 +21,6 @@ class SD_NPC(SD_Player):
     def render_name(self):
         return self.get_name()
 
-    def attack(self, target: SD_Player):
-        pass
-
     @classmethod
     def sd_npc_default_values(cls) -> dict[str, int]:
         return {

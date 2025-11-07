@@ -6,12 +6,8 @@ from gdo.shadowdogs.locations.Location import Location
 class Exit(Location):
 
     async def on_entered(self):
-        await self.get_party().do(Action.INSIDE)
-
-        await self.send_to_party(self.get_party(), 'msg_sd_entered', (self.get_location().render_name(),))
-
-    def sd_location_actions(self) -> tuple[str]:
-        return (self.get_party().get_action_name(),)
+        await super().on_entered()
+        await self.get_party().do(self.sd_exit_action(), self.sd_exit_to().get_location_key())
 
     def sd_exit_to(self) -> Location:
         raise ShadowdogsException('err_sd_stub')
