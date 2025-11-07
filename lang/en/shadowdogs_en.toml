@@ -21,6 +21,11 @@ err_sd_ambiguous = "There are %d matches, e.g.: %s."
 #############
 msg_sd_drink_pond = "You drink and feel refreshed."
 
+##########
+# Usable #
+##########
+msg_sd_drugs_bad = "You take the drugs and be high for a while. Drugs are bad for your health and are highly addictive!"
+
 ############
 # Factions #
 ############
@@ -360,7 +365,13 @@ msg_sd_fight_started = "You encounter %s."
 mt_shadowdogs_use = "Use"
 md_shadowdogs_use = "Use an item on a player or obstacle."
 sd_use_item = "%s uses %s on %s. %s.%s"
-msg_sd_consumed = "You consume the %s - %s."
+err_sd_use_not_on_target = "%s does not work on targets."
+err_sd_use_not_on_friend = "%s does not work on friends."
+err_sd_use_not_on_foe = "%s does not work on foes."
+err_sd_use_not_on_self = "%s does not work on yourself."
+msg_sd_filled_bottle = "You use the bottle with the %s and turn it into a nice %s."
+err_sd_use_nothing_happened = "You use the %s with the %s but nothing happened."
+msg_sd_consumed = "You consumed %s: %s.%s"
 
 ##########
 # Attack #

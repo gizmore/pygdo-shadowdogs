@@ -38,10 +38,13 @@ class use(MethodSD):
         item = self.get_item()
         target = self.get_target()
         if not item.sd_can_target() and target:
-            return self.err('err_sd_use_disallow_target')
-        if not item.sd_can_use_on_foe() and target.is_foe():
-            return self.err('err_sd_use_not_on_foe')
-        if not item.sd_can_use_on_friend() and target.is_friend():
-            return self.err('err_sd_use_not_on_friend')
+            return self.err('err_sd_use_not_on_target', (item.render_name_wc(),))
+        if target:
+            if not item.sd_can_use_on_friend() and target.is_friend():
+                return self.err('err_sd_use_not_on_friend', (item.render_name_wc(),))
+            if not item.sd_can_use_on_foe() and target.is_foe():
+                return self.err('err_sd_use_not_on_foe', (item.render_name_wc(),))
+        elif not item.sd_can_use_on_self():
+            return self.err('err_sd_use_not_on_self', (item.render_name_wc(),))
         await item.on_use(target)
         return self.empty()

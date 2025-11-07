@@ -370,6 +370,9 @@ class ShadowdogsTest(ShadowdogsTestCase):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sduse bottle sink')
         self.assertIn('WaterBottle', out, 'use does not work.')
+        out = cli_plug(gizmore, '$sduse bottle')
+        self.assertIn('consume', out, 'use does not work. #2')
+
 
 
 

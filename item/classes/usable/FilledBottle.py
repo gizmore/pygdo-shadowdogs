@@ -11,6 +11,6 @@ if TYPE_CHECKING:
 
 class FilledBottle(Consumable, Bottle):
 
-    def on_use(self, target: 'SD_Player|Obstacle|None'):
-        super().on_use(target)
+    async def on_use(self, target: 'SD_Player|Obstacle|None'):
+        await super().on_use(target)
         Factory.create_item('Bottle', 1, None, self.get_owner().get_id())

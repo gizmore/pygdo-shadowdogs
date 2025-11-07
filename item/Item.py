@@ -203,3 +203,9 @@ class Item(SD_Item):
 
     def sd_can_use_on_foe(self) -> bool:
         return False
+
+    def is_friend(self) -> bool:
+        return False
+
+    def is_foe(self) -> bool:
+        return False

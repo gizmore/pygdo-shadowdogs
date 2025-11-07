@@ -5,11 +5,6 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 class Usable(Item):
 
-    def sd_commands(self) -> list[str]:
-        return [
-            'sduse',
-        ]
-
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         target = target or self.get_player()
         if ef := self.dm('ef'):
