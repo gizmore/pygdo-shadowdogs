@@ -1,7 +1,5 @@
 item_name_modified = "%s_of_%s"
 
-# de.toml — Shadowdogs Items (Deutsch, no spaces in values)
-
 # --- Melee ---
 Fists = "Fäuste"
 Claws = "Klauen"

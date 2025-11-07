@@ -83,6 +83,12 @@ p_alcohol = "Alcohol"
 ##########
 msg_sd_quest_reward_skill = "You were rewarded with skill or attribute boost: %s."
 
+#######
+# Web #
+#######
+mt_shadowdogs_shadowdogs = "Shadowdogs"
+md_shadowdogs_shadowdogs = "Shadowdogs is a text based mmo/mud that can be played via various chat clients. All chat networks, like WhatsApp, Telegram and Discord play in the same gameworld."
+
 #########
 # Sleep #
 #########

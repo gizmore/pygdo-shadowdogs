@@ -4,6 +4,7 @@ from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.GDT import GDT
 from gdo.base.Message import Message
+from gdo.base.util.href import href
 from gdo.core.GDT_Char import GDT_Char
 from gdo.core.GDT_UInt import GDT_UInt
 from gdo.shadowdogs.InstallShadowdogs import InstallShadowdogs
@@ -23,6 +24,8 @@ from gdo.shadowdogs.SD_Word import SD_Word
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.items import items
+from gdo.ui.GDT_Link import GDT_Link
+from gdo.ui.GDT_Page import GDT_Page
 
 
 class module_shadowdogs(GDO_Module):
@@ -53,11 +56,16 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_init(self):
         Loader.init_npc_classes()
-        if not Application.IS_HTTP and self.is_persisted():
-            items.load()
-            Loader.cleanup()
-            Loader.load_npcs()
-            Loader.load_parties()
+        # if not Application.IS_HTTP and self.is_persisted():
+        items.load()
+        Loader.cleanup()
+        Loader.load_npcs()
+        Loader.load_parties()
+        self.add_js('js/sd.js')
+
+    def gdo_init_sidebar(self, page: 'GDT_Page'):
+        page._right_bar.add_field(GDT_Link().href(href('shadowdogs', 'shadowdogs')).text('module_shadowdogs'))
+
 
     ##########
     # Config #
@@ -85,9 +93,10 @@ class module_shadowdogs(GDO_Module):
     ##########
 
     def gdo_subscribe_events(self):
-        Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_TICK, self.shadow_timer, 1000000000)
-        Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP_SLEEP, self.shadow_hp_timer, 1000000000)
-        Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
+        if Application.IS_DOG or Application.IS_TEST:
+            Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_TICK, self.shadow_timer, 1000000000)
+            Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP_SLEEP, self.shadow_hp_timer, 1000000000)
+            Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
         Application.EVENTS.subscribe('new_message', self.sd_alias)
         Application.EVENTS.subscribe('clear_cache', self.on_clear_cache)
 

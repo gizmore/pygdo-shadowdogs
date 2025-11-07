@@ -28,7 +28,7 @@ class GDT_Race(GDT_Enum):
         'drone': {},
         'dragon': {},
 
-        'elve':     {'p_dex': 1, 'p_int': 2, 'p_wis': 1, 'max_hp': 1, 'p_max_mp': 5, 'p_min_dmg': 0, 'p_max_dmg': 0},
+        'elve':     {'p_dex': 1, 'p_int': 2, 'p_wis': 1, 'p_max_hp': 1, 'p_max_mp': 5, 'p_min_dmg': 0, 'p_max_dmg': 0},
         'halfelve': {'p_dex': 1, 'p_int': 1, 'p_cha': 1, 'p_mag': 1, 'p_max_hp': 1, 'p_max_mp': 2, 'p_min_dmg': 0, 'p_max_dmg': 1},
         'human':    {'p_dex': 1, 'p_wis': 1, 'p_cha': 1, 'p_luc': 1, 'p_max_hp': 2, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
         'dwarf':    {'p_str': 2, 'p_bod': 1, 'p_wis': 1, 'p_max_hp': 2, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},

@@ -1,9 +1,11 @@
-from gdo.shadowdogs.engine.Modifier import Modifier
 
 from typing import TYPE_CHECKING
+
+from gdo.shadowdogs.skill.Skill import Skill
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class Fight(Modifier):
+class Fight(Skill):
     pass

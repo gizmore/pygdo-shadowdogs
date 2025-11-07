@@ -2,6 +2,8 @@ from gdo.shadowdogs.actions.Action import Action
 
 from typing import TYPE_CHECKING
 
+from gdo.shadowdogs.locations.City import City
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
 
@@ -15,5 +17,7 @@ class outside(Action):
 
     async def on_start(self, party: 'SD_Party'):
         await self.send_to_party(party, self.get_action_text_key(party), self.get_action_text_args(party))
-        await self.give_party_kp(party, self.get_location())
-        await self.get_location().sd_on_exited()
+        location = self.get_location()
+        if not isinstance(location, City):
+            await self.give_party_kp(party, location)
+            await location.sd_on_exited()

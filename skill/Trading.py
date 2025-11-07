@@ -1,14 +1,13 @@
-from gdo.shadowdogs.engine.Modifier import Modifier
-
 from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.skill.Skill import Skill
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
-class Trading(Modifier):
+class Trading(Skill):
 
     @classmethod
     def adjust_buy_price(cls, player: 'SD_Player', price: int) -> int:

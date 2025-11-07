@@ -2,7 +2,6 @@ from typing import Iterator
 
 from gdo.core.GDO_Channel import GDO_Channel
 from gdo.core.GDO_User import GDO_User
-from gdo.scum.method.start import start
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Party import SD_Party
@@ -13,6 +12,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.WorldBase import WorldBase
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
+from gdo.shadowdogs.method.game.start import start
 
 
 class Loader(WithShadowFunc):
