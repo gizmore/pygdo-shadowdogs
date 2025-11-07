@@ -11,7 +11,7 @@ class SD_ObstacleVal(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
-            GDT_Player('ov_player').not_null().primary(),
+            GDT_Player('ov_player').cascade_delete().not_null().primary(),
             GDT_Location('ov_location').not_null().primary(),
             GDT_Name('ov_obstacle').not_null().primary(),
             GDT_Name('ov_key').not_null().primary(),
