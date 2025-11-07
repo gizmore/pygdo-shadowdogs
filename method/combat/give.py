@@ -9,7 +9,7 @@ from gdo.shadowdogs.item.Item import Item
 class give(MethodSD):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Player('to').npcs().nearby().not_null(),
             GDT_ItemArg('item').inventory().not_null(),
         )

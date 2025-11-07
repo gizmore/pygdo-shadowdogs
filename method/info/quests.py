@@ -1,12 +1,10 @@
 from gdo.base.GDT import GDT
 from gdo.base.GDO import GDO
-from gdo.base.Query import Query
 from gdo.base.Render import Mode
 from gdo.base.Result import Result
 from gdo.base.ResultArray import ResultArray
 from gdo.shadowdogs.GDT_City import GDT_City
 from gdo.shadowdogs.SD_Quest import SD_Quest
-from gdo.shadowdogs.SD_QuestDone import SD_QuestDone
 from gdo.shadowdogs.WithShadowMethod import WithShadowMethod
 from gdo.table.MethodTable import MethodTable
 

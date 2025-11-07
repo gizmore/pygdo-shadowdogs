@@ -9,7 +9,7 @@ from gdo.shadowdogs.spells.Spell import Spell
 class gmsp(MethodSD):
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Player('to').humans().not_null(),
             GDT_Spell('spell').not_null(),
         )

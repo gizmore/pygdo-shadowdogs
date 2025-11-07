@@ -20,7 +20,7 @@ class buy(MethodSD):
         return True
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_ItemArg('item').store().not_null(),
             GDT_UInt('amount').not_null().initial('1').positional(),
         )

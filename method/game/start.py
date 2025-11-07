@@ -23,7 +23,7 @@ class start(MethodSD):
         return False
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Gender('gender').simple().not_null(),
             GDT_Race('race').not_null(),
         )

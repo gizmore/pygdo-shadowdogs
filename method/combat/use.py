@@ -19,7 +19,7 @@ class use(MethodSD):
         return 'sdu'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_ItemArg('item').obstacles().inventory().equipment().not_null(),
             GDT_TargetArg('target').me().obstacles().friends().foes().inventory().positional(),
         )

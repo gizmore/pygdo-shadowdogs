@@ -15,7 +15,7 @@ class compare(MethodSD):
         return 'sdcmp'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_ItemArg('item').inventory().equipment().not_null(),
             GDT_ItemArg('item2').inventory().equipment().positional(),
         )

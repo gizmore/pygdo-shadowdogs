@@ -16,7 +16,7 @@ class hire(MethodSD):
         return 'sdhi'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_TargetArg('npc').others().not_null().positional(),
             GDT_UInt('nuyen').not_null().positional().initial('0'),
         )

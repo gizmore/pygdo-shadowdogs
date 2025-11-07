@@ -17,7 +17,7 @@ class talk(MethodSD):
         return "sdt"
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Player('to').nearby().npcs().humans().not_null(),
             GDT_Word('word').not_null(),
         )

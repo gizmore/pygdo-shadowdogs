@@ -16,7 +16,7 @@ class gmk(MethodSD):
         return GDO_Permission.ADMIN
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Player('player').humans().online().not_null(),
             Karma('amount').not_null().positional(),
         )

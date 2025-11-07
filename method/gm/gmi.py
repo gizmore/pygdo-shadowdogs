@@ -20,7 +20,7 @@ class gmi(MethodSD):
         return GDO_Permission.ADMIN
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Player('target').online().not_null(),
             GDT_String('item_name').not_null(),
         )

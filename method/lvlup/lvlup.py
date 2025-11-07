@@ -17,7 +17,7 @@ class lvlup(MethodSD):
         return 'sdl'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Bool('confirm').not_null().initial('0'),
             GDT_SkillAttribute('field').skills().attributes().not_null(),
         )
@@ -27,11 +27,13 @@ class lvlup(MethodSD):
         skill = self.param_val('field')
         if self.parameter('field').is_skill(skill):
             return skill
+        return None
 
     def get_attribute(self):
         attr = self.param_val('field')
         if self.parameter('field').is_attribute(attr):
             return attr
+        return None
 
     async def sd_execute(self):
         player = self.get_player()

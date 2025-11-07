@@ -23,7 +23,7 @@ class cast(MethodSD):
         return False
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Spell('spell').not_null(),
             GDT_TargetArg('target').friends().foes().others().positional(),
         )

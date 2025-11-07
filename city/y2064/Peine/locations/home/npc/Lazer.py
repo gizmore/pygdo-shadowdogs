@@ -1,6 +1,6 @@
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Quest import SD_Quest
-from gdo.shadowdogs.city.y2064.Marketplace.Etablisment import Etablisment
+from gdo.shadowdogs.city.y2064.Peine.locations.market.Etablisment import Etablisment
 from gdo.shadowdogs.npcs.Hireling import Hireling
 
 

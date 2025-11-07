@@ -26,7 +26,7 @@ class gmd(MethodSD):
         return GDO_Permission.ADMIN
 
     def gdo_create_form(self, form: GDT_Form) -> None:
-        form.add_field(
+        form.add_fields(
             GDT_Player('player').not_null(),
             GDT_RestOfText('command').not_null(),
         )
