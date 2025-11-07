@@ -11,6 +11,7 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.Item import Item
+from gdo.shadowdogs.item.classes.Equipment import Equipment
 from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.item.data.mapping import mapping
 from gdo.shadowdogs.locations.Location import Location
@@ -131,7 +132,8 @@ class Factory(WithShadowFunc):
 
     @classmethod
     def create_item(cls, item_name: str, count: int=1, mods: str=None, player_id: str=None, equipped: bool=False):
-        return cls.get_item(item_name, count, mods, player_id, equipped).insert()
+        item = cls.get_item(item_name, count, mods, player_id, equipped).insert()
+        return item
 
     @classmethod
     def get_item_by_arg(cls, item_name: str, player_id: str=None, equipped: bool=False) -> Item:

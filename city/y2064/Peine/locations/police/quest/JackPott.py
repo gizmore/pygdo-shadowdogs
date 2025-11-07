@@ -7,9 +7,6 @@ class JackPott(SD_Quest):
 
     TIMEOUT = Time.ONE_HOUR
 
-    def reward(self) -> str | None:
-        return '20xSpeed,2xExtasy,100xWeed'
-
     def reward_xp(self) -> int:
         return 20
 

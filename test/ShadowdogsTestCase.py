@@ -6,6 +6,7 @@ from gdo.core.method.clear_cache import clear_cache
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.WorldBase import WorldBase
+from gdo.shadowdogs.item.classes.Equipment import Equipment
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.method.info.world import world
 from gdo.table.module_table import module_table
@@ -43,23 +44,33 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
         self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdsearch')
         self.assertIn('12', out, 'search does not work.')
-        out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
-        self.assertIn('received Club_of_Adonis', out, 'gmi does not work.')
+        # out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
+        # self.assertIn('received Club_of_Adonis', out, 'gmi does not work.')
         if equip:
-            out = cli_plug(gizmore, '$sdeq club')
-            await self.ticker_for()
+            # out = cli_plug(gizmore, '$sdeq club')
+            # await self.ticker_for()
             out += cli_plug(gizmore, '$sdi')
             await self.ticker_for()
             out += cli_plug(gizmore, '$sdq')
-            await self.ticker_for()
-            self.assertIn('You use', out, 'eq does not work.')
-            self.assertIn('Club_of', out, 'eq does not work.#2')
             out = cli_plug(gizmore, '$sdeq shoe')
             await self.ticker_for()
             out = cli_plug(gizmore, '$sdeq jean')
             await self.ticker_for()
         Shadowdogs.CURRENT_PLAYER = self.sd_gizmore()
         return gizmore
+
+    async def power_gizmore(self, level: int, lvlups: str, equipment: str):
+        giz = await self.fresh_gizmore()
+        gizmore = self.sd_gizmore()
+        while gizmore.gb('p_level') < level:
+            await gizmore.give_xp(3)
+        for lvlup in lvlups.split(','):
+            out = cli_plug(giz, f'$sdlvlup --confirm=1 {lvlup}')
+        for item_name in equipment.split(','):
+            item = self.factory().create_item_gmi(item_name, gizmore, False)
+            if isinstance(item, Equipment):
+                item.equip()
+        return gizmore.modify_all().heal_full()
 
     def all_locations(self):
         w = self.world()

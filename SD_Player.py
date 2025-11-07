@@ -262,6 +262,19 @@ class SD_Player(WithShadowFunc, GDO):
     def is_leader(self) -> bool:
         return self.get_party().get_leader() == self
 
+    #######
+    # Use #
+    #######
+
+    def is_friend(self) -> bool:
+        return not self.is_foe()
+
+    def is_foe(self) -> bool:
+        p = self.get_party()
+        if p.does(Action.FIGHT):
+            return p.get_target_party() == self.get_player().get_party()
+        return False
+
     ##########
     # Quests #
     ##########
@@ -561,7 +574,7 @@ class SD_Player(WithShadowFunc, GDO):
         return self.column('p_level')
 
     def get_xp_per_karma(self) -> int:
-        return Shadowdogs.XP_PER_KARMA + Shadowdogs.XP_PER_KARMA_PER_LEVEL * self.gb('p_level')
+        return int((Shadowdogs.XP_PER_KARMA + Shadowdogs.XP_PER_KARMA_PER_LEVEL * self.gb('p_level')) ** Shadowdogs.XP_PER_KARMA_POW)
 
     async def give_xp(self, xp: int, force_msg: bool=False) -> str:
         out = ""
@@ -577,10 +590,10 @@ class SD_Player(WithShadowFunc, GDO):
         xp_need = self.get_xp_per_karma()
         karma_gain = 0
         while self.gb('p_xp_karma') >= xp_need:
-            self.increment('p_xp_karma', -xp_need)
+            self.incb('p_xp_karma', -xp_need)
             karma_gain += 1
         if karma_gain:
-            self.increment('p_karma', karma_gain)
+            self.incb('p_karma', karma_gain)
             return " " + t('msg_sd_gained_karma', (karma_gain, self.gdo_value('p_karma')))
         return ''
 
@@ -588,7 +601,7 @@ class SD_Player(WithShadowFunc, GDO):
         output = ''
         xp = self.gdo_value('p_xp')
         while xp >= self.level_column().xp_needed(self):
-            self.increment('p_level', 1)
+            self.incb('p_level', 1)
             level = self.gdo_value('p_level')
             xp = self.gdo_value('p_xp')
             output += " " + t('msg_sd_gained_level', (level,))
@@ -617,7 +630,7 @@ class SD_Player(WithShadowFunc, GDO):
         return self.gb('p_bank_nuyen')
 
     def give_bank_nuyen(self, nuyen: int):
-        return self.set_value('p_bank_nuyen', nuyen)
+        return self.incb('p_bank_nuyen', nuyen)
 
     ##########
     # Places #

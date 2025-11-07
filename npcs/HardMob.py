@@ -1,10 +1,7 @@
-from gdo.shadowdogs.SD_NPC import SD_NPC
+from gdo.shadowdogs.npcs.Mob import Mob
 
 
-class HardMob(SD_NPC):
+class HardMob(Mob):
 
     def ai_decision(self) -> str:
         return 'sdp'
-
-    async def digesting(self):
-        return self

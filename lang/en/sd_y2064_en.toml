@@ -88,3 +88,10 @@ y2064_policestation_exit_outside = "You are in front of the exit."
 y2064_policestation_reception = "Reception"
 y2064_policestation_reception_inside = "You are inside the police office reception. A foot in the door you can explore further."
 y2064_policestation_reception_outside = "You are in front of the Reception."
+
+##################
+# Police.Toilets #
+##################
+y2064_policestation_toilets = "Toilets"
+y2064_policestation_toilets_inside = "Nothing special here."
+y2064_policestation_toilets_outside = "Looks like the toilets."

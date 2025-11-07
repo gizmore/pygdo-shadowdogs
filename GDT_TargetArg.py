@@ -93,8 +93,9 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
         if self._me:
             choices[player.get_name()] = player
         if self._foes:
-            for epl in self.get_enemy_party().members:
-                choices[str(epl.party_pos)] = epl
+            if party.does(Action.FIGHT):
+                for epl in self.get_enemy_party().members:
+                    choices[str(epl.party_pos)] = epl
         if self._friends:
             for pl in self.get_party().members:
                 choices[pl.get_name()] = pl

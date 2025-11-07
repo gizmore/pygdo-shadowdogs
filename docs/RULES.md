@@ -286,7 +286,7 @@ What this is about, you have to find out yourself.
 
 2-6 unsupported soldier
 7-10 supported soldier
-♦J
+♦J Asian Agent
 ♥J
 ♠J
 ♣J

@@ -7,7 +7,7 @@ The council tries to meet regularly.
 
 2.Nov.2025
 
-- Brief an Abgeordnete
+ x Brief an Abgeordnete
 - Verhandlungen beobachten
 - Vogeltränke (optional)
 - Zettel neu gestalten
@@ -17,3 +17,8 @@ The council tries to meet regularly.
 
 *UNSIGNED*
 
+7.nov.2025
+
+- Neuer President wählen
+- Krieg beenden
+- 

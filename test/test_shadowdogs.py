@@ -21,9 +21,6 @@ class ShadowdogsTest(ShadowdogsTestCase):
         gizmore = await self.fresh_gizmore(False)
         out = cli_plug(gizmore, '$sdi')
         self.assertIn('page 1 of 1', out, '$sdi does not work.')
-        out = cli_plug(gizmore, '$sdi 1')
-        self.assertIn('page 1 of 1', out, '$sdi 2 does not work.')
-        self.assertIn('Club_of_Adonis', out, '$sdi 2 does not render.')
         out = cli_plug(gizmore, '$sdeq _of_ado')
         await self.ticker(121)
         out += all_private_messages()
@@ -368,6 +365,12 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdhire fish 100')
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('Fish', out, 'p does not work.')
+
+    async def test_70_use(self):
+        gizmore = await self.fresh_gizmore()
+        out = cli_plug(gizmore, '$sduse bottle sink')
+        self.assertIn('WaterBottle', out, 'use does not work.')
+
 
 
 

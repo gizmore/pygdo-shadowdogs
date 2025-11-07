@@ -1,3 +1,4 @@
+from gdo.shadowdogs.SD_Party import SD_Party
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.Exit import Exit
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.ComparisonRoom import ComparisonRoom
 from gdo.shadowdogs.city.y2064.PoliceStation.locations.EvidenceRoom import EvidenceRoom
@@ -41,3 +42,6 @@ class PoliceStation(City):
     NPCS: list[tuple[str,int]] = [
         ('peine_cop', 1000),
     ]
+
+    def sd_npc_none_chance(self, party: 'SD_Party') -> int:
+        return 100000

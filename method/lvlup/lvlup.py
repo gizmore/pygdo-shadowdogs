@@ -55,6 +55,6 @@ class lvlup(MethodSD):
             return self.err('err_sd_lvlup_karma', (self.t(field), old_lvl, new_lvl, need_karma, have_karma))
         if new_lvl > cap:
             return self.err('err_sd_lvlup_cap', (self.t(field), old_lvl))
-        player.increment(field, 1)
-        player.increment('p_karma', -need_karma)
+        player.incb(field, 1)
+        player.incb('p_karma', -need_karma)
         return self.reply('msg_sd_lvlup', (need_karma, self.t(field), old_lvl, new_lvl))

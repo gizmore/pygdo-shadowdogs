@@ -2,13 +2,13 @@ from gdo.base.Util import Random, gdo_print
 from typing import TYPE_CHECKING
 
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.item.classes.Equipment import Equipment
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
-from gdo.shadowdogs.item.Item import Item
 
 
-class Weapon(Item):
+class Weapon(Equipment):
 
     def get_slot(self) -> str:
         return 'p_weapon'

@@ -14,6 +14,7 @@ sd_too_much_matches = "Too many matches like %s."
 sd_unknown_item = "No item found matching **%s**."
 err_item_name_ambiguous = "Too many matches like %s."
 err_sd_gmt_party_busy = "The target party is busy."
+err_sd_ambiguous = "There are %d matches, e.g.: %s."
 
 #############
 # Obstacles #

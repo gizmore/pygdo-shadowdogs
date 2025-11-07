@@ -35,5 +35,13 @@ class use(MethodSD):
         return self.get_item().sd_use_time()
 
     async def sd_execute(self):
-        await self.get_item().on_use(self.get_target())
+        item = self.get_item()
+        target = self.get_target()
+        if not item.sd_can_target() and target:
+            return self.err('err_sd_use_disallow_target')
+        if not item.sd_can_use_on_foe() and target.is_foe():
+            return self.err('err_sd_use_not_on_foe')
+        if not item.sd_can_use_on_friend() and target.is_friend():
+            return self.err('err_sd_use_not_on_friend')
+        await item.on_use(target)
         return self.empty()

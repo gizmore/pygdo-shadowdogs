@@ -13,6 +13,9 @@ class Consumable(Usable):
     def sd_use_time(self) -> int:
         return self.get_weight() // 2
 
+    def sd_can_use_on_self(self) -> bool:
+        return True
+
     async def on_use(self, target: 'SD_Player|Obstacle'):
         player = self.get_player()
         ef = []

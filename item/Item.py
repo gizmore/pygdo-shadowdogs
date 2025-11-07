@@ -39,6 +39,9 @@ class Item(SD_Item):
     def sd_inv_type(self) -> str:
         return GDT_Slot.INVENTORY
 
+    def get_slot(self) -> str:
+        return self.sd_inv_type()
+
     def get_level(self) -> int:
         return self.dmi('level', 1)
 
@@ -189,6 +192,14 @@ class Item(SD_Item):
     def sd_craft_time(self) -> int:
         return self.get_equip_time() * 2
 
-    async def on_craft(self, item: 'Item') -> GDT:
-        await self.send_to_player(self.get_owner(), 'err_sd_no_craft')
-        return GDT_HTML()
+    def sd_can_target(self) -> bool:
+        return False
+
+    def sd_can_use_on_self(self) -> bool:
+        return False
+
+    def sd_can_use_on_friend(self):
+        return False
+
+    def sd_can_use_on_foe(self) -> bool:
+        return False

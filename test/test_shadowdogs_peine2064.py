@@ -4,7 +4,7 @@ from gdo.base.Util import Random
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.Hate import Hate
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
-from gdotest.TestUtil import cli_plug, all_private_messages
+from gdotest.TestUtil import cli_plug, all_private_messages, cli_gizmore
 
 
 class ShadowdogsPeine2064Test(ShadowdogsTestCase):
@@ -196,7 +196,8 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('accompli', out, 'quest no work.')
 
     async def test_70_police(self):
-        gizmore = await self.fresh_gizmore()
+        giz = await self.power_gizmore(10, 'bod,bod,bod,str,qui,qui,str,str', 'Shotgun,LeatherVest,CombatHelmet,Boots,250xAmmo9mm')
+        gizmore = cli_gizmore()
         out = cli_plug(gizmore, '$sdgmi giz WalkieT')
         self.assertIn('Talkie', out, 'gmi no work.')
         out = cli_plug(gizmore, '$sdu walkie')
@@ -214,14 +215,18 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         await self.ticker(60)
         out += all_private_messages()
         self.assertIn('entered', out, 'enter no work #2.')
+        await self.party_ticker_until(Action.INSIDE)
         Random.init(31337)
-        out = cli_plug(gizmore, '$sdexp')
-        self.assertIn('explore', out, 'walkie talkie #3 no work.')
-
-
-
-
-
+        for i in range(8):
+            out = cli_plug(gizmore, '$sdexp')
+            self.assertIn('explore', out, 'exp no work.')
+            await self.party_ticker_until(Action.OUTSIDE)
+            if giz.get_location() == self.world().World2064.PoliceStation.EvidenceRoom:
+                out = cli_plug(gizmore, '$sdenter')
+                break
+        self.assertIn('entered', out, 'enter no work #3.')
+        out = cli_plug(gizmore, '$sdsearch')
+        self.assertIn('accomplished', out, 'search no work.')
 
 if __name__ == '__main__':
     unittest.main()
