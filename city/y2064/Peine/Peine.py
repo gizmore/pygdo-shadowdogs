@@ -1,4 +1,7 @@
 from gdo.base.Util import Random
+from gdo.shadowdogs.city.y2064.Peine.locations.bank.Bank import Bank
+from gdo.shadowdogs.city.y2064.Peine.locations.car_repair.CarRepairShop import CarRepairShop
+from gdo.shadowdogs.city.y2064.Peine.locations.obi.Obi import Obi
 from gdo.shadowdogs.city.y2064.Peine.locations.park.Park import Park
 from gdo.shadowdogs.city.y2064.Peine.locations.trains.TrainStation import TrainStation
 from gdo.shadowdogs.city.y2064.Peine.locations.alfred.Alfred import Alfred
@@ -35,16 +38,22 @@ class Peine(City):
     TrainStation: TrainStation = TrainStation()
     Park: Park = Park()
     Police: Police = Police()
+    Bank: Bank = Bank()
+    CarRepairShop: CarRepairShop = CarRepairShop()
+    Obi: Obi = Obi()
 
     LOCATIONS: list[Location] = [
-        Marketplace,
-        SeniorHome,
-        Home,
+        Alfred,
+        Bank,
+        CarRepairShop,
         GaragePub,
+        GunzelinSchool,
+        Home,
+        Marketplace,
+        Obi,
+        SeniorHome,
         Jawoll,
         WaffenKief,
-        GunzelinSchool,
-        Alfred,
         Woods,
         TrainStation,
         Park,

@@ -60,7 +60,7 @@ Failing means: A political system fails if bread beer and games don't taste anym
  - If you have reached an age of 88 years, the truth will be revealed to you.
 
 
-**UNSIGNED**
+**SIGNED**
 
 ##### Government Weights
 
@@ -254,7 +254,7 @@ Using Nicknames, as they are cooler than real names only.
 - Reptiles:
 
 #### The Plants – 5 votes
-- Trees:
+- Trees: 0xf01d
 - Farn:
 - Corals: Hase
 - Flowers:

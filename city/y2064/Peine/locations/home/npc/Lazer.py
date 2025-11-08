@@ -23,3 +23,20 @@ class Lazer(Hireling):
             await self.send_to_player(player, 'sd_lazer_home_intro1')
             self.qv_set('lazer1')
         await self.give_word(player, 'hello')
+
+    @classmethod
+    def sd_npc_default_equipment(cls) -> list[str]:
+        return [
+            'Jeans',
+            'Pullover',
+            'Shoes',
+            'Kadett',
+        ]
+
+    @classmethod
+    def sd_npc_default_values(cls):
+        return {
+            'p_bod': 4,
+            'p_str': 4,
+            'p_qui': 2,
+        }
