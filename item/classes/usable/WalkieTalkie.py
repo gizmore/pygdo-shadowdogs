@@ -7,6 +7,9 @@ from gdo.shadowdogs.obstacle.Obstacle import Obstacle
 
 class WalkieTalkie(Usable):
 
+    def sd_can_use_on_self(self) -> bool:
+        return True
+
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         if self.get_location() == self.world().World2064.Peine.Police:
             q = JackPott.instance()

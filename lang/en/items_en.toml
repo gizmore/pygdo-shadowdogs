@@ -394,6 +394,9 @@ Apple = "Apple"
 InstantNoodles = "InstantNoodles"
 WaterBottle = "WaterBottle"
 Cocaine = "Cocaine"
+Speed = "Speed"
+Extasy = "Extasy"
+Weed = "Weed"
 
 # --- Implants ---
 NeuralJackLite = "NeuralJackLite"

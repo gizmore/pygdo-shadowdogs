@@ -39,9 +39,10 @@ class usables:
         'Apple':              {'klass': 'Consumable', 'level': 1, 'weight': 160, 'price': 2, 'ef': {'hunger': 15, 'thirst': 15}},
         'InstantNoodles':     {'klass': 'Consumable', 'level': 1, 'weight': 90, 'price': 4, 'ef': {'hunger': 20, 'thirst': 0}},
         'WaterBottle':        {'klass': 'FilledBottle', 'level': 1, 'weight': 560, 'price': 8, 'ef': {'hunger': 0, 'thirst': 50}},
-        'Cocaine':            {'klass': 'Drugs', 'level': 34, 'weight': 1, 'price': 100, 'ef': {'alcohol': 1}},
-        'Speed':              {'klass': 'Drugs', 'level': 20, 'weight': 1, 'price':  20, 'ef': {'alcohol': 1}},
-        'Extasy':             {'klass': 'Drugs', 'level': 18, 'weight': 2, 'price':  30, 'ef': {'alcohol': 1}},
+        'Cocaine':            {'klass': 'Drugs', 'level': 34, 'weight': 1, 'price': 100, 'ef': {'high': 1}},
+        'Speed':              {'klass': 'Drugs', 'level': 20, 'weight': 1, 'price':  20, 'ef': {'high': 1}},
+        'Extasy':             {'klass': 'Drugs', 'level': 18, 'weight': 2, 'price':  30, 'ef': {'high': 1}},
+        'Weed':               {'klass': 'Drugs', 'level': 18, 'weight': 1, 'price':  20, 'ef': {'high': 1}},
 
         # Quest Items
         'ArmyLetter':         {'klass': 'ArmyLetter',  'key': 'sdqa_email_army'},

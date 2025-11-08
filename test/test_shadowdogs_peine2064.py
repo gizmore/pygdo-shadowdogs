@@ -216,7 +216,7 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out += all_private_messages()
         self.assertIn('entered', out, 'enter no work #2.')
         await self.party_ticker_until(Action.INSIDE)
-        Random.init(31337)
+        Random.init(31459)
         for i in range(8):
             out = cli_plug(gizmore, '$sdexp')
             self.assertIn('explore', out, 'exp no work.')

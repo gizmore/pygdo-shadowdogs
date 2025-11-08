@@ -13,7 +13,6 @@ class Bothel(City):
     Samland: Samland = Samland()
     Winkelmann: Winkelmann = Winkelmann()
 
-
     LOCATIONS: list[Location] = [
         Gruendel,
         Klawitter,
