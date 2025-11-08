@@ -67,17 +67,13 @@ class module_shadowdogs(GDO_Module):
         page._right_bar.add_field(GDT_Link().href(href('shadowdogs', 'shadowdogs')).text('module_shadowdogs'))
 
 
-    ##########
+    ##########w
     # Config #
     ##########
 
     def gdo_module_config(self) -> list[GDT]:
         return [
-            # GDT_UInt('sd_time').not_null().initial('2966371200'),
         ]
-
-    def cfg_time(self) -> int:
-        return math.floor(Application.TIME)
 
     def gdo_user_settings(self) -> list[GDT]:
         return [

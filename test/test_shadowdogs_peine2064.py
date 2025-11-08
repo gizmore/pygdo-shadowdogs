@@ -228,5 +228,13 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdsearch')
         self.assertIn('accomplished', out, 'search no work.')
 
+    async def test_75_buds(self):
+        giz = self.power_gizmore(2, 'str,qui', 'CombatVest')
+        gizmore = cli_gizmore()
+        out = cli_plug(gizmore, '$sleep')
+        await self.party_ticker_until(Action.INSIDE)
+
+
+
 if __name__ == '__main__':
     unittest.main()

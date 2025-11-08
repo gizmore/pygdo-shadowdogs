@@ -139,8 +139,7 @@ class City(WithShadowFunc):
         location = WithProbability.probable_item(items, self.explore_non_chance(party))
         if location:
             await party.do(Action.OUTSIDE, location.get_location_key())
-            for member in party.members:
-                await self.give_kp(member, location)
+            await self.give_party_kp(party, location)
         elif items:
             await self.send_to_party(party, 'msg_found_no_location')
             await party.do(Action.OUTSIDE, party.get_city().get_location_key())

@@ -1,3 +1,4 @@
+from gdo.base.Application import Application
 from gdo.base.GDT import GDT
 from gdo.base.Method import Method
 from gdo.date.Time import Time
@@ -17,5 +18,5 @@ class time(MethodSD):
         return False
 
     def gdo_execute(self) -> GDT:
-        return GDT_DateTime('shadowtime').val(Time.get_date(self.mod_sd().cfg_time()))
+        return GDT_DateTime('shadowtime').val(Time.get_date(Application.TIME + Time.ONE_YEAR * 64))
 

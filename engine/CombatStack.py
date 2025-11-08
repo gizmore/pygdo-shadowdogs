@@ -1,3 +1,4 @@
+from gdo.base.Application import Application
 from gdo.base.Util import Random
 from gdo.message.GDT_HTML import GDT_HTML
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc

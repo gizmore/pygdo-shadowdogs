@@ -11,3 +11,6 @@ class Mob(SD_NPC):
 
     async def digesting(self):
         return self
+
+    def is_foe(self) -> bool:
+        return True

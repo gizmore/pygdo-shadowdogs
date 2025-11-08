@@ -139,7 +139,7 @@ class SD_Player(WithShadowFunc, GDO):
             'p_aim': 0, 'p_fig': 0, 'p_hac': 0, 'p_tra': 0, 'p_mat': 0, 'p_cry': 0, 'p_cra': 0,
             'p_surveil': 0, 'p_cpu': 0, 'p_mcpu': 0,
             'p_max_hp': 0, 'p_max_mp': 0,
-            'p_attack': 0, 'p_defense': 0, 'p_at': 50,
+            'p_attack': 0, 'p_defense': 0, 'p_at': 0,
             'p_min_dmg': 0, 'p_max_dmg': 0,
             'p_marm': 0, 'p_farm': 0,
             'p_weight': 0, 'p_max_weight': 0,
@@ -231,8 +231,8 @@ class SD_Player(WithShadowFunc, GDO):
             Math('p_mat'),
             Trading('p_tra'),
 
-            Hunger('p_hunger').initial('50'),
-            Thirst('p_thirst').initial('30'),
+            Hunger('p_hunger').initial('500'),
+            Thirst('p_thirst').initial('300'),
             Alcohol('p_alcohol'),
 
             GDT_Created('p_created'),

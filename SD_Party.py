@@ -66,7 +66,8 @@ class SD_Party(WithShadowFunc, GDO):
     # GDO #
     #######
     def delete(self):
-        del Shadowdogs.PARTIES[self.get_id()]
+        if self.get_id() in Shadowdogs.PARTIES:
+            del Shadowdogs.PARTIES[self.get_id()]
         return super().delete()
 
     ##########
@@ -86,7 +87,7 @@ class SD_Party(WithShadowFunc, GDO):
         })
         if self.members:
             await self.get_action().player(self.members[0]).on_start(self)
-        Application.EVENTS.publish(f"party_starts_{action}", self, action)
+        Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_start', self)
         return self
 
     async def resume(self):
@@ -131,7 +132,7 @@ class SD_Party(WithShadowFunc, GDO):
         self.members.append(player)
         player.save_vals({
             'p_party': self.get_id(),
-            'p_joined': str(self.get_time()),
+            'p_joined': str(Application.TIME),
         })
         return self.with_fresh_positions()
 
@@ -199,7 +200,7 @@ class SD_Party(WithShadowFunc, GDO):
     # Target #
     ##########
 
-    def other_players(self, player: 'SD_Player' = None, own_members: bool=True) -> Iterator['SD_Player']:
+    def other_players(self, player: 'SD_Player' = None, own_members: bool=True):
         """
         Get current other players a player sees.
         """
@@ -245,7 +246,7 @@ class SD_Party(WithShadowFunc, GDO):
     def random_member(self) -> 'SD_Player|None':
         return Random.list_item(self.members)
 
-    def get_city(self) -> 'City':
+    def get_city(self) -> 'City|None':
         if not self.get_target_string().isdigit():
             if city := self.get_city_from_target(self.get_target()):
                 return city
@@ -260,7 +261,7 @@ class SD_Party(WithShadowFunc, GDO):
         return self.__class__.World.WORLDS.get(self.gdo_val('party_world'))
 
     @staticmethod
-    def get_city_from_target(target) -> 'City':
+    def get_city_from_target(target) -> 'City|None':
         from gdo.shadowdogs.locations.City import City
         if isinstance(target, City):
             return target
@@ -291,6 +292,7 @@ class SD_Party(WithShadowFunc, GDO):
     async def tick(self):
         if self.is_action_over():
             await self.get_action().on_completed(self)
+            Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_over', self)
         else:
             await self.get_action().execute(self)
         return self
@@ -356,7 +358,7 @@ class SD_Party(WithShadowFunc, GDO):
         return Arrays.human_join([f"{p.party_pos}-{p.render_name()}" for p in self.members])
 
     def combat_diraction_sign(self) -> int:
-        pass
+        return 1 if self.combat_diraction else -1
 
     def render_busy(self) -> str:
         return self.t('sd_busy', (Time.human_duration(self.get_eta_s()),))

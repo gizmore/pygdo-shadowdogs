@@ -40,12 +40,11 @@ class WithShadowFunc(WithPlayerGDO):
             cls.module_shadowdogs = module_shadowdogs
         return cls.module_shadowdogs.instance()
 
-    @classmethod
-    def get_time(cls) -> int:
-        return cls.mod_sd().cfg_time()
-
     def nearby_players(self, player: 'SD_Player', same: bool = False):
         return player.get_party().players_nearby(player if not same else None)
+
+    def get_time(self) -> int:
+        return int(Application.TIME)
 
     ############
     # Entities #

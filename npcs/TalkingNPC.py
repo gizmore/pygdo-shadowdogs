@@ -3,7 +3,7 @@ from gdo.base.Util import Random
 from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
-from gdo.shadowdogs.city.y2064.Peine.quests.Awakening import Awakening
+from gdo.shadowdogs.city.y2064.Peine.locations.home.quest.Awakening import Awakening
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.Item import Item
 

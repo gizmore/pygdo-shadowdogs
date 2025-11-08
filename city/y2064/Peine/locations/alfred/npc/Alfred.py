@@ -1,6 +1,6 @@
 from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.SD_Player import SD_Player
-from gdo.shadowdogs.city.y2064.Peine.quests.CivilService import CivilService
+from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.CivilService import CivilService
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 

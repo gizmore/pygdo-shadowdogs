@@ -11,7 +11,7 @@ class Hunger(Modifier):
         super().__init__(name)
         self.min(0)
         self.max(200)
-        self.bytes(1)
+        self.bytes(2)
         self.initial('100')
 
     def apply(self, target: 'SD_Player'):

@@ -1,6 +1,5 @@
 from typing import Self
 
-from gdo.base.GDT import GDT
 from gdo.base.Util import Arrays
 from gdo.core.GDO_User import GDO_User
 
@@ -23,10 +22,17 @@ class SD_NPC(SD_Player):
 
     @classmethod
     def sd_npc_default_values(cls) -> dict[str, int]:
-        return {
-        }
+        return {}
+
+    @classmethod
+    def sd_npc_default_equipment(cls) -> list[str]:
+        return []
 
     @classmethod
     def blank(cls, vals: dict = None, mark_blank: bool = True) -> Self:
         vals = Arrays.extend_unknown(vals or {}, cls.sd_npc_default_values())
         return super().blank(vals, mark_blank)
+
+    def gdo_after_create(self, gdo):
+        for item_name in self.sd_npc_default_equipment():
+            self.factory().create_item_gmi(item_name, self, True)

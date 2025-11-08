@@ -1,7 +1,7 @@
 from gdo.date.Time import Time
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.Nurse import Nurse
-from gdo.shadowdogs.city.y2064.Peine.quests.CivilService import CivilService
+from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.CivilService import CivilService
 from gdo.shadowdogs.locations.Location import Location
 
 from typing import TYPE_CHECKING
