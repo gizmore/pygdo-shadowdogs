@@ -229,10 +229,14 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('accomplished', out, 'search no work.')
 
     async def test_75_buds(self):
-        giz = self.power_gizmore(2, 'str,qui', 'CombatVest')
+        giz = await self.power_gizmore(2, 'str,qui', 'CombatVest')
         gizmore = cli_gizmore()
-        out = cli_plug(gizmore, '$sleep')
+        out = cli_plug(gizmore, '$sdsleep')
         await self.party_ticker_until(Action.INSIDE)
+        out = cli_plug(gizmore, '$sdgmi giz weed')
+        out = cli_plug(gizmore, '$sdgive mom weed')
+        self.assertIn('encounter', out, 'search no work.')
+
 
 
 

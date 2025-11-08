@@ -196,8 +196,8 @@ class SD_Player(WithShadowFunc, GDO):
             Nuyen('p_nuyen'),
             Nuyen('p_bank_nuyen'),
 
-            GDT_Race('p_race').not_null().npcs(),
-            GDT_Gender('p_gender').simple().not_null(),
+            GDT_Race('p_race').not_null().npcs().initial('human'),
+            GDT_Gender('p_gender').simple().not_null().initial('male'),
             GDT_Faction('p_faction').initial(GDT_Faction.SEEKER).not_null(),
 
             GDT_Item('p_weapon').cascade_delete(),

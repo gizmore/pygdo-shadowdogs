@@ -26,6 +26,8 @@ class SD_Quest(WithShadowFunc, GDO):
 
     QuestDone = None
 
+    inited: bool
+
     @classmethod
     def qd(cls):
         if not cls.QuestDone:
@@ -47,7 +49,9 @@ class SD_Quest(WithShadowFunc, GDO):
                 'q_city': f"{split[3]}.{split[4]}",
                 'q_klass': cls.__module__ + "." + cls.__name__,
             }).insert()
-        quest.sd_init_quest()
+        if not quest.inited:
+            quest.sd_init_quest()
+            quest.inited = True
         return quest
 
     @classmethod
@@ -71,6 +75,10 @@ class SD_Quest(WithShadowFunc, GDO):
     @classmethod
     def gdo_base_class(cls) -> type[GDO]:
         return SD_Quest
+
+    def __init__(self):
+        super().__init__()
+        self.inited = False
 
     def gdo_persistent(self) -> bool:
         return True
