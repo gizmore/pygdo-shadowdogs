@@ -1,4 +1,4 @@
-window.SD = {
+window.GDO.SD = {
     init: function() {
 
     },

@@ -11,9 +11,9 @@ class Thirst(Modifier):
     def __init__(self, name: str):
         super().__init__(name)
         self.min(0)
-        self.max(200)
+        self.max(2000)
         self.bytes(2)
-        self.initial('100')
+        self.initial('1000')
 
     def apply(self, target: 'SD_Player'):
         sat = self.get_value()

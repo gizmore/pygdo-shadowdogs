@@ -16,5 +16,8 @@ class Email(Usable):
     def get_args(self) -> tuple:
         return ()
 
+    def sd_can_use_on_self(self) -> bool:
+        return True
+
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         await self.send_to_player(self.get_player(), self.get_key(), self.get_args())

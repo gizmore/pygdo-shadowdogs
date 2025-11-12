@@ -61,11 +61,12 @@ class module_shadowdogs(GDO_Module):
         Loader.cleanup()
         Loader.load_npcs()
         Loader.load_parties()
-        self.add_js('js/sd.js')
 
     def gdo_init_sidebar(self, page: 'GDT_Page'):
         page._right_bar.add_field(GDT_Link().href(href('shadowdogs', 'shadowdogs')).text('module_shadowdogs'))
 
+    def gdo_load_scripts(self, page: 'GDT_Page'):
+        self.add_js('js/sd.js')
 
     ##########w
     # Config #

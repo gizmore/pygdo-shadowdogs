@@ -26,5 +26,5 @@ class status(MethodSD):
             p.gb('p_karma'), p.gb('p_xp'),
             p.g('p_weight') / 1000, p.weight.max_weight(p) / 1000,
             Shadowdogs.display_nuyen(p.get_nuyen()), Shadowdogs.display_nuyen(p.get_bank_nuyen()),
-            p.gb('p_hunger'), p.gb('p_thirst'),
+            p.gb('p_hunger')//10, p.gb('p_thirst')//10,
         ))
