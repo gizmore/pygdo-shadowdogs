@@ -1,5 +1,6 @@
 from gdo.base.Trans import t
 from gdo.base.Util import Random
+from gdo.shadowdogs.GDT_Race import GDT_Race
 from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_QuestVal import SD_QuestVal
@@ -70,3 +71,9 @@ class TalkingNPC(SD_NPC):
 
     async def on_hire(self, player: SD_Player, nuyen: int):
         return await self.send_to_player(self.get_player(), 'err_sd_cannot_hire', (self.render_name(),))
+
+    @classmethod
+    def blank(cls, vals: dict = None, mark_blank: bool = True) -> 'TalkingNPC':
+        obj = super().blank(vals, mark_blank)
+        obj.set_values(GDT_Race.BASE[obj.gdo_val('p_race')])
+        return obj.modify_all()

@@ -31,6 +31,7 @@ class SD_NPC(SD_Player):
     @classmethod
     def blank(cls, vals: dict = None, mark_blank: bool = True) -> Self:
         vals = Arrays.extend_unknown(vals or {}, cls.sd_npc_default_values())
+        vals['p_npc_class'] = cls.fqcn()
         return super().blank(vals, mark_blank)
 
     def gdo_after_create(self, gdo):

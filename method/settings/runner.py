@@ -9,6 +9,6 @@ class runner(MethodSD):
         if not super().gdo_has_permission(user):
             return False
         if self.get_player().gb('p_level') > Shadowdogs.RUNNING_LEVEL:
+            self.err('err_sd_no_more_runner_mode')
             return False
         return True
-

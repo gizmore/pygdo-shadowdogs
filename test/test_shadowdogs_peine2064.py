@@ -236,7 +236,8 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdgmi giz weed')
         out = cli_plug(gizmore, '$sdgive mom weed')
         self.assertIn('accomplished', out, 'search no work.')
-
+        self.assertIn('encounter', out, 'search no work.')
+        await self.party_ticker_until(Action.INSIDE)
 
 
 

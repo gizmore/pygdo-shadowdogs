@@ -113,6 +113,9 @@ class SD_Quest(WithShadowFunc, GDO):
     async def on_accept(self):
         pass
 
+    async def on_accomplished(self):
+        pass
+
     async def deny(self):
         self.qd().deny(self, self.get_player())
         await self.send_to_player(self.get_player(), 'msg_sd_quest_denied', (self.render_title(),))
@@ -120,6 +123,7 @@ class SD_Quest(WithShadowFunc, GDO):
     async def accomplished(self):
         self.qd().succeed(self, self.get_player())
         await self.on_reward()
+        await self.on_accomplished()
         await self.send_to_player(self.get_player(), 'msg_sd_quest_done', (self.render_title(),))
 
     async def on_reward(self):

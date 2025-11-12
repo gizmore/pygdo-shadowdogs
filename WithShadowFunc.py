@@ -10,6 +10,7 @@ from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
 if TYPE_CHECKING:
+    from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
     from gdo.shadowdogs.locations.Bank import Bank
     from gdo.shadowdogs.SD_KnownWord import SD_KnownWord
     from gdo.shadowdogs.locations.Location import Location
@@ -93,6 +94,12 @@ class WithShadowFunc(WithPlayerGDO):
     async def mob_attack(self, party: 'SD_Party', mob_names: str):
         ep = await self.factory().create_default_npcs(party.get_location(), mob_names)
         await party.fight(ep)
+
+    async def npc_attack(self, *types: 'type[TalkingNPC]'):
+        party = self.factory().create_party(self.get_location())
+        for type in types:
+            party.join_silent(type.blank().insert().modify_all().heal_full())
+        await self.get_party().fight(party)
 
     ##########
     # Method #
