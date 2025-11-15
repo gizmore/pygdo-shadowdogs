@@ -28,8 +28,11 @@ class ItemList(list[Item]):
         val = val.lower()
         candidates = []
         for item in self:
-            if item.render_name_wc().lower().startswith(val):
+            name = item.render_name_wc().lower()
+            if name.startswith(val):
                 candidates.append(item)
+            if name == val:
+                return [item]
         if len(candidates) == 1:
             return [candidates[0]]
         candidates = []

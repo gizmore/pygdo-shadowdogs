@@ -1,5 +1,3 @@
-from setuptools import package_index
-
 from gdo.base.Util import Arrays
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.MethodSD import MethodSD

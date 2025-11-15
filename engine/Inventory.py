@@ -19,7 +19,8 @@ class Inventory(WithShadowFunc, ItemList):
             item.save()
             return item
 
-    def remove_item(self, item_name: str, count: int=1) -> Item|None:
+    def remove_item(self, item_name: str) -> Item|None:
+        count = 1
         if m := re.match(r"^(\d+)x(.*)$", item_name):
             count = int(m.group(1))
             item_name = m.group(2)

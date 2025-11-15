@@ -5,9 +5,9 @@ from gdo.core.GDT_Template import GDT_Template
 from gdo.core.GDT_UserType import GDT_UserType
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
-from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.method.game.start import start
 from gdo.shadowdogs.method.info.inventory import inventory
+from gdo.websocket.module_websocket import module_websocket
 
 
 class shadowdogs(WithShadowFunc, Method):
@@ -25,6 +25,7 @@ class shadowdogs(WithShadowFunc, Method):
                 'start': start().env_copy(self),
             })
 
+        module_websocket.instance().autoconnect_script()
         return GDT_Template().template('shadowdogs', 'sd.html', {
             'inventory': inventory().env_copy(self),
         })

@@ -33,6 +33,10 @@ class module_shadowdogs(GDO_Module):
     def __init__(self):
         super().__init__()
 
+    def gdo_dependencies(self) -> list:
+        return [
+        ]
+
     def gdo_classes(self):
         return [
             SD_Location,
