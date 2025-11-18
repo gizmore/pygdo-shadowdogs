@@ -292,7 +292,7 @@ class SD_Party(WithShadowFunc, GDO):
     async def tick(self):
         if self.is_action_over():
             await self.get_action().on_completed(self)
-            Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_over', self)
+            await Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_over', self)
         else:
             await self.get_action().execute(self)
         return self

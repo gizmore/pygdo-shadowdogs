@@ -1,4 +1,4 @@
-# pygdo-shadowdogs
+`# pygdo-shadowdogs
 A cyberpunk real time chat MMO
 
 ## Installation
@@ -9,6 +9,4 @@ A cyberpunk real time chat MMO
 #### LICENSE
 
 MIT Compatible GDOv8 License
-
-##### Gizmore and his death:
 
