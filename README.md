@@ -1,2 +1,14 @@
 # pygdo-shadowdogs
-A chat based cyberpunk mmo for the PyGDO chatbot.
+A cyberpunk real time chat MMO
+
+## Installation
+
+### Documentation
+
+
+#### LICENSE
+
+MIT Compatible GDOv8 License
+
+##### Gizmore and his death:
+

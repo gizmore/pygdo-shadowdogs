@@ -1,0 +1,535 @@
+module_shadowdogs = "Shadowdogs"
+
+##########
+# Errors #
+##########
+err_sd_stub = "%s is not implemented."
+err_sd_item_klass_required = "You need an item of type %s."
+err_sd_invalid_item_name = "Unknown Item: %s."
+err_sd_unknown_item = "Item not found."
+err_sd_no_slot_defined_for_item = "Item %s has no slot."
+err_sd_player_busy = "You are still busy for %s"
+err_sd_item_not_usable = "%s is not usable."
+sd_too_much_matches = "Too many matches like %s."
+sd_unknown_item = "No item found matching **%s**."
+err_item_name_ambiguous = "Too many matches like %s."
+err_sd_gmt_party_busy = "The target party is busy."
+err_sd_ambiguous = "There are %d matches, e.g.: %s."
+
+#############
+# Obstacles #
+#############
+msg_sd_drink_pond = "You drink and feel refreshed."
+
+##########
+# Usable #
+##########
+msg_sd_drugs_bad = "You take the drugs and be high for a while. Drugs are bad for your health and are highly addictive!"
+
+############
+# Factions #
+############
+gdo_faction = "Faction"
+sd_freeborn = "Freeborn"
+sd_council = "Council"
+sd_seeker = "Seeker"
+sd_aegis = "Aegis"
+sd__freeborn = "The Freeborn seek absolute Freedom, but without order, will they survive?"
+sd__council = "The Council crave Peace, but will their control become a prison?"
+sd__seeker = "The Seekers hunt for Truth, but can truth exist without chaos?"
+sd__aegis = "The Aegis Pact embraces War, but will their strength destroy them in the end?"
+sd_i_freeborn = "🦅"
+sd___freeborn = "Descendants of the first rebels who refused to bow to any master, the Freeborn are a brotherhood of wanderers, outlaws, and dreamers. They travel the forgotten paths, shaping their own destinies as they go. Their songs echo in the dark alleys and among the hidden clearings. They believe freedom is the birthright of every soul, but without unity, they risk fading into legend—lost to the winds of history."
+sd_i_council = "🕊"
+sd___council = "In ancient halls of marble and shadow, the Council weave laws like spells. They are the keepers of balance, the arbiters of compromise, sworn to forge peace from the ruins of conflict. Their libraries hold centuries of wisdom, and their courts decide the fates of nations. Yet their rigid structure, built to protect, can harden into tyranny if left unchallenged—a cage of peace that stifles the soul."
+sd_i_seeker = "🔍"
+sd___seeker = "The Seekers are the children of the stars, following the constellations of old prophecies. They dig deep into the ruins of the past, seeking the truths that others fear to see. Their minds are sharp as blades, their words like riddles that cut through lies. But the closer they draw to the light of truth, the more they risk being burned by its fury—or lost in the chaos of their own revelations."
+sd_i_aegis = "⚔️"
+sd___aegis = "Forged in blood and steel, the Aegis Pact was born from the fury of endless battlefields. Their warriors are bound by honor, their forges glow with the fires of conquest. They believe that only through strength can the world be remade. Yet the same iron that binds them also shackles them—if their fury turns inward, their empire of might could crumble, consumed by its own hunger for war."
+
+##############
+# Attributes #
+##############
+msg_sd_attributes = "Your attributes: %s."
+
+p_bod = "Body"
+p_mag = "Magic"
+p_str = "Strength"
+p_qui = "Quickness"
+p_dex = "Dexterity"
+p_int = "Intelligence"
+p_wis = "Wisdom"
+p_cha = "Charisma"
+p_luc = "Luck"
+
+
+##########
+# Skills #
+##########
+mt_shadowdogs_skills = "Your skills"
+md_shadowdogs_skills = "List your skills and theirs level."
+msg_sd_skills = "Your skills: %s."
+p_aim = "Aiming"
+p_fig = "Fighting"
+p_hac = "Hacking"
+p_tra = "Trading"
+p_mat = "Maths"
+p_cry = "Crypto"
+
+
+#########
+# Stats #
+#########
+p_thirst = "Thirst"
+p_hunger = "Hunger"
+p_alcohol = "Alcohol"
+
+##########
+# Quests #
+##########
+msg_sd_quest_reward_skill = "You were rewarded with skill or attribute boost: %s."
+
+#######
+# Web #
+#######
+mt_shadowdogs_shadowdogs = "Shadowdogs"
+md_shadowdogs_shadowdogs = "Shadowdogs is a text based mmo/mud that can be played via various chat clients. All chat networks, like WhatsApp, Telegram and Discord play in the same gameworld."
+
+#########
+# Sleep #
+#########
+mt_shadowdogs_sleep = "Sleep"
+md_shadowdogs_sleeo = "Go to bed and rest to recover HP and MP."
+msg_sd_go_sleeping = "You are going to bed."
+msg_sd_woke_up = "You wake up and feel refreshed."
+
+###########
+# Actions #
+###########
+msg_sd_start_explore = "%s start to explore %s to find new places. %s."
+msg_sd_start_fight = "%s encounter %s."
+msg_sd_start_goto = "%s are going to %s. %s."
+msg_sd_start_hack = "%s are starting to hack the %s with your hard- and softwaretools. %s."
+msg_sd_start_inside = "%s are inside the %s."
+msg_sd_start_outside = "%s are outside of the %s."
+msg_sd_start_sleep = "%s are going to bed. Inside their own beds."
+msg_sd_start_talk = "%s meet %s."
+msg_sd_start_travel = "%s travel to %s. %s"
+msg_sd_party_explore = "%s are exploring %s. %s."
+msg_sd_party_fight = "%s are fighting %s."
+msg_sd_party_goto = "%s are going to %s. %s."
+msg_sd_party_hack = "%s are trying to crack the %s with your hard and software. %s."
+msg_sd_party_inside = "%s are inside the %s."
+msg_sd_party_outside = "%s are outside the %s."
+msg_sd_party_sleep = "%s are sleeping inside the %s."
+msg_sd_party_talk = "%s are talking to %s."
+msg_sd_party_travel = "%s are travelling to %s. %s"
+msg_sd_was_explore = "%s were exploring %s."
+msg_sd_was_fight = "%s were fighting %s."
+msg_sd_was_goto = "%s reached the %s."
+msg_sd_was_hack = "%s were trying to crack the %s."
+msg_sd_was_inside = "%s were inside the %s."
+msg_sd_was_outside = "%s were outside the %s."
+msg_sd_was_sleep = "%s were sleeping inside the %s."
+msg_sd_was_talk = "%s were talking to %s."
+msg_sd_was_travel = "%s were travelling to %s."
+
+sd_busy = "%s busy."
+
+explore = 'exploring'
+fight = 'fighting'
+goto = 'going to'
+hack = 'hacking'
+inside = 'is inside'
+outside = 'is outside of'
+sleep = 'sleeping at'
+talk = 'talking to'
+travel = 'travelling to'
+
+########
+# GDTs #
+########
+err_sd_unknown_mods_mapping = "Unknown modifier magic word: %s."
+
+# slot
+p_weapon = "Weapon"
+p_armor = "Armor"
+p_helmet = "Helmet"
+p_trousers = "Trousers"
+p_boots = "Boots"
+p_gloves = "Gloves"
+p_amulet = "Amulet"
+p_ring = "Ring"
+p_earring = "Earring"
+p_piercing = "Piercing"
+p_mount = "Mount"
+p_cyberdeck = "Cyberdeck"
+
+##############
+# Saturation #
+##############
+msg_sd_not_saturated = "You are not saturated. %d damage. %d/%d HP left."
+
+#########
+# Items #
+#########
+sd_receive_item_gmi = "You received %s from the GM %s."
+sd_receive_item_loot = "You received %s from looting the %s."
+sd_receive_item_gave = "You received %s from %s."
+sd_receive_item_search = "You find %s by searching %s."
+sd_receive_item_reward = "You get %s as reward from %s."
+sd_receive_item_explore = "You find %s on exploring %s."
+msg_killed_and_lost = "You got killed by %s and lost your %s."
+
+################
+### Commands ###
+################
+
+############
+# MethodSD #
+############
+err_sd_player_required = "You need to $t$sdstart first."
+err_sd_not_here = "This does not work here."
+err_sd_not_now = "You cannot do this now."
+
+#########
+# Party #
+#########
+mt_shadowdogs_party = "Party Status"
+md_shadowdogs_party = "Show your party status."
+msg_sd_party_info = "%s %s"
+sd_party_busytime = "%s(%s)"
+msg_sd_joined_party = "%s joined the party."
+
+########
+# help #
+########
+mt_shadowdogs_help = "Help"
+md_shadowdogs_help = "Browse the shadowhelp files."
+err_sd_unknown_help_suggest = "Unknown help topic. Did you mean %s?"
+err_sd_unknown_help = "Unknown help topic %s. Try %shelp"
+
+##########
+# Enable #
+##########
+mt_shadowdogs_enable = "Enable"
+md_shadowdogs_enable = "Enable Shadowdogs inside a channel"
+msg_sd_enabled = "Shadowdogs has been enabled."
+
+#########
+# Start #
+#########
+mt_shadowdogs_start = "Start Shadowdogs"
+md_shadowdogs_start = "Create a character in Shadowdogs."
+msg_sd_started = "You created your character, a %s %s."
+err_sd_already_started = "You created a character already. You can $sdreset to start over."
+msg_sd_new_player = "A new player joined the underground shadowdogs; %s the %s %s!"
+sd_story_1 = "You wake up. Feeling dizy and still alcoholized."
+sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless. You somehow feel outta place..."
+
+###########
+# Explore #
+###########
+msg_found_no_location = "Your exploration did not reveal any new location."
+msg_sd_new_kp = "You found a new place in %s: %s. %s"
+
+##########
+# Places #
+##########
+mt_shadowdogs_places = "%d Known Places in %s"
+md_shadowdogs_places = "Show known places for an area."
+msg_sd_places = "%d known places in %s: %s."
+
+#########
+# World #
+#########
+mt_shadowdogs_world = "World Stats"
+md_shadowdogs_world = "Print shadowlamb world statistics."
+msg_sd_world = "In Shadowdogs %s are %d areas with %d locations. There are %d perties: %d walking. %d talking. %d fighting. %d located. %d hacking. %d travelling. Total %d players: NPC(%d), Human(%d), Mobs(%d). Total Nuyen: %s"
+
+#########
+# Lvlup #
+#########
+mt_shadowdogs_lvlup = "Level-Up"
+md_shadowdogs_lvlup = "Increase the level of a skill or attribute."
+err_sd_lvlup_karma = "You want to level up %s from %d to %d, but you need %d karma and only have %d."
+err_sd_lvlup_cap = "You have reached your max level for %s, which is %d."
+err_sd_lvlup_too_low = "You have to leearn %s first."
+msg_sd_lvlup = "You used %d karma and leveled up %s from %d to %d."
+msg_sd_gain_xp = "You gained %d XP. %s "
+msg_sd_gained_karma = "You gained %d karma and now have %d."
+msg_sd_gained_level = "You reached level %d"
+msg_sd_lvlup_simulate = "To level up your %s to level %d you need %d from %d karma"
+
+##########
+# Levels #
+##########
+mt_shadowdogs_levels = "Party Levels"
+md_shadowdogs_levels = "List the levels of your current party members-"
+msg_sd_levels = "Party Levels: %s."
+
+#########
+# Enter #
+#########
+mt_shadowdogs_enter = "Enter a place"
+md_shadowdogs_enter = "Enter a place you are outside of."
+msg_sd_entering = "You are entering the %s."
+msg_sd_entered = "You have entered the %s."
+
+#########
+# Leave #
+#########
+mt_shadowdogs_leave = "Leave a place"
+md_shadowdogs_leave = "Leave a place, so you are outside of."
+msg_sd_leaving = "You are leaving the %s."
+
+########
+# Look #
+########
+mt_shadowdogs_look = "Look around"
+md_shadowdogs_look = "Look around inside or outside of a location."
+msg_sd_look = "You look around and see %s."
+
+##########
+# Status #
+##########
+mt_shadowdogs_status = "Character Status"
+md_shadowdogs_status = "Show your character status."
+msg_sd_status = "You are a %s %s L%d(L%d) %d/%dHP %d/%dMP - ATK %d/%d DEF - MARM %d/%d FARM - DMG %d to %d - %d Karma (%d XP) - %.2fkg/%.2fkg - %s + %s - Food %d%%/%d%% Water"
+
+########
+# Drop #
+########
+mt_shadowdogs_drop = "Drop Item"
+md_shadowdogs_drop = "Drop an item from your inventory."
+msg_sd_dropped_item = "You drop %d of your %s and they are lost forever!"
+
+#########
+# Equip #
+#########
+mt_shadowdogs_equip = "Equip Item"
+md_shadowdogs_equip = "Equip yourself with an Item."
+msg_sd_item_equip = "You use %s as your %s from now on.%s"
+msg_sd_item_re_equip = "You put off your %s and use %s as %s from now on.%s"
+
+###########
+# Unequip #
+###########
+mt_shadowdogs_unequip = "Unequip Item"
+md_shadowdogs_unequip = "Unequip an equipped item."
+msg_sd_item_unequip = "You unequip your %s %s. %s"
+
+#############
+# Equipment #
+#############
+mt_shadowdogs_equipment = "Show Equipment"
+md_shadowdogs_equipment = "Show your equipment."
+msg_sd_equipment = "Your equipment: %s."
+none = "none"
+
+#############
+# Inventory #
+#############
+mt_shadowdogs_inventory = "Inventory"
+md_shadowdogs_inventory = "Show your inventory. Page is the first parameter. Use --search=foo to search."
+
+#########
+# Craft #
+#########
+mt_shadowdogs_craft = "Craft"
+md_shadowdogs_craft = "Craft new items out of existing ones. This is real hacking, man."
+msg_sd_craft_no_idea = "You have no idea what you could craft with your current inventory."
+msg_sd_craft_list = "You got %d idea(s): %s."
+msg_sd_crafted = "You succesfully crafted %s into a nice %s."
+err_sd_craft_ingredients = "You need %s to craft a new %s."
+
+#########
+# Reset #
+#########
+mt_shadowdogs_reset = "Reset Character"
+md_shadowdogs_reset = "Reset your Shadowdogs Character."
+msg_sd_reset_confirm = "Please use $sdreset --confirm=1 to confirm."
+err_sd_start_first = "You have to use $sdstart first."
+msg_sd_reset = "Your account has been deleted so you can start over."
+
+#########
+# Fight #
+#########
+mt_shadowdogs_fight = "Fight"
+md_shadowdogs_fight = "Fight an opposing party."
+msg_sd_fight_started = "You encounter %s."
+
+#######
+# Use #
+#######
+mt_shadowdogs_use = "Use"
+md_shadowdogs_use = "Use an item on a player or obstacle."
+sd_use_item = "%s uses %s on %s. %s.%s"
+err_sd_use_not_on_target = "%s does not work on targets."
+err_sd_use_not_on_friend = "%s does not work on friends."
+err_sd_use_not_on_foe = "%s does not work on foes."
+err_sd_use_not_on_self = "%s does not work on yourself."
+msg_sd_filled_bottle = "You use the bottle with the %s and turn it into a nice %s."
+err_sd_use_nothing_happened = "You use the %s with the %s but nothing happened."
+msg_sd_consumed = "You consumed %s: %s.%s"
+
+##########
+# Attack #
+##########
+mt_shadowdogs_attack = "Attack"
+md_shadowdogs_attack = "Use your equipped weapon to strike an enemy.."
+sd_weapon_kill = "%s kills %s with %s (%d damage).%s"
+sd_weapon_miss = "%s misses %s with %s.%s"
+sd_combat_miss = "%s tries to hit %s with %s. Dodged.%s"
+sd_weapon_hit = "%s hits %s with %s for %d damage.%s"
+sd_weapon_hit_ep = "%s hits %s with %s for %d damage. %d HP left.%s"
+sd_weapon_kill_critically = "%s hits %s with %s (%d damage) **critically** and kills him.%s"
+sd_weapon_hit_critically = "%s hits %s **critically** with their %s and caused %d damage.%s"
+sd_weapon_hit_ep_critically = "%s hits %s **critically** with their %s and caused %d damage. %d HP left.%s"
+
+##########
+# Reload #
+##########
+mt_shadowdogs_reload = "Reload"
+md_shadowdogs_reload = "Reload a fireweapon."
+err_sd_reload_weapon = "%s is not a fireweapon."
+err_sd_reload_ammo = "You don't have %s."
+msg_sd_reloaded = "You put %d bullets in your %s which now holds %d."
+
+########
+# Info #
+########
+mt_shadowdogs_info = "Information"
+md_shadowdogs_info = "Show information of your current in- or outside location."
+msg_sd_info = "%s: %s - You see %s."
+
+##########
+# Search #
+##########
+mt_shadowdogs_search = "Search"
+md_shadowdogs_search = "Search a location or obstacle."
+msg_sd_search_nothing = "You searched the %s but couldn't find anything useful or interesting."
+
+###########
+# Courses #
+###########
+mt_shadowdogs_courses = "Courses"
+md_shadowdogs_courses = "List available courses to learn in a location."
+msg_sd_courses = "Courses: %s."
+
+#########
+# Learn #
+#########
+mt_shadowdogs_learn = "Learn"
+md_shadowdogs_learn = "Learn a new skill via a course in a location."
+err_sd_learn_money = "You need %s to learn %s but you only have %s"
+msg_sd_learned = "You pay %s and learn %s. Your level of this is %d now and you have %s left."
+
+#######
+# Say #
+#######
+mt_shadowdogs_say = "Say"
+md_shadowdogs_say = "Say something to all nearby players."
+msg_sd_say = "%s says: \"%s\""
+
+########
+# Talk #
+########
+mt_shadowdogs_talk = "Talk"
+md_shadowdogs_talk = "Talk to an NPC inside a location."
+msg_sd_new_word = "You have learned a new word: \"%s\"."
+msg_sd_quest_accepted = "You have a new quest: **%s** - %s"
+
+
+##########
+# Quests #
+##########
+mt_shadowdogs_quests = "%s quests in %s"
+md_shadowdogs_quests = "List your quests in a city."
+sd_quest = "%d-%s"
+msg_sd_quest_done = "You have accomplished the **%s** quest."
+msg_sd_quest_denied = "You have denied the **%s** quest."
+
+##########
+# Quests #
+##########
+mt_shadowdogs_quest = "Quest Info"
+md_shadowdogs_quest = "Show information for a quest."
+msg_sd_quest = "%s: %s"
+
+########
+# Give #
+########
+mt_shadowdogs_give = "Give Items"
+md_shadowdogs_give = "Give items to an NPC or player."
+msg_sd_give_item = "You give **%s** to **%s**.%s"
+sdqs_given_thx = "Thank you very much."
+
+#############
+# Party Msg #
+#############
+mt_shadowdogs_partymessage = "Party Message"
+md_shadowdogs_partymessage = "Send a message to all your party members."
+msg_sd_party_message = "%s says: \"%s\""
+
+########
+# View #
+########
+mt_shadowdogs_view = "Shop items"
+md_shadowdogs_view = "View a list of all Shop items in a loccation."
+
+#############
+# View Item #
+#############
+mt_shadowdogs_view_item = "Shop items"
+md_shadowdogs_view_item = "View a list of all Shop items in a loccation."
+msg_sd_view_item = "Item **%d** - %s"
+sd_examine_string = "%s is a %s. %s - %s - Price: %s"
+
+###########
+# Examine #
+###########
+mt_shadowdogs_examine = "Examine Item"
+md_shadowdogs_examine = "Examine an item from your equipment or inventory."
+msg_sd_examine = "%s"
+
+#######
+# Buy #
+#######
+mt_shadowdogs_buy = "Buy Shop item"
+md_shadowdogs_buy = "Buy a shop item."
+err_sd_money_to_buy = "You cannot buy the %s. You need %s and only have %s."
+msg_sd_bought = "You bought %s for %s and have %s left."
+
+##########
+### GM ###
+##########
+
+#######
+# GML #
+#######
+mt_shadowdogs_gml = "GM Location"
+md_shadowdogs_gml = "GM Command - Teleport a party in/or outside a location. Players will learn the place unless --nolearn=1 is given."
+msg_sd_gml = "The party of %s %s %s."
+
+#######
+# GMI #
+#######
+mt_shadowdogs_gmi = "GM Item"
+md_shadowdogs_gmi = "GM Command - Create an item for a player."
+msg_sd_gmi_success = "You successfully gave %s for %s."
+
+#######
+# GMK #
+#######
+mt_shadowdogs_gmk = "GM Karma"
+md_shadowdogs_gmk = "GM Command - Give a player some cheaty karma."
+msg_sd_gmk_you = "The GM %s gave you %d karma and you now have %d."
+msg_sd_gmk = "You gave %s %d karma and they now have %d."
+
+#############
+### Nuyen ###
+#############
+mt_shadowdogs_nuyen = "Show Nuyen Amount"
+md_shadowdogs_nuyen = "Show the parties Nuyen amount."
+msg_sd_nuyen = "Your party has %d Nuyen: %s."

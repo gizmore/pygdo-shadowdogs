@@ -1,0 +1,5 @@
+from gdo.shadowdogs.locations.Location import Location
+
+
+class Kitchen(Location):
+    pass

@@ -1,0 +1,97 @@
+########
+# Home #
+########
+y2064_peine_home = "Home"
+y2064_peine_home_inside = "Home sweet home :)"
+y2064_peine_home_outside = "You recognize your Home. Mom, Thomas, DejaVu, Lazer and Theo are most often around."
+
+###############
+# Senior Home #
+###############
+y2064_peine_seniorhome = "SeniorHome"
+y2064_peine_seniorhome_inside = "You see the reception and a **Nurse**."
+y2064_peine_seniorhome_outside = "You find a home for the elderly people. It looks like an old military building."
+
+###############
+# Waffen Kief #
+###############
+y2064_peine_waffenkief = "WaffenKief"
+y2064_peine_waffenkief_inside = "You see the reception and a **Salesman**."
+y2064_peine_waffenkief_outside = "Inside the city you find a weapon store. Probably not the hottest stuff, but worth a look."
+
+##########
+# Jawoll #
+##########
+y2064_peine_jawoll = "Jawoll"
+y2064_peine_jawoll_inside = "You are inside the market. You can buy stuff for quite cheap prices."
+y2064_peine_jawoll_outside = "You found your discount supermarket directly in front of your home... lol that took too long!"
+
+##########
+# Garage #
+##########
+y2064_peine_garagepub = "GaragePub"
+y2064_peine_garagepub_inside = "You are inside the GaragePub. Rock music is playing. You see a bartender, and Matthew and Marcus playing pool billard."
+y2064_peine_garagepub_outsids = "You are outside the GaragePub. A cheap punk and rock scene pub. Enough room for 80 or 100 people, if they stick on each other."
+
+###############
+# Marketplace #
+###############
+y2064_peine_marketplace = "Marketplace"
+y2064_peine_marketplace_inside = "You enter the Moellring facility."
+y2064_peine_marketplace_outside = "You find the marketplace. You see various restaurants and Moellring, a Construction Shop.."
+
+############
+# Gunzelin #
+############
+y2064_peine_gunzelinschool = "GunzelinSchool"
+y2064_peine_gunzelinschool_inside = "You enter the school and goto class."
+y2064_peine_gunzelinschool_outside = "You find the gunzelin middleschool, where gizmore finally gained a middle school diploma at the age of 20."
+
+#########
+# Woods #
+#########
+y2064_peine_woods = "Woods"
+y2064_peine_woods_inside = "You enter the woods."
+y2064_peine_woods_outside = "You find the swanoy woods of Telchte."
+
+##########
+# Police #
+##########
+y2064_peine_police = "Police"
+y2064_peine_police_inside = "You enter the Police Station."
+y2064_peine_police_outside = "The local Police Station. Your friend and savior. And your ignorant stubborn lier, you think to yourself."
+
+#############
+# Drugstore #
+#############
+y2064_peine_drugstore = "Drugstore"
+y2064_peine_drugstore_inside = "You enter the pharmacy."
+y2064_peine_drugstore_outside = "You found a small drugstore that sells pharmacy."
+
+##############
+# Cornershop #
+##############
+y2064_peine_cornershop = "Cornershop"
+y2064_peine_cornershop_inside = "You enter the small store."
+y2064_peine_cornershop_outside = "...."
+
+###############
+# Police.Exit #
+###############
+y2064_policestation_exit = "Exit"
+y2064_policestation_exit_inside = "You notice cameras and a bullet proof reception. A cop is coming out of the reception door and you attack to sneak in!"
+y2064_policestation_exit_outside = "You are in front of the exit."
+
+####################
+# Police.Reception #
+####################
+y2064_policestation_reception = "Reception"
+y2064_policestation_reception_inside = "You are inside the police office reception. A foot in the door you can explore further."
+y2064_policestation_reception_outside = "You are in front of the Reception."
+
+##################
+# Police.Toilets #
+##################
+y2064_policestation_toilets = "Toilets"
+y2064_policestation_toilets_inside = "Nothing special here."
+y2064_policestation_toilets_outside = "Looks like the toilets."

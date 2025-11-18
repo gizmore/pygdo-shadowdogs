@@ -1,0 +1,193 @@
+##############
+### Quests ###
+##############
+sdq0001_title = "Peninsula"
+sdq0001_descr = "Find out where the weird pen is from."
+
+sdq0002_title = "Connection"
+sdq0002_descr = "Try to contact lazer to find out what might have happened."
+
+#########
+# Purse #
+#########
+sdqt_purse = "The Purse"
+sdqd_purse = "Theo and you are looking for his dope which Theo cannot find, apperantly."
+sdqs_purse_hello1 = "Morning... all fine? You wanna smoke again?! Cannot find my dope dude..."
+sdqs_purse_hello2 = "Ok, i have a little sidequest for you ^^"
+sdqs_purse_quest = "Stop it... it should be in the **purse**, right?"
+sdqs_purse_yes = "ok have a look. try $t$use purse."
+sdqs_purse_no = "I don't think so either."
+sdqs_purse_other = "I bet you crave for my dope already!"
+sdqa_purse_search = "You search the purse... nuts..."
+sdqa_purse_search_success = "You search the purse... et voila!"
+
+#################
+# Civil Service #
+#################
+sdqt_civilservice = "Civil Service"
+sdqd_civilservice = "Work 11 months in the **SeniorHome**."
+sdqa_email_army = "Another mail from the army. Your request for Alternative military service got accepted. Go find yourself inside the **Senior Home**."
+sdqs_civil_service_good = "Aaah you must be %s. So you wanna, or have to ^^, work here?"
+sdqs_civil_service_accepted = "Ok... simply $t$work here and be nice to the clientel."
+sdqs_civil_service_what = "Yes what?!"
+sdqs_civil_service_no = "Ok"
+sdqs_civil_service_hello = "Oh hello... what do you want? Wanna **work** here?"
+sdqa_from_civil_service = "working in the Senior Home"
+sdqs_working = "You do your labour for one hour."
+
+###############
+# Etablisment #
+###############
+sdqt_etablisment = "Etablisment"
+sdqd_etablisment = "Try to find a flat"
+sdqs_etablisment_work = "Yeah find a job, and even better; Move out with Lazer and find a new **home**. Mommy loves you."
+sdqs_etablisment_home1 = "Yeah... i am done with you. go find a new home!"
+sdqs_etablisment_home2 = "Did you find the letter from the army? Try $t$search!"
+sdqs_etablisment_hello = "Hello, i am upset of you guys hanging around. Lazer should get a job, and you too!"
+sdqs_etablisment_loveyou = "Love you!"
+sdqs_moellring_hello = "Hello young man, what do you want?"
+sdqs_moellring_home1 = "Oh you are looking for an apartment? A new **Home**?"
+sdqs_moellring_home2 = "Yeah, you can live here with your three friends. The caution is only %s, what do you think?"
+#sdqs_moellring_home3
+sdqs_moellring_no_money = "Oh, you are short on money."
+sdqs_moellring_give_money = "Great. You can now live here with your friends."
+sdqs_moellring_tell_rent = "Oh.... the rent of %s is due within %s."
+sdqs_moellring_generic_yes = "Yes yes..."
+sdqs_moellring_home_no = "Ok, maybe later."
+sdqs_moellring_generic_no = "Ah no."
+sdqs_moellring_what = "How can i help you?"
+sdqs_moellring_give_money2 = "You give him the %s and he says: \"Thanks young man, do not forget to pay this monthly.\""
+
+########
+# Rent #
+########
+sdqt_rent = "Rent"
+sdqd_rent = "Pay the rent of %s within %s."
+
+############
+# Delivery #
+############
+sdqt_delivery = "Delivery"
+sdqd_delivery = "Deliver %s to the barkeeper in the Garage pub."
+sdqs_barkeeper_else = "Sup young man?"
+sdqs_barkeeper_home = "You are looking for a place to live? I can hold my ears open."
+sdqs_barkeeper_hello = "Yeah, hello, what do you want?"
+sdqs_barkeeper_work1 = "Oh, you are looking for a job? You can do a little **work** for me if you quickly need a few bucks."
+sdqs_barkeeper_work2 = "Ok, our beer is almost empty and the next delivery will be too late. Can you buy %d LargeBeer from the **Jawoll** Market?"
+sdqs_barkeeper_accept = "Alright, please hurry a little. The evening will start soon."
+sdqs_barkeeper_deny = "Aww... but good luck finding a job!"
+sdqs_barkeeper_jawoll = "Oh you do not know where it is? I tell you, go check your $t$kp."
+
+#######
+# BaM #
+#######
+sdqt_bam = "BaM"
+sdqd_bam = "The **Besser als Miehe** badge is given to those who has beaten their teacher in a finals question."
+sdqs_miehe_nono = "NoNo, you first have to **learn** the basics of math, before you can challenge me."
+sdqs_miehe_hello = "Hello my student... Did you **learn** enough for the finals?"
+sdqs_miehe_learn = "Tell me how much is 2 powered by %s%s in an estimation like 2 powered by 11 is 2k."
+sdqs_miehe_no_idea = "I have no idea what you could mean."
+sdqs_miehe_too_slow = "Correct, but way too slow... learn harder and try faster!"
+sdqs_miehe_correct = "That's correct... your finals are over with the BaM badge!"
+sdqs_miehe_correct2 = "I really earned this badge in my finals because Mr. Miehe was wrong on some simple geometry problem... 9th grade math is not that difficult in middle school..."
+sdqs_miehe_wrong_answer = "That's wrong. Tip: use k, m, g, t, p as unit."
+sdqs_miehe_else = "Do not disturb the classes so much, %s!"
+
+########
+# Hate #
+########
+sdqt_hate = "Hate"
+sdqd_hate = "Kill %s and return to the WaffenKief store in Peine."
+sdqs_kief_hello = "Hello young man!"
+sdqs_kief_work = "You are looking for a job? You can shooe of some haiders that roam in the city and harass people. Knock out %d of them and i will pay you %d bucks. Okay?"
+sdqs_kief_work_so = "What do you think?"
+sdqs_kief_yes_and = "Umm aha?"
+sdqs_kief_yes = "Excellent"
+sdqs_kief_too_bad = "Oh... too bad"
+sdqs_kief_home = "You could ask some shop owners in the Marketplace about a new place to live."
+sdqs_kief_else = "My prices are the best in lower saxony!"
+sdqs_kief_not_done_yet = "Oh, i see you are not done yet."
+
+#########
+# Fish ###
+# Jungle #
+##########
+sdqt_jungle = "Jungle"
+sdqd_jungle = "Find a hidden weed farm in the Telchte Woods."
+sdqs_jungle_hello = "dude... you got some weed?"
+sdqs_jungle_weed1 = "I am waiting for two people for a smoke."
+sdqs_jungle_weed2 = "Since days... it's wicked at the moment."
+sdqs_jungle_weed3 = "I have no idea either."
+sdqs_jungle_weed4 = "Well... could as well look for a hidden farm ^^"
+sdqs_jungle_weed5 = "So... you are in? :D"
+sdqs_jungle_yes = "yes yes"
+sdqs_jungle_accept = "Go put on some serious footgear and meet me at Telchte's swampy forest."
+sdqs_jungle_no = "yeah, no"
+sdqs_jungle_deny = "You are a disappointment."
+sdqs_jungle_home_1 = "You look for a home with Lazer?"
+sdqs_jungle_home_2 = "Yeah... your mom is right."
+sdqs_jungle_work_1 = "First McDonalds, now civil service?"
+sdqs_jungle_work_2 = "What are you gonna do for civil service?"
+sdqs_jungle_else = "What a pity."
+sdqs_found_farm = "You found a hidden hemp farm."
+sdqs_jungle_keep_on_1 = "Keep om **$t$search**ing. We will surely find some stash."
+sdqs_jungle_keep_on_2 = "You can also $t$hire me, so we can search together."
+sdqs_jungle_keep_on_3 = "Are you ready? Let us keep searching."
+
+###########
+# Baptism #
+###########
+sdqt_baptism = "Jungle"
+sdqd_baptism = "Kill %s and return to Metthew in the GaragePub."
+sdqs_matthew_work = "Oh... you gonna work civilian service... better than plaing war."
+sdqs_matthew_home_1 = "I am looking for a new place as well."
+sdqs_matthew_home_2 = "Man, this is a video game. What do you expect from me? The protagonist will get crazy soon and have a sip of the essence of the matrix."
+sdqs_matthew_home_3 = "In the real happenings, he haa not really harmed anyone. But before we continue with the story, you have todo the fire baptism,"
+sdqs_matthew_home_4 = "You have to proof you would take the red pill. And how could you prove it better than by killing some simulated enemies."
+sdqs_matthew_home_5 = "How about you kill a few lamers?"
+sdqs_matthew_accept = "OK. Come back when you are done."
+sdqs_matthew_yes = "Yes what?"
+sdqs_matthew_deny = "OK. You better take the blue pill."
+sdqs_matthew_no = "Oh no?!"
+sdqs_matthew_hello = "Oh hello"
+sdqs_matthew_accomplished = "Well done!"
+sdqs_matthew_more_kills = "Kill more!"
+
+###########
+# Bottles #
+###########
+sdqt_bottles = "Bottles"
+sdqd_bottles = "Bring %s to the Bum in the Peine TrainStation."
+sd_peine_bum_not_accomplished = "Do you have more o' them, bottles? **give** them please, frien'."
+sd_peine_bum_weed = "I don't need weed. If you need money maybe **work** for it... Oh you wanna purchase.... from a bum?! Hah.. i can show you a trick!"
+sd_peine_bum_work = "I don't work anymore. I was a carpenter once."
+sd_peine_bum_work_0 = "Yeah... with this trick you can make easy money."
+sd_peine_bum_work_1 = "Oh yeah, you can collect bottles, and with a Bum pass you can turn them to money."
+sd_peine_bum_work_2 = "Oh... you wanna collect me some bottles?"
+sd_peine_bum_accept = "Ok frien'"
+sd_peine_bum_yes = "Yes frien'"
+sd_peine_bum_deny = "Was just an offer frien'"
+sd_peine_bum_no = "No frien'"
+sd_peine_bum_hello = "Hello frien'"
+
+#############
+# Jack Pott #
+#############
+sdqt_jackpott = "JackPott"
+sdqd_jackpott = "Infiltrate the Peine Police Station and make your way to the Evidence Room before the majority of cops are back. Time left: ca. %s"
+sdqs_police_nothing_new = "Still nothing new on the transceiver."
+sdqs_police_surveilance_1 = "You catch something: 'To all units, we are having an unforseen large amount of suspects going to fight over each other. All units move to Side Kebab.'"
+sdqs_police_surveilance_2 = "'We need reinforcements from Brunswick for this, until then we need any man we can bear.'"
+sdqs_police_surveilance_3 = "'Make sure at least a handful of officers remains protecting the station.' - You come up with an evil plan..."
+sdqs_nothing_at_all = "You try out your radio transmitter receiver but you only catch white noise."
+sdqs_police_no_time = "The officers ask for your intentions. 'We have no time for this now.' - they say."
+
+########
+# Buds #
+########
+sdqs_given_thx = "Thank you for the %s."
+sdq_item_no_need = "I don't need this."
+sdqt_buds = "Buds"
+sdqd_buds = "Bring %s to Mom in the Home."
+sdqs_mom_fights_thomas_1 = "Mom and Thomas smoke some weed together... What a rare situation... Soon you hear loud voices."
+sdqs_mom_fights_thomas_2 = "Mom is fighting with Thomas... you try to intervain and... he attacks you!"
