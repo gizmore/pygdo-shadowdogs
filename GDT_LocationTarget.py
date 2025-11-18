@@ -73,5 +73,5 @@ class GDT_LocationTarget(WithShadowFunc, GDT_Object):
         self._city = city
         return self
 
-    def render_cli(self, mode: Mode = Mode.html):
+    def render_cli(self, mode: Mode = Mode.render_html):
         return self.get_place().render_name()
