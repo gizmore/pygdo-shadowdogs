@@ -179,13 +179,6 @@ class Item(SD_Item):
                 mods.append(f"{t(k)}: {v}")
         return t('sd_examine_string', (self.render_name_wc(), t(self.__class__.__name__), self.render_description(), ", ".join(mods), str(price)))
 
-    @classmethod
-    def get_count_from_item_name(cls, item_name: str):
-        count = 1
-        if item_name[0].isdigit():
-            count = int(Strings.substr_to(item_name, 'x'))
-        return count
-
     def get_default_count(self) -> int:
         return self.dmi('magsize', 1)
 

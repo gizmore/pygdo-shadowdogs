@@ -2,6 +2,7 @@ from typing import Iterator
 
 from gdo.core.GDO_Channel import GDO_Channel
 from gdo.core.GDO_User import GDO_User
+from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_NPC import SD_NPC
 from gdo.shadowdogs.SD_Party import SD_Party
@@ -81,9 +82,7 @@ class Loader(WithShadowFunc):
     @classmethod
     def load_items(cls, player: SD_Player):
         player.inventory.clear()
-        items = SD_Item.table().select().where(f"item_owner={player.get_id()} AND item_slot='inventory'").exec()
-        for item in items:
-            player.inventory.add_item(item)
+        player.inventory.extend(SD_Item.load_for_player(player, GDT_Slot.INVENTORY))
 
     @classmethod
     def load_user(cls, user: GDO_User) -> SD_Player | None:

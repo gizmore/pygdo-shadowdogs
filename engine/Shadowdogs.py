@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 
 class Shadowdogs:
 
+    
     LOCATION_NPCS: dict[str,'SD_NPC'] = {}
     PARTIES: dict[str,'SD_Party'] = {}
     PLAYERS: dict[str,'SD_Player'] = {}
@@ -144,6 +145,9 @@ class Shadowdogs:
 
     THROW_TTME_PER_QUICKNESS = 1
     THROW_TIME_BASE = 30
+
+    CAST_FAIL_MULTIPLE_PER_LEVEL = 2.5
+    CAST_MIN_CAST_TIME = 15
 
     @classmethod
     def display_nuyen(cls, nuyen: int) -> str:

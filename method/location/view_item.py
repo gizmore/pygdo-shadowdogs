@@ -3,6 +3,8 @@ from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.GDT_ItemArg import GDT_ItemArg
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.item.Item import Item
+from gdo.shadowdogs.locations.Bank import Bank
+from gdo.shadowdogs.locations.Store import Store
 
 
 class view_item(MethodSD):
@@ -19,10 +21,17 @@ class view_item(MethodSD):
         return True
 
     def gdo_create_form(self, form: GDT_Form) -> None:
+        ib = self.is_bank()
         form.add_field(
-            GDT_ItemArg('item').store().not_null().positional(),
+            GDT_ItemArg('item').store(not ib).bank(ib).not_null().positional(),
         )
         super().gdo_create_form(form)
+
+    def get_shop(self) -> Bank|Store:
+        return self.get_location()
+
+    def is_bank(self) -> bool:
+        return isinstance(self.get_location(), Bank)
 
     def get_target_item(self) -> Item:
         return self.param_value('item')

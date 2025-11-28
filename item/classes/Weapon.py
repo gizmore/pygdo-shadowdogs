@@ -40,7 +40,7 @@ class Weapon(Equipment):
                 await self.send_to_party(op, 'sd_weapon_miss', (a.render_name(), d.render_name(), self.render_name(), a.render_busy()))
                 await self.send_to_party(ep, 'sd_weapon_miss', (a.render_name(), d.render_name(), self.render_name(), a.render_busy()))
             else:
-                d.hit(dmg)
+                d.deal_damage(a, dmg)
                 if d.is_dead():
                     a.combat_stack().last_target = None
                     await self.send_to_party(op, 'sd_weapon_kill'+crit, (a.render_name(), d.render_name(), self.render_name(), dmg, a.render_busy()))

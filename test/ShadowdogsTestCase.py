@@ -15,13 +15,13 @@ from gdotest.TestUtil import GDOTestCase, reinstall_module, WebPlug, cli_gizmore
 
 class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
 
-    def setUp(self):
-        super().setUp()
+    async def asyncSetUp(self):
+        await super().asyncSetUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
         loader = ModuleLoader.instance()
         loader.load_modules_db(True)
         reinstall_module('shadowdogs')
-        clear_cache().gdo_execute()
+        await clear_cache().gdo_execute()
         WebPlug.COOKIES = {}
         Application.init_cli()
         loader.init_modules(True, True)
@@ -44,11 +44,11 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
         self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdsearch')
         self.assertIn('12', out, 'search does not work.')
-        # out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
-        # self.assertIn('received Club_of_Adonis', out, 'gmi does not work.')
+        out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
+        self.assertIn('received Club_of_Adonis', out, 'gmi does not work.')
         if equip:
-            # out = cli_plug(gizmore, '$sdeq club')
-            # await self.ticker_for()
+            out = cli_plug(gizmore, '$sdeq club')
+            await self.ticker_for()
             out += cli_plug(gizmore, '$sdi')
             await self.ticker_for()
             out += cli_plug(gizmore, '$sdq')

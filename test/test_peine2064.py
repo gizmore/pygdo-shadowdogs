@@ -238,7 +238,8 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         self.assertIn('accomplished', out, 'search no work.')
         self.assertIn('encounter', out, 'search no work.')
         await self.party_ticker_until(Action.INSIDE)
-
+        out = all_private_messages()
+        self.assertIn('Dart', out, "quest reward error.")
 
 
 if __name__ == '__main__':

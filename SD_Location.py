@@ -24,7 +24,7 @@ class SD_Location(WithShadowFunc, GDO):
     def gdo_columns(self) -> list[GDT]:
         return [
             GDT_AutoInc('l_id'),
-            GDT_Name('l_name').maxlen(128).ascii().case_s().not_null().pattern('/^[a-zA-Z][-._a-zA-Z0-9]$/'),
+            GDT_Name('l_name').maxlen(255).ascii().case_s().not_null().pattern('/^[a-zA-Z][-._a-zA-Z0-9]$/'),
             GDT_City('l_city').all().not_null(),
             GDT_Created('l_created'),
         ]

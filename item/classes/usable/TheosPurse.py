@@ -9,6 +9,9 @@ if TYPE_CHECKING:
 
 class TheosPurse(Usable):
 
+    def sd_can_use_on_self(self):
+        return True
+
     async def on_use(self, target: 'SD_Player|Obstacle'):
         q = Purse.instance()
         c = int(q.qv_get('searched', '0')) + 1

@@ -4,7 +4,6 @@ from gdo.core.GDT_Object import GDT_Object
 from typing import TYPE_CHECKING
 
 from gdo.core.GDT_User import GDT_User
-from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 

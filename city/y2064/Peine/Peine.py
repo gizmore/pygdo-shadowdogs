@@ -1,4 +1,6 @@
 from gdo.base.Util import Random
+from gdo.shadowdogs.city.y2064.Peine.locations.CornerShop import CornerShop
+from gdo.shadowdogs.city.y2064.Peine.locations.Drugstore import Drugstore
 from gdo.shadowdogs.city.y2064.Peine.locations.bank.Bank import Bank
 from gdo.shadowdogs.city.y2064.Peine.locations.car_repair.CarRepairShop import CarRepairShop
 from gdo.shadowdogs.city.y2064.Peine.locations.obi.Obi import Obi
@@ -26,38 +28,42 @@ if TYPE_CHECKING:
 
 class Peine(City):
 
-    Home: Home = Home()
-    Marketplace: Marketplace = Marketplace()
-    SeniorHome: SeniorHome = SeniorHome()
-    GaragePub: GaragePub = GaragePub()
-    Jawoll: Jawoll = Jawoll()
-    WaffenKief: WaffenKief = WaffenKief()
-    GunzelinSchool: GunzelinSchool = GunzelinSchool()
     Alfred: Alfred = Alfred()
-    Woods: Woods = Woods()
-    TrainStation: TrainStation = TrainStation()
-    Park: Park = Park()
-    Police: Police = Police()
     Bank: Bank = Bank()
     CarRepairShop: CarRepairShop = CarRepairShop()
+    CornerShop: CornerShop = CornerShop()
+    Drugstore: Drugstore = Drugstore()
+    GaragePub: GaragePub = GaragePub()
+    GunzelinSchool: GunzelinSchool = GunzelinSchool()
+    Home: Home = Home()
+    Jawoll: Jawoll = Jawoll()
+    Marketplace: Marketplace = Marketplace()
     Obi: Obi = Obi()
+    Park: Park = Park()
+    Police: Police = Police()
+    SeniorHome: SeniorHome = SeniorHome()
+    TrainStation: TrainStation = TrainStation()
+    WaffenKief: WaffenKief = WaffenKief()
+    Woods: Woods = Woods()
 
     LOCATIONS: list[Location] = [
         Alfred,
         Bank,
         CarRepairShop,
+        CornerShop,
+        Drugstore,
         GaragePub,
         GunzelinSchool,
         Home,
+        Jawoll,
         Marketplace,
         Obi,
-        SeniorHome,
-        Jawoll,
-        WaffenKief,
-        Woods,
-        TrainStation,
         Park,
         Police,
+        SeniorHome,
+        TrainStation,
+        WaffenKief,
+        Woods,
     ]
 
     NPCS: list[tuple[str, int]] = [

@@ -1,4 +1,3 @@
-import re
 from typing import TYPE_CHECKING
 
 from gdo.base.Application import Application
@@ -22,7 +21,6 @@ if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Place import SD_Place
     from gdo.shadowdogs.engine.MethodSD import MethodSD
     from gdo.shadowdogs.actions.Action import Action
-    from gdo.shadowdogs.spells.Spell import Spell
     from gdo.shadowdogs.locations.School import School
     from gdo.shadowdogs.locations.Store import Store
 
@@ -206,7 +204,7 @@ class WithShadowFunc(WithPlayerGDO):
         party = player.get_party()
         for member in party.members:
             if not member.has_kp(location):
-                SD_Place.give_place(player, location)
+                SD_Place.give_place(member, location)
                 if announce:
                     await self.send_to_player(player, 'msg_sd_new_kp', (location.get_city().get_name(), location.get_name(), location.render_descr(player)))
 
@@ -227,11 +225,13 @@ class WithShadowFunc(WithPlayerGDO):
     ##########
     # Spells #
     ##########
-    def has_spell(self, player: 'SD_Player', spell: 'Spell', announce: bool=True) -> bool:
+    def has_spell(self, player: 'SD_Player', spell: str) -> bool:
+        from gdo.shadowdogs.SD_Spell import SD_Spell
         return SD_Spell.get_for_player(player, spell) is not None
 
-    async def give_spell(self, player: 'SD_Player', spell: 'Spell', announce: bool=True):
-        if not self.has_spell(player, spell, announce):
+    async def give_spell(self, player: 'SD_Player', spell: str, announce: str=None):
+        from gdo.shadowdogs.SD_Spell import SD_Spell
+        if not self.has_spell(player, spell):
             SD_Spell.create_for_player(player, spell)
             if announce:
-                await self.send_to_player(player, 'msg_sd_new_spell', (spell.render_name(),))
+                await self.send_to_player(player, 'msg_sd_new_spell', (t('sd_spell_'+spell), t(announce)))

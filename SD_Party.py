@@ -87,7 +87,8 @@ class SD_Party(WithShadowFunc, GDO):
         })
         if self.members:
             await self.get_action().player(self.members[0]).on_start(self)
-        Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_start', self)
+        await Application.EVENTS.publish(f'on_sd_{self.get_last_action_name()}_over', self)
+        await Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_start', self)
         return self
 
     async def resume(self):
@@ -292,7 +293,6 @@ class SD_Party(WithShadowFunc, GDO):
     async def tick(self):
         if self.is_action_over():
             await self.get_action().on_completed(self)
-            await Application.EVENTS.publish(f'on_sd_{self.get_action_name()}_over', self)
         else:
             await self.get_action().execute(self)
         return self

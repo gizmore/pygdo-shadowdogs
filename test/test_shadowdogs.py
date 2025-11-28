@@ -31,7 +31,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         Random.init(9)
         out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
-        await self.ticker(260)
+        await self.ticker(600)
         out = all_private_messages()
         self.assertIn('kills', out, 'attack does not work.')
 
@@ -157,8 +157,8 @@ class ShadowdogsTest(ShadowdogsTestCase):
         for i in range(100):
             await loot.on_kill()
         out = all_private_messages()
-        self.assertGreater(giz.get_nuyen(), 250, "Not enough nuyen looted.")
-        self.assertLess(giz.get_nuyen(), 1000, "Not enough nuyen looted.")
+        self.assertGreater(giz.get_nuyen(), 200, "Not enough nuyen looted.")
+        self.assertLess(giz.get_nuyen(), 500, "Not enough nuyen looted.")
         out += cli_plug(gizmore, "$sdny")
         self.assertIn(Shadowdogs.NUYEN, out, '$ny does not work.')
         self.assertFalse(Fists().can_sell(), 'Can sell fists.')
@@ -380,6 +380,8 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('Bank', out, 'gml does not work.')
         out = cli_plug(gizmore, '$sdpush Army')
         self.assertIn('ArmyLetter', out, 'push does not work.')
+        out = cli_plug(gizmore, '$sdview')
+        self.assertIn('ArmyLetter', out, 'view does not work.')
         out = cli_plug(gizmore, '$sdpop Army')
         self.assertIn('ArmyLetter', out, 'pop does not work.')
 

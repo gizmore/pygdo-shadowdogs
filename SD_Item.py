@@ -10,6 +10,7 @@ from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
+    from gdo.shadowdogs.item.Item import Item
 
 from gdo.base.GDO import GDO
 from gdo.base.GDT import GDT
@@ -35,6 +36,10 @@ class SD_Item(WithShadowFunc, GDO):
     @classmethod
     def gdo_table_name(cls) -> str:
         return 'sd_item'
+
+    @classmethod
+    def load_for_player(cls, player: SD_Player, slot: str) -> 'list[Item]':
+        return cls.table().select().where(f"item_slot='{slot}' AND item_owner={player.get_id()}").exec().fetch_all()
 
     def gdo_columns(self) -> list[GDT]:
         return [
@@ -117,4 +122,3 @@ class SD_Item(WithShadowFunc, GDO):
             if "sd_commands" in base.__dict__ and base != 'SD_Item':
                 cmds.extend(base.sd_commands(self))
         return sorted(set(cmds))
-

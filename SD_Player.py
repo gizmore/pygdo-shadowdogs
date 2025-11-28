@@ -13,6 +13,7 @@ from gdo.date.GDT_Created import GDT_Created
 from typing import TYPE_CHECKING, Generator, Any, Self
 
 from gdo.shadowdogs.GDT_NPCClass import GDT_NPCClass
+from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.SD_Quest import SD_Quest
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.item.classes.Mount import Mount
@@ -112,7 +113,7 @@ class SD_Player(WithShadowFunc, GDO):
         super().__init__()
         self.inventory = Inventory()
         self.mount = Inventory()
-        self.bank = Inventory()
+        self.bank = None
         self.bazaar = Inventory()
         self.cyberware = Inventory()
         self.cyberdeck = Inventory()
@@ -322,15 +323,14 @@ class SD_Player(WithShadowFunc, GDO):
         self.combat_stack().reset()
         return self
 
-    def hit(self, dmg: int):
-        self.give_hp(-dmg)
-        return self
-
     def is_dead(self) -> bool:
         return self.gb('p_hp') <= 0
 
     def is_alive(self) -> bool:
         return not self.is_dead()
+
+    def deal_damage(self, killer: 'SD_Player', damage: int):
+        self.give_hp(-damage)
 
     async def kill(self, killer: 'SD_Player'):
 
@@ -339,11 +339,11 @@ class SD_Player(WithShadowFunc, GDO):
 
         if self.is_mob():
             klass = self.gdo_val('p_npc_name')
-            Application.EVENTS.publish(f"sd_kill_{klass}", killer, self)
+            await Application.EVENTS.publish(f"sd_kill_{klass}", killer, self)
         elif self.is_npc():
-            Application.EVENTS.publish('sd_kill_npc', killer, self)
+            await Application.EVENTS.publish('sd_kill_npc', killer, self)
         else:
-            Application.EVENTS.publish('sd_kill_player', killer, self)
+            await Application.EVENTS.publish('sd_kill_player', killer, self)
 
         if killer:
             loot = self.loot()
@@ -467,6 +467,12 @@ class SD_Player(WithShadowFunc, GDO):
             'item_slot': item.sd_inv_type(),
         })
         self.inventory.add_item(item)
+
+    def get_bank_items(self) -> Inventory:
+        if not self.bank:
+            self.bank = Inventory()
+            self.bank.extend(SD_Item.load_for_player(self, GDT_Slot.BANK))
+        return self.bank
 
     ##########
     # Modify #
@@ -687,3 +693,4 @@ class SD_Player(WithShadowFunc, GDO):
 
     def render_race(self):
         return self.column('p_race').render_txt()
+
