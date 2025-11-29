@@ -38,7 +38,7 @@ class SD_Item(WithShadowFunc, GDO):
         return 'sd_item'
 
     @classmethod
-    def load_for_player(cls, player: SD_Player, slot: str) -> 'list[Item]':
+    def load_for_player(cls, player: 'SD_Player', slot: str) -> 'list[Item]':
         return cls.table().select().where(f"item_slot='{slot}' AND item_owner={player.get_id()}").exec().fetch_all()
 
     def gdo_columns(self) -> list[GDT]:
