@@ -11,7 +11,7 @@ class GDT_NPCClass(GDT_Enum):
     def __init__(self, name: str):
         super().__init__(name)
         self.ascii()
-        self.maxlen(255)
+        self.maxlen(512)
         self.case_s()
 
     def gdo_choices(self) -> dict:
