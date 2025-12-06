@@ -5,6 +5,7 @@ from typing import Any
 from gdo.base.Application import Application
 from gdo.base.GDT import GDT
 from gdo.base.Render import Render
+from gdo.base.Trans import Trans
 from gdo.core.GDT_String import GDT_String
 from gdo.form.GDT_Form import GDT_Form
 from gdo.message.GDT_HTML import GDT_HTML
@@ -15,6 +16,9 @@ from gdo.shadowdogs.lang.shadowhelp import shadowhelp
 class help(MethodSD):
 
     HELP = shadowhelp.HELP
+
+    def sd_requires_player(self) -> bool:
+        return False
 
     @classmethod
     def gdo_trigger(cls) -> str:
@@ -75,7 +79,7 @@ class help(MethodSD):
         return tuple(self._all_keys())
 
     def r(self, text: str):
-        return GDT_HTML().text(self.replace_output(text))
+        return GDT_HTML().text(Trans.replace_output(self.replace_output(text)))
 
     async def sd_execute(self) -> GDT:
         key = self.param_val('key').strip().lower()

@@ -40,7 +40,7 @@ class start(MethodSD):
             'p_gender': self.param_val('gender'),
             # 'p_party': party.get_id(),
         }).insert()
-        await party.join(player)
+        party.join_silent(player)
         Shadowdogs.PLAYERS[player.get_id()] = player
         Shadowdogs.USERMAP[player.gdo_val('p_user')] = player
         Shadowdogs.CURRENT_PLAYER = player

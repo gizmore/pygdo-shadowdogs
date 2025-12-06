@@ -9,7 +9,7 @@ class MethodSD(WithShadowMethod, MethodForm):
         player = self.get_player()
         if self.sd_method_is_instant():
             gdt = await self.sd_execute()
-            player.modify_all()
+            if player: player.modify_all()
             return gdt
         if player.get_party().does(Action.FIGHT):
             player.combat_stack().command = self
@@ -19,7 +19,7 @@ class MethodSD(WithShadowMethod, MethodForm):
             return self.empty()
         await self.sd_before_execute()
         gdt = await self.sd_execute()
-        player.modify_all()
+        if player: player.modify_all()
         return gdt
 
     async def sd_before_execute(self):

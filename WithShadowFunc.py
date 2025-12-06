@@ -155,10 +155,12 @@ class WithShadowFunc(WithPlayerGDO):
         return self.replace_output(s)
 
     def get_sd_shortcut(self) -> str:
-        return self.get_player().get_user().get_setting_val('sd_shortcut')
+        if player := self.get_player():
+            return player.get_user().get_setting_val('sd_shortcut')
+        return '#'
 
     def replace_output(self, text: str) -> str:
-        return text.replace('$t$', self.get_sd_shortcut())
+        return text.replace('$t$sd', self.get_sd_shortcut())
 
     #########
     # Items #

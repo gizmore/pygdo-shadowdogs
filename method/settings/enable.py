@@ -5,6 +5,9 @@ from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 
 class enable(WithShadowFunc, Method):
 
+    def gdo_in_private(self) -> bool:
+        return False
+
     @classmethod
     def gdo_trigger(cls) -> str:
         return 'sdenable'
