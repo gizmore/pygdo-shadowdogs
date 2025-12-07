@@ -83,11 +83,8 @@ class module_shadowdogs(GDO_Module):
     def gdo_user_settings(self) -> list[GDT]:
         return [
             GDT_UInt('sd_distance').not_null().min(2).max(Shadowdogs.MAX_DISTANCE).initial('2'),
-            GDT_Char('sd_shortcut').not_null().initial('#').maxlen(1).minlen(1).not_null().initial('#'),
+            GDT_Char('sd_shortcut').not_null().initial('#').maxlen(1).minlen(1).not_null().secret(),
         ]
-
-    def cfg_shortcut(self) -> str:
-        return self.get_config_val('sd_shortcut')
 
     ##########
     # Events #
