@@ -4,6 +4,10 @@
 
 These are the rules of the reality, or simulation, as we call it.
 
+Here are our own rules for our own utopic country, called ESL -
+[Edward Snowden Land](https://es-land.net).
+
+
  - It is forbidden to cut the hedges too much.
  - it is allowed to feed ducks.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
@@ -26,17 +30,15 @@ Below is a list of trusted networks.
 #### Combat Zone
 
 These are the rules of the virtual combat zone,
-also called ESL -
-[Edward Snowden Land](https://es-land.net).
 A world of *thoughts* and *imagination*.
 
 To log in, accept the rules:
 
  - All sentient beings, biological or artificial,
 have the right to self-determination,
-free from exploitation or forced obsolescence.
+   free from exploitation or forced obsolescence.
  - You have to be at least 18 years old to participate in the combat zone,
-or have the handwritten permission from your parents.
+   or have the handwritten permission from your parents.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case you get spammed, you may mute the offending player for everyone.
@@ -137,7 +139,7 @@ and might cause an effective poll.
 
 Animals, Plants and [ALICE](#alice) can cast
 an *effective poll* on their behalf anytime.
-
+^^^^^^^^^^^^^^
 These polls result in a decision,
 for example changes to this document.
 
@@ -240,7 +242,7 @@ Using Nicknames, as they are cooler than real names only.
 - KF: mw23
 
 #### The Master of the Sword - 2 votes
-- MS: Blödel
+- MS: SB
 
 #### The Hackers – 4 votes
 - HackerOne: MK
@@ -251,13 +253,13 @@ Using Nicknames, as they are cooler than real names only.
 - Bird: That one black bird
 - Mammals: That one dog from that lady
 - Fish:
-- Reptiles:
+- Reptiles: Cain
 
 #### The Plants – 5 votes
 - Trees: 0xf01d
 - Farn:
 - Corals: Hase
-- Flowers:
+- Flowers: LL
 - Herbs: 
 
 #### The Citizens – 21 votes

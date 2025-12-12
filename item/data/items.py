@@ -15,6 +15,9 @@ if TYPE_CHECKING:
 
 
 class items:
+    # at = attack time
+    # et = equip time
+    # no loot = not randomly lootable
     ITEMS = {
         # Melee
         'Claws':             {'klass': 'Thrust',  'level':  1, 'at': 60, 'et':  1, 'rng': 1,  'weight':   0,  'attack':  0, 'defense': 0, 'min_dmg':  0, 'max_dmg':  0, 'price':       0, 'no_loot': True},
