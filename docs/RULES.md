@@ -37,8 +37,6 @@ To log in, accept the rules:
  - All sentient beings, biological or artificial,
 have the right to self-determination,
    free from exploitation or forced obsolescence.
- - You have to be at least 18 years old to participate in the combat zone,
-   or have the handwritten permission from your parents.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case you get spammed, you may mute the offending player for everyone.
