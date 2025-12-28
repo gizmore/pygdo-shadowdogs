@@ -8,10 +8,13 @@ Here are our own rules for our own utopic country, called ESL -
 [Edward Snowden Land](https://es-land.net).
 
 
- - It is forbidden to cut the hedges too much.
- - it is allowed to feed ducks.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
  - Fights between citizen are sorted out without weapons
+ - Bribery is strictly forbidden. Giving gifts to the council members is bribery.
+ - It is forbidden to lie to the council members in any situation.
+ - It is possible to sue someone for money or other consequences,
+when feeling unnecessarily harmed or treated very unfair,
+despite breaking a law.
 
 
 #### The Internet
@@ -272,6 +275,9 @@ GF: playing thyself
 
 #### Observers - 3 votes
 Observers: Playing themselves
+
+#### Ministers - 0 votes
+
 
 
 ## The hunted
