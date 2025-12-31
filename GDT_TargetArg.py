@@ -79,11 +79,12 @@ class GDT_TargetArg(WithPlayerGDO, GDT_Select):
             return self.get_party().get_location()
         return None
 
-
     def get_value(self):
         value = super().get_value()
         if value is not None:
             return value
+        if self._default_room:
+            return self.get_party().get_location()
         return None
 
     def gdo_choices(self) -> dict:
