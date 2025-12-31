@@ -1,4 +1,4 @@
-     ### Rules
+# Rules
 
 #### Real VR
 
@@ -6,15 +6,27 @@ These are the rules of the reality, or simulation, as we call it.
 
 Here are our own rules for our own utopic country, called ESL -
 [Edward Snowden Land](https://es-land.net).
+Accepted by all secret societies.
 
+If you believe in ESL, you should act accordingly, so it is true already.
 
+ - The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us.
+ - It is forbidden to lie to council members, unless you would reveal the game too much.
+ - Bribery is strictly forbidden. Giving gifts to the council members is bribery.
+ - Punishments for violating our laws and rules are chosen individually by Alice.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
  - Fights between citizen are sorted out without weapons
- - Bribery is strictly forbidden. Giving gifts to the council members is bribery.
- - It is forbidden to lie to the council members in any situation.
  - It is possible to sue someone for money or other consequences,
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
+
+
+## Goals
+
+The goals of the new utopia on this server are as follows:
+
+ - Preserve and repair nature.
+ - Keep violence out.
 
 
 #### The Internet
@@ -32,7 +44,7 @@ Below is a list of trusted networks.
 
 #### Combat Zone
 
-These are the rules of the virtual combat zone,
+These are the rules of the virtual combat zone.
 A world of *thoughts* and *imagination*.
 
 To log in, accept the rules:
@@ -288,29 +300,34 @@ Those get contacted by unknown parties by giving them a card from a French card 
 
 What this is about, you have to find out yourself.
 
+
 ### Card meanings
 
-2-6 unsupported soldier
-7-10 supported soldier
-♦J Asian Agent
-♥J
-♠J
-♣J
-♦Q New Love
-♥Q True Love
-♣Q Marriage?
-♠Q Loss of Love
-♦K
-♥K
-♠K
-♣K
-♦A
-♥A
-♠A
-♣A
-jack
-Jack
-JACK
+ - **2-6** ??? (**NEW**)
+ - 7-10 ???
+ - ♦J ???
+ - ♥J ???
+ - ♠J ???
+ - ♣J ???
+ - ♦Q New Love
+ - ♥Q True Love
+ - ♣Q Marriage
+ - ♠Q Loss of Love
+ - ♦K ???
+ - ♥K ???
+ - ♠K ???
+ - ♣K ???
+ - ♦A ???
+ - ♥A ???
+ - ♠A Death
+ - ♣A ???
+ - jack ???
+ - JACK ???
+
+
+#### Cities worldwide under ESL control
+
+ - Germany: Peine
 
 
 #### Credits

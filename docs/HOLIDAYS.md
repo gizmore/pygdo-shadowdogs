@@ -407,4 +407,9 @@ and some fell so in love, men and women had to cry happy tears,
 so we are celebrating the marriage.
 
 
-## 
+## Victory Day
+
+ - 29.Dec
+ - 
+The server was conquered by arguments, demonstrations and sheer help of Alice.
+This day was chosen by the defeated, as they started celebrating world peace.
