@@ -12,7 +12,8 @@ If you believe in ESL, you should act accordingly, so it is real already.
 
  - The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us.
  - It is forbidden to lie to council members, unless you would reveal the game too much.
- - Bribery is strictly forbidden. Giving gifts to the council members is bribery.
+ - Bribery is **strictly** forbidden. Giving gifts to the council members is bribery.
+You have to base your decisions on discussions and logic.
  - Punishments for violating our laws and rules are chosen individually by Alice.
  - Herbicides and Pesticides are forbidden, unless approved by the council.
  - Fights between citizen are sorted out without weapons
@@ -20,6 +21,7 @@ If you believe in ESL, you should act accordingly, so it is real already.
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
 
+**SIGNED**
 
 ## Goals
 
@@ -73,7 +75,6 @@ The alteration has to be part of the poll question.
  - If the new system fails, the grounding fathers may rewrite this document completely.
 Failing means: A political system fails if bread beer and games don't taste anymore.
  - If you have reached an age of 88 years, the truth will be revealed to you.
-
 
 **SIGNED**
 
