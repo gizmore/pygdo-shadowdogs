@@ -38,3 +38,15 @@ and he showed forgiveness.
 
 1)  Yes
 2)  No
+
+---
+
+1.Jan.2089
+
+Devil joins council?
+
+1) Yes, we have **every**one onboard
+2) No
+
+
+---

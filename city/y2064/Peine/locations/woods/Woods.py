@@ -29,7 +29,7 @@ class Woods(Location):
             enemies = await Factory.create_default_npcs(player.get_party().get_location(), "wolf")
             await player.get_party().fight(enemies)
         else:
-           await super().on_search(player)
+            await super().on_search(player)
 
     @classmethod
     def npcs(cls, player: 'SD_Player') -> 'list[type[SD_NPC]]':

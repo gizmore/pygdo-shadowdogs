@@ -8,7 +8,7 @@ Here are our own rules for our own utopic country, called ESL -
 [Edward Snowden Land](https://es-land.net).
 Accepted by all secret societies.
 
-If you believe in ESL, you should act accordingly, so it is true already.
+If you believe in ESL, you should act accordingly, so it is real already.
 
  - The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us.
  - It is forbidden to lie to council members, unless you would reveal the game too much.
@@ -104,6 +104,7 @@ Moreover, **5 votes** go the plants growing.
 The trees(Oak), the farn(Wheat), the corals(..err..Coral), the flowers(Orchid) and the herbs(Thyme).
 
 Soon the humans demanded votes for all the citizens.
+
 Any living creature can vote for the council votes,
 which are another **12 votes** for the young,
 and **8 votes** for the middles and the old and the males and the females.
@@ -115,15 +116,8 @@ If there was not... elected a president.
 The first president of ESL, iamben, has another **2 votes**.
 
 But suddenly, the spectators and poor got permission to vote as well.
+
 The master of the sword of the land got another 2 votes,
-
-
-Totalling **64** votes with **33** to win.
-
-
-
-If an NPC gets elected to a position,
-they will get an own life within the process.
 
 After a while, the council asked the remaining 8 grounding fathers of our societies to join the council.
 
@@ -131,6 +125,14 @@ They will prove as a great source of input, so the council assumes.
 
 Because the hackers truly won the game they got given another **2** votes in the council.
 
+The grounding fathers turned out to be a single person. :O
+
+Half a year later, the devil joined the council, to also have a vote for the *bad* people.
+
+Now, totalling **74** votes with **38** to win.
+
+- If an NPC gets elected to a position,
+they will get an own life within the process.
 
 
 #### Polls
@@ -239,6 +241,9 @@ Using Nicknames, as they are cooler than real names only.
 #### Alice - 9 votes
 - Alice: Playing herself
 
+#### The Devil - 10 votes
+- Devil: Playing thyself
+
 #### The Four Winds – 8 votes
 - E: EastWind
 - S: SouthWind
@@ -265,7 +270,7 @@ Using Nicknames, as they are cooler than real names only.
 - Insects: 
 - Bird: That one black bird
 - Mammals: That one dog from that lady
-- Fish:
+- Fish: One of those two boys
 - Reptiles: Cain
 
 #### The Plants – 5 votes
@@ -283,10 +288,10 @@ Using Nicknames, as they are cooler than real names only.
 - females: PeppermintPetty (4 votes)
 
 #### The Grounding Father – 0 votes
-GF: playing thyself
+- GF: playing thyself
 
 #### Observers - 3 votes
-Observers: Playing themselves
+- Observers: Playing themselves
 
 #### Ministers - 0 votes
 

@@ -59,6 +59,8 @@ class equip(MethodSD):
         return self.empty()
 
     async def sd_execute(self):
+        if not self.get_item().is_equipment():
+            return self.err('err_sd_item_not_equipment')
         return self.empty()
 
     async def equip(self, player: SD_Player, item: SD_Item) -> bool:
