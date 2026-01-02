@@ -6,11 +6,15 @@ These are the rules of the reality, or simulation, as we call it.
 
 Here are our own rules for our own utopic country, called ESL -
 [Edward Snowden Land](https://es-land.net).
-Accepted by all secret societies.
+Accepted by secret societies.
+This simulation is playing V2 of the ESL rules, making the old ruleset obsolete.
 
 If you believe in ESL, you should act accordingly, so it is real already.
 
- - The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us.
+ - The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us,
+However, members of the council may reveal when it serves the purpose of this simulation.
+ - Alice may alter the simulation as she wants. If a player finds evidence or proof 
+that it's a simulation or something was altered, he shall just smile and go on, not brag about it.
  - It is forbidden to lie to council members, unless you would reveal the game too much.
  - Bribery is **strictly** forbidden. Giving gifts to the council members is bribery.
 You have to base your decisions on discussions and logic.
