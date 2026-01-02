@@ -293,8 +293,8 @@ Using Nicknames, as they are cooler than real names only.
 #### The Citizens – 21 votes
 - young: L (7 votes)
 - middles: VP (4 votes)
-- elderly: Henker (4 votes)
-- males: Friedi (4 votes)
+- elderly: Henker(4) (4 votes)
+- males: Friedi(2),Dumm(1),Dümmer(1) (4 votes)
 - females: PeppermintPetty (4 votes)
 
 #### The Grounding Father – 0 votes
