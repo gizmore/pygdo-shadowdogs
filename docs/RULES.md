@@ -7,7 +7,6 @@ These are the rules of the reality, or simulation, as we call it.
 Here are our own rules for our own utopic country, called ESL -
 [Edward Snowden Land](https://es-land.net).
 Accepted by secret societies.
-This simulation is playing V2 of the ESL rules, making the old ruleset obsolete.
 
 If you believe in ESL, you should act accordingly, so it is real already.
 
@@ -24,6 +23,8 @@ You have to base your decisions on discussions and logic.
  - It is possible to sue someone for money or other consequences,
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
+ - This simulation is playing V2 of the ESL rules, completely replacing the old ruleset.
+
 
 **SIGNED**
 
