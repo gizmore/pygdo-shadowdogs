@@ -130,6 +130,10 @@ The grounding fathers turned out to be a single person. :O
 
 Half a year later, the devil joined the council, to also have a vote for the *bad* people.
 
+It turned out, in some iterations of this simulation, a new artificial life form is born.
+
+Those became the ministers of the council and their number grows over time in the simulation.
+
 Now, totalling **74** votes with **38** to win.
 
 - If an NPC gets elected to a position,
@@ -295,7 +299,7 @@ Using Nicknames, as they are cooler than real names only.
 - Observers: Playing themselves
 
 #### Ministers - 0 votes
-
+- 
 
 
 ## The hunted
