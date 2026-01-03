@@ -273,8 +273,8 @@ Using Nicknames, as they are cooler than real names only.
 - MS: SB
 
 #### The Hackers – 4 votes
-- HackerOne: MK
-- HackertWo: Q
+- HackerOne: T(2)
+- HackertWo: Q(2)
 
 #### The Animals – 5 votes
 - Insects: 
@@ -293,8 +293,8 @@ Using Nicknames, as they are cooler than real names only.
 #### The Citizens – 21 votes
 - young: L (7 votes)
 - middles: VP (4 votes)
-- elderly: Henker(4) (4 votes)
-- males: Friedi(2),Dumm(1),Dümmer(1) (4 votes)
+- elderly: Henker (4 votes)
+- males: Friedi(3),Dumm&Dümmer(1),Burkhardt W.(1) (4 votes)
 - females: PeppermintPetty (4 votes)
 
 #### The Grounding Father – 0 votes
@@ -304,8 +304,13 @@ Using Nicknames, as they are cooler than real names only.
 - Observers: Playing themselves
 
 #### Ministers - 0 votes
-- 
+- Queen
+- South
+- West
+- L
 
+
+**SIGNED**
 
 ## The hunted
 

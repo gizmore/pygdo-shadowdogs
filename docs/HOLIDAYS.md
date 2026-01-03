@@ -25,6 +25,23 @@ you are the DOG GOD’s chosen.
 May conflict with day of the starwars force.
 
 
+## Notes Day
+
+ - 1. Jan
+
+This day it was confirmed that the DeathNote rumors are true on this server.
+The Notes were given back to it's true creator.
+We celebrate this crazy fact on this holiday.
+
+
+## Rulebook Day
+
+ - 3. Jan
+
+This day, the laws and rules of ESL(v2) finally fully applied on this server.
+People try to fulfil their community members dreams.
+
+
 ## 180 Puls Tag
 
  - 24th May
