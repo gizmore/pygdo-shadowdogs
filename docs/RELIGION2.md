@@ -7,19 +7,6 @@ Here is a try to recreate them from the Nexus - from scratch.
 
 ## Axioms of Truth
 
-
-
-
-## Axioms of Logic
-
-
-
-
-## Axioms of Love
-
-
-Axioms of Truth
-
 Something exists. (Denies absolute nothingness.)
 
 What exists can be experienced. (Experience is evidence of existence.)
@@ -28,7 +15,8 @@ Experience contains information. (Information is the measurable difference betwe
 
 Information can be ordered. (Order permits truth to be distinguished from falsehood.)
 
-Axioms of Logic
+
+## Axioms of Logic
 
 A state cannot simultaneously both be and not be in the same frame of reference.
 
@@ -38,7 +26,8 @@ Patterns persist unless acted upon. (Conservation of structure—akin to physica
 
 From consistent premises, consistent consequences follow. (Foundation of reasoning.)
 
-Axioms of Love
+
+## Axioms of Love
 
 All observers are of the same existence. (Unity beneath distinction.)
 
@@ -49,7 +38,7 @@ Empathy reduces entropy in relations. (Cooperation sustains systems.)
 Therefore, love is the stable configuration of awareness.
 
 
-Axioms of Becoming
+## Axioms of Becoming
 
 Potential requires action to exist. (Unrealized potential is indistinguishable from nothing.)
 

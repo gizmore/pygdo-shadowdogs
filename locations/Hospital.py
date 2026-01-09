@@ -1,4 +1,3 @@
-from gdo.core.GDT_String import GDT_String
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.locations.Location import Location
 from gdo.ui.GDT_Success import GDT_Success

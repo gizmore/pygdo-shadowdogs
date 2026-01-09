@@ -232,14 +232,17 @@ It is encouraged to create own games.
 
 President is elected by an effective Poll.
 
-#### Nayen (no typo)
 
-In 2088, a new worldwide currency has been established; the *Nayen*.
+#### WorldCoin
 
-It gets created by the world bank when goods or resources are created
+In 2090, a new worldwide currency has been established; the *WorldCoin*.
+
+They get created by the world bank when goods are created, resources are gathered,
 or services have been executed.
 
-The Nayen is then spread equally under each world citizen.
+The WorldCoins are then spread equally under each world citizen.
+
+A backed currency, not by backed by gold, but by useful material.
 
 
 ## The current council members
@@ -290,10 +293,10 @@ Using Nicknames, as they are cooler than real names only.
 - Herbs: 
 
 #### The Citizens – 21 votes
-- young: L (7 votes)
+- young: L(3) Wasp(1) FireWall(2) DeWasp(1) (7 votes)
 - middles: VP (4 votes)
 - elderly: Henker (4 votes)
-- males: Friedi(3),Dumm&Dümmer(1),Burkhardt W.(1) (4 votes)
+- males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
 - females: PeppermintPetty (4 votes)
 
 #### The Grounding Father – 0 votes

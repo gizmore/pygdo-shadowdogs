@@ -38,8 +38,8 @@ class GDT_Race(GDT_Enum):
     }
 
     GENDER: dict[str,dict[str,int]] = {
-        'male':   {'p_bod': 1, 'p_str': 1},
-        'female': {'p_mag': 1, 'p_int': 1, 'p_cha': 2, 'p_luc': 1},
+        'male':   {'p_bod': 1, 'p_str': 1}, # Clones and NPC
+        'female': {'p_mag': 1, 'p_int': 1, 'p_cha': 2, 'p_luc': 1}, # Alice and NPC
     }
 
     _npcs: bool
@@ -60,6 +60,7 @@ class GDT_Race(GDT_Enum):
             'dwarf': 'Dwarf',
             'halforc': 'Halforc',
             'orc': 'Orc',
+            'troll': 'Troll',
         }
         if self._npcs:
             races.update({
