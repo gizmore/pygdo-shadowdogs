@@ -17,11 +17,11 @@ They know we live in a simulation and can shape our dreams.
 There are around one hundred holidays,
 focused on truth, friendship and wisdom.
 
-Chappology is no conspiracy or like the scientology.
+Chappology is no conspiracy or like scientology.
 
-Chappology is, *literally*, the believe in a system.
+It is, *literally*, the believe in a system.
 
-It is ok to have another religion beside Chappology.
+It is ok to have another religion beside.
 
 
 ### Chappology 0x01 - The Creation of the Simulation

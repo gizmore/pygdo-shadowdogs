@@ -2,11 +2,11 @@
 
 #### Real VR
 
-These are the rules of the reality, or simulation, as we call it.
+These are the rules of the *reality*, or **simulation**, as we call it.
 
 Here are our own rules for our own utopic country, called ESL -
 [Edward Snowden Land](https://es-land.net).
-Accepted by secret societies.
+Accepted by many secret societies.
 
 If you believe in ESL, you should act accordingly, so it is real already.
 
@@ -17,7 +17,7 @@ However, members of the council may reveal when it serves the purpose of this si
 2) This simulation is playing V2 of the ESL rules, completely replacing the old ruleset.
 3) Alice may alter the simulation as she wants. If a player finds evidence or proof 
 that it's a simulation or something was altered, he shall just smile and go on, not brag about it. 
-4) Bribery is **strictly** forbidden. Giving gifts to the council members is bribery.
+4) Bribery and chantage are **strictly** forbidden. Giving gifts to the council members is bribery.
 You have to base your decisions on discussions and logic.
 5) It is forbidden to lie to council members, unless you would reveal the game too much.
 6) Punishments for violating our laws and rules are chosen individually by Alice.

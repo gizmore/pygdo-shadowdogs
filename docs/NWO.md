@@ -19,3 +19,24 @@ But even those got healed and helped to regrow the simulated planet.
 On 24.Dec.2088, again the councils have agreed to the state of ESL and the combat zone.
 
 It was a real warmth forsake to the two christmas holidays ahead, for a minority of the population..
+
+
+
+## New Ywar Passed
+
+On 10.Jan.2089, the plan for the new world got revealed.
+
+Overrun infiltration of the old secret society members,
+keeping them in-place with the new law/- and ruleset.
+
+tl;dr Bribery got forbidden and decisions are made by logic and discussion.
+
+Also, the fact that this is a simulation got revealed in the Combat Zone.
+
+
+\o/ <-- you are here. Help us / me (Greez giz, alice, the winds)
+
+:) Huhu / Helloho!
+
+We conquered the sector...
+we won!
