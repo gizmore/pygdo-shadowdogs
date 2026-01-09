@@ -6,7 +6,10 @@ from gdo.ui.GDT_Success import GDT_Success
 
 class Hospital(Location):
 
-    SD_HEAL_PRICE =
+    SD_HEAL_PRICE = 100
+
+    def sd_cyberware(self, player: SD_Player) -> list[tuple[str, int]]:
+        return []
 
     def sd_methods(self) -> list[str]:
         return [

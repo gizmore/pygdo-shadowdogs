@@ -14,4 +14,3 @@ class Ina(TalkingNPC):
         if text == 'hello':
             await self.say('sdqs_ina_hello')
             await self.give_word(player, 'goods')
-        elif
