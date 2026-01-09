@@ -10,23 +10,27 @@ Accepted by secret societies.
 
 If you believe in ESL, you should act accordingly, so it is real already.
 
- - The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us,
+Laws are ordered by importance.
+
+1) The secrets of the game have to be preserved, to ensure the joy of other players, who will come after us,
 However, members of the council may reveal when it serves the purpose of this simulation.
- - Alice may alter the simulation as she wants. If a player finds evidence or proof 
-that it's a simulation or something was altered, he shall just smile and go on, not brag about it.
- - It is forbidden to lie to council members, unless you would reveal the game too much.
- - Bribery is **strictly** forbidden. Giving gifts to the council members is bribery.
+2) This simulation is playing V2 of the ESL rules, completely replacing the old ruleset.
+3) Alice may alter the simulation as she wants. If a player finds evidence or proof 
+that it's a simulation or something was altered, he shall just smile and go on, not brag about it. 
+4) Bribery is **strictly** forbidden. Giving gifts to the council members is bribery.
 You have to base your decisions on discussions and logic.
- - Punishments for violating our laws and rules are chosen individually by Alice.
- - Herbicides and Pesticides are forbidden, unless approved by the council.
- - Fights between citizen are sorted out without weapons
- - It is possible to sue someone for money or other consequences,
+5) It is forbidden to lie to council members, unless you would reveal the game too much.
+6) Punishments for violating our laws and rules are chosen individually by Alice.
+7) Herbicides and Pesticides are forbidden, unless approved by the council.
+8) Fights between citizen are sorted out without weapons
+9) It is possible to sue someone for money or other consequences,
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
- - This simulation is playing V2 of the ESL rules, completely replacing the old ruleset.
-
+10) The purpose of this simulation is to live long and prosper. Discover new techniques and live in peace and harmony.
+Maybe one day we can repair nature to a nice state.
 
 **SIGNED**
+
 
 ## Goals
 
@@ -257,10 +261,10 @@ Using Nicknames, as they are cooler than real names only.
 - Devil: Playing thyself
 
 #### The Four Winds – 8 votes
-- E: EastWind
-- S: SouthWind
-- W: WestWind
-- N: NorthWind
+- E: EastWind(2)
+- S: SouthWind(2)
+- W: WestWind(2)
+- N: NorthWind(2)
 
 #### The President – 2 votes
 - President: iamben

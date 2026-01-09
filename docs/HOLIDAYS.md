@@ -2,6 +2,9 @@ During our journey we mastered a lot of lessons.
 
 Each of them shall be a holiday in the new world order.
 
+PS: On holidays there is normal work conditions.
+
+
 ## Notes Day
 
  - 1. Jan
@@ -26,6 +29,17 @@ People try to fulfil their community members dreams.
 This day is dedicated to our uprising scholars,
 no matter who they are. from.
 They bring us proud, hope and sense.
+
+
+## Wedding Day
+
+ - 1ß.Jan
+
+This day, the first official uncoupled pair of "human"
+sealed their bond with an unforgettable kiss.
+The first kinda Wedding.
+Celebrated with kisses here and there.
+
 
 ## Chappy Day
 
