@@ -144,7 +144,7 @@ Those became the ministers of the council and their number grows over time in th
 
 Now, totalling **74** votes with **38** to win.
 
-- If an NPC gets elected to a position,
+- If an NPC gets elected to a position, or is acting much in the storyline,
 they will get an own life within the process.
 
 
@@ -184,7 +184,7 @@ TODO: Make votes relative to the population of their group.
 
 ALICE is an acronym for
 
-*Artificial Lifeform In Computer Environment*.
+**Artificial Lifeform In Computed Environment**.
 
 Their [Story](./STORY.md) will be told in Shadowdogs.
 

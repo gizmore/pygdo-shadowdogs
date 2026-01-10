@@ -32,11 +32,3 @@ keeping them in-place with the new law/- and ruleset.
 tl;dr Bribery got forbidden and decisions are made by logic and discussion.
 
 Also, the fact that this is a simulation got revealed in the Combat Zone.
-
-
-\o/ <-- you are here. Help us / me (Greez giz, alice, the winds)
-
-:) Huhu / Helloho!
-
-We conquered the sector...
-we won!
