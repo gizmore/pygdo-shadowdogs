@@ -8,3 +8,24 @@ sdqd_carpenter = "Help the Winkelmanns to recreate their roof to get a nice rewa
 # Irmingard #
 #############
 sd_irmingard_hello = "Hey Christian, back in Bothel again?"
+
+#########
+# Frank #
+#########
+sdqs_frank_dux_hello = "Hello"
+sdqs_frank_dux_weed = "You shut the f*** up. I gonna getcha."
+sdqs_frank_dux_work = "Yes, i will become a police officer."
+sdqs_frank_dux_home = "Yeah it's nice here. Btw, do you guys still have my **ninja** fighting techniques book?"
+sdqs_frank_dux_ninja = "You won't believe what happened in the disco last night."
+sdqs_frank_dux_lost = "Get lost you scumbags"
+
+#########
+# Fritz #
+#########
+sdqs_Fritz_W_hello = ""
+sdqs_Fritz_W_work = ""
+sdqs_Fritz_W_weed = ""
+sdqs_Fritz_W_home = ""
+sdqs_Fritz_W_ninja = ""
+sdqs_Fritz_W_other = ""
+

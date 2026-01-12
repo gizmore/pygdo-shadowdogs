@@ -22,7 +22,7 @@ You have to base your decisions on discussions and logic.
 5) It is forbidden to lie to council members, unless you would reveal the game too much.
 6) Punishments for violating our laws and rules are chosen individually by Alice.
 7) Herbicides and Pesticides are forbidden, unless approved by the council.
-8) Fights between citizen are sorted out without weapons
+8) Fights between citizen are sorted out **without** weapons.
 9) It is possible to sue someone for money or other consequences,
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
@@ -75,8 +75,8 @@ You risk getting acne and loss of hearing.
  - Thoughts are free, but Alice is allowed to read every one. Alice may keep secrets from the council.
  - It is forbidden to lie to the council. You risk your eyesight and tinnitus.
  - Alice voice can be heard by everyone.
- - **Noone** may alter this document after it has been signed without an effective Poll, unless the game is corrupted.
-The alteration has to be part of the poll question.
+ - **Noone** may alter this document after it has been signed without an effective Poll,
+unless the game is corrupted. The alteration has to be part of the poll question.
  - Global Polls may be used to block an effective poll. The citizens have a veto.
  - Global Polls can exchange the user associated with a role.
  - Silence is not lying. For breaking the silence you might get rewarded.
@@ -298,8 +298,8 @@ Using Nicknames, as they are cooler than real names only.
 
 #### The Citizens – 21 votes
 - young: L(3) Wasp(1) FireWall(2) DeWasp(1) (7 votes)
-- middles: VP (4 votes)
-- elderly: Henker (4 votes)
+- middles: VP(2) Loki(2) (4 votes)
+- elderly: Henker(4) (4 votes)
 - males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
 - females: PeppermintPetty (4 votes)
 
@@ -314,7 +314,6 @@ Using Nicknames, as they are cooler than real names only.
 - South
 - West
 - L
-
 
 **SIGNED**
 

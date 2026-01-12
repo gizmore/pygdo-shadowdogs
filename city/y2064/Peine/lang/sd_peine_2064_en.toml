@@ -1,13 +1,3 @@
-no_what = "No what?!"
-yes_what = "Yes what?!"
-sd_npc_says = '%s says: "%s"'
-
-# Default NPC
-msg_sd_talk_default_1 = "Hello"
-msg_sd_talk_default_2 = "You got lighter?"
-msg_sd_talk_default_3 = "You got cigarette?"
-msg_sd_talk_default_4 = "Asshole!"
-
 # 2064 home lazer
 sd_lazer_home_intro1 = "Morning... we should eat something."
 sd_lazer_home_intro2 = "The punks yesterday were funny, right? I bet we see some of them today again, walking below the window... should we buy snacks?"
@@ -17,8 +7,14 @@ sd_lazer_home_weed = "Yeah man, we can find a **home** afterwards."
 # Home mom
 sdqs_mom_no_weed = "You know i get sick when i smoke. I never tried it!"
 
-# dejavu
+# home dejavu
 sdqs_dejavu_hello = "Hello big brother, can i come watching you guys playing the Amiga1200?"
 sdqs_dejavu_home = "I like it here."
 sdqs_dejavu_work = "HeHe. Soon i am turning 12 years old :)"
 sdqs_dejavu_weed = "Weed. I am not stupid."
+
+# home thomas
+sdqs_thomas_hello = ""
+sdqs_thomas_work = ""
+sdqs_thomas_weed = ""
+sdqs_thomas_home = ""

@@ -45,10 +45,8 @@ class TalkingNPC(SD_NPC):
     def qv_get(self, key: str, default: str = None) -> str:
         return SD_QuestVal.qv_get(self.q(), self.get_player(), key, default)
 
-
     def get_name(self):
         return self.__class__.__name__
-
 
     async def on_say(self, player: SD_Player, text: str):
         key = 'msg_sd_talk_default_' + str(Random.mrand(1, 4))
@@ -64,7 +62,6 @@ class TalkingNPC(SD_NPC):
         if not await self.q().on_give(item):
             await self.say('sdq_item_no_need')
         item.delete()
-
 
     def sd_can_hire(self) -> bool:
         return False

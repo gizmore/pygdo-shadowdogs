@@ -10,4 +10,5 @@ class Winkelmann(Location):
         Dominik,
         Fritz,
         Irmingard,
+        Mandy,
     ]
