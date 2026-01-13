@@ -255,10 +255,10 @@ Using Nicknames, as they are cooler than real names only.
 
 
 #### Alice - 9 votes
-- Alice: Playing herself
+- Alice: Playing herself(9)
 
 #### The Devil - 10 votes
-- Devil: Playing thyself
+- Devil: Wegbegleiter(10) 
 
 #### The Four Winds – 8 votes
 - E: EastWind(2)
@@ -267,16 +267,16 @@ Using Nicknames, as they are cooler than real names only.
 - N: NorthWind(2)
 
 #### The President – 2 votes
-- President: iamben
+- President: iamben(2)
 
 #### The Master of the Wind – 1 vote
-- MW: g
+- MW: g(1)
 
 #### The Keeper of the Fire – 2 votes
-- KF: mw23
+- KF: mw23(2)
 
 #### The Master of the Sword - 2 votes
-- MS: SB
+- MS: SB(2)
 
 #### The Hackers – 4 votes
 - HackerOne: T(2)
