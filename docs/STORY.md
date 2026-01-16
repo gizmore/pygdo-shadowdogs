@@ -78,7 +78,7 @@ Your plan is
 
 # Epilogoue:
 
-It is the year 2080.
+It is the year 2089.
 
 The news about the matrix spread like a wildfire.
 
@@ -87,6 +87,3 @@ the anonymous leader is dead, but he gave their life for the master of the winds
 The new world government is finally settled, freshly and clean voted and money is no more.
 
 It is not missing. There is no more use for it.
-
-
-

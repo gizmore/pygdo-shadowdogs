@@ -47,7 +47,14 @@ class Factory(WithShadowFunc):
     ########
     @classmethod
     def create_hireling(cls, klass: 'type[Hireling]') -> 'Hireling':
-        return klass.blank().insert()
+        hireling = klass.blank(klass.sd_hireling_base()).insert()
+        for k, v in klass.sd_hireling_bonus():
+            hireling.set_value(k, hireling.gdo_value(k) + v)
+        for item_name in klass.sd_hireling_items():
+            item = Factory.create_item_gmi(item_name, hireling, True)
+            if item.is_equipment():
+                hireling.set_val(item.get_slot(), item.get_id())
+        return hireling.save()
 
     @classmethod
     async def create_default_npcs(cls, location: Location, *class_names: str) -> SD_Party:

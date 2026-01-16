@@ -22,8 +22,5 @@ class fight(MethodSD):
     def form_submitted(self):
         party = self.get_party()
         eparty = party.get_target()
-        party.do(Action.FIGHT, eparty.get_id())
-        eparty.do(Action.FIGHT, party.get_id())
-        self.send_to_party(party, 'msg_sd_encounter', (eparty.render_members(),))
-        self.send_to_party(eparty, 'msg_sd_encounter', (party.render_members(),))
+        party.fight(eparty)
         return self.empty()

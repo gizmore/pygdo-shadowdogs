@@ -99,11 +99,12 @@ class GDT_ItemArg(WithShadowFunc, GDT_String):
         if self._mount:
             candidates.extend(p.mount.get_by_abbrev(val))
         if self.obstacles:
-            for obstacle in self.get_location().obstacles(p.get_party().get_action_name(), p):
-                if val in obstacle.render_name().lower():
-                    candidates.append(obstacle)
-                if val == obstacle.render_name().lower():
-                    return obstacle
+            if location := self.get_location():
+                for obstacle in location.obstacles(p.get_party().get_action_name(), p):
+                    if val in obstacle.render_name().lower():
+                        candidates.append(obstacle)
+                    if val == obstacle.render_name().lower():
+                        return obstacle
         if len(candidates) == 1:
             return candidates[0]
         elif len(candidates) > 1:

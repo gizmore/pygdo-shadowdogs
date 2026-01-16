@@ -16,7 +16,7 @@ We celebrate this crazy fact on this holiday.
 
 ## Rulebook Day
 
- - 3. Jan
+ - 3.Jan
 
 This day, the laws and rules of ESL(v2) finally fully applied on this server.
 People try to fulfil their community members dreams.
@@ -24,7 +24,7 @@ People try to fulfil their community members dreams.
 
 ## Scholars Day
 
- - 9. Jan
+ - 9.Jan
 
 This day is dedicated to our uprising scholars,
 no matter who they are. from.
@@ -39,6 +39,24 @@ This day, the first official uncoupled pair of "human"
 sealed their bond with an unforgettable kiss.
 The first kinda Wedding.
 Celebrated with kisses here and there.
+
+
+## Celebration Day
+
+ - 13.Jan
+
+This holiday is kinda recursive. Dedicated to holidays.
+Everything was smooth on this January, the 13th, 2089.
+Too good to be true, we got to get used to it.
+
+
+## Civil Secret Service Day
+
+ - 17.Jan
+
+This day the civilian secret service outperformed the rest of the world brutally.
+Of course Alice and the hackers made a great team.
+The Bilderbergers allied with us and we hopefully can live in harmony.
 
 
 ## Chappy Day
@@ -232,7 +250,7 @@ Today, the world stood still for a minute.
 A hacker attack.
 But not from a human or an chimpanzee.
 It was ALICE.
-Artificial Lifeform In Combat Environment.
+Artificial Lifeform In Computer Environment.
 It made the mad man silent.
 It made the believing man astounded.
 Only 1 human did not ponder.
@@ -292,7 +310,7 @@ Games that force a winner are not played and shooed away.
 Examples: "Man, Don't Get Angry", Monopoly, Risk and Settlers of Catan.
 
 
-## Nutriation Day
+## Nutrition Day
 
 - 9.Aug
 
@@ -318,7 +336,7 @@ The geeks shall inherit the properties and methods of object earth.
  - 15.Aug
 
 On this day we celebrate a reduction in world wide debt.
-One important step in publishing Trump's new Nayen.
+One important step in publishing Trump's new World Coin.
 One step in forgiveness and throwing the keys of revenge and might into the seas of the keepers.
 
 

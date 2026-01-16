@@ -1,7 +1,8 @@
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Party import SD_Party
 
@@ -13,6 +14,9 @@ class fight(Action):
 
     def get_enemy_party(self) -> 'SD_Party':
         return self.get_party().get_target_party()
+
+    def get_action_text_args(self, party: 'SD_Party', scope: str = 'start') -> None|tuple[Any,...]:
+        return party.render_members(), party.get_enemy_party().render_members()
 
     async def on_start(self, party: 'SD_Party'):
         epa = self.get_enemy_party()

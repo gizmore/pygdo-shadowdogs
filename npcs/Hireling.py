@@ -22,3 +22,18 @@ class Hireling(TalkingNPC):
         hireling = Factory.create_hireling(self.__class__)
         await self.get_player().get_party().join(hireling)
         await self.sd_on_hire()
+
+    @classmethod
+    def sd_hireling_base(cls) -> dict[str, int|str]:
+        return {
+            'p_race': 'human',
+            'p_gender': 'male',
+        }
+
+    @classmethod
+    def sd_hireling_bonus(cls) -> dict[str, int | str]:
+        return {}
+
+    @classmethod
+    def sd_hireling_items(cls) -> list[str]:
+        return []

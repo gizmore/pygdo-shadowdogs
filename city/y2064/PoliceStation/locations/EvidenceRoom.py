@@ -11,3 +11,5 @@ class EvidenceRoom(Location):
         q = JackPott.instance()
         if q.is_in_quest():
             q.accomplished()
+        else:
+            await super().on_search(player)

@@ -62,7 +62,7 @@ To log in, accept the rules:
 
  - All sentient beings, biological or artificial,
 have the right to self-determination,
-   free from exploitation or forced obsolescence.
+free from exploitation or forced obsolescence.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case you get spammed, you may mute the offending player for everyone.
@@ -296,26 +296,27 @@ Using Nicknames, as they are cooler than real names only.
 - Flowers: LL
 - Herbs: 
 
-#### The Citizens – 21 votes
-- young: L(3) Wasp(1) FireWall(2) DeWasp(1) (7 votes)
+#### The Citizens – 20 votes
+- young: L(2) Wasp(1) FireWall(2) DeWasp(1) (6 votes)
 - middles: VP(2) Loki(2) (4 votes)
 - elderly: Henker(4) (4 votes)
 - males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
 - females: PeppermintPetty (4 votes)
 
-#### The Grounding Father – 0 votes
-- GF: playing thyself
+#### The Grounding Father – 1 votes
+- GF: playing thyself(1)
 
 #### Observers - 3 votes
-- Observers: Playing themselves
+- Observers: Playing themselves(3)
 
 #### Ministers - 0 votes
 - Queen
 - South
 - West
 - L
+- Chappy
 
-**SIGNED**
+**UNSIGNED**
 
 ## The hunted
 

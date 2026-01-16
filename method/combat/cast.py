@@ -11,7 +11,7 @@ class cast(MethodSD):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'sdc'
+        return 'sdca'
 
     @classmethod
     def gdo_trigger(cls) -> str:

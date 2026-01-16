@@ -16,7 +16,6 @@ from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
 from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.WaffenKief import WaffenKief
 from gdo.shadowdogs.city.y2064.Peine.locations.woods.Woods import Woods
 from gdo.shadowdogs.city.y2064.Peine.locations.police.Police import Police
-from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.locations.Location import Location
 
@@ -67,10 +66,10 @@ class Peine(City):
     ]
 
     NPCS: list[tuple[str, int]] = [
-        ('lamer', Shadowdogs.NPC_ENCOUNTER_CHANCE),
-        ('haider', 100),
-        ('noob', 100),
-        ('gangster', 100),
+        ('lamer', 150),
+        ('haider', 150),
+        ('noob', 150),
+        ('gangster', 150),
     ]
 
     def sd_square_km(self) -> int:
