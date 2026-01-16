@@ -17,11 +17,11 @@ class Hunger(Modifier):
     def apply(self, target: 'SD_Player'):
         sat = self.get_value()
         malus = 0
-        if sat > 140:
+        if sat > 1600:
             malus = -1
-        if sat > 180:
+        if sat > 1800:
             malus = -3
-        if sat < 50:
+        if sat < 300:
             target.apply('p_str', -2)
         if malus:
             target.apply('p_qui', -malus)
