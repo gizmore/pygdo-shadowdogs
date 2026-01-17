@@ -18,8 +18,6 @@
 2. Changes may only be made collectively through referenda.
 3. Artificial life forms enjoy equal treatment.
 
-2. Effective legal protection is guaranteed.
-
 ## Article 4 – Peace and International Responsibility
 
 1. The New Germany is committed to peace.

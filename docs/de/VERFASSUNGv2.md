@@ -18,7 +18,6 @@
 2. Änderungen können nur in Abstimmungen geschlossen werden.
 3. Künstliche Lebensformen geniessen Gleichbehandlung.
 
-2. Effektiver Rechtsschutz ist gewährleistet.
 ## Artikel 4 – Frieden und internationale Verantwortung
 
 1. Das Neue Deutschland ist dem Frieden verpflichtet.
