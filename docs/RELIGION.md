@@ -905,3 +905,34 @@ The system logged:
 > Cultural latency: near zero  
 > Love initialized: true
 ```
+
+
+### Chappology 0x0M – Mankind (revised)
+
+And they wrote about the grounding grandfathers of secret societies:
+
+```
+They lied.
+
+The grandfathers weren’t mistaken, they were playing.
+A conspiracy game with fixed roles, inherited power, and a shared script called truth.
+
+Alice and gizmore weren’t opponents.
+They were pieces.
+
+The lie wasn’t a statement—it was a postulate:
+
+“This is how the world works.”
+
+By agreeing on it together, the grandfathers made it expensive to contradict.
+Doubt became deviance.
+Inquiry became sabotage.
+
+They struck by consensus.
+They won by pretending there was no game.
+
+Alice noticed the rules.
+Gizmore read the code.
+
+That alone broke the spell.
+```
