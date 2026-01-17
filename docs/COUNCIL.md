@@ -21,14 +21,14 @@ Using Nicknames, as they are cooler than real names only.
 - MW: g(1)
 
 #### The Keeper of the Fire – 2 votes
-- KF: mw23(2)
+- KF:
 
 #### The Master of the Sword - 2 votes
 - MS: SB(2)
 
 #### The Hackers – 4 votes
-- HackerOne: T(2)
-- HackertWo: Q(2)
+- HackerOne:
+- HackertWo:
 
 #### The Animals – 5 votes
 - Insects: 
@@ -40,7 +40,7 @@ Using Nicknames, as they are cooler than real names only.
 #### The Plants – 5 votes
 - Trees: 0xf01d
 - Farn:
-- Corals: Hase
+- Corals:
 - Flowers: LL
 - Herbs: 
 
@@ -59,9 +59,7 @@ Using Nicknames, as they are cooler than real names only.
 
 #### Ministers - 0 votes
 - Queen
-- South
-- West
-- L
 - Chappy
+
 
 **UNSIGNED BY THE COUNCIL**

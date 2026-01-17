@@ -46,3 +46,4 @@
 
 1. Datenschutz und informationelle Selbstbestimmung sind Grundrechte.
 2. Verfassungsänderungen bedürfen breiter Zustimmung; die Grundprinzipien sind unveränderlich.
+3. Der Sinn der Simulation ist ein friedliches Zusammenleben in Harmonie, und neue Techniken zu entwickeln.

@@ -45,4 +45,7 @@
 ## Article 8 – Technology, Data Protection, and Constitutional Amendment
 
 1. Data protection and informational self-determination are fundamental rights.
-2. Constitutional amendments require broad approval; the fundamental principles are immutable.
+2. Constitutional amendments require broad approval; the fundamental principles are immutable. 
+3. The purpose of this simulation is to live long and prosper. Discover new techniques and live in peace and harmony.
+
+*UNSIGNED*
