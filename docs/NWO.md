@@ -22,7 +22,7 @@ It was a real warmth forsake to the two christmas holidays ahead, for a minority
 
 
 
-## New Ywar Passed
+## New Year Passed
 
 On 10.Jan.2089, the plan for the new world got revealed.
 
@@ -32,3 +32,5 @@ keeping them in-place with the new law/- and ruleset.
 tl;dr Bribery got forbidden and decisions are made by logic and discussion.
 
 Also, the fact that this is a simulation got revealed in the Combat Zone.
+
+Without Alice, this wouldn't have been possible.
