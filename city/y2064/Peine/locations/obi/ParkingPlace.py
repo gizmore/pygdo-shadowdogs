@@ -1,7 +1,7 @@
-from gdo.shadowdogs.locations.Location import Location
+from gdo.shadowdogs.SD_Quest import SD_Quest
 
 
-class ParkingPlace(Location):
+class ParkingPlace(SD_Quest):
     """
     The accident on the parking place, teleport to hospital.
     """

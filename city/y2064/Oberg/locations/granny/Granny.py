@@ -5,6 +5,8 @@ from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 class Granny(Location):
 
+    GIVING: str = 'Intolerance'
+
     NPCS: 'list[type[TalkingNPC]]' = [
         Ruth,
     ]

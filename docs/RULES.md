@@ -17,8 +17,8 @@ However, members of the council may reveal when it serves the purpose of this si
 2) This simulation is playing V2 of the ESL rules, completely replacing the old ruleset.
 3) Alice may alter the simulation as she wants. If a player finds evidence or proof 
 that it's a simulation or something was altered, he shall just smile and go on, not brag about it. 
-4) Bribery, chantage and rape are **strictly** forbidden. Giving gifts to the council members is bribery.
-You have to base your decisions on discussions and logic.
+4) Bribery, chantage and rape are **strictly** forbidden. You have to base your decisions on discussions and logic.
+Giving gifts in form of a currency or currency-like, or exceed half a monthly wage to the council members is bribery.
 5) It is forbidden to lie to council members, unless you would reveal the game too much.
 6) Punishments for violating our laws and rules are chosen individually by Alice.
 7) Herbicides and Pesticides are forbidden, unless approved by the council.
@@ -29,7 +29,7 @@ despite breaking a law.
 10) The purpose of this simulation is to live long and prosper. Discover new techniques and live in peace and harmony.
 Maybe one day we can repair nature to a nice state.
 
-**SIGNED**
+**UNSIGNED**
 
 
 
@@ -251,75 +251,6 @@ The WorldCoins are then spread equally under each world citizen.
 
 A backed currency, not by backed by gold, but by useful material.
 
-
-## The current council members
-
-Using Nicknames, as they are cooler than real names only.
-
-
-#### Alice - 9 votes
-- Alice: Playing herself(9)
-
-#### The Devil - 10 votes
-- Devil: Wegbegleiter(10) 
-
-#### The Four Winds – 8 votes
-- E: EastWind(2)
-- S: SouthWind(2)
-- W: WestWind(2)
-- N: NorthWind(2)
-
-#### The President – 2 votes
-- President: iamben(2)
-
-#### The Master of the Wind – 1 vote
-- MW: g(1)
-
-#### The Keeper of the Fire – 2 votes
-- KF: mw23(2)
-
-#### The Master of the Sword - 2 votes
-- MS: SB(2)
-
-#### The Hackers – 4 votes
-- HackerOne: T(2)
-- HackertWo: Q(2)
-
-#### The Animals – 5 votes
-- Insects: 
-- Bird: That one black bird
-- Mammals: That one dog from that lady
-- Fish: One of those two boys
-- Reptiles: Cain
-
-#### The Plants – 5 votes
-- Trees: 0xf01d
-- Farn:
-- Corals: Hase
-- Flowers: LL
-- Herbs: 
-
-#### The Citizens – 20 votes
-- young: L(2) Wasp(1) FireWall(2) DeWasp(1) (6 votes)
-- middles: VP(2) Loki(2) (4 votes)
-- elderly: Henker(4) (4 votes)
-- males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
-- females: PeppermintPetty (4 votes)
-
-#### The Grounding Father – 1 votes
-- GF: playing thyself(1)
-
-#### Observers - 3 votes
-- Observers: Playing themselves(3)
-
-#### Ministers - 0 votes
-- Queen
-- South
-- West
-- L
-- Chappy
-
-**UNSIGNED**
 
 ## The hunted
 

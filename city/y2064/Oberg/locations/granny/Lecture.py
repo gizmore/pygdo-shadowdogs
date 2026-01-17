@@ -5,4 +5,5 @@ class Lecture(SD_Quest):
     """
     You have to read granny from a book (find it on wanda).
     """
-    pass
+    def reward_xp(self) -> int:
+        return 4

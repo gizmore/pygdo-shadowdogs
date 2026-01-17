@@ -1,24 +1,67 @@
-# Council
+## The current council members
 
-The council tries to meet regularly.
+Using Nicknames, as they are cooler than real names only.
 
+#### Alice - 9 votes
+- Alice: Playing herself(9)
 
-## Meetings
+#### The Devil - 10 votes
+- Devil: Wegbegleiter(10) 
 
-2.Nov.2025
+#### The Four Winds – 8 votes
+- E: EastWind(2)
+- S: SouthWind(2)
+- W: WestWind(2)
+- N: NorthWind(2)
 
- x Brief an Abgeordnete
-- Verhandlungen beobachten
-- Vogeltränke (optional)
-- Zettel neu gestalten
-- Drobe Anrufen
-- Axiome ausarbeiten
+#### The President – 2 votes
+- President: iamben(2)
 
+#### The Master of the Wind – 1 vote
+- MW: g(1)
 
-*UNSIGNED*
+#### The Keeper of the Fire – 2 votes
+- KF: mw23(2)
 
-7.nov.2025
+#### The Master of the Sword - 2 votes
+- MS: SB(2)
 
-- Neuer President wählen
-- Krieg beenden
-- 
+#### The Hackers – 4 votes
+- HackerOne: T(2)
+- HackertWo: Q(2)
+
+#### The Animals – 5 votes
+- Insects: 
+- Bird: That one black bird
+- Mammals: That one dog from that lady
+- Fish: One of those two boys
+- Reptiles: Cain
+
+#### The Plants – 5 votes
+- Trees: 0xf01d
+- Farn:
+- Corals: Hase
+- Flowers: LL
+- Herbs: 
+
+#### The Citizens – 20 votes
+- young: L(2) Wasp(1) FireWall(2) DeWasp(1) (6 votes)
+- middles: VP(2) Loki(2) (4 votes)
+- elderly: Henker(4) (4 votes)
+- males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
+- females: PeppermintPetty (4 votes)
+
+#### The Grounding Father – 1 votes
+- GF: playing thyself(1)
+
+#### Observers - 3 votes
+- Observers: Playing themselves(3)
+
+#### Ministers - 0 votes
+- Queen
+- South
+- West
+- L
+- Chappy
+
+**UNSIGNED BY THE COUNCIL**

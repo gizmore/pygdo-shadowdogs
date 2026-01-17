@@ -48,4 +48,5 @@ class usables:
         'ArmyLetter':         {'klass': 'Email',       'key': 'sdqa_email_army'},
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
+        'Intolerance':        {'klass': 'Intolerance',},
     }

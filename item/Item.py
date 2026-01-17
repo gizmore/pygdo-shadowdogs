@@ -1,16 +1,12 @@
 from collections import OrderedDict
-from typing import TYPE_CHECKING, Iterator, Mapping
 
-from gdo.base.GDO import GDO
-from gdo.base.GDT import GDT
 from gdo.base.Trans import t
-from gdo.base.Util import Arrays, Strings
-from gdo.message.GDT_HTML import GDT_HTML
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 
 from gdo.shadowdogs.SD_Item import SD_Item
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 
+from typing import TYPE_CHECKING, Iterator, Mapping
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
     from gdo.shadowdogs.obstacle.Obstacle import Obstacle

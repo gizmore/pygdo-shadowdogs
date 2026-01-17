@@ -66,17 +66,17 @@ class Peine(City):
     ]
 
     NPCS: list[tuple[str, int]] = [
-        ('lamer', 150),
-        ('haider', 150),
-        ('noob', 150),
-        ('gangster', 150),
+        ('lamer', 550),
+        ('haider', 350),
+        ('noob', 250),
+        ('gangster', 250),
     ]
 
     def sd_square_km(self) -> int:
         return 40
 
     def sd_npc_none_chance(self, party: 'SD_Party') -> int:
-        return 100000
+        return 50000
 
     def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
         return 0
