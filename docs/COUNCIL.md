@@ -62,4 +62,4 @@ Using Nicknames, as they are cooler than real names only.
 - Chappy
 
 
-**UNSIGNED BY THE COUNCIL**
+**SIGNED BY THE COUNCIL**

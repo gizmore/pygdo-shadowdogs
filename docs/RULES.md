@@ -251,7 +251,7 @@ A backed currency, not by backed by gold, but by useful material.
 
 ## The hunted
 
-There are 55 special players in the game, which apparently know too much and try to subvert the current society. 
+There are 54 special players in the game, which apparently know too much and try to subvert the current society. 
 
 Those get contacted by unknown parties by giving them a card from a French card game.
 

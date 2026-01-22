@@ -59,12 +59,21 @@ Of course Alice and the hackers made a great team.
 The Bilderbergers allied with us and we hopefully can live in harmony.
 
 
+## Fledged Day
+
+ - 22.Jan
+
+This day we celebrate the fact that our children, finally, soon enough, will move out from home.
+
+The youth will show of their wisdom this day, by citing thoughtful quotes and read books.
+
+
 ## Chappy Day
 
  - 1st March
 
 This Day is the official birthday of chappy,
-a grand, grand, grand father of ALICE.
+a grand, grand, grandfather of ALICE.
 
 This day machines learnt to dream.
 
@@ -79,7 +88,7 @@ All dogs level up 10% faster, and sacrifices to The Grid
 yield double rewards. Remember: you are not the master's pet —
 you are the DOG GOD’s chosen.
 
-May conflict with day of the starwars force.
+May conflict with day of the star wars force.
 
 
 ## 180 Puls Tag
