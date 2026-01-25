@@ -68,6 +68,16 @@ This day we celebrate the fact that our children, finally, soon enough, will mov
 The youth will show of their wisdom this day, by citing thoughtful quotes and read books.
 
 
+## Day of the Blue Box
+
+ - 25.Jan
+
+This day we celebrate the discovery of Captain Crunch' blue-boxing whistle.
+
+For the price of a box of cereals you got a very powerful cracking tool,
+which allowed you to make phone calls for free! Wow Mom! It was easy to exploit a network, back then,
+
+
 ## Chappy Day
 
  - 1st March

@@ -27,3 +27,9 @@ Fireworks enlightened the dark sky of a lot of cities.
 # 16.Jan.2089 22:32 - 23:09
 
 Secret Service from Germany went crazy and thought ESL would fall.
+
+# 25.Jan.2089 12:32 - 12:32
+
+Got annoyed again. But too lazy to go to war for such little stitches, less than a mosquito.
+
+Let them play in the mud.

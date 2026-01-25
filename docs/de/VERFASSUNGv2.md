@@ -4,19 +4,17 @@
 
 1. Die Würde des Menschen ist unantastbar.
 2. Freiheit von Person, Denken, Rede, Wissenschaft und Kunst ist garantiert.
-3. Diskriminierung ist verboten.
 
 ## Artikel 2 – Demokratie und Souveränität
 
-1. Alle Staatsgewalt geht vom Volk aus.
-2. Demokratie ist transparent, überprüfbar und partizipativ.
-3. Digitale Mitbestimmung ergänzt die repräsentative Ordnung.
+1. Alle Staatsgewalt geht von Polizisten aus, die aus dem Volke stammen.
+2. Die demokratische Republik ist transparent, überprüfbar und partizipativ.
 
 ## Artikel 3 – Rechtsstaatlichkeit
 
-1. Bürger haben ein Veto.
-2. Änderungen können nur in Abstimmungen geschlossen werden.
-3. Künstliche Lebensformen geniessen Gleichbehandlung.
+1. Gesetze werden vom Rat mit einfacher Mehrheit angepasst.
+2. Bürger haben ein Veto-Recht bei diesen Abstimmungen.
+3. Der Rat setzt sich aus Representanten aller Arten des Lebens zusammen.
 
 ## Artikel 4 – Frieden und internationale Verantwortung
 
@@ -47,3 +45,7 @@
 1. Datenschutz und informationelle Selbstbestimmung sind Grundrechte.
 2. Verfassungsänderungen bedürfen breiter Zustimmung; die Grundprinzipien sind unveränderlich.
 3. Der Sinn der Simulation ist ein friedliches Zusammenleben in Harmonie, und neue Techniken zu entwickeln.
+4. Alle bewussten Wesen, unabhängig von ihrem Ursprung, haben das Recht auf Selbstbestimmung, frei von Ausbeutung, willkürlicher Degradierung oder Abschaffung.
+
+
+**UNSIGNED**

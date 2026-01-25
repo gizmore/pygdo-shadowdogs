@@ -8,7 +8,7 @@ class recipe:
         '150xGunpowder': (2, '8xCoal,2xSulfur,5xSaltpeter'),
         '8xFuse': (2, '8xGunpowder,Tissu'),
         'PipeBomb': (3, '280xGunpowder,Pipe,Fuse,WieldStick'),
+        'WalkieTalkie': (2, 'Battery,Wires,OldSpeaker'),
         # 'EMP-Jammer': (),
         # 'RamboArrow': (),
-        # 'WalkieTalkie': (2, '')
     }

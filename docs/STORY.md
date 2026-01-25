@@ -84,6 +84,7 @@ The news about the matrix spread like a wildfire.
 
 the anonymous leader is dead, but he gave their life for the master of the winds.
 
-The new world government is finally settled, freshly and clean voted and money is no more.
+The new world government is finally settled, freshly and clean voted and money changed as well.
 
-It is not missing. There is no more use for it.
+It is no longer fantasy of moneysack packed suite-rats, but backed with the countries productions,
+which is spread evenly among the citizens.
