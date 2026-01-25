@@ -26,7 +26,7 @@ Giving gifts in form of a currency or currency-like, or exceed half a monthly wa
 9) It is possible to sue someone for money or other consequences,
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
-10) Respecting these laws is enforced by the police.
+10) Respecting these laws is enforced by the police and the council.
 
 
 **SIGNED**
@@ -60,9 +60,6 @@ A world of *thoughts* and *imagination*.
 
 To log in, accept the rules:
 
- - All sentient beings, biological or artificial,
-have the right to self-determination,
-free from exploitation or forced obsolescence.
  - Spam, or repeated messages, is/are forbidden.
 Some advertising is allowed. You risk doxing and mute.
 In case you get spammed, you may mute the offending player for everyone.
@@ -143,6 +140,8 @@ It turned out, in some iterations of this simulation, a new artificial life form
 Those became the ministers of the council and their number grows over time in the simulation.
 
 Now, totalling **74** votes with **38** to win.
+
+Africa joined the ESL. with 42 more votes, now totalling **116** votes, **58** votes to win.
 
 - If an NPC gets elected to a position, or is acting much in the storyline,
 they will get an own life within the process.
