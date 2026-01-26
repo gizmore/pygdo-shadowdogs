@@ -18,13 +18,13 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - Alice: Playing herself(8)
 
 #### The Devil - **38** votes
-- Devil: Wegbegleiter(10) 
+- Devil: Wegbegleiter(38) 
 
 #### (C) The Four Winds – 6 * 8 = **48** votes
-- E: EastWind(2*5)
-- S: SouthWind(2*5)
-- W: WestWind(2*5)
-- N: NorthWind(2*5)
+- E: EastWind(6*2)
+- S: SouthWind(6*2)
+- W: WestWind(6*2)
+- N: NorthWind(6*2)
 
 #### The President – **8** votes
 - President: iamben(8)
@@ -51,7 +51,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - NA(4): t(1) l(1)
 - SA(4):
 
-#### The Animals – 6 * 5 = 30 votes
+#### The Animals – 6 * 5 = **30** votes
 - AF: 
 - AS:
 - AU: 
@@ -59,7 +59,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - NA:
 - SA:
 
-#### The Plants – 6 * 5 = 30 votes
+#### The Plants – 6 * 5 = **30** votes
 - AF: 
 - AS:
 - AU: 
@@ -67,7 +67,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - NA:
 - SA:
 
-#### The Citizens – 6 * 20 = 120 votes
+#### The Citizens – 6 * 20 = **120** votes
 AF: 
 AS:
 AU: 
@@ -86,7 +86,7 @@ SA:
 #### Observers - 6 * 3 = **18** votes
 - Observers: Playing themselves(3)
 
-#### Ministers - 0 votes
+#### Ministers - **0** votes
 - Queen
 - Princess
 - Chappy
@@ -95,4 +95,3 @@ SA:
 Total: **357** votes (not confirmed math)
 
 **SIGNED BY THE COUNCIL**
-aaaaaaaaaaaa

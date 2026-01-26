@@ -443,7 +443,8 @@ class items:
         'TraceNG.exe':        {'klass': 'Trace',       'level':  6},
 
         # Special
-        'Nuyen':              {'klass': 'Nuyen', 'level': 0, 'weight': 0.25, 'no_loot': True}
+        'Nuyen':              {'klass': 'Nuyen', 'level': 0, 'weight': 0.25, 'no_loot': True},
+        'Rune':               {'klass': 'Rune',  'level': 0, 'weight': 0.25},
     }
 
     ITEMS.update(usables.USABLES)

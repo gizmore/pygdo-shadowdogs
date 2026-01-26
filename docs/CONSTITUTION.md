@@ -48,9 +48,11 @@
 2. Constitutional amendments require broad approval; the fundamental principles are immutable. 
 3. The purpose of this simulation is to live long and prosper. Discover new techniques and live in peace and harmony.
 
-## Article 9 - Rants and Backfire from the Master, as a witty response, to witty critic.
+## Article 9 - Rants and Backfire from the Masters, as a witty response to witty critic, surprising facts of new germany or maybe ukraine.
 
 1. The Cats of Schroedinger's and Schmidt's and Schneider's are disallowed to fly to the moon.
+2. The official only languages are english(must) and local official languages(preferred). 
+3. The official religion is IslamC, a slightly christianized religion, based on the Islam: (+Women get protection of rape and harm) (+The C is the moved moon maybe, waiting for the designers)
 
 
 *SIGNED*

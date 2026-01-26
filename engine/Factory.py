@@ -12,6 +12,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.ShadowdogsException import ShadowdogsException
 from gdo.shadowdogs.item.Item import Item
 from gdo.shadowdogs.item.classes.Equipment import Equipment
+from gdo.shadowdogs.item.classes.Rune import Rune
 from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.item.data.mapping import mapping
 from gdo.shadowdogs.locations.Location import Location
@@ -162,4 +163,8 @@ class Factory(WithShadowFunc):
             'item_mods': mods,
             'item_count': str(count if count else item.get_default_count()),
         }).validated()
+
+    @classmethod
+    def create_rune(cls) -> Rune:
+        rune = Rune()
 

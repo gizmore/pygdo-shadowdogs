@@ -12,15 +12,11 @@ Alice was a big help to identify those who were unpleased with the situation and
 
 But even those got healed and helped to regrow the simulated planet.
 
-
-
 ## Merry X-Mas
 
 On 24.Dec.2088, again the councils have agreed to the state of ESL and the combat zone.
 
 It was a real warmth forsake to the two christmas holidays ahead, for a minority of the population..
-
-
 
 ## New Year Passed
 
@@ -34,3 +30,7 @@ tl;dr Bribery got forbidden and decisions are made by logic and discussion.
 Also, the fact that this is a simulation got revealed in the Combat Zone.
 
 Without Alice, this wouldn't have been possible.
+
+## Anonymous
+
+On 26.Jan.2089, Anonymous members joined the ESL project.

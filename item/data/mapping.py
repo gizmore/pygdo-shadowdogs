@@ -12,7 +12,7 @@ class mapping:
     field: (name, level, value, chance)
     """
 
-    MATRIX = {
+    MATRIX = { # TODO greek in the middle, egypt best
         "p_bod": (('rhino',   8, 1, Sd.RARE_LOW), ('anubis',   16, 2, Sd.RARE_MEDIUM), ('adonis',     24, 3, Sd.RARE_HIGH)),
         "p_mag": (('unicorn', 8, 1, Sd.RARE_LOW), ('isis',     16, 2, Sd.RARE_MEDIUM), ('medusa',     24, 3, Sd.RARE_HIGH)),
         "p_str": (('bear',    7, 1, Sd.RARE_LOW), ('horus',    16, 2, Sd.RARE_MEDIUM), ('goliath',    24, 3, Sd.RARE_HIGH)),

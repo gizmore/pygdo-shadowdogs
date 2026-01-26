@@ -80,6 +80,7 @@ unless the game is corrupted. The alteration has to be part of the poll question
  - If the new system fails, the grounding fathers may rewrite this document completely.
 Failing means: *bread*, *beer* and *games* don't taste anymore.
  - If you have reached an age of 88 years, the truth will be revealed to you.
+ - Some people try to guess what you want to say, that seems annoying at first, but stabilizes the connection.
 
 **SIGNED**
 

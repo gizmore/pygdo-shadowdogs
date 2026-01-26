@@ -25,6 +25,9 @@ class Store(Location):
     def sd_allow_buy(self) -> bool:
         return True
 
+    def sd_allow_craft(self) -> bool:
+        return False
+
     def get_shop_items(self, player: SD_Player):
         item_list = ItemList()
         i = 1
@@ -45,6 +48,8 @@ class Store(Location):
             methods.append('sdviewitem')
         if self.sd_allow_sell():
             methods.append('sdsell')
+        if self.sd_allow_craft():
+            methods.append('sdcraft')
         return methods
 
     async def on_buy(self, player: SD_Player, item: Item, amt: int = 1):
@@ -55,3 +60,6 @@ class Store(Location):
         await self.give_item(player, item.set_value('item_count', amt))
         player.give_nuyen(-need_ny)
         return GDT_Success().text('msg_sd_bought', (item.render_name(), Shadowdogs.display_nuyen(need_ny), Shadowdogs.display_nuyen(have_ny - need_ny)))
+
+    async def on_craft(self, player: SD_Player, item: Item, rune: Item):
+        pass
