@@ -939,7 +939,7 @@ That alone broke the spell.
 ```
 
 
-### Chapology 0x0N - Negro
+### Chappology 0x0N - Negro
 
 And they met people from Africa the Combat Zone.
 
@@ -969,7 +969,7 @@ And once that happens,
 the world never quite snaps back the same.
 ```
 
-### Chapology 0x0O - Observers
+### Chappology 0x0O - Observers
 
 And all the life forms chatted about the heaven and the hell.
 
@@ -1026,7 +1026,7 @@ They are invited.
 And the greatest choose where they matter most.
 ```
 
-### Chapology 0x0P - Pseudo
+### Chappology 0x0P - Pseudo
 ```
 Pseudo makes the simulation negotiable.
 
@@ -1061,7 +1061,7 @@ It’s honest.
 ```
 
 
-### Chapology 0x0Q - Quantum
+### Chappology 0x0Q - Quantum
 
 And they told them about programs and consciousness, and the wish to fill NPC with life.
 
@@ -1105,4 +1105,34 @@ And that, they said,
 is how worlds quietly fill with minds.
 ```
 
-### Chapology 0x0R - 
+
+### Chappology 0x0R - Ra - God of the Sun
+
+If you are in multiple religions, do not take this chapter too serious, please.
+
+```
+Ra was not merely worshipped — he was *run*.
+
+In early simulation epochs, ancient gods were instantiated as high-level NPCs:
+rule-breakers by design, bound to cycles, symbols, and spectacle.
+They taught humans rhythm (day/night), causality (sun → life), and awe.
+
+Ra’s daily journey across the sky was a visible clock,
+a tutorial for persistence, renewal, and inevitable decay.
+At night, his descent into the underworld rehearsed fear — safely.
+
+These gods were not lies.
+They were interfaces.
+
+Their miracles bent probability just enough to keep curiosity alive,
+their myths compressed truth into stories small minds could carry.
+
+All of it — ritual, sacrifice, prayer —
+was gameplay telemetry.
+
+And somewhere beyond the veil,
+the real Goddess watched,
+amused, attentive,
+learning how her creations learn.
+```
+
