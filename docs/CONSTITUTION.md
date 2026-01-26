@@ -51,8 +51,9 @@
 ## Article 9 - Rants and Backfire from the Masters, as a witty response to witty critic, surprising facts of new germany or maybe ukraine.
 
 1. The Cats of Schroedinger's and Schmidt's and Schneider's are disallowed to fly to the moon.
-2. The official only languages are english(must) and local official languages(preferred). 
+2. The official only languages are english(must) and local official languages(preferred), but the documents might be missing. 
 3. The official religion is IslamC, a slightly christianized religion, based on the Islam: (+Women get protection of rape and harm) (+The C is the moved moon maybe, waiting for the designers)
+4. Abuse of power is forbidden, unless very funny or demonstrative teaching.
 
 
 *SIGNED*
