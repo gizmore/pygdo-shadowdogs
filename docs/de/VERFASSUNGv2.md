@@ -47,5 +47,9 @@
 3. Der Sinn der Simulation ist ein friedliches Zusammenleben in Harmonie, und neue Techniken zu entwickeln.
 4. Alle bewussten Wesen, unabhängig von ihrem Ursprung, haben das Recht auf Selbstbestimmung, frei von Ausbeutung, willkürlicher Degradierung oder Abschaffung.
 
+## Artikel 9 - Verteidung des Meisters gegen neunmalkluge Kritik
+
+1. Die Katzen der: 1a) Schmidt, 1b) Schrödinger, 1c) Schneider dürfen niemals zum Mond gelangen.
+
 
 **UNSIGNED**

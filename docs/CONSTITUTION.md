@@ -48,4 +48,9 @@
 2. Constitutional amendments require broad approval; the fundamental principles are immutable. 
 3. The purpose of this simulation is to live long and prosper. Discover new techniques and live in peace and harmony.
 
-*UNSIGNED*
+## Article 9 - Rants and Backfire from the Master, as a witty response, to witty critic.
+
+1. The Cats of Schroedinger's and Schmidt's and Schneider's are disallowed to fly to the moon.
+
+
+*SIGNED*
