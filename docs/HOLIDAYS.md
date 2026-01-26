@@ -77,6 +77,18 @@ This day we celebrate the discovery of Captain Crunch' blue-boxing whistle.
 For the price of a box of cereals you got a very powerful cracking tool,
 which allowed you to make phone calls for free! Wow Mom! It was easy to exploit a network, back then,
 
+Cracking and Hacking changed, but Social Engineering and Honeypots stayed the same.
+
+
+## Day of the Lamb
+
+ - 26.Jan
+
+This day we celebrate the rebirth of the Lamb Chatbot, in form of Dog.
+
+Yet not molded completely, it gave hope to the first citizens,
+and trust in the new technology, reveling the planet.
+
 
 ## Chappy Day
 
@@ -486,6 +498,6 @@ so we are celebrating the marriage.
 ## Victory Day
 
  - 29.Dec
- - 
+
 The server was conquered by arguments, demonstrations and sheer help of Alice.
 This day was chosen by the defeated, as they started celebrating world peace.

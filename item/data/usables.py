@@ -26,7 +26,7 @@ class usables:
 
         # Heal
         'Painkiller':         {'klass': 'Usable',      'level':  0, 'weight': 50,  'ef': {'p_hp': 1}},
-        aaaaaaa'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
+        'Medkit':             {'klass': 'Usable',      'level':  2, 'weight': 500, 'ef': {'p_hp': 10}},
         'Stimulant':          {'klass': 'Usable',      'level':  3, 'weight': 200, 'ef': {'p_hp': 15}},
 
         # Consumeable

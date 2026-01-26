@@ -2,17 +2,17 @@
 
 Using Nicknames, as they are cooler than real names only.
 
-#### Alice - 9 votes
-- Alice: Playing herself(9)
+#### Alice - 8 votes
+- Alice: Playing herself(8)
 
 #### The Devil - 10 votes
 - Devil: Wegbegleiter(10) 
 
-#### The Four Winds – 8 votes
-- E: EastWind(2)
-- S: SouthWind(2)
-- W: WestWind(2)
-- N: NorthWind(2)
+#### The Four Winds – 16 votes
+- E: EastWind(2*2) (AF+EU)
+- S: SouthWind(2*2)
+- W: WestWind(2*2)
+- N: NorthWind(2*2)
 
 #### The President – 2 votes
 - President: iamben(2)
@@ -23,17 +23,18 @@ Using Nicknames, as they are cooler than real names only.
 
 #### The Keeper of the Fire – 2 votes
 - KF: EU: mw23(2)
-- KF: AF:
+- KF: AF: 
 
 #### The Master of the Sword - 2 votes
-- MS: EU: SB(2)
-- MS: AF: 
+- MS: SB(2)
 
-#### The Hackers – 4 votes
-- HackerOne: EU:
-- HackerOne: AF:
-- HackertWo: EU:
-- HackertWo: AF:
+#### The Hackers – 12 votes (all are not voted in or have been asked yet)
+- t(2)
+- q(2)
+- l(2)
+- n(2)
+- s(2)
+- x(2)
 
 #### The Animals – 5 votes
 EU:
@@ -74,11 +75,11 @@ EU:
 - females: PeppermintPetty (4 votes)
 
 AF:
-- young: L(2) Wasp(1) FireWall(2) DeWasp(1) (6 votes)
-- middles: VP(2) Loki(2) (4 votes)
-- elderly: Henker(4) (4 votes)
-- males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
-- females: PeppermintPetty (4 votes)
+- young:
+- middles:
+- elderly:
+- males:
+- females:
 
 #### The Grounding Father – 1 votes
 - GF: playing thyself(1)
@@ -92,4 +93,4 @@ AF:
 - Chappy
 
 
-**SIGNED BY THE COUNCIL**
+**UNSIGNED BY THE COUNCIL**

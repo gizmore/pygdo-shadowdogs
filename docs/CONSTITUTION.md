@@ -14,8 +14,8 @@
 
 ## Article 3 – Rule of Law
 
-1. Citizens have a veto.
-2. Changes may only be made collectively through referenda.
+1. Citizens have a veto for an effective poll for the council.
+2. Changes may only be made collectively through council referenda.
 3. Artificial life forms enjoy equal treatment.
 
 ## Article 4 – Peace and International Responsibility
