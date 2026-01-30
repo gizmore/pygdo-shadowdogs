@@ -94,7 +94,7 @@ class module_shadowdogs(GDO_Module):
         if Application.IS_DOG or Application.IS_TEST:
             Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_TICK, self.shadow_timer, 1000000000)
             Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_HP_SLEEP, self.shadow_hp_timer, 1000000000)
-            Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
+            # Application.EVENTS.add_timer(Shadowdogs.SECONDS_PER_FOODING, self.shadow_food_timer, 1000000000)
         Application.EVENTS.subscribe('new_message', self.sd_alias)
         Application.EVENTS.subscribe('clear_cache', self.on_clear_cache)
 
