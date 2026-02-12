@@ -33,6 +33,8 @@ class Shadowdogs:
 
     RUNNING_LEVEL: int = 5
 
+    EXTRA_HP_PLAYERS = 4
+
     XP_PER_KARMA = 9
     XP_PER_KARMA_PER_LEVEL = 1
     XP_PER_KARMA_POW = 1.41
@@ -95,7 +97,7 @@ class Shadowdogs:
 
     MAX_DISTANCE = 24
 
-    GOTO_SECONDS_POW = 2.4
+    GOTO_SECONDS_POW = 2.22
     GOTO_DIVISOR_PER_PLACE = 1
 
     NPC_ENCOUNTER_CHANCE = 100

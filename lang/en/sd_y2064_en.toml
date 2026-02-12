@@ -103,4 +103,16 @@ y2064_peine_obi = "Obi"
 y2064_peine_obi_inside = "You enter the Obi DIY store."
 y2064_peine_obi_outside = "You found the Obi DIY store. You expect tools and building material."
 
+##########
+# Alfred #
+##########
+y2064_peine_alfred = "Alfred"
+y2064_peine_alfred_inside = "You see the reception and a **Nurse**."
+y2064_peine_alfred_outside = "You find the home of a friend of your's; Alfred."
 
+##########
+# Trains #
+##########
+y2064_peine_trainstation = "TrainStation"
+y2064_peine_trainstation_inside = "You enter the rails."
+y2064_peine_trainstation_outside = "You found the train station."

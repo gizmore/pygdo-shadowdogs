@@ -1,11 +1,15 @@
 from gdo.core.GDT_Enum import GDT_Enum
 from typing import TYPE_CHECKING, Iterator, Tuple
 
+from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+
 if TYPE_CHECKING:
     from gdo.shadowdogs.SD_Player import SD_Player
 
 
 class GDT_Race(GDT_Enum):
+
+    ADD_HP = Shadowdogs.EXTRA_HP_PLAYERS
 
     BASE: dict[str, dict[str, int]] = {
         'mob': {},
@@ -28,13 +32,13 @@ class GDT_Race(GDT_Enum):
         'drone': {},
         'dragon': {},
 
-        'elve':     {'p_dex': 1, 'p_int': 2, 'p_wis': 1, 'p_max_hp': 1, 'p_max_mp': 5, 'p_min_dmg': 0, 'p_max_dmg': 0},
-        'halfelve': {'p_dex': 1, 'p_int': 1, 'p_cha': 1, 'p_mag': 1, 'p_max_hp': 1, 'p_max_mp': 2, 'p_min_dmg': 0, 'p_max_dmg': 1},
-        'human':    {'p_dex': 1, 'p_wis': 1, 'p_cha': 1, 'p_luc': 1, 'p_max_hp': 2, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
-        'dwarf':    {'p_str': 2, 'p_bod': 1, 'p_wis': 1, 'p_max_hp': 2, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
-        'halforc':  {'p_str': 2, 'p_bod': 1, 'p_luc': 1, 'p_max_hp': 3, 'p_max_mp': 0, 'p_min_dmg': 1, 'p_max_dmg': 1},
-        'orc':      {'p_str': 3, 'p_bod': 1, 'p_max_hp': 3, 'p_max_mp': 0, 'p_min_dmg': 1, 'p_max_dmg': 2},
-        'troll':    {'p_str': 3, 'p_bod': 1, 'p_max_hp': 4, 'p_max_mp': 0, 'p_min_dmg': 2, 'p_max_dmg': 3},
+        'elve':     {'p_dex': 1, 'p_int': 2, 'p_wis': 1, 'p_max_hp': 2+ADD_HP, 'p_max_mp': 5, 'p_min_dmg': 0, 'p_max_dmg': 0},
+        'halfelve': {'p_dex': 1, 'p_int': 1, 'p_cha': 1, 'p_mag': 1, 'p_max_hp': 3+ADD_HP, 'p_max_mp': 2, 'p_min_dmg': 0, 'p_max_dmg': 1},
+        'human':    {'p_dex': 1, 'p_wis': 1, 'p_cha': 1, 'p_luc': 1, 'p_max_hp': 4+ADD_HP, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
+        'dwarf':    {'p_str': 2, 'p_bod': 1, 'p_wis': 1, 'p_max_hp': 5+ADD_HP, 'p_max_mp': 1, 'p_min_dmg': 0, 'p_max_dmg': 1},
+        'halforc':  {'p_str': 2, 'p_bod': 1, 'p_luc': 1, 'p_max_hp': 6+ADD_HP, 'p_max_mp': 0, 'p_min_dmg': 1, 'p_max_dmg': 1},
+        'orc':      {'p_str': 3, 'p_bod': 1, 'p_max_hp': 8+ADD_HP, 'p_max_mp': 0, 'p_min_dmg': 1, 'p_max_dmg': 2},
+        'troll':    {'p_str': 3, 'p_bod': 1, 'p_max_hp': 10+ADD_HP, 'p_max_mp': 0, 'p_min_dmg': 2, 'p_max_dmg': 3},
     }
 
     GENDER: dict[str,dict[str,int]] = {

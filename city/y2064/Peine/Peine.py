@@ -66,23 +66,23 @@ class Peine(City):
     ]
 
     NPCS: list[tuple[str, int]] = [
-        ('lamer', 550),
+        ('lamer', 450),
         ('haider', 350),
         ('noob', 250),
         ('gangster', 250),
     ]
 
     def sd_square_km(self) -> int:
-        return 40
+        return 19
 
     def sd_npc_none_chance(self, party: 'SD_Party') -> int:
-        return 50000
+        return 100_000
 
     def sd_npc_explore_level_gap(self, party: 'SD_Party') -> int:
         return 0
 
     async def sd_on_explore(self, party: 'SD_Party'):
         for member in party.members:
-            if Random.mrand(0, 1000) < 1:
+            if Random.mrand(0, 10000) < 1:
                 await self.give_new_items(member, 'Bottle', 'explore', self.render_name())
         return self

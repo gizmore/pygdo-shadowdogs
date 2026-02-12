@@ -179,6 +179,7 @@ class WithShadowFunc(WithPlayerGDO):
             items.append(item)
         if items:
             await self.give_items(player, items, announce_action, announce_source)
+        return items
 
     async def give_items(self, player: 'SD_Player', items: 'list[Item]', announce_action: str=None, announce_source: str=None):
         for item in items:
@@ -186,11 +187,13 @@ class WithShadowFunc(WithPlayerGDO):
         if announce_action:
             item_names = ', '.join([item.render_name() for item in items])
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item_names, announce_source))
+        return items
 
     async def give_item(self, player: 'SD_Player', item: 'Item', announce_action: str=None, announce_source: str=None):
         await player.on_give(item)
         if announce_action:
             await self.send_to_party(player.get_party(), f'sd_receive_item_{announce_action}', (item.render_name(), announce_source))
+        return item
 
     ######
     # XP #

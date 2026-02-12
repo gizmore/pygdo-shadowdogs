@@ -13,4 +13,4 @@ class FilledBottle(Consumable, Bottle):
 
     async def on_use(self, target: 'SD_Player|Obstacle|None'):
         await super().on_use(target)
-        Factory.create_item('Bottle', 1, None, self.get_owner().get_id())
+        await self.give_new_items(self.get_player(), 'Bottle')
