@@ -60,11 +60,11 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_init(self):
         Loader.init_npc_classes()
-        # if not Application.IS_HTTP and self.is_persisted():
-        items.load()
-        Loader.cleanup()
-        Loader.load_npcs()
-        Loader.load_parties()
+        if not Application.IS_HTTP and self.is_persisted():
+            items.load()
+            Loader.cleanup()
+            Loader.load_npcs()
+            Loader.load_parties()
 
     def gdo_init_sidebar(self, page: 'GDT_Page'):
         page._right_bar.add_field(GDT_Link().href(href('shadowdogs', 'shadowdogs')).text('module_shadowdogs'))
