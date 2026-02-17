@@ -502,6 +502,7 @@ class SD_Player(WithShadowFunc, GDO):
         return self
 
     def apply(self, name: str, inc: int) -> Self:
+        if inc is None: inc = 0
         if name == "p_hp":
             self.give_hp(inc)
         elif name == "p_mp":
