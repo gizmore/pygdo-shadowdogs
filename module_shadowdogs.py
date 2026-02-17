@@ -26,6 +26,7 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.items import items
 from gdo.ui.GDT_Link import GDT_Link
 from gdo.ui.GDT_Page import GDT_Page
+from gdo.base.GDO import GDO
 
 
 class module_shadowdogs(GDO_Module):
@@ -37,7 +38,7 @@ class module_shadowdogs(GDO_Module):
         return [
         ]
 
-    def gdo_classes(self):
+    def gdo_classes(self) -> list[type[GDO]]:
         return [
             SD_Location,
             SD_Player,
