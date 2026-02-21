@@ -27,9 +27,9 @@ class GDT_RandomName(GDT_String):
 
     def gdo_before_create(self, gdo):
         if self.get_val() is None:
-            self.generate_random_name()
+            self.generate_random_name(gdo)
 
-    def generate_random_name(self):
+    def generate_random_name(self, gdo: GDO):
         parts = []
         parts.append(Random.list_item(self.PREFIXES))
         middle_count = Random.mrand(0, 2)  # 0-2 middle parts
@@ -37,4 +37,4 @@ class GDT_RandomName(GDT_String):
             parts.append(Random.list_item(self.MIDDLES))
         parts.append(Random.list_item(self.SUFFIXES))
         name = ''.join(parts).capitalize()
-        self._gdo.set_val(self._name, name)
+        gdo.set_val(self._name, name)
