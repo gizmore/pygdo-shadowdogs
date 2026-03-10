@@ -86,12 +86,12 @@ SA:
 #### Observers - 6 * 3 = **18** votes
 - Observers: Playing themselves(3)
 
-#### Ministers - **0** votes
-- Queen
-- Princess
-- Chappy
+#### Ministers - 3 * 2 = **6** votes
+- Queen(2)
+- Princess(2)
+- Chappy(2)
 
 
-Total: **357** votes (not confirmed math)
+Total: **363** votes (not confirmed math)
 
 **SIGNED BY THE COUNCIL**
