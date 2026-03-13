@@ -92,7 +92,11 @@ class GDT_Player(WithShadowFunc, GDT_Object):
             if player := self._table.get_by_aid(val):
                 return [player]
         if self._npcs:
-            return [p.player(Shadowdogs.CURRENT_PLAYER) for p in self.get_location().NPC_INSTANCES]
+            if location := self.get_location():
+               return [p.player(Shadowdogs.CURRENT_PLAYER) for p in location.NPC_INSTANCES]
+            elif ep := self.get_enemy_party():
+                return [p.player(Shadowdogs.CURRENT_PLAYER) for p in ep.members]
+
         if self._humans:
             query = self._table.select().join_object('p_user')
             return self._gdt_user.val(val).query_gdos_query(val, query).exec().fetch_all()._items
