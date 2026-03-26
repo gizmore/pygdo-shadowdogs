@@ -18,7 +18,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - Alice: Playing herself(8)
 
 #### The Devil - **38** votes
-- Devil: Wegbegleiter(38) 
+- Devil: Wegbegleiter(20)+DL(18) 
 
 #### (C) The Four Winds – 6 * 8 = **48** votes
 - E: EastWind(6*2)

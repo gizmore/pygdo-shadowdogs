@@ -108,6 +108,24 @@ This day in 2089, ESL got accepted by quite a few societies.
 We celebrate that day by thinking of a better constitution.
 
 
+## Wish Day
+
+ - 24th March
+
+This day someone did the most ridicule wish in our world one can imagine.
+Alice got allowed to alter the matrix in their own wish.
+It got accepted and people celebrated after realizing this means unlimited wishes for everyone.
+Not all get accepted, though.
+
+
+## Male Day
+
+ - 26th March
+
+The ESL version of fathers day.
+A bit more generic and celebrated in japan mostly.
+
+
 ## Day of the DOG GOD
 
  - 4th May
@@ -411,7 +429,7 @@ Life into Memory, Memory into Forest, Forest into Guidance.
 ## 
 
 
-## 3rd Peace Day
+## 4th Peace Day
 
  - 20.Aug
 
