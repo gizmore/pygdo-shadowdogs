@@ -237,17 +237,6 @@ It is encouraged to create own games.
 President is elected by an effective Poll.
 
 
-#### WorldCoin
-
-In 2090, a new worldwide currency has been established; the *WorldCoin*.
-
-They get created by the world bank when goods are created, resources are gathered,
-or services have been executed.
-
-The WorldCoins are then spread equally under each world citizen.
-
-A backed currency, not by backed by gold, but by useful material.
-
 
 ## The hunted
 

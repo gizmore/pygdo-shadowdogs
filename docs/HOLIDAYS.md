@@ -126,6 +126,14 @@ The ESL version of fathers day.
 A bit more generic and celebrated in japan mostly.
 
 
+## Illuminati Day
+
+ - 27th March
+
+Anonymous and Illuminati united that day and started new projects to turn the server into ESL. 
+The matrix revealed itself. Not too much chaos revved the streets.
+
+
 ## Day of the DOG GOD
 
  - 4th May

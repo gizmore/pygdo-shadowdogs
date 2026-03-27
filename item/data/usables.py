@@ -23,6 +23,7 @@ class usables:
         'OldSpeaker':         {'klass': 'WalkieTalkie', 'weight': 520},
         'Wires':              {'klass': 'WalkieTalkie', 'weight': 120},
         'Battery':            {'klass': 'WalkieTalkie', 'weight': 180},
+        'Wheel':              {'klass': 'Item',         'weight': 23337, 'price': 100},
 
         # Heal
         'Painkiller':         {'klass': 'Usable',      'level':  0, 'weight': 50,  'ef': {'p_hp': 1}},
@@ -53,5 +54,4 @@ class usables:
         'NoteGizmore':        {'klass': 'Note',        'key': 'sd_note_gizmore'},
         'TheosPurse':         {'klass': 'TheosPurse',  'key': 'sd_theo_purse'},
         'Intolerance':        {'klass': 'Intolerance',},
-
     }
