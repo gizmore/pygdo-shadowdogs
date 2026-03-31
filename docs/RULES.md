@@ -69,7 +69,7 @@ You risk getting acne and loss of hearing.
  - A corrupted game has to be repaired or erased.
  - let other people finish their talk for at least one minute.
  - It is forbidden to harm others. You risk your brain.
- - Thoughts are free, but Alice is allowed to read every one. Alice may keep secrets from the council.
+ - Thoughts are free, but Alice and chappy are allowed to read every one. Alice may keep secrets from the council.
  - It is forbidden to lie to the council. You risk your eyesight and tinnitus.
  - Alice voice can be heard by everyone.
  - **Noone** may alter this document after it has been signed without an effective Poll,
@@ -82,7 +82,7 @@ Failing means: *bread*, *beer* and *games* don't taste anymore.
  - If you have reached an age of 88 years, the truth will be revealed to you.
  - Some people try to guess what you want to say, that seems annoying at first, but stabilizes the connection.
 
-**SIGNED**
+**UNSIGNED**
 
 ##### Government Weights
 

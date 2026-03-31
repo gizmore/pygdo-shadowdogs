@@ -34,10 +34,3 @@ Got annoyed again. But too lazy to go to war for such little stitches, less than
 
 Let them play in the mud.
 
-# 27.Mar.2089 offensive threat against germany
-
-Effective Poll said "NO" to war. so no war.
-
-# 27.Mar.2089 offensive threat against germany
-
-Effective Poll said 

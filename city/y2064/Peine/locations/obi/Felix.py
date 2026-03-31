@@ -3,5 +3,16 @@ from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 
 class Felix(TalkingNPC):
-    def on_say(self, player: SD_Player, text: str):
-        pass
+
+    async def on_say(self, player: SD_Player, text: str):
+        if text == 'hello':
+            await self.say('sdqs_felix_hello')
+        elif text == 'home':
+            await self.say('sdqs_felix_home')
+        elif text == 'quest':
+            await self.say('sdqs_felix_quest')
+        elif text == 'yes':
+            await self.say('sdqs_felix_yes')
+        elif text == 'no':
+            await self.say('sdqs_felix_no')
+

@@ -96,7 +96,7 @@ class Factory(WithShadowFunc):
                     v = Random.mrand(v[0], v[1])
                 player.sb(k, v)
         for item_name in spec.get('eq', []):
-            item = Factory.create_item_gmi(item_name, player, True)
+            item = Factory.create_item_gmi(item_name, player, True).insert()
             player.set_val(item.get_slot(), item.get_id())
         return player.modify_all().heal_full().save()
 

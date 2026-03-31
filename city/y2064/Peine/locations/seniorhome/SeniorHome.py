@@ -2,24 +2,20 @@ from gdo.date.Time import Time
 from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.Nurse import Nurse
 from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.CivilService import CivilService
-from gdo.shadowdogs.locations.Location import Location
 
 from typing import TYPE_CHECKING
+
+from gdo.shadowdogs.locations.WorkingPlace import WorkingPlace
 
 if TYPE_CHECKING:
     from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 
-class SeniorHome(Location):
+class SeniorHome(WorkingPlace):
 
     NPCS: list['type[TalkingNPC]'] = [
         Nurse,
     ]
-
-    def sd_methods(self) -> list[str]:
-        return [
-            'sdwork',
-        ]
 
     async def on_entered(self):
         for player in self.get_party().members:

@@ -1,11 +1,11 @@
 from gdo.shadowdogs.SD_Player import SD_Player
-from gdo.shadowdogs.city.y2064.Peine.locations.car_repair.Tired import Tired
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 
 class Peter(TalkingNPC):
 
     def sd_quest(self) -> 'type[SD_Quest]|None':
+        from gdo.shadowdogs.city.y2064.Peine.locations.car_repair.Tired import Tired
         return Tired
 
     async def on_say(self, player: SD_Player, text: str):
