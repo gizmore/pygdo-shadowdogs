@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 from gdo.base.Application import Application
 from gdo.base.GDT import GDT
 from gdo.base.ModuleLoader import ModuleLoader
+from gdo.base.ParseArgs import ParseArgs
 from gdo.base.Render import Render
 from gdo.base.Util import Strings, gdo_print
 from gdo.shadowdogs.WithPlayerGDO import WithPlayerGDO
@@ -116,9 +117,14 @@ class WithShadowFunc(WithPlayerGDO):
     def get_method(self, name: str) -> 'MethodSD':
         return ModuleLoader.instance()._methods.get(name)
 
-    def execute_sd_method(self, line: str) -> GDT:
-        pass
-        
+    async def execute_sd_method(self, line: str) -> GDT:
+        parser = ParseArgs()
+        parser.add_cli_line([line])
+        method = parser.get_method()
+        method.args(parser)
+        method.env_copy(self)
+        return await method.execute()
+
 
     ############
     # Messages #

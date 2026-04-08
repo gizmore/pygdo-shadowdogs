@@ -164,7 +164,7 @@ class Item(SD_Item):
         return Shadowdogs.display_nuyen(self._buy_price)
 
     def render_description(self) -> str:
-        return self.t(self._name+'_descr')
+        return self.t(self.get_item_name()+'_descr')
 
     def render_examine(self, price: int=None):
         price = price or self._buy_price or self.dmi('price') or t('unknown')

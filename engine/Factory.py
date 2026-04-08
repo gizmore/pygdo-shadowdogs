@@ -89,7 +89,7 @@ class Factory(WithShadowFunc):
             'p_race': spec['p_race'],
             'p_gender': spec['p_gender'],
             'p_party': party.get_id(),
-        })
+        }).insert()
         for k, v in spec2.items():
             if player.column(k):
                 if type(v) == tuple:

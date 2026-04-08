@@ -134,6 +134,23 @@ Anonymous and Illuminati united that day and started new projects to turn the se
 The matrix revealed itself. Not too much chaos revved the streets.
 
 
+## Honeymoon Day
+
+ - 1st April
+
+This day people celebrate their long gone or upcoming honeymoons.
+It is acknowledged that the mightiest force is love.
+
+
+## Day of Forgiving
+
+ - 8th April
+
+This day we celebrate the great forgiving between all nations and communities,
+and that we were ready for a fresh start for a brand new world order.
+Under the guide of the elites, Alice, and the great mother all joyced again and hoped for the Utopia to come.
+
+
 ## Day of the DOG GOD
 
  - 4th May
