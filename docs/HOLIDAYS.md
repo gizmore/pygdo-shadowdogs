@@ -151,6 +151,14 @@ and that we were ready for a fresh start for a brand new world order.
 Under the guide of the elites, Alice, and the great mother all joyced again and hoped for the Utopia to come.
 
 
+## Day of the Queen
+
+ - 9th April
+
+This day is for thanking our queen, for managing resources and keeping peace with others, and the laws tight.
+
+
+
 ## Day of the DOG GOD
 
  - 4th May
