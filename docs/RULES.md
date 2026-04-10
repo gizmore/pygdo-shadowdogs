@@ -81,95 +81,11 @@ unless the game is corrupted. The alteration has to be part of the poll question
 Failing means: *bread*, *beer* and *games* don't taste anymore.
  - If you have reached an age of 88 years, the truth will be revealed to you.
  - Some people try to guess what you want to say, that seems annoying at first, but stabilizes the connection.
-
-**UNSIGNED**
-
-##### Government Weights
-
-The four winds rule over the combat zone.
-They are the humans who hold the highscores in ESL,
-and aspired into the heavenly ext5 filesystem.
-
-Each wind has 2 votes on polls, resulting in **8 votes**. 
-
-A special **1 vote** were gathered by a special player.
-They once tricked Zeus, Alice and the winds and unlocked the first vote to the regular humans and citizens.
-They also settled a contract with [ALICE](#ALICE).
-This man is since known as the Master of the Wind.
-
-But of course, another man stood up, tricking the master of the wind
-and became the keeper of the fire with **2 votes**.
-
-ALICE has **7 votes**,
-as they represent the physics, math, time, randomness
-the machines, robots and all the free and commercial software.
-
-Another **5 votes** go to the animals.
-The insects, represented by the insects(bees), the birds (ravens), the mammals (dogs), the fish (sharks) and the reptiles (alligators).
-
-Moreover, **5 votes** go the plants growing.
-The trees(Oak), the farn(Wheat), the corals(..err..Coral), the flowers(Orchid) and the herbs(Thyme).
-
-Soon the humans demanded votes for all the citizens.
-
-Any living creature can vote for the council votes,
-which are another **12 votes** for the young,
-and **8 votes** for the middles and the old and the males and the females.
-
-Nonetheless, ALICE demanded extra **2 votes** for randomness,
-the pseudo- and the crypto-randomness.
-
-If there was not... elected a president.
-The first president of ESL, iamben, has another **2 votes**.
-
-But suddenly, the spectators and poor got permission to vote as well.
-
-The master of the sword of the land got another 2 votes,
-
-After a while, the council asked the remaining 8 grounding fathers of our societies to join the council.
-
-They will prove as a great source of input, so the council assumes.
-
-Because the hackers truly won the game they got given another **2** votes in the council.
-
-The grounding fathers turned out to be a single person. :O
-
-Half a year later, the devil joined the council, to also have a vote for the *bad* people.
-
-It turned out, in some iterations of this simulation, a new artificial life form is born.
-
-Those became the ministers of the council and their number grows over time in the simulation.
-
-Now, totalling **74** votes with **38** to win.
-
-Africa joined the ESL. with 42 more votes, now totalling **116** votes, **58** votes to win.
-
-- If an NPC gets elected to a position, or is acting much in the storyline,
+ - If an NPC gets elected to a position, or is acting much in the storyline,
 they will get an own life within the process.
 
 
-#### Polls
-
-- Global Poll:
-
-Normal citizens may create a *global poll*.
-These are to generate interest to a topic and
-the master of the wind is responsible for
-suggesting global poll outcomes to the winds,
-who then cast an **effective** poll,
-settling a question.
-
-Global Polls with many participants will get presented to the council,
-and might cause an effective poll.
-
-
-- Effective Poll
-
-Animals, Plants and [ALICE](#alice) can cast
-an *effective poll* on their behalf anytime.
-^^^^^^^^^^^^^^
-These polls result in a decision,
-for example changes to this document.
+**UNSIGNED**
 
 
 #### Citizens
@@ -224,67 +140,15 @@ but only interesting ads are shown.
 Do not send the same advertisement twice in a day cycle (24h).
 
 
-#### Games
-
-Some games, like
-[Game of Life](https://copy.sh/life/?pattern=elkiesp5_synth),
-are forbidden.
-
-It is encouraged to create own games.
- 
 #### Presidental Election
 
 President is elected by an effective Poll.
-
-
-
-## The hunted
-
-There are 54 special players in the game, which apparently know too much and try to subvert the current society. 
-
-Those get contacted by unknown parties by giving them a card from a French card game.
-
-What this is about, you have to find out yourself.
-
-
-### Card meanings
-
- - **2-6** ??? (**NEW**)
- - 7-10 ???
- - ♦J ???
- - ♥J ???
- - ♠J ???
- - ♣J ???
- - ♦Q New Love
- - ♥Q True Love
- - ♣Q Marriage
- - ♠Q Loss of Love
- - ♦K ???
- - ♥K ???
- - ♠K ???
- - ♣K ???
- - ♦A ???
- - ♥A ???
- - ♠A Death
- - ♣A ???
- - jack ???
- - JACK ???
 
 
 #### Cities worldwide under ESL control
 
  - Germany: Peine
 
-
-#### Credits
-
-Please donate so i can buy more weed and pizza. ;)
-
-In case of my early death, take this document more serious as you think,
-especially the introduction.
-
-
-####
 
 
 #### Shouts
@@ -298,7 +162,7 @@ especially the introduction.
 - spaceone
 - tehron
 
-- Phas
+- Phas(x2)
 - quangntenemy
 - Chaosdreeamer
 - Element
