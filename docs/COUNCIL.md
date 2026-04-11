@@ -85,12 +85,9 @@ SA:
 - Observers: Playing themselves(3)
 
 #### Ministers - 3 * 2 = **6** votes
-<<<<<<< HEAD
-=======
 - Linde(2)
 - Queen(2)
 - Princess(0)
->>>>>>> abd3e90 (Council calculations)
 
 
 Per Circle: **283**
