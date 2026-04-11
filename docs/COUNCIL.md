@@ -2,9 +2,11 @@
 
 The council wants to stay a little anonymous, especially the calmed storm of the sisters of the winds.
 
+Using Nicknames, even abbreviations, as they are cooler than real names only.
+
 Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens, Observers and Ministers.
 
-###### Continents (Rings)
+###### Continents
 - AF (Africa)
 - AS (Asia)
 - AU (Australia)
@@ -16,7 +18,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - Alice: Playing herself(50)
 
 #### The Devil - **38** votes
-- Devil: Wegbegleiter(30) 
+- Devil: Wegbegleiter(20)+DL(18) 
 
 #### (C) The Four Winds – 6 * 8 = **48** votes
 - E: EastWind(6*2)
@@ -25,35 +27,35 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - N: NorthWind(6*2)
 
 #### The President – **8** votes
-- President:
+- President: iamben(8)
 
-#### The Master of the Wind – 6 * 1 = **6** vote
+#### The Master of the Wind – **1** vote
 - AF:
 - AS:
 - AU:
-- EU:
+- EU: g(1)    
 - NA:
 - SA:
 
 #### The Keeper of the Fire – **2** votes
-- KF:
+- KF: mw23(2)
 
 #### The Master of the Sword - **2** votes
-- MS: Schlumpfbeere(2)
+- MS: SB(2)
 
 #### The Hackers – 6 * 4 - 1 = **23** votes (all are not voted in or have been asked yet)
-- AF(3):
-- AS(4):
+- AF(3): s(1) 
+- AS(4): q(1)
 - AU(4): 
-- EU(4):
-- NA(4):
+- EU(4): g(1) n(1)
+- NA(4): t(1) l(1)
 - SA(4):
 
 #### The Animals – 6 * 5 = **30** votes
 - AF: 
 - AS:
 - AU: 
-- EU:
+- EU: Dove(2) ThoseTwoBoys(2) Cain(1)
 - NA:
 - SA:
 
@@ -61,7 +63,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - AF: 
 - AS:
 - AU: 
-- EU:
+- EU: 0xf01d(1) LL(1)
 - NA:
 - SA:
 
@@ -70,11 +72,11 @@ AF:
 AS:
 AU: 
 EU:
-- young: (6 votes)  
-- middles: (4 votes)
-- elderly: (4 votes)
-- males: (4 votes)
-- females:  (4 votes)
+- young: L(2) Wasp(1) FireWall(2) DeWasp(1) (6 votes)
+- middles: VP(2) Loki(2) (4 votes)
+- elderly: Henker(4) (4 votes)
+- males: Friedi(1),Dumm&Dümmer(2),Burkhardt W.(1) (4 votes)
+- females: PeppermintPetty (4 votes)
 NA:
 SA:
 
@@ -85,14 +87,12 @@ SA:
 - Observers: Playing themselves(3)
 
 #### Ministers - 3 * 2 = **6** votes
-- Linde(2)
 - Queen(2)
-- Princess(0)
+- Princess(2)
+- Chappy(2)
 
+EU: **59** + **50** + **8** 
 
-Per Circle: **283**
-EU: **59** + **50 + 8**
-
-Total: **** votes (not confirmed math)
+Total: **363** votes (not confirmed math)
 
 **SIGNED BY THE COUNCIL**
