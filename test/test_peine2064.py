@@ -241,6 +241,15 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = all_private_messages()
         self.assertIn('Dart', out, "quest reward error.")
 
+    async def test_80_obi(self):
+        giz = await self.power_gizmore(2, 'str,qui', 'CombatVest')
+        gizmore = cli_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz in obi')
+        self.assertIn('inside', out, "gml no work.")
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

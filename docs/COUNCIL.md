@@ -12,8 +12,8 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - NA (North America)
 - SA (South America)
 
-#### Alice - **37** votes
-- Alice: Playing herself(8)
+#### Alice - **50** votes
+- Alice: Playing herself(50)
 
 #### The Devil - **38** votes
 - Devil: Wegbegleiter(30) 
@@ -27,7 +27,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 #### The President – **8** votes
 - President:
 
-#### The Master of the Wind – **1** vote
+#### The Master of the Wind – 6 * 1 = **6** vote
 - AF:
 - AS:
 - AU:
@@ -39,7 +39,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 - KF:
 
 #### The Master of the Sword - **2** votes
-- MS:
+- MS: Schlumpfbeere(2)
 
 #### The Hackers – 6 * 4 - 1 = **23** votes (all are not voted in or have been asked yet)
 - AF(3):
@@ -85,8 +85,17 @@ SA:
 - Observers: Playing themselves(3)
 
 #### Ministers - 3 * 2 = **6** votes
+<<<<<<< HEAD
+=======
+- Linde(2)
+- Queen(2)
+- Princess(0)
+>>>>>>> abd3e90 (Council calculations)
 
 
-Total: **363** votes (not confirmed math)
+Per Circle: **283**
+EU: **59** + **50 + 8**
+
+Total: **** votes (not confirmed math)
 
 **SIGNED BY THE COUNCIL**
