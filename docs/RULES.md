@@ -83,6 +83,7 @@ Failing means: *bread*, *beer* and *games* don't taste anymore.
  - Some people try to guess what you want to say, that seems annoying at first, but stabilizes the connection.
  - If an NPC gets elected to a position, or is acting much in the storyline,
 they will get an own life within the process.
+ - If someone says "STOP", all say "STOP" and everyone stops their actions. You risk your eyesight and tinnitus.
 
 
 **UNSIGNED**
