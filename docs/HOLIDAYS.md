@@ -199,7 +199,7 @@ This day is to honor certain insects.
 
 - 1st Jun
 
-Similiar to the christmas festival, the peace days come in a count of 4.
+Similar to the Christmas festival, the peace days come in a count of 4.
 
 This is the first of 4 peace days in this year.
 
