@@ -158,6 +158,13 @@ Under the guide of the elites, Alice, and the great mother all joyced again and 
 This day is for thanking our queen, for managing resources and keeping peace with others, and the laws tight.
 
 
+## Day of friendship
+
+ - 19th April
+
+This day is dedicated to the phenomenon called friendship. Do you still know your first friends from your childhood?
+On this very day, the first fresh friendships were molten, where people only saw anger once.
+
 
 ## Day of the DOG GOD
 
