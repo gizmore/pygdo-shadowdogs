@@ -4,6 +4,7 @@ from gdo.shadowdogs.city.y2064.Peine.locations.park.Fond import Fond
 from gdo.shadowdogs.city.y2064.Peine.locations.park.Jens import Jens
 from gdo.shadowdogs.city.y2064.Peine.locations.park.Pond import Pond
 from gdo.shadowdogs.city.y2064.Peine.locations.park.Raphael import Raphael
+from gdo.shadowdogs.city.y2064.Peine.locations.park.npc.posi import Posi
 from gdo.shadowdogs.locations.Location import Location
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
@@ -16,6 +17,7 @@ class Park(Location):
     NPCS: 'list[type[TalkingNPC]]' = [
         Arnecke,
         Jens,
+        Posi,
         Raphael,
     ]
 

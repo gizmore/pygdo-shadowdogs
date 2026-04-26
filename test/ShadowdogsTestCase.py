@@ -19,8 +19,8 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
         await super().asyncSetUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
         loader = ModuleLoader.instance()
-        loader.load_modules_db(True)
         reinstall_module('shadowdogs')
+        loader.load_modules_db(True)
         await clear_cache().gdo_execute()
         WebPlug.COOKIES = {}
         Application.init_cli()

@@ -15,6 +15,9 @@ class Obstacle(Item):
             'item_count': '1',
         }
 
+    def fill_defaults(self, vals: dict|None=None, mark_blank: bool = True):
+        pass
+
     def sd_commands(self) -> list[str]:
         return [
             'sdsearch',

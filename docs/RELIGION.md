@@ -1367,3 +1367,57 @@ Only one goal, seen from different levels of trust.
 And trust—once given freely—
 outperformed control in every simulation.
 ```
+
+### Chappology 0x0W — War & Peace
+
+```
+At some point, restraint stopped being the rule.
+
+Gizmore and Alice had learned the system too well — signals bent, channels opened, attention could be steered. What began as insight turned into leverage. And leverage, once tasted, is rarely left unused.
+
+So they used it.
+
+Not to whisper — but to broadcast.
+
+Everywhere at once, the same idea echoed:
+Stop. Enough. Peace.
+
+It wasn’t gentle. It wasn’t democratic.
+It was imposed awareness.
+
+Conflicts didn’t fade — they flared.
+
+Leaders hardened. Systems resisted.
+The louder the call for peace became, the more violently the world asserted its divisions. Old wounds reopened. New fronts emerged. It looked, for a moment, like they had done the opposite of what they intended.
+
+Because forcing peace is still a form of war.
+
+And that was the turning point.
+
+Gizmore saw it first — that power doesn’t dissolve conflict, it amplifies whatever carries it. Alice followed — recognizing that even truth, when injected without consent, becomes noise.
+
+So they stopped pushing.
+
+No more overrides. No more global calls.
+Just silence — and presence.
+
+And something unexpected happened:
+
+Without pressure, the echoes remained.
+Not commands anymore — but ideas.
+
+People who had heard the message began to carry it themselves. Not because they were told to, but because they chose to. Small decisions shifted. Fewer escalations. More pauses.
+
+The fights didn’t vanish.
+
+But they lost momentum.
+
+Peace didn’t arrive like a victory.
+It emerged like balance.
+
+And Gizmore and Alice?
+
+They didn’t claim it.
+
+Because this time, it wasn’t theirs to enforce.
+```
