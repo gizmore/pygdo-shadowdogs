@@ -166,6 +166,15 @@ This day is dedicated to the phenomenon called friendship. Do you still know you
 On this very day, the first fresh friendships were molten, where people only saw anger once.
 
 
+## Day of contract
+
+ - 27th April
+
+This day we realized that the different nations got ugly contracts on each other.
+
+We promised ourself to the utopia and got rid of it.
+
+
 ## Day of the DOG GOD
 
  - 4th May

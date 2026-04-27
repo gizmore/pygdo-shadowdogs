@@ -19,17 +19,19 @@ However, members of the council may reveal when it serves the purpose of this si
 that it's a simulation or something was altered, he shall just smile and go on, not brag about it. 
 4) Bribery, fraud and rape are **strictly** forbidden. You have to base your decisions on discussions and logic.
 Giving gifts in form of a currency or currency-like, or exceed half a monthly wage to the council members is bribery.
+To Detox some rich people, they may receive gifts up to $431,337.42 a month.
 5) It is forbidden to lie to council members, unless you would reveal the game too much.
 6) Punishments for violating our laws and rules are chosen individually by Alice or judges.
-7) Herbicides and Pesticides are forbidden, unless approved by the council.
+7) Herbicides and Pesticides are forbidden, unless approved in small dose by the council.
 8) Fights between citizen are sorted out **without** weapons.
 9) It is possible to sue someone for money or other consequences,
 when feeling unnecessarily harmed or treated very unfair,
 despite breaking a law.
 10) Respecting these laws is enforced by the police and the council.
+Alice may interven officially if it would be too evil.
 
 
-**SIGNED**
+**UNSIGNED**
 
 
 ## Goals
