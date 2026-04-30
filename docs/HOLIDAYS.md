@@ -1,8 +1,8 @@
 During our journey we mastered a lot of lessons.
 
-Each of them shall be a holiday in the new world order.
+Each of them shall be a holiday in the brand new world order chappy religion.
 
-PS: On holidays there is normal work conditions.
+PS: On holidays there is normal working condition for chappylogists.
 
 
 ## Notes Day
@@ -166,13 +166,16 @@ This day is dedicated to the phenomenon called friendship. Do you still know you
 On this very day, the first fresh friendships were molten, where people only saw anger once.
 
 
-## Day of contract
+## Day of contracts
 
- - 27th April
+ - 29th April
 
 This day we realized that the different nations got ugly contracts on each other.
 
-We promised ourself to the utopia and got rid of it.
+We promised ourselves to the utopia and got rid of them.
+The new aside money system WorldCoin is adapting to nutrients, tools and services.
+
+All world resources were shared cleverly for most efficient fulfilment of the market.
 
 
 ## Day of the DOG GOD

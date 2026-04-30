@@ -10,7 +10,7 @@ from gdo.shadowdogs.item.classes.Equipment import Equipment
 from gdo.shadowdogs.locations.City import City
 from gdo.shadowdogs.method.info.world import world
 from gdo.table.module_table import module_table
-from gdotest.TestUtil import GDOTestCase, reinstall_module, WebPlug, cli_gizmore, cli_plug
+from gdotest.TestUtil import GDOTestCase, reinstall_module, WebPlug, cli_gizmore, cli_plug, install_module
 
 
 class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
@@ -19,7 +19,8 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
         await super().asyncSetUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
         loader = ModuleLoader.instance()
-        reinstall_module('shadowdogs')
+        install_module('login')
+        install_module('shadowdogs')
         loader.load_modules_db(True)
         await clear_cache().gdo_execute()
         WebPlug.COOKIES = {}

@@ -41,9 +41,9 @@ class module_shadowdogs(GDO_Module):
     def gdo_classes(self) -> list[type[GDO]]:
         return [
             SD_Location,
-            SD_Player,
-            SD_Party,
             SD_Item,
+            SD_Party,
+            SD_Player,
             SD_Spell,
             SD_Place,
             SD_Quest,
