@@ -246,6 +246,8 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         gizmore = cli_gizmore()
         out = cli_plug(gizmore, '$sdgml giz in obi')
         self.assertIn('inside', out, "gml no work.")
+        out = cli_plug(gizmore, '$sdtalk wit hello')
+        self.assertIn('work', out, "talk no work")
 
 
 

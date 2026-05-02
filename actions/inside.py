@@ -16,4 +16,5 @@ class inside(Action):
         await self.get_location().sd_on_entered()
 
     async def on_completed(self, party: 'SD_Party'):
-        await self.execute_sd_method("$sdinfo")
+        pass
+        # await self.execute_sd_method("$sdinfo")
