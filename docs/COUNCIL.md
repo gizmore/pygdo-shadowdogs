@@ -29,7 +29,7 @@ Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens
 #### The President – **8** votes
 - President: iamben(8)
 
-#### The Master of the Wind – **1** vote
+#### The Master of the Wind – 6 * 1 = **6** vote
 - AF:
 - AS:
 - AU:
