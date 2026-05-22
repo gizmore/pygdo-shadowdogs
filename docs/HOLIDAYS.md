@@ -191,6 +191,16 @@ you are the DOG GOD’s chosen.
 May conflict with day of the star wars force.
 
 
+## Day of Planning
+
+ - 22th May
+
+Due to planning issues in the early state of ESL,
+a holiday was needed.
+The Think Tank was not even used to pick a name
+and establish this wonderful day of peace and party.
+
+
 ## 180 Puls Tag
 
  - 24th May
