@@ -2,6 +2,7 @@ import unittest
 
 from gdo.base.Util import Random
 from gdo.shadowdogs.actions.Action import Action
+from gdo.shadowdogs.city.y2064.Peine.locations.obi.Plants import Plants
 from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.Hate import Hate
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug, all_private_messages, cli_gizmore
@@ -247,10 +248,18 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdgml giz in obi')
         self.assertIn('inside', out, "gml no work.")
         out = cli_plug(gizmore, '$sdtalk wit hello')
-        self.assertIn('job', out, "talk no work")
-        out = cli_plug(gizmore, '$sdtalk wit work #1')
+        self.assertIn('job', out, "talk no work #1")
+        out = cli_plug(gizmore, '$sdtalk wit work')
         self.assertIn('job', out, "talk no work #2")
-
+        out = cli_plug(gizmore, '$sdtalk wit yes')
+        self.assertIn('quest', out, "talk no work #3")
+        for i in range(Plants.WORK_TIMES):
+            out = cli_plug(gizmore, '$sdwork')
+            self.assertIn('work', out, "work no work #1")
+        out = cli_plug(gizmore, '$sdwork')
+        self.assertIn('quest', out, "work no work #2")
+        out = cli_plug(gizmore, '$sdtalk felix work')
+        self.assertIn('trolley', out, "talk no work #4")
 
 
 

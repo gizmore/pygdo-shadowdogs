@@ -179,6 +179,8 @@ sd_receive_item_gave = "You received %s from %s."
 sd_receive_item_search = "You find %s by searching %s."
 sd_receive_item_reward = "You get %s as reward from %s."
 sd_receive_item_explore = "You find %s on exploring %s."
+sd_receive_item_working = "You receive %s for working at %s."
+
 msg_killed_and_lost = "You got killed by %s and lost your %s."
 
 ################

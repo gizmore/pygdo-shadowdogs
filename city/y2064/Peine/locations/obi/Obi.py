@@ -1,3 +1,4 @@
+from gdo.message.GDT_HTML import GDT_HTML
 from gdo.shadowdogs.city.y2064.Peine.locations.obi.Felix import Felix
 from gdo.shadowdogs.city.y2064.Peine.locations.obi.GardenWitch import GardenWitch
 from gdo.shadowdogs.city.y2064.Peine.locations.obi.Plants import Plants
@@ -32,10 +33,16 @@ class Obi(Store):
     async def on_work(self):
         q = Plants.instance()
         if q.is_in_quest():
-            worked = int(q.qv_get('worked')) + 1
+            worked = int(q.qv_get('worked') or 0) + 1
             q.qv_set('worked', str(worked))
-            if worked < 8:
-                await self.send_to_player(self.get_player(), 'sdqs_plants_work')
-                await self.give_new_items(self.get_player(), '50xNuyen', 'working', self.render_name())
+            if worked < Plants.WORK_TIMES:
+                await self.get_party().do('work', None, Plants.WORK_TIME)
             else:
                 await q.accomplished()
+                await self.send_to_player(self.get_player(), 'sdqs_plants_work_done')
+        return GDT_HTML()
+
+    async def on_work_done(self):
+        await self.send_to_player(self.get_player(), 'sdqs_plants_work')
+        await self.give_new_items(self.get_player(), (str(Plants.WORK_REWARD)) + 'xNuyen', 'working', self.render_name())
+        await self.send_to_player(self.get_player(), 'sdqs_plants_work_done')

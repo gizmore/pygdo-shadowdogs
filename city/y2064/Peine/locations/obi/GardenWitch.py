@@ -10,13 +10,17 @@ class GardenWitch(TalkingNPC):
 
     async def on_say(self, player: SD_Player, text: str):
         q = self.q()
-        if text == 'hello':
+        if q.is_in_quest():
+            await self.say('sdqs_plants_in_work')
+        elif q.is_done():
+            await self.say('sdqs_plants_after_work')
+        elif text == 'hello':
             await self.say('sdqs_plants_hello')
         elif text == 'weed':
             await self.say('sdqs_plants_weed')
         elif text == 'home':
             await self.say('sdqs_plants_home')
-        elif text == 'quest':
+        elif text == 'work':
             if not self.qv_get('q'):
                 await self.say('sdqs_plants_quest')
                 self.qv_set('q', '1')
@@ -32,3 +36,6 @@ class GardenWitch(TalkingNPC):
         elif text == 'no':
             await self.say('sdqs_plants_no')
             self.qv_set('q', '')
+        else:
+            await self.say('sdqs_plants_default')
+

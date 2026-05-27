@@ -12,7 +12,7 @@ class Felix(TalkingNPC):
             await self.say('sdqs_felix_weed')
         elif text == 'home':
             await self.say('sdqs_felix_home')
-        elif text == 'quest':
+        elif text == 'work':
             if not self.qv_get('q'):
                 await self.say('sdqs_felix_quest')
                 self.qv_set('q', '1')

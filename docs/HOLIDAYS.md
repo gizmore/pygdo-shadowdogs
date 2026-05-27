@@ -191,6 +191,13 @@ you are the DOG GOD’s chosen.
 May conflict with day of the star wars force.
 
 
+## NPC Day
+
+ - 19th May
+
+This day is dedicated to our NPC. Treat them well.
+
+
 ## Day of Planning
 
  - 22th May

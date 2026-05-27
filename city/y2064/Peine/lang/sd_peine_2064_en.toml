@@ -40,6 +40,8 @@ sdqs_arnecke_yes2 = "That's the spirit."
 sdqs_arnecke_no = "Ok."
 
 # Plants
+sdqt_plants = "Plants"
+sdqd_plants = "Work at the Obi market."
 sdqs_plants_hello = "Greetings, you are looking for a job?"
 sdqs_plants_weed = "We don't sell those plants here."
 sdqs_plants_home = "I am from Stederdorf."
@@ -48,6 +50,10 @@ sdqs_plants_quest2 = "You can help with the plants. What do you say?"
 sdqs_plants_yes = "Yes?"
 sdqs_plants_yes2 = "Ok. Great. you can #work here."
 sdqs_plants_no = "Yes, No."
+sdqs_plants_default = "How can i help?"
+sdqs_plants_in_work = "Do not forget to ask Felix for work"
+sdqs_plants_work = "You work in the Obi market, place some plants and carry stuff around."
+sdqs_plants_work_done = "Can i send you my daughter to teach her math?"
 
 # Trolley
 sdqs_felix_hello = "Hi there! How is it?"
