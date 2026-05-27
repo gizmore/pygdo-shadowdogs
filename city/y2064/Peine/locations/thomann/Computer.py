@@ -15,7 +15,7 @@ class Computer(Obstacle):
             await self.on_q1(q1)
         elif q1.is_done() and not q2.is_done():
             await self.on_q2(q2)
-<
+
     async def on_q1(self, q: TBS):
         times = int(q.qv_get('times', '0')) + 1
         q.qv_set('times', str(times))

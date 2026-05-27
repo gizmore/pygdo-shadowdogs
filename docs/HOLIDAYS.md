@@ -224,6 +224,15 @@ The high society honored us with another holiday.
 This day is to honor certain insects.
 
 
+## Groundhog Day
+
+ - 27th May
+
+Stolen from the US of A, this day is celebrated every year at the same day.
+
+To remind us of various cycles.
+
+
 ## 1st Peace day
 
 - 1st Jun
