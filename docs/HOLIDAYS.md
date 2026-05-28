@@ -233,6 +233,17 @@ Stolen from the US of A, this day is celebrated every year at the same day.
 To remind us of various cycles.
 
 
+## Day of Agility
+
+ - 29th May
+
+This day remembers when the agility of software development was brought into politics via the council.
+
+Suddenly, all citizens were happy.
+
+The truth is that we needed another holiday to calm the unstable mob.
+
+
 ## 1st Peace day
 
 - 1st Jun
