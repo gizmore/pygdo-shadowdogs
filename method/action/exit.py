@@ -25,6 +25,8 @@ class exit(MethodSD):
         return self.get_location().sd_entrance_seconds()
 
     async def sd_execute(self):
+        if not self.get_location().sd_can_exit(self.get_player()):
+            return self.err('err_sd_cannot_exit')
         time = self.sd_combat_seconds()
         self.get_party().all_busy(time)
         Application.EVENTS.add_timer_async(time, partial(self.on_leave))

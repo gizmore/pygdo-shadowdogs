@@ -74,6 +74,12 @@ class Location(WithShadowFunc):
         return [
         ]
 
+    def sd_can_enter(self, player: 'SD_Player') -> bool:
+        return True
+
+    def sd_can_exit(self, player: 'SD_Player') -> bool:
+        return True
+
     def sd_entrance_seconds(self) -> int:
         return 10
 
