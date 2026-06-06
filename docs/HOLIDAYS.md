@@ -237,12 +237,24 @@ To remind us of various cycles.
 
  - 29th May
 
-This day remembers when the agility of software development was brought into politics via the council.
+This day remembers when the agility of software development
+was brought into politics via the council.
 
 Suddenly, all citizens were happy.
 
 The truth is that we needed another holiday to calm the unstable mob.
 
+
+## Day of Cold War
+
+ - 30th May
+
+On this day, men and women realized they were in a cold war
+since ages.
+Especially Muslim were pleased with this discovery.
+On the very same day, this 2nd cold war was put on hold.
+
+Tears were shed.
 
 ## 1st Peace day
 

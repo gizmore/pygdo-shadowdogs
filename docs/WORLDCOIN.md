@@ -16,7 +16,7 @@ More items are added throughout the years.
 
 Problem 1:
 
-The World Coin will be only electronical?
+The World Coin will be only electronic?
 
 In case of an electric cutout: *fill in here*?
 
