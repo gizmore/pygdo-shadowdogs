@@ -273,11 +273,13 @@ This day it is strictly forbidden to lie, like any other day.
 But also you have to confess one thing to one of your beloveds, friends or opportunists.
 
 
-## Day of Release
+## Day of Release and Coupling
 
 - 6th Jun
 
-This day we celebrate the release of the Commodore C=64
+This day we celebrate the release of the Commodore C=64,
+as well as the binding of new couples after truth
+has been acknowledged by most citizen.
 
 
 ## Day of Games
