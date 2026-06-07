@@ -298,6 +298,14 @@ This day is like Valentines day, but you actually make love.
 It is the first day in history to share a holiday with another.
 
 
+## Day of Destiny
+
+ - 7th Jun
+
+This day, birds and men discovered the real destiny of our journey through time.
+In happiness, trust raised, and some birds started to sing our song.
+
+
 ## Family Day
 
 - 12th Jun

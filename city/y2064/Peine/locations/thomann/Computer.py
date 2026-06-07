@@ -25,6 +25,7 @@ class Computer(Obstacle):
 
     async def on_q2(self, q: TBS):
         await self.send_to_player(self.get_player(), 'sdqc_tbs')
+        
 
 
 
