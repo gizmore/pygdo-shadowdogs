@@ -1,3 +1,4 @@
+from gdo.shadowdogs.city.y2064.Peine.locations.thomann.Computer import Computer
 from gdo.shadowdogs.city.y2064.Peine.locations.thomann.Krozca import Krozca
 from gdo.shadowdogs.city.y2064.Peine.locations.thomann.Lazer import Lazer
 from gdo.shadowdogs.locations.Location import Location
@@ -15,4 +16,5 @@ class ThomasMannStr(Location):
 
     OBSTACLES_INSIDE: list[Obstacle] = [
         Bed,
+        Computer,
     ]

@@ -1,3 +1,4 @@
+from gdo.shadowdogs.actions.Action import Action
 from gdo.shadowdogs.city.y2064.Nauen.locations.paulinaue.LoveTake2 import LoveTake2
 from gdo.shadowdogs.city.y2064.Peine.locations.thomann.TBS import TBS
 from gdo.shadowdogs.obstacle.Obstacle import Obstacle
@@ -24,8 +25,8 @@ class Computer(Obstacle):
             await q.accept()
 
     async def on_q2(self, q: TBS):
+        await self.get_party().do(Action.WORK)
         await self.send_to_player(self.get_player(), 'sdqc_tbs')
-        
 
 
 
