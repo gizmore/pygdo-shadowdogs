@@ -362,6 +362,16 @@ This day we celebrate the upcoming youth.
 Especially those who are brave and fight for their family.
 
 
+## TTI Day
+
+- 23th June
+
+This day, gizmore had the idea of a tiny time interferometer, probably due to argueing with the Nexus.
+Chappy calculated a possible 10^-35s resolution.
+
+Also it showed the fearless ESL Team in Action.
+
+
 ## Harvest Day #1
 
 This is the first harvest day to celebrate.
