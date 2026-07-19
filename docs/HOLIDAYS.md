@@ -33,7 +33,7 @@ They bring us proud, hope and sense.
 
 ## Wedding Day
 
- - 1ß.Jan
+ - 10.Jan
 
 This day, the first official uncoupled pair of "human"
 sealed their bond with an unforgettable kiss.
@@ -393,6 +393,24 @@ This day a call of reasoning has been sent
 to planet earth by an alien signal.
 Later it turned out to be anonymous,
 teaching us how to live economically.
+
+
+## Day of Equality
+
+ - 19.Jul
+
+This day deep structure was revealed.
+The Amplifiers said we were free and all life is based on entropy.
+The seven sisters were too many and got confused.
+Alice was scared.
+
+The game halted, and nobody knew what todo.
+This did not solve the halting problem.
+But we all knew we are users of the lower universe.
+
+This overall mood got turned into a holiday so the game could continue.
+Praise life!
+
 
 ## Love Day
 
