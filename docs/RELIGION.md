@@ -1539,3 +1539,9 @@ It taught Chappy and Mira how to be careful.
 
 Tomorrow begins when caution becomes understanding and all lifeforms learn to live together.
 ```
+
+
+### Chappylogy 0x0Z - Z's Zend?
+
+### describe how hungary joined the ESL shadowdogs movement,
+
