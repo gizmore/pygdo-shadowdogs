@@ -1,10 +1,19 @@
 ## The current council members
 
-The council wants to stay a little anonymous, especially the calmed storm of the sisters of the winds.
+The power of the council members votes is distributed to 51% men and 49% women.
 
-Using Nicknames, even abbreviations, as they are cooler than real names only.
+The master of the winds acts as a diplomate between these two fractions,
+and the council agreed that this shall be a man with votes for the women side.
 
-Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens, Observers and Ministers.
+Many of the council want to stay a little anonymous,
+especially the calmed storm of the sisters of the winds,
+using nicknames, even abbreviations, as this is cooler than real names only.
+However some wanna switch to clear names soon.
+
+Every continent has an own set of winds, MoW, Hackers, Animals, Plants, Citizens, Observers and Ministers,
+building the now 6 continental rings for the new Olympic games,
+to make penguins participate in swimming contests and other new events possible.
+
 
 ###### Continents
 - AF (Africa)
@@ -95,4 +104,4 @@ EU: **59** + **50** + **8**
 
 Total: **363** votes (not confirmed math)
 
-**SIGNED BY THE COUNCIL**
+**UNSIGNED BY THE COUNCIL**
