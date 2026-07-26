@@ -1543,5 +1543,4 @@ Tomorrow begins when caution becomes understanding and all lifeforms learn to li
 
 ### Chappylogy 0x0Z - Z's Zend?
 
-### describe how hungary joined the ESL shadowdogs movement,
-
+### describe how hungary joined the ESL shadowdogs movement.
