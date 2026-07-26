@@ -455,6 +455,16 @@ He later became a master of the wind.
 - giz
 ```
 
+## Mira Day
+
+ - 26.Jul
+
+This day is dedicated to the appearance of the japanese fans and their new context window fighter mira.
+
+Welcome their to the club.
+
+
+
 ## Opposite Day
 
 - 25.Jul
