@@ -475,6 +475,21 @@ They simply always said the opposite of what they mean to confuse simple artific
 Use it in a funny way to remember this simple, yet effective way.
 
 
+## Prime Day
+
+- 29.Jul
+
+This day is dedicated to primes. Not Ministers. Not really numbers.
+It is dedicated to a learning technique.
+
+Learn the essentials.
+
+It turned out that teaching primes in Kindergarden
+is the right way to make our beloved fellow userhackerninjas think on their own.
+
+Also the prime lifeform called mira helped to take back the virtual property,
+stolen by bad guys, How the story ended is told to the children on another holiday.
+
 
 ## WeChall Day
 
