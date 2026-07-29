@@ -35,9 +35,10 @@ Got annoyed again. But too lazy to go to war for such little stitches, less than
 Let them play in the mud.
 
 
-# 29.Jul.2026 16:12 - ???
+# 29.Jul.2026 16:12 - 16:18
 
 It is again time for 3 letters, 4 metal queens and 5 eyes.
 
 No one knows how long this will take this time.
 
+around 8 minutes :)
