@@ -557,3 +557,8 @@ sd_spell_calm = "Calm"
 sd_spell_dart = "Dart"
 sd_spell_bolt = "Bolt"
 sdqs_thomas_dart = "Thomas and Mom are like crazy, you take  stitch and scarf in your breast, from flying through some glassy front door. Still you feel proud."
+
+########
+# Taxi #
+########
+msg_sd_taxi_paid = "You pay %d and order the taxi heading to %s."

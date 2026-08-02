@@ -15,6 +15,6 @@ class ThomasMannStr(Location):
     ]
 
     OBSTACLES_INSIDE: list[Obstacle] = [
-        Bed,
-        Computer,
+        Bed('Bed'),
+        Computer('Computer'),
     ]

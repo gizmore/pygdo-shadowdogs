@@ -64,3 +64,14 @@ sdqs_felix_quest2 = "You ready?"
 sdqs_felix_yes = "Yes."
 sdqs_felix_yes2 = "Ok, then."
 sdqs_felix_no = "No"
+
+# Love
+sdqc_love1_1 = "You get recommended an internet software from a musician called Soulseek."
+sdqc_love1_2 = "One could browse other users harddrives, mostly used to share vast collections of those rather new mp3 filez."
+sdqc_love1_3 = "There is a chat too, with tons of cool people in the main chat."
+sdqc_love1_4 = "You meet a girl and instantly it felt like love."
+sdqc_love1_5 = "You switch to Yahoo Chat, which is now your your main freetime activity. You flying high on love."
+sdqc_love1_6 = "One day she vists you and you had a wonderful night and breakfast."
+sdqc_love1_7 = "After that day you had to work at Obi and man you got your head in clouds watering plastic plants."
+sdqc_love1_8 = "She told you she is married but open, and you agreed to visit her and her family."
+

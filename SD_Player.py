@@ -633,6 +633,14 @@ class SD_Player(WithShadowFunc, GDO):
             item.delete()
         return self
 
+    async def pay_nuyen(self, nuyen: int, object_title: str):
+        if self.has_nuyen(nuyen):
+            self.give_nuyen(-nuyen)
+            return True
+        else:
+            await self.send_to_player(self, 'err_sd_nuyen', (nuyen, object_title, self.get_nuyen()))
+            return False
+
     def get_bank_nuyen(self) -> int:
         return self.gb('p_bank_nuyen')
 

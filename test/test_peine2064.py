@@ -261,6 +261,16 @@ class ShadowdogsPeine2064Test(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdtalk felix work')
         self.assertIn('trolley', out, "talk no work #4")
 
+    async def test_82_love(self):
+        giz = await self.power_gizmore(2, 'str,qui', 'CombatVest')
+        gizmore = cli_gizmore()
+        out = cli_plug(gizmore, '$sdgml giz in tho')
+        self.assertIn('inside', out, "gml no work.")
+        out = cli_plug(gizmore, '$sdinfo')
+        self.assertIn('Computer', out, "info no work.")
+        out = cli_plug(gizmore, '$sduse computer')
+        self.assertIn('bright', out, "use computer no work.")
+
 
 
 if __name__ == '__main__':

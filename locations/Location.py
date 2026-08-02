@@ -63,6 +63,13 @@ class Location(WithShadowFunc):
         return GDO.EMPTY_LIST
 
 
+    @classmethod
+    def get_obstacle(cls, name: str, action: str, player: 'SD_Player') -> Obstacle|None:
+        for ob in cls.get_obstacles(action, player):
+            if ob._name == name:
+                return ob
+
+
     ############
     # Abstract #
     ############

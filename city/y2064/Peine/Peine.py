@@ -5,6 +5,7 @@ from gdo.shadowdogs.city.y2064.Peine.locations.bank.Bank import Bank
 from gdo.shadowdogs.city.y2064.Peine.locations.car_repair.CarRepairShop import CarRepairShop
 from gdo.shadowdogs.city.y2064.Peine.locations.obi.Obi import Obi
 from gdo.shadowdogs.city.y2064.Peine.locations.park.Park import Park
+from gdo.shadowdogs.city.y2064.Peine.locations.thomann.ThomasMannStr import ThomasMannStr
 from gdo.shadowdogs.city.y2064.Peine.locations.trains.TrainStation import TrainStation
 from gdo.shadowdogs.city.y2064.Peine.locations.alfred.Alfred import Alfred
 from gdo.shadowdogs.city.y2064.Peine.locations.gunzelin.GunzelinSchool import GunzelinSchool
@@ -41,6 +42,7 @@ class Peine(City):
     Park: Park = Park()
     Police: Police = Police()
     SeniorHome: SeniorHome = SeniorHome()
+    ThomasMannStr: ThomasMannStr = ThomasMannStr()
     TrainStation: TrainStation = TrainStation()
     WaffenKief: WaffenKief = WaffenKief()
     Woods: Woods = Woods()
@@ -60,6 +62,7 @@ class Peine(City):
         Park,
         Police,
         SeniorHome,
+        ThomasMannStr,
         TrainStation,
         WaffenKief,
         Woods,

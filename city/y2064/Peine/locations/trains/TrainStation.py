@@ -27,5 +27,7 @@ class TrainStation(Railways):
             targets.append((self.world().World2064.Oberg.BusStop, 10, Shadowdogs.SECONDS_PEINE_OBERG))
         if party.gmin('p_level') >= self.world().World2064.Nauen.MIN_LEVEL:
             targets.append((self.world().World2064.Nauen.TrainStation, 69, Shadowdogs.SECONDS_PEINE_NAUEN))
+        if party.gmin('p_level') >= self.world().World2064.Brunswick.MIN_LEVEL:
+            targets.append((self.world().World2064.Brunswick.Railways, 69, Shadowdogs.SECONDS_PEINE_BRUNSWICK))
         targets.append()
         return  targets

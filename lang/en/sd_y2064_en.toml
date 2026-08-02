@@ -116,3 +116,10 @@ y2064_peine_alfred_outside = "You find the home of a friend of your's; Alfred."
 y2064_peine_trainstation = "TrainStation"
 y2064_peine_trainstation_inside = "You enter the rails."
 y2064_peine_trainstation_outside = "You found the train station."
+
+# Thomann
+y2064_peine_thomasmannstr = "ThomasMannStreet"
+y2064_peine_thomasmannstr_inside = "You enter your home. Lazer is working maybe."
+y2064_peine_thomasmannstr_outside = "You find a nice little appartrment in the Thomas-Mann-Street."
+sdq_home_computer = "You work a little on your computer. Some bright-shadows.net/index2.php challenges. Some programming."
+sdqc_tbs = "You work a bit on hacking challenges and learn PHP and security."

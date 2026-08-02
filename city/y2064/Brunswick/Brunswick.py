@@ -14,6 +14,8 @@ if TYPE_CHECKING:
 
 class Brunswick(City):
 
+    MIN_LEVEL = 3
+
     Headshop: Headshop = Headshop()
     Hospital: Hospital = Hospital()
     ITSchool: ITSchool = ITSchool()

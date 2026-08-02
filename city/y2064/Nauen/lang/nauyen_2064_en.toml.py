@@ -14,3 +14,6 @@ sdqs_paulinchen_sex = "Hehe... Wanna go upstairs?"
 sdqs_paulinchen_weed = "You should not smoke this."
 sdqs_paulinchen_yes = "Alright darling."
 sdqs_paulinchen_no = "Aww maybe later,"
+
+sdqt_lovetake2 = "Love Take II"
+sdqd_lovetake2 = "Visit Paulinchen in Nauen, make love to her and spend time with her husband."

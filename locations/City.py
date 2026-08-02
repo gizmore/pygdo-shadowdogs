@@ -94,12 +94,13 @@ class City(WithShadowFunc):
     def explore_non_chance(self, party: 'SD_Party') -> int:
         return self.sd_square_km() * Shadowdogs.EXPLORE_NONE_CHANCE_PER_SQKM
 
-    def get_explore_eta(self, party: 'SD_Party') -> int:
+    def get_explore_eta(self, party: 'SD_Party|None') -> int:
         base = self.sd_square_km() * Shadowdogs.EXPLORE_ETA_PER_SQKM
-        if speed := party.get_mount_speed():
-            base -= speed * Shadowdogs.EXPLORE_ETA_BONUS_PER_SPEED
-        else:
-            base -= party.gmin('p_qui') * Shadowdogs.EXPLORE_ETA_BONUS_PER_QUICKNESS
+        if party:
+            if speed := party.get_mount_speed():
+                base -= speed * Shadowdogs.EXPLORE_ETA_BONUS_PER_SPEED
+            else:
+                base -= party.gmin('p_qui') * Shadowdogs.EXPLORE_ETA_BONUS_PER_QUICKNESS
         return int(max(Shadowdogs.EXPLORE_ETA_MIN, base))
 
     async def on_explore(self, party: 'SD_Party'):
