@@ -52,7 +52,7 @@ class WithShadowMethod(WithShadowFunc):
 
     def gdo_before_execute(self):
         player = Shadowdogs.CURRENT_PLAYER
-        if self._env_user.is_human():
+        if self._env_user.is_member():
             player = self.world().get_player_for_user(self._env_user)
             Shadowdogs.CURRENT_PLAYER = player
         self.player(player)
