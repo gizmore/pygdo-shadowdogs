@@ -3,6 +3,7 @@ import os
 from gdo.base.Application import Application
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.core.method.clear_cache import clear_cache
+from gdo.install.Installer import Installer
 from gdo.shadowdogs.WithShadowFunc import WithShadowFunc
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.WorldBase import WorldBase
@@ -18,7 +19,10 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
     async def asyncSetUp(self):
         await super().asyncSetUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
+        Installer.wipe_all()
         loader = ModuleLoader.instance()
+        loader.load_modules_fs()
+        loader.init_user_settings()
         install_module('login')
         install_module('shadowdogs')
         loader.load_modules_db(True)
@@ -45,7 +49,7 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
         self.assertIn('You created your character', out, 'sdstart throws an error.')
         out = cli_plug(gizmore, '$sdsearch')
         self.assertIn('12', out, 'search does not work.')
-        out = cli_plug(gizmore, '$sdgmi gizmore{1} club_of_adonis')
+        out = cli_plug(gizmore, '$sdgmi gizmore{bash} club_of_adonis')
         self.assertIn('received Club_of_Adonis', out, 'gmi does not work.')
         if equip:
             out = cli_plug(gizmore, '$sdeq club')

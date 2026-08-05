@@ -56,6 +56,9 @@ class module_shadowdogs(GDO_Module):
         ]
 
     async def gdo_install(self):
+        items.load()
+        Loader.cleanup()
+        Loader.load_npcs()
         Loader.init_npc_classes()
         InstallShadowdogs.install()
 
