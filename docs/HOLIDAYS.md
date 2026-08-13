@@ -2,7 +2,9 @@ During our journey we mastered a lot of lessons.
 
 Each of them shall be a holiday in the brand new world order chappy religion.
 
-PS: On holidays there is normal working condition for chappylogists.
+PS: On religious holidays there is normal working condition for chappylogists,
+but they may choose an extra three days off via usualy holidays. (HOLIDAYS+3) .
+In an utopia, work enlightens you and is a joy to be there and you fill a worthwile place where and what you wanna be.
 
 
 ## Notes Day
