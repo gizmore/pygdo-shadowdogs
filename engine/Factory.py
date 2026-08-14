@@ -2,6 +2,7 @@ import re
 
 from gdo.base.Trans import t
 from gdo.base.Util import Random
+from gdo.date.Time import Time
 from gdo.shadowdogs import SD_NPC
 from gdo.shadowdogs.GDT_ItemArg import GDT_ItemArg
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
@@ -162,6 +163,7 @@ class Factory(WithShadowFunc):
             'item_name': item_name,
             'item_mods': mods,
             'item_count': str(count if count else item.get_default_count()),
+            'item_created': Time.get_date(),
         }).validated()
 
     @classmethod
