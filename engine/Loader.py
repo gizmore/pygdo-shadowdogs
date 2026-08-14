@@ -39,9 +39,9 @@ class Loader(WithShadowFunc):
                 npc = klass.blank()
                 npc.set_val('p_npc_class', klass.fqcn())
                 npc.set_val('p_npc_name', klass.__name__)
-                npc.save()
                 party = Factory.create_party(location)
                 party.join_silent(npc)
+                npc.save()
                 player = npc
             else:
                 player.get_party().join_silent(player)

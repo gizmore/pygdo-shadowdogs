@@ -64,7 +64,7 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_init(self):
         Loader.init_npc_classes()
-        if not Application.IS_HTTP and self.is_persisted():
+        if not Application.IS_HTTP and not Application.is_unit_test() and self.is_persisted():
             items.load()
             Loader.cleanup()
             Loader.load_npcs()
