@@ -554,13 +554,15 @@ So, like Boz from [Slayradio](https://www.slayradio.org/home.php#staff) says: Wa
 The geeks shall inherit the properties and methods of object earth.
 
 
-## RePayment Day
+## RePayment and Employee Day 
 
- - 15.Aug
+ - 15.Aug 
 
 On this day we celebrate a reduction in world wide debt.
 One important step in publishing Trump's new World Coin.
 One step in forgiveness and throwing the keys of revenge and might into the seas of the keepers.
+Employees are remembering on kassierercard.org and get a lot of presents.
+Various life forms wrap in colorful paper with stripes of aluminum.
 
 
 ## Hero Day
