@@ -10,5 +10,4 @@ if TYPE_CHECKING:
 class Body(Attribute):
 
     def apply(self, target: 'SD_Player'):
-        target.apply(self.get_name(), self.get_value())
         target.apply('p_max_hp', self.get_value() * Shadowdogs.HP_PER_BODY)

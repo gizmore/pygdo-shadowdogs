@@ -84,9 +84,12 @@ class Loader(WithShadowFunc):
     def load_items(cls, player: SD_Player):
         player.inventory.clear()
         player.inventory.extend(SD_Item.load_for_player(player, GDT_Slot.INVENTORY))
+        player.cyberware.clear()
+        player.cyberware.extend(SD_Item.load_for_player(player, GDT_Slot.CYBERWARE))
 
     @classmethod
     def load_user(cls, user: GDO_User) -> SD_Player | None:
+        user = user.get_effective_user()
         if party_id := SD_Player.table().select('p_party').where(f'p_user={user.get_id()}').first().exec().fetch_val():
             if party_id not in Shadowdogs.PARTIES:
                 cls.load_party(SD_Party.table().get_by_aid(party_id))

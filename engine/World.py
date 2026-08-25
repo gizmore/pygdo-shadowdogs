@@ -28,6 +28,7 @@ class World:
 
     @classmethod
     def get_player_for_user(cls, user: GDO_User) -> 'SD_Player|None':
+        user = user.get_effective_user()
         Loader.load_user(user)
         return Shadowdogs.USERMAP.get(user.get_id())
 

@@ -487,9 +487,8 @@ class SD_Player(WithShadowFunc, GDO):
             self.column('p_race').apply(self)
             self.column('p_faction').apply(self)
         self.level_column().apply(self)
-        for slot in GDT_Slot.SLOTS:
-            if item := self.gdo_value(slot):
-                item.apply(self)
+        for item in self.all_equipment():
+            item.apply(self)
         if not self.get_equipment('p_weapon'):
             self.get_weapon().apply(self)
         for item in self.inventory:
@@ -702,4 +701,3 @@ class SD_Player(WithShadowFunc, GDO):
 
     def render_race(self):
         return self.column('p_race').render_txt()
-

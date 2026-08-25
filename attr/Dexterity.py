@@ -7,5 +7,4 @@ if TYPE_CHECKING:
 class Dexterity(Attribute):
 
     def apply(self, target: 'SD_Player'):
-        target.apply(self.get_name(), self.get_value())
         target.apply('p_attack', self.get_value())

@@ -8,11 +8,13 @@ from gdo.shadowdogs.engine.Factory import Factory
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
+from gdo.shadowdogs.engine.World import World
+from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.item.classes.weapon.Fists import Fists
 from gdo.shadowdogs.item.data.items import items
 from gdo.shadowdogs.item.data.recipe import recipe
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
-from gdotest.TestUtil import cli_plug, cli_gizmore, all_private_messages
+from gdotest.TestUtil import cli_plug, cli_gizmore, cli_user, all_private_messages
 
 
 class ShadowdogsTest(ShadowdogsTestCase):
@@ -46,6 +48,15 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('Str:', out, '$sdattr not working')
         out = cli_plug(cli_gizmore(), '$sdsk')
         self.assertIn('Trading:', out, '$sdskills not working')
+
+    async def test_02b_linked_account_loads_the_effective_player(self):
+        master = await self.fresh_gizmore()
+        slave = cli_user('ShadowdogsLinkedAccount')
+        slave.save_val('user_link', master.get_id())
+        slave.reload()
+        player = World.get_player_for_user(slave)
+        self.assertIsNotNone(player)
+        self.assertEqual(self.sd_gizmore().get_id(), player.get_id())
 
 
     async def test_03_eat(self):
@@ -343,6 +354,21 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdi')
         self.assertNotIn('Jeans', out, '$equip does not work.#3')
         self.assertIn('Shorts', out, '$equip does not work.#4')
+
+    async def test_58b_cyberware_bonus_after_reload(self):
+        await self.fresh_gizmore(False)
+        player = self.sd_gizmore()
+        Loader.load_items(player)
+        player.modify_all()
+        base_intelligence = player.g('p_int')
+        implant = self.factory().create_item_gmi('NeuralJackLite', player, False)
+        implant.save_val('item_slot', GDT_Slot.CYBERWARE)
+
+        Loader.load_items(player)
+        player.modify_all()
+
+        self.assertEqual(base_intelligence + 1, player.g('p_int'),
+                         'Equipped cyberware must apply its bonus after reload.')
 
     async def test_59_starve(self):
         gizmore = await self.fresh_gizmore()
