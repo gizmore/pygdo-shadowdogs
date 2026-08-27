@@ -1,4 +1,6 @@
 module_shadowdogs = "Shadowdogs"
+mt_shadowdogs_welcome = "Shadowdogs"
+link_shadowdogs_docs = "Read the Shadowdogs DOCS"
 
 ##########
 # Errors #
