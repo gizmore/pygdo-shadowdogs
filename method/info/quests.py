@@ -38,6 +38,8 @@ class quests(WithShadowMethod, MethodTable):
     #     return self.param_val('type')
 
     def gdo_render_title(self) -> str:
+        if not self.get_player():
+            return self.t('mt_shadowdogs_quests_no_player')
         return self.t('mt_shadowdogs_quests', (self.get_num_results(), self.param_value('city').render_name()))
 
     # def gdo_table_query(self) -> Query:
@@ -50,7 +52,8 @@ class quests(WithShadowMethod, MethodTable):
     #     return query
 
     def gdo_table_result(self) -> Result:
-        return ResultArray(self.get_player().get_quests(), self.gdo_table())
+        player = self.get_player()
+        return ResultArray(player.get_quests() if player else [], self.gdo_table())
 
 
     def render_gdo(self, gdo: GDO, mode: Mode) -> any:

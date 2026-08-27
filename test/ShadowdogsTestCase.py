@@ -31,7 +31,7 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
         Application.init_cli()
         loader.init_modules(True, True)
         loader.init_cli()
-        module_table.instance().save_config_val('table_ipp', '10')
+        await module_table.instance().save_config_val('table_ipp', '10')
 
     def sd_gizmore(self):
         gizmore = cli_gizmore()

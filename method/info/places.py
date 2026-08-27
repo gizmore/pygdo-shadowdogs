@@ -33,6 +33,8 @@ class places(WithShadowMethod, MethodQueryTable):
         ]
 
     def gdo_render_title(self) -> str:
+        if not self.get_player():
+            return t('mt_shadowdogs_places_no_player')
         return t('mt_shadowdogs_places', (self.get_num_results(), self.get_city().render_name()))
 
     def get_city(self) -> 'City':
@@ -42,6 +44,8 @@ class places(WithShadowMethod, MethodQueryTable):
         return SD_Place.table()
 
     def gdo_table_query(self) -> Query:
+        if not self.get_player():
+            return SD_Place.table().select().where('1=0')
         loc = self.get_city().get_location_key()
         return (SD_Place.table().select().where('kp_player='+self.get_player().get_id()).
                 join_object('kp_location').where(f'l_name LIKE "{loc}%"'))

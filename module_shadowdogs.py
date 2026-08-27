@@ -1,5 +1,3 @@
-import math
-
 from gdo.base.Application import Application
 from gdo.base.GDO_Module import GDO_Module
 from gdo.base.GDT import GDT
@@ -24,9 +22,9 @@ from gdo.shadowdogs.SD_Word import SD_Word
 from gdo.shadowdogs.engine.Loader import Loader
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.item.data.items import items
+from gdo.base.GDO import GDO
 from gdo.ui.GDT_Link import GDT_Link
 from gdo.ui.GDT_Page import GDT_Page
-from gdo.base.GDO import GDO
 
 
 class module_shadowdogs(GDO_Module):
@@ -36,6 +34,7 @@ class module_shadowdogs(GDO_Module):
 
     def gdo_dependencies(self) -> list:
         return [
+            'favicon',
         ]
 
     def gdo_classes(self) -> list[type[GDO]]:
@@ -60,7 +59,7 @@ class module_shadowdogs(GDO_Module):
         Loader.cleanup()
         Loader.load_npcs()
         Loader.init_npc_classes()
-        InstallShadowdogs.install()
+        await InstallShadowdogs.install()
 
     def gdo_init(self):
         Loader.init_npc_classes()
@@ -70,11 +69,8 @@ class module_shadowdogs(GDO_Module):
             Loader.load_npcs()
             Loader.load_parties()
 
-    # def gdo_init_sidebar(self, page: 'GDT_Page'):
-    #     page._right_bar.add_field(GDT_Link().href(href('shadowdogs', 'shadowdogs')).text('module_shadowdogs'))
-
-    # def gdo_load_scripts(self, page: 'GDT_Page'):
-    #     self.add_js('js/sd.js')
+    def gdo_init_sidebar(self, page: 'GDT_Page'):
+        page._title_bar.add_field(GDT_Link().href(href('shadowdogs', 'welcome')).text('module_shadowdogs'))
 
     ##########w
     # Config #
