@@ -22,6 +22,7 @@ err_sd_ambiguous = "There are %d matches, e.g.: %s."
 # Config #
 ##########
 sd_distance = "Kampfentfernung"
+sd_shortcut = "Shadowdogs trigger"
 
 #############
 # Obstacles #
