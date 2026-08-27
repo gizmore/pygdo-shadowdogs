@@ -134,7 +134,14 @@ class WithShadowFunc(WithPlayerGDO):
         if player.is_npc():
             gdo_print(self.t(key, args))
         else:
-            await player.get_user().send(key, args)
+            user = player.get_user()
+            # A linked IRC/Discord/etc. account executes as its effective
+            # Web account, but immediate game replies must return through the
+            # connector that submitted the command.
+            env_user = getattr(self, '_env_user', None)
+            if env_user and user.get_id() == env_user.get_id():
+                user = getattr(self, '_env_reply_to', None) or user
+            await user.send(key, args)
 
     async def send_to_party(self, party: 'SD_Party', key: str, args: tuple = None):
         for player in party.members:
