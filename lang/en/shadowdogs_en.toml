@@ -16,6 +16,11 @@ err_item_name_ambiguous = "Too many matches like %s."
 err_sd_gmt_party_busy = "The target party is busy."
 err_sd_ambiguous = "There are %d matches, e.g.: %s."
 
+##########
+# Config #
+##########
+sd_distance = "Kampfentfernung"
+
 #############
 # Obstacles #
 #############
