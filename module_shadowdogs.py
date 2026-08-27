@@ -70,7 +70,7 @@ class module_shadowdogs(GDO_Module):
             Loader.load_parties()
 
     def gdo_init_sidebar(self, page: 'GDT_Page'):
-        page._title_bar.add_field(GDT_Link().href(href('shadowdogs', 'welcome')).text('module_shadowdogs'))
+        page._title_bar.add_field(GDT_Link().href(href('shadowdogs', 'welcome')).text('module_shadowdogs').icon(''))
 
     ##########w
     # Config #
