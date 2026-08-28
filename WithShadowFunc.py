@@ -137,10 +137,14 @@ class WithShadowFunc(WithPlayerGDO):
             user = player.get_user()
             # A linked IRC/Discord/etc. account executes as its effective
             # Web account, but immediate game replies must return through the
-            # connector that submitted the command.
-            env_user = getattr(self, '_env_user', None)
+            # connector that submitted the command. Location/item callbacks
+            # do not inherit the method environment, so take that context
+            # from the current incoming message as a fallback.
+            from gdo.base.Message import Message
+            message = Message.CURRENT
+            env_user = getattr(self, '_env_user', None) or getattr(message, '_env_user', None)
             if env_user and user.get_id() == env_user.get_id():
-                user = getattr(self, '_env_reply_to', None) or user
+                user = getattr(self, '_env_reply_to', None) or getattr(message, '_env_reply_to', None) or user
             await user.send(key, args)
 
     async def send_to_party(self, party: 'SD_Party', key: str, args: tuple = None):
