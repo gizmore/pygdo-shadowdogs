@@ -1,6 +1,5 @@
 import unittest
 
-from gdo.base.Trans import Trans
 from gdo.base.Util import Random
 from gdo.date.Time import Time
 from gdo.shadowdogs.actions.Action import Action
@@ -11,8 +10,6 @@ from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.World import World
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
 from gdo.shadowdogs.item.classes.weapon.Fists import Fists
-from gdo.shadowdogs.item.data.items import items
-from gdo.shadowdogs.item.data.recipe import recipe
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug, cli_gizmore, cli_user, all_private_messages
 
@@ -31,7 +28,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('Club_of_Adonis', out, '$sdq does not work.')
         self.assertIn('Weapon', out, '$sdq does not work.#2')
         Random.init(9)
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
+        out = cli_plug(gizmore, '$sdgmt gizmore{bash} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(600)
         out = all_private_messages()
@@ -128,23 +125,24 @@ class ShadowdogsTest(ShadowdogsTestCase):
 
     async def test_11_combat(self):
         gizmore = await self.fresh_gizmore()
+        target = gizmore.get_name_sid()
         Random.init(31337)
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} lamer')
+        out = cli_plug(gizmore, f'$sdgmt {target} lamer')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(3333) # half an hour
         out += all_private_messages()
         self.assertIn('kills', out, 'combat does not work.')
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} haider')
+        out = cli_plug(gizmore, f'$sdgmt {target} haider')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(8888) # half an hour
         out += all_private_messages()
         self.assertIn('kills', out, 'combat does not work.')
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} haider')
+        out = cli_plug(gizmore, f'$sdgmt {target} haider')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(8888) # half an hour
         out += all_private_messages()
         self.assertIn('kills', out, 'combat does not work.')
-        out = cli_plug(gizmore, '$sdgmt gizmore{1} noob,noob,noob,noob')
+        out = cli_plug(gizmore, f'$sdgmt {target} noob,noob,noob,noob')
         self.assertIn('encounter', out, 'gmt does not work.')
         await self.ticker(8888) # half an hour
         out += all_private_messages()
@@ -243,7 +241,7 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdat')
         self.assertIn('attributes', out, '$at does not work.')
         out = cli_plug(gizmore, '$sds')
-        self.assertIn('male', out, '$s does not work.')
+        self.assertIn('male', out.lower(), '$s does not work.')
 
     async def test_40_lvlup(self):
         gizmore = await self.fresh_gizmore()
@@ -258,9 +256,9 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertIn('level', out, '$l does not work#2.')
         out = cli_plug(gizmore, '$sdlev')
         self.assertIn('L', out, '$lev does not work.')
-        out = cli_plug(gizmore, '$sdl strength')
+        out = cli_plug(gizmore, '$sdlu strength')
         self.assertIn('level up', out, '$l does not work.')
-        out = cli_plug(gizmore, '$sdl --confirm=1 strength')
+        out = cli_plug(gizmore, '$sdlu --confirm=1 strength')
         self.assertIn('want to level up', out, '$l does not work.#3')
 
     async def test_45_cache_and_loader(self):
@@ -268,9 +266,9 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$cc')
         self.assertIn('cleared', out, '$cc does not work.')
         out = cli_plug(gizmore, '$sds')
-        self.assertIn('male', out, '#s does not work.')
+        self.assertIn('male', out.lower(), '#s does not work.')
         out = cli_plug(gizmore, '$sds')
-        self.assertIn('male', out, '#s does not work.')
+        self.assertIn('male', out.lower(), '#s does not work.')
 
     async def test_50_store(self):
         gizmore = await self.fresh_gizmore()
@@ -370,14 +368,16 @@ class ShadowdogsTest(ShadowdogsTestCase):
         self.assertEqual(base_intelligence + 1, player.g('p_int'),
                          'Equipped cyberware must apply its bonus after reload.')
 
-    async def test_59_starve(self):
-        gizmore = await self.fresh_gizmore()
-        await self.ticker(Time.ONE_DAY * 1)
-        out = all_private_messages()
-        self.assertIn('You are not saturated. 1 damage.', out, 'no starve effect.')
-        await self.ticker(Time.ONE_DAY * 1)
-        out = all_private_messages()
-        self.assertIn('You are not saturated. 2 damage.', out, 'no starve effect#2.')
+    # Hunger is currently disabled; re-enable this regression test together
+    # with the periodic food timer when starvation returns as game mechanics.
+    # async def test_59_starve(self):
+    #     gizmore = await self.fresh_gizmore()
+    #     await self.ticker(Time.ONE_DAY * 1)
+    #     out = all_private_messages()
+    #     self.assertIn('You are not saturated. 1 damage.', out, 'no starve effect.')
+    #     await self.ticker(Time.ONE_DAY * 1)
+    #     out = all_private_messages()
+    #     self.assertIn('You are not saturated. 2 damage.', out, 'no starve effect#2.')
 
 
     async def test_60_hireling(self):

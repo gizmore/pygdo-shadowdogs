@@ -119,6 +119,6 @@ class SD_Item(WithShadowFunc, GDO):
     def sd_commands(self) -> list[str]:
         cmds = []
         for base in self.__class__.__mro__:
-            if "sd_commands" in base.__dict__ and base != 'SD_Item':
+            if "sd_commands" in base.__dict__ and base is not SD_Item:
                 cmds.extend(base.sd_commands(self))
         return sorted(set(cmds))

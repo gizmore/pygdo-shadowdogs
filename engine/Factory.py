@@ -97,7 +97,8 @@ class Factory(WithShadowFunc):
                     v = Random.mrand(v[0], v[1])
                 player.sb(k, v)
         for item_name in spec.get('eq', []):
-            item = Factory.create_item_gmi(item_name, player, True).insert()
+            # create_item_gmi() already persists through create_item().
+            item = Factory.create_item_gmi(item_name, player, True)
             player.set_val(item.get_slot(), item.get_id())
         return player.modify_all().heal_full().save()
 
@@ -169,4 +170,3 @@ class Factory(WithShadowFunc):
     @classmethod
     def create_rune(cls) -> Rune:
         rune = Rune()
-

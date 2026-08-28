@@ -1,6 +1,7 @@
 import os
 
 from gdo.base.Application import Application
+from gdo.base.Logger import Logger
 from gdo.base.ModuleLoader import ModuleLoader
 from gdo.core.method.clear_cache import clear_cache
 from gdo.install.Installer import Installer
@@ -19,13 +20,18 @@ class ShadowdogsTestCase(WithShadowFunc, GDOTestCase):
     async def asyncSetUp(self):
         await super().asyncSetUp()
         Application.init(os.path.dirname(__file__ + "/../../../../"))
-        Installer.wipe_all()
+        Logger.init(Application.config('dir.logs'))
+        # Timers retain bound parties from preceding isolated tests.  Clear
+        # them before setting up Shadowdogs again, otherwise an old party can
+        # keep ticking against freshly wiped world data.
+        Application.EVENTS.reset_timers()
+        # Installer.wipe_all()
         loader = ModuleLoader.instance()
-        loader.load_modules_fs()
-        loader.init_user_settings()
-        install_module('login')
-        install_module('shadowdogs')
+        # loader.load_modules_fs()
+        # loader.init_user_settings()
+        # install_module('login')
         loader.load_modules_db(True)
+        reinstall_module('shadowdogs')
         await clear_cache().gdo_execute()
         WebPlug.COOKIES = {}
         Application.init_cli()

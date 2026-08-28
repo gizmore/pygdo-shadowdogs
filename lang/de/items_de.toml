@@ -425,3 +425,10 @@ TheosPurse = "TheosGeldbörse"
 
 # --- Special ---
 Nuyen = "Nuyen"
+Rune = "Rune"
+OldSpeaker = "Alter Lautsprecher"
+Wires = "Kabel"
+Battery = "Batterie"
+Wheel = "Rad"
+FirstAid = "Erste-Hilfe-Kasten"
+Intolerance = "Unverträglichkeit"

@@ -9,7 +9,7 @@ class execute(MethodSD):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'sdx'
+        return 'sdexe'
 
     @classmethod
     def gdo_trigger(cls) -> str:

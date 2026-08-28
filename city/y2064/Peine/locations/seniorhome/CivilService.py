@@ -15,7 +15,8 @@ class CivilService(SD_Quest):
         await self.send_to_player(self.get_player(), 'sdqs_civil_service_month')
         times += 1
         self.qv_set('times', str(times))
-        await self.on_reward()
         if times >= 11:
             await self.accomplished()
+        else:
+            await self.on_reward()
             await self.give_spell(self.get_player(), 'calm', self.reward_source())

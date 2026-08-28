@@ -1,6 +1,7 @@
 from gdo.base.Render import Mode, Render
 from gdo.base.Result import Result
 from gdo.base.ResultArray import ResultArray
+from gdo.base.GDO import GDO
 from gdo.form.GDT_Form import GDT_Form
 from gdo.shadowdogs.engine.MethodSD import MethodSD
 from gdo.shadowdogs.item.Item import Item
@@ -34,6 +35,9 @@ class view(MethodSD, MethodTable):
 
     def get_shop(self) -> Store|Bank|None:
         return self.get_location()
+
+    def gdo_table(self) -> GDO:
+        return Item.table()
 
     def gdo_table_result(self) -> Result:
         items = self.get_shop().get_shop_items(self.get_player())

@@ -19,6 +19,6 @@ class goto(Action):
 
     async def on_completed(self, party: 'SD_Party'):
         await self.send_to_party(party, self.get_action_text_key(party, 'was'), self.get_action_text_args(party, 'was'))
-        loc = party.get_location()
+        loc = self.get_target(party, party.get_target_string())
         action =  Action.INSIDE if loc.sd_can_enter(self.get_player()) else Action.OUTSIDE
         await party.do(action, party.get_target_string())

@@ -460,6 +460,13 @@ TheosPurse = "TheosPurse"
 
 # --- Special ---
 Nuyen = "Nuyen"
+Rune = "Rune"
+OldSpeaker = "Old speaker"
+Wires = "Wires"
+Battery = "Battery"
+Wheel = "Wheel"
+FirstAid = "First aid kit"
+Intolerance = "Intolerance"
 
 # --- Mounts --- #
 

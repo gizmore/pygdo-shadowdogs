@@ -14,7 +14,7 @@ class lvlup(MethodSD):
 
     @classmethod
     def gdo_trig(cls) -> str:
-        return 'sdl'
+        return 'sdlu'
 
     def gdo_create_form(self, form: GDT_Form) -> None:
         form.add_fields(
@@ -24,20 +24,27 @@ class lvlup(MethodSD):
         super().gdo_create_form(form)
 
     def get_skill(self):
-        skill = self.param_val('field')
+        skill = self.get_field()
         if self.parameter('field').is_skill(skill):
             return skill
         return None
 
     def get_attribute(self):
-        attr = self.param_val('field')
+        attr = self.get_field()
         if self.parameter('field').is_attribute(attr):
             return attr
         return None
 
+    def get_field(self) -> str:
+        field = self.param_val('field')
+        for key, label in self.parameter('field').gdo_choices().items():
+            if field.lower() in (key.lower(), str(label).lower()):
+                return key
+        return field
+
     async def sd_execute(self):
         player = self.get_player()
-        field = self.param_val('field')
+        field = self.get_field()
         mul = Shadowdogs.KARMA_PER_ATTRIBUTE
         cap = Shadowdogs.MAX_ATTRIBUTE_LEVEL + GDT_Race.BONUS.get(player.gdo_val('p_race')).get(field, 0) * Shadowdogs.MAX_ATTRIBUTE_PER_BONUS
         if skill := self.get_skill():

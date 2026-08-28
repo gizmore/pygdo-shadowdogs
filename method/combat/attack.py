@@ -10,11 +10,11 @@ if TYPE_CHECKING:
 class attack(MethodSD):
 
     @classmethod
-    def sd_trigger(cls) -> str:
+    def gdo_trigger(cls) -> str:
         return "sdattack"
 
     @classmethod
-    def sd_trig(cls) -> str:
+    def gdo_trig(cls) -> str:
         return "sda"
 
     def sd_is_item_specific(self) -> bool:
