@@ -28,7 +28,8 @@ class welcome(Method):
         content = card.get_content()
         content.add_field(
             GDT_Link('shadowdogs_docs')
-            .href(module.www_path('docs/DOCS.md'))
+            .href(module.www_path('docs/'))
             .text('link_shadowdogs_docs')
+            .icon('book')
         )
         return card
