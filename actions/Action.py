@@ -15,6 +15,7 @@ class Action(WithShadowFunc):
     FIGHT = 'fight'
     GOTO = 'goto'
     HACK = 'hack'
+    HUNT = 'hunt'
     INSIDE = 'inside'
     OUTSIDE = 'outside'
     SLEEP = 'sleep'

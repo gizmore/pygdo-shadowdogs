@@ -59,7 +59,7 @@ class Loader(WithShadowFunc):
     @classmethod
     def load_parties(cls):
         parties = (SD_Party.table().select().
-                   where("party_action IN ('goto', 'explore', 'talk', 'sleep', 'travel', 'fight', 'hack')").
+                   where("party_action IN ('goto', 'explore', 'talk', 'sleep', 'travel', 'fight', 'hack', 'hunt')").
                    exec()) #.fetch_all())
         for party in parties:
             cls.load_party(party)

@@ -234,6 +234,20 @@ class ShadowdogsTest(ShadowdogsTestCase):
         out = cli_plug(gizmore, '$sdp')
         self.assertIn('Home', out, '$goto does not work.')
 
+    async def test_31_hunt(self):
+        gizmore = await self.fresh_gizmore()
+        target = cli_user('ShadowdogsHuntTarget')
+        cli_plug(target, '$sdenable')
+        out = cli_plug(target, '$sdstart male human')
+        self.assertIn('created your character', out, 'hunt target setup failed.')
+        out = cli_plug(gizmore, '$sdgml shadowdogshunttarget inside jaw')
+        self.assertIn('Jawoll', out, 'hunt target move setup failed.')
+        out = cli_plug(gizmore, '$sdhunt shadowdogshunttarget')
+        self.assertIn('start hunting', out, '$sdhunt does not travel to a player in the same city.')
+        await self.party_ticker_until(Action.OUTSIDE)
+        out = cli_plug(gizmore, '$sdp')
+        self.assertIn('outside the Jawoll', out, '$sdhunt does not finish outside the target location.')
+
     async def test_35_info(self):
         gizmore = await self.fresh_gizmore()
         out = cli_plug(gizmore, '$sdsk')

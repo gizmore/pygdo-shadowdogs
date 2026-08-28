@@ -19,9 +19,10 @@ class ShadowdogsSpellTest(ShadowdogsTestCase):
         gizmore = await self.fresh_gizmore()
         giz = self.sd_gizmore()
         out = cli_plug(gizmore, '$sdgmsp giz dar 2')
-        self.assertIn('dart', out, 'gmsp does not work.')
+        self.assertIn('dart', out.lower(), 'gmsp does not work.')
         out = cli_plug(gizmore, '$sdgmt giz lamer')
-        await self.ticker(10)
+        # Keep the spawned foe alive until Dart has selected it.  A world
+        # tick lets the equipped player auto-attack and can end this combat.
         out = cli_plug(gizmore, '$sdcast dart 1')
         await self.ticker(300)
         out = all_private_messages()
