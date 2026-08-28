@@ -19,4 +19,5 @@ class enable(WithShadowFunc, Method):
     def gdo_execute(self) -> GDT:
         for method in self.mod_sd().get_methods():
             method.env_copy(self).save_config_channel('disabled', '0')
+            method.CACHE.pop(method.__class__, None)
         return self.msg('msg_sd_enabled')

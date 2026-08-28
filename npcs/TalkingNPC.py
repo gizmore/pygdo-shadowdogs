@@ -18,6 +18,13 @@ if TYPE_CHECKING:
 
 class TalkingNPC(SD_NPC):
 
+    KW_HELLO = 'Hello'
+    KW_WORK = 'Hello'
+    KW_WEED = 'Hello'
+    KW_YES = 'Hello'
+    KW_NO = 'Hello'
+
+
     def __init__(self):
         super().__init__()
 

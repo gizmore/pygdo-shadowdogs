@@ -9,12 +9,23 @@ from gdo.shadowdogs.engine.Loot import Loot
 from gdo.shadowdogs.engine.Shadowdogs import Shadowdogs
 from gdo.shadowdogs.engine.World import World
 from gdo.shadowdogs.GDT_Slot import GDT_Slot
+from gdo.shadowdogs.method.info.inventory import inventory
 from gdo.shadowdogs.item.classes.weapon.Fists import Fists
 from gdo.shadowdogs.test.ShadowdogsTestCase import ShadowdogsTestCase
 from gdotest.TestUtil import cli_plug, cli_gizmore, cli_user, all_private_messages
 
 
 class ShadowdogsTest(ShadowdogsTestCase):
+
+    async def test_00a_channel_disable_can_be_reenabled(self):
+        gizmore = cli_gizmore()
+        channel = gizmore.get_server().get_or_create_channel('test_channel')
+        out = cli_plug(gizmore, '$sddisable')
+        self.assertIn('has been disabled', out)
+        self.assertEqual('1', inventory().env_server(gizmore.get_server()).env_channel(channel).get_config_channel_val('disabled'))
+        out = cli_plug(gizmore, '$sdenable')
+        self.assertIn('has been enabled', out)
+        self.assertEqual('0', inventory().env_server(gizmore.get_server()).env_channel(channel).get_config_channel_val('disabled'))
 
     async def test_00_start(self):
         gizmore = await self.fresh_gizmore(False)

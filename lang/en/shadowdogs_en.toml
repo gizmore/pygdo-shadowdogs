@@ -231,6 +231,13 @@ mt_shadowdogs_enable = "Enable"
 md_shadowdogs_enable = "Enable Shadowdogs inside a channel"
 msg_sd_enabled = "Shadowdogs has been enabled."
 
+###########
+# Disable #
+###########
+mt_shadowdogs_disable = "Disable"
+md_shadowdogs_disable = "Disable Shadowdogs inside a channel"
+msg_sd_disabled = "Shadowdogs has been disabled in this channel."
+
 #########
 # Start #
 #########
@@ -241,6 +248,18 @@ err_sd_already_started = "You created a character already. You can $sdreset to s
 msg_sd_new_player = "A new player joined the underground shadowdogs; %s the %s %s!"
 sd_story_1 = "You wake up. Feeling dizy and still alcoholized."
 sd_story_2 = "Your attempts to uncover the secrets of this world seem pointless. You somehow feel outta place..."
+sd_story_3 = "You decide to get moving before the day gets any stranger."
+
+########
+# Bank #
+########
+msg_sd_bank_pushed = "You stored %s in your bank."
+msg_sd_bank_poppped = "You withdrew %s from your bank."
+
+############
+# Hirelings #
+############
+msg_sd_hireling_go = "Your new hireling joins the party."
 
 ###########
 # Explore #
