@@ -84,6 +84,7 @@ class SD_Player(WithShadowFunc, GDO):
     cyberdeck: 'Inventory'
     party_pos: int
     distance: int
+    reply_user: GDO_User|None
     _combat_stack: CombatStack|None
     quests: list[SD_Quest]|None
     weight: Weight
@@ -105,6 +106,7 @@ class SD_Player(WithShadowFunc, GDO):
         'cyberdeck',
         'party_pos',
         'distance',
+        'reply_user',
         '_combat_stack',
         'quests',
     )
@@ -119,12 +121,23 @@ class SD_Player(WithShadowFunc, GDO):
         self.cyberdeck = Inventory()
         self.party_pos = 0
         self.distance = 0
+        # Transient connector identity used for delayed action output.  The
+        # player itself belongs to an effective account (often web), whereas
+        # the action may have started from IRC, TCP, or the Bash REPL.
+        self.reply_user = None
         self.command_eta = 0
         self.modified = {}
         self._combat_stack = None
         self.quests = None
         self.weight = Weight('p_weight').gdo(self)
         self.reset_modified()
+
+    def reply_to(self, user: GDO_User|None):
+        self.reply_user = user
+        return self
+
+    def get_reply_to(self) -> GDO_User|None:
+        return self.reply_user
 
     def gdo_ipc(self) -> bool:
         return False

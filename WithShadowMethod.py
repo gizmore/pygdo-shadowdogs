@@ -55,6 +55,11 @@ class WithShadowMethod(WithShadowFunc):
         if self._env_user.is_member():
             player = self.world().get_player_for_user(self._env_user)
             Shadowdogs.CURRENT_PLAYER = player
+        if player:
+            # Preserve the concrete connector user for timer-driven action
+            # output.  Parser executions in the Bash REPL have no separate
+            # reply_to, so the environment user is the correct fallback.
+            player.reply_to(getattr(self, '_env_reply_to', None) or self._env_user)
         self.player(player)
 
     def gdo_has_permission(self, user: 'GDO_User'):

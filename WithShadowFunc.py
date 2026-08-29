@@ -135,6 +135,9 @@ class WithShadowFunc(WithPlayerGDO):
             gdo_print(self.t(key, args))
         else:
             user = player.get_user()
+            if reply_to := player.get_reply_to():
+                if user.get_id() == reply_to.get_effective_user().get_id():
+                    user = reply_to
             # A linked IRC/Discord/etc. account executes as its effective
             # Web account, but immediate game replies must return through the
             # connector that submitted the command. Location/item callbacks
@@ -143,8 +146,14 @@ class WithShadowFunc(WithPlayerGDO):
             from gdo.base.Message import Message
             message = Message.CURRENT
             env_user = getattr(self, '_env_user', None) or getattr(message, '_env_user', None)
-            if env_user and user.get_id() == env_user.get_id():
-                user = getattr(self, '_env_reply_to', None) or getattr(message, '_env_reply_to', None) or user
+            # A connector identity such as gizmore{bash} can act for the
+            # linked web account which owns the player.  Compare ownership,
+            # not only the concrete connector user, so deferred game output
+            # returns through the connector that issued the action.
+            if env_user and user.get_id() == env_user.get_effective_user().get_id():
+                user = (getattr(self, '_env_reply_to', None) or
+                        getattr(message, '_env_reply_to', None) or
+                        env_user)
             await user.send(key, args)
 
     async def send_to_party(self, party: 'SD_Party', key: str, args: tuple = None):
