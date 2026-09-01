@@ -22,7 +22,7 @@ class disable(WithShadowFunc, Method):
     def gdo_default_enabled_channel(cls) -> bool:
         return True
 
-    def gdo_user_permission(self) -> str:
+    def gdo_user_permission(self) -> str | None:
         return GDO_Permission.STAFF
 
     def gdo_execute(self) -> GDT:
