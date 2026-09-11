@@ -1,6 +1,6 @@
 from gdo.shadowdogs.SD_Player import SD_Player
 from gdo.shadowdogs.SD_Quest import SD_Quest
-from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
+from gdo.shadowdogs.city.y2064.Peine.locations.jawoll.Jawoll import Jawoll
 from gdo.shadowdogs.npcs.TalkingNPC import TalkingNPC
 
 

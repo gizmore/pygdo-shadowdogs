@@ -13,7 +13,7 @@ from gdo.shadowdogs.city.y2064.Peine.locations.home.Home import Home
 from gdo.shadowdogs.city.y2064.Peine.locations.market.Marketplace import Marketplace
 from gdo.shadowdogs.city.y2064.Peine.locations.garage.GaragePub import GaragePub
 from gdo.shadowdogs.city.y2064.Peine.locations.seniorhome.SeniorHome import SeniorHome
-from gdo.shadowdogs.city.y2064.Peine.locations.Jawoll import Jawoll
+from gdo.shadowdogs.city.y2064.Peine.locations.jawoll.Jawoll import Jawoll
 from gdo.shadowdogs.city.y2064.Peine.locations.waffenkief.WaffenKief import WaffenKief
 from gdo.shadowdogs.city.y2064.Peine.locations.woods.Woods import Woods
 from gdo.shadowdogs.city.y2064.Peine.locations.police.Police import Police
