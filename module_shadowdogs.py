@@ -83,7 +83,7 @@ class module_shadowdogs(GDO_Module):
     def gdo_user_settings(self) -> list[GDT]:
         return [
             GDT_UInt('sd_distance').not_null().min(2).max(Shadowdogs.MAX_DISTANCE).initial('2'),
-            GDT_Char('sd_shortcut').not_null().initial('#').maxlen(1).minlen(1).not_null().secret(),
+            GDT_Char('sd_shortcut').maxlen(1).minlen(1).not_null().secret(),
         ]
 
     ##########
@@ -128,6 +128,6 @@ class module_shadowdogs(GDO_Module):
             await party.digesting()
 
     async def sd_alias(self, message: Message):
-        trig = message._env_user.get_setting_val('sd_shortcut')
-        if message._message.startswith(f"{trig}"):
-            message._message = message.get_trigger() + "sd" + message._message[1:]
+        if trig := message._env_user.get_setting_val('sd_shortcut'):
+            if message._message.startswith(f"{trig}"):
+                message._message = message.get_trigger() + "sd" + message._message[1:]
