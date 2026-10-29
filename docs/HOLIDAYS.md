@@ -689,6 +689,14 @@ and some fell so in love, men and women had to cry happy tears,
 so we are celebrating the marriage.
 
 
+## Medicus Day
+
+ - 20.Oct
+
+This day is dedicated to medics and doctors who never stopped to
+help people with health problems.
+
+
 ## Victory Day
 
  - 29.Dec
