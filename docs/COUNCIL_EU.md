@@ -104,4 +104,4 @@ EU: **59** + **50** + **8**
 
 Total: **363** votes (not confirmed math)
 
-**UNSIGNED BY THE COUNCIL**
+**SIGNED BY THE COUNCIL**

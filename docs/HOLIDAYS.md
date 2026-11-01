@@ -697,6 +697,17 @@ This day is dedicated to medics and doctors who never stopped to
 help people with health problems.
 
 
+## Happyween
+
+ - 1.Nov
+
+Inspired by the ancient Celtic festival of Samhain and the Christian tradition of All Saints' Day.
+A day to remember the dead, celebrate life, and chase away fear with laughter.
+
+People traditionally greet each other with the secret phrase:
+"Hello Happyween!" 👻
+A little sign of friendship, peace, and good spirits.
+
 ## Victory Day
 
  - 29.Dec
