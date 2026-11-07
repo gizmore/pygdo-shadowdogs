@@ -50,6 +50,7 @@ class GDT_Race(GDT_Enum):
 
     def __init__(self, name: str):
         super().__init__(name)
+        self.errorhint_all()
         self._npcs = False
 
     def npcs(self, npcs: bool=True):
